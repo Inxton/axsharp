@@ -5,6 +5,8 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
 
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using AXSharp.Connector.ValueTypes;
 
 namespace AXSharp.Connector.S71500.WebApi;
@@ -15,12 +17,24 @@ public class WebApiConnectorFactory : ConnectorFactory
     /// <inheritdoc />
     public override Connector CreateConnector(object[] parameters)
     {
-        return new WebApiConnector((string)parameters[0],
-            (string)parameters[1],
-            (string)parameters[2],
-            (bool)parameters[3],
-            (eTargetProjectPlatform)parameters[4],
-            (string)parameters[5]);
+        if (parameters[3] is bool)
+        {
+            return new WebApiConnector((string)parameters[0],
+                (string)parameters[1],
+                (string)parameters[2],
+                (bool)parameters[3],
+                (eTargetProjectPlatform)parameters[4],
+                (string)parameters[5]);
+        }
+        else
+        {
+            return new WebApiConnector((string)parameters[0],
+                (string)parameters[1],
+                (string)parameters[2],
+                (Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>)parameters[3],
+                (eTargetProjectPlatform)parameters[4],
+                (string)parameters[5]);
+        }
     }
 
     /// <inheritdoc />
