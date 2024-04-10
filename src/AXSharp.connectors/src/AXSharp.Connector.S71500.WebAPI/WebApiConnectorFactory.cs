@@ -32,8 +32,9 @@ public class WebApiConnectorFactory : ConnectorFactory
                 (string)parameters[1],
                 (string)parameters[2],
                 (Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>)parameters[3],
-                (eTargetProjectPlatform)parameters[4],
-                (string)parameters[5]);
+                (bool)parameters[4],
+                (eTargetProjectPlatform)parameters[5],
+                (string)parameters[6]);
         }
     }
 
