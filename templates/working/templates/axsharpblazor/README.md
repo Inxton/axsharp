@@ -9,10 +9,10 @@
 ### .NET
 
 
-Go to [Entry.cs](axsharpblazor/Entry.cs) and setup the following parameters
+Go to [Entry.[cs](axsharpblazor/Entry.cs) and set the following parameters
 
 ~~~C#
-private const string TargetIp = "192.168.0.1"; // <- replace by IP of your target PLC
+private const string TargetIp = "192.168.0.4"; // <- replace by IP of your target PLC
 private const string UserName = "Everybody"; //<- replace by user name you have set up in your WebAPI settings
 private const string Pass = ""; // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
 private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
@@ -29,11 +29,9 @@ Go to [apax.yml](ax/apax.yml) file and adjust the parameters
 .
 .
 .
-scripts:
-  download :   
-    # Here you will need to set the argument -t to your plc OP and -i to platform you are downloading to
-    # --default-server-interface is a must if you are using WebAPI
-    - apax sld --accept-security-disclaimer -t 192.168.0.1 -i .\\bin\\1500\\ -r --default-server-interface
+variables:
+  AXTARGET: 192.168.0.4 # Replace with the IP of your target system.
+  AXTARGETPLATFORMINPUT: './bin/plcsim/'  #Replace with respective target platform.
 .
 .
 .
