@@ -2,15 +2,15 @@ name: "axsharpblazor"
 version: 0.0.0
 type: app
 targets:
-  - "1500"
-  - axunit-llvm
-  - plcsim
-  - swcpu
+  - "1500"  
+  - plcsim  
 devDependencies:
-  "@ax/sdk": 3.0.8
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": 2311.0.3  
 variables:
-  APAX_BUILD_ARGS: [ -d ]    
+  AXTARGET: 192.168.0.4 # Replace with the IP of your target system.
+  AXTARGETPLATFORMINPUT: './bin/plcsim/'  #Replace with respective target platform.
+  APAX_BUILD_ARGS: [ -d ] 
+
 scripts:
   ixc: 
   - dotnet tool restore --no-cache
@@ -18,8 +18,6 @@ scripts:
   postbuild: apax ixc
   download :   
     - apax install 
-    - apax build
-    # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
-    # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t 192.168.0.4 -i .\\bin\\plcsim\\ -r --default-server-interface    
+    - apax build  
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r   
 

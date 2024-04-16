@@ -4,19 +4,19 @@ type: app
 targets:
   - "1500"
   - plcsim
-  - axunit-llvm
-  - swcpu
+  - llvm
 devDependencies:
-  "@ax/sdk": 3.0.8
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": 2311.0.3
 variables:
+  AXTARGET: 192.168.0.4 # Replace with the IP of your target system.
+  AXTARGETPLATFORMINPUT: './bin/plcsim/'  #Replace with respective target platform.
   APAX_BUILD_ARGS: [ -d ]    
+
 scripts:
   ixc: dotnet ixc -o ..\\axsharpconsole.twin
   postbuild: dotnet ixc -o ..\\axsharpconsole.twin
-  download :   
-    - apax build
-    # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
-    # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t 192.168.0.1 -i .\\bin\\1500\\ -r --default-server-interface    
-
+  download:
+    - apax build      
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.1.1

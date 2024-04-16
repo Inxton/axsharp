@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.17.0-alpha.169",
+      "version": "0.18.0-alpha.201",
       "commands": [
         "ixc"
       ]
