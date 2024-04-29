@@ -53,11 +53,12 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
-		<PackageReference Include="Newtonsoft.Json"/>
-		<PackageReference Include="ResXResourceReader.NetStandard"/>
-		<PackageReference Include="YamlDotNet"/>
-		<PackageReference Include="CommandLineParser"/>    
+		<PackageReference Include="Google.Protobuf" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="ResXResourceReader.NetStandard" />
+		<PackageReference Include="YamlDotNet" />
+		<PackageReference Include="CommandLineParser" />    
 	</ItemGroup>
 
 	

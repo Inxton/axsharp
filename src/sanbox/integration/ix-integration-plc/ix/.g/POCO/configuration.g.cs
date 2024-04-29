@@ -2,8 +2,6 @@ using System;
 
 namespace Pocos
 {
-    using MonsterData;
-
     public partial class ix_integration_plcTwinController
     {
         public all_primitives all_primitives { get; set; } = new all_primitives();
