@@ -17,7 +17,7 @@
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.18.0-alpha.201" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.19.0-alpha.203" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.2" />
