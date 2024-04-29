@@ -54,7 +54,18 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = classDeclaration.GetCommAccessibility(this);
-        
+
+        // This is a workaround for abstract classes where semantic model does not contain pragmas even when declared in the source.
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=ReadWrite}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadWrite;
+        }
+
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=Read}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadOnly;
+        }
+
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
 

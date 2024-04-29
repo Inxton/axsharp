@@ -84,5 +84,8 @@
 		<Reference Include="AX.Text">
 			<HintPath>..\..\..\apax\stc\bin\AX.Text.dll</HintPath>
 		</Reference>
+		<Reference Include="AX.Text">
+			<HintPath>..\..\..\apax\stc\bin\AX.ST.Compiler.PluginAbstractions.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 </Project>
