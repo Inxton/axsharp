@@ -2,8 +2,6 @@ using System;
 
 namespace Pocos
 {
-    using RealMonsterData;
-
     public partial class integratedTwinController
     {
         public MonsterData.Monster Monster { get; set; } = new MonsterData.Monster();
