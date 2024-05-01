@@ -179,6 +179,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     public void CreateFile(IFileSyntax fileSyntax, IxNodeVisitor visitor)
     {
         AddToSource("using System;");
+        
+        foreach (var fileSyntaxUsingDirective in fileSyntax.UsingDirectives)
+        {
+            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+        }
+
         AddToSource("namespace Pocos {");
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource("}");

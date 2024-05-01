@@ -3,6 +3,8 @@ using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
+using Simatic.Ax.Stateframework;
+using Simatic.Ax.StatePattern;
 
 namespace Simatic.Ax.StateFramework
 {
