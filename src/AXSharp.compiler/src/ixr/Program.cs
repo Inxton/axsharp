@@ -93,35 +93,35 @@ void Generate(Options o)
 
 void IterateSyntaxTreeForStringLiterals(ISyntaxNode root, LocalizedStringWrapper lw, string fileName)
 {
-    foreach (var literalSyntax in GetChildNodesRecursive(root).OfType<ILiteralSyntax>())
-    {
-        var token = literalSyntax.Tokens.First();
-        //literalSyntax.Location
-        AddToDictionaryIfLocalizedString(token,lw,fileName);
-    }
+    //foreach (var literalSyntax in GetChildNodesRecursive(root).OfType<ILiteralSyntax>())
+    //{
+    //    var token = literalSyntax.Tokens.First();
+    //    //literalSyntax.Location
+    //    AddToDictionaryIfLocalizedString(token,lw,fileName);
+    //}
 }
 
 
 
 void IterateSyntaxTreeForPragmas(ISyntaxNode root, LocalizedStringWrapper lw, string fileName)
 {
-    //foreach (var pragmaSyntax in GetChildNodesRecursive(root).OfType<PragmaSyntax>())
-    //{
-    //    var token = pragmaSyntax.PragmaToken;
-    //    if(lw.IsAttributeNamePragmaToken(token.Text))
-    //    { 
-    //        AddToDictionaryIfLocalizedString(token,lw,fileName);
-    //    }
-    //}
+    foreach (var pragmaSyntax in GetChildNodesRecursive(root).OfType<PragmaSyntax>())
+    {
+        var token = pragmaSyntax;
+        if (lw.IsAttributeNamePragmaToken(token.PragmaContent))
+        {
+            AddToDictionaryIfLocalizedString(token, lw, fileName);
+        }
+    }
 }
 
-void AddToDictionaryIfLocalizedString(ISyntaxToken token, LocalizedStringWrapper lw, string fileName)
+void AddToDictionaryIfLocalizedString(PragmaSyntax token, LocalizedStringWrapper lw, string fileName)
 {
     // if is valid token
     if(IsStringToken(token) || IsPragmaToken(token))
     {
         // try to acquire localized string
-        var localizedStringList = lw.TryToGetLocalizedStrings(token.Text);
+        var localizedStringList = lw.TryToGetLocalizedStrings(token.PragmaContent);
 
         if(localizedStringList == null) 
         {
@@ -139,7 +139,7 @@ void AddToDictionaryIfLocalizedString(ISyntaxToken token, LocalizedStringWrapper
             //check if identifier is valid
             if(lw.IsValidId(id))
             { 
-                var pos = token.Location.GetLineSpan().StartLinePosition;
+                var pos = token.SourceText.GetLineSpan(token.Span).StartLinePosition;
                 var wrapper = new StringValueWrapper(rawText, fileName, pos.Line);
                 // add id and wrapper to dictionary
                 lw.LocalizedStringsDictionary.TryAdd(id, wrapper);
@@ -147,7 +147,7 @@ void AddToDictionaryIfLocalizedString(ISyntaxToken token, LocalizedStringWrapper
         }   
     }
 }
-bool IsPragmaToken(ISyntaxToken token)
+bool IsPragmaToken(PragmaSyntax token)
 { 
     //if(token.SyntaxKind == SyntaxKind.PragmaToken) 
     //{ 
@@ -156,7 +156,7 @@ bool IsPragmaToken(ISyntaxToken token)
     return false; 
 }
 
-bool IsStringToken(ISyntaxToken token)
+bool IsStringToken(PragmaSyntax token)
 { 
     if(token.SyntaxKind == SyntaxKind.TypedStringDToken ||
         token.SyntaxKind == SyntaxKind.TypedStringSToken ||
