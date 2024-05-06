@@ -1,4 +1,6 @@
 using System;
+using Pocos.Simatic.Ax.Stateframework;
+using Pocos.Simatic.Ax.StatePattern;
 
 namespace Pocos
 {
