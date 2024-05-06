@@ -180,9 +180,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         AddToSource("using System;");
         
-        foreach (var fileSyntaxUsingDirective in 
-                 fileSyntax.UsingDirectives
-                     .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
+        foreach (var fileSyntaxUsingDirective in fileSyntax.UsingDirectives)
         {
             AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
         }
