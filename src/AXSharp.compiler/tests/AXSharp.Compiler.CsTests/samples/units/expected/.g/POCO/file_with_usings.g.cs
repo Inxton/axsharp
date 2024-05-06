@@ -1,7 +1,4 @@
 using System;
-using Pocos.FileWithUsingsSimpleFirstLevelNamespace;
-using Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified;
-using Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo;
 
 namespace Pocos
 {

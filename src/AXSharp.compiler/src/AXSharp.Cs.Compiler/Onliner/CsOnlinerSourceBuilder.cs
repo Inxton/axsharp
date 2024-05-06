@@ -55,11 +55,6 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource("using System.Collections.Generic;");
         AddToSource("using AXSharp.Connector.Localizations;");
 
-        foreach (var fileSyntaxUsingDirective in fileSyntax.UsingDirectives)
-        {
-            AddToSource($"using {fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
-        }
-
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
     }
 
