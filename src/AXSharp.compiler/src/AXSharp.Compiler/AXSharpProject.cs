@@ -335,26 +335,26 @@ public class AXSharpProject : IAXSharpProject
 
 
         var hasNamespace = type.ContainingNamespace != null;
-        if (hasNamespace) sb.Append($"NAMESPACE {type.ContainingNamespace!.FullyQualifiedName}\n");
+        if (hasNamespace) sb.Append($"NAMESPACE {type.ContainingNamespace!.FullyQualifiedName}\n\n");
 
-        type?.Pragmas?.ToList().ForEach(p => sb.Append($"{{{p.Content}}}"));
+        type?.Pragmas?.ToList().ForEach(p => sb.Append($"{{{p.Content}}}\n"));
 
         switch (kind)
         {
             case DeclarationKind.Struct:
-                sb.Append($"TYPE {type.Name} : STRUCT ; END_STRUCT");
+                sb.Append($"TYPE {type.Name} : STRUCT ; END_STRUCT\n");
                 break;
             case DeclarationKind.Class:
-                sb.Append($"CLASS {type.Name} END_CLASS");
+                sb.Append($"CLASS {type.Name} \nEND_CLASS\n");
                 break;
             case DeclarationKind.Enumeration:
-                sb.Append($"TYPE {type.Name} : (item0); END_TYPE");
+                sb.Append($"TYPE {type.Name} : (item0); \nEND_TYPE\n");
                 break;
             case DeclarationKind.Interface:
-                sb.Append($"INTERFACE {type.Name} END_INTERFACE");
+                sb.Append($"INTERFACE {type.Name} \nEND_INTERFACE\n");
                 break;
             case DeclarationKind.NamedValueType:
-                sb.Append($"TYPE {type.Name} : INT (item0 := 0); END_TYPE");
+                sb.Append($"TYPE {type.Name} : INT (item0 := 0); \nEND_TYPE\n");
                 break;
         }
 

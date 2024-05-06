@@ -47,6 +47,7 @@
 		<None Remove="samples\units\src\configuration.st" />
 		<None Remove="samples\units\src\enum_simple.st" />
 		<None Remove="samples\units\src\file_with_usings.st" />
+		<None Remove="samples\units\src\generics.st" />
 		<None Remove="samples\units\src\program.st" />
 		<None Remove="samples\units\src\ref_to_simple.st" />
 		<None Remove="samples\units\src\simple_empty_class.st" />
@@ -114,6 +115,9 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
 	  <Content Include="samples\units\src\class_generic_extension.st">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="samples\units\src\generics.st">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
