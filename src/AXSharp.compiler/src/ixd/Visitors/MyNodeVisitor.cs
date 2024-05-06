@@ -197,17 +197,12 @@ namespace AXSharp.ixc_doc.Visitors
 
         public void Visit(IDocComment semanticTypeAccess, IYamlBuiderVisitor data)
         {
-            // throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Visit(ISemanticInstructionList instrList, IYamlBuiderVisitor data)
         {
             
-        }
-
-        public void Visit(ISemanticEmptyInstruction emptyInstruction, IYamlBuiderVisitor data)
-        {
-           // throw new NotImplementedException();
         }
 
         public void Visit(ISemanticAssignmentInstruction assignment, IYamlBuiderVisitor data)
@@ -245,15 +240,10 @@ namespace AXSharp.ixc_doc.Visitors
             
         }
 
-        public void Visit(ISemanticCaseSelectionStatement caseSelectionStatement, IYamlBuiderVisitor data)
+        public void Visit(ISemanticCaseSelection caseSelection, IYamlBuiderVisitor data)
         {
-            throw new NotImplementedException();
-        }
-
-        //public void Visit(ISemanticCaseSelection caseSelection, IYamlBuiderVisitor data)
-        //{
             
-        //}
+        }
 
         public void Visit(ISemanticSubrange subrange, IYamlBuiderVisitor data)
         {

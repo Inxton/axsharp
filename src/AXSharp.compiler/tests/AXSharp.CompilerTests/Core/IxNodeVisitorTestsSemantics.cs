@@ -6,7 +6,6 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
-using AX.ST.Semantic.Analyzer;
 using AX.Text;
 using AXSharp.Compiler.Core;
 
@@ -46,12 +45,7 @@ namespace AXSharp.CompilerTests.Core
                 new StringText("TYPE\r\n    TestStructureType : STRUCT\r\n        isRunning : BOOL;\r\n    END_STRUCT; END_TYPE")
             };
 
-            //_compilation = Compilation.Create(sources.Select(s => STParser.ParseTextAsync(s).Result), Compilation.Settings.Default).Result;
-            var analizers = new List<AX.ST.Semantic.Analyzer.ISemanticAnalyzer>();
-            _compilation = Compilation.Create(sources.Select(s => STParser.ParseTextAsync(s).Result), analizers).Result.Compilation;
-
-            
-
+            _compilation = Compilation.Create(sources.Select(s => STParser.ParseTextAsync(s).Result), Compilation.Settings.Default).Result;
             _testClass = new IxNodeVisitor(_compilation);
         }
 
@@ -531,19 +525,19 @@ namespace AXSharp.CompilerTests.Core
 
         
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithPragmaSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var pragmaSyntax = new Mock<IPragmaSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithPragmaSyntaxAndData()
+        {
+            // Arrange
+            var pragmaSyntax = new Mock<IPragmaSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(pragmaSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(pragmaSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
@@ -611,19 +605,19 @@ namespace AXSharp.CompilerTests.Core
 
         
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithTaskConfigSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var taskConfigSyntax = new Mock<ITaskConfigSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithTaskConfigSyntaxAndData()
+        {
+            // Arrange
+            var taskConfigSyntax = new Mock<ITaskConfigSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(taskConfigSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(taskConfigSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
         
 
@@ -643,19 +637,19 @@ namespace AXSharp.CompilerTests.Core
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithAbstractMethodDeclarationSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var abstractMethodDeclarationSyntax = new Mock<IAbstractMethodDeclarationSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithAbstractMethodDeclarationSyntaxAndData()
+        {
+            // Arrange
+            var abstractMethodDeclarationSyntax = new Mock<IAbstractMethodDeclarationSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(abstractMethodDeclarationSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(abstractMethodDeclarationSyntax, data));
 
-        //    // Assert
-        //    //
-        //}
+            // Assert
+            //
+        }
 
        
 
@@ -754,19 +748,19 @@ namespace AXSharp.CompilerTests.Core
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithArgumentExpressionSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var argumentExpressionSyntax = new Mock<IArgumentExpressionSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithArgumentExpressionSyntaxAndData()
+        {
+            // Arrange
+            var argumentExpressionSyntax = new Mock<IArgumentExpressionSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(argumentExpressionSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(argumentExpressionSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
       
 
@@ -1009,67 +1003,67 @@ namespace AXSharp.CompilerTests.Core
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCallParamAssignmentLhsSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var callParamAssignmentLhsSyntax = new Mock<ICallParamAssignmentLhsSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCallParamAssignmentLhsSyntaxAndData()
+        {
+            // Arrange
+            var callParamAssignmentLhsSyntax = new Mock<ICallParamAssignmentLhsSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(callParamAssignmentLhsSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(callParamAssignmentLhsSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseListElemSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var caseListElemSyntax = new Mock<ICaseListElemSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseListElemSyntaxAndData()
+        {
+            // Arrange
+            var caseListElemSyntax = new Mock<ICaseListElemSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseListElemSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseListElemSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
       
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseListSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var caseListSyntax = new Mock<ICaseListSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseListSyntaxAndData()
+        {
+            // Arrange
+            var caseListSyntax = new Mock<ICaseListSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseListSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseListSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
         
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var caseSelectionSyntax = new Mock<ICaseSelectionSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionSyntaxAndData()
+        {
+            // Arrange
+            var caseSelectionSyntax = new Mock<ICaseSelectionSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseSelectionSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(caseSelectionSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
         
@@ -1122,19 +1116,19 @@ namespace AXSharp.CompilerTests.Core
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCommaCaseListElemSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var commaCaseListElemSyntax = new Mock<ICommaCaseListElemSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithCommaCaseListElemSyntaxAndData()
+        {
+            // Arrange
+            var commaCaseListElemSyntax = new Mock<ICommaCaseListElemSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(commaCaseListElemSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(commaCaseListElemSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
@@ -1362,19 +1356,19 @@ namespace AXSharp.CompilerTests.Core
 
       
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithExternFunctionDeclarationSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var externFunctionDeclarationSyntax = new Mock<IExternFunctionDeclarationSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithExternFunctionDeclarationSyntaxAndData()
+        {
+            // Arrange
+            var externFunctionDeclarationSyntax = new Mock<IExternFunctionDeclarationSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(externFunctionDeclarationSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(externFunctionDeclarationSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
@@ -1601,19 +1595,19 @@ namespace AXSharp.CompilerTests.Core
 
        
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithNamedParamListSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var namedParamListSyntax = new Mock<INamedParamListSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithNamedParamListSyntaxAndData()
+        {
+            // Arrange
+            var namedParamListSyntax = new Mock<INamedParamListSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(namedParamListSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(namedParamListSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
@@ -1843,19 +1837,19 @@ namespace AXSharp.CompilerTests.Core
 
         
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithQualifiedEnumAccessSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var qualifiedEnumAccessSyntax = new Mock<IQualifiedEnumAccessSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithQualifiedEnumAccessSyntaxAndData()
+        {
+            // Arrange
+            var qualifiedEnumAccessSyntax = new Mock<IQualifiedEnumAccessSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(qualifiedEnumAccessSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(qualifiedEnumAccessSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 
@@ -2035,19 +2029,19 @@ namespace AXSharp.CompilerTests.Core
 
       
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithStatementPartSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var statementPartSyntax = new Mock<IStatementPartSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithStatementPartSyntaxAndData()
+        {
+            // Arrange
+            var statementPartSyntax = new Mock<IStatementPartSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(statementPartSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(statementPartSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
       
 
@@ -2211,19 +2205,19 @@ namespace AXSharp.CompilerTests.Core
 
       
 
-        //[Fact]
-        //public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithUnnamedParamListSyntaxAndData()
-        //{
-        //    // Arrange
-        //    var unnamedParamListSyntax = new Mock<IUnnamedParamListSyntax>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallAcceptForISyntaxNodeVisitor_ICombinedThreeVisitor_WithUnnamedParamListSyntaxAndData()
+        {
+            // Arrange
+            var unnamedParamListSyntax = new Mock<IUnnamedParamListSyntax>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Act
-        //    Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(unnamedParamListSyntax, data));
+            // Act
+            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(unnamedParamListSyntax, data));
 
-        //    // Assert
+            // Assert
             
-        //}
+        }
 
        
 

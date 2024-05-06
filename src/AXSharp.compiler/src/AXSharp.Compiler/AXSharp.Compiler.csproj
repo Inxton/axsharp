@@ -61,15 +61,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CliWrap" />		
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
-		<PackageReference Include="Newtonsoft.Json" />
-		<PackageReference Include="NuGet.Configuration" />
-		<PackageReference Include="NuGet.Packaging" />
-		<PackageReference Include="Polly" />
-		<PackageReference Include="Serilog.Sinks.Console" />
-		<PackageReference Include="System.Collections.Immutable" />
-		<PackageReference Include="YamlDotNet" />
+		<PackageReference Include="CliWrap"/>		
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
+		<PackageReference Include="Newtonsoft.Json"/>
+		<PackageReference Include="NuGet.Configuration"/>
+		<PackageReference Include="NuGet.Packaging"/>
+		<PackageReference Include="Polly"/>
+		<PackageReference Include="Serilog.Sinks.Console"/>
+		<PackageReference Include="YamlDotNet"/>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,11 +86,6 @@
 		</Reference>
 		<Reference Include="AX.Text">
 			<HintPath>..\..\..\apax\stc\bin\AX.Text.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-
-		<Reference Include="AX.Text">
-			<HintPath>..\..\..\apax\stc\bin\AX.ST.Compiler.PluginAbstractions.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>

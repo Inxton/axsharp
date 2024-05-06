@@ -101,18 +101,16 @@ void IterateSyntaxTreeForStringLiterals(ISyntaxNode root, LocalizedStringWrapper
     }
 }
 
-
-
 void IterateSyntaxTreeForPragmas(ISyntaxNode root, LocalizedStringWrapper lw, string fileName)
 {
-    //foreach (var pragmaSyntax in GetChildNodesRecursive(root).OfType<PragmaSyntax>())
-    //{
-    //    var token = pragmaSyntax.PragmaToken;
-    //    if(lw.IsAttributeNamePragmaToken(token.Text))
-    //    { 
-    //        AddToDictionaryIfLocalizedString(token,lw,fileName);
-    //    }
-    //}
+    foreach (var pragmaSyntax in GetChildNodesRecursive(root).OfType<IPragmaSyntax>())
+    {
+        var token = pragmaSyntax.PragmaToken;
+        if(lw.IsAttributeNamePragmaToken(token.Text))
+        { 
+            AddToDictionaryIfLocalizedString(token,lw,fileName);
+        }
+    }
 }
 
 void AddToDictionaryIfLocalizedString(ISyntaxToken token, LocalizedStringWrapper lw, string fileName)
@@ -149,10 +147,10 @@ void AddToDictionaryIfLocalizedString(ISyntaxToken token, LocalizedStringWrapper
 }
 bool IsPragmaToken(ISyntaxToken token)
 { 
-    //if(token.SyntaxKind == SyntaxKind.PragmaToken) 
-    //{ 
-    //    return true;
-    //}
+    if(token.SyntaxKind == SyntaxKind.PragmaToken) 
+    { 
+        return true;
+    }
     return false; 
 }
 
