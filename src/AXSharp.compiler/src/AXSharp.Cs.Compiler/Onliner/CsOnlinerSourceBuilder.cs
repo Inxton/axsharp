@@ -110,18 +110,6 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = classDeclaration.GetCommAccessibility(this);
-
-        // This is a workaround for abstract classes where semantic model does not contain pragmas even when declared in the source.
-        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=ReadWrite}".ToLower()))
-        {
-            TypeCommAccessibility = eCommAccessibility.ReadWrite;
-        }
-
-        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=Read}".ToLower()))
-        {
-            TypeCommAccessibility = eCommAccessibility.ReadOnly;
-        }
-
         
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         var generic = classDeclaration.GetGenericAttributes();
@@ -219,7 +207,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         TypeCommAccessibility = eCommAccessibility.None;
         
         AddToSource($"public enum {enumTypeDeclarationSyntax.Name.Text} {{");
-        AddToSource(string.Join("\n,", enumTypeDeclarationSyntax.EnumValueList.EnumValues.Select(p => p.Name.Text)));
+        AddToSource(string.Join("\n,", enumTypeDeclarationSyntax.EnumValues.Select(p => p.Name.Text)));
         AddToSource("}");
     }
 
@@ -230,7 +218,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         TypeCommAccessibility = eCommAccessibility.None;
         
         AddToSource(
-            $"public enum {namedValueTypeDeclarationSyntax.Name.Text} : {namedValueTypeDeclarationSyntax.BaseType.TransformType()} {{");
+            $"public enum {namedValueTypeDeclarationSyntax.Name.Text} : {namedValueTypeDeclarationSyntax.Type.TransformType()} {{");
 
         // TODO: Value re-interpretation should be done according to the type.
 
