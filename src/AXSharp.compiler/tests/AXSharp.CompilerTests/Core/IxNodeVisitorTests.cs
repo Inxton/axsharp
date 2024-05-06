@@ -685,19 +685,19 @@ namespace AXSharp.CompilerTests.Core
 
 
 
-        //[Fact]
-        //public void CanCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionAndData()
-        //{
-        //    // Arrange
-        //    var caseSelection = new Mock<ISemanticCaseSelection>().Object;
-        //    var data = new Mock<ICombinedThreeVisitor>().Object;
+        [Fact]
+        public void CanCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionAndData()
+        {
+            // Arrange
+            var caseSelection = new Mock<ISemanticCaseSelection>().Object;
+            var data = new Mock<ICombinedThreeVisitor>().Object;
 
-        //    // Assert
-        //    Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseSelection, data));
+            // Assert
+            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseSelection, data));
 
 
 
-        //}
+        }
 
 
 

@@ -47,11 +47,10 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Google.Protobuf" />
-		<PackageReference Include="LibGit2Sharp" />
-		<PackageReference Include="Newtonsoft.Json" />
-		<PackageReference Include="YamlDotNet" />
-		<PackageReference Include="CommandLineParser" />    
+		<PackageReference Include="LibGit2Sharp"/>
+		<PackageReference Include="Newtonsoft.Json"/>
+		<PackageReference Include="YamlDotNet"/>
+		<PackageReference Include="CommandLineParser"/>    
 	</ItemGroup>
 
 	

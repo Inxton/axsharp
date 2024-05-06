@@ -271,15 +271,8 @@ public abstract class CsSourceBuilderTests
         var memberName = GetMethodName();
         CompareOutputs(memberName);
     }
-
-
-    [Fact]
-    public void abstract_members()
-    {
-        var memberName = GetMethodName();
-        CompareOutputs(memberName);
-    }
     
+
 
     private void CompareOutputs(string memberName)
     {

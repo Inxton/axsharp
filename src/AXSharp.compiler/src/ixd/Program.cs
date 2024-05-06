@@ -77,9 +77,9 @@ void GenerateYamls(Options o)
 
     var toCompile = projectSources.Select(p => p.parseTree);
 
-    var compilation = Compilation.Create(toCompile, null, Compilation.Settings.Default).Result;
+    var compilation = Compilation.Create(toCompile, Compilation.Settings.Default).Result;
 
-    var semanticTree = compilation.Compilation.GetSemanticTree();
+    var semanticTree = compilation.GetSemanticTree();
 
     //visit
     var myNodeVisitor = new MyNodeVisitor();

@@ -76,8 +76,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommandLineParser" />
-		<PackageReference Include="Google.Protobuf" />		
+		<PackageReference Include="CommandLineParser"/>		
 	</ItemGroup>
 
 	<ItemGroup>
