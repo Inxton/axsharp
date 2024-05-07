@@ -1,4 +1,5 @@
 using System;
+using Pocos.RealMonsterData;
 
 namespace Pocos
 {

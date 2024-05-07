@@ -62,6 +62,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="samples\units\expected\.g\POCO\generics.g.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="samples\units\expected\.g\Onliners\generics.g.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Include="samples\units\expected\.g\POCO\abstract_members.g.cs">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

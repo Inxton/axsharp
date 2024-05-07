@@ -284,8 +284,7 @@ public abstract class CsSourceBuilderTests
     [Fact]
     public void generics()
     {
-        var memberName = GetMethodName();
-        CompareOutputs(memberName);
+        CompareOutputs(GetMethodName());
     }
 
 
