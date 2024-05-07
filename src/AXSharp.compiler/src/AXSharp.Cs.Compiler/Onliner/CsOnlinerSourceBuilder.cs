@@ -54,7 +54,12 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource("using AXSharp.Connector.ValueTypes;");
         AddToSource("using System.Collections.Generic;");
         AddToSource("using AXSharp.Connector.Localizations;");
-
+        foreach (var fileSyntaxUsingDirective in fileSyntax.UsingDirectives
+                     .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
+        {
+            AddToSource($"using {fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+        }
+        
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
     }
 
@@ -66,7 +71,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
 
         var generics = new List<string>();
         var genericSignature = classDeclaration?.ExtendedType?.GetGenericAttributes()?.Product;
-        if(string.IsNullOrEmpty(genericSignature))
+        if (string.IsNullOrEmpty(genericSignature))
         {
             return string.Empty;
         }
@@ -82,11 +87,11 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                 {
                     if (attribute.GenericTypeAssignment.isPoco)
                     {
-                       genericSignature = genericSignature.Replace(attribute.GenericTypeAssignment.type, $"Pocos.{fieldDeclaresGenericType?.Type.FullyQualifiedName}");
+                        genericSignature = genericSignature.Replace(attribute.GenericTypeAssignment.type, $"Pocos.{fieldDeclaresGenericType?.Type.FullyQualifiedName}");
                     }
                     else
                     {
-                       genericSignature = genericSignature.Replace(attribute.GenericTypeAssignment.type, fieldDeclaresGenericType?.Type.FullyQualifiedName);
+                        genericSignature = genericSignature.Replace(attribute.GenericTypeAssignment.type, fieldDeclaresGenericType?.Type.FullyQualifiedName);
                     }
                 }
             }
@@ -103,10 +108,22 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = classDeclaration.GetCommAccessibility(this);
-        
+
+        // This is a workaround for abstract classes where semantic model does not contain pragmas even when declared in the source.
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=ReadWrite}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadWrite;
+        }
+
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=Read}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadOnly;
+        }
+
+
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         var generic = classDeclaration.GetGenericAttributes();
-        
+
         AddToSource(classDeclaration.Pragmas.AddAttributes());
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}{generic?.Product}");
         AddToSource(":");
@@ -142,7 +159,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource(CsOnlinerPlainerShadowToPlainBuilder.Create(visitor, classDeclaration, this, isExtended).Output);
         AddToSource(CsOnlinerPlainerShadowToPlainProtectedBuilder.Create(visitor, classDeclaration, this, isExtended).Output);
         AddToSource(CsOnlinerPlainerPlainToShadowBuilder.Create(visitor, classDeclaration, this, isExtended).Output);
-        
+
         AddToSource(CsOnlinerHasChangedBuilder.Create(visitor, classDeclaration, this, isExtended).Output);
 
         AddPollingMethod(isExtended);
@@ -171,7 +188,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = eCommAccessibility.None;
-        
+
         AddToSource(
             $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
         AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
@@ -198,9 +215,9 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = eCommAccessibility.None;
-        
+
         AddToSource($"public enum {enumTypeDeclarationSyntax.Name.Text} {{");
-        AddToSource(string.Join("\n,", enumTypeDeclarationSyntax.EnumValues.Select(p => p.Name.Text)));
+        AddToSource(string.Join("\n,", enumTypeDeclarationSyntax.EnumValueList.EnumValues.Select(p => p.Name.Text)));
         AddToSource("}");
     }
 
@@ -209,9 +226,9 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         INamedValueTypeDeclaration namedValueTypeDeclaration, IxNodeVisitor visitor)
     {
         TypeCommAccessibility = eCommAccessibility.None;
-        
+
         AddToSource(
-            $"public enum {namedValueTypeDeclarationSyntax.Name.Text} : {namedValueTypeDeclarationSyntax.Type.TransformType()} {{");
+            $"public enum {namedValueTypeDeclarationSyntax.Name.Text} : {namedValueTypeDeclarationSyntax.BaseType.TransformType()} {{");
 
         // TODO: Value re-interpretation should be done according to the type.
 
@@ -260,7 +277,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = eCommAccessibility.None;
-        
+
         AddToSource($"{interfaceDeclaration.AccessModifier.Transform()} partial interface {interfaceDeclaration.Name} {{}}");
     }
 
@@ -352,7 +369,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
             "public string HumanReadable {  get => string.IsNullOrEmpty(_humanReadable) ? SymbolTail : _humanReadable.Interpolate(this).CleanUpLocalizationTokens(); set => _humanReadable = value; }" +
             "public System.String GetHumanReadable(System.Globalization.CultureInfo culture) {  return this.Translate(_humanReadable, culture); }" +
             "protected System.String @SymbolTail { get; set;}" +
-            $"protected {typeof(ITwinObject).n()} @Parent {{ get; set; }}"+
+            $"protected {typeof(ITwinObject).n()} @Parent {{ get; set; }}" +
             $"public AXSharp.Connector.Localizations.Translator Interpreter => global::{Project.TargetProject.ProjectRootNamespace}.PlcTranslator.Instance;"
         );
     }

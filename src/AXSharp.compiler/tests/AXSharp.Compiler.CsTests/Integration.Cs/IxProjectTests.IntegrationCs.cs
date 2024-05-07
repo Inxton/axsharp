@@ -9,6 +9,7 @@ using System.Reflection;
 using AXSharp.Compiler;
 using AXSharp.Compiler.Cs.Onliner;
 using AXSharp.Compiler.Cs.Plain;
+using Castle.Core.Resource;
 using Polly;
 using Xunit.Abstractions;
 
@@ -100,6 +101,8 @@ public class IxProjectTests
 
         if (Directory.Exists(project.OutputFolder)) Directory.Delete(project.OutputFolder, true);
 
+      
+
         project.Generate();
 
         var rootSourceFolder = Path.Combine(testFolder, @"samples\units\expected\.g\");
@@ -121,6 +124,7 @@ public class IxProjectTests
             var currentIndex = index++;
             var expectedFileContent = File.ReadAllText(exp);
             var actualFileContent = File.ReadAllText(actualList[currentIndex]);
+
             try
             {
                 var actualFileContentLines = actualFileContent.Split("\n").Select(a => a.Trim()).ToArray();
@@ -128,7 +132,7 @@ public class IxProjectTests
 
                 for (int i = 0; i < expectedFileContentLines.Length; i++)
                 {
-                    Assert.Equal(expectedFileContentLines[i], actualFileContentLines[i]);
+                   Assert.Equal(expectedFileContentLines[i], actualFileContentLines[i]);
                 }
             }
             catch (Exception)

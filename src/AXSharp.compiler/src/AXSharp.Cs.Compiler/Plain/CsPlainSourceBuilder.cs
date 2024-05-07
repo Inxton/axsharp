@@ -54,7 +54,18 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = classDeclaration.GetCommAccessibility(this);
-        
+
+        // This is a workaround for abstract classes where semantic model does not contain pragmas even when declared in the source.
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=ReadWrite}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadWrite;
+        }
+
+        if (classDeclarationSyntax.ClassKeyword.FullText.Trim().ToLower().StartsWith("{S7.extern=Read}".ToLower()))
+        {
+            TypeCommAccessibility = eCommAccessibility.ReadOnly;
+        }
+
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
 
@@ -64,17 +75,17 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         if (isExtended)
             AddToSource($" : {classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName}");
 
-        
-        
+
+
         AddToSource(isExtended ? ", AXSharp.Connector.IPlain" : ": AXSharp.Connector.IPlain");
 
         AddToSource(classDeclarationSyntax.ImplementsList != null
             ? ", "
             : "");
-        
+
         classDeclarationSyntax.ImplementsList?.Visit(visitor, this);
 
-       
+
 
         AddToSource("{");
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
@@ -107,7 +118,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                         AddToSource("[]");
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get; set;}");
-                        
+
                         AddToSource($"= new");
                         arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource($"[");
@@ -168,6 +179,13 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     public void CreateFile(IFileSyntax fileSyntax, IxNodeVisitor visitor)
     {
         AddToSource("using System;");
+
+        foreach (var fileSyntaxUsingDirective in
+                 fileSyntax.UsingDirectives
+                     .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
+        {
+            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+        }
         AddToSource("namespace Pocos {");
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource("}");
@@ -179,7 +197,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = eCommAccessibility.None;
-        
+
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController{{");
         configurationDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
@@ -280,7 +298,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     break;
             }
         }
-    
+
     }
 
     /// <inheritdoc />

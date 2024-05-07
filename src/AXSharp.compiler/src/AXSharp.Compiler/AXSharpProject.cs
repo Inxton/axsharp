@@ -8,6 +8,7 @@
 using System.Text;
 using System.Xml.Linq;
 using AX.ST.Semantic;
+using AX.ST.Semantic.Analyzer;
 using AX.ST.Semantic.Model.Declarations;
 using AX.ST.Semantic.Model.Declarations.Types;
 using AX.ST.Syntax.Parser;
@@ -92,8 +93,8 @@ public class AXSharpProject : IAXSharpProject
 
         var toCompile = refParseTrees.Concat(projectSources.Select(p => p.parseTree));
 
-        var compilation = Compilation.Create(toCompile, Compilation.Settings.Default).Result;
-
+        var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
+        
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)
@@ -102,7 +103,7 @@ public class AXSharpProject : IAXSharpProject
 
             foreach (var sourceBuilderType in BuilderTypes)
             {
-                var builder = Activator.CreateInstance(sourceBuilderType, this, compilation);
+                var builder = Activator.CreateInstance(sourceBuilderType, this, compilationResult.Compilation);
                 var treeWalker = builder as ICombinedThreeVisitor;
                 var sourceBuilder = builder as ISourceBuilder;
                 
@@ -115,7 +116,7 @@ public class AXSharpProject : IAXSharpProject
                         $"Could not create {sourceBuilderType.Name} as ISourceBuilder");
 
 
-                origin.parseTree.GetRoot().Visit(new IxNodeVisitor(compilation), treeWalker);
+                origin.parseTree.GetRoot().Visit(new IxNodeVisitor(compilationResult.Compilation), treeWalker);
 
                 
                 
@@ -135,7 +136,7 @@ public class AXSharpProject : IAXSharpProject
         }
 
         TargetProject.ProvisionProjectStructure();
-        GenerateMetadata(compilation);
+        GenerateMetadata(compilationResult.Compilation);
         TargetProject.GenerateResources();
         TargetProject.GenerateCompanionData();
         Log.Logger.Information($"Compilation of project '{AxProject.SrcFolder}' done.");
@@ -334,26 +335,26 @@ public class AXSharpProject : IAXSharpProject
 
 
         var hasNamespace = type.ContainingNamespace != null;
-        if (hasNamespace) sb.Append($"NAMESPACE {type.ContainingNamespace!.FullyQualifiedName}\n");
+        if (hasNamespace) sb.Append($"NAMESPACE {type.ContainingNamespace!.FullyQualifiedName}\n\n");
 
-        type?.Pragmas?.ToList().ForEach(p => sb.Append($"{{{p.Content}}}"));
+        type?.Pragmas?.ToList().ForEach(p => sb.Append($"{{{p.Content}}}\n"));
 
         switch (kind)
         {
             case DeclarationKind.Struct:
-                sb.Append($"TYPE {type.Name} : STRUCT ; END_STRUCT");
+                sb.Append($"TYPE {type.Name} : STRUCT ; END_STRUCT\n");
                 break;
             case DeclarationKind.Class:
-                sb.Append($"CLASS {type.Name} END_CLASS");
+                sb.Append($"CLASS {type.Name} \nEND_CLASS\n");
                 break;
             case DeclarationKind.Enumeration:
-                sb.Append($"TYPE {type.Name} : (item0); END_TYPE");
+                sb.Append($"TYPE {type.Name} : (item0); \nEND_TYPE\n");
                 break;
             case DeclarationKind.Interface:
-                sb.Append($"INTERFACE {type.Name} END_INTERFACE");
+                sb.Append($"INTERFACE {type.Name} \nEND_INTERFACE\n");
                 break;
             case DeclarationKind.NamedValueType:
-                sb.Append($"TYPE {type.Name} : INT (item0 := 0); END_TYPE");
+                sb.Append($"TYPE {type.Name} : INT (item0 := 0); \nEND_TYPE\n");
                 break;
         }
 
