@@ -23,25 +23,6 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         }
 
         protected string ToolTipText => Onliner?.HumanReadable;
-            
-
-        ///<inheritdoc/>
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                try
-                {
-                    module = await JSRuntime.InvokeAsync<IJSObjectReference>("import",
-                        "./_content/AXSharp.Presentation.Blazor.Controls/Templates/TemplateBase.razor.js");
-                    await module.InvokeVoidAsync("addToolTips");
-                }
-                catch (Exception e)
-                {
-                    // ignored
-                }
-            }
-        }
 
         [Parameter]
         public OnlinerBase<T> Onliner { get; set; }

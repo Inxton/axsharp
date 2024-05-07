@@ -50,9 +50,11 @@ public class WebApiConnector : Connector
     /// <param name="userName">User name.</param>
     /// <param name="password">Password.</param>
     /// <param name="customServerCertHandler">Customized server certificate handler.</param>
+    /// <param name="ignoreSSLErros">When set to true ssl error are ignored.</param>
     /// <param name="dbName">Root DB name (AX uses 'TGlobalVariablesDB')</param>
     public WebApiConnector(string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
+        bool ignoreSSLErros,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
     {
@@ -61,6 +63,10 @@ public class WebApiConnector : Connector
         TargetPlatform = platform;
         UserName = userName;
         UserPassword = password;
+
+        if (ignoreSSLErros)
+            ServerCertificateCallback.CertificateCallback =
+                (sender, cert, chain, sslPolicyErrors) => true;
 
         var serviceFactory = new ApiStandardServiceFactory();
         var client = serviceFactory.GetHttpClient(ipAddress, UserName, UserPassword);

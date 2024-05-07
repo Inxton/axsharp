@@ -9,15 +9,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </GlobalPackageReference>
+    <PackageVersion Include="Google.Protobuf" Version="3.22.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
     <PackageVersion Include="CliWrap" Version="3.6.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.5.0" />    
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.5.0" />
     <PackageVersion Include="NuGet.Configuration" Version="6.3.4" />
     <PackageVersion Include="NuGet.Packaging" Version="6.3.4" />
     <PackageVersion Include="Polly" Version="7.2.4" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
     <PackageVersion Include="YamlDotNet" Version="13.0.0" />
     <PackageVersion Include="Irony" Version="1.2.0" />
     <PackageVersion Include="Irony.Interpreter" Version="1.2.0" />

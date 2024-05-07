@@ -43,16 +43,18 @@ public static class WebApiConnectorExtensions
     /// <param name="userName">User name.</param>
     /// <param name="password">Password.</param>
     /// <param name="customServerCertHandler">Customized server certificate handler.</param>
+    /// <param name="ignoreSslErrors">When set to true ssl errors are ignored</param>
     /// <param name="dbName">Name of default DB. The DB used to store all data in an AX project is 'TGlobalVariablesDB'.</param>
     /// <returns>Connector adapter for WebAPI connection.</returns>
     public static ConnectorAdapter CreateWebApi(this ConnectorAdapterBuilder adapter,
         string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
+        bool ignoreSslErrors = false,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
     {
         return new ConnectorAdapter(typeof(WebApiConnectorFactory))
-        { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, platform, dbName } };
+        { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
     }
 
     public static DateOnly AdjustForLeapDate(this long value)
