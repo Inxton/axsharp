@@ -93,8 +93,8 @@ public class AXSharpProject : IAXSharpProject
 
         var toCompile = refParseTrees.Concat(projectSources.Select(p => p.parseTree));
 
-        var compilation = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
-
+        var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
+        
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)
@@ -103,7 +103,7 @@ public class AXSharpProject : IAXSharpProject
 
             foreach (var sourceBuilderType in BuilderTypes)
             {
-                var builder = Activator.CreateInstance(sourceBuilderType, this, compilation.Compilation);
+                var builder = Activator.CreateInstance(sourceBuilderType, this, compilationResult.Compilation);
                 var treeWalker = builder as ICombinedThreeVisitor;
                 var sourceBuilder = builder as ISourceBuilder;
                 
@@ -116,7 +116,7 @@ public class AXSharpProject : IAXSharpProject
                         $"Could not create {sourceBuilderType.Name} as ISourceBuilder");
 
 
-                origin.parseTree.GetRoot().Visit(new IxNodeVisitor(compilation.Compilation), treeWalker);
+                origin.parseTree.GetRoot().Visit(new IxNodeVisitor(compilationResult.Compilation), treeWalker);
 
                 
                 
@@ -136,7 +136,7 @@ public class AXSharpProject : IAXSharpProject
         }
 
         TargetProject.ProvisionProjectStructure();
-        GenerateMetadata(compilation.Compilation);
+        GenerateMetadata(compilationResult.Compilation);
         TargetProject.GenerateResources();
         TargetProject.GenerateCompanionData();
         Log.Logger.Information($"Compilation of project '{AxProject.SrcFolder}' done.");
