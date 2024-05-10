@@ -30,7 +30,7 @@ namespace AXSharp.Presentation.Blazor.Services
             LoadComponents();
         }
 
-        internal IDictionary<string, Type> Components { get; private set; } = new Dictionary<string, Type>();
+        public IDictionary<string, Type> Components { get; private set; } = new Dictionary<string, Type>();
         private bool _isEntryAssemblyPresent { get; set; }
         /// <summary>
         ///  Method to get dynamically instance of blazor component.
