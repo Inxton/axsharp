@@ -59,6 +59,29 @@ public static class Arrays
         }
     }
 
+    [Obsolete("Internal use only")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public static void InstantiateArray(this Array array,
+        Func<object> initializer,
+        IEnumerable<(int LowerBound, int UpperBound)> arrayBounds)
+    {
+        var indice = string.Empty;
+        var arrayFieldIndex = 0;
+
+        // Rank
+        foreach (var rank in arrayBounds)
+        {
+            indice = string.IsNullOrEmpty(indice) ? string.Empty : $"{indice},";
+
+            // Index
+            for (int index = rank.LowerBound; index <= rank.UpperBound; index++)
+            {
+                var a = initializer();
+                array.SetValue(a, arrayFieldIndex++);
+            }
+        }
+    }
+
     private static int GetNumberOfElements((int LowerBound, int UpperBound) bounds)
     {
         return bounds.LowerBound == 0 ? bounds.UpperBound + 1 : bounds.UpperBound - bounds.LowerBound;

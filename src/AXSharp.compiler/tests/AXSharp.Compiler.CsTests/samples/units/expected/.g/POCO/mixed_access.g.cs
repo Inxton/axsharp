@@ -17,6 +17,10 @@ namespace Pocos
 
     public partial class Motor : AXSharp.Connector.IPlain
     {
+        public Motor()
+        {
+        }
+
         public Boolean Run { get; set; }
     }
 
@@ -42,6 +46,10 @@ namespace Pocos
 
     public partial class AbstractMotor : AXSharp.Connector.IPlain
     {
+        public AbstractMotor()
+        {
+        }
+
         public Boolean Run { get; set; }
 
         public Boolean ReverseDirection { get; set; }
@@ -49,9 +57,15 @@ namespace Pocos
 
     public partial class GenericMotor : AbstractMotor, AXSharp.Connector.IPlain
     {
+        public GenericMotor() : base()
+        {
+        }
     }
 
     public partial class SpecificMotorA : GenericMotor, AXSharp.Connector.IPlain
     {
+        public SpecificMotorA() : base()
+        {
+        }
     }
 }

@@ -62,6 +62,10 @@ namespace Pocos
 
     public partial class ComplexForConfig : AXSharp.Connector.IPlain
     {
+        public ComplexForConfig()
+        {
+        }
+
         public Boolean myBOOL { get; set; }
 
         public Byte myBYTE { get; set; }

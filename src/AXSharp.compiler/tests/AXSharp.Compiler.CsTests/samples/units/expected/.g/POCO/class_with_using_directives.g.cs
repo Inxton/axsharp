@@ -8,6 +8,10 @@ namespace Pocos
 
     internal partial class ClassWithUsingDirectives : AXSharp.Connector.IPlain
     {
+        public ClassWithUsingDirectives()
+        {
+        }
+
      using  SimpleFirstLevelNamespace ;  using  SimpleQualifiedNamespace . Qualified ;  using  HelloLevelOne . HelloLevelTwo ; 
 
 }

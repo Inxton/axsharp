@@ -9,6 +9,9 @@ namespace Pocos
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {
+            public Hello()
+            {
+            }
         }
     }
 
@@ -16,6 +19,9 @@ namespace Pocos
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {
+            public Hello()
+            {
+            }
         }
     }
 
@@ -25,6 +31,9 @@ namespace Pocos
         {
             public partial class Hello : AXSharp.Connector.IPlain
             {
+                public Hello()
+                {
+                }
             }
         }
     }
@@ -33,6 +42,9 @@ namespace Pocos
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {
+            public Hello()
+            {
+            }
         }
     }
 }

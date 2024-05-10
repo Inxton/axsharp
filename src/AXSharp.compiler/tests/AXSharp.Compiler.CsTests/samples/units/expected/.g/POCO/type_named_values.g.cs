@@ -6,6 +6,10 @@ namespace Pocos
     {
         public partial class using_type_named_values : AXSharp.Connector.IPlain
         {
+            public using_type_named_values()
+            {
+            }
+
             public Int16 LColors { get; set; }
         }
     }
