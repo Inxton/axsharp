@@ -6,6 +6,10 @@ namespace Pocos
     {
         public partial class MembersWithMakeReadOnce : AXSharp.Connector.IPlain
         {
+            public MembersWithMakeReadOnce()
+            {
+            }
+
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
             public makereadonce.ComplexMember makeReadComplexMember { get; set; } = new makereadonce.ComplexMember();
@@ -14,6 +18,10 @@ namespace Pocos
 
         public partial class ComplexMember : AXSharp.Connector.IPlain
         {
+            public ComplexMember()
+            {
+            }
+
             public string someMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
         }

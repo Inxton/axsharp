@@ -15,6 +15,7 @@ using AX.ST.Syntax.Tree;
 using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Compiler.Cs.Helpers.Plain;
+using AXSharp.Compiler.Cs.Onliner;
 
 namespace AXSharp.Compiler.Cs.Plain;
 
@@ -88,6 +89,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
 
 
         AddToSource("{");
+        AddToSource(CsPlainConstructorBuilder.Create(visitor, classDeclaration, this, isExtended, Project).Output);
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         classDeclaration.Fields.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");

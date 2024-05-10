@@ -6,6 +6,13 @@ namespace Pocos
     {
         public partial class RealMonsterBase : AXSharp.Connector.IPlain
         {
+            public RealMonsterBase()
+            {
+#pragma warning disable CS0612
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new RealMonsterData.DriveBaseNested(), new[] { (0, 3) });
+#pragma warning restore CS0612
+            }
+
             public string Description { get; set; } = string.Empty;
             public UInt64 Id { get; set; }
 
@@ -18,11 +25,19 @@ namespace Pocos
 
         public partial class RealMonster : RealMonsterData.RealMonsterBase, AXSharp.Connector.IPlain
         {
+            public RealMonster() : base()
+            {
+            }
+
             public RealMonsterData.DriveBaseNested DriveA { get; set; } = new RealMonsterData.DriveBaseNested();
         }
 
         public partial class DriveBaseNested : AXSharp.Connector.IPlain
         {
+            public DriveBaseNested()
+            {
+            }
+
             public Double Position { get; set; }
 
             public Double Velo { get; set; }
@@ -36,6 +51,10 @@ namespace Pocos
 
         public partial class NestedLevelOne : AXSharp.Connector.IPlain
         {
+            public NestedLevelOne()
+            {
+            }
+
             public Double Position { get; set; }
 
             public Double Velo { get; set; }
@@ -49,6 +68,10 @@ namespace Pocos
 
         public partial class NestedLevelTwo : AXSharp.Connector.IPlain
         {
+            public NestedLevelTwo()
+            {
+            }
+
             public Double Position { get; set; }
 
             public Double Velo { get; set; }
@@ -62,6 +85,10 @@ namespace Pocos
 
         public partial class NestedLevelThree : AXSharp.Connector.IPlain
         {
+            public NestedLevelThree()
+            {
+            }
+
             public Double Position { get; set; }
 
             public Double Velo { get; set; }

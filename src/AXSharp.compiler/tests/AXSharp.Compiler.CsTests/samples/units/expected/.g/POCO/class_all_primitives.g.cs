@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class class_all_primitives : AXSharp.Connector.IPlain
     {
+        public class_all_primitives()
+        {
+        }
+
         public Boolean myBOOL { get; set; }
 
         public Byte myBYTE { get; set; }

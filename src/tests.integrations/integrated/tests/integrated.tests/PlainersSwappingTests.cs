@@ -207,10 +207,10 @@ namespace integrated.tests
             p.ArrayOfBytes[1] = 22;
             p.ArrayOfBytes[2] = 33;
 
-            for (int i = 0; i < p.ArrayOfDrives.Length; i++)
-            {
-                p.ArrayOfDrives[i] = new();
-            }
+            //for (int i = 0; i < p.ArrayOfDrives.Length; i++)
+            //{
+            //    p.ArrayOfDrives[i] = new();
+            //}
 
 
             p.ArrayOfDrives[0].Velo = 110;

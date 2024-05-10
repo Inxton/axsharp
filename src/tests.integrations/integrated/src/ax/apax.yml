@@ -26,4 +26,4 @@ scripts:
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
       $AXTARGETPLATFORMINPUT -r
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1

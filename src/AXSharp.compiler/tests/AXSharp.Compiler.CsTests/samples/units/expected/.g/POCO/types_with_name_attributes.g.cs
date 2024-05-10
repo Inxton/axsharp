@@ -17,6 +17,10 @@ namespace Pocos
 
         public partial class NoAccessModifierClass : AXSharp.Connector.IPlain
         {
+            public NoAccessModifierClass()
+            {
+            }
+
             public string SomeClassVariable { get; set; } = string.Empty;
         }
     }

@@ -6,6 +6,13 @@ namespace Pocos
     {
         public partial class MonsterBase : AXSharp.Connector.IPlain
         {
+            public MonsterBase()
+            {
+#pragma warning disable CS0612
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new MonsterData.DriveBase(), new[] { (0, 3) });
+#pragma warning restore CS0612
+            }
+
             public string Description { get; set; } = string.Empty;
             public UInt64 Id { get; set; }
 
@@ -17,11 +24,19 @@ namespace Pocos
 
         public partial class Monster : MonsterData.MonsterBase, AXSharp.Connector.IPlain
         {
+            public Monster() : base()
+            {
+            }
+
             public MonsterData.DriveBase DriveA { get; set; } = new MonsterData.DriveBase();
         }
 
         public partial class DriveBase : AXSharp.Connector.IPlain
         {
+            public DriveBase()
+            {
+            }
+
             public Double Position { get; set; }
 
             public Double Velo { get; set; }
