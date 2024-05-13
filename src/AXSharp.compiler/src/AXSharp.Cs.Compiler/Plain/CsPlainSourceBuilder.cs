@@ -309,10 +309,13 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = structuredTypeDeclaration.GetCommAccessibility(this);
-
+                
         AddToSource(
-            $"{structuredTypeDeclaration.AccessModifier.Transform()}partial class {structTypeDeclarationSyntax.Name.Text} ");
+            $"{structuredTypeDeclaration.AccessModifier.Transform()}partial class {structTypeDeclarationSyntax.Name.Text} : AXSharp.Connector.IPlain");
         AddToSource("{");
+
+        AddToSource(CsPlainConstructorBuilder.Create(visitor, structuredTypeDeclaration, this, false, Project).Output);
+
         structuredTypeDeclaration.Fields.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
     }

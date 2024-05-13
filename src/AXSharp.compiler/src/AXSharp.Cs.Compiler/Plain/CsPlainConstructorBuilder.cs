@@ -19,7 +19,7 @@ using AXSharp.Connector;
 using AXSharp.Connector.BuilderHelpers;
 using AXSharp.Compiler.Cs;
 
-namespace AXSharp.Compiler.Cs.Onliner;
+namespace AXSharp.Compiler.Cs.Plain;
 
 internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 {
@@ -120,6 +120,31 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
         builder.AddToSource("}");
         return builder;
     }
+
+    public static CsPlainConstructorBuilder Create(IxNodeVisitor visitor, IStructuredTypeDeclaration semantics,
+        ISourceBuilder sourceBuilder, bool isExtended, AXSharpProject project)
+    {
+        var builder = new CsPlainConstructorBuilder(sourceBuilder);
+
+
+        builder.AddToSource(
+            $"public {semantics.Name}()");
+
+
+        if (isExtended)
+        {
+            builder.AddToSource(": base()");
+        }
+
+        builder.AddToSource("{");
+
+        semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
+
+        builder.AddToSource("}");
+        return builder;
+    }
+
+
 
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IFieldDeclaration field,
         IxNodeVisitor visitor)
