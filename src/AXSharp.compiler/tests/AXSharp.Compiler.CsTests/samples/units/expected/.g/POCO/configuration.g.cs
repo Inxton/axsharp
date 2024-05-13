@@ -113,13 +113,21 @@ namespace Pocos
         public Motor myMotor { get; set; } = new Motor();
     }
 
-    public partial class Motor
+    public partial class Motor : AXSharp.Connector.IPlain
     {
+        public Motor()
+        {
+        }
+
         public Boolean isRunning { get; set; }
     }
 
-    public partial class Vehicle
+    public partial class Vehicle : AXSharp.Connector.IPlain
     {
+        public Vehicle()
+        {
+        }
+
         public Motor m { get; set; } = new Motor();
         public Int16 displacement { get; set; }
     }

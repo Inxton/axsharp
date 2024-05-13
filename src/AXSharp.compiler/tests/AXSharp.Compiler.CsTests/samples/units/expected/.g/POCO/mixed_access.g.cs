@@ -24,23 +24,39 @@ namespace Pocos
         public Boolean Run { get; set; }
     }
 
-    public partial class struct1
+    public partial class struct1 : AXSharp.Connector.IPlain
     {
+        public struct1()
+        {
+        }
+
         public struct2 s2 { get; set; } = new struct2();
     }
 
-    public partial class struct2
+    public partial class struct2 : AXSharp.Connector.IPlain
     {
+        public struct2()
+        {
+        }
+
         public struct3 s3 { get; set; } = new struct3();
     }
 
-    public partial class struct3
+    public partial class struct3 : AXSharp.Connector.IPlain
     {
+        public struct3()
+        {
+        }
+
         public struct4 s4 { get; set; } = new struct4();
     }
 
-    public partial class struct4
+    public partial class struct4 : AXSharp.Connector.IPlain
     {
+        public struct4()
+        {
+        }
+
         public Int16 s5 { get; set; }
     }
 
