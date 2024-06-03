@@ -36,6 +36,13 @@ CLASS MAIN
         groupBox_test: GroupBox_other;
         cu00: CU00x;
         cuBase: CUBase;
+
+        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        OverridedSimpleStruct : stSimplePrimitive;
+
+        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        OverridedSimpleTag : WORD;
+
     END_VAR
     
 END_CLASS
