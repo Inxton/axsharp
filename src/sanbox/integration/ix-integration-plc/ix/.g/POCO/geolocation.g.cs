@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class GeoLocation : AXSharp.Connector.IPlain
     {
+        public GeoLocation()
+        {
+        }
+
         public Single Latitude { get; set; }
 
         public Single Longitude { get; set; }

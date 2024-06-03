@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class ixcomponent : AXSharp.Connector.IPlain
     {
+        public ixcomponent()
+        {
+        }
+
         public Int16 my_int { get; set; }
 
         public string my_string { get; set; } = string.Empty;
@@ -14,6 +18,10 @@ namespace Pocos
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
+            public ixcomponent()
+            {
+            }
+
             public Int16 my_int { get; set; }
 
             public string my_string { get; set; } = string.Empty;
@@ -25,6 +33,10 @@ namespace Pocos
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
+            public ixcomponent()
+            {
+            }
+
             public Int16 my_int { get; set; }
 
             public string my_string { get; set; } = string.Empty;
