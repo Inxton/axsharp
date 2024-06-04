@@ -30,6 +30,21 @@ namespace AXSharp.RenderableContent.Tests
            _projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         }
 
+        private void Compare(string fileName, object twin, string presentation)
+        {
+            // Arrange
+            var path = Path.Combine(_projectDirectory, "HtmlFiles", fileName);
+            var html = File.ReadAllText(path);
+            // Act
+            var cut = RenderComponent<RenderableContentControl>(param => param
+                .Add(p => p.Context, twin)
+                .Add(p => p.Presentation, presentation));
+
+            // File.WriteAllText(path, cut.Markup);
+
+            // Assert
+            cut.MarkupMatches(html);
+        }
 
         [Fact]
         public void Render_prgWeatherStations_Tabs_Successfull()
@@ -45,22 +60,6 @@ namespace AXSharp.RenderableContent.Tests
             //cut.MarkupMatches(html);
 
             Compare("prgWeatherStations.html", _fixture.Connector.prgWeatherStations, "Display");
-        }
-
-        private void Compare(string fileName, object twin, string presentation)
-        {
-            // Arrange
-            var path = Path.Combine(_projectDirectory, "HtmlFiles", fileName);
-            var html = File.ReadAllText(path);
-            // Act
-            var cut = RenderComponent<RenderableContentControl>(param => param
-                .Add(p => p.Context, twin)
-                .Add(p => p.Presentation, presentation));
-
-            // File.WriteAllText(path, cut.Markup);
-
-            // Assert
-            cut.MarkupMatches(html);
         }
 
         [Fact]
@@ -522,7 +521,16 @@ namespace AXSharp.RenderableContent.Tests
 
         //}
 
+        [Fact]
+        public void Render_stTestPresentationBaseAttributeStruct_Success()
+        {
+            Compare("stTestPresentationBaseStruct.html", _fixture.Connector.testingProgram.testPresentationBaseStruct, "Display");
+        }
 
-
+        [Fact]
+        public void Render_stTestPresentationBaseAttributeTag_Success()
+        {
+            Compare("stTestPresentationBaseTag.html", _fixture.Connector.testingProgram.testPresentationBaseTag, "Display");
+        }
     }
 }

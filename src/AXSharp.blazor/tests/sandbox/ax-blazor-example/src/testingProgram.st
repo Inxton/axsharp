@@ -22,6 +22,12 @@ CLASS testingProgram
         testMultipleNested: stTestMultipleNested;
 
         testLayouts : stTestLayouts;
+
+        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        testPresentationBaseStruct : stSimplePrimitive;
+
+        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        testPresentationBaseTag : WORD;
     END_VAR
     
 END_CLASS
