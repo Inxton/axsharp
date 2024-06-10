@@ -449,6 +449,154 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.AxProject.ProjectInfo
   nameWithType: AxProject.ProjectInfo
+- uid: AXSharp.Compiler.AxProject.SemVersion
+  name: AxProject.SemVersion
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html
+  commentId: T:AXSharp.Compiler.AxProject.SemVersion
+  fullName: AXSharp.Compiler.AxProject.SemVersion
+  nameWithType: AxProject.SemVersion
+- uid: AXSharp.Compiler.AxProject.SemVersion.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.String)
+  name: SemVersion(int, int, int, string, string)
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion__ctor_System_Int32_System_Int32_System_Int32_System_String_System_String_
+  commentId: M:AXSharp.Compiler.AxProject.SemVersion.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.String)
+  name.vb: New(Integer, Integer, Integer, String, String)
+  fullName: AXSharp.Compiler.AxProject.SemVersion.SemVersion(int, int, int, string, string)
+  fullName.vb: AXSharp.Compiler.AxProject.SemVersion.New(Integer, Integer, Integer, String, String)
+  nameWithType: AxProject.SemVersion.SemVersion(int, int, int, string, string)
+  nameWithType.vb: AxProject.SemVersion.New(Integer, Integer, Integer, String, String)
+- uid: AXSharp.Compiler.AxProject.SemVersion.#ctor*
+  name: SemVersion
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion__ctor_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Compiler.AxProject.SemVersion.SemVersion
+  fullName.vb: AXSharp.Compiler.AxProject.SemVersion.New
+  nameWithType: AxProject.SemVersion.SemVersion
+  nameWithType.vb: AxProject.SemVersion.New
+- uid: AXSharp.Compiler.AxProject.SemVersion.BuildMetadata
+  name: BuildMetadata
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_BuildMetadata
+  commentId: P:AXSharp.Compiler.AxProject.SemVersion.BuildMetadata
+  fullName: AXSharp.Compiler.AxProject.SemVersion.BuildMetadata
+  nameWithType: AxProject.SemVersion.BuildMetadata
+- uid: AXSharp.Compiler.AxProject.SemVersion.BuildMetadata*
+  name: BuildMetadata
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_BuildMetadata_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.BuildMetadata
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.BuildMetadata
+  nameWithType: AxProject.SemVersion.BuildMetadata
+- uid: AXSharp.Compiler.AxProject.SemVersion.Equals(System.Object)
+  name: Equals(object?)
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Equals_System_Object_
+  commentId: M:AXSharp.Compiler.AxProject.SemVersion.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Equals(object?)
+  fullName.vb: AXSharp.Compiler.AxProject.SemVersion.Equals(Object)
+  nameWithType: AxProject.SemVersion.Equals(object?)
+  nameWithType.vb: AxProject.SemVersion.Equals(Object)
+- uid: AXSharp.Compiler.AxProject.SemVersion.Equals*
+  name: Equals
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Equals_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.Equals
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Equals
+  nameWithType: AxProject.SemVersion.Equals
+- uid: AXSharp.Compiler.AxProject.SemVersion.GetHashCode
+  name: GetHashCode()
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_GetHashCode
+  commentId: M:AXSharp.Compiler.AxProject.SemVersion.GetHashCode
+  fullName: AXSharp.Compiler.AxProject.SemVersion.GetHashCode()
+  nameWithType: AxProject.SemVersion.GetHashCode()
+- uid: AXSharp.Compiler.AxProject.SemVersion.GetHashCode*
+  name: GetHashCode
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_GetHashCode_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.GetHashCode
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.GetHashCode
+  nameWithType: AxProject.SemVersion.GetHashCode
+- uid: AXSharp.Compiler.AxProject.SemVersion.Major
+  name: Major
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Major
+  commentId: P:AXSharp.Compiler.AxProject.SemVersion.Major
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Major
+  nameWithType: AxProject.SemVersion.Major
+- uid: AXSharp.Compiler.AxProject.SemVersion.Major*
+  name: Major
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Major_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.Major
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Major
+  nameWithType: AxProject.SemVersion.Major
+- uid: AXSharp.Compiler.AxProject.SemVersion.Minor
+  name: Minor
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Minor
+  commentId: P:AXSharp.Compiler.AxProject.SemVersion.Minor
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Minor
+  nameWithType: AxProject.SemVersion.Minor
+- uid: AXSharp.Compiler.AxProject.SemVersion.Minor*
+  name: Minor
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Minor_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.Minor
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Minor
+  nameWithType: AxProject.SemVersion.Minor
+- uid: AXSharp.Compiler.AxProject.SemVersion.Parse(System.String)
+  name: Parse(string)
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Parse_System_String_
+  commentId: M:AXSharp.Compiler.AxProject.SemVersion.Parse(System.String)
+  name.vb: Parse(String)
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Parse(string)
+  fullName.vb: AXSharp.Compiler.AxProject.SemVersion.Parse(String)
+  nameWithType: AxProject.SemVersion.Parse(string)
+  nameWithType.vb: AxProject.SemVersion.Parse(String)
+- uid: AXSharp.Compiler.AxProject.SemVersion.Parse*
+  name: Parse
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Parse_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.Parse
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Parse
+  nameWithType: AxProject.SemVersion.Parse
+- uid: AXSharp.Compiler.AxProject.SemVersion.Patch
+  name: Patch
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Patch
+  commentId: P:AXSharp.Compiler.AxProject.SemVersion.Patch
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Patch
+  nameWithType: AxProject.SemVersion.Patch
+- uid: AXSharp.Compiler.AxProject.SemVersion.Patch*
+  name: Patch
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_Patch_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.Patch
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.Patch
+  nameWithType: AxProject.SemVersion.Patch
+- uid: AXSharp.Compiler.AxProject.SemVersion.PreRelease
+  name: PreRelease
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_PreRelease
+  commentId: P:AXSharp.Compiler.AxProject.SemVersion.PreRelease
+  fullName: AXSharp.Compiler.AxProject.SemVersion.PreRelease
+  nameWithType: AxProject.SemVersion.PreRelease
+- uid: AXSharp.Compiler.AxProject.SemVersion.PreRelease*
+  name: PreRelease
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_PreRelease_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.PreRelease
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.PreRelease
+  nameWithType: AxProject.SemVersion.PreRelease
+- uid: AXSharp.Compiler.AxProject.SemVersion.ToString
+  name: ToString()
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_ToString
+  commentId: M:AXSharp.Compiler.AxProject.SemVersion.ToString
+  fullName: AXSharp.Compiler.AxProject.SemVersion.ToString()
+  nameWithType: AxProject.SemVersion.ToString()
+- uid: AXSharp.Compiler.AxProject.SemVersion.ToString*
+  name: ToString
+  href: api/AXSharp.Compiler.AxProject.SemVersion.html#AXSharp_Compiler_AxProject_SemVersion_ToString_
+  commentId: Overload:AXSharp.Compiler.AxProject.SemVersion.ToString
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AxProject.SemVersion.ToString
+  nameWithType: AxProject.SemVersion.ToString
 - uid: AXSharp.Compiler.AxProject.Sources
   name: Sources
   href: api/AXSharp.Compiler.AxProject.html#AXSharp_Compiler_AxProject_Sources
@@ -1287,6 +1435,18 @@ references:
   fullName.vb: AXSharp.Compiler.Core.IxNodeVisitor.New
   nameWithType: IxNodeVisitor.IxNodeVisitor
   nameWithType.vb: IxNodeVisitor.New
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IArrayRepetitionInitializerSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IArrayRepetitionInitializerSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IArrayRepetitionInitializerSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IArrayRepetitionInitializerSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IArrayRepetitionInitializerSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IArrayRepetitionInitializerSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ICaseListStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(ICaseListStatementSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_ICaseListStatementSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ICaseListStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ICaseListStatementSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(ICaseListStatementSyntax, ICombinedThreeVisitor)
 - uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IConditionalAndExpressionSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
   name: Accept(IConditionalAndExpressionSyntax, ICombinedThreeVisitor)
   href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IConditionalAndExpressionSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
@@ -1299,12 +1459,72 @@ references:
   commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IConditionalOrExpressionSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
   fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IConditionalOrExpressionSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
   nameWithType: IxNodeVisitor.Accept(IConditionalOrExpressionSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IEnumValueListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IEnumValueListSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IEnumValueListSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IEnumValueListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IEnumValueListSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IEnumValueListSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IExpressionPrefixStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IExpressionPrefixStatementSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IExpressionPrefixStatementSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IExpressionPrefixStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IExpressionPrefixStatementSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IExpressionPrefixStatementSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IKeywordStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IKeywordStatementSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IKeywordStatementSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IKeywordStatementSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IKeywordStatementSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IKeywordStatementSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INamedValueListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(INamedValueListSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_INamedValueListSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INamedValueListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INamedValueListSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(INamedValueListSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INonReferenceTypeSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(INonReferenceTypeSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_INonReferenceTypeSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INonReferenceTypeSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.INonReferenceTypeSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(INonReferenceTypeSyntax, ICombinedThreeVisitor)
 - uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IProgramConfigurationSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
   name: Accept(IProgramConfigurationSyntax, ICombinedThreeVisitor)
   href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IProgramConfigurationSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
   commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IProgramConfigurationSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
   fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IProgramConfigurationSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
   nameWithType: IxNodeVisitor.Accept(IProgramConfigurationSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IStSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IStSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IStSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IStSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IStSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IStSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ISubCaseListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(ISubCaseListSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_ISubCaseListSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ISubCaseListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ISubCaseListSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(ISubCaseListSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInitSpecSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(ITaskInitSpecSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_ITaskInitSpecSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInitSpecSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInitSpecSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(ITaskInitSpecSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInstanceSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(ITaskInstanceSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_ITaskInstanceSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInstanceSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.ITaskInstanceSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(ITaskInstanceSyntax, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IUnaryArithmeticExpressionSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Accept(IUnaryArithmeticExpressionSyntax, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_AX_ST_Syntax_Tree_IUnaryArithmeticExpressionSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IUnaryArithmeticExpressionSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Accept(AX.ST.Syntax.Tree.IUnaryArithmeticExpressionSyntax, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Accept(IUnaryArithmeticExpressionSyntax, ICombinedThreeVisitor)
 - uid: AXSharp.Compiler.Core.IxNodeVisitor.Accept*
   name: Accept
   href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Accept_
@@ -1318,6 +1538,18 @@ references:
   commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.Declarations.IDocComment,AXSharp.Compiler.Core.ICombinedThreeVisitor)
   fullName: AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.Declarations.IDocComment, AXSharp.Compiler.Core.ICombinedThreeVisitor)
   nameWithType: IxNodeVisitor.Visit(IDocComment, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Visit(ISemanticCaseSelectionStatement, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticCaseSelectionStatement_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Visit(ISemanticCaseSelectionStatement, ICombinedThreeVisitor)
+- uid: AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  name: Visit(ISemanticEmptyInstruction, ICombinedThreeVisitor)
+  href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticEmptyInstruction_AXSharp_Compiler_Core_ICombinedThreeVisitor_
+  commentId: M:AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction,AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  fullName: AXSharp.Compiler.Core.IxNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction, AXSharp.Compiler.Core.ICombinedThreeVisitor)
+  nameWithType: IxNodeVisitor.Visit(ISemanticEmptyInstruction, ICombinedThreeVisitor)
 - uid: AXSharp.Compiler.Core.IxNodeVisitor.Visit*
   name: Visit
   href: api/AXSharp.Compiler.Core.IxNodeVisitor.html#AXSharp_Compiler_Core_IxNodeVisitor_Visit_
@@ -6224,6 +6456,22 @@ references:
   isSpec: "True"
   fullName: AXSharp.Connector.ITwinObject.AddValueTag
   nameWithType: ITwinObject.AddValueTag
+- uid: AXSharp.Connector.ITwinObject.AnyChangeAsync*
+  name: AnyChangeAsync
+  href: api/AXSharp.Connector.ITwinObject.html#AXSharp_Connector_ITwinObject_AnyChangeAsync_
+  commentId: Overload:AXSharp.Connector.ITwinObject.AnyChangeAsync
+  isSpec: "True"
+  fullName: AXSharp.Connector.ITwinObject.AnyChangeAsync
+  nameWithType: ITwinObject.AnyChangeAsync
+- uid: AXSharp.Connector.ITwinObject.AnyChangeAsync``1(``0)
+  name: AnyChangeAsync<T>(T)
+  href: api/AXSharp.Connector.ITwinObject.html#AXSharp_Connector_ITwinObject_AnyChangeAsync__1___0_
+  commentId: M:AXSharp.Connector.ITwinObject.AnyChangeAsync``1(``0)
+  name.vb: AnyChangeAsync(Of T)(T)
+  fullName: AXSharp.Connector.ITwinObject.AnyChangeAsync<T>(T)
+  fullName.vb: AXSharp.Connector.ITwinObject.AnyChangeAsync(Of T)(T)
+  nameWithType: ITwinObject.AnyChangeAsync<T>(T)
+  nameWithType.vb: ITwinObject.AnyChangeAsync(Of T)(T)
 - uid: AXSharp.Connector.ITwinObject.GetChildren
   name: GetChildren()
   href: api/AXSharp.Connector.ITwinObject.html#AXSharp_Connector_ITwinObject_GetChildren
@@ -6895,6 +7143,22 @@ references:
   isSpec: "True"
   fullName: AXSharp.Connector.RootTwinObject.AddValueTag
   nameWithType: RootTwinObject.AddValueTag
+- uid: AXSharp.Connector.RootTwinObject.AnyChangeAsync*
+  name: AnyChangeAsync
+  href: api/AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AnyChangeAsync_
+  commentId: Overload:AXSharp.Connector.RootTwinObject.AnyChangeAsync
+  isSpec: "True"
+  fullName: AXSharp.Connector.RootTwinObject.AnyChangeAsync
+  nameWithType: RootTwinObject.AnyChangeAsync
+- uid: AXSharp.Connector.RootTwinObject.AnyChangeAsync``1(``0)
+  name: AnyChangeAsync<T>(T)
+  href: api/AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AnyChangeAsync__1___0_
+  commentId: M:AXSharp.Connector.RootTwinObject.AnyChangeAsync``1(``0)
+  name.vb: AnyChangeAsync(Of T)(T)
+  fullName: AXSharp.Connector.RootTwinObject.AnyChangeAsync<T>(T)
+  fullName.vb: AXSharp.Connector.RootTwinObject.AnyChangeAsync(Of T)(T)
+  nameWithType: RootTwinObject.AnyChangeAsync<T>(T)
+  nameWithType.vb: RootTwinObject.AnyChangeAsync(Of T)(T)
 - uid: AXSharp.Connector.RootTwinObject.AttributeName
   name: AttributeName
   href: api/AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AttributeName
@@ -7177,6 +7441,118 @@ references:
   commentId: N:AXSharp.Connector.S71500.WebApi
   fullName: AXSharp.Connector.S71500.WebApi
   nameWithType: AXSharp.Connector.S71500.WebApi
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia
+  name: DateTimeTia
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html
+  commentId: T:AXSharp.Connector.S71500.WebApi.DateTimeTia
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia
+  nameWithType: DateTimeTia
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor
+  name: DateTimeTia()
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia__ctor
+  commentId: M:AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor
+  name.vb: New()
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.DateTimeTia()
+  fullName.vb: AXSharp.Connector.S71500.WebApi.DateTimeTia.New()
+  nameWithType: DateTimeTia.DateTimeTia()
+  nameWithType.vb: DateTimeTia.New()
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor(System.DateTime)
+  name: DateTimeTia(DateTime)
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia__ctor_System_DateTime_
+  commentId: M:AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor(System.DateTime)
+  name.vb: New(Date)
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.DateTimeTia(System.DateTime)
+  fullName.vb: AXSharp.Connector.S71500.WebApi.DateTimeTia.New(Date)
+  nameWithType: DateTimeTia.DateTimeTia(DateTime)
+  nameWithType.vb: DateTimeTia.New(Date)
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor*
+  name: DateTimeTia
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia__ctor_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.DateTimeTia
+  fullName.vb: AXSharp.Connector.S71500.WebApi.DateTimeTia.New
+  nameWithType: DateTimeTia.DateTimeTia
+  nameWithType.vb: DateTimeTia.New
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.day
+  name: day
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_day
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.day
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.day
+  nameWithType: DateTimeTia.day
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.day*
+  name: day
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_day_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.day
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.day
+  nameWithType: DateTimeTia.day
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.hour
+  name: hour
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_hour
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.hour
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.hour
+  nameWithType: DateTimeTia.hour
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.hour*
+  name: hour
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_hour_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.hour
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.hour
+  nameWithType: DateTimeTia.hour
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.minute
+  name: minute
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_minute
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.minute
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.minute
+  nameWithType: DateTimeTia.minute
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.minute*
+  name: minute
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_minute_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.minute
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.minute
+  nameWithType: DateTimeTia.minute
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.month
+  name: month
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_month
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.month
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.month
+  nameWithType: DateTimeTia.month
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.month*
+  name: month
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_month_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.month
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.month
+  nameWithType: DateTimeTia.month
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.second
+  name: second
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_second
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.second
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.second
+  nameWithType: DateTimeTia.second
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.second*
+  name: second
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_second_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.second
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.second
+  nameWithType: DateTimeTia.second
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.year
+  name: year
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_year
+  commentId: P:AXSharp.Connector.S71500.WebApi.DateTimeTia.year
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.year
+  nameWithType: DateTimeTia.year
+- uid: AXSharp.Connector.S71500.WebApi.DateTimeTia.year*
+  name: year
+  href: api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html#AXSharp_Connector_S71500_WebApi_DateTimeTia_year_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.DateTimeTia.year
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.DateTimeTia.year
+  nameWithType: DateTimeTia.year
 - uid: AXSharp.Connector.S71500.WebApi.WebApiBool
   name: WebApiBool
   href: api/AXSharp.Connector.S71500.WebApi.WebApiBool.html
@@ -7420,24 +7796,24 @@ references:
   commentId: T:AXSharp.Connector.S71500.WebApi.WebApiConnector
   fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector
   nameWithType: WebApiConnector
-- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Boolean,System.String)
-  name: WebApiConnector(string, string, string, bool, string)
-  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Boolean_System_String_
-  commentId: M:AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Boolean,System.String)
-  name.vb: New(String, String, String, Boolean, String)
-  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.WebApiConnector(string, string, string, bool, string)
-  fullName.vb: AXSharp.Connector.S71500.WebApi.WebApiConnector.New(String, String, String, Boolean, String)
-  nameWithType: WebApiConnector.WebApiConnector(string, string, string, bool, string)
-  nameWithType.vb: WebApiConnector.New(String, String, String, Boolean, String)
-- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.String)
-  name: WebApiConnector(string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, string)
-  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_String_
-  commentId: M:AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.String)
-  name.vb: New(String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), String)
-  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.WebApiConnector(string, string, string, System.Func<System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, bool>?, string)
-  fullName.vb: AXSharp.Connector.S71500.WebApi.WebApiConnector.New(String, String, String, System.Func(Of System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, Boolean), String)
-  nameWithType: WebApiConnector.WebApiConnector(string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, string)
-  nameWithType.vb: WebApiConnector.New(String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), String)
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Boolean,eTargetProjectPlatform,System.String)
+  name: WebApiConnector(string, string, string, bool, eTargetProjectPlatform, string)
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Boolean_eTargetProjectPlatform_System_String_
+  commentId: M:AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Boolean,eTargetProjectPlatform,System.String)
+  name.vb: New(String, String, String, Boolean, eTargetProjectPlatform, String)
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.WebApiConnector(string, string, string, bool, eTargetProjectPlatform, string)
+  fullName.vb: AXSharp.Connector.S71500.WebApi.WebApiConnector.New(String, String, String, Boolean, eTargetProjectPlatform, String)
+  nameWithType: WebApiConnector.WebApiConnector(string, string, string, bool, eTargetProjectPlatform, string)
+  nameWithType.vb: WebApiConnector.New(String, String, String, Boolean, eTargetProjectPlatform, String)
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.Boolean,eTargetProjectPlatform,System.String)
+  name: WebApiConnector(string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_Boolean_eTargetProjectPlatform_System_String_
+  commentId: M:AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.Boolean,eTargetProjectPlatform,System.String)
+  name.vb: New(String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.WebApiConnector(string, string, string, System.Func<System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  fullName.vb: AXSharp.Connector.S71500.WebApi.WebApiConnector.New(String, String, String, System.Func(Of System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
+  nameWithType: WebApiConnector.WebApiConnector(string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  nameWithType.vb: WebApiConnector.New(String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
 - uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor*
   name: WebApiConnector
   href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_
@@ -7503,6 +7879,32 @@ references:
   isSpec: "True"
   fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.ReloadConnector
   nameWithType: WebApiConnector.ReloadConnector
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi
+  name: ReLoginToConnectorApi()
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector_ReLoginToConnectorApi
+  commentId: M:AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi()
+  nameWithType: WebApiConnector.ReLoginToConnectorApi()
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi*
+  name: ReLoginToConnectorApi
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector_ReLoginToConnectorApi_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi
+  nameWithType: WebApiConnector.ReLoginToConnectorApi
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform
+  name: TargetPlatform
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector_TargetPlatform
+  commentId: P:AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform
+  nameWithType: WebApiConnector.TargetPlatform
+- uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform*
+  name: TargetPlatform
+  href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector_TargetPlatform_
+  commentId: Overload:AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform
+  isSpec: "True"
+  fullName: AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform
+  nameWithType: WebApiConnector.TargetPlatform
 - uid: AXSharp.Connector.S71500.WebApi.WebApiConnector.WriteBatchAsync(System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive})
   name: WriteBatchAsync(IEnumerable<ITwinPrimitive>?)
   href: api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html#AXSharp_Connector_S71500_WebApi_WebApiConnector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__
@@ -9917,6 +10319,12 @@ references:
   fullName.vb: AXSharp.Connector.TwinObjectExtensions.HasAttribute(Of T)(AXSharp.Connector.ITwinElement)
   nameWithType: TwinObjectExtensions.HasAttribute<T>(ITwinElement)
   nameWithType.vb: TwinObjectExtensions.HasAttribute(Of T)(ITwinElement)
+- uid: AXSharp.Connector.TwinObjectExtensions.HasChangedMethodName
+  name: HasChangedMethodName
+  href: api/AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_HasChangedMethodName
+  commentId: F:AXSharp.Connector.TwinObjectExtensions.HasChangedMethodName
+  fullName: AXSharp.Connector.TwinObjectExtensions.HasChangedMethodName
+  nameWithType: TwinObjectExtensions.HasChangedMethodName
 - uid: AXSharp.Connector.TwinObjectExtensions.MakeReadOnce(AXSharp.Connector.ITwinObject)
   name: MakeReadOnce(ITwinObject)
   href: api/AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_MakeReadOnce_AXSharp_Connector_ITwinObject_
@@ -11936,6 +12344,32 @@ references:
   isSpec: "True"
   fullName: AXSharp.Connector.ValueTypes.OnlinerDate.MinValue
   nameWithType: OnlinerDate.MinValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue
+  name: TIAMaxValue
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDate.html#AXSharp_Connector_ValueTypes_OnlinerDate_TIAMaxValue
+  commentId: P:AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue
+  nameWithType: OnlinerDate.TIAMaxValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue*
+  name: TIAMaxValue
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDate.html#AXSharp_Connector_ValueTypes_OnlinerDate_TIAMaxValue_
+  commentId: Overload:AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue
+  isSpec: "True"
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMaxValue
+  nameWithType: OnlinerDate.TIAMaxValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue
+  name: TIAMinValue
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDate.html#AXSharp_Connector_ValueTypes_OnlinerDate_TIAMinValue
+  commentId: P:AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue
+  nameWithType: OnlinerDate.TIAMinValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue*
+  name: TIAMinValue
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDate.html#AXSharp_Connector_ValueTypes_OnlinerDate_TIAMinValue_
+  commentId: Overload:AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue
+  isSpec: "True"
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDate.TIAMinValue
+  nameWithType: OnlinerDate.TIAMinValue
 - uid: AXSharp.Connector.ValueTypes.OnlinerDateTime
   name: OnlinerDateTime
   href: api/AXSharp.Connector.ValueTypes.OnlinerDateTime.html
@@ -12002,12 +12436,24 @@ references:
   commentId: F:AXSharp.Connector.ValueTypes.OnlinerDateTime.MaxValue
   fullName: AXSharp.Connector.ValueTypes.OnlinerDateTime.MaxValue
   nameWithType: OnlinerDateTime.MaxValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDateTime.MaxValueTIA
+  name: MaxValueTIA
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDateTime.html#AXSharp_Connector_ValueTypes_OnlinerDateTime_MaxValueTIA
+  commentId: F:AXSharp.Connector.ValueTypes.OnlinerDateTime.MaxValueTIA
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDateTime.MaxValueTIA
+  nameWithType: OnlinerDateTime.MaxValueTIA
 - uid: AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValue
   name: MinValue
   href: api/AXSharp.Connector.ValueTypes.OnlinerDateTime.html#AXSharp_Connector_ValueTypes_OnlinerDateTime_MinValue
   commentId: F:AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValue
   fullName: AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValue
   nameWithType: OnlinerDateTime.MinValue
+- uid: AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValueTIA
+  name: MinValueTIA
+  href: api/AXSharp.Connector.ValueTypes.OnlinerDateTime.html#AXSharp_Connector_ValueTypes_OnlinerDateTime_MinValueTIA
+  commentId: F:AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValueTIA
+  fullName: AXSharp.Connector.ValueTypes.OnlinerDateTime.MinValueTIA
+  nameWithType: OnlinerDateTime.MinValueTIA
 - uid: AXSharp.Connector.ValueTypes.OnlinerDInt
   name: OnlinerDInt
   href: api/AXSharp.Connector.ValueTypes.OnlinerDInt.html
@@ -15253,24 +15699,56 @@ references:
   commentId: T:AXSharp.Connector.WebApiConnectorExtensions
   fullName: AXSharp.Connector.WebApiConnectorExtensions
   nameWithType: WebApiConnectorExtensions
-- uid: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Boolean,System.String)
-  name: CreateWebApi(ConnectorAdapterBuilder, string, string, string, bool, string)
-  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_CreateWebApi_AXSharp_Connector_ConnectorAdapterBuilder_System_String_System_String_System_String_System_Boolean_System_String_
-  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Boolean,System.String)
-  name.vb: CreateWebApi(ConnectorAdapterBuilder, String, String, String, Boolean, String)
-  fullName: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, string, string, string, bool, string)
-  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, String, String, String, Boolean, String)
-  nameWithType: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, string, string, string, bool, string)
-  nameWithType.vb: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, String, String, String, Boolean, String)
-- uid: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.String)
-  name: CreateWebApi(ConnectorAdapterBuilder, string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, string)
-  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_CreateWebApi_AXSharp_Connector_ConnectorAdapterBuilder_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_String_
-  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.String)
-  name.vb: CreateWebApi(ConnectorAdapterBuilder, String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), String)
-  fullName: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, string, string, string, System.Func<System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, bool>?, string)
-  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, String, String, String, System.Func(Of System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, Boolean), String)
-  nameWithType: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, string)
-  nameWithType.vb: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), String)
+- uid: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate(System.Int64)
+  name: AdjustForLeapDate(long)
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_AdjustForLeapDate_System_Int64_
+  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate(System.Int64)
+  name.vb: AdjustForLeapDate(Long)
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate(long)
+  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate(Long)
+  nameWithType: WebApiConnectorExtensions.AdjustForLeapDate(long)
+  nameWithType.vb: WebApiConnectorExtensions.AdjustForLeapDate(Long)
+- uid: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate*
+  name: AdjustForLeapDate
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_AdjustForLeapDate_
+  commentId: Overload:AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate
+  isSpec: "True"
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDate
+  nameWithType: WebApiConnectorExtensions.AdjustForLeapDate
+- uid: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime(System.Int64)
+  name: AdjustForLeapDateTime(long)
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_AdjustForLeapDateTime_System_Int64_
+  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime(System.Int64)
+  name.vb: AdjustForLeapDateTime(Long)
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime(long)
+  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime(Long)
+  nameWithType: WebApiConnectorExtensions.AdjustForLeapDateTime(long)
+  nameWithType.vb: WebApiConnectorExtensions.AdjustForLeapDateTime(Long)
+- uid: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime*
+  name: AdjustForLeapDateTime
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_AdjustForLeapDateTime_
+  commentId: Overload:AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime
+  isSpec: "True"
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.AdjustForLeapDateTime
+  nameWithType: WebApiConnectorExtensions.AdjustForLeapDateTime
+- uid: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Boolean,eTargetProjectPlatform,System.String)
+  name: CreateWebApi(ConnectorAdapterBuilder, string, string, string, bool, eTargetProjectPlatform, string)
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_CreateWebApi_AXSharp_Connector_ConnectorAdapterBuilder_System_String_System_String_System_String_System_Boolean_eTargetProjectPlatform_System_String_
+  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Boolean,eTargetProjectPlatform,System.String)
+  name.vb: CreateWebApi(ConnectorAdapterBuilder, String, String, String, Boolean, eTargetProjectPlatform, String)
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, string, string, string, bool, eTargetProjectPlatform, string)
+  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, String, String, String, Boolean, eTargetProjectPlatform, String)
+  nameWithType: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, string, string, string, bool, eTargetProjectPlatform, string)
+  nameWithType.vb: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, String, String, String, Boolean, eTargetProjectPlatform, String)
+- uid: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.Boolean,eTargetProjectPlatform,System.String)
+  name: CreateWebApi(ConnectorAdapterBuilder, string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_CreateWebApi_AXSharp_Connector_ConnectorAdapterBuilder_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_Boolean_eTargetProjectPlatform_System_String_
+  commentId: M:AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder,System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.Boolean,eTargetProjectPlatform,System.String)
+  name.vb: CreateWebApi(ConnectorAdapterBuilder, String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
+  fullName: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, string, string, string, System.Func<System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  fullName.vb: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi(AXSharp.Connector.ConnectorAdapterBuilder, String, String, String, System.Func(Of System.Net.Http.HttpRequestMessage, System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
+  nameWithType: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, string, string, string, Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>?, bool, eTargetProjectPlatform, string)
+  nameWithType.vb: WebApiConnectorExtensions.CreateWebApi(ConnectorAdapterBuilder, String, String, String, Func(Of HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, Boolean), Boolean, eTargetProjectPlatform, String)
 - uid: AXSharp.Connector.WebApiConnectorExtensions.CreateWebApi*
   name: CreateWebApi
   href: api/AXSharp.Connector.WebApiConnectorExtensions.html#AXSharp_Connector_WebApiConnectorExtensions_CreateWebApi_
@@ -17098,12 +17576,12 @@ references:
   commentId: M:AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCallExpression,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   fullName: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCallExpression, AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   nameWithType: MyNodeVisitor.Visit(ISemanticCallExpression, IYamlBuiderVisitor)
-- uid: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelection,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
-  name: Visit(ISemanticCaseSelection, IYamlBuiderVisitor)
-  href: api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html#AXSharp_ixc_doc_Visitors_MyNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticCaseSelection_AXSharp_ixc_doc_Interfaces_IYamlBuiderVisitor_
-  commentId: M:AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelection,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
-  fullName: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelection, AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
-  nameWithType: MyNodeVisitor.Visit(ISemanticCaseSelection, IYamlBuiderVisitor)
+- uid: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  name: Visit(ISemanticCaseSelectionStatement, IYamlBuiderVisitor)
+  href: api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html#AXSharp_ixc_doc_Visitors_MyNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticCaseSelectionStatement_AXSharp_ixc_doc_Interfaces_IYamlBuiderVisitor_
+  commentId: M:AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  fullName: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseSelectionStatement, AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  nameWithType: MyNodeVisitor.Visit(ISemanticCaseSelectionStatement, IYamlBuiderVisitor)
 - uid: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticCaseStatement,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   name: Visit(ISemanticCaseStatement, IYamlBuiderVisitor)
   href: api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html#AXSharp_ixc_doc_Visitors_MyNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticCaseStatement_AXSharp_ixc_doc_Interfaces_IYamlBuiderVisitor_
@@ -17122,6 +17600,12 @@ references:
   commentId: M:AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticContinueInstruction,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   fullName: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticContinueInstruction, AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   nameWithType: MyNodeVisitor.Visit(ISemanticContinueInstruction, IYamlBuiderVisitor)
+- uid: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  name: Visit(ISemanticEmptyInstruction, IYamlBuiderVisitor)
+  href: api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html#AXSharp_ixc_doc_Visitors_MyNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticEmptyInstruction_AXSharp_ixc_doc_Interfaces_IYamlBuiderVisitor_
+  commentId: M:AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  fullName: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticEmptyInstruction, AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
+  nameWithType: MyNodeVisitor.Visit(ISemanticEmptyInstruction, IYamlBuiderVisitor)
 - uid: AXSharp.ixc_doc.Visitors.MyNodeVisitor.Visit(AX.ST.Semantic.Model.ISemanticExitInstruction,AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor)
   name: Visit(ISemanticExitInstruction, IYamlBuiderVisitor)
   href: api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html#AXSharp_ixc_doc_Visitors_MyNodeVisitor_Visit_AX_ST_Semantic_Model_ISemanticExitInstruction_AXSharp_ixc_doc_Interfaces_IYamlBuiderVisitor_
@@ -17958,6 +18442,23 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase(Of T).Component
   nameWithType: RenderableComplexComponentBase<T>.Component
   nameWithType.vb: RenderableComplexComponentBase(Of T).Component
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase`1.OnComponentChanged
+  name: OnComponentChanged()
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase-1.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComplexComponentBase_1_OnComponentChanged
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase`1.OnComponentChanged
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase<T>.OnComponentChanged()
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase(Of T).OnComponentChanged()
+  nameWithType: RenderableComplexComponentBase<T>.OnComponentChanged()
+  nameWithType.vb: RenderableComplexComponentBase(Of T).OnComponentChanged()
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase`1.OnComponentChanged*
+  name: OnComponentChanged
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase-1.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComplexComponentBase_1_OnComponentChanged_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase`1.OnComponentChanged
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase<T>.OnComponentChanged
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase(Of T).OnComponentChanged
+  nameWithType: RenderableComplexComponentBase<T>.OnComponentChanged
+  nameWithType.vb: RenderableComplexComponentBase(Of T).OnComponentChanged
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase
   name: RenderableComponentBase
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html
@@ -18080,6 +18581,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval
   nameWithType: RenderableComponentBase.PollingInterval
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer
+  name: RccContainer
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RccContainer
+  commentId: P:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer
+  nameWithType: RenderableComponentBase.RccContainer
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer*
+  name: RccContainer
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RccContainer_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer
+  nameWithType: RenderableComponentBase.RccContainer
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements
   name: RemovePolledElements()
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RemovePolledElements
@@ -18093,6 +18607,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements
   nameWithType: RenderableComponentBase.RemovePolledElements
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated(AXSharp.Connector.ITwinElement)
+  name: ShouldBeUpdated(ITwinElement)
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_ShouldBeUpdated_AXSharp_Connector_ITwinElement_
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated(AXSharp.Connector.ITwinElement)
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated(AXSharp.Connector.ITwinElement)
+  nameWithType: RenderableComponentBase.ShouldBeUpdated(ITwinElement)
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated*
+  name: ShouldBeUpdated
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_ShouldBeUpdated_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated
+  nameWithType: RenderableComponentBase.ShouldBeUpdated
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)
   name: UpdateShadowValuesOnChange(ITwinObject)
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_AXSharp_Connector_ITwinObject_
@@ -18212,6 +18739,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.Dispose
   nameWithType: RenderableContentControl.Dispose
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender
+  name: ForceRender()
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ForceRender
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender()
+  nameWithType: RenderableContentControl.ForceRender()
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender*
+  name: ForceRender
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ForceRender_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ForceRender
+  nameWithType: RenderableContentControl.ForceRender
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.LayoutChildrenClass
   name: LayoutChildrenClass
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_LayoutChildrenClass
@@ -18251,6 +18791,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.MainLayoutType
   nameWithType: RenderableContentControl.MainLayoutType
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged
+  name: OnContextChanged()
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_OnContextChanged
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged()
+  nameWithType: RenderableContentControl.OnContextChanged()
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged*
+  name: OnContextChanged
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_OnContextChanged_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnContextChanged
+  nameWithType: RenderableContentControl.OnContextChanged
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnInitialized
   name: OnInitialized()
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_OnInitialized
@@ -18277,6 +18830,32 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnParametersSet
   nameWithType: RenderableContentControl.OnParametersSet
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged
+  name: OnPresentationChanged()
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_OnPresentationChanged
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged()
+  nameWithType: RenderableContentControl.OnPresentationChanged()
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged*
+  name: OnPresentationChanged
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_OnPresentationChanged_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.OnPresentationChanged
+  nameWithType: RenderableContentControl.OnPresentationChanged
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer
+  name: ParentContainer
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ParentContainer
+  commentId: P:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer
+  nameWithType: RenderableContentControl.ParentContainer
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer*
+  name: ParentContainer
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ParentContainer_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ParentContainer
+  nameWithType: RenderableContentControl.ParentContainer
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PollingInterval
   name: PollingInterval
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_PollingInterval
@@ -18303,6 +18882,32 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.Presentation
   nameWithType: RenderableContentControl.Presentation
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate
+  name: PresentationTemplate
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_PresentationTemplate
+  commentId: P:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate
+  nameWithType: RenderableContentControl.PresentationTemplate
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate*
+  name: PresentationTemplate
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_PresentationTemplate_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.PresentationTemplate
+  nameWithType: RenderableContentControl.PresentationTemplate
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender
+  name: ShouldRender()
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ShouldRender
+  commentId: M:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender()
+  nameWithType: RenderableContentControl.ShouldRender()
+- uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender*
+  name: ShouldRender
+  href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableContentControl_ShouldRender_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.ShouldRender
+  nameWithType: RenderableContentControl.ShouldRender
 - uid: AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableViewModelComponentBase`1
   name: RenderableViewModelComponentBase<T>
   href: api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableViewModelComponentBase-1.html
@@ -18532,6 +19137,23 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).IsReadOnly
   nameWithType: TemplateBase<T>.IsReadOnly
   nameWithType.vb: TemplateBase(Of T).IsReadOnly
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.JSRuntime
+  name: JSRuntime
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_JSRuntime
+  commentId: P:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.JSRuntime
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase<T>.JSRuntime
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).JSRuntime
+  nameWithType: TemplateBase<T>.JSRuntime
+  nameWithType.vb: TemplateBase(Of T).JSRuntime
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.JSRuntime*
+  name: JSRuntime
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_JSRuntime_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.JSRuntime
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase<T>.JSRuntime
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).JSRuntime
+  nameWithType: TemplateBase<T>.JSRuntime
+  nameWithType.vb: TemplateBase(Of T).JSRuntime
 - uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.LastValue
   name: LastValue
   href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_LastValue
@@ -18583,6 +19205,23 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).Onliner
   nameWithType: TemplateBase<T>.Onliner
   nameWithType.vb: TemplateBase(Of T).Onliner
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.ToolTipText
+  name: ToolTipText
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_ToolTipText
+  commentId: P:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.ToolTipText
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase<T>.ToolTipText
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).ToolTipText
+  nameWithType: TemplateBase<T>.ToolTipText
+  nameWithType.vb: TemplateBase(Of T).ToolTipText
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.ToolTipText*
+  name: ToolTipText
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_ToolTipText_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.ToolTipText
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase<T>.ToolTipText
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase(Of T).ToolTipText
+  nameWithType: TemplateBase<T>.ToolTipText
+  nameWithType.vb: TemplateBase(Of T).ToolTipText
 - uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase`1.Value
   name: Value
   href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBase_1_Value
@@ -18626,6 +19265,23 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline(Of T).OnInitializedAsync
   nameWithType: TemplateBaseOnline<T>.OnInitializedAsync
   nameWithType.vb: TemplateBaseOnline(Of T).OnInitializedAsync
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline`1.ToolTipText
+  name: ToolTipText
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBaseOnline_1_ToolTipText
+  commentId: P:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline`1.ToolTipText
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline<T>.ToolTipText
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline(Of T).ToolTipText
+  nameWithType: TemplateBaseOnline<T>.ToolTipText
+  nameWithType.vb: TemplateBaseOnline(Of T).ToolTipText
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline`1.ToolTipText*
+  name: ToolTipText
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBaseOnline_1_ToolTipText_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline`1.ToolTipText
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline<T>.ToolTipText
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline(Of T).ToolTipText
+  nameWithType: TemplateBaseOnline<T>.ToolTipText
+  nameWithType.vb: TemplateBaseOnline(Of T).ToolTipText
 - uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow`1
   name: TemplateBaseShadow<T>
   href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow-1.html
@@ -18652,6 +19308,23 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow(Of T).OnInitializedAsync
   nameWithType: TemplateBaseShadow<T>.OnInitializedAsync
   nameWithType.vb: TemplateBaseShadow(Of T).OnInitializedAsync
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow`1.Onliner
+  name: Onliner
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBaseShadow_1_Onliner
+  commentId: P:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow`1.Onliner
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow<T>.Onliner
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow(Of T).Onliner
+  nameWithType: TemplateBaseShadow<T>.Onliner
+  nameWithType.vb: TemplateBaseShadow(Of T).Onliner
+- uid: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow`1.Onliner*
+  name: Onliner
+  href: api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow-1.html#AXSharp_Presentation_Blazor_Controls_Templates_TemplateBaseShadow_1_Onliner_
+  commentId: Overload:AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow`1.Onliner
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow<T>.Onliner
+  fullName.vb: AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow(Of T).Onliner
+  nameWithType: TemplateBaseShadow<T>.Onliner
+  nameWithType.vb: TemplateBaseShadow(Of T).Onliner
 - uid: AXSharp.Presentation.Blazor.EnumToIntConverter
   name: EnumToIntConverter
   href: api/AXSharp.Presentation.Blazor.EnumToIntConverter.html
@@ -18997,6 +19670,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Presentation.Blazor.Services.AttributesHandler.GetPropertyViaSymbol
   nameWithType: AttributesHandler.GetPropertyViaSymbol
+- uid: AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute(AXSharp.Connector.ITwinElement)
+  name: GetRenderTemplateOverrideAttribute(ITwinElement)
+  href: api/AXSharp.Presentation.Blazor.Services.AttributesHandler.html#AXSharp_Presentation_Blazor_Services_AttributesHandler_GetRenderTemplateOverrideAttribute_AXSharp_Connector_ITwinElement_
+  commentId: M:AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute(AXSharp.Connector.ITwinElement)
+  fullName: AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute(AXSharp.Connector.ITwinElement)
+  nameWithType: AttributesHandler.GetRenderTemplateOverrideAttribute(ITwinElement)
+- uid: AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute*
+  name: GetRenderTemplateOverrideAttribute
+  href: api/AXSharp.Presentation.Blazor.Services.AttributesHandler.html#AXSharp_Presentation_Blazor_Services_AttributesHandler_GetRenderTemplateOverrideAttribute_
+  commentId: Overload:AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Services.AttributesHandler.GetRenderTemplateOverrideAttribute
+  nameWithType: AttributesHandler.GetRenderTemplateOverrideAttribute
 - uid: AXSharp.Presentation.Blazor.Services.ComponentService
   name: ComponentService
   href: api/AXSharp.Presentation.Blazor.Services.ComponentService.html
@@ -19022,6 +19708,19 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.Services.ComponentService.New
   nameWithType: ComponentService.ComponentService
   nameWithType.vb: ComponentService.New
+- uid: AXSharp.Presentation.Blazor.Services.ComponentService.Components
+  name: Components
+  href: api/AXSharp.Presentation.Blazor.Services.ComponentService.html#AXSharp_Presentation_Blazor_Services_ComponentService_Components
+  commentId: P:AXSharp.Presentation.Blazor.Services.ComponentService.Components
+  fullName: AXSharp.Presentation.Blazor.Services.ComponentService.Components
+  nameWithType: ComponentService.Components
+- uid: AXSharp.Presentation.Blazor.Services.ComponentService.Components*
+  name: Components
+  href: api/AXSharp.Presentation.Blazor.Services.ComponentService.html#AXSharp_Presentation_Blazor_Services_ComponentService_Components_
+  commentId: Overload:AXSharp.Presentation.Blazor.Services.ComponentService.Components
+  isSpec: "True"
+  fullName: AXSharp.Presentation.Blazor.Services.ComponentService.Components
+  nameWithType: ComponentService.Components
 - uid: AXSharp.Presentation.Blazor.Services.ComponentService.GetComponent(System.String)
   name: GetComponent(string)
   href: api/AXSharp.Presentation.Blazor.Services.ComponentService.html#AXSharp_Presentation_Blazor_Services_ComponentService_GetComponent_System_String_
@@ -19597,6 +20296,22 @@ references:
   isSpec: "True"
   fullName: AXSharp.TIA2AXSharp.TIATwinObject.AddValueTag
   nameWithType: TIATwinObject.AddValueTag
+- uid: AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync*
+  name: AnyChangeAsync
+  href: api/AXSharp.TIA2AXSharp.TIATwinObject.html#AXSharp_TIA2AXSharp_TIATwinObject_AnyChangeAsync_
+  commentId: Overload:AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync
+  isSpec: "True"
+  fullName: AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync
+  nameWithType: TIATwinObject.AnyChangeAsync
+- uid: AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync``1(``0)
+  name: AnyChangeAsync<T>(T)
+  href: api/AXSharp.TIA2AXSharp.TIATwinObject.html#AXSharp_TIA2AXSharp_TIATwinObject_AnyChangeAsync__1___0_
+  commentId: M:AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync``1(``0)
+  name.vb: AnyChangeAsync(Of T)(T)
+  fullName: AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync<T>(T)
+  fullName.vb: AXSharp.TIA2AXSharp.TIATwinObject.AnyChangeAsync(Of T)(T)
+  nameWithType: TIATwinObject.AnyChangeAsync<T>(T)
+  nameWithType.vb: TIATwinObject.AnyChangeAsync(Of T)(T)
 - uid: AXSharp.TIA2AXSharp.TIATwinObject.AttributeName
   name: AttributeName
   href: api/AXSharp.TIA2AXSharp.TIATwinObject.html#AXSharp_TIA2AXSharp_TIATwinObject_AttributeName
