@@ -25,7 +25,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         protected string ToolTipText => Onliner?.HumanReadable;
 
         [Parameter]
-        public OnlinerBase<T> Onliner { get; set; }
+        public virtual OnlinerBase<T> Onliner { get; set; }
 
         [Parameter]
         public bool IsReadOnly { get; set; }
@@ -59,7 +59,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         protected override Task OnInitializedAsync()
         {
             AccessStatus = Onliner.AccessStatus.Failure ? "is-invalid" : "";
-            ComponentId = Onliner.GetSymbolTail() + "_" + Guid.NewGuid().ToString();
+            ComponentId = Onliner.Symbol + "_" + Guid.NewGuid().ToString();
             return base.OnInitializedAsync();
         }
     }
