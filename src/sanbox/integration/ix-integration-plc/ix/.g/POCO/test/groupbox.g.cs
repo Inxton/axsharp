@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class groupbox : AXSharp.Connector.IPlain
     {
+        public groupbox()
+        {
+        }
+
         public Int16 testInteger { get; set; }
 
         public Int16 testUInteger { get; set; }

@@ -6,6 +6,10 @@ namespace Pocos
     {
         public partial class Measurement : AXSharp.Connector.IPlain
         {
+            public Measurement()
+            {
+            }
+
             public Single Min { get; set; }
 
             public Single Acquired { get; set; }
@@ -17,6 +21,10 @@ namespace Pocos
 
         public partial class Measurements : AXSharp.Connector.IPlain
         {
+            public Measurements()
+            {
+            }
+
             public MeasurementExample.Measurement measurement_stack { get; set; } = new MeasurementExample.Measurement();
             public MeasurementExample.Measurement measurement_wrap { get; set; } = new MeasurementExample.Measurement();
             public MeasurementExample.Measurement measurement_grid { get; set; } = new MeasurementExample.Measurement();

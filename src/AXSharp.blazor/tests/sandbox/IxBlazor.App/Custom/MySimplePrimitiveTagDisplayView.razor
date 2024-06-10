@@ -1,0 +1,22 @@
+﻿@namespace ixBlazor.App.Custom
+@inherits RenderableComponentBase
+@using AXSharp.Connector.ValueTypes;
+    
+<div class="w-100 form-group">
+    <div>
+        <h1>tested primitive tag</h1>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public ITwinPrimitive Onliner { get; set; }
+    [Parameter]
+    public bool IsReadOnly { get; set; }
+
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Onliner);
+    }
+}

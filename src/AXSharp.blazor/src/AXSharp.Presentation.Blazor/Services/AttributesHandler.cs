@@ -79,6 +79,37 @@ namespace AXSharp.Presentation.Blazor.Services
             return null;
         }
 
+        public RenderTemplateOverrideAttribute GetRenderTemplateOverrideAttribute(ITwinElement twinObject)
+        {
+            if (twinObject == null) return null;
+
+            try
+            {
+                var propertyInfo = GetPropertyViaSymbol(twinObject);
+                if (propertyInfo != null)
+                {
+                    if (propertyInfo
+                            .GetCustomAttributes().FirstOrDefault(p => p is RenderTemplateOverrideAttribute) is RenderTemplateOverrideAttribute propertyAttribute)
+                    {
+                        return propertyAttribute;
+                    }
+                }
+
+                var typeAttribute = twinObject
+                    .GetType()
+                    .GetCustomAttributes(true)
+                    .FirstOrDefault(p => p is RenderTemplateOverrideAttribute) as RenderTemplateOverrideAttribute;
+
+                return typeAttribute;
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+
+            return null;
+        }
+
         public PropertyInfo GetPropertyViaSymbol(ITwinElement twinObject)
         {
             if (twinObject == null) return null;

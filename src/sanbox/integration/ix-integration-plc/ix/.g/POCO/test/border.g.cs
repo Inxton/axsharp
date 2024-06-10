@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class border : AXSharp.Connector.IPlain
     {
+        public border()
+        {
+        }
+
         public Int16 testInteger { get; set; }
 
         public Int16 testUInteger { get; set; }

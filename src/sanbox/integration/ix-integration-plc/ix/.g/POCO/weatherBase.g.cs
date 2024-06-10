@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class weatherBase : AXSharp.Connector.IPlain
     {
+        public weatherBase()
+        {
+        }
+
         public Single Latitude { get; set; }
 
         public Single Longitude { get; set; }

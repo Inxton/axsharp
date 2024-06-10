@@ -22,6 +22,12 @@ CLASS testingProgram
         testMultipleNested: stTestMultipleNested;
 
         testLayouts : stTestLayouts;
+
+        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        testRenderTemplateOverrideStruct : stSimplePrimitive;
+
+        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        testRenderTemplateOverrideTag : WORD;
     END_VAR
     
 END_CLASS

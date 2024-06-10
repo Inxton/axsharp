@@ -4,6 +4,10 @@ namespace Pocos
 {
     public partial class test_primitive : AXSharp.Connector.IPlain
     {
+        public test_primitive()
+        {
+        }
+
         public Int16 testInteger { get; set; }
 
         public Int16 testUInteger { get; set; }
