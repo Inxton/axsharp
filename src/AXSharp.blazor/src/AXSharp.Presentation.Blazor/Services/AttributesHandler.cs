@@ -79,7 +79,7 @@ namespace AXSharp.Presentation.Blazor.Services
             return null;
         }
 
-        public PresentationBaseAttribute GetPresentationBaseAttribute(ITwinElement twinObject)
+        public RenderTemplateOverrideAttribute GetRenderTemplateOverrideAttribute(ITwinElement twinObject)
         {
             if (twinObject == null) return null;
 
@@ -89,7 +89,7 @@ namespace AXSharp.Presentation.Blazor.Services
                 if (propertyInfo != null)
                 {
                     if (propertyInfo
-                            .GetCustomAttributes().FirstOrDefault(p => p is PresentationBaseAttribute) is PresentationBaseAttribute propertyAttribute)
+                            .GetCustomAttributes().FirstOrDefault(p => p is RenderTemplateOverrideAttribute) is RenderTemplateOverrideAttribute propertyAttribute)
                     {
                         return propertyAttribute;
                     }
@@ -98,7 +98,7 @@ namespace AXSharp.Presentation.Blazor.Services
                 var typeAttribute = twinObject
                     .GetType()
                     .GetCustomAttributes(true)
-                    .FirstOrDefault(p => p is PresentationBaseAttribute) as PresentationBaseAttribute;
+                    .FirstOrDefault(p => p is RenderTemplateOverrideAttribute) as RenderTemplateOverrideAttribute;
 
                 return typeAttribute;
             }

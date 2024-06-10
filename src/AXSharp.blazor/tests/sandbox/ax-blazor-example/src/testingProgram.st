@@ -23,11 +23,11 @@ CLASS testingProgram
 
         testLayouts : stTestLayouts;
 
-        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
-        testPresentationBaseStruct : stSimplePrimitive;
+        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        testRenderTemplateOverrideStruct : stSimplePrimitive;
 
-        {#ix-attr:[PresentationBaseAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
-        testPresentationBaseTag : WORD;
+        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        testRenderTemplateOverrideTag : WORD;
     END_VAR
     
 END_CLASS

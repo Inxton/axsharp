@@ -8,15 +8,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-public class PresentationBaseAttribute : Attribute
+public class RenderTemplateOverrideAttribute : Attribute
 {
 
-    public PresentationBaseAttribute(string presentationBaseName)
+    public RenderTemplateOverrideAttribute(string templateOverrideName)
     {
-        this.PresentationBaseName = presentationBaseName;
+        this.TemplateOverrideName = templateOverrideName;
     }
 
-    public string PresentationBaseName { get; protected set; }
+    public string TemplateOverrideName { get; protected set; }
 
 }
 

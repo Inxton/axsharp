@@ -17,19 +17,19 @@
         if (element == null)
             return;
 
-        var overrideAttribute = AttributesHandler.GetPresentationBaseAttribute(element);
+        var overrideAttribute = AttributesHandler.GetRenderTemplateOverrideAttribute(element);
 
         if (overrideAttribute != null)
         {
 
-            if (!string.IsNullOrWhiteSpace(overrideAttribute.PresentationBaseName))
+            if (!string.IsNullOrWhiteSpace(overrideAttribute.TemplateOverrideName))
             {
                 var presentation = GetDisplayPresentationIfEmpty();
                 var pipeline = presentation.Split('-');
 
                 foreach (var item in pipeline) // apply pipeline
                 {
-                    string fullPresentationType = overrideAttribute.PresentationBaseName + GetDisplayPresentationIfEmpty() + "View";
+                    string fullPresentationType = overrideAttribute.TemplateOverrideName + GetDisplayPresentationIfEmpty() + "View";
                     var tcomponent = ComponentService.GetComponent(fullPresentationType);
 
                     if (tcomponent != null)

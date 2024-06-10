@@ -522,15 +522,15 @@ namespace AXSharp.RenderableContent.Tests
         //}
 
         [Fact]
-        public void Render_stTestPresentationBaseAttributeStruct_Success()
+        public void Render_stTestRenderTemplateOverrideAttributeStruct_Success()
         {
-            Compare("stTestPresentationBaseStruct.html", _fixture.Connector.testingProgram.testPresentationBaseStruct, "Display");
+            Compare("stTestRenderTemplateOverrideStruct.html", _fixture.Connector.testingProgram.testRenderTemplateOverrideStruct, "Display");
         }
 
         [Fact]
-        public void Render_stTestPresentationBaseAttributeTag_Success()
+        public void Render_stTestRenderTemplateOverrideAttributeTag_Success()
         {
-            Compare("stTestPresentationBaseTag.html", _fixture.Connector.testingProgram.testPresentationBaseTag, "Display");
+            Compare("stTestRenderTemplateOverrideTag.html", _fixture.Connector.testingProgram.testRenderTemplateOverrideTag, "Display");
         }
     }
 }
