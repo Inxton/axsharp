@@ -1,11 +1,14 @@
-﻿<CascadingValue Value="this">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<CascadingValue Value="this">
     <ul class="nav nav-tabs mb-3">
         @foreach (TabPage tabPage in Pages)
         {
         <li class="nav-item">
             <button type="button"
                     class="@GetButtonClass(tabPage)"
-                    @onclick=@( () => ActivatePage(tabPage) )>
+                    @onclick=@( () => ActivatePageAsync(tabPage) )>
                 <b> @tabPage.Text</b>
             </button>
         </li>
@@ -35,8 +38,11 @@
         return page == ActivePage ? "nav-link active" : "nav-link";
     }
 
-    void ActivatePage(TabPage page)
+    async Task ActivatePageAsync(TabPage page)
     {
         ActivePage = page;
+
+        var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/js/addToolTipsAndPopOvers.js");
+        await module.InvokeVoidAsync("addToolTipsAndPopOvers");
     }
 }
