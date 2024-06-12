@@ -133,7 +133,6 @@ Primitive types are generated in **Control** presentation type whereas IxCompone
 
 ### **RenderIgnore and custom labels**
 
-
 Thanks to the support of custom attributes in the PLC code you can specify, which elements you want to exclude from rendering. You can also set custom names for each element. See the example below.
 
 Let's have the following PLC code with attributes:
@@ -171,6 +170,17 @@ It is possible to ignore properties only in specific presentation types:
 testIxComponent: IxComponent;
 ```
 <div id='id-editprop'/>
+
+### **RenderTemplateOverride**
+
+You can use the RenderTemplateOverride attribute to override the generated template. This attribute replaces the generated template with the template you specified.
+
+When you specifying a template name, it is necessary to include the full name with a namespace.
+
+```
+{#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+testRenderTemplateOverrideStruct : stSimplePrimitive;
+```
 
 ### **Edit Property**
 

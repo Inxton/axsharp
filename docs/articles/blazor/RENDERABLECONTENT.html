@@ -226,6 +226,12 @@ END_CLASS
 testIxComponent: IxComponent;
 </code></pre>
 <div id='id-editprop'></div>
+<h3 id="rendertemplateoverride"><strong>RenderTemplateOverride</strong></h3>
+<p>You can use the RenderTemplateOverride attribute to override the generated template. This attribute replaces the generated template with the template you specified.</p>
+<p>When you specifying a template name, it is necessary to include the full name with a namespace.</p>
+<pre><code>{#ix-attr:[RenderTemplateOverride(&quot;ixBlazor.App.Custom.MySimplePrimitiveStruct&quot;)]}
+testRenderTemplateOverrideStruct : stSimplePrimitive;
+</code></pre>
 <h3 id="edit-property"><strong>Edit Property</strong></h3>
 <p>Then renderer binds variables to <code>Cyclic</code> or <code>Edit</code> property of an Onliner. When an element gets focus, value is bound to <code>Edit</code> property and UI updates stops. After the focus is lost, the value is bound back to <code>Cyclic</code> property and the value in the UI start updating again.</p>
 <p><img src="../../images/blazor/edit-property.gif" alt="alt text" title="Edit property"></p>

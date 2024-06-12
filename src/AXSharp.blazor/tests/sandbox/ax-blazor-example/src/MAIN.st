@@ -37,12 +37,12 @@ CLASS MAIN
         cu00: CU00x;
         cuBase: CUBase;
 
-        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
         OverridedSimpleStruct : stSimplePrimitive;
 
         InnerOverridedSimpleStruct : stRenderTemplateOverride;
 
-        {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
         OverridedSimpleTag : WORD;
 
     END_VAR
