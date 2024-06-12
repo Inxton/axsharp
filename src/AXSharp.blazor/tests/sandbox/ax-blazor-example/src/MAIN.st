@@ -40,6 +40,8 @@ CLASS MAIN
         {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
         OverridedSimpleStruct : stSimplePrimitive;
 
+        InnerOverridedSimpleStruct : stRenderTemplateOverride;
+
         {#ix-attr:[RenderTemplateOverrideAttribute("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
         OverridedSimpleTag : WORD;
 

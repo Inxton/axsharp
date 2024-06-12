@@ -17,44 +17,6 @@
         if (element == null)
             return;
 
-        var overrideAttribute = AttributesHandler.GetRenderTemplateOverrideAttribute(element);
-
-        if (overrideAttribute != null)
-        {
-
-            if (!string.IsNullOrWhiteSpace(overrideAttribute.TemplateOverrideName))
-            {
-                var presentation = GetDisplayPresentationIfEmpty();
-                var pipeline = presentation.Split('-');
-
-                foreach (var item in pipeline) // apply pipeline
-                {
-                    string fullPresentationType = overrideAttribute.TemplateOverrideName + GetDisplayPresentationIfEmpty() + "View";
-                    var tcomponent = ComponentService.GetComponent(fullPresentationType);
-
-                    if (tcomponent != null)
-                    {
-                        if (element is ITwinPrimitive)
-                        {
-                            @CreatePrimitiveComponent((ITwinPrimitive)element, tcomponent)
-                            ;
-                            return;
-                        }
-                        if (element is ITwinObject)
-                        {
-                            @CreateComplexComponent((ITwinObject)element, tcomponent)
-                            ;
-                            return;
-                        }
-
-                    }
-                }
-
-            }
-
-        }
-
-
         // if it is primitive type, just generate
         if (element is ITwinPrimitive)
         {
@@ -161,7 +123,6 @@
 
     private RenderFragment Generator(ITwinElement kid, Type layout) => __builder =>
     {
-
         if (IsEnumerator(kid))
         {
             var enumDiscriminatorAttribute = AttributesHandler.GetEnumeratorDiscriminatorAttribute(kid);
@@ -177,7 +138,6 @@
             ITwinObject complexKid = (ITwinObject)kid;
             @GenerateComplex(complexKid, layout)
         }
-
     };
 
     private RenderFragment GenerateComplex(ITwinObject twin, Type layout) => __builder =>

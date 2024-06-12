@@ -216,7 +216,6 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
 
         internal IRenderableComponent ViewLocatorBuilder(Type twinType, ITwinElement twin, string presentationType, string presentationTemplate = null)
         {
-
             if (!string.IsNullOrWhiteSpace(presentationTemplate))
             {
                 return ComponentService.GetComponent(presentationTemplate);
@@ -236,12 +235,27 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             {
                 var presentationName = item;
                 if (presentationName.ToLower() == "base") presentationName = "";
-                // try to find component view
-                var component = GetComponent(twinType, twin, presentationName, namespc);
-                if (component == null)
+
+                IRenderableComponent component = null;
+
+                var overrideAttribute = AttributesHandler.GetRenderTemplateOverrideAttribute(twin);
+
+                if (overrideAttribute != null && !string.IsNullOrWhiteSpace(overrideAttribute.TemplateOverrideName))
                 {
-                    //if not found, look at predecessor
-                    component = ViewLocatorBuilder(twinType.BaseType, twin, presentationName, PresentationTemplate);
+                    // try to find override template component view
+                    var buildedComponentName = $"{overrideAttribute.TemplateOverrideName}{presentationName}View";
+                    component = ComponentService.GetComponent(buildedComponentName);
+                    SubscribeForPolling(component, twin);
+                }
+                if(component == null) // if not set and foun override template
+                {
+                    // try to find component view
+                    component = GetComponent(twinType, twin, presentationName, namespc);
+                    if (component == null)
+                    {
+                        //if not found, look at predecessor
+                        component = ViewLocatorBuilder(twinType.BaseType, twin, presentationName, PresentationTemplate);
+                    }
                 }
 
                 if (component != null)
