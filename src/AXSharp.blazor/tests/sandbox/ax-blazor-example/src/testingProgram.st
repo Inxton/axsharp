@@ -24,10 +24,12 @@ CLASS testingProgram
         testLayouts : stTestLayouts;
 
         {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
-        testRenderTemplateOverrideStruct : stSimplePrimitive;
+        testRenderOverridedSimpleStruct : stSimplePrimitive;
+
+        testRenderInnerOverridedStruct : stRenderTemplateOverride;
 
         {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
-        testRenderTemplateOverrideTag : WORD;
+        testRenderOverridedTag : WORD;
     END_VAR
     
 END_CLASS
