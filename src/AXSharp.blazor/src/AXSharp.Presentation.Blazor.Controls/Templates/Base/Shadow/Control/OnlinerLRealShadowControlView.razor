@@ -3,7 +3,7 @@
 @inherits TemplateBaseOnline<Double>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName</label>
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <input id="@ComponentId"
            readonly="@IsReadOnly"
            class="w-100 form-control @AccessStatus"
