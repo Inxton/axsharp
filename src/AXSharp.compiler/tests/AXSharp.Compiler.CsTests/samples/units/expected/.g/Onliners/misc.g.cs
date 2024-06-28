@@ -705,6 +705,8 @@ namespace misc
     {
         public OnlinerBool isRunning { get; }
 
+        partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+        partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         public Motor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             this.@SymbolTail = symbolTail;
@@ -712,9 +714,11 @@ namespace misc
             this.@Parent = parent;
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+            PreConstruct(parent, readableTail, symbolTail);
             isRunning = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this, "isRunning", "isRunning");
             parent.AddChild(this);
             parent.AddKid(this);
+            PostConstruct(parent, readableTail, symbolTail);
         }
 
         public async virtual Task<T> OnlineToPlain<T>()
@@ -911,6 +915,8 @@ namespace misc
 
         public OnlinerInt displacement { get; }
 
+        partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+        partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         public Vehicle(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             this.@SymbolTail = symbolTail;
@@ -918,10 +924,12 @@ namespace misc
             this.@Parent = parent;
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+            PreConstruct(parent, readableTail, symbolTail);
             m = new misc.Motor(this, "m", "m");
             displacement = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "displacement", "displacement");
             parent.AddChild(this);
             parent.AddKid(this);
+            PostConstruct(parent, readableTail, symbolTail);
         }
 
         public async virtual Task<T> OnlineToPlain<T>()

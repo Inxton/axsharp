@@ -261,6 +261,8 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
 {
     public struct2 s2 { get; }
 
+    partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public struct1(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
@@ -268,9 +270,11 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+        PreConstruct(parent, readableTail, symbolTail);
         s2 = new struct2(this, "s2", "s2");
         parent.AddChild(this);
         parent.AddKid(this);
+        PostConstruct(parent, readableTail, symbolTail);
     }
 
     public async virtual Task<T> OnlineToPlain<T>()
@@ -471,6 +475,8 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
 {
     public struct3 s3 { get; }
 
+    partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public struct2(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
@@ -478,9 +484,11 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+        PreConstruct(parent, readableTail, symbolTail);
         s3 = new struct3(this, "s3", "s3");
         parent.AddChild(this);
         parent.AddKid(this);
+        PostConstruct(parent, readableTail, symbolTail);
     }
 
     public async virtual Task<T> OnlineToPlain<T>()
@@ -681,6 +689,8 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
 {
     public struct4 s4 { get; }
 
+    partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public struct3(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
@@ -688,9 +698,11 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+        PreConstruct(parent, readableTail, symbolTail);
         s4 = new struct4(this, "s4", "s4");
         parent.AddChild(this);
         parent.AddKid(this);
+        PostConstruct(parent, readableTail, symbolTail);
     }
 
     public async virtual Task<T> OnlineToPlain<T>()
@@ -891,6 +903,8 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
 {
     public OnlinerInt s5 { get; }
 
+    partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public struct4(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
@@ -898,9 +912,11 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+        PreConstruct(parent, readableTail, symbolTail);
         s5 = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "s5", "s5");
         parent.AddChild(this);
         parent.AddKid(this);
+        PostConstruct(parent, readableTail, symbolTail);
     }
 
     public async virtual Task<T> OnlineToPlain<T>()
