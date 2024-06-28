@@ -201,9 +201,13 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 			HumanReadable = {typeof(Connector.Connector).n()}.CreateHumanReadable(parent.HumanReadable, readableTail);
             Symbol = {typeof(Connector.Connector).n()}.CreateSymbol(parent.Symbol, symbolTail);");
 
+        builder.AddToSource(@$"PreConstruct(parent, readableTail, symbolTail);");
+
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
         builder.AddToSource("parent.AddChild(this);");
         builder.AddToSource("parent.AddKid(this);");
+
+        builder.AddToSource(@$"PostConstruct(parent, readableTail, symbolTail);");
 
         builder.AddToSource("}");
 
