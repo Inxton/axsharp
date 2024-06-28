@@ -28,6 +28,9 @@ namespace AXSharp.RenderableContent.Tests
            Services.AddSingleton<AttributesHandler>();
            Services.AddScoped<ViewModelCacheService>();
            _projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+            JSInterop.SetupModule("/_content/AXSharp.Presentation.Blazor.Controls/js/addToolTipsAndPopOvers.js");
+            JSInterop.SetupModule("/_content/AXSharp.Presentation.Blazor.Controls/js/bootstrap.bundle.min.js");
         }
 
         private void Compare(string fileName, object twin, string presentation)
