@@ -196,6 +196,10 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
         var builder = new CsOnlinerMemberBuilder(sourceBuilder);
         builder.AddToSource(semantics.DeclareProperties());
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
+
+        builder.AddToSource(@$"partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+            partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);");
+
         return builder;
     }
 
