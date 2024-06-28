@@ -25,6 +25,8 @@
     public TabPage ActivePage { get; set; }
     List<TabPage> Pages = new List<TabPage>();
 
+    private IJSObjectReference? _module;
+
     internal void AddPage(TabPage tabPage)
     {
         Pages.Add(tabPage);
@@ -42,7 +44,15 @@
     {
         ActivePage = page;
 
-        var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/js/addToolTipsAndPopOvers.js");
-        await module.InvokeVoidAsync("addToolTipsAndPopOvers");
+        await _module.InvokeVoidAsync("addToolTipsAndPopOvers");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+            await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/_content/AXSharp.Presentation.Blazor.Controls/js/bootstrap.bundle.min.js");
+
+        if (_module == null)
+            _module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/_content/AXSharp.Presentation.Blazor.Controls/js/addToolTipsAndPopOvers.js");
     }
 }
