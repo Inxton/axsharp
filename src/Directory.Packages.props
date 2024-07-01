@@ -1,9 +1,11 @@
 <Project>
+
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
+
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
