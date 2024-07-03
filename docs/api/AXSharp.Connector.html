@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace AXSharp.Connector
- | System.Dynamic.ExpandoObject </title>
+    <title>Namespace AXSharp.Connector | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace AXSharp.Connector
- | System.Dynamic.ExpandoObject ">
+    <meta name="title" content="Namespace AXSharp.Connector | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
     <link rel="shortcut icon" href="../images/favicon.ico">
@@ -80,26 +78,24 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="AXSharp.Connector">
 
-  <h1 id="AXSharp_Connector" data-uid="AXSharp.Connector" class="text-break">Namespace AXSharp.Connector
-</h1>
+  <h1 id="AXSharp_Connector" data-uid="AXSharp.Connector" class="text-break">Namespace AXSharp.Connector</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+    <h3 id="classes">
+Classes
 </h3>
       <h4><a class="xref" href="AXSharp.Connector.CompilerOmitsAttribute.html">CompilerOmitsAttribute</a></h4>
       <section><p>Prevents ixc builder to create a member for specific group of output type (Shadow, Plain, Onliner).</p>
-<div class="NOTE"><h5>note</h5><p>This attribute must be declared in the PLC code to be effective during build process.</p></div>
-<example>
+<div class="NOTE"><h5>note</h5><p>This attribute must be declared in the PLC code to be effective during build process.</p></div><example>
     This example demonstrates how to prevent the ixc builder to compile specific property into specific output
     group.
-<pre><code>// This will not compile to &apos;omitsInPlainString&apos; member into respective &apos;Plain&apos; type.
-{#ix-attr:[CompilerOmits(CompilerOmissionGroups.BuilderPlainer))]} 
-ommitsInPlainString : STRING(50) := &apos;THIS IS OMMITED IN PLAINER&apos;;     
-// This will not compile to &apos;ommitsInPlainAndShadowerInterfaceString&apos; member into respective &apos;Plain&apos; type and Shadow interface.
-{#ix-attr:[CompilerOmits(CompilerOmissionGroups.BuilderPlainer, CompilerOmissionGroups.BuilderShadowerInterface))]} 
-ommitsInPlainAndShadowerInterfaceString : STRING(50) := &apos;THIS IS OMMITED IN PLAINER&apos;;     </code></pre>
-</example>
+    <pre><code class="lang-csharp">// This will not compile to 'omitsInPlainString' member into respective 'Plain' type.
+    {#ix-attr:[CompilerOmits(CompilerOmissionGroups.BuilderPlainer))]} 
+    ommitsInPlainString : STRING(50) := 'THIS IS OMMITED IN PLAINER';     
+    // This will not compile to 'ommitsInPlainAndShadowerInterfaceString' member into respective 'Plain' type and Shadow interface.
+    {#ix-attr:[CompilerOmits(CompilerOmissionGroups.BuilderPlainer, CompilerOmissionGroups.BuilderShadowerInterface))]} 
+    ommitsInPlainAndShadowerInterfaceString : STRING(50) := 'THIS IS OMMITED IN PLAINER';</code></pre></example>
 </section>
       <h4><a class="xref" href="AXSharp.Connector.ConcurrentSet-1.html">ConcurrentSet&lt;T&gt;</a></h4>
       <section><p>Concurent implementation HasSet comes from:<br>
@@ -130,17 +126,17 @@ ommitsInPlainAndShadowerInterfaceString : STRING(50) := &apos;THIS IS OMMITED IN
       <h4><a class="xref" href="AXSharp.Connector.EnumeratorDiscriminatorAttribute.html">EnumeratorDiscriminatorAttribute</a></h4>
       <section><p>Attribute provides information about the member being treated as enum.</p>
 </section>
-      <h4><a class="xref" href="AXSharp.Connector.IgnoreOnPocoOperation.html">IgnoreOnPocoOperation</a></h4>
-      <section><p>This attribute will prevent R/W operation on on given member or type, when performing operation with POCO objects.</p>
-</section>
-      <h4><a class="xref" href="AXSharp.Connector.IgnoreReflectionAttribute.html">IgnoreReflectionAttribute</a></h4>
-      <section><p>Indicates that the member should not be reflected within the ix framework.</p>
-</section>
       <h4><a class="xref" href="AXSharp.Connector.IPlainExtensions.html">IPlainExtensions</a></h4>
       <section><p>Provides a series of extension methods to work with POCO objects.</p>
 </section>
       <h4><a class="xref" href="AXSharp.Connector.ITwinController.html">ITwinController</a></h4>
       <section><p>Represents twin object for PLC controller.</p>
+</section>
+      <h4><a class="xref" href="AXSharp.Connector.IgnoreOnPocoOperation.html">IgnoreOnPocoOperation</a></h4>
+      <section><p>This attribute will prevent R/W operation on on given member or type, when performing operation with POCO objects.</p>
+</section>
+      <h4><a class="xref" href="AXSharp.Connector.IgnoreReflectionAttribute.html">IgnoreReflectionAttribute</a></h4>
+      <section><p>Indicates that the member should not be reflected within the ix framework.</p>
 </section>
       <h4><a class="xref" href="AXSharp.Connector.PrimitiveAccessStatus.html">PrimitiveAccessStatus</a></h4>
       <section><p>Provides information about access to a primitive item.</p>
@@ -153,27 +149,22 @@ of the application.</p>
 </section>
       <h4><a class="xref" href="AXSharp.Connector.ReadOnlyAttribute.html">ReadOnlyAttribute</a></h4>
       <section><p>Attribute allows to prevent writing to the members of twin connector.</p>
-<p>
-<a class="xref" href="AXSharp.Connector.ReadOnlyAttribute.html">ReadOnlyAttribute</a> can be declared for member of a FB, GVL or STRUCT.
-</p>
-<div class="NOTE"><h5>note</h5><p>
+<p><a class="xref" href="AXSharp.Connector.ReadOnlyAttribute.html">ReadOnlyAttribute</a> can be declared for member of a FB, GVL or STRUCT.
+</p><div class="NOTE"><h5>note</h5><p>
     This attribute is typically defined in the declaration section of PLC block and then
     trans-piled by ixc builder.
-</p></div>
-<div class="WARNING"><h5>warning</h5><p>
+</p></div><div class="WARNING"><h5>warning</h5><p>
     Use of <a class="xref" href="AXSharp.Connector.ReadOnlyAttribute.html">ReadOnlyAttribute</a> does not prevent the PLC program to write to the
     variable that declares this attribute.
-</p></div>
-<example>
+</p></div><example>
     This example demonstrates declaration of <a class="xref" href="AXSharp.Connector.ReadOnlyAttribute.html">ReadOnlyAttribute</a> on a member of a FB.
-<pre><code>FUNCTION_BLOCK fbSomeReadOnlyMembers 
-VAR
-    {#ix-attr:[ReadOnly()]]}
-    _nonWrittableItem : BOOL;       // Member is readonly for .net application.
-    {#ix-attr:[ReadOnly()]]}
-    _nonWrittableFunctionBlock : fbNonWrittable; // Member and its members are readonly for the .net application.
-END_VAR</code></pre>
-</example>
+    <pre><code class="lang-csharp">FUNCTION_BLOCK fbSomeReadOnlyMembers 
+    VAR
+        {#ix-attr:[ReadOnly()]]}
+        _nonWrittableItem : BOOL;       // Member is readonly for .net application.
+        {#ix-attr:[ReadOnly()]]}
+        _nonWrittableFunctionBlock : fbNonWrittable; // Member and its members are readonly for the .net application.
+    END_VAR</code></pre></example>
 </section>
       <h4><a class="xref" href="AXSharp.Connector.RootTwinObject.html">RootTwinObject</a></h4>
       <section><p>Object to represent the root TwinObject. Instance of this class is typically used as root for the connector object.</p>
@@ -190,7 +181,8 @@ END_VAR</code></pre>
       <h4><a class="xref" href="AXSharp.Connector.WebApiConnectorExtensions.html">WebApiConnectorExtensions</a></h4>
       <section><p>Provides extension methods for instantiating WebAPI connector.</p>
 </section>
-    <h3 id="interfaces">Interfaces
+    <h3 id="interfaces">
+Interfaces
 </h3>
       <h4><a class="xref" href="AXSharp.Connector.IPlain.html">IPlain</a></h4>
       <section><p>Basic abstraction for 'Plain' types.</p>
@@ -216,7 +208,8 @@ END_VAR</code></pre>
       <section><p>Basic abstraction for 'IShadow' types.</p>
 <div class="NOTE"><h5>note</h5><p>Implementation used in building process. Not to be declared by framework consumers.</p></div>
 </section>
-    <h3 id="enums">Enums
+    <h3 id="enums">
+Enums
 </h3>
       <h4><a class="xref" href="AXSharp.Connector.CommExceptionBehaviour.html">CommExceptionBehaviour</a></h4>
       <section><p>Specifies how the connector should behave when a communication exception occurs.</p>
@@ -228,6 +221,8 @@ for the omission.</p>
       <h4><a class="xref" href="AXSharp.Connector.ReadSubscriptionMode.html">ReadSubscriptionMode</a></h4>
       <section><p>Specifies how the variables should be subscribed to.</p>
 </section>
+
+
 </article>
           </div>
 
@@ -238,7 +233,7 @@ for the omission.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
