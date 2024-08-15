@@ -315,6 +315,12 @@ namespace {this.ProjectRootNamespace}
         if (compilerOptionsProjectFile != null)
         {
             var dependent = Path.Combine(this.AxSharpProject.OutputFolder, compilerOptionsProjectFile);
+
+            if (!File.Exists(dependent))
+            {
+                throw new Exception("Missing dependency file.");
+            }
+
             foreach (var dependency in dependencies)
             {
                
