@@ -83,10 +83,21 @@ public class CsProject : ITargetProject
     }
 
 
+    private string EnsureOutputFolder()
+    {
+        if (!Directory.Exists(AxSharpProject.OutputFolder))
+        {
+            Directory.CreateDirectory(AxSharpProject.OutputFolder);
+        }
+
+        return AxSharpProject.OutputFolder;
+    }
+
     private void EnsureCsProjFile()
     {
         if (AxSharpProject.AxProject.ProjectInfo.Name != null)
         {
+            EnsureOutputFolder();
             string expectedCsProjFileFullPath = string.Empty;
             string expectedCsProjFile = string.Empty;
             if (string.IsNullOrEmpty(this.AxSharpProject.CompilerOptions?.ProjectFile))
@@ -315,6 +326,12 @@ namespace {this.ProjectRootNamespace}
         if (compilerOptionsProjectFile != null)
         {
             var dependent = Path.Combine(this.AxSharpProject.OutputFolder, compilerOptionsProjectFile);
+
+            if (!File.Exists(dependent))
+            {
+                throw new Exception("Missing dependency file.");
+            }
+
             foreach (var dependency in dependencies)
             {
                
