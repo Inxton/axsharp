@@ -83,10 +83,21 @@ public class CsProject : ITargetProject
     }
 
 
+    private string EnsureOutputFolder()
+    {
+        if (!Directory.Exists(AxSharpProject.OutputFolder))
+        {
+            Directory.CreateDirectory(AxSharpProject.OutputFolder);
+        }
+
+        return AxSharpProject.OutputFolder;
+    }
+
     private void EnsureCsProjFile()
     {
         if (AxSharpProject.AxProject.ProjectInfo.Name != null)
         {
+            EnsureOutputFolder();
             string expectedCsProjFileFullPath = string.Empty;
             string expectedCsProjFile = string.Empty;
             if (string.IsNullOrEmpty(this.AxSharpProject.CompilerOptions?.ProjectFile))
