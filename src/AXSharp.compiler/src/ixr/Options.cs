@@ -31,5 +31,6 @@ namespace AXSharp.ixc_doc
         public bool NoDependencyUpdate { get; set; }
 
         public bool IgnoreS7Pragmas { get; set; }
+        public bool SkipDependencyCompilation { get; set; }
     }
 }
