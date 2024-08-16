@@ -53,6 +53,7 @@ public class AXSharpConfig : ICompilerOptions
     public bool NoDependencyUpdate { get; set; }
 
     public bool IgnoreS7Pragmas { get; set; }
+    public bool SkipDependencyCompilation { get; set; }
 
 
     /// <summary>
@@ -155,5 +156,6 @@ public class AXSharpConfig : ICompilerOptions
         fromConfig.ProjectFile = string.IsNullOrEmpty(newCompilerOptions.ProjectFile) ? fromConfig.ProjectFile : newCompilerOptions.ProjectFile;
         fromConfig.NoDependencyUpdate = newCompilerOptions.NoDependencyUpdate;
         fromConfig.IgnoreS7Pragmas = newCompilerOptions.IgnoreS7Pragmas;
+        fromConfig.SkipDependencyCompilation = newCompilerOptions.SkipDependencyCompilation;
     }
 }

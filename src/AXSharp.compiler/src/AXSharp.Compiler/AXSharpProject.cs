@@ -199,8 +199,11 @@ public class AXSharpProject : IAXSharpProject
         TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
         
         var referencedDependencies = TargetProject.LoadReferences();
-        
-        CompileProjectReferences(referencedDependencies);
+
+        if (!this.CompilerOptions.SkipDependencyCompilation)
+        {
+            CompileProjectReferences(referencedDependencies);
+        }
 
         var dependencyMetadata = referencedDependencies
             .Where(p => p.IsIxDependency)

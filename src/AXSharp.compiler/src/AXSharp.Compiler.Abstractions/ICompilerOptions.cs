@@ -16,4 +16,6 @@ public interface ICompilerOptions
     bool NoDependencyUpdate { get; set; }
 
     bool IgnoreS7Pragmas { get; set; }
+
+    bool SkipDependencyCompilation { get; set; }
 }
