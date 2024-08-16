@@ -23,7 +23,7 @@ internal class Options : ICompilerOptions
     public string? OutputProjectFolder { get; set; }
 
     [Option('b', "use-base-symbol", Required = false, Default = false,
-        HelpText = "Will use base symbol in inherited types")]
+        HelpText = "Will use base symbol in inherited types. Obsolete used in early versions of sld")]
     public bool UseBase { get; set; }
 
     [Option('p', "project-file", Required = false, Default = "",
@@ -31,11 +31,15 @@ internal class Options : ICompilerOptions
     public string? ProjectFile { get; set; }
 
     [Option('u', "no-dependency-update", Required = false, Default = false,
-        HelpText = "Prevent dependency of twins from apax")]
+        HelpText = "Prevent dependency of twins from apax to install")]
     public bool NoDependencyUpdate { get; set; }
 
     [Option('s', "no-s7-pragmas", Required = false, Default = false,
         HelpText = "Compiler ignores S7.Extern=ReadWrite & S7.Extern=ReadOnly. Compiles all types and members regardless comm settings.")]
     public bool IgnoreS7Pragmas { get; set; }
+
+    [Option('d', "skip-deps", Required = false, Default = false,
+        HelpText = "Instructs the compiler to skip dependencies compilation of referenced AX# project.")]
+    public bool SkipDependencyCompilation { get; set; }
 }
 
