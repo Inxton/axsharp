@@ -89,8 +89,11 @@ public class AXSharpProject : IAXSharpProject
 
         var projectSources = AxProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p).Result, source: p));
 
+        TargetProject.ProvisionProjectStructure();
+
         var refParseTrees = GetReferences();
 
+        
         var toCompile = refParseTrees.Concat(projectSources.Select(p => p.parseTree));
 
         var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
@@ -135,7 +138,7 @@ public class AXSharpProject : IAXSharpProject
             }
         }
 
-        TargetProject.ProvisionProjectStructure();
+        //TargetProject.ProvisionProjectStructure();
         GenerateMetadata(compilationResult.Compilation);
         TargetProject.GenerateResources();
         TargetProject.GenerateCompanionData();
@@ -193,16 +196,19 @@ public class AXSharpProject : IAXSharpProject
 
     private IEnumerable<ISyntaxTree> GetReferences()
     {
+        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
+        
         var referencedDependencies = TargetProject.LoadReferences();
+
+        if (!this.CompilerOptions.SkipDependencyCompilation)
+        {
+            CompileProjectReferences(referencedDependencies);
+        }
 
         var dependencyMetadata = referencedDependencies
             .Where(p => p.IsIxDependency)
             .Select(p => p.MetadataPath)
             .Select(p => JsonConvert.DeserializeObject<IEnumerable<string>>(File.ReadAllText(p)));
-
-
-        CompileProjectReferences(referencedDependencies);
-
 
         var refParseTrees = dependencyMetadata.SelectMany(p => p)
             .Select(s => STParser.ParseTextAsync(new StringText(s)).Result);
@@ -213,8 +219,7 @@ public class AXSharpProject : IAXSharpProject
     private static HashSet<string> compiled = new();
 
     private void CompileProjectReferences(IEnumerable<IReference> referencedDependencies)
-    {
-        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
+    {        
         foreach (var ixProjectReference in AxProject.AXSharpReferences.OfType<AXSharpConfig>())
         {
 

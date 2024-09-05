@@ -10,6 +10,7 @@
     },
     "ixc-simple-template": {
       "commandName": "Project",
+      
       "workingDirectory": "c:\\W\\Develop\\gh\\ix-ax\\_axopen\\axopen.templates\\axopen.template.simple\\ax"
     },
     "ixc-template-ref": {
@@ -32,10 +33,9 @@
       "commandName": "Project",
       "workingDirectory": "C:\\W\\Develop\\gh\\ix-ax\\_axopen\\axopen\\src\\traversals\\apax\\"
     },
-
     "axopen-data": {
       "commandName": "Project",
       "workingDirectory": "c:\\W\\Develop\\gh\\ix-ax\\_axopen\\axopen\\src\\data\\app\\"
-    }    
+    }
   }
 }

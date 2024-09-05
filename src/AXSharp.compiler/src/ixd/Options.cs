@@ -32,5 +32,6 @@ namespace AXSharp.ixc_doc
         public string? ProjectFile { get; set; }
 
         public bool IgnoreS7Pragmas { get; set; }
+        public bool SkipDependencyCompilation { get; set; }
     }
 }
