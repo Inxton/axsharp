@@ -142,7 +142,7 @@ System.Console.WriteLine(MainPlc.MAIN._length.AttributeUnits);
 AttributeMinimum is the default added member of all PrimitiveTwins within AXSharp. They are used to get or set the minimum value for the variable. By default, this attribute contains the minimal value of a given type.
 
 ~~~
-{#ix-set: AttributeMininum = 10.5f}
+{#ix-set: AttributeMinimum = 10.5f}
 _length : REAL;
 ~~~
 
