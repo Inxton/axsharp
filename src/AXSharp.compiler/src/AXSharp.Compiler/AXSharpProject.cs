@@ -97,7 +97,7 @@ public class AXSharpProject : IAXSharpProject
         var toCompile = refParseTrees.Concat(projectSources.Select(p => p.parseTree));
 
         var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
-        
+
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)
@@ -194,7 +194,7 @@ public class AXSharpProject : IAXSharpProject
         return folder;
     }
 
-    private IEnumerable<ISyntaxTree> GetReferences()
+    public IEnumerable<ISyntaxTree> GetReferences() 
     {
         TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
         
