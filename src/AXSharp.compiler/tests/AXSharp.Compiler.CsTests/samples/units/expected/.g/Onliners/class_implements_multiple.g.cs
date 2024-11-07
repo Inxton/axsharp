@@ -3,6 +3,7 @@ using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
 
 public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, IContext_Multiple, IObject_Multiple
 {

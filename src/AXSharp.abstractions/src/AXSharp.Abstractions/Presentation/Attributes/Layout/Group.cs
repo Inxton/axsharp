@@ -10,6 +10,8 @@ using System.Linq;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Presentation.Attributes;
 
+namespace AXSharp.Abstractions.Presentation;
+
 public class GroupAttribute : PresentationGroupAttribute
 {    
     /// <summary>Initializes a new instance of the <see cref="ContainerAttribute" /> class.</summary>

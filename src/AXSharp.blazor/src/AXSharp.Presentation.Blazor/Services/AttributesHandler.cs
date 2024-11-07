@@ -8,6 +8,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
 namespace AXSharp.Presentation.Blazor.Services
