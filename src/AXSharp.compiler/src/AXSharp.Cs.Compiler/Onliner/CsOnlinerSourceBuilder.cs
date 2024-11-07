@@ -54,6 +54,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource("using AXSharp.Connector.ValueTypes;");
         AddToSource("using System.Collections.Generic;");
         AddToSource("using AXSharp.Connector.Localizations;");
+        AddToSource("using AXSharp.Abstractions.Presentation;");
         foreach (var fileSyntaxUsingDirective in fileSyntax.UsingDirectives
                      .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
         {

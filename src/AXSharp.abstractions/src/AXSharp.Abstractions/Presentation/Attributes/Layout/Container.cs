@@ -9,6 +9,9 @@ using System;
 using System.Linq;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Presentation.Attributes;
+
+namespace AXSharp.Abstractions.Presentation;
+
 /// <summary>
 /// Provides description of the container that shall contain the controls for data items.
 /// </summary>

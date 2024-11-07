@@ -7,6 +7,8 @@
 
 using System;
 
+namespace AXSharp.Abstractions.Presentation;
+
 public class RenderAuthorizedAttribute : Attribute
 {
     public readonly string Permissions;

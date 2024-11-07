@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.19.3-336--IDEA-Layout-attributes-should-be-moved-to-a-dedicated-namespace-to-prevent-global-namespace-pollution-and-conflicts-with-other-platforms.233" />
+		<PackageReference Include="AXSharp.Connector" Version="0.19.3-336--IDEA-Layout-attributes-should-be-moved-to-a-dedicated-namespace-to-prevent-global-namespace-pollution-and-conflicts-with-other-platforms.233" />
+	</ItemGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+</Project>

@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
+namespace AXSharp.Abstractions.Presentation;
+
 [AttributeUsage(AttributeTargets.Property)]
 public class TimeFormatAttribute : Attribute
 {
