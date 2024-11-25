@@ -1,5 +1,6 @@
 NAMESPACE lib2
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC MyClass
         VAR PUBLIC
             MyString : STRING;

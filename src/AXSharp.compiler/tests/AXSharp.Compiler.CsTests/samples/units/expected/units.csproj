@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.19.3-336--IDEA-Layout-attributes-should-be-moved-to-a-dedicated-namespace-to-prevent-global-namespace-pollution-and-conflicts-with-other-platforms.233" />
-		<PackageReference Include="AXSharp.Connector" Version="0.19.3-336--IDEA-Layout-attributes-should-be-moved-to-a-dedicated-namespace-to-prevent-global-namespace-pollution-and-conflicts-with-other-platforms.233" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.19.3-alpha.233" />
+		<PackageReference Include="AXSharp.Connector" Version="0.19.3-alpha.233" />
 	</ItemGroup>
 
 	<ItemGroup>

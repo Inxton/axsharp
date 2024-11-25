@@ -1,5 +1,6 @@
 using System;
 using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
@@ -11,6 +12,7 @@ namespace Pocos
             {
             }
 
+            [CompilerOmitsAttribute("Onliner")]
             public CompilerOmmits.Complex _must_be_omitted_in_onliner { get; set; } = new CompilerOmmits.Complex();
             public Byte[] _primitive { get; set; } = new Byte[11];
         }

@@ -66,8 +66,13 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         {
             TypeCommAccessibility = eCommAccessibility.ReadOnly;
         }
-
+        
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
+
+        var classDeclarations = this.Compilation.GetSemanticTree().Classes
+            .Where(p => p.FullyQualifiedName == classDeclaration.GetQualifiedName());
+        AddToSource(classDeclaration.Pragmas.AddedPropertiesAsAttributes());
+        
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
 
         var isExtended = Compilation.GetSemanticTree().Types
@@ -109,6 +114,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         if (fieldDeclaration.IsMemberEligibleForTranspile(this))
         {
+            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+            AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
@@ -182,6 +189,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         AddToSource("using System;");
         AddToSource("using AXSharp.Abstractions.Presentation;");
+        AddToSource("using AXSharp.Connector;");
         
         foreach (var fileSyntaxUsingDirective in
                  fileSyntax.UsingDirectives
@@ -259,6 +267,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         if (fieldDeclaration.IsMemberEligibleForTranspile(this))
         {
+            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+            AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
