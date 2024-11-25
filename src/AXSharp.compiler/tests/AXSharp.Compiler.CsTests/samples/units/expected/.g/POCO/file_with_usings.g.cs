@@ -1,5 +1,6 @@
 using System;
 using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 using Pocos.FileWithUsingsSimpleFirstLevelNamespace;
 using Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified;
 using Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo;

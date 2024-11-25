@@ -11,6 +11,7 @@ using AX.ST.Semantic.Model.Declarations.Types;
 using AX.ST.Semantic.Pragmas;
 using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Pragmas.PragmaParser;
+using AXSharp.Connector;
 
 namespace AXSharp.Compiler.Cs;
 
@@ -40,6 +41,29 @@ public static class PragmaExtensions
                 .Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p).Product));
     }
 
+    public static string AddedPropertiesAsAttributes(this IEnumerable<IPragma> pragmas)
+    {
+        var properties =  pragmas.Where(p => 
+                p.Content.StartsWith(PRAGMA_PROPERTY_SET_SIGNATURE))
+            .Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p).Property);
+
+
+        var valueTuples = properties as (string PropertyName, string InitValue)[] ?? properties.ToArray();
+        if (valueTuples.Count() > 0)
+        {
+            var sb = new StringBuilder();
+            
+            foreach (var property in valueTuples)
+            {
+                sb.AppendLine($"[AXSharp.Connector.AddedPropertiesAttribute(\"{property.PropertyName}\", {property.InitValue})]\n");
+            }
+
+            return sb.ToString();
+        }
+        
+        return string.Empty;
+    }
+    
     /// <summary>
     ///     Produces property from list of ix pragmas declared on type declaration.
     /// </summary>
@@ -74,7 +98,7 @@ public static class PragmaExtensions
         return string.Join("\r\n",
             fieldDeclaration.Pragmas.Where(p => p.Content.StartsWith(PRAGMA_PROPERTY_SET_SIGNATURE)).Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p, fieldDeclaration).Product));
     }
-
+    
     public static VisitorProduct GetGenericAttributes(this ITypeDeclaration typeDeclaration)
     {
         return typeDeclaration.Pragmas

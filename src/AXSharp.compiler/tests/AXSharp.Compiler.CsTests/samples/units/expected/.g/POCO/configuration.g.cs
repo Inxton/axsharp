@@ -1,5 +1,6 @@
 using System;
 using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
@@ -50,14 +51,19 @@ namespace Pocos
 
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
+        [ReadOnce()]
         public string myWSTRING_readOnce { get; set; } = string.Empty;
+        [ReadOnly()]
         public string myWSTRING_readOnly { get; set; } = string.Empty;
+        [ReadOnce()]
         public ComplexForConfig cReadOnce { get; set; } = new ComplexForConfig();
+        [ReadOnly()]
         public ComplexForConfig cReadOnly { get; set; } = new ComplexForConfig();
         public global::Colorss Colorss { get; set; }
 
         public UInt64 Colorsss { get; set; }
 
+        [CompilerOmitsAttribute("Onliner")]
         public Boolean _must_be_omitted_in_onliner { get; set; }
     }
 

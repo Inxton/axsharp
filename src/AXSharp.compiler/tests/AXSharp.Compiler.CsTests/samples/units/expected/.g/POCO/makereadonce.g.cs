@@ -1,5 +1,6 @@
 using System;
 using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
@@ -11,8 +12,10 @@ namespace Pocos
             {
             }
 
+            [ReadOnce()]
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
+            [ReadOnce()]
             public makereadonce.ComplexMember makeReadComplexMember { get; set; } = new makereadonce.ComplexMember();
             public makereadonce.ComplexMember someotherComplexMember { get; set; } = new makereadonce.ComplexMember();
         }

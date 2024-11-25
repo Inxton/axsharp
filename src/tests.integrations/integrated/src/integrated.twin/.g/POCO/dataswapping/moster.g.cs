@@ -1,5 +1,6 @@
 using System;
 using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
@@ -19,7 +20,9 @@ namespace Pocos
 
             public Byte[] ArrayOfBytes { get; set; } = new Byte[4];
             public MonsterData.DriveBase[] ArrayOfDrives { get; set; } = new MonsterData.DriveBase[4];
+            [IgnoreOnPocoOperation()]
             public MonsterData.DriveBase DriveBase_tobeignoredbypocooperations { get; set; } = new MonsterData.DriveBase();
+            [IgnoreOnPocoOperation()]
             public string Description_tobeignoredbypocooperations { get; set; } = string.Empty;
         }
 
