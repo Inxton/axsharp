@@ -13,10 +13,10 @@ namespace AXSharp.Connector.Onliners.Tests
     using AXSharp.Connector.Tests;
     using AXSharp.Connector.ValueTypes;
 
+
     public class OnlinerLIntTest : OnlinerBaseTests<long>
     {
         protected override OnlinerBase<long> Onliner { get; set; }
-
 
         public override void Init()
         {
@@ -27,31 +27,28 @@ namespace AXSharp.Connector.Onliners.Tests
         public void ChangeEditedValueTest()
         {
             //-- Arrange
-
             var expected = long.MaxValue;
 
             //-- Act
             Onliner.Edit = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}", logs);
-
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}"));
         }
 
         [Test()]
         public void ChangeShadow()
         {
             //-- Arrange
-
             var expected = long.MaxValue;
 
             //-- Act
             Onliner.Shadow = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}"));
         }
 
         [Test()]
@@ -63,25 +60,23 @@ namespace AXSharp.Connector.Onliners.Tests
             var mid = (long)(OnlinerLInt.MaxValue / 2);
 
             //-- Act  
-            Assert.True(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
         }
 
         [Test()]
         public void ValidateOverShootRangePresetTest()
         {
-
             Onliner.AttributeMinimum = (long)(OnlinerLInt.MinValue + 1);
             Onliner.AttributeMaximum = (long)(OnlinerLInt.MaxValue - 1);
             //-- Arrange
             var min = OnlinerLInt.MinValue;
             var max = OnlinerLInt.MaxValue;
 
-
             //-- Act  
-            Assert.IsFalse(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
     }
 }

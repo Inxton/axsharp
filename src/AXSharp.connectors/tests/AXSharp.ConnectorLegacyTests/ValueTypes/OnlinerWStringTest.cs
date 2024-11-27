@@ -17,7 +17,6 @@ namespace AXSharp.Connector.Onliners.Tests
     {
         protected override OnlinerBase<string> Onliner { get; set; }
 
-
         public override void Init()
         {
             Onliner = new OnlinerWString(new TestTwinObject(), $"readableTail", "symbolTail");
@@ -34,9 +33,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Edit = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}", logs);
-
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}"));
         }
 
         [Test()]
@@ -50,8 +48,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Shadow = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}"));
         }
 
         [Test]
@@ -60,7 +58,7 @@ namespace AXSharp.Connector.Onliners.Tests
             var expected = "some wstring";
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }
