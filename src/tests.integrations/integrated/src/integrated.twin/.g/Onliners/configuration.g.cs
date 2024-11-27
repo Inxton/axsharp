@@ -175,24 +175,24 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Pokus> OnlineToPlainAsync()
+    public async Task<global::Pocos.Pokus> OnlineToPlainAsync()
     {
-        Pocos.Pokus plain = new Pocos.Pokus();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.Pokus> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.Pokus> _OnlineToPlainNoacAsync()
     {
-        Pocos.Pokus plain = new Pocos.Pokus();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.Pokus> _OnlineToPlainNoacAsync(Pocos.Pokus plain)
+    protected async Task<global::Pocos.Pokus> _OnlineToPlainNoacAsync(global::Pocos.Pokus plain)
     {
         return plain;
     }
@@ -202,14 +202,14 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Pokus plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Pokus plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.Pokus plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Pokus plain)
     {
     }
 
@@ -218,13 +218,13 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Pokus> ShadowToPlainAsync()
+    public async Task<global::Pocos.Pokus> ShadowToPlainAsync()
     {
-        Pocos.Pokus plain = new Pocos.Pokus();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
         return plain;
     }
 
-    protected async Task<Pocos.Pokus> ShadowToPlainAsync(Pocos.Pokus plain)
+    protected async Task<global::Pocos.Pokus> ShadowToPlainAsync(global::Pocos.Pokus plain)
     {
         return plain;
     }
@@ -234,7 +234,7 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Pokus plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Pokus plain)
     {
         return this.RetrievePrimitives();
     }
@@ -249,7 +249,7 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.Pokus plain, Pocos.Pokus latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Pokus plain, global::Pocos.Pokus latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -266,9 +266,9 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Pokus CreateEmptyPoco()
+    public global::Pocos.Pokus CreateEmptyPoco()
     {
-        return new Pocos.Pokus();
+        return new global::Pocos.Pokus();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -368,24 +368,24 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Nested> OnlineToPlainAsync()
+    public async Task<global::Pocos.Nested> OnlineToPlainAsync()
     {
-        Pocos.Nested plain = new Pocos.Nested();
+        global::Pocos.Nested plain = new global::Pocos.Nested();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.Nested> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.Nested> _OnlineToPlainNoacAsync()
     {
-        Pocos.Nested plain = new Pocos.Nested();
+        global::Pocos.Nested plain = new global::Pocos.Nested();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.Nested> _OnlineToPlainNoacAsync(Pocos.Nested plain)
+    protected async Task<global::Pocos.Nested> _OnlineToPlainNoacAsync(global::Pocos.Nested plain)
     {
         return plain;
     }
@@ -395,14 +395,14 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Nested plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Nested plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.Nested plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Nested plain)
     {
     }
 
@@ -411,13 +411,13 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Nested> ShadowToPlainAsync()
+    public async Task<global::Pocos.Nested> ShadowToPlainAsync()
     {
-        Pocos.Nested plain = new Pocos.Nested();
+        global::Pocos.Nested plain = new global::Pocos.Nested();
         return plain;
     }
 
-    protected async Task<Pocos.Nested> ShadowToPlainAsync(Pocos.Nested plain)
+    protected async Task<global::Pocos.Nested> ShadowToPlainAsync(global::Pocos.Nested plain)
     {
         return plain;
     }
@@ -427,7 +427,7 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Nested plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Nested plain)
     {
         return this.RetrievePrimitives();
     }
@@ -442,7 +442,7 @@ public partial class Nested : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.Nested plain, Pocos.Nested latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Nested plain, global::Pocos.Nested latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -459,9 +459,9 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Nested CreateEmptyPoco()
+    public global::Pocos.Nested CreateEmptyPoco()
     {
-        return new Pocos.Nested();
+        return new global::Pocos.Nested();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

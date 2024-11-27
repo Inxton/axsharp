@@ -73,9 +73,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Motor> OnlineToPlainAsync()
+    public async Task<global::Pocos.Motor> OnlineToPlainAsync()
     {
-        Pocos.Motor plain = new Pocos.Motor();
+        global::Pocos.Motor plain = new global::Pocos.Motor();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         plain.Run = Run.LastValue;
         return plain;
@@ -83,16 +83,16 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.Motor> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.Motor> _OnlineToPlainNoacAsync()
     {
-        Pocos.Motor plain = new Pocos.Motor();
+        global::Pocos.Motor plain = new global::Pocos.Motor();
         plain.Run = Run.LastValue;
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.Motor> _OnlineToPlainNoacAsync(Pocos.Motor plain)
+    protected async Task<global::Pocos.Motor> _OnlineToPlainNoacAsync(global::Pocos.Motor plain)
     {
         plain.Run = Run.LastValue;
         return plain;
@@ -103,7 +103,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -113,7 +113,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.Motor plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Motor plain)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -125,14 +125,14 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Motor> ShadowToPlainAsync()
+    public async Task<global::Pocos.Motor> ShadowToPlainAsync()
     {
-        Pocos.Motor plain = new Pocos.Motor();
+        global::Pocos.Motor plain = new global::Pocos.Motor();
         plain.Run = Run.Shadow;
         return plain;
     }
 
-    protected async Task<Pocos.Motor> ShadowToPlainAsync(Pocos.Motor plain)
+    protected async Task<global::Pocos.Motor> ShadowToPlainAsync(global::Pocos.Motor plain)
     {
         plain.Run = Run.Shadow;
         return plain;
@@ -143,7 +143,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Motor plain)
     {
         Run.Shadow = plain.Run;
         return this.RetrievePrimitives();
@@ -159,7 +159,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.Motor plain, Pocos.Motor latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Motor plain, global::Pocos.Motor latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -178,9 +178,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Motor CreateEmptyPoco()
+    public global::Pocos.Motor CreateEmptyPoco()
     {
-        return new Pocos.Motor();
+        return new global::Pocos.Motor();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -283,9 +283,9 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.struct1> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct1> OnlineToPlainAsync()
     {
-        Pocos.struct1 plain = new Pocos.struct1();
+        global::Pocos.struct1 plain = new global::Pocos.struct1();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         plain.s2 = await s2._OnlineToPlainNoacAsync();
@@ -295,16 +295,16 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.struct1> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.struct1> _OnlineToPlainNoacAsync()
     {
-        Pocos.struct1 plain = new Pocos.struct1();
+        global::Pocos.struct1 plain = new global::Pocos.struct1();
 #pragma warning disable CS0612
         plain.s2 = await s2._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
         return plain;
     }
 
-    protected async Task<Pocos.struct1> OnlineToPlainAsync(Pocos.struct1 plain)
+    protected async Task<global::Pocos.struct1> OnlineToPlainAsync(global::Pocos.struct1 plain)
     {
 #pragma warning disable CS0612
         plain.s2 = await s2._OnlineToPlainNoacAsync();
@@ -317,7 +317,7 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.struct1 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct1 plain)
     {
 #pragma warning disable CS0612
         await this.s2._PlainToOnlineNoacAsync(plain.s2);
@@ -327,7 +327,7 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.struct1 plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.struct1 plain)
     {
 #pragma warning disable CS0612
         await this.s2._PlainToOnlineNoacAsync(plain.s2);
@@ -339,14 +339,14 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.struct1> ShadowToPlainAsync()
+    public async Task<global::Pocos.struct1> ShadowToPlainAsync()
     {
-        Pocos.struct1 plain = new Pocos.struct1();
+        global::Pocos.struct1 plain = new global::Pocos.struct1();
         plain.s2 = await s2.ShadowToPlainAsync();
         return plain;
     }
 
-    protected async Task<Pocos.struct1> ShadowToPlainAsync(Pocos.struct1 plain)
+    protected async Task<global::Pocos.struct1> ShadowToPlainAsync(global::Pocos.struct1 plain)
     {
         plain.s2 = await s2.ShadowToPlainAsync();
         return plain;
@@ -357,7 +357,7 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.struct1 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.struct1 plain)
     {
         await this.s2.PlainToShadowAsync(plain.s2);
         return this.RetrievePrimitives();
@@ -373,7 +373,7 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.struct1 plain, Pocos.struct1 latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.struct1 plain, global::Pocos.struct1 latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -392,9 +392,9 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.struct1 CreateEmptyPoco()
+    public global::Pocos.struct1 CreateEmptyPoco()
     {
-        return new Pocos.struct1();
+        return new global::Pocos.struct1();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -497,9 +497,9 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.struct2> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct2> OnlineToPlainAsync()
     {
-        Pocos.struct2 plain = new Pocos.struct2();
+        global::Pocos.struct2 plain = new global::Pocos.struct2();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         plain.s3 = await s3._OnlineToPlainNoacAsync();
@@ -509,16 +509,16 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.struct2> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.struct2> _OnlineToPlainNoacAsync()
     {
-        Pocos.struct2 plain = new Pocos.struct2();
+        global::Pocos.struct2 plain = new global::Pocos.struct2();
 #pragma warning disable CS0612
         plain.s3 = await s3._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
         return plain;
     }
 
-    protected async Task<Pocos.struct2> OnlineToPlainAsync(Pocos.struct2 plain)
+    protected async Task<global::Pocos.struct2> OnlineToPlainAsync(global::Pocos.struct2 plain)
     {
 #pragma warning disable CS0612
         plain.s3 = await s3._OnlineToPlainNoacAsync();
@@ -531,7 +531,7 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.struct2 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct2 plain)
     {
 #pragma warning disable CS0612
         await this.s3._PlainToOnlineNoacAsync(plain.s3);
@@ -541,7 +541,7 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.struct2 plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.struct2 plain)
     {
 #pragma warning disable CS0612
         await this.s3._PlainToOnlineNoacAsync(plain.s3);
@@ -553,14 +553,14 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.struct2> ShadowToPlainAsync()
+    public async Task<global::Pocos.struct2> ShadowToPlainAsync()
     {
-        Pocos.struct2 plain = new Pocos.struct2();
+        global::Pocos.struct2 plain = new global::Pocos.struct2();
         plain.s3 = await s3.ShadowToPlainAsync();
         return plain;
     }
 
-    protected async Task<Pocos.struct2> ShadowToPlainAsync(Pocos.struct2 plain)
+    protected async Task<global::Pocos.struct2> ShadowToPlainAsync(global::Pocos.struct2 plain)
     {
         plain.s3 = await s3.ShadowToPlainAsync();
         return plain;
@@ -571,7 +571,7 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.struct2 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.struct2 plain)
     {
         await this.s3.PlainToShadowAsync(plain.s3);
         return this.RetrievePrimitives();
@@ -587,7 +587,7 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.struct2 plain, Pocos.struct2 latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.struct2 plain, global::Pocos.struct2 latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -606,9 +606,9 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.struct2 CreateEmptyPoco()
+    public global::Pocos.struct2 CreateEmptyPoco()
     {
-        return new Pocos.struct2();
+        return new global::Pocos.struct2();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -711,9 +711,9 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.struct3> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct3> OnlineToPlainAsync()
     {
-        Pocos.struct3 plain = new Pocos.struct3();
+        global::Pocos.struct3 plain = new global::Pocos.struct3();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         plain.s4 = await s4._OnlineToPlainNoacAsync();
@@ -723,16 +723,16 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.struct3> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.struct3> _OnlineToPlainNoacAsync()
     {
-        Pocos.struct3 plain = new Pocos.struct3();
+        global::Pocos.struct3 plain = new global::Pocos.struct3();
 #pragma warning disable CS0612
         plain.s4 = await s4._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
         return plain;
     }
 
-    protected async Task<Pocos.struct3> OnlineToPlainAsync(Pocos.struct3 plain)
+    protected async Task<global::Pocos.struct3> OnlineToPlainAsync(global::Pocos.struct3 plain)
     {
 #pragma warning disable CS0612
         plain.s4 = await s4._OnlineToPlainNoacAsync();
@@ -745,7 +745,7 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.struct3 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct3 plain)
     {
 #pragma warning disable CS0612
         await this.s4._PlainToOnlineNoacAsync(plain.s4);
@@ -755,7 +755,7 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.struct3 plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.struct3 plain)
     {
 #pragma warning disable CS0612
         await this.s4._PlainToOnlineNoacAsync(plain.s4);
@@ -767,14 +767,14 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.struct3> ShadowToPlainAsync()
+    public async Task<global::Pocos.struct3> ShadowToPlainAsync()
     {
-        Pocos.struct3 plain = new Pocos.struct3();
+        global::Pocos.struct3 plain = new global::Pocos.struct3();
         plain.s4 = await s4.ShadowToPlainAsync();
         return plain;
     }
 
-    protected async Task<Pocos.struct3> ShadowToPlainAsync(Pocos.struct3 plain)
+    protected async Task<global::Pocos.struct3> ShadowToPlainAsync(global::Pocos.struct3 plain)
     {
         plain.s4 = await s4.ShadowToPlainAsync();
         return plain;
@@ -785,7 +785,7 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.struct3 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.struct3 plain)
     {
         await this.s4.PlainToShadowAsync(plain.s4);
         return this.RetrievePrimitives();
@@ -801,7 +801,7 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.struct3 plain, Pocos.struct3 latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.struct3 plain, global::Pocos.struct3 latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -820,9 +820,9 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.struct3 CreateEmptyPoco()
+    public global::Pocos.struct3 CreateEmptyPoco()
     {
-        return new Pocos.struct3();
+        return new global::Pocos.struct3();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -925,9 +925,9 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.struct4> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct4> OnlineToPlainAsync()
     {
-        Pocos.struct4 plain = new Pocos.struct4();
+        global::Pocos.struct4 plain = new global::Pocos.struct4();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         plain.s5 = s5.LastValue;
         return plain;
@@ -935,14 +935,14 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.struct4> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.struct4> _OnlineToPlainNoacAsync()
     {
-        Pocos.struct4 plain = new Pocos.struct4();
+        global::Pocos.struct4 plain = new global::Pocos.struct4();
         plain.s5 = s5.LastValue;
         return plain;
     }
 
-    protected async Task<Pocos.struct4> OnlineToPlainAsync(Pocos.struct4 plain)
+    protected async Task<global::Pocos.struct4> OnlineToPlainAsync(global::Pocos.struct4 plain)
     {
         plain.s5 = s5.LastValue;
         return plain;
@@ -953,7 +953,7 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.struct4 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct4 plain)
     {
 #pragma warning disable CS0612
         s5.LethargicWrite(plain.s5);
@@ -963,7 +963,7 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.struct4 plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.struct4 plain)
     {
 #pragma warning disable CS0612
         s5.LethargicWrite(plain.s5);
@@ -975,14 +975,14 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.struct4> ShadowToPlainAsync()
+    public async Task<global::Pocos.struct4> ShadowToPlainAsync()
     {
-        Pocos.struct4 plain = new Pocos.struct4();
+        global::Pocos.struct4 plain = new global::Pocos.struct4();
         plain.s5 = s5.Shadow;
         return plain;
     }
 
-    protected async Task<Pocos.struct4> ShadowToPlainAsync(Pocos.struct4 plain)
+    protected async Task<global::Pocos.struct4> ShadowToPlainAsync(global::Pocos.struct4 plain)
     {
         plain.s5 = s5.Shadow;
         return plain;
@@ -993,7 +993,7 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.struct4 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.struct4 plain)
     {
         s5.Shadow = plain.s5;
         return this.RetrievePrimitives();
@@ -1009,7 +1009,7 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.struct4 plain, Pocos.struct4 latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.struct4 plain, global::Pocos.struct4 latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -1028,9 +1028,9 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.struct4 CreateEmptyPoco()
+    public global::Pocos.struct4 CreateEmptyPoco()
     {
-        return new Pocos.struct4();
+        return new global::Pocos.struct4();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1136,9 +1136,9 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.AbstractMotor> OnlineToPlainAsync()
+    public async Task<global::Pocos.AbstractMotor> OnlineToPlainAsync()
     {
-        Pocos.AbstractMotor plain = new Pocos.AbstractMotor();
+        global::Pocos.AbstractMotor plain = new global::Pocos.AbstractMotor();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         plain.Run = Run.LastValue;
         plain.ReverseDirection = ReverseDirection.LastValue;
@@ -1147,9 +1147,9 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.AbstractMotor> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.AbstractMotor> _OnlineToPlainNoacAsync()
     {
-        Pocos.AbstractMotor plain = new Pocos.AbstractMotor();
+        global::Pocos.AbstractMotor plain = new global::Pocos.AbstractMotor();
         plain.Run = Run.LastValue;
         plain.ReverseDirection = ReverseDirection.LastValue;
         return plain;
@@ -1157,7 +1157,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.AbstractMotor> _OnlineToPlainNoacAsync(Pocos.AbstractMotor plain)
+    protected async Task<global::Pocos.AbstractMotor> _OnlineToPlainNoacAsync(global::Pocos.AbstractMotor plain)
     {
         plain.Run = Run.LastValue;
         plain.ReverseDirection = ReverseDirection.LastValue;
@@ -1169,7 +1169,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AbstractMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.AbstractMotor plain)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -1182,7 +1182,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.AbstractMotor plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.AbstractMotor plain)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -1197,15 +1197,15 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.AbstractMotor> ShadowToPlainAsync()
+    public async Task<global::Pocos.AbstractMotor> ShadowToPlainAsync()
     {
-        Pocos.AbstractMotor plain = new Pocos.AbstractMotor();
+        global::Pocos.AbstractMotor plain = new global::Pocos.AbstractMotor();
         plain.Run = Run.Shadow;
         plain.ReverseDirection = ReverseDirection.Shadow;
         return plain;
     }
 
-    protected async Task<Pocos.AbstractMotor> ShadowToPlainAsync(Pocos.AbstractMotor plain)
+    protected async Task<global::Pocos.AbstractMotor> ShadowToPlainAsync(global::Pocos.AbstractMotor plain)
     {
         plain.Run = Run.Shadow;
         plain.ReverseDirection = ReverseDirection.Shadow;
@@ -1217,7 +1217,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.AbstractMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.AbstractMotor plain)
     {
         Run.Shadow = plain.Run;
         ReverseDirection.Shadow = plain.ReverseDirection;
@@ -1234,7 +1234,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.AbstractMotor plain, Pocos.AbstractMotor latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.AbstractMotor plain, global::Pocos.AbstractMotor latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -1255,9 +1255,9 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.AbstractMotor CreateEmptyPoco()
+    public global::Pocos.AbstractMotor CreateEmptyPoco()
     {
-        return new Pocos.AbstractMotor();
+        return new global::Pocos.AbstractMotor();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1351,9 +1351,9 @@ public partial class GenericMotor : AbstractMotor
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public new async Task<Pocos.GenericMotor> OnlineToPlainAsync()
+    public new async Task<global::Pocos.GenericMotor> OnlineToPlainAsync()
     {
-        Pocos.GenericMotor plain = new Pocos.GenericMotor();
+        global::Pocos.GenericMotor plain = new global::Pocos.GenericMotor();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -1363,9 +1363,9 @@ public partial class GenericMotor : AbstractMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public new async Task<Pocos.GenericMotor> _OnlineToPlainNoacAsync()
+    public new async Task<global::Pocos.GenericMotor> _OnlineToPlainNoacAsync()
     {
-        Pocos.GenericMotor plain = new Pocos.GenericMotor();
+        global::Pocos.GenericMotor plain = new global::Pocos.GenericMotor();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -1374,7 +1374,7 @@ public partial class GenericMotor : AbstractMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.GenericMotor> _OnlineToPlainNoacAsync(Pocos.GenericMotor plain)
+    protected async Task<global::Pocos.GenericMotor> _OnlineToPlainNoacAsync(global::Pocos.GenericMotor plain)
     {
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -1387,7 +1387,7 @@ public partial class GenericMotor : AbstractMotor
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.GenericMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericMotor plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
         return await this.WriteAsync<IgnoreOnPocoOperation>();
@@ -1395,7 +1395,7 @@ public partial class GenericMotor : AbstractMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.GenericMotor plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.GenericMotor plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
     }
@@ -1405,14 +1405,14 @@ public partial class GenericMotor : AbstractMotor
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public new async Task<Pocos.GenericMotor> ShadowToPlainAsync()
+    public new async Task<global::Pocos.GenericMotor> ShadowToPlainAsync()
     {
-        Pocos.GenericMotor plain = new Pocos.GenericMotor();
+        global::Pocos.GenericMotor plain = new global::Pocos.GenericMotor();
         await base.ShadowToPlainAsync(plain);
         return plain;
     }
 
-    protected async Task<Pocos.GenericMotor> ShadowToPlainAsync(Pocos.GenericMotor plain)
+    protected async Task<global::Pocos.GenericMotor> ShadowToPlainAsync(global::Pocos.GenericMotor plain)
     {
         await base.ShadowToPlainAsync(plain);
         return plain;
@@ -1423,7 +1423,7 @@ public partial class GenericMotor : AbstractMotor
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.GenericMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.GenericMotor plain)
     {
         await base.PlainToShadowAsync(plain);
         return this.RetrievePrimitives();
@@ -1439,7 +1439,7 @@ public partial class GenericMotor : AbstractMotor
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public new async Task<bool> DetectsAnyChangeAsync(Pocos.GenericMotor plain, Pocos.GenericMotor latest = null)
+    public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.GenericMotor plain, global::Pocos.GenericMotor latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -1458,9 +1458,9 @@ public partial class GenericMotor : AbstractMotor
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public new Pocos.GenericMotor CreateEmptyPoco()
+    public new global::Pocos.GenericMotor CreateEmptyPoco()
     {
-        return new Pocos.GenericMotor();
+        return new global::Pocos.GenericMotor();
     }
 }
 
@@ -1480,9 +1480,9 @@ public partial class SpecificMotorA : GenericMotor
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public new async Task<Pocos.SpecificMotorA> OnlineToPlainAsync()
+    public new async Task<global::Pocos.SpecificMotorA> OnlineToPlainAsync()
     {
-        Pocos.SpecificMotorA plain = new Pocos.SpecificMotorA();
+        global::Pocos.SpecificMotorA plain = new global::Pocos.SpecificMotorA();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -1492,9 +1492,9 @@ public partial class SpecificMotorA : GenericMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public new async Task<Pocos.SpecificMotorA> _OnlineToPlainNoacAsync()
+    public new async Task<global::Pocos.SpecificMotorA> _OnlineToPlainNoacAsync()
     {
-        Pocos.SpecificMotorA plain = new Pocos.SpecificMotorA();
+        global::Pocos.SpecificMotorA plain = new global::Pocos.SpecificMotorA();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -1503,7 +1503,7 @@ public partial class SpecificMotorA : GenericMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.SpecificMotorA> _OnlineToPlainNoacAsync(Pocos.SpecificMotorA plain)
+    protected async Task<global::Pocos.SpecificMotorA> _OnlineToPlainNoacAsync(global::Pocos.SpecificMotorA plain)
     {
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -1516,7 +1516,7 @@ public partial class SpecificMotorA : GenericMotor
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.SpecificMotorA plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.SpecificMotorA plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
         return await this.WriteAsync<IgnoreOnPocoOperation>();
@@ -1524,7 +1524,7 @@ public partial class SpecificMotorA : GenericMotor
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.SpecificMotorA plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.SpecificMotorA plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
     }
@@ -1534,14 +1534,14 @@ public partial class SpecificMotorA : GenericMotor
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public new async Task<Pocos.SpecificMotorA> ShadowToPlainAsync()
+    public new async Task<global::Pocos.SpecificMotorA> ShadowToPlainAsync()
     {
-        Pocos.SpecificMotorA plain = new Pocos.SpecificMotorA();
+        global::Pocos.SpecificMotorA plain = new global::Pocos.SpecificMotorA();
         await base.ShadowToPlainAsync(plain);
         return plain;
     }
 
-    protected async Task<Pocos.SpecificMotorA> ShadowToPlainAsync(Pocos.SpecificMotorA plain)
+    protected async Task<global::Pocos.SpecificMotorA> ShadowToPlainAsync(global::Pocos.SpecificMotorA plain)
     {
         await base.ShadowToPlainAsync(plain);
         return plain;
@@ -1552,7 +1552,7 @@ public partial class SpecificMotorA : GenericMotor
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.SpecificMotorA plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.SpecificMotorA plain)
     {
         await base.PlainToShadowAsync(plain);
         return this.RetrievePrimitives();
@@ -1568,7 +1568,7 @@ public partial class SpecificMotorA : GenericMotor
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public new async Task<bool> DetectsAnyChangeAsync(Pocos.SpecificMotorA plain, Pocos.SpecificMotorA latest = null)
+    public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.SpecificMotorA plain, global::Pocos.SpecificMotorA latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -1587,8 +1587,8 @@ public partial class SpecificMotorA : GenericMotor
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public new Pocos.SpecificMotorA CreateEmptyPoco()
+    public new global::Pocos.SpecificMotorA CreateEmptyPoco()
     {
-        return new Pocos.SpecificMotorA();
+        return new global::Pocos.SpecificMotorA();
     }
 }

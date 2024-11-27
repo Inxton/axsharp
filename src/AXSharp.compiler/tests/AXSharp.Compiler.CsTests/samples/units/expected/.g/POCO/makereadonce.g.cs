@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace makereadonce
 {
-    namespace makereadonce
+    namespace Pocos
     {
         public partial class MembersWithMakeReadOnce : AXSharp.Connector.IPlain
         {
@@ -16,10 +16,13 @@ namespace Pocos
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
             [ReadOnce()]
-            public makereadonce.ComplexMember makeReadComplexMember { get; set; } = new makereadonce.ComplexMember();
-            public makereadonce.ComplexMember someotherComplexMember { get; set; } = new makereadonce.ComplexMember();
+            public makereadonce.Pocos.ComplexMember makeReadComplexMember { get; set; } = new makereadonce.Pocos.ComplexMember();
+            public makereadonce.Pocos.ComplexMember someotherComplexMember { get; set; } = new makereadonce.Pocos.ComplexMember();
         }
+    }
 
+    namespace Pocos
+    {
         public partial class ComplexMember : AXSharp.Connector.IPlain
         {
             public ComplexMember()

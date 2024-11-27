@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace MeasurementExample
 {
-    namespace MeasurementExample
+    namespace Pocos
     {
         public partial class Measurement : AXSharp.Connector.IPlain
         {
@@ -25,7 +25,10 @@ namespace Pocos
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Measurement Result")]
             public Int16 Result { get; set; }
         }
+    }
 
+    namespace Pocos
+    {
         public partial class Measurements : AXSharp.Connector.IPlain
         {
             public Measurements()
@@ -35,19 +38,19 @@ namespace Pocos
             [Container(Layout.Stack)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Stack panel")]
-            public MeasurementExample.Measurement measurement_stack { get; set; } = new MeasurementExample.Measurement();
+            public MeasurementExample.Pocos.Measurement measurement_stack { get; set; } = new MeasurementExample.Pocos.Measurement();
             [Container(Layout.Wrap)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Wrap panel")]
-            public MeasurementExample.Measurement measurement_wrap { get; set; } = new MeasurementExample.Measurement();
+            public MeasurementExample.Pocos.Measurement measurement_wrap { get; set; } = new MeasurementExample.Pocos.Measurement();
             [Container(Layout.UniformGrid)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Grid")]
-            public MeasurementExample.Measurement measurement_grid { get; set; } = new MeasurementExample.Measurement();
+            public MeasurementExample.Pocos.Measurement measurement_grid { get; set; } = new MeasurementExample.Pocos.Measurement();
             [Container(Layout.Tabs)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Tabs")]
-            public MeasurementExample.Measurement measurement_tabs { get; set; } = new MeasurementExample.Measurement();
+            public MeasurementExample.Pocos.Measurement measurement_tabs { get; set; } = new MeasurementExample.Pocos.Measurement();
         }
     }
 }

@@ -27,24 +27,24 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.ClassWithComplexTypes> OnlineToPlainAsync()
+    public async Task<global::Pocos.ClassWithComplexTypes> OnlineToPlainAsync()
     {
-        Pocos.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypes();
+        global::Pocos.ClassWithComplexTypes plain = new global::Pocos.ClassWithComplexTypes();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync()
     {
-        Pocos.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypes();
+        global::Pocos.ClassWithComplexTypes plain = new global::Pocos.ClassWithComplexTypes();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync(Pocos.ClassWithComplexTypes plain)
+    protected async Task<global::Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync(global::Pocos.ClassWithComplexTypes plain)
     {
         return plain;
     }
@@ -54,14 +54,14 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithComplexTypes plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithComplexTypes plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithComplexTypes plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.ClassWithComplexTypes plain)
     {
     }
 
@@ -70,13 +70,13 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.ClassWithComplexTypes> ShadowToPlainAsync()
+    public async Task<global::Pocos.ClassWithComplexTypes> ShadowToPlainAsync()
     {
-        Pocos.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypes();
+        global::Pocos.ClassWithComplexTypes plain = new global::Pocos.ClassWithComplexTypes();
         return plain;
     }
 
-    protected async Task<Pocos.ClassWithComplexTypes> ShadowToPlainAsync(Pocos.ClassWithComplexTypes plain)
+    protected async Task<global::Pocos.ClassWithComplexTypes> ShadowToPlainAsync(global::Pocos.ClassWithComplexTypes plain)
     {
         return plain;
     }
@@ -86,7 +86,7 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithComplexTypes plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.ClassWithComplexTypes plain)
     {
         return this.RetrievePrimitives();
     }
@@ -101,7 +101,7 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithComplexTypes plain, Pocos.ClassWithComplexTypes latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.ClassWithComplexTypes plain, global::Pocos.ClassWithComplexTypes latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -118,9 +118,9 @@ internal partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.ClassWithComplexTypes CreateEmptyPoco()
+    public global::Pocos.ClassWithComplexTypes CreateEmptyPoco()
     {
-        return new Pocos.ClassWithComplexTypes();
+        return new global::Pocos.ClassWithComplexTypes();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

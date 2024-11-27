@@ -38,26 +38,26 @@
 
     private void OnlinerToPlain()
     {
-        var plain = Entry.Plc.RealMonster.OnlineToPlain<Pocos.RealMonsterData.RealMonster>();
+        var plain = Entry.Plc.RealMonster.OnlineToPlain<RealMonsterData.Pocos.RealMonster>();
         Console.WriteLine(plain);
     }
 
     private void PlainToOnline()
     {
-        var plainMonster = new Pocos.RealMonsterData.RealMonster();
+        var plainMonster = new RealMonsterData.Pocos.RealMonster();
         plainMonster.Description = "This comes from plain to online";
         Entry.Plc.RealMonster.PlainToOnline(plainMonster);
     }
 
     private void ShadowToPlain()
     {
-        var plain = Entry.Plc.RealMonster.ShadowToPlain<Pocos.RealMonsterData.RealMonster>();
+        var plain = Entry.Plc.RealMonster.ShadowToPlain<RealMonsterData.Pocos.RealMonster>();
         Console.WriteLine(plain);
     }
 
     private void PlainToShadow()
     {
-        var plainMonster = new Pocos.RealMonsterData.RealMonster();
+        var plainMonster = new RealMonsterData.Pocos.RealMonster();
         plainMonster.Description = "This comes from plain to shadow";
         Entry.Plc.RealMonster.PlainToShadow(plainMonster);
     }

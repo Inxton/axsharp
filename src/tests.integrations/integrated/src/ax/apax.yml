@@ -12,18 +12,13 @@ variables:
   APAX_BUILD_ARGS: [ -d ]
 scripts:
   ixc:
-    - dotnet run --project
-      ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework
-      net7.0
-  postbuild: dotnet run --project
-    ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework
-    net7.0
+    - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
+  postbuild: dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
   download:
     - apax install
     - apax build
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
 installStrategy: strict
 apaxVersion: 3.1.1

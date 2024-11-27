@@ -53,9 +53,9 @@ namespace Simatic.Ax.StateFramework
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.Simatic.Ax.StateFramework.CompareGuardLint> OnlineToPlainAsync()
+        public async Task<Simatic.Ax.StateFramework.Pocos.CompareGuardLint> OnlineToPlainAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain = new Pocos.Simatic.Ax.StateFramework.CompareGuardLint();
+            Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain = new Simatic.Ax.StateFramework.Pocos.CompareGuardLint();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.CompareToValue = CompareToValue.LastValue;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.LastValue;
@@ -64,9 +64,9 @@ namespace Simatic.Ax.StateFramework
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.Simatic.Ax.StateFramework.CompareGuardLint> _OnlineToPlainNoacAsync()
+        public async Task<Simatic.Ax.StateFramework.Pocos.CompareGuardLint> _OnlineToPlainNoacAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain = new Pocos.Simatic.Ax.StateFramework.CompareGuardLint();
+            Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain = new Simatic.Ax.StateFramework.Pocos.CompareGuardLint();
             plain.CompareToValue = CompareToValue.LastValue;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.LastValue;
             return plain;
@@ -74,7 +74,7 @@ namespace Simatic.Ax.StateFramework
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Simatic.Ax.StateFramework.CompareGuardLint> _OnlineToPlainNoacAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        protected async Task<Simatic.Ax.StateFramework.Pocos.CompareGuardLint> _OnlineToPlainNoacAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain)
         {
             plain.CompareToValue = CompareToValue.LastValue;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.LastValue;
@@ -86,7 +86,7 @@ namespace Simatic.Ax.StateFramework
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain)
         {
 #pragma warning disable CS0612
             CompareToValue.LethargicWrite(plain.CompareToValue);
@@ -99,7 +99,7 @@ namespace Simatic.Ax.StateFramework
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        public async Task _PlainToOnlineNoacAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain)
         {
 #pragma warning disable CS0612
             CompareToValue.LethargicWrite(plain.CompareToValue);
@@ -114,15 +114,15 @@ namespace Simatic.Ax.StateFramework
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.Simatic.Ax.StateFramework.CompareGuardLint> ShadowToPlainAsync()
+        public async Task<Simatic.Ax.StateFramework.Pocos.CompareGuardLint> ShadowToPlainAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain = new Pocos.Simatic.Ax.StateFramework.CompareGuardLint();
+            Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain = new Simatic.Ax.StateFramework.Pocos.CompareGuardLint();
             plain.CompareToValue = CompareToValue.Shadow;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.Simatic.Ax.StateFramework.CompareGuardLint> ShadowToPlainAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        protected async Task<Simatic.Ax.StateFramework.Pocos.CompareGuardLint> ShadowToPlainAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain)
         {
             plain.CompareToValue = CompareToValue.Shadow;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.Shadow;
@@ -134,7 +134,7 @@ namespace Simatic.Ax.StateFramework
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain)
         {
             CompareToValue.Shadow = plain.CompareToValue;
             Condition.Shadow = (short)plain.Condition;
@@ -151,7 +151,7 @@ namespace Simatic.Ax.StateFramework
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain, Pocos.Simatic.Ax.StateFramework.CompareGuardLint latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Simatic.Ax.StateFramework.Pocos.CompareGuardLint plain, Simatic.Ax.StateFramework.Pocos.CompareGuardLint latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -172,9 +172,9 @@ namespace Simatic.Ax.StateFramework
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.Simatic.Ax.StateFramework.CompareGuardLint CreateEmptyPoco()
+        public Simatic.Ax.StateFramework.Pocos.CompareGuardLint CreateEmptyPoco()
         {
-            return new Pocos.Simatic.Ax.StateFramework.CompareGuardLint();
+            return new Simatic.Ax.StateFramework.Pocos.CompareGuardLint();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

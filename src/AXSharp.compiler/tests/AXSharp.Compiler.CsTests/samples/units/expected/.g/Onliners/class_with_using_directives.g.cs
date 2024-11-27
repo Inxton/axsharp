@@ -30,24 +30,24 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.ClassWithUsingDirectives> OnlineToPlainAsync()
+    public async Task<global::Pocos.ClassWithUsingDirectives> OnlineToPlainAsync()
     {
-        Pocos.ClassWithUsingDirectives plain = new Pocos.ClassWithUsingDirectives();
+        global::Pocos.ClassWithUsingDirectives plain = new global::Pocos.ClassWithUsingDirectives();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.ClassWithUsingDirectives> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.ClassWithUsingDirectives> _OnlineToPlainNoacAsync()
     {
-        Pocos.ClassWithUsingDirectives plain = new Pocos.ClassWithUsingDirectives();
+        global::Pocos.ClassWithUsingDirectives plain = new global::Pocos.ClassWithUsingDirectives();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.ClassWithUsingDirectives> _OnlineToPlainNoacAsync(Pocos.ClassWithUsingDirectives plain)
+    protected async Task<global::Pocos.ClassWithUsingDirectives> _OnlineToPlainNoacAsync(global::Pocos.ClassWithUsingDirectives plain)
     {
         return plain;
     }
@@ -57,14 +57,14 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithUsingDirectives plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithUsingDirectives plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithUsingDirectives plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.ClassWithUsingDirectives plain)
     {
     }
 
@@ -73,13 +73,13 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.ClassWithUsingDirectives> ShadowToPlainAsync()
+    public async Task<global::Pocos.ClassWithUsingDirectives> ShadowToPlainAsync()
     {
-        Pocos.ClassWithUsingDirectives plain = new Pocos.ClassWithUsingDirectives();
+        global::Pocos.ClassWithUsingDirectives plain = new global::Pocos.ClassWithUsingDirectives();
         return plain;
     }
 
-    protected async Task<Pocos.ClassWithUsingDirectives> ShadowToPlainAsync(Pocos.ClassWithUsingDirectives plain)
+    protected async Task<global::Pocos.ClassWithUsingDirectives> ShadowToPlainAsync(global::Pocos.ClassWithUsingDirectives plain)
     {
         return plain;
     }
@@ -89,7 +89,7 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithUsingDirectives plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.ClassWithUsingDirectives plain)
     {
         return this.RetrievePrimitives();
     }
@@ -104,7 +104,7 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithUsingDirectives plain, Pocos.ClassWithUsingDirectives latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.ClassWithUsingDirectives plain, global::Pocos.ClassWithUsingDirectives latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -121,9 +121,9 @@ internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.ClassWithUsingDirectives CreateEmptyPoco()
+    public global::Pocos.ClassWithUsingDirectives CreateEmptyPoco()
     {
-        return new Pocos.ClassWithUsingDirectives();
+        return new global::Pocos.ClassWithUsingDirectives();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

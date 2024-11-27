@@ -10,8 +10,8 @@ namespace Pocos
         {
         }
     }
+}
 
-    public partial interface IContext
-    {
-    }
+public partial interface IContext
+{
 }

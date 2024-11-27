@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace ClassWithPrimitiveTypesNamespace
 {
-    namespace ClassWithPrimitiveTypesNamespace
+    namespace Pocos
     {
         public partial class ClassWithPrimitiveTypes : AXSharp.Connector.IPlain
         {

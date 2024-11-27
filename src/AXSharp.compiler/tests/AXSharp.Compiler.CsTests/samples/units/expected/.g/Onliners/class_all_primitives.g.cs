@@ -93,9 +93,9 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.class_all_primitives> OnlineToPlainAsync()
+    public async Task<global::Pocos.class_all_primitives> OnlineToPlainAsync()
     {
-        Pocos.class_all_primitives plain = new Pocos.class_all_primitives();
+        global::Pocos.class_all_primitives plain = new global::Pocos.class_all_primitives();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         plain.myBOOL = myBOOL.LastValue;
         plain.myBYTE = myBYTE.LastValue;
@@ -124,9 +124,9 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.class_all_primitives> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.class_all_primitives> _OnlineToPlainNoacAsync()
     {
-        Pocos.class_all_primitives plain = new Pocos.class_all_primitives();
+        global::Pocos.class_all_primitives plain = new global::Pocos.class_all_primitives();
         plain.myBOOL = myBOOL.LastValue;
         plain.myBYTE = myBYTE.LastValue;
         plain.myWORD = myWORD.LastValue;
@@ -154,7 +154,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.class_all_primitives> _OnlineToPlainNoacAsync(Pocos.class_all_primitives plain)
+    protected async Task<global::Pocos.class_all_primitives> _OnlineToPlainNoacAsync(global::Pocos.class_all_primitives plain)
     {
         plain.myBOOL = myBOOL.LastValue;
         plain.myBYTE = myBYTE.LastValue;
@@ -186,7 +186,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.class_all_primitives plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.class_all_primitives plain)
     {
 #pragma warning disable CS0612
         myBOOL.LethargicWrite(plain.myBOOL);
@@ -259,7 +259,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.class_all_primitives plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.class_all_primitives plain)
     {
 #pragma warning disable CS0612
         myBOOL.LethargicWrite(plain.myBOOL);
@@ -334,9 +334,9 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.class_all_primitives> ShadowToPlainAsync()
+    public async Task<global::Pocos.class_all_primitives> ShadowToPlainAsync()
     {
-        Pocos.class_all_primitives plain = new Pocos.class_all_primitives();
+        global::Pocos.class_all_primitives plain = new global::Pocos.class_all_primitives();
         plain.myBOOL = myBOOL.Shadow;
         plain.myBYTE = myBYTE.Shadow;
         plain.myWORD = myWORD.Shadow;
@@ -362,7 +362,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    protected async Task<Pocos.class_all_primitives> ShadowToPlainAsync(Pocos.class_all_primitives plain)
+    protected async Task<global::Pocos.class_all_primitives> ShadowToPlainAsync(global::Pocos.class_all_primitives plain)
     {
         plain.myBOOL = myBOOL.Shadow;
         plain.myBYTE = myBYTE.Shadow;
@@ -394,7 +394,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.class_all_primitives plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.class_all_primitives plain)
     {
         myBOOL.Shadow = plain.myBOOL;
         myBYTE.Shadow = plain.myBYTE;
@@ -431,7 +431,7 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.class_all_primitives plain, Pocos.class_all_primitives latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.class_all_primitives plain, global::Pocos.class_all_primitives latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -492,9 +492,9 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.class_all_primitives CreateEmptyPoco()
+    public global::Pocos.class_all_primitives CreateEmptyPoco()
     {
-        return new Pocos.class_all_primitives();
+        return new global::Pocos.class_all_primitives();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

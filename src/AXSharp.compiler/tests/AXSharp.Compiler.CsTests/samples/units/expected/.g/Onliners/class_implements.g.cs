@@ -27,24 +27,24 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos._NULL_CONTEXT> OnlineToPlainAsync()
+    public async Task<global::Pocos._NULL_CONTEXT> OnlineToPlainAsync()
     {
-        Pocos._NULL_CONTEXT plain = new Pocos._NULL_CONTEXT();
+        global::Pocos._NULL_CONTEXT plain = new global::Pocos._NULL_CONTEXT();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos._NULL_CONTEXT> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos._NULL_CONTEXT> _OnlineToPlainNoacAsync()
     {
-        Pocos._NULL_CONTEXT plain = new Pocos._NULL_CONTEXT();
+        global::Pocos._NULL_CONTEXT plain = new global::Pocos._NULL_CONTEXT();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos._NULL_CONTEXT> _OnlineToPlainNoacAsync(Pocos._NULL_CONTEXT plain)
+    protected async Task<global::Pocos._NULL_CONTEXT> _OnlineToPlainNoacAsync(global::Pocos._NULL_CONTEXT plain)
     {
         return plain;
     }
@@ -54,14 +54,14 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos._NULL_CONTEXT plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos._NULL_CONTEXT plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos._NULL_CONTEXT plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos._NULL_CONTEXT plain)
     {
     }
 
@@ -70,13 +70,13 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos._NULL_CONTEXT> ShadowToPlainAsync()
+    public async Task<global::Pocos._NULL_CONTEXT> ShadowToPlainAsync()
     {
-        Pocos._NULL_CONTEXT plain = new Pocos._NULL_CONTEXT();
+        global::Pocos._NULL_CONTEXT plain = new global::Pocos._NULL_CONTEXT();
         return plain;
     }
 
-    protected async Task<Pocos._NULL_CONTEXT> ShadowToPlainAsync(Pocos._NULL_CONTEXT plain)
+    protected async Task<global::Pocos._NULL_CONTEXT> ShadowToPlainAsync(global::Pocos._NULL_CONTEXT plain)
     {
         return plain;
     }
@@ -86,7 +86,7 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos._NULL_CONTEXT plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos._NULL_CONTEXT plain)
     {
         return this.RetrievePrimitives();
     }
@@ -101,7 +101,7 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos._NULL_CONTEXT plain, Pocos._NULL_CONTEXT latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos._NULL_CONTEXT plain, global::Pocos._NULL_CONTEXT latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -118,9 +118,9 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos._NULL_CONTEXT CreateEmptyPoco()
+    public global::Pocos._NULL_CONTEXT CreateEmptyPoco()
     {
-        return new Pocos._NULL_CONTEXT();
+        return new global::Pocos._NULL_CONTEXT();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

@@ -6,7 +6,7 @@ namespace Pocos
 {
     public partial class unitsTwinController
     {
-        public ComplexForConfig Complex { get; set; } = new ComplexForConfig();
+        public global::Pocos.ComplexForConfig Complex { get; set; } = new global::Pocos.ComplexForConfig();
         public Boolean myBOOL { get; set; }
 
         public Byte myBYTE { get; set; }
@@ -56,9 +56,9 @@ namespace Pocos
         [ReadOnly()]
         public string myWSTRING_readOnly { get; set; } = string.Empty;
         [ReadOnce()]
-        public ComplexForConfig cReadOnce { get; set; } = new ComplexForConfig();
+        public global::Pocos.ComplexForConfig cReadOnce { get; set; } = new global::Pocos.ComplexForConfig();
         [ReadOnly()]
-        public ComplexForConfig cReadOnly { get; set; } = new ComplexForConfig();
+        public global::Pocos.ComplexForConfig cReadOnly { get; set; } = new global::Pocos.ComplexForConfig();
         public global::Colorss Colorss { get; set; }
 
         public UInt64 Colorsss { get; set; }
@@ -66,7 +66,10 @@ namespace Pocos
         [CompilerOmitsAttribute("Onliner")]
         public Boolean _must_be_omitted_in_onliner { get; set; }
     }
+}
 
+namespace Pocos
+{
     public partial class ComplexForConfig : AXSharp.Connector.IPlain
     {
         public ComplexForConfig()
@@ -117,9 +120,12 @@ namespace Pocos
 
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
-        public Motor myMotor { get; set; } = new Motor();
+        public global::Pocos.Motor myMotor { get; set; } = new global::Pocos.Motor();
     }
+}
 
+namespace Pocos
+{
     public partial class Motor : AXSharp.Connector.IPlain
     {
         public Motor()
@@ -128,14 +134,17 @@ namespace Pocos
 
         public Boolean isRunning { get; set; }
     }
+}
 
+namespace Pocos
+{
     public partial class Vehicle : AXSharp.Connector.IPlain
     {
         public Vehicle()
         {
         }
 
-        public Motor m { get; set; } = new Motor();
+        public global::Pocos.Motor m { get; set; } = new global::Pocos.Motor();
         public Int16 displacement { get; set; }
     }
 }

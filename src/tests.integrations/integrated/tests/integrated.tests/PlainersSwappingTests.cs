@@ -173,7 +173,7 @@ namespace integrated.tests
 
             await monster.WriteAsync();
 
-            var p = await ((ITwinObject)monster).OnlineToPlain<Pocos.MonsterData.Monster>();
+            var p = await ((ITwinObject)monster).OnlineToPlain<MonsterData.Pocos.Monster>();
 
             Assert.Equal(monster.Description.Cyclic, p.Description);
             Assert.Equal(monster.Id.Cyclic, p.Id);
@@ -199,7 +199,7 @@ namespace integrated.tests
         {
             var monster = Entry.Plc.PlainToOnline_should_copy_entire_structure;
 
-            var p = new Pocos.MonsterData.Monster();
+            var p = new MonsterData.Pocos.Monster();
 
             p.Description = "from plain to online";
             p.Id = 111222;
@@ -258,7 +258,7 @@ namespace integrated.tests
         {
             var monster = Entry.Plc.PlainToOnline_should_copy_entire_structure;
 
-            var p = new Pocos.MonsterData.Monster();
+            var p = new MonsterData.Pocos.Monster();
 
             p.Description = "from plain to online";
             p.Id = 111222;
@@ -334,7 +334,7 @@ namespace integrated.tests
         {
             var monster = Entry.Plc.ITwinObjectPlainToOnline_should_copy_entire_structure;
 
-            var p = new Pocos.MonsterData.Monster();
+            var p = new MonsterData.Pocos.Monster();
 
             p.Description = "from plain to online";
             p.Id = 111222;
@@ -433,7 +433,7 @@ namespace integrated.tests
             monster.DriveA.NestedLevelOne.NestedLevelTwo.NestedLevelThree.Acc.Cyclic = 123;
             await monster.WriteAsync();
 
-            var p = await ((ITwinObject)monster).OnlineToPlain<Pocos.RealMonsterData.RealMonster>();
+            var p = await ((ITwinObject)monster).OnlineToPlain<RealMonsterData.Pocos.RealMonster>();
 
             Assert.Equal(monster.Description.Cyclic, p.Description);
             Assert.Equal(monster.DriveA.NestedLevelOne.NestedLevelTwo.NestedLevelThree.Acc.Cyclic, p.DriveA.NestedLevelOne.NestedLevelTwo.NestedLevelThree.Acc);
@@ -521,7 +521,7 @@ namespace integrated.tests
 
             //await monster.WriteAsync();
 
-            var p = await ((ITwinObject)monster).ShadowToPlain<Pocos.MonsterData.Monster>();
+            var p = await ((ITwinObject)monster).ShadowToPlain<MonsterData.Pocos.Monster>();
 
             Assert.Equal(monster.Description.Shadow, p.Description);
             Assert.Equal(monster.Id.Shadow, p.Id);
@@ -547,7 +547,7 @@ namespace integrated.tests
         {
             var monster = Entry.Plc.PlainToShadowAsync_should_copy_entire_structure;
 
-            var p = new Pocos.MonsterData.Monster();
+            var p = new MonsterData.Pocos.Monster();
 
             p.Description = "from plain to shadow";
             p.Id = 111222;
@@ -604,7 +604,7 @@ namespace integrated.tests
         {
             var monster = Entry.Plc.ITwinObjectPlainToShadowAsync_should_copy_entire_structure;
 
-            var p = new Pocos.MonsterData.Monster();
+            var p = new MonsterData.Pocos.Monster();
 
             p.Description = "from plain to shadow";
             p.Id = 111222;

@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.19.3-alpha.233" />
-		<PackageReference Include="AXSharp.Connector" Version="0.19.3-alpha.233" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.19.3-alpha.234" />
+		<PackageReference Include="AXSharp.Connector" Version="0.19.3-alpha.234" />
 	</ItemGroup>
 
 	<ItemGroup>

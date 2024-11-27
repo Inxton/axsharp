@@ -2,16 +2,16 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace Simatic.Ax.StateFramework
 {
-    namespace Simatic.Ax.StateFramework
+    public partial interface IGuard
     {
-        public partial interface IGuard
-        {
-        }
     }
+}
 
-    namespace Simatic.Ax.StateFramework
+namespace Simatic.Ax.StateFramework
+{
+    namespace Pocos
     {
         public partial class CompareGuardLint : AXSharp.Connector.IPlain, IGuard
         {

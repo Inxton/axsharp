@@ -10,7 +10,7 @@ namespace Pocos
         {
         }
 
-        public GeoLocation GeoLocation { get; set; } = new GeoLocation();
+        public global::Pocos.GeoLocation GeoLocation { get; set; } = new global::Pocos.GeoLocation();
         public Single Temperature { get; set; }
 
         public Single Humidity { get; set; }
@@ -20,16 +20,19 @@ namespace Pocos
 
         public global::Feeling Feeling { get; set; }
     }
+}
 
+namespace Pocos
+{
     public partial class weathers : AXSharp.Connector.IPlain
     {
         public weathers()
         {
 #pragma warning disable CS0612
-            AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(i, () => new weatherBase(), new[] { (0, 50) });
+            AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(i, () => new global::Pocos.weatherBase(), new[] { (0, 50) });
 #pragma warning restore CS0612
         }
 
-        public weatherBase[] i { get; set; } = new weatherBase[51];
+        public global::Pocos.weatherBase[] i { get; set; } = new global::Pocos.weatherBase[51];
     }
 }

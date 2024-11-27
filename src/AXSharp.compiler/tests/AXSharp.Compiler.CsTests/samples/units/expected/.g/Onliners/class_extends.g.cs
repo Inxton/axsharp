@@ -21,9 +21,9 @@ public partial class Extended : Extendee
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public new async Task<Pocos.Extended> OnlineToPlainAsync()
+    public new async Task<global::Pocos.Extended> OnlineToPlainAsync()
     {
-        Pocos.Extended plain = new Pocos.Extended();
+        global::Pocos.Extended plain = new global::Pocos.Extended();
         await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -33,9 +33,9 @@ public partial class Extended : Extendee
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public new async Task<Pocos.Extended> _OnlineToPlainNoacAsync()
+    public new async Task<global::Pocos.Extended> _OnlineToPlainNoacAsync()
     {
-        Pocos.Extended plain = new Pocos.Extended();
+        global::Pocos.Extended plain = new global::Pocos.Extended();
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -44,7 +44,7 @@ public partial class Extended : Extendee
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.Extended> _OnlineToPlainNoacAsync(Pocos.Extended plain)
+    protected async Task<global::Pocos.Extended> _OnlineToPlainNoacAsync(global::Pocos.Extended plain)
     {
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
@@ -57,7 +57,7 @@ public partial class Extended : Extendee
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Extended plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Extended plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
         return await this.WriteAsync<IgnoreOnPocoOperation>();
@@ -65,7 +65,7 @@ public partial class Extended : Extendee
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.Extended plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Extended plain)
     {
         await base._PlainToOnlineNoacAsync(plain);
     }
@@ -75,14 +75,14 @@ public partial class Extended : Extendee
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public new async Task<Pocos.Extended> ShadowToPlainAsync()
+    public new async Task<global::Pocos.Extended> ShadowToPlainAsync()
     {
-        Pocos.Extended plain = new Pocos.Extended();
+        global::Pocos.Extended plain = new global::Pocos.Extended();
         await base.ShadowToPlainAsync(plain);
         return plain;
     }
 
-    protected async Task<Pocos.Extended> ShadowToPlainAsync(Pocos.Extended plain)
+    protected async Task<global::Pocos.Extended> ShadowToPlainAsync(global::Pocos.Extended plain)
     {
         await base.ShadowToPlainAsync(plain);
         return plain;
@@ -93,7 +93,7 @@ public partial class Extended : Extendee
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Extended plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Extended plain)
     {
         await base.PlainToShadowAsync(plain);
         return this.RetrievePrimitives();
@@ -109,7 +109,7 @@ public partial class Extended : Extendee
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public new async Task<bool> DetectsAnyChangeAsync(Pocos.Extended plain, Pocos.Extended latest = null)
+    public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.Extended plain, global::Pocos.Extended latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -128,9 +128,9 @@ public partial class Extended : Extendee
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public new Pocos.Extended CreateEmptyPoco()
+    public new global::Pocos.Extended CreateEmptyPoco()
     {
-        return new Pocos.Extended();
+        return new global::Pocos.Extended();
     }
 }
 
@@ -156,24 +156,24 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Extendee> OnlineToPlainAsync()
+    public async Task<global::Pocos.Extendee> OnlineToPlainAsync()
     {
-        Pocos.Extendee plain = new Pocos.Extendee();
+        global::Pocos.Extendee plain = new global::Pocos.Extendee();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.Extendee> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.Extendee> _OnlineToPlainNoacAsync()
     {
-        Pocos.Extendee plain = new Pocos.Extendee();
+        global::Pocos.Extendee plain = new global::Pocos.Extendee();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.Extendee> _OnlineToPlainNoacAsync(Pocos.Extendee plain)
+    protected async Task<global::Pocos.Extendee> _OnlineToPlainNoacAsync(global::Pocos.Extendee plain)
     {
         return plain;
     }
@@ -183,14 +183,14 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Extendee plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Extendee plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.Extendee plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Extendee plain)
     {
     }
 
@@ -199,13 +199,13 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Extendee> ShadowToPlainAsync()
+    public async Task<global::Pocos.Extendee> ShadowToPlainAsync()
     {
-        Pocos.Extendee plain = new Pocos.Extendee();
+        global::Pocos.Extendee plain = new global::Pocos.Extendee();
         return plain;
     }
 
-    protected async Task<Pocos.Extendee> ShadowToPlainAsync(Pocos.Extendee plain)
+    protected async Task<global::Pocos.Extendee> ShadowToPlainAsync(global::Pocos.Extendee plain)
     {
         return plain;
     }
@@ -215,7 +215,7 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Extendee plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Extendee plain)
     {
         return this.RetrievePrimitives();
     }
@@ -230,7 +230,7 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.Extendee plain, Pocos.Extendee latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Extendee plain, global::Pocos.Extendee latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -247,9 +247,9 @@ public partial class Extendee : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Extendee CreateEmptyPoco()
+    public global::Pocos.Extendee CreateEmptyPoco()
     {
-        return new Pocos.Extendee();
+        return new global::Pocos.Extendee();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

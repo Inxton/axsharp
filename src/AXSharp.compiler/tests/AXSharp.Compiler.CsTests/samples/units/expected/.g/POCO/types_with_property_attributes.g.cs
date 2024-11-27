@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace TypesWithPropertyAttributes
 {
-    namespace TypesWithPropertyAttributes
+    namespace Pocos
     {
         [AXSharp.Connector.AddedPropertiesAttribute("Description", "Some added property name value")]
         public partial class SomeAddedProperties : AXSharp.Connector.IPlain
