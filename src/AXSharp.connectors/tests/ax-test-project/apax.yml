@@ -17,7 +17,7 @@ devDependencies:
   # "@ax/stc": ^5.4.89
   "@ax/sld": ^3.0.6-alpha
 scripts:
-  postbuild: dotnet run --project ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework net7.0
+  postbuild: dotnet run --project ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework net9.0
   download: apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME
 installStrategy: overridable
 apaxVersion: 3.1.0
