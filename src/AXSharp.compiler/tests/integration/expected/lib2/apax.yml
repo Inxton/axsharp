@@ -1,0 +1,12 @@
+name: "lib2"
+version: 0.0.0
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit-llvm
+  - src
+files:
+  - bin
+devDependencies:
+  "@ax/sdk": 3.0.2

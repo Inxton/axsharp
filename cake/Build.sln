@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "Build.csproj", "{1053D477-9B92-4A29-975E-9F8F820293E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.nuget.update", "..\src\ix.tools\src\ix.nuget.update\ix.nuget.update.csproj", "{FA3B561C-2FC6-4C5F-AC30-015BFAB01D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.nuget.update", "..\src\AXSharp.tools\src\AXSharp.nuget.update\AXSharp.nuget.update.csproj", "{FA3B561C-2FC6-4C5F-AC30-015BFAB01D83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

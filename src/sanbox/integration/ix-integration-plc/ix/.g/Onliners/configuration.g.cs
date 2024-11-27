@@ -1,12 +1,14 @@
 using System;
-using Ix.Connector;
-using Ix.Connector.ValueTypes;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
+using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
 using MonsterData;
 
 public partial class ix_integration_plcTwinController : ITwinController
 {
-    public Ix.Connector.Connector Connector { get; }
+    public AXSharp.Connector.Connector Connector { get; }
 
     public all_primitives all_primitives { get; }
 
@@ -34,7 +36,7 @@ public partial class ix_integration_plcTwinController : ITwinController
 
     public MonsterData.Monster monster { get; }
 
-    public ix_integration_plcTwinController(Ix.Connector.ConnectorAdapter adapter, object[] parameters)
+    public ix_integration_plcTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)
     {
         this.Connector = adapter.GetConnector(parameters);
         all_primitives = new all_primitives(this.Connector, "", "all_primitives");
@@ -58,7 +60,7 @@ public partial class ix_integration_plcTwinController : ITwinController
         monster = new MonsterData.Monster(this.Connector, "", "monster");
     }
 
-    public ix_integration_plcTwinController(Ix.Connector.ConnectorAdapter adapter)
+    public ix_integration_plcTwinController(AXSharp.Connector.ConnectorAdapter adapter)
     {
         this.Connector = adapter.GetConnector(adapter.Parameters);
         all_primitives = new all_primitives(this.Connector, "", "all_primitives");

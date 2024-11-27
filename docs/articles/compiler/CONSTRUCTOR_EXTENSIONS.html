@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -87,11 +87,11 @@
 <p>These partial methods can be overrode and are used to implemented custom logic, which alter logic of object whether before or after construction.</p>
 <h2 id="preconstruct-partial-method">PreConstruct partial method</h2>
 <p>The PreConstruct partial method have following declaration:</p>
-<pre><code class="lang-C#">partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
+<pre><code class="lang-C#">partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
 </code></pre>
 <h2 id="postconstruct-partial-method">PostConstruct partial method</h2>
 <p>The PostConstruct partial method have following declaration:</p>
-<pre><code class="lang-C#">partial void PostConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
+<pre><code class="lang-C#">partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
 </code></pre>
 <h2 id="usage-and-example">Usage and example</h2>
 <div class="CAUTION">
@@ -103,11 +103,11 @@
 {
     public partial class MonsterBase 
     {
-        partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             // implement your pre construct logic
         }
-        partial void PostConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             // implement your post construct logic
         }
@@ -115,6 +115,7 @@
 
 }
 </code></pre>
+
 </article>
           </div>
 
@@ -123,12 +124,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/compiler/CONSTRUCTOR_EXTENSIONS.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/compiler/CONSTRUCTOR_EXTENSIONS.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

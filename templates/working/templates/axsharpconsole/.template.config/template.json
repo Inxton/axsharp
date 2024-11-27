@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "PTKu",
+  "classifications": [ "AX#", "Console-Simple" ],
+  "identity": "axsharpconsole",
+  "name": "AXsharp Simmple console application",
+  "shortName": "axeconsole",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "axsharpconsole",
+
+  "primaryOutputs": [
+    { "path": "axsharpconsole.csproj" },
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\")",
+      "path": "README.md"
+    }
+  ],
+  "postActions": [
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\")",
+      "description": "Open instruction in an editor.",
+      "manualInstructions": [],
+      "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+      "args": {
+        "files": "1"
+      },
+      "continueOnError": true
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "install.cmd",
+        "args": "",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'install.cmd'"
+        }
+      ],
+      "continueOnError": false,
+      "description ": "Install tools and dependencies"
+    }       
+  ]
+}

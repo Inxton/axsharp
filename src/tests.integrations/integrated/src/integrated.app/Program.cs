@@ -1,8 +1,8 @@
-using Ix.Presentation.Blazor.Services;
+using AXSharp.Presentation.Blazor.Services;
 using ix_draft_blazor.Areas.Identity;
 using ix_draft_blazor.Data;
 using integrated;
-using Ix.Connector;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;

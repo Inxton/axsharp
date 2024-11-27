@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/ix.compiler/tests/Ix.ax.compilertests/bin/Debug/net6.0/Ix.ax.compilertests.dll",
+            "program": "${workspaceFolder}/src/AXSharp.compiler/tests/Ix.ax.compilertests/bin/Debug/net6.0/Ix.ax.compilertests.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/ix.compiler/tests/Ix.ax.compilertests",
+            "cwd": "${workspaceFolder}/src/AXSharp.compiler/tests/Ix.ax.compilertests",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

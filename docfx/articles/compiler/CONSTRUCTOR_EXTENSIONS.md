@@ -12,7 +12,7 @@ These partial methods can be overrode and are used to implemented custom logic, 
 The PreConstruct partial method have following declaration:
 
 ```C#
-partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
+partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
 ```
 
 ## PostConstruct partial method
@@ -20,7 +20,7 @@ partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, 
 The PostConstruct partial method have following declaration:
 
 ```C#
-partial void PostConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
+partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
 ```
 
 
@@ -36,11 +36,11 @@ namespace MonsterData
 {
     public partial class MonsterBase 
     {
-        partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             // implement your pre construct logic
         }
-        partial void PostConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             // implement your post construct logic
         }

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axsharpblazor.twin", "axsharpblazor.twin\axsharpblazor.twin.csproj", "{EF298BD3-8715-4F56-B0CD-FD8A563ABF04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axsharpblazor.hmi", "axsharpblazor.app\axsharpblazor.hmi.csproj", "{04A4BC7D-88C8-4C28-9E84-A628859A7735}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF298BD3-8715-4F56-B0CD-FD8A563ABF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF298BD3-8715-4F56-B0CD-FD8A563ABF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF298BD3-8715-4F56-B0CD-FD8A563ABF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF298BD3-8715-4F56-B0CD-FD8A563ABF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04A4BC7D-88C8-4C28-9E84-A628859A7735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A4BC7D-88C8-4C28-9E84-A628859A7735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A4BC7D-88C8-4C28-9E84-A628859A7735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A4BC7D-88C8-4C28-9E84-A628859A7735}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD217924-BCBC-488B-80C2-F8529CFB28F3}
+	EndGlobalSection
+EndGlobal

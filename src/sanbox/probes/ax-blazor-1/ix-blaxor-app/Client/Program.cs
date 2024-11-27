@@ -1,4 +1,4 @@
-using Ix.Presentation.Blazor.Services;
+using AXSharp.Presentation.Blazor.Services;
 using ix_blaxor_app;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

@@ -1,5 +1,5 @@
 ﻿using ix_integration_plc;
-using Ix.Connector;
+using AXSharp.Connector;
 
 namespace ix_integration_blazor.Pages.Pollings
 {

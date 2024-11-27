@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ix_integration_blazor</RootNamespace>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Interactive" Version="6.0.1" />
+		<PackageReference Include="System.Interactive"/>
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ix.blazor\src\Ix.Presentation.Blazor.Controls\Ix.Presentation.Blazor.Controls.csproj" />
-    <ProjectReference Include="..\..\..\ix.blazor\src\Ix.Presentation.Blazor\Ix.Presentation.Blazor.csproj" />
+    <ProjectReference Include="..\..\..\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+    <ProjectReference Include="..\..\..\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
     <ProjectReference Include="..\ix-integration-library\ix-integration-library.csproj" />
-    <ProjectReference Include="..\ix-integration-plc\ix\ix-integration-plc.csproj" />
+    <ProjectReference Include="..\ix-integration-plc\ix\ix_integration_plc.csproj" />
   </ItemGroup>
 
 	

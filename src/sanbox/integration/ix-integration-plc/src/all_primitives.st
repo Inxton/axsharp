@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS all_primitives
     VAR PUBLIC
         myBOOL	        :       BOOL	      ;

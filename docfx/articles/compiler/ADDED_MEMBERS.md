@@ -1,6 +1,6 @@
 # Added members
 
-The IX Compiler allows the declaration of additional members for any TwinObject. These members will be added to the TwinObject but not accessible from the PLC. Added members are useful when we want to provide additional usually static information about the object (description, humanized annotation, etc), but we do not want to put additional load on the communication between the application and the PLC.
+The AXSharp Compiler allows the declaration of additional members for any TwinObject. These members will be added to the TwinObject but not accessible from the PLC. Added members are useful when we want to provide additional usually static information about the object (description, humanized annotation, etc), but we do not want to put additional load on the communication between the application and the PLC.
 Added members are also a useful feature to provide additional context about the type or its particular instance.
 
 ## Added member declaration
@@ -14,6 +14,7 @@ Syntax
 Example
 
 ~~~iecst
+{S7.extern=ReadWrite}
 {#ix-prop:public string Description}
 CLASS PUBLIC MyClass
     VAR PUBLIC
@@ -49,6 +50,7 @@ CLASS_DECLARATION | STRUCTURED_TYPE_DECLARATION
 Example
 
 ~~~iecst
+{S7.extern=ReadWrite}
 {#ix-prop:public string Description}
 {#ix-set:Description = "This is my classy description."}
 CLASS PUBLIC MyClass
@@ -81,6 +83,7 @@ FIELD_DECLARATION | VARIABLE_DECLARATION
 ~~~
 
 ~~~iecst
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-set:Description = "This is my nested classy description."}
@@ -88,6 +91,7 @@ CLASS PUBLIC MyClass
     END_VAR
 END_CLASS
 
+{S7.extern=ReadWrite}
 {#ix-prop:public string Description}
 CLASS PUBLIC MyNestedStructure 
 END_CLASS
@@ -103,11 +107,11 @@ END_CLASS
 
 ## Common added members
 
-**The following members are present by default in any type created by IX compiler.**
+**The following members are present by default in any type created by AX# compiler.**
 
 ## AttributeName
 
-AttributeName is the default added member of all types within IX. They are used to represent the name of the variable or object in a humanized way. These attributes can be later used to label the variables consistently in the UI.
+AttributeName is the default added member of all types within AXSharp. They are used to represent the name of the variable or object in a humanized way. These attributes can be later used to label the variables consistently in the UI.
 
 ~~~
 {#ix-set: AttributeName = "Length"}
@@ -116,12 +120,12 @@ _length : REAL;
 
 ## Primitive added members
 
-**The following members are present by default in any primitive type create by IX compiler.**
+**The following members are present by default in any primitive type create by AXSharp compiler.**
 
 
 ## AttributeUnits
 
-AttributeUnit is the default added member of all PrimitiveTwins within IX. They are used to represent the unit measure of a variable.
+AttributeUnit is the default added member of all PrimitiveTwins within AXSharp. They are used to represent the unit measure of a variable.
 
 ~~~
 {#ix-set: AttributeUnits = "mm"}
@@ -135,10 +139,10 @@ System.Console.WriteLine(MainPlc.MAIN._length.AttributeUnits);
 
 ## AttributeMinimum
 
-AttributeMinimum is the default added member of all PrimitiveTwins within IX. They are used to get or set the minimum value for the variable. By default, this attribute contains the minimal value of a given type.
+AttributeMinimum is the default added member of all PrimitiveTwins within AXSharp. They are used to get or set the minimum value for the variable. By default, this attribute contains the minimal value of a given type.
 
 ~~~
-{#ix-set: AttributeMininum = 10.5f}
+{#ix-set: AttributeMinimum = 10.5f}
 _length : REAL;
 ~~~
 
@@ -150,7 +154,7 @@ System.Console.WriteLine(MainPlc.MAIN._length.AttributeMinimum);
 
 ## AttributeMaximum
 
-AttributeMaximum is the default added member of all PrimitiveTwins within IX. They are used to get or set the maximum value for the variable. By default, this attribute contains the maximum value of a given type.
+AttributeMaximum is the default added member of all PrimitiveTwins within AXSharp. They are used to get or set the maximum value for the variable. By default, this attribute contains the maximum value of a given type.
 
 ~~~
 {#ix-set: AttributeMaximum = 1525.5f}

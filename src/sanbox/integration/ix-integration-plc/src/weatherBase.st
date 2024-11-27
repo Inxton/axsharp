@@ -1,6 +1,7 @@
 
     {#ix-attr:[Container(Layout.Stack)]}
-    {#ix-attr:[Group(GroupLayout.GroupBox)]}    
+    {#ix-attr:[Group(GroupLayout.GroupBox)]}  
+    {S7.extern=ReadWrite}  
     CLASS PUBLIC weatherBase
       VAR PUBLIC
         Latitude : REAL;       

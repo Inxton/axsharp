@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -80,14 +80,14 @@
 <h1 id="concenptual-overview">Concenptual overview</h1>
 
 <h2 id="net-plc-twins">.NET PLC TWINs</h2>
-<p>The core functionality of IX is to provide connectivity between SIMATIC AX based PLC project and .NET PLC TWIN objects. Twin objects replicate consistently the data structures of the PLC program, so that the access path to data members in the PLC program and in .NET environment are the same.</p>
+<p>The core functionality of AXSharp is to provide connectivity between SIMATIC AX based PLC project and .NET PLC TWIN objects. Twin objects replicate consistently the data structures of the PLC program, so that the access path to data members in the PLC program and in .NET environment are the same.</p>
 <p>In the following diagram you can observe that there are two basic components <code>ixc</code> which is the compiler that trans-piles the data types into .NET library and <code>Connector</code> that provides the connectivity between the object produces by the <code>ixc</code> and the PLC.</p>
 <p><img src="../../images/conceptual/ix_ixc_con.svg" alt="ix-con-plc"></p>
-<p>These two mechanism of the IX technology provide the structured access to any .NET based application.</p>
+<p>These two mechanism of the AXSharp technology provide the structured access to any .NET based application.</p>
 <p>See also:
 <a href="../compiler/README.html">Compiler</a></p>
 <h2 id="automated-ui-generation">Automated UI generation</h2>
-<p>IX provides a possibilty to automatically render the data from the PLC controller. Rendering engine provides the possibilty to direct the basic layout using attributes directly in the PLC code. There are several types of attributes that can add human readable strings that will be displayed in the UI.</p>
+<p>AXSharp provides a possibilty to automatically render the data from the PLC controller. Rendering engine provides the possibilty to direct the basic layout using attributes directly in the PLC code. There are several types of attributes that can add human readable strings that will be displayed in the UI.</p>
 <p>Following code will be transpiled into TwinObject and rendered as follows:</p>
 <pre><code class="lang-SmallTalk">NAMESPACE MeasurementExample
     {#ix-attr:[Container(Layout.Wrap)]}
@@ -143,6 +143,7 @@ END_NAMESPACE
 <p><img src="../../images/conceptual/2023-02-01-15-29-19.png" alt=""></p>
 <p>See also:</p>
 <p><a href="../blazor/README.html">Blazor rendering</a></p>
+
 </article>
           </div>
 
@@ -151,12 +152,12 @@ END_NAMESPACE
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/conceptual/Conceptual.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/conceptual/Conceptual.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

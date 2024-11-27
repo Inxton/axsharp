@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	  <!--NuGet Specific part-->
+	  <Description>Generator of Pseudo AX project from exported TIA datablocks</Description>
+	  <PackAsTool>True</PackAsTool>
+	  <ToolCommandName>tiapax</ToolCommandName>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>ix-ax</Authors>
+	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Title>AX# compiler CLI</Title>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/ix-ax/axsharp/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+    <None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommandLineParser"/>
+	</ItemGroup>
+</Project>

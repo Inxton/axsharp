@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ix_blaxor.Data;
-using Ix.Presentation.Blazor.Services;
+using AXSharp.Presentation.Blazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

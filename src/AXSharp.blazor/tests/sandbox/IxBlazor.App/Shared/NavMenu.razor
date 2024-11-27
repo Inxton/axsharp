@@ -1,0 +1,77 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Menu</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/attributeTests" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Attribute Tests
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/stBlazor" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> StBlazor
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/shadow" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> ShadowControl
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/wrap" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> WrapLayout
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/uniform" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> UniformGrid
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/theming" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Theming
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/multiplelayouts" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Multiple Layouts
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/displaypresentation" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Presentation Type
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/rendering" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Rendering test
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

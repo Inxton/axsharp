@@ -1,6 +1,6 @@
 # Ixc config file
 
-**ix.config.json** can contain some settings for the compiler. Upon the first run of the ixc the default `ix.config.json` file is created if not previoulsy created manually.
+**AXSharp.config.json** can contain some settings for the compiler. Upon the first run of the ixc the default `AXSharp.config.json` file is created if not previoulsy created manually.
 
 Some compilation options can be overrided by CLI, such as `OutputProjectFolder` (-o) will override `OutputProjectFolder` setting in the config file.
 

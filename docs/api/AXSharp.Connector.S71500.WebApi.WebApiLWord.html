@@ -1,0 +1,636 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WebApiLWord | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WebApiLWord | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord">
+
+
+
+  <h1 id="AXSharp_Connector_S71500_WebApi_WebApiLWord" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord" class="text-break">Class WebApiLWord</h1>
+  <div class="markdown level0 summary"><p>Represents wrapper for a PLC LWORD variable.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html">OnlinerBase</a></div>
+    <div class="level2"><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html">OnlinerBase</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+    <div class="level3"><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a></div>
+    <div class="level4"><span class="xref">WebApiLWord</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ValueValidation.IValueBoundaries-1.html">IValueBoundaries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+    <div><a class="xref" href="AXSharp.Connector.ValueTypes.Online.IOnlineLWord.html">IOnlineLWord</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ValueTypes.Online.IOnline-1.html">IOnline</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+    <div><a class="xref" href="AXSharp.Connector.ValueTypes.Shadows.IShadowLWord.html">IShadowLWord</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ValueTypes.Shadows.IShadow-1.html">IShadow</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+    <div><a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html#AXSharp_Connector_ValueTypes_OnlinerLWord_MinValue">OnlinerLWord.MinValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html#AXSharp_Connector_ValueTypes_OnlinerLWord_MaxValue">OnlinerLWord.MaxValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html#AXSharp_Connector_ValueTypes_OnlinerLWord_InstanceMaxValue">OnlinerLWord.InstanceMaxValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html#AXSharp_Connector_ValueTypes_OnlinerLWord_InstanceMinValue">OnlinerLWord.InstanceMinValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_validator">OnlinerBase&lt;ulong&gt;.validator</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_EditValueChange">OnlinerBase&lt;ulong&gt;.EditValueChange</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_ShadowValueChange">OnlinerBase&lt;ulong&gt;.ShadowValueChange</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_Validator">OnlinerBase&lt;ulong&gt;.Validator</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_SetLastValue">OnlinerBase&lt;ulong&gt;.SetLastValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_CyclicToWrite">OnlinerBase&lt;ulong&gt;.CyclicToWrite</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_Cyclic">OnlinerBase&lt;ulong&gt;.Cyclic</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetCyclic_System_Globalization_CultureInfo_">OnlinerBase&lt;ulong&gt;.GetCyclic(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_Edit">OnlinerBase&lt;ulong&gt;.Edit</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_Shadow">OnlinerBase&lt;ulong&gt;.Shadow</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_Raw">OnlinerBase&lt;ulong&gt;.Raw</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_AttributeUnits">OnlinerBase&lt;ulong&gt;.AttributeUnits</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_AttributeToolTip">OnlinerBase&lt;ulong&gt;.AttributeToolTip</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetAttributeToolTip_System_Globalization_CultureInfo_">OnlinerBase&lt;ulong&gt;.GetAttributeToolTip(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_VariableInfo">OnlinerBase&lt;ulong&gt;.VariableInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_ReadFromPlcIsRequested">OnlinerBase&lt;ulong&gt;.ReadFromPlcIsRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_AttributeMaximum">OnlinerBase&lt;ulong&gt;.AttributeMaximum</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_AttributeMinimum">OnlinerBase&lt;ulong&gt;.AttributeMinimum</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_LastValue">OnlinerBase&lt;ulong&gt;.LastValue</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_IsSubscribed">OnlinerBase&lt;ulong&gt;.IsSubscribed</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_UpdateRead__0_">OnlinerBase&lt;ulong&gt;.UpdateRead(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetLastAvailableValue">OnlinerBase&lt;ulong&gt;.GetLastAvailableValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_InitializeDefaults">OnlinerBase&lt;ulong&gt;.InitializeDefaults()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetAsync_System_Globalization_CultureInfo_">OnlinerBase&lt;ulong&gt;.GetAsync(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_ShadowValueChangeEvent">OnlinerBase&lt;ulong&gt;.ShadowValueChangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_HasWriteAccess">OnlinerBase&lt;ulong&gt;.HasWriteAccess()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_ReadFromItem">OnlinerBase&lt;ulong&gt;.ReadFromItem()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_WriteItem">OnlinerBase&lt;ulong&gt;.WriteItem()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetDeclaringAssembly">OnlinerBase&lt;ulong&gt;.GetDeclaringAssembly()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_FromOnlineToShadow">OnlinerBase&lt;ulong&gt;.FromOnlineToShadow()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_FromShadowToOnline">OnlinerBase&lt;ulong&gt;.FromShadowToOnline()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_PollingInterval">OnlinerBase.PollingInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_AttributeFormatString">OnlinerBase.AttributeFormatString</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_SymbolTail">OnlinerBase.SymbolTail</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Parent">OnlinerBase.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_SubscribeForPeriodicReading">OnlinerBase.SubscribeForPeriodicReading()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_ReadWriteAccess">OnlinerBase.ReadWriteAccess</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_MakeReadOnly">OnlinerBase.MakeReadOnly()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_ReadOnce">OnlinerBase.ReadOnce</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_MakeReadOnce">OnlinerBase.MakeReadOnce()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_GetSymbolTail">OnlinerBase.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_GetParent">OnlinerBase.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Poll">OnlinerBase.Poll()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Interpreter">OnlinerBase.Interpreter</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Subscribe_AXSharp_Connector_ValueTypes_ValueChangedEventHandlerDelegate_">OnlinerBase.Subscribe(ValueChangedEventHandlerDelegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Subscribe">OnlinerBase.Subscribe()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_UnSubscribe_AXSharp_Connector_ValueTypes_ValueChangedEventHandlerDelegate_">OnlinerBase.UnSubscribe(ValueChangedEventHandlerDelegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_AccessStatus">OnlinerBase.AccessStatus</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_Symbol">OnlinerBase.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_AttributeName">OnlinerBase.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_GetAttributeName_System_Globalization_CultureInfo_">OnlinerBase.GetAttributeName(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_HumanReadable">OnlinerBase.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_GetHumanReadable_System_Globalization_CultureInfo_">OnlinerBase.GetHumanReadable(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_CreateSymbol_System_String_System_String_">OnlinerBase.CreateSymbol(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_ValueChangeEvent">OnlinerBase.ValueChangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_GetValueChangeEventSubscribers">OnlinerBase.GetValueChangeEventSubscribers()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_OnValueChangeEvent_System_Object_">OnlinerBase.OnValueChangeEvent(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_PropertyChanged">OnlinerBase.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_NotifyPropertyChanged_System_String_">OnlinerBase.NotifyPropertyChanged(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html#AXSharp_Connector_ValueTypes_OnlinerBase_AddToPeriodicQueue">OnlinerBase.AddToPeriodicQueue()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Connector.html">Connector</a>.<a class="xref" href="AXSharp.Connector.S71500.html">S71500</a>.<a class="xref" href="AXSharp.Connector.S71500.WebApi.html">WebApi</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Connector.S71500.WebAPI.dll</h6>
+  <h5 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebApiLWord : OnlinerLWord, INotifyPropertyChanged, IValueBoundaries&lt;ulong&gt;, IOnlineLWord, IOnline&lt;ulong&gt;, IShadowLWord, IShadow&lt;ulong&gt;, ITwinPrimitive, ITwinElement</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L21">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.#ctor*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.#ctor">WebApiLWord()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebApiLWord()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L27">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.#ctor*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiLWord__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">WebApiLWord(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebApiLWord(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of this instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord_GetAsync.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord.GetAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L79">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiLWord_GetAsync_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.GetAsync*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_GetAsync" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.GetAsync">GetAsync()</h4>
+  <div class="markdown level1 summary"><p>Gets the value of this variable from the controller asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;ulong&gt; GetAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_GetAsync">OnlinerBase&lt;ulong&gt;.GetAsync()</a></div>
+  <h5 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_GetAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method accesses the item in a single request over communication layer;
+accessing multiple items may result in performance degradation
+over the communication interface with the target system.
+This method is to be used only when you need the item to be read from the PLC
+and the return the control of the program.
+Consider using <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a>s <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync_AXSharp_Connector_ITwinObject_">ReadAsync(ITwinObject)</a>
+or <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync_AXSharp_Connector_ITwinObject_">WriteAsync(ITwinObject)</a> methods for bulk access to entire structures.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord_Read_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord.Read(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L69">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiLWord_Read_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.Read*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_Read_System_String_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.Read(System.String)">Read(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Read(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord_SetAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord.SetAsync(System.UInt64)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L85">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiLWord_SetAsync_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.SetAsync*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_SetAsync_System_UInt64_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiLWord.SetAsync(System.UInt64)">SetAsync(ulong)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of this variable to the controller asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;ulong&gt; SetAsync(ulong value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase-1.html#AXSharp_Connector_ValueTypes_OnlinerBase_1_SetAsync__0_">OnlinerBase&lt;ulong&gt;.SetAsync(ulong)</a></div>
+  <h5 id="AXSharp_Connector_S71500_WebApi_WebApiLWord_SetAsync_System_UInt64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method accesses the item in a single request over communication layer;
+accessing multiple items may result in performance degradation
+over the communication interface with the target system.
+This method is to be used only when you need the item to be read from the PLC
+and the return the control of the program.
+Consider using <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a>s <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync_AXSharp_Connector_ITwinObject_">ReadAsync(ITwinObject)</a>
+or <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync_AXSharp_Connector_ITwinObject_">WriteAsync(ITwinObject)</a> methods for bulk access to entire structures.</p>
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ValueValidation.IValueBoundaries-1.html">IValueBoundaries&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.Online.IOnlineLWord.html">IOnlineLWord</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.Online.IOnline-1.html">IOnline&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.Shadows.IShadowLWord.html">IShadowLWord</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ValueTypes.Shadows.IShadow-1.html">IShadow&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="AXSharp.Connector.Localizations.TranslatorExtension.html#AXSharp_Connector_Localizations_TranslatorExtension_Translate_AXSharp_Connector_ITwinElement_System_String_System_Globalization_CultureInfo_">TranslatorExtension.Translate(ITwinElement, string, CultureInfo)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_HasAttribute__1_AXSharp_Connector_ITwinElement_">TwinObjectExtensions.HasAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StartPolling_AXSharp_Connector_ITwinElement_System_Int32_System_Object_">TwinObjectExtensions.StartPolling(ITwinElement, int, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StopPolling_AXSharp_Connector_ITwinElement_System_Object_">TwinObjectExtensions.StopPolling(ITwinElement, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetAttribute__1_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetPropertyInfoViaSymbol_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetPropertyInfoViaSymbol(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetCyclicValue__1_AXSharp_Connector_ValueTypes_OnlinerBase_">TwinPrimitiveExtensions.GetCyclicValue&lt;T&gt;(OnlinerBase)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetLastValue__1_AXSharp_Connector_ValueTypes_OnlinerBase_">TwinPrimitiveExtensions.GetLastValue&lt;T&gt;(OnlinerBase)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetShadowValue__1_AXSharp_Connector_ValueTypes_OnlinerBase_">TwinPrimitiveExtensions.GetShadowValue&lt;T&gt;(OnlinerBase)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_SetCyclicValue__1_AXSharp_Connector_ValueTypes_OnlinerBase___0_">TwinPrimitiveExtensions.SetCyclicValue&lt;T&gt;(OnlinerBase, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_SetShadowValue__1_AXSharp_Connector_ValueTypes_OnlinerBase___0_">TwinPrimitiveExtensions.SetShadowValue&lt;T&gt;(OnlinerBase, T)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiLWord.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiLWord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/BuiltInWrappers/WebApiLWord.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

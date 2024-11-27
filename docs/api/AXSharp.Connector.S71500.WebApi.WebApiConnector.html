@@ -1,0 +1,786 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WebApiConnector | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WebApiConnector | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector">
+
+
+
+  <h1 id="AXSharp_Connector_S71500_WebApi_WebApiConnector" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector" class="text-break">Class WebApiConnector</h1>
+  <div class="markdown level0 summary"><p>Provides connector to mediate connection with AX# twins over WebAPI connection.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="AXSharp.Connector.RootTwinObject.html">RootTwinObject</a></div>
+    <div class="level2"><a class="xref" href="AXSharp.Connector.Connector.html">Connector</a></div>
+    <div class="level3"><span class="xref">WebApiConnector</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_SetLoggerConfiguration_Serilog_ILogger_">Connector.SetLoggerConfiguration(ILogger)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_Logger">Connector.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ConnectorAdapter">Connector.ConnectorAdapter</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ExceptionBehaviour">Connector.ExceptionBehaviour</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_SubscriptionMode">Connector.SubscriptionMode</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ErrorCount">Connector.ErrorCount</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_IdentityProvider">Connector.IdentityProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_RwCycleCount">Connector.RwCycleCount</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_CyclicRwDuration">Connector.CyclicRwDuration</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_StartUpTime">Connector.StartUpTime</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_MonitorConnector">Connector.MonitorConnector</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ReadWriteCycleDelay">Connector.ReadWriteCycleDelay</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ConcurrentRequestDelay">Connector.ConcurrentRequestDelay</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ConcurrentRequestMaxCount">Connector.ConcurrentRequestMaxCount</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_OnlineTags">Connector.OnlineTags</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_IsRwLoopSuspended">Connector.IsRwLoopSuspended</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_PropertyChanged">Connector.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_CreateSymbol_System_String_System_String_">Connector.CreateSymbol(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_CreateHumanReadable_System_String_System_String_">Connector.CreateHumanReadable(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_SetField__1___0____0_System_String_">Connector.SetField&lt;T&gt;(ref T, T, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_SetCulture_System_Globalization_CultureInfo_">Connector.SetCulture(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_StartReadWriteOps">Connector.StartReadWriteOps()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_CyclicRead">Connector.CyclicRead()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_CyclicWrite">Connector.CyclicWrite()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ClearPeriodicReadSet">Connector.ClearPeriodicReadSet()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Identity">RootTwinObject.Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetSymbolTail">RootTwinObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Poll">RootTwinObject.Poll()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Interpreter">RootTwinObject.Interpreter</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AttributeName">RootTwinObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetAttributeName_System_Globalization_CultureInfo_">RootTwinObject.GetAttributeName(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetHumanReadable_System_Globalization_CultureInfo_">RootTwinObject.GetHumanReadable(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Symbol">RootTwinObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_HumanReadable">RootTwinObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetChildren">RootTwinObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetParent">RootTwinObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddChild_AXSharp_Connector_ITwinObject_">RootTwinObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetValueTags">RootTwinObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddValueTag_AXSharp_Connector_ITwinPrimitive_">RootTwinObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetConnector">RootTwinObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_OnlineToPlain__1">RootTwinObject.OnlineToPlain&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToOnline__1___0_">RootTwinObject.PlainToOnline&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_ShadowToPlain__1">RootTwinObject.ShadowToPlain&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToShadow__1___0_">RootTwinObject.PlainToShadow&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AnyChangeAsync__1___0_">RootTwinObject.AnyChangeAsync&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_OnlineToPlain">RootTwinObject.OnlineToPlain()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToOnline_System_Object_">RootTwinObject.PlainToOnline(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_ShadowToPlain">RootTwinObject.ShadowToPlain()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToShadow_System_Object_">RootTwinObject.PlainToShadow(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddKid_AXSharp_Connector_ITwinElement_">RootTwinObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetKids">RootTwinObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Connector.html">Connector</a>.<a class="xref" href="AXSharp.Connector.S71500.html">S71500</a>.<a class="xref" href="AXSharp.Connector.S71500.WebApi.html">WebApi</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Connector.S71500.WebAPI.dll</h6>
+  <h5 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebApiConnector : Connector, ITwinObject, ITwinElement, INotifyPropertyChanged</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Boolean_eTargetProjectPlatform_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CeTargetProjectPlatform%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L87">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Boolean_eTargetProjectPlatform_System_String_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Boolean,eTargetProjectPlatform,System.String)">WebApiConnector(string, string, string, bool, eTargetProjectPlatform, string)</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of <a class="xref" href="AXSharp.Connector.S71500.WebApi.WebApiConnector.html">WebApiConnector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebApiConnector(string ipAddress, string userName, string password, bool ignoreSSLErros, eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX, string dbName = &quot;\&quot;TGlobalVariablesDB\&quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">ipAddress</span></td>
+        <td><p>Target's IP address.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">userName</span></td>
+        <td><p>User name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Password.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">ignoreSSLErros</span></td>
+        <td><p>When set to 'true' the connection will ignore SSL errors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="eTargetProjectPlatform.html">eTargetProjectPlatform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">dbName</span></td>
+        <td><p>Root DB name (AX uses 'TGlobalVariablesDB')</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_Boolean_eTargetProjectPlatform_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.Func%7BSystem.Net.Http.HttpRequestMessage%2CSystem.Security.Cryptography.X509Certificates.X509Certificate2%2CSystem.Security.Cryptography.X509Certificates.X509Chain%2CSystem.Net.Security.SslPolicyErrors%2CSystem.Boolean%7D%2CSystem.Boolean%2CeTargetProjectPlatform%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L55">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector__ctor_System_String_System_String_System_String_System_Func_System_Net_Http_HttpRequestMessage_System_Security_Cryptography_X509Certificates_X509Certificate2_System_Security_Cryptography_X509Certificates_X509Chain_System_Net_Security_SslPolicyErrors_System_Boolean__System_Boolean_eTargetProjectPlatform_System_String_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.#ctor(System.String,System.String,System.String,System.Func{System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.Boolean},System.Boolean,eTargetProjectPlatform,System.String)">WebApiConnector(string, string, string, Func&lt;HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool&gt;?, bool, eTargetProjectPlatform, string)</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of <a class="xref" href="AXSharp.Connector.S71500.WebApi.WebApiConnector.html">WebApiConnector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebApiConnector(string ipAddress, string userName, string password, Func&lt;HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool&gt;? customServerCertHandler, bool ignoreSSLErros, eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX, string dbName = &quot;\&quot;TGlobalVariablesDB\&quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">ipAddress</span></td>
+        <td><p>Target's IP address.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">userName</span></td>
+        <td><p>User name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Password.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.x509certificates.x509certificate2">X509Certificate2</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.x509certificates.x509chain">X509Chain</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.security.sslpolicyerrors">SslPolicyErrors</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">customServerCertHandler</span></td>
+        <td><p>Customized server certificate handler.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">ignoreSSLErros</span></td>
+        <td><p>When set to true ssl error are ignored.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="eTargetProjectPlatform.html">eTargetProjectPlatform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">dbName</span></td>
+        <td><p>Root DB name (AX uses 'TGlobalVariablesDB')</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_NumberOfInstances.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.NumberOfInstances%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L177">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_NumberOfInstances_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.NumberOfInstances*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_NumberOfInstances" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.NumberOfInstances">NumberOfInstances</h4>
+  <div class="markdown level1 summary"><p>Gets number of instance of WebAPI connector in this application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfInstances { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_TargetPlatform.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L556">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_TargetPlatform_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_TargetPlatform" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.TargetPlatform">TargetPlatform</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public eTargetProjectPlatform TargetPlatform { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="eTargetProjectPlatform.html">eTargetProjectPlatform</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_BuildAndStart.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.BuildAndStart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L190">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_BuildAndStart_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.BuildAndStart*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_BuildAndStart" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.BuildAndStart">BuildAndStart()</h4>
+  <div class="markdown level1 summary"><p>Builds and starts this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Connector BuildAndStart()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.Connector.html">Connector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_BuildAndStart">Connector.BuildAndStart()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_ReLoginToConnectorApi.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L196">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReLoginToConnectorApi_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReLoginToConnectorApi" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReLoginToConnectorApi">ReLoginToConnectorApi()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ReLoginToConnectorApi()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_ReadBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.ReadBatchAsync(System.Collections.Generic.IEnumerable%7BAXSharp.Connector.ITwinPrimitive%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L325">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReadBatchAsync_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReadBatchAsync*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReadBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReadBatchAsync(System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive})">ReadBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Reads batch of value items from the plc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task ReadBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;? primitives)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>&gt;</td>
+        <td><span class="parametername">primitives</span></td>
+        <td><p>Primitive items to be read.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ReadBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__">Connector.ReadBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_ReloadConnector.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.ReloadConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L454">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReloadConnector_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReloadConnector*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_ReloadConnector" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.ReloadConnector">ReloadConnector()</h4>
+  <div class="markdown level1 summary"><p>Forces the connector to reload symbols.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ReloadConnector()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_ReloadConnector">Connector.ReloadConnector()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector.WriteBatchAsync(System.Collections.Generic.IEnumerable%7BAXSharp.Connector.ITwinPrimitive%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L409">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_S71500_WebApi_WebApiConnector_WriteBatchAsync_" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.WriteBatchAsync*"></a>
+  <h4 id="AXSharp_Connector_S71500_WebApi_WebApiConnector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__" data-uid="AXSharp.Connector.S71500.WebApi.WebApiConnector.WriteBatchAsync(System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive})">WriteBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Writes batch of value items to the plc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task WriteBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;? primitives)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>&gt;</td>
+        <td><span class="parametername">primitives</span></td>
+        <td><p>Primitive items to be written.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXSharp.Connector.Connector.html#AXSharp_Connector_Connector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__">Connector.WriteBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="AXSharp.Connector.Localizations.TranslatorExtension.html#AXSharp_Connector_Localizations_TranslatorExtension_Translate_AXSharp_Connector_ITwinElement_System_String_System_Globalization_CultureInfo_">TranslatorExtension.Translate(ITwinElement, string, CultureInfo)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_HasAttribute__1_AXSharp_Connector_ITwinElement_">TwinObjectExtensions.HasAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StartPolling_AXSharp_Connector_ITwinElement_System_Int32_System_Object_">TwinObjectExtensions.StartPolling(ITwinElement, int, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StopPolling_AXSharp_Connector_ITwinElement_System_Object_">TwinObjectExtensions.StopPolling(ITwinElement, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetAttribute__1_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetPropertyInfoViaSymbol_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetPropertyInfoViaSymbol(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_CreatePoco_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.CreatePoco(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_MakeReadOnce_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.MakeReadOnce(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_MakeReadOnly_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.MakeReadOnly(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_OnlineToShadowAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.OnlineToShadowAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ReadAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync__1_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ReadAsync&lt;T&gt;(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_RetrievePrimitives_AXSharp_Connector_ITwinObject_System_Collections_Generic_List_AXSharp_Connector_ITwinPrimitive__">TwinObjectExtensions.RetrievePrimitives(ITwinObject, List&lt;ITwinPrimitive&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ShadowToOnlineAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ShadowToOnlineAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_SubscribeEditValueChange_AXSharp_Connector_ITwinObject_AXSharp_Connector_ValueTypes_OnlinerBase_ValueChangeDelegate_">TwinObjectExtensions.SubscribeEditValueChange(ITwinObject, OnlinerBase.ValueChangeDelegate)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_SubscribeShadowValueChange_AXSharp_Connector_ITwinObject_AXSharp_Connector_ValueTypes_OnlinerBase_ValueChangeDelegate_">TwinObjectExtensions.SubscribeShadowValueChange(ITwinObject, OnlinerBase.ValueChangeDelegate)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_UnSubscribeEditValueChange_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.UnSubscribeEditValueChange(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_UnSubscribeShadowValueChange_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.UnSubscribeShadowValueChange(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.WriteAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync__1_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.WriteAsync&lt;T&gt;(ITwinObject)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_S71500_WebApi_WebApiConnector.md&amp;value=---%0Auid%3A%20AXSharp.Connector.S71500.WebApi.WebApiConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector.S71500.WebAPI/WebApiConnector.cs/#L41" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

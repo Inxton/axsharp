@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -100,8 +100,8 @@
 <!-- ----------------------------------------------------------------------------------- -->
 <div id='id-RenderableContentControl'></div>
 <h2 id="what-is-renderablecontentcontrol">What is RenderableContentControl?</h2>
-<p>RenderableContentControl is a Blazor component, which is able to automatically generate UI from C# objects acquired within Ix Framework.
-Ix compiler will create twin C# classes of PLC classes, which instances can be pass to RenderableContentControl to generate corresponding views.
+<p>RenderableContentControl is a Blazor component, which is able to automatically generate UI from C# objects acquired within AXSharp.
+AXSharp compiler will create twin C# classes of PLC classes, which instances can be pass to RenderableContentControl to generate corresponding views.
 It can render both complex objects (<em>ITwinObject</em> type) and primitive objects containing values (<em>ITwinPrimitive</em> type).
 In addition, resulting UI can be adjusted with attributes from PLC code.</p>
 <hr>
@@ -130,14 +130,14 @@ END_CLASS
 <h2 id="how-automatic-generation-of-ui-works">How automatic generation of UI works</h2>
 <p>Ix.Presentation.Blazor framework contains two libraries:</p>
 <ul>
-<li><strong>Ix.Presentation.Blazor</strong>
+<li><strong>AXSharp.Presentation.Blazor</strong>
 <ul>
 <li>Base classes</li>
 <li>Services</li>
 <li>Interfaces</li>
 </ul>
 </li>
-<li><strong>Ix.Presentation.Controls.Blazor</strong>
+<li><strong>AXSharp.Presentation.Controls.Blazor</strong>
 <ul>
 <li>Styles</li>
 <li>Layouts</li>
@@ -163,7 +163,7 @@ END_CLASS
 <h2 id="features">Features</h2>
 <div id='id-presentation'></div>
 <h3 id="presentation-types"><strong>Presentation types</strong></h3>
-<p><strong>Presentation types</strong> specify mode in which UI will be rendered. Within <em>Ix.Presentation.Blazor</em> framework following presentation types are supported.</p>
+<p><strong>Presentation types</strong> specify mode in which UI will be rendered. Within <em>AXSharp.Presentation.Blazor</em> framework following presentation types are supported.</p>
 <ul>
 <li><code>Display</code></li>
 <li><code>Control</code></li>
@@ -226,6 +226,12 @@ END_CLASS
 testIxComponent: IxComponent;
 </code></pre>
 <div id='id-editprop'></div>
+<h3 id="rendertemplateoverride"><strong>RenderTemplateOverride</strong></h3>
+<p>You can use the RenderTemplateOverride attribute to override the generated template. This attribute replaces the generated template with the template you specified.</p>
+<p>When you specifying a template name, it is necessary to include the full name with a namespace.</p>
+<pre><code>{#ix-attr:[RenderTemplateOverride(&quot;ixBlazor.App.Custom.MySimplePrimitiveStruct&quot;)]}
+testRenderTemplateOverrideStruct : stSimplePrimitive;
+</code></pre>
 <h3 id="edit-property"><strong>Edit Property</strong></h3>
 <p>Then renderer binds variables to <code>Cyclic</code> or <code>Edit</code> property of an Onliner. When an element gets focus, value is bound to <code>Edit</code> property and UI updates stops. After the focus is lost, the value is bound back to <code>Cyclic</code> property and the value in the UI start updating again.</p>
 <p><img src="../../images/blazor/edit-property.gif" alt="alt text" title="Edit property"></p>
@@ -261,19 +267,20 @@ More information about layout is in <strong><a href="LAYOUTS.html">LAYOUTS</a></
 <p><img src="../../images/blazor/wrap-css-inject.png" alt="alt text" title="Edit property"></p>
 <div id='id-styling'></div>
 <h3 id="styling"><strong>Styling</strong></h3>
-<p>Ix.Presentation.Blazor contains in-built styles. Styling is provided by <a href="https://getbootstrap.com/">Bootstrap library</a>. In-built styles can be customized with Sass technology, which will produce SCSS files. SCSS files can be compiled into one CSS file which can be used as application-wide style.</p>
+<p>AXSharp.Presentation.Blazor contains in-built styles. Styling is provided by <a href="https://getbootstrap.com/">Bootstrap library</a>. In-built styles can be customized with Sass technology, which will produce SCSS files. SCSS files can be compiled into one CSS file which can be used as application-wide style.</p>
 <p>Currently, the framework contains a default style that can be added as a reference in the Blazor application file <em>_Host.cshtml</em> in the following way:</p>
-<pre><code> &lt;link rel=&quot;stylesheet&quot; href=&quot;/_content/IX.Presentation.Blazor.Controls/css/ix-bootstrap.min.css&quot;&gt;
+<pre><code> &lt;link rel=&quot;stylesheet&quot; href=&quot;/_content/AXSharp.Presentation.Blazor.Controls/css/ix-bootstrap.min.css&quot;&gt;
 </code></pre>
 <p>It is possible to add built-in javascript libraries as well:</p>
-<pre><code>    &lt;script src=&quot;/_content/IX.Presentation.Blazor.Controls/js/ix-bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;/_content/IX.Presentation.Blazor.Controls/js/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+<pre><code>    &lt;script src=&quot;/_content/AXSharp.Presentation.Blazor.Controls/js/ix-bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/_content/AXSharp.Presentation.Blazor.Controls/js/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <h3 id="custom-components-libraries"><strong>Custom components libraries</strong></h3>
-<p>Ix.Presentation.Controls framework provides possibility to create a custom library of components with corresponding views.
+<p>AXSharp.Presentation.Controls framework provides possibility to create a custom library of components with corresponding views.
 When library is referenced from your Blazor project, the framework will automatically load its views, which then can be auto-generated with the RenderableContentControl component.</p>
 <p>For more information about custom libraries and how to create them, look into <strong><a href="LIBRARIES.html">LIBRARIES</a></strong> file.</p>
 <hr>
+
 </article>
           </div>
 
@@ -282,12 +289,12 @@ When library is referenced from your Blazor project, the framework will automati
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/blazor/RENDERABLECONTENT.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/blazor/RENDERABLECONTENT.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

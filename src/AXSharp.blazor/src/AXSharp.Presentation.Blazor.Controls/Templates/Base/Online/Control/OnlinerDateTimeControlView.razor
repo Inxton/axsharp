@@ -1,0 +1,43 @@
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using System.Globalization;
+@inherits TemplateBaseOnline<DateTime>
+
+<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <input id="@ComponentId"
+           readonly="@IsReadOnly"
+           class="w-100 form-control @AccessStatus"
+           type="datetime-local"
+           step="1"
+           value="@Value.ToString("yyyy-MM-dd\"T\"HH:mm:ss")"
+           @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
+           @onblur="@(() => HasFocus = false)"
+           @onfocusout="FocusOut"
+           @onchange="Change"
+           @key="Key"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
+</TemplateView>
+
+@code
+{
+    private DateTime InputValue { get; set; }
+    private int Key = 0;
+
+    private void FocusOut(FocusEventArgs args)
+    {
+        if (InputValue != new DateTime())
+            Value = InputValue;
+        InputValue = new DateTime();
+
+        Key++;
+    }
+
+    private void Change(ChangeEventArgs args)
+    {
+        if (DateTime.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, DateTimeStyles.None, out var parseValue))
+            InputValue = parseValue;
+    }
+}

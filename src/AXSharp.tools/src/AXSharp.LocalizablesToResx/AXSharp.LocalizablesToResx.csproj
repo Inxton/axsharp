@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		
+
+		<!--NuGet Specific part-->
+		<Description>Creates Resx files from localizables in a .NET project.</Description>
+		<PackAsTool>True</PackAsTool>
+		<ToolCommandName>ltr</ToolCommandName>
+
+		<!-- NuGet Common part-->
+		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>ix-ax</Authors>
+		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Title>AX# compiler CLI</Title>
+		<PackageIcon>icon_128_128.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReleaseNotes>
+			Release notes are published here:
+			https://github.com/ix-ax/axsharp/releases
+		</PackageReleaseNotes>
+		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ResXResourceReader.NetStandard"/>
+		<PackageReference Include="CommandLineParser"/>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+		</None>
+		<None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="tests\SimpleTests.razor">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "..\\AXSharp.sln",
+    "projects": [
+      "AXSharp.abstractions\\src\\AXSharp.Framework.Abstractions\\AXSharp.Framework.Abstractions.csproj"
+    ]
+  }
+}

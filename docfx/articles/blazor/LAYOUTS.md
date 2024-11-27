@@ -25,7 +25,7 @@ Where *Name* is replaced with the name of one of the supported layouts.
 Group layouts can be used only together with layouts and are specified with following attribute:
 
 ```
-{#ix-attr:[Container(GroupLayout.Name)]}
+{#ix-attr:[Group(GroupLayout.Name)]}
 ```
 ---
 

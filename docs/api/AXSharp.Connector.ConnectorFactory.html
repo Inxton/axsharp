@@ -1,0 +1,2739 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ConnectorFactory | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ConnectorFactory | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Connector.ConnectorFactory">
+
+
+
+  <h1 id="AXSharp_Connector_ConnectorFactory" data-uid="AXSharp.Connector.ConnectorFactory" class="text-break">Class ConnectorFactory</h1>
+  <div class="markdown level0 summary"><p>Provides abstraction for creation of <a class="xref" href="AXSharp.Connector.Connector.html">Connector</a> and value types (tags) for twin connector.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">ConnectorFactory</span></div>
+      <div class="level2"><a class="xref" href="AXSharp.Connector.DummyConnectorFactory.html">DummyConnectorFactory</a></div>
+      <div class="level2"><a class="xref" href="AXSharp.Connector.S71500.WebApi.WebApiConnectorFactory.html">WebApiConnectorFactory</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Connector.html">Connector</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Connector.dll</h6>
+  <h5 id="AXSharp_Connector_ConnectorFactory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ConnectorFactory</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateBOOL.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateBOOL%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L276">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateBOOL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBOOL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateBOOL" data-uid="AXSharp.Connector.ConnectorFactory.CreateBOOL">CreateBOOL()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> empty tag of a value type BOOL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerBool CreateBOOL()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBool.html">OnlinerBool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateBOOL_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateBOOL(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L35">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateBOOL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBOOL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateBOOL_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBOOL(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateBOOL(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> tag of a value type BOOL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerBool CreateBOOL(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBool.html">OnlinerBool</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBool.html">OnlinerBool</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateBYTE.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateBYTE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L285">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateBYTE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBYTE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateBYTE" data-uid="AXSharp.Connector.ConnectorFactory.CreateBYTE">CreateBYTE()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> empty tag of a value type BYTE;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerByte CreateBYTE()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerByte.html">OnlinerByte</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateBYTE_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateBYTE(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L44">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateBYTE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBYTE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateBYTE_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateBYTE(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateBYTE(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> tag of a value type BYTE;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerByte CreateBYTE(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerByte.html">OnlinerByte</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerByte.html">OnlinerByte</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateCHAR.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateCHAR%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L484">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateCHAR_" data-uid="AXSharp.Connector.ConnectorFactory.CreateCHAR*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateCHAR" data-uid="AXSharp.Connector.ConnectorFactory.CreateCHAR">CreateCHAR()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a> empty tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerChar CreateCHAR()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerChar.html">OnlinerChar</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateCHAR_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateCHAR(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L270">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateCHAR_" data-uid="AXSharp.Connector.ConnectorFactory.CreateCHAR*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateCHAR_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateCHAR(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateCHAR(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a> tag of a value type CHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerChar CreateCHAR(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerChar.html">OnlinerChar</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerChar.html">OnlinerChar</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateConnector_System_Object___.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateConnector(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L26">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateConnector_" data-uid="AXSharp.Connector.ConnectorFactory.CreateConnector*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateConnector_System_Object___" data-uid="AXSharp.Connector.ConnectorFactory.CreateConnector(System.Object[])">CreateConnector(object[])</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Connector CreateConnector(object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Connector parameters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.Connector.html">Connector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="AXSharp_Connector_ConnectorFactory_CreateConnector_System_Object____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This class is typically used by the 'ixc' to create value types (tags) for given connector.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDATE.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDATE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L448">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDATE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDATE" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE">CreateDATE()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> empty tag of a value type DATE;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerDate CreateDATE()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDATE_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDATE(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L206">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDATE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDATE_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateDATE(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> tag of a value type DATE;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerDate CreateDATE(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDATE_AND_TIME_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDATE_AND_TIME(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L197">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDATE_AND_TIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE_AND_TIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDATE_AND_TIME_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE_AND_TIME(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateDATE_AND_TIME(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> tag of a value type DT, DATE_TIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerDateTime CreateDATE_AND_TIME(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDateTime.html">OnlinerDateTime</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDateTime.html">OnlinerDateTime</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDATE_TIME.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDATE_TIME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L439">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDATE_TIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE_TIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDATE_TIME" data-uid="AXSharp.Connector.ConnectorFactory.CreateDATE_TIME">CreateDATE_TIME()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> empty tag of a value type DATE_AND_TIME (DT);</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerDateTime CreateDATE_TIME()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDateTime.html">OnlinerDateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L357">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateDINT">CreateDINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> empty tag of a value type DINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerDInt CreateDINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDInt.html">OnlinerDInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L116">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateDINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> tag of a value type DINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerDInt CreateDINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDInt.html">OnlinerDInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDInt.html">OnlinerDInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDWORD.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDWORD%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L303">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDWORD" data-uid="AXSharp.Connector.ConnectorFactory.CreateDWORD">CreateDWORD()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> empty tag of a value type DWORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerDWord CreateDWORD()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDWord.html">OnlinerDWord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateDWORD_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateDWORD(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L62">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateDWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateDWORD_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateDWORD(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateDWORD(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> tag of a value type DWORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerDWord CreateDWORD(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDWord.html">OnlinerDWord</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDWord.html">OnlinerDWord</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L339">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateINT">CreateINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a> empty tag of a value type INT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerInt CreateINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerInt.html">OnlinerInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L98">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a> tag of a value type INT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerInt CreateINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerInt.html">OnlinerInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerInt.html">OnlinerInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLDATE.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLDATE%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L493">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLDATE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLDATE" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE">CreateLDATE()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a> empty tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerDate CreateLDATE()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLDATE_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLDATE(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L243">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLDATE_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLDATE_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLDATE(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a> tag of a value type LDATE;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerDate CreateLDATE(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerDate.html">OnlinerDate</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L502">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME">CreateLDATE_AND_TIME()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> empty tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLDateTime CreateLDATE_AND_TIME()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLDateTime.html">OnlinerLDateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L252">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLDATE_AND_TIME_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLDATE_AND_TIME(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLDATE_AND_TIME(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> tag of a value type LDATE_AND_TIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLDateTime CreateLDATE_AND_TIME(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLDateTime.html">OnlinerLDateTime</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLDateTime.html">OnlinerLDateTime</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L376">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateLINT">CreateLINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a> empty tag of a value type LINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLInt CreateLINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLInt.html">OnlinerLInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L134">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a> tag of a value type LINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLInt CreateLINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLInt.html">OnlinerLInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLInt.html">OnlinerLInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLREAL.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLREAL%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L403">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLREAL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLREAL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLREAL" data-uid="AXSharp.Connector.ConnectorFactory.CreateLREAL">CreateLREAL()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> empty tag of a value type LREAL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLReal CreateLREAL()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLReal.html">OnlinerLReal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLREAL_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLREAL(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L161">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLREAL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLREAL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLREAL_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLREAL(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLREAL(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> tag of a value type LREAL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLReal CreateLREAL(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLReal.html">OnlinerLReal</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLReal.html">OnlinerLReal</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLTIME.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLTIME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L466">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLTIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLTIME" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME">CreateLTIME()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> empty tag of a value type LTIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLTime CreateLTIME()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTime.html">OnlinerLTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLTIME_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLTIME(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L224">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLTIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLTIME_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLTIME(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> tag of a value type LTIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLTime CreateLTIME(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTime.html">OnlinerLTime</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTime.html">OnlinerLTime</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L511">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY">CreateLTIME_OF_DAY()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeonly">TimeOnly</a> empty tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLTimeOfDay CreateLTIME_OF_DAY()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTimeOfDay.html">OnlinerLTimeOfDay</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L261">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLTIME_OF_DAY_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLTIME_OF_DAY(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLTIME_OF_DAY(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> tag of a value type LTIME_OF_DAY;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLTimeOfDay CreateLTIME_OF_DAY(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTimeOfDay.html">OnlinerLTimeOfDay</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLTimeOfDay.html">OnlinerLTimeOfDay</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLWORD.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLWORD%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L312">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLWORD" data-uid="AXSharp.Connector.ConnectorFactory.CreateLWORD">CreateLWORD()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a> empty tag of a value type LWORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerLWord CreateLWORD()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateLWORD_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateLWORD(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L71">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateLWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateLWORD_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateLWORD(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateLWORD(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a> tag of a value type DWORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerLWord CreateLWORD(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerLWord.html">OnlinerLWord</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateREAL.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateREAL%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L394">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateREAL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateREAL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateREAL" data-uid="AXSharp.Connector.ConnectorFactory.CreateREAL">CreateREAL()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> empty tag of a value type REAL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerReal CreateREAL()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerReal.html">OnlinerReal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateREAL_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateREAL(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L152">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateREAL_" data-uid="AXSharp.Connector.ConnectorFactory.CreateREAL*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateREAL_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateREAL(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateREAL(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> tag of a value type REAL;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerReal CreateREAL(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerReal.html">OnlinerReal</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerReal.html">OnlinerReal</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateSINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateSINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L321">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateSINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateSINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateSINT">CreateSINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a> empty tag of a value type SINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerSInt CreateSINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerSInt.html">OnlinerSInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateSINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateSINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L80">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateSINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateSINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateSINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a> tag of a value type SINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerSInt CreateSINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerSInt.html">OnlinerSInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerSInt.html">OnlinerSInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateSTRING.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateSTRING%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L412">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateSTRING_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSTRING*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateSTRING" data-uid="AXSharp.Connector.ConnectorFactory.CreateSTRING">CreateSTRING()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> empty tag of a value type STRING;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerString CreateSTRING()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerString.html">OnlinerString</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateSTRING_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateSTRING(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L170">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateSTRING_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSTRING*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateSTRING_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateSTRING(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateSTRING(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> tag of a value type STRING;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerString CreateSTRING(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerString.html">OnlinerString</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerString.html">OnlinerString</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateTIME.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateTIME%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L430">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateTIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateTIME" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME">CreateTIME()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> empty tag of a value type TIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerTime CreateTIME()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTime.html">OnlinerTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateTIME_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateTIME(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L188">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateTIME_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateTIME_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateTIME(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> tag of a value type TIME;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerTime CreateTIME(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTime.html">OnlinerTime</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTime.html">OnlinerTime</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L457">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY">CreateTIME_OF_DAY()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> empty tag of a value type TIME_OF_DAY;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerTimeOfDay CreateTIME_OF_DAY()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTimeOfDay.html">OnlinerTimeOfDay</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L215">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateTIME_OF_DAY_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateTIME_OF_DAY(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateTIME_OF_DAY(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> tag of a value type TOD (Time of day);</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerTimeOfDay CreateTIME_OF_DAY(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTimeOfDay.html">OnlinerTimeOfDay</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerTimeOfDay.html">OnlinerTimeOfDay</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUDINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUDINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L367">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUDINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUDINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUDINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateUDINT">CreateUDINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> empty tag of a value type UDINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerUDInt CreateUDINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUDInt.html">OnlinerUDInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUDINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUDINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L125">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUDINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUDINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUDINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUDINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateUDINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> tag of a value type UDINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerUDInt CreateUDINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUDInt.html">OnlinerUDInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUDInt.html">OnlinerUDInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L348">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateUINT">CreateUINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> empty tag of a value type UINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerUInt CreateUINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUInt.html">OnlinerUInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L107">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateUINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> tag of a value type UINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerUInt CreateUINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUInt.html">OnlinerUInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUInt.html">OnlinerUInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateULINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateULINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L385">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateULINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateULINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateULINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateULINT">CreateULINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a> empty tag of a value type ULINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerULInt CreateULINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerULInt.html">OnlinerULInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateULINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateULINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L143">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateULINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateULINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateULINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateULINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateULINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a> tag of a value type ULINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerULInt CreateULINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerULInt.html">OnlinerULInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerULInt.html">OnlinerULInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUSINT.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUSINT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L330">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUSINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUSINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUSINT" data-uid="AXSharp.Connector.ConnectorFactory.CreateUSINT">CreateUSINT()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> empty tag of a value type USINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerUSInt CreateUSINT()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUSInt.html">OnlinerUSInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateUSINT_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateUSINT(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L89">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateUSINT_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUSINT*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateUSINT_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateUSINT(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateUSINT(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> tag of a value type USINT;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerUSInt CreateUSINT(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUSInt.html">OnlinerUSInt</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerUSInt.html">OnlinerUSInt</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWCHAR.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWCHAR%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L475">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWCHAR_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWCHAR*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWCHAR" data-uid="AXSharp.Connector.ConnectorFactory.CreateWCHAR">CreateWCHAR()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a> empty tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerWChar CreateWCHAR()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWChar.html">OnlinerWChar</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWCHAR_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWCHAR(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L233">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWCHAR_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWCHAR*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWCHAR_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWCHAR(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateWCHAR(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a> tag of a value type WCHAR;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerWChar CreateWCHAR(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWChar.html">OnlinerWChar</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWChar.html">OnlinerWChar</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWORD.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWORD%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L294">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWORD" data-uid="AXSharp.Connector.ConnectorFactory.CreateWORD">CreateWORD()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> empty tag of a value type WORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerWord CreateWORD()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWord.html">OnlinerWord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWORD_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWORD(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L53">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWORD_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWORD*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWORD_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWORD(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateWORD(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> tag of a value type WORD;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerWord CreateWORD(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWord.html">OnlinerWord</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWord.html">OnlinerWord</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWSTRING.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWSTRING%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L421">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWSTRING_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWSTRING*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWSTRING" data-uid="AXSharp.Connector.ConnectorFactory.CreateWSTRING">CreateWSTRING()</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> empty tag of a value type WSTRING;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OnlinerWString CreateWSTRING()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWString.html">OnlinerWString</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory_CreateWSTRING_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory.CreateWSTRING(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L179">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_ConnectorFactory_CreateWSTRING_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWSTRING*"></a>
+  <h4 id="AXSharp_Connector_ConnectorFactory_CreateWSTRING_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXSharp.Connector.ConnectorFactory.CreateWSTRING(AXSharp.Connector.ITwinObject,System.String,System.String)">CreateWSTRING(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> tag of a value type WSTRING;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract OnlinerWString CreateWSTRING(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent object of <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a> type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td><p>Human readable tail of this value tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td><p>Symbol tail of this value tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWString.html">OnlinerWString</a></td>
+        <td><p>New instance of <a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerWString.html">OnlinerWString</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_ConnectorFactory.md&amp;value=---%0Auid%3A%20AXSharp.Connector.ConnectorFactory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Adapter/ConnectorFactory.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

@@ -1,6 +1,6 @@
 # Dummy
 
-### [API](~/api/Ix.Connector.DummyConnector.yml)
+### [API](~/api/AXSharp.Connector.DummyConnector.yml)
 
 Provides the possibility to work with PLC twins without target system.
 

@@ -1,4 +1,5 @@
 NAMESPACE RealMonsterData
+    {S7.extern=ReadWrite}
     CLASS RealMonsterBase
         VAR PUBLIC
             Description : STRING;
@@ -11,12 +12,14 @@ NAMESPACE RealMonsterData
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS RealMonster EXTENDS RealMonsterBase
         VAR PUBLIC
             DriveA : DriveBaseNested;
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DriveBaseNested
         VAR PUBLIC
             Position : LREAL;
@@ -27,6 +30,7 @@ NAMESPACE RealMonsterData
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS NestedLevelOne
         VAR PUBLIC
             Position : LREAL;
@@ -37,6 +41,7 @@ NAMESPACE RealMonsterData
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS NestedLevelTwo
         VAR PUBLIC
             Position : LREAL;
@@ -47,6 +52,7 @@ NAMESPACE RealMonsterData
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS NestedLevelThree
         VAR PUBLIC
             Position : LREAL;

@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "..\\AXSharp.sln",
+    "projects": [
+      "AXSharp.builder\\src\\AXSharp.Compiler\\AXSharp.Compiler.csproj",
+      "AXSharp.builder\\src\\AXSharp.Cs.Compiler\\AXSharp.Compiler.Cs.csproj",
+      "AXSharp.builder\\src\\ixc\\ixc.csproj",
+      "AXSharp.builder\\tests\\AXSharp.CompilerTests\\AXSharp.CompilerTests.csproj"
+    ]
+  }
+}

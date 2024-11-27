@@ -1,9 +1,11 @@
 using System;
-using Ix.Connector;
-using Ix.Connector.ValueTypes;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
+using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
 
-public partial class all_primitives : Ix.Connector.ITwinObject
+public partial class all_primitives : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool myBOOL { get; }
 
@@ -49,18 +51,18 @@ public partial class all_primitives : Ix.Connector.ITwinObject
 
     public OnlinerWString myWSTRING { get; }
 
-    [Ix.Connector.EnumeratorDiscriminatorAttribute(typeof(myEnum))]
+    [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(myEnum))]
     public OnlinerInt myEnum { get; }
 
-    partial void PreConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
-    partial void PostConstruct(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail);
-    public all_primitives(Ix.Connector.ITwinObject parent, string readableTail, string symbolTail)
+    partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+    public all_primitives(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
-        Symbol = Ix.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
+        Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
         this.@SymbolTail = symbolTail;
         this.@Connector = parent.GetConnector();
         this.@Parent = parent;
-        HumanReadable = Ix.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
+        HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         PreConstruct(parent, readableTail, symbolTail);
         myBOOL = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this, "myBOOL", "myBOOL");
         myBYTE = @Connector.ConnectorAdapter.AdapterFactory.CreateBYTE(this, "myBYTE", "myBYTE");
@@ -90,15 +92,15 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public T OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>()
     {
-        return (dynamic)this.OnlineToPlainAsync().Result;
+        return await (dynamic)this.OnlineToPlainAsync();
     }
 
     public async Task<Pocos.all_primitives> OnlineToPlainAsync()
     {
         Pocos.all_primitives plain = new Pocos.all_primitives();
-        await this.ReadAsync();
+        await this.ReadAsync<IgnoreOnPocoOperation>();
         plain.myBOOL = myBOOL.LastValue;
         plain.myBYTE = myBYTE.LastValue;
         plain.myWORD = myWORD.LastValue;
@@ -125,7 +127,40 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return plain;
     }
 
-    protected async Task<Pocos.all_primitives> OnlineToPlainAsync(Pocos.all_primitives plain)
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task<Pocos.all_primitives> _OnlineToPlainNoacAsync()
+    {
+        Pocos.all_primitives plain = new Pocos.all_primitives();
+        plain.myBOOL = myBOOL.LastValue;
+        plain.myBYTE = myBYTE.LastValue;
+        plain.myWORD = myWORD.LastValue;
+        plain.myDWORD = myDWORD.LastValue;
+        plain.myLWORD = myLWORD.LastValue;
+        plain.mySINT = mySINT.LastValue;
+        plain.myINT = myINT.LastValue;
+        plain.myDINT = myDINT.LastValue;
+        plain.myLINT = myLINT.LastValue;
+        plain.myUSINT = myUSINT.LastValue;
+        plain.myUINT = myUINT.LastValue;
+        plain.myUDINT = myUDINT.LastValue;
+        plain.myULINT = myULINT.LastValue;
+        plain.myREAL = myREAL.LastValue;
+        plain.myLREAL = myLREAL.LastValue;
+        plain.myTIME = myTIME.LastValue;
+        plain.myLTIME = myLTIME.LastValue;
+        plain.myDATE = myDATE.LastValue;
+        plain.myTIME_OF_DAY = myTIME_OF_DAY.LastValue;
+        plain.myDATE_AND_TIME = myDATE_AND_TIME.LastValue;
+        plain.mySTRING = mySTRING.LastValue;
+        plain.myWSTRING = myWSTRING.LastValue;
+        plain.myEnum = (myEnum)myEnum.LastValue;
+        return plain;
+    }
+
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    protected async Task<Pocos.all_primitives> _OnlineToPlainNoacAsync(Pocos.all_primitives plain)
     {
         plain.myBOOL = myBOOL.LastValue;
         plain.myBYTE = myBYTE.LastValue;
@@ -153,42 +188,163 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return plain;
     }
 
-    public void PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain)
     {
-        this.PlainToOnlineAsync((dynamic)plain).Wait();
+        await this.PlainToOnlineAsync((dynamic)plain);
     }
 
     public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.all_primitives plain)
     {
-        myBOOL.Cyclic = plain.myBOOL;
-        myBYTE.Cyclic = plain.myBYTE;
-        myWORD.Cyclic = plain.myWORD;
-        myDWORD.Cyclic = plain.myDWORD;
-        myLWORD.Cyclic = plain.myLWORD;
-        mySINT.Cyclic = plain.mySINT;
-        myINT.Cyclic = plain.myINT;
-        myDINT.Cyclic = plain.myDINT;
-        myLINT.Cyclic = plain.myLINT;
-        myUSINT.Cyclic = plain.myUSINT;
-        myUINT.Cyclic = plain.myUINT;
-        myUDINT.Cyclic = plain.myUDINT;
-        myULINT.Cyclic = plain.myULINT;
-        myREAL.Cyclic = plain.myREAL;
-        myLREAL.Cyclic = plain.myLREAL;
-        myTIME.Cyclic = plain.myTIME;
-        myLTIME.Cyclic = plain.myLTIME;
-        myDATE.Cyclic = plain.myDATE;
-        myTIME_OF_DAY.Cyclic = plain.myTIME_OF_DAY;
-        myDATE_AND_TIME.Cyclic = plain.myDATE_AND_TIME;
-        mySTRING.Cyclic = plain.mySTRING;
-        myWSTRING.Cyclic = plain.myWSTRING;
-        myEnum.Cyclic = (short)plain.myEnum;
-        return await this.WriteAsync();
+#pragma warning disable CS0612
+        myBOOL.LethargicWrite(plain.myBOOL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myBYTE.LethargicWrite(plain.myBYTE);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWORD.LethargicWrite(plain.myWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDWORD.LethargicWrite(plain.myDWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLWORD.LethargicWrite(plain.myLWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySINT.LethargicWrite(plain.mySINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myINT.LethargicWrite(plain.myINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDINT.LethargicWrite(plain.myDINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLINT.LethargicWrite(plain.myLINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUSINT.LethargicWrite(plain.myUSINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUINT.LethargicWrite(plain.myUINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUDINT.LethargicWrite(plain.myUDINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myULINT.LethargicWrite(plain.myULINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myREAL.LethargicWrite(plain.myREAL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLREAL.LethargicWrite(plain.myLREAL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myTIME.LethargicWrite(plain.myTIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLTIME.LethargicWrite(plain.myLTIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDATE.LethargicWrite(plain.myDATE);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myTIME_OF_DAY.LethargicWrite(plain.myTIME_OF_DAY);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDATE_AND_TIME.LethargicWrite(plain.myDATE_AND_TIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySTRING.LethargicWrite(plain.mySTRING);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWSTRING.LethargicWrite(plain.myWSTRING);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myEnum.LethargicWrite((short)plain.myEnum);
+#pragma warning restore CS0612
+        return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
-    public T ShadowToPlain<T>()
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task _PlainToOnlineNoacAsync(Pocos.all_primitives plain)
     {
-        return (dynamic)this.ShadowToPlainAsync().Result;
+#pragma warning disable CS0612
+        myBOOL.LethargicWrite(plain.myBOOL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myBYTE.LethargicWrite(plain.myBYTE);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWORD.LethargicWrite(plain.myWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDWORD.LethargicWrite(plain.myDWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLWORD.LethargicWrite(plain.myLWORD);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySINT.LethargicWrite(plain.mySINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myINT.LethargicWrite(plain.myINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDINT.LethargicWrite(plain.myDINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLINT.LethargicWrite(plain.myLINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUSINT.LethargicWrite(plain.myUSINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUINT.LethargicWrite(plain.myUINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myUDINT.LethargicWrite(plain.myUDINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myULINT.LethargicWrite(plain.myULINT);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myREAL.LethargicWrite(plain.myREAL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLREAL.LethargicWrite(plain.myLREAL);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myTIME.LethargicWrite(plain.myTIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myLTIME.LethargicWrite(plain.myLTIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDATE.LethargicWrite(plain.myDATE);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myTIME_OF_DAY.LethargicWrite(plain.myTIME_OF_DAY);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myDATE_AND_TIME.LethargicWrite(plain.myDATE_AND_TIME);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySTRING.LethargicWrite(plain.mySTRING);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWSTRING.LethargicWrite(plain.myWSTRING);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myEnum.LethargicWrite((short)plain.myEnum);
+#pragma warning restore CS0612
+    }
+
+    public async virtual Task<T> ShadowToPlain<T>()
+    {
+        return await (dynamic)this.ShadowToPlainAsync();
     }
 
     public async Task<Pocos.all_primitives> ShadowToPlainAsync()
@@ -248,9 +404,9 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return plain;
     }
 
-    public void PlainToShadow<T>(T plain)
+    public async virtual Task PlainToShadow<T>(T plain)
     {
-        this.PlainToShadowAsync((dynamic)plain).Wait();
+        await this.PlainToShadowAsync((dynamic)plain);
     }
 
     public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.all_primitives plain)
@@ -281,6 +437,74 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return this.RetrievePrimitives();
     }
 
+    ///<inheritdoc/>
+    public async virtual Task<bool> AnyChangeAsync<T>(T plain)
+    {
+        return await this.DetectsAnyChangeAsync((dynamic)plain);
+    }
+
+    ///<summary>
+    ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
+    ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
+    ///</summary>
+    public async Task<bool> DetectsAnyChangeAsync(Pocos.all_primitives plain, Pocos.all_primitives latest = null)
+    {
+        if (latest == null)
+            latest = await this._OnlineToPlainNoacAsync();
+        var somethingChanged = false;
+        return await Task.Run(async () =>
+        {
+            if (plain.myBOOL != myBOOL.LastValue)
+                somethingChanged = true;
+            if (plain.myBYTE != myBYTE.LastValue)
+                somethingChanged = true;
+            if (plain.myWORD != myWORD.LastValue)
+                somethingChanged = true;
+            if (plain.myDWORD != myDWORD.LastValue)
+                somethingChanged = true;
+            if (plain.myLWORD != myLWORD.LastValue)
+                somethingChanged = true;
+            if (plain.mySINT != mySINT.LastValue)
+                somethingChanged = true;
+            if (plain.myINT != myINT.LastValue)
+                somethingChanged = true;
+            if (plain.myDINT != myDINT.LastValue)
+                somethingChanged = true;
+            if (plain.myLINT != myLINT.LastValue)
+                somethingChanged = true;
+            if (plain.myUSINT != myUSINT.LastValue)
+                somethingChanged = true;
+            if (plain.myUINT != myUINT.LastValue)
+                somethingChanged = true;
+            if (plain.myUDINT != myUDINT.LastValue)
+                somethingChanged = true;
+            if (plain.myULINT != myULINT.LastValue)
+                somethingChanged = true;
+            if (plain.myREAL != myREAL.LastValue)
+                somethingChanged = true;
+            if (plain.myLREAL != myLREAL.LastValue)
+                somethingChanged = true;
+            if (plain.myTIME != myTIME.LastValue)
+                somethingChanged = true;
+            if (plain.myLTIME != myLTIME.LastValue)
+                somethingChanged = true;
+            if (plain.myDATE != myDATE.LastValue)
+                somethingChanged = true;
+            if (plain.myTIME_OF_DAY != myTIME_OF_DAY.LastValue)
+                somethingChanged = true;
+            if (plain.myDATE_AND_TIME != myDATE_AND_TIME.LastValue)
+                somethingChanged = true;
+            if (plain.mySTRING != mySTRING.LastValue)
+                somethingChanged = true;
+            if (plain.myWSTRING != myWSTRING.LastValue)
+                somethingChanged = true;
+            if (plain.myEnum != (myEnum)latest.myEnum)
+                somethingChanged = true;
+            plain = latest;
+            return somethingChanged;
+        });
+    }
+
     public void Poll()
     {
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
@@ -291,42 +515,42 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return new Pocos.all_primitives();
     }
 
-    private IList<Ix.Connector.ITwinObject> Children { get; } = new List<Ix.Connector.ITwinObject>();
-    public IEnumerable<Ix.Connector.ITwinObject> GetChildren()
+    private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+    public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
-    private IList<Ix.Connector.ITwinElement> Kids { get; } = new List<Ix.Connector.ITwinElement>();
-    public IEnumerable<Ix.Connector.ITwinElement> GetKids()
+    private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+    public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
-    private IList<Ix.Connector.ITwinPrimitive> ValueTags { get; } = new List<Ix.Connector.ITwinPrimitive>();
-    public IEnumerable<Ix.Connector.ITwinPrimitive> GetValueTags()
+    private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+    public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
     }
 
-    public void AddValueTag(Ix.Connector.ITwinPrimitive valueTag)
+    public void AddValueTag(AXSharp.Connector.ITwinPrimitive valueTag)
     {
         ValueTags.Add(valueTag);
     }
 
-    public void AddKid(Ix.Connector.ITwinElement kid)
+    public void AddKid(AXSharp.Connector.ITwinElement kid)
     {
         Kids.Add(kid);
     }
 
-    public void AddChild(Ix.Connector.ITwinObject twinObject)
+    public void AddChild(AXSharp.Connector.ITwinObject twinObject)
     {
         Children.Add(twinObject);
     }
 
-    protected Ix.Connector.Connector @Connector { get; }
+    protected AXSharp.Connector.Connector @Connector { get; }
 
-    public Ix.Connector.Connector GetConnector()
+    public AXSharp.Connector.Connector GetConnector()
     {
         return this.@Connector;
     }
@@ -336,7 +560,7 @@ public partial class all_primitives : Ix.Connector.ITwinObject
         return this.SymbolTail;
     }
 
-    public Ix.Connector.ITwinObject GetParent()
+    public AXSharp.Connector.ITwinObject GetParent()
     {
         return this.@Parent;
     }
@@ -344,22 +568,24 @@ public partial class all_primitives : Ix.Connector.ITwinObject
     public string Symbol { get; protected set; }
 
     private string _attributeName;
-    public System.String AttributeName
-    {
-        get
-        {
-            return Ix.Localizations.LocalizationHelper.CleanUpLocalizationTokens(_attributeName);
-        }
+    public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : _attributeName.Interpolate(this).CleanUpLocalizationTokens(); set => _attributeName = value; }
 
-        set
-        {
-            _attributeName = value;
-        }
+    public System.String GetAttributeName(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
-    public string HumanReadable { get; set; }
+    private string _humanReadable;
+    public string HumanReadable { get => string.IsNullOrEmpty(_humanReadable) ? SymbolTail : _humanReadable.Interpolate(this).CleanUpLocalizationTokens(); set => _humanReadable = value; }
+
+    public System.String GetHumanReadable(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_humanReadable, culture);
+    }
 
     protected System.String @SymbolTail { get; set; }
 
-    protected Ix.Connector.ITwinObject @Parent { get; set; }
+    protected AXSharp.Connector.ITwinObject @Parent { get; set; }
+
+    public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }

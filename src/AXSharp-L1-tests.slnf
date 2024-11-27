@@ -1,0 +1,18 @@
+{
+  "solution": {
+    "path": "AXSharp.sln",
+    "projects": [
+      "AXSharp.blazor\\tests\\sandbox\\AXSharp.RenderableContent.Tests\\AXSharp.RenderableContent.Tests.csproj",
+      "AXSharp.blazor\\tests\\sandbox\\ComponentsExamples\\ComponentsExamples.csproj",
+      "AXSharp.compiler\\tests\\AXSharp.Compiler.CsTests\\AXSharp.Compiler.CsTests.csproj",
+      "AXSharp.compiler\\tests\\AXSharp.CompilerTests\\AXSharp.CompilerTests.csproj",
+      "AXSharp.compiler\\tests\\AXSharp.ixc.Tests\\AXSharp.ixc.Tests.csproj",
+      "AXSharp.compiler\\tests\\AXSharp.ixr.Tests\\AXSharp.ixr.Tests.csproj",
+      "AXSharp.connectors\\tests\\AXSharp.ConnectorLegacyTests\\AXSharp.ConnectorLegacyTests.csproj",
+      "AXSharp.connectors\\tests\\AXSharp.ConnectorTests\\AXSharp.ConnectorTests\\AXSharp.ConnectorTests.csproj",
+      "AXSharp.tools\\src\\AXSharp.TIA2AX.TranformerTests\\AXSharp.TIA2AX.TransformerTests.csproj",
+      "AXSharp.tools\\tests\\AXSharp.LocalizablesToResx.Tests\\AXSharp.LocalizablesToResx.Tests.csproj",
+      "AXSharp.tools\\tests\\AXSharp.nuget.update.Tests\\AXSharp.nuget.update.Tests.csproj"
+    ]
+  }
+}

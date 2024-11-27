@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -84,10 +84,11 @@
 <pre><code class="lang-iecst">{#ix-attr:[TypeAttribute()]}
 </code></pre>
 <p>Example</p>
-<pre><code class="lang-iecst">{#ix-attr:[Container(Layoyt.Wrap)]} (* Example of an attribute declared at type level. *)
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+{#ix-attr:[Container(Layout.Wrap)]} (* Example of an attribute declared at type level. *)
 CLASS PUBLIC MyClass
     VAR PUBLIC
-        {#ix-attr:[Container(Layoyt.Tabs)]} (* Example of an attribute declared at member level.*)
+        {#ix-attr:[Container(Layout.Tabs)]} (* Example of an attribute declared at member level.*)
         Nested : MyNestedStructure;
     END_VAR
 END_CLASS
@@ -101,7 +102,7 @@ ReadOnce attribute will only limit reading the members during periodic (cyclic) 
 or explicit call of batch reading on a complex structure.
 ReadOnce attribute can be only applied to members (property, field), not type (CLASS, STRUCT) declaration.</p>
 <p>Example</p>
-<pre><code class="lang-iecst">
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnce()]} // this structure will be read only once
@@ -112,8 +113,8 @@ CLASS PUBLIC MyClass
 END_CLASS
 </code></pre>
 <h3 id="readonly-attribute">ReadOnly attribute</h3>
-<p>ReadOnly attribute render the member (variable) inaccessible for write operation from the IX application. It does not prevent the variable from writing in the PLC or by other means of connection.</p>
-<pre><code class="lang-iecst">
+<p>ReadOnly attribute render the member (variable) inaccessible for write operation from the AXSharp application. It does not prevent the variable from writing in the PLC or by other means of connection.</p>
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnly()]} // this structure will be read only
@@ -147,7 +148,8 @@ END_CLASS
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-iecst">CLASS PUBLIC MyClass
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[CompilerOmits()]} 
         MyStringIgnoredForAllOutputs : STRING;
@@ -160,8 +162,47 @@ END_CLASS
     END_VAR
 END_CLASS
 </code></pre>
+<h3 id="ignoring-communication-with-the-controller-for-poco-operations">Ignoring Communication with the Controller for POCO Operations</h3>
+<p>To minimize the communication overhead between the application and the controller during POCO operations, you can annotate specific members of a type to bypass data exchange. This attribute should be applied when the compiler omits the compilation of particular members in the POCO object.</p>
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+CLASS PUBLIC MyClass
+    VAR PUBLIC        
+        {#ix-attr:[CompilerOmits(&quot;POCO&quot;)]} 
+        {#ix-attr:[IgnoreOnPocoOperation()]} 
+        MyStringIgnoredInPocos : STRING;        
+    END_VAR
+END_CLASS
+</code></pre>
+<h3 id="generic-extension-attributes">Generic extension attributes</h3>
+<p>ixc allows to declare generic attributes in ST that will add a genetic notation to transpiled types.
+The use of generics is an advanced scenario aimed at simplifying some tasks where templating is needed.
+This feature was explicitly crafted for data exchange scenarios, and it does not support the entire range of use of generics in C#.</p>
+<h4 id="use">Use</h4>
+<p>Any class can be annotated with the following attribute:</p>
+<pre><code class="lang-iecst">   {#ix-generic:&lt;TOnline, TPlain&gt; where TOnline : ITwinObject}
+    CLASS PUBLIC Extender
+    
+    END_CLASS
+</code></pre>
+<p>That will create the following type declaration in twin type:</p>
+<pre><code class="lang-C#">public partial class Extender&lt;TOnline, TPlain&gt; : AXSharp.Connector.ITwinObject where TOnline : ITwinObject
+</code></pre>
+<p>When deriving from a class with generic annotation following additional annotation should be used for a generic member of the class:</p>
+<pre><code class="lang-iecst">    CLASS PUBLIC Extendee2 EXTENDS Extender
+        VAR PUBLIC
+            {#ix-generic:TOnline}
+            {#ix-generic:TPlain as POCO}
+            SomeType : SomeType;          
+        END_VAR
+    END_CLASS
+</code></pre>
+<p>Where TOnline generic type will be substituted with <code>SomeType</code>. The <code>as POCO</code> will transpale <code>TPlain</code> generic attribute as the corresponding plain (aka POCO) type.</p>
+<p>The previous example will transpile as follows.</p>
+<pre><code class="lang-C#">public partial class Extendee : Generics.Extender&lt;Generics.SomeType, Pocos.Generics.SomeType&gt;
+</code></pre>
 <h3 id="see-also">See also</h3>
 <h4 id="renderignore"><a href="../blazor/RENDERABLECONTENT.html#renderignore-and-custom-labels">RenderIgnore</a></h4>
+
 </article>
           </div>
 
@@ -170,12 +211,12 @@ END_CLASS
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/compiler/ATTRIBUTES.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/compiler/ATTRIBUTES.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

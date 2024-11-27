@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ix_integration_library</RootNamespace>
@@ -13,12 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ix.blazor\src\Ix.Presentation.Blazor.Controls\Ix.Presentation.Blazor.Controls.csproj" />
-    <ProjectReference Include="..\ix-integration-plc\ix\ix-integration-plc.csproj" />
+    <ProjectReference Include="..\..\..\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+    <ProjectReference Include="..\ix-integration-plc\ix\ix_integration_plc.csproj" />
   </ItemGroup>
 
 </Project>

@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -87,7 +87,7 @@
 <p>Create Razor class library in your solution.</p>
 <h3 id="2-add-references">2. Add references</h3>
 <ul>
-<li><p>Install <code>Ix.Presentation.Blazor.Controls</code> nuget package or if you are using raw projects, add reference to <code>Ix.Presentation.Blazor.Controls</code> project.</p>
+<li><p>Install <code>AXSharp.Presentation.Blazor.Controls</code> nuget package or if you are using raw projects, add reference to <code>AXSharp.Presentation.Blazor.Controls</code> project.</p>
 </li>
 <li><p>Add reference from Razor Class library to PLC project.</p>
 </li>
@@ -98,7 +98,7 @@
 <p><img src="../../images/blazor/dependency-graph.png" alt="alt text" title="Dependency graph"></p>
 <h3 id="3-add-namespace">3. Add namespace</h3>
 <p>Add namespace of renderer to <code>_Imports.razor</code> in razor class library.</p>
-<pre><code>@using Ix.Presentation.Blazor.Controls.RenderableContent
+<pre><code>@using AXSharp.Presentation.Blazor.Controls.RenderableContent
 </code></pre>
 <h3 id="4-add-renderable-attribute">4. Add renderable attribute</h3>
 <p>Add <code>RenderableBlazorAssemblyAttribute</code> to Razor class library.</p>
@@ -108,7 +108,7 @@
 <li>Copy following code into <code>AssemblyInfo.cs</code> class:</li>
 </ol>
 <pre><code>using System.Reflection;
-using Ix.Presentation.Blazor.Attributes;
+using AXSharp.Presentation.Blazor.Attributes;
 
 [assembly: RenderableBlazorAssemblyAttribute()]
 
@@ -137,7 +137,7 @@ END_CLASS
 <li>Create <code>IxComponentView.razor</code> class inside folder.</li>
 <li>Define your view.</li>
 </ul>
-<pre><code class="lang-C#">@namespace Ix.Presentation.Blazor.Controls.Templates
+<pre><code class="lang-C#">@namespace AXSharp.Presentation.Blazor.Controls.Templates
 @inherits RenderableComplexComponentBase&lt;ixcomponent&gt;
 
 &lt;h1&gt;IxComponentView&lt;/h1&gt;
@@ -157,7 +157,7 @@ END_CLASS
 }
 
 </code></pre>
-<p>Note: If your plc variable is declared in global namespace, <code>Ix.Presentation.Blazor.Controls.Templates</code> namespace must be used to correctly locate view.</p>
+<p>Note: If your plc variable is declared in global namespace, <code>AXSharp.Presentation.Blazor.Controls.Templates</code> namespace must be used to correctly locate view.</p>
 <p>If you plc variable is declared in your own namespace, make sure <strong>namespace of custom view is the same as the namespace in plc file</strong>.</p>
 <p>At the end, structure of external library should look like this:</p>
 <p><img src="../../images/blazor/project-structure.png" alt="alt text" title="Structure"></p>
@@ -174,7 +174,7 @@ END_CLASS
 <h3 id="2-define-your-viewmodel">2. Define your viewmodel</h3>
 <p>Make sure, that viewmodel inherits from <code>RenderableViewModelBase</code>.
 Copy following code into <code>IxComponentViewModel.cs</code> viewmodel class.</p>
-<pre><code class="lang-C#">using Ix.Presentation;
+<pre><code class="lang-C#">using AXSharp.Presentation;
 
 namespace ix_integration_library.IxComponentServiceViewModel
 {
@@ -211,12 +211,37 @@ namespace ix_integration_library.IxComponentServiceViewModel
 }
 </code></pre>
 <p>Note: viewmodel properties and variables can be accessed with inherited <code>ViewModel</code> variable.</p>
+<h2 id="optimizing-plc-data-polling">Optimizing PLC Data Polling</h2>
+<p>The <code>RenderableComponentBase</code> class contains an overridable method, <code>AddToPolling</code>, which is primarily tasked with adding elements to the polling queue. However, given the automatic subscription of all inner elements within a given object to the polling queue by default, it becomes imperative to manage this operation more precisely, especially when dealing with large objects.</p>
+<p>Overriding this method in derived classes allows for the customization of how many and which elements are added to the polling queue. This capability is crucial for controlling resources and optimizing performance by preventing the automatic addition of potentially large numbers of elements to the polling queue.</p>
+<p>Here is an example where the overridden method ensures that no elements are added to the polling queue:</p>
+<pre><code class="lang-C#">public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+{
+    // Overriding with an empty method ensures no elements are added to the polling queue.
+}
+</code></pre>
+<p>Contrastingly, in the following example, the overridden method only subscribes first-level primitive elements for polling, thus creating a more resource-efficient application:</p>
+<pre><code class="lang-C#">public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+{
+    var sequencer = (AxoSequencer)element;
+    var firstLevelPrimitives = sequencer.GetValueTags().ToList();
+
+    firstLevelPrimitives.ForEach(p =&gt;
+    {
+        p.StartPolling(pollingInterval, this);
+        PolledElements.Add(p);
+    });
+}
+</code></pre>
+<p>This strategy allows for a more efficient use of resources by reducing the load of polled elements on the system.</p>
+<p>For more details about polling <a href="../connectors/README.html#polling">General Polling</a>.</p>
 <h3 id="3-render-created-component">3. Render created component</h3>
 <pre><code class="lang-C#">&lt;RenderableContentControl 
     Presentation=&quot;Service&quot; 
     Context=&quot;@Entry.Plc.test_example.ixcomponent_instance&quot; /&gt;
 </code></pre>
 <p><img src="../../images/blazor/viewmodel-service.png" alt="alt text" title="UI with viewmodel"></p>
+
 </article>
           </div>
 
@@ -225,12 +250,12 @@ namespace ix_integration_library.IxComponentServiceViewModel
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/blazor/LIBRARIES.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/blazor/LIBRARIES.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

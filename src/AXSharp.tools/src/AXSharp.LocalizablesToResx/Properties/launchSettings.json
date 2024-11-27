@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "ltr": {
+      "commandName": "Project",
+      "commandLineArgs": "-d D:\\Inxton\\ax-framework\\AXOpen\\src\\data\\src\\AXOpen.Data.Blazor -o D:\\Inxton\\ax-framework\\axsharp\\src\\AXSharp.tools\\src\\AXSharp.LocalizablesToResx\\tests\\test.resx"
+    },
+    "ltr2": {
+      "commandName": "Project",
+      "commandLineArgs": "-f D:\\Inxton\\ax-framework\\axsharp\\src\\AXSharp.tools\\src\\AXSharp.LocalizablesToResx\\tests\\SimpleTests.razor -o D:\\Inxton\\ax-framework\\axsharp\\src\\AXSharp.tools\\src\\AXSharp.LocalizablesToResx\\tests\\test.resx"
+    }
+
+  }
+ }

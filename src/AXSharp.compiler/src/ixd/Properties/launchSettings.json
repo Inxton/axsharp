@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "ixd": {
+      "commandName": "Project",
+      "commandLineArgs": "ixd -x C:\\MTS\\ix\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\samples\\ax\\ -o C:\\MTS\\ix\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\docfx\\docfx_project\\api\\"
+    },
+    "ixd-2": {
+      "commandName": "Project",
+      "commandLineArgs": "ixd-2 -x C:\\MTS\\AXSharp.framework\\src\\core\\ctrl -o C:\\MTS\\AXSharp.framework\\docfx\\apictrl"
+    },
+    "ixd-3": {
+      "commandName": "Project",
+      "commandLineArgs": "-x C:\\MTS\\ix\\AXOpen\\src\\messaging\\ctrl C:\\MTS\\ix\\AXOpen\\src\\abstractions\\ctrl C:\\MTS\\ix\\AXOpen\\src\\data\\ctrl C:\\MTS\\ix\\AXOpen\\src\\core\\ctrl -o C:\\MTS\\ix\\AXOpen\\docfx\\apictrl\\",
+      "workingDirectory": "C:\\MTS\\ix\\AXOpen\\src\\data\\ctrl"
+    },
+    "ixd-david": {
+      "commandName": "Project",
+      "commandLineArgs": "ixd -x D:\\Inxton\\ax-framework\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\samples\\ax\\ -o D:\\Inxton\\ax-framework\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\docfx\\docfx_project\\api\\"
+    }
+  }
+}

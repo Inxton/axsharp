@@ -1,0 +1,11 @@
+name: "app"
+version: 0.0.0
+type: app
+targets:
+  - "1500"
+  - axunit-llvm
+dependencies:
+  lib1: 0.0.0
+  lib2: 0.0.0
+devDependencies:
+  "@ax/sdk": 3.0.2

@@ -1,6 +1,6 @@
-# Ix.Presentation.Blazor
+# AXSharp.Presentation.Blazor
 
-Ix.Presentation.Blazor is set of libraries, which provides automatic generation of UI and custom styles.  
+AXSharp.Presentation.Blazor is set of libraries, which provides automatic generation of UI and custom styles.  
 
 
 ---
@@ -15,27 +15,27 @@ Ix.Presentation.Blazor is set of libraries, which provides automatic generation 
 ## Installing
 
 
-### **Install latest NuGet package Ix.Presentation.Blazor.Controls**
+### **Install latest NuGet package AXSharp.Presentation.Blazor.Controls**
 
 
 
 ~~~
-$ dotnet add package Ix.Presentation.Blazor.Controls 
+$ dotnet add package AXSharp.Presentation.Blazor.Controls 
 ~~~
 
 ---
-### **Add Ix.Framework namespace to Blazor application.**
+### **Add AXSharp namespace to Blazor application.**
 
 
 Add the following line to`_Imports.razor` file:
 
 ```
-@using Ix.Presentation.Blazor.Controls.RenderableContent
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
 ```
 - - -
-**Register Ix.Framework.Blazor services in DI container and build PLC connector.**
+**Register AXSharp.Framework.Blazor services in DI container and build PLC connector.**
 
-Add Ix services to container located in `Program.cs` file and build PLC connector:
+Add AXSharp services to container located in `Program.cs` file and build PLC connector:
 
 ```
 builder.Services.AddIxBlazorServices();
@@ -44,7 +44,7 @@ Entry.Plc.Connector.BuildAndStart();
 
 Notes: 
 - Replace `Plc` with the name of your PLC instance.
-- Ix.Framework.Blazor services are located in *Ix.Presentation.Blazor.Services* namespace.
+- AXSharp.Framework.Blazor services are located in *AXSharp.Presentation.Blazor.Services* namespace.
 
 ---
 ## How to access PLC variables and automatically update UI

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.19.2-fix-after-update-stc-6.217" />
+		<PackageReference Include="AXSharp.Connector" Version="0.19.2-fix-after-update-stc-6.217" />
+	</ItemGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+</Project>

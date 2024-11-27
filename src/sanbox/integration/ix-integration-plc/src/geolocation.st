@@ -1,6 +1,7 @@
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-attr:[Group(GroupLayout.GroupBox)]}
 {#ix-set:AttributeName = "Location"}
+{S7.extern=ReadWrite}
 CLASS  GeoLocation
     VAR PUBLIC
         {#ix-set:AttributeName = "Latitude [°]"}

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-143--NEW-FEATURE-Implement-use-of-resx-for-translation-of-PLC-strings.81" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-143--NEW-FEATURE-Implement-use-of-resx-for-translation-of-PLC-strings.81" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+</Project>

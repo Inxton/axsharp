@@ -36,7 +36,7 @@ Docfx project will be generated with following folder structure:
 ### 3. Install ixd tool
 
 ~~~
-dotnet tool install Ix.ixd --prerelease --local
+dotnet tool install AXSharp.ixd --prerelease --local
 ~~~
 
 ### 4. Generate documentation with ixd
@@ -91,3 +91,5 @@ Following XML tags are currently supported:
 - `<remarks>`
 - `<code>`
 - `<c>`
+- `<see>`
+- `<seealso>`

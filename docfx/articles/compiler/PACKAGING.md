@@ -1,6 +1,6 @@
 # Creating NuGet package from Twin library
 
-NuGet is the preferred way to manage dependencies in an ix project. For creating NuGet packages you would follow the same procedure as with ordinary NuGet packages.
+NuGet is the preferred way to manage dependencies in an AXSharp project. For creating NuGet packages you would follow the same procedure as with ordinary NuGet packages.
 
 ## Additional configuration
 

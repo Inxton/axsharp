@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ixr": {
-      "commandName": "Project",
-      "commandLineArgs": "ixr -x C:\\MTS\\ix\\ix\\src\\ix.compiler\\src\\ixr\\tests\\samples\\ax\\ -o C:\\MTS\\ix\\ix\\src\\ix.compiler\\src\\ixr\\tests\\samples\\Resources\\TestResources.resx"
-    }
-  }
-}

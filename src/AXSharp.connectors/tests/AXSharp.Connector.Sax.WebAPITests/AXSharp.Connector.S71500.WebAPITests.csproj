@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    
+	  <IsPackable>false</IsPackable>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="exploratory\ix\bin\**" />
+    <Compile Remove="exploratory\ix\obj\**" />
+    <EmbeddedResource Remove="exploratory\ix\bin\**" />
+    <EmbeddedResource Remove="exploratory\ix\obj\**" />
+    <None Remove="exploratory\ix\bin\**" />
+    <None Remove="exploratory\ix\obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="xunit.runner.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Newtonsoft.Json"/>
+    <PackageReference Include="xunit"/>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
+    <ProjectReference Include="..\..\src\AXSharp.Connector\AXSharp.Connector.csproj" />
+    <ProjectReference Include="..\ax-test-project\ix\ax_test_project.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="exploratory\ix\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ixc": {
-      "commandName": "Project",
-      "workingDirectory": "c:\\W\\Develop\\gh\\ix-ax\\statemachine\\"
-    }
-  }
-}

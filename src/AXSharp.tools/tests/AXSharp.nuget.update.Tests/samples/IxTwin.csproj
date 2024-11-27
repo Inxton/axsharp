@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+	    <ImplicitUsings>enable</ImplicitUsings>
+	    <Nullable>enable</Nullable>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include=".g\Onliners\configuration.g.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.6.4-alpha.40" />
+		<PackageReference Include="AXSharp.Connector" Version="0.6.4-alpha.40" />
+		<PackageReference Include="AXSharp.Connector.Sax.WebAPI" Version="0.6.4-alpha.40" />
+	</ItemGroup>
+</Project>

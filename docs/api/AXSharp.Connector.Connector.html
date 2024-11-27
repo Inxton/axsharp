@@ -1,0 +1,1399 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Connector | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Connector | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Connector.Connector">
+
+
+
+  <h1 id="AXSharp_Connector_Connector" data-uid="AXSharp.Connector.Connector" class="text-break">Class Connector</h1>
+  <div class="markdown level0 summary"><p>Abstract base class provides implementation contract for the PLC connector and basic common underlying logic.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="AXSharp.Connector.RootTwinObject.html">RootTwinObject</a></div>
+    <div class="level2"><span class="xref">Connector</span></div>
+      <div class="level3"><a class="xref" href="AXSharp.Connector.DummyConnector.html">DummyConnector</a></div>
+      <div class="level3"><a class="xref" href="AXSharp.Connector.S71500.WebApi.WebApiConnector.html">WebApiConnector</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></div>
+    <div><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Identity">RootTwinObject.Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetSymbolTail">RootTwinObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Poll">RootTwinObject.Poll()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Interpreter">RootTwinObject.Interpreter</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AttributeName">RootTwinObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetAttributeName_System_Globalization_CultureInfo_">RootTwinObject.GetAttributeName(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetHumanReadable_System_Globalization_CultureInfo_">RootTwinObject.GetHumanReadable(CultureInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_Symbol">RootTwinObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_HumanReadable">RootTwinObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetChildren">RootTwinObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetParent">RootTwinObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddChild_AXSharp_Connector_ITwinObject_">RootTwinObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetValueTags">RootTwinObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddValueTag_AXSharp_Connector_ITwinPrimitive_">RootTwinObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetConnector">RootTwinObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_OnlineToPlain__1">RootTwinObject.OnlineToPlain&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToOnline__1___0_">RootTwinObject.PlainToOnline&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_ShadowToPlain__1">RootTwinObject.ShadowToPlain&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToShadow__1___0_">RootTwinObject.PlainToShadow&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AnyChangeAsync__1___0_">RootTwinObject.AnyChangeAsync&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_OnlineToPlain">RootTwinObject.OnlineToPlain()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToOnline_System_Object_">RootTwinObject.PlainToOnline(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_ShadowToPlain">RootTwinObject.ShadowToPlain()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_PlainToShadow_System_Object_">RootTwinObject.PlainToShadow(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_AddKid_AXSharp_Connector_ITwinElement_">RootTwinObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXSharp.Connector.RootTwinObject.html#AXSharp_Connector_RootTwinObject_GetKids">RootTwinObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Connector.html">Connector</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Connector.dll</h6>
+  <h5 id="AXSharp_Connector_Connector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Connector : RootTwinObject, ITwinObject, ITwinElement, INotifyPropertyChanged</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector__ctor.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L67">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector__ctor_" data-uid="AXSharp.Connector.Connector.#ctor*"></a>
+  <h4 id="AXSharp_Connector_Connector__ctor" data-uid="AXSharp.Connector.Connector.#ctor">Connector()</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of Connector class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Connector()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector__ctor_System_Object___.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.%23ctor(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L58">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector__ctor_" data-uid="AXSharp.Connector.Connector.#ctor*"></a>
+  <h4 id="AXSharp_Connector_Connector__ctor_System_Object___" data-uid="AXSharp.Connector.Connector.#ctor(System.Object[])">Connector(object[])</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of Connector class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Connector(object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Connection parameters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="AXSharp_Connector_Connector__ctor_System_Object____examples">Examples</h5>
+  <pre><code class="lang-cs">var connector = new IConnector();</code></pre>
+
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ConcurrentRequestDelay.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ConcurrentRequestDelay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L188">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ConcurrentRequestDelay_" data-uid="AXSharp.Connector.Connector.ConcurrentRequestDelay*"></a>
+  <h4 id="AXSharp_Connector_Connector_ConcurrentRequestDelay" data-uid="AXSharp.Connector.Connector.ConcurrentRequestDelay">ConcurrentRequestDelay</h4>
+  <div class="markdown level1 summary"><p>Gets or sets delay between Concurrent Requests.
+It is applied when ConcurrentRequestMaxCount is reached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ConcurrentRequestDelay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ConcurrentRequestMaxCount.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ConcurrentRequestMaxCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L209">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ConcurrentRequestMaxCount_" data-uid="AXSharp.Connector.Connector.ConcurrentRequestMaxCount*"></a>
+  <h4 id="AXSharp_Connector_Connector_ConcurrentRequestMaxCount" data-uid="AXSharp.Connector.Connector.ConcurrentRequestMaxCount">ConcurrentRequestMaxCount</h4>
+  <div class="markdown level1 summary"><p>Gets or sets maximal count of Concurrent Request.
+Maximum number of simultaneous requests is <code>4</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The property will be capped to this value if higher value is assigned.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>When setting this value take into account that other devices may communicate with your target system.</p>
+</div>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ConcurrentRequestMaxCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ConnectorAdapter.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ConnectorAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L105">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ConnectorAdapter_" data-uid="AXSharp.Connector.Connector.ConnectorAdapter*"></a>
+  <h4 id="AXSharp_Connector_Connector_ConnectorAdapter" data-uid="AXSharp.Connector.Connector.ConnectorAdapter">ConnectorAdapter</h4>
+  <div class="markdown level1 summary"><p>Gets adapter for onliners.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectorAdapter ConnectorAdapter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ConnectorAdapter.html">ConnectorAdapter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_CyclicRwDuration.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.CyclicRwDuration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L143">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_CyclicRwDuration_" data-uid="AXSharp.Connector.Connector.CyclicRwDuration*"></a>
+  <h4 id="AXSharp_Connector_Connector_CyclicRwDuration" data-uid="AXSharp.Connector.Connector.CyclicRwDuration">CyclicRwDuration</h4>
+  <div class="markdown level1 summary"><p>Gets the last duration of Read/Write cycle in milliseconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long CyclicRwDuration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ErrorCount.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ErrorCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L120">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ErrorCount_" data-uid="AXSharp.Connector.Connector.ErrorCount*"></a>
+  <h4 id="AXSharp_Connector_Connector_ErrorCount" data-uid="AXSharp.Connector.Connector.ErrorCount">ErrorCount</h4>
+  <div class="markdown level1 summary"><p>Gets or sets error counter of the adapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ErrorCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ExceptionBehaviour.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ExceptionBehaviour%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L110">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ExceptionBehaviour_" data-uid="AXSharp.Connector.Connector.ExceptionBehaviour*"></a>
+  <h4 id="AXSharp_Connector_Connector_ExceptionBehaviour" data-uid="AXSharp.Connector.Connector.ExceptionBehaviour">ExceptionBehaviour</h4>
+  <div class="markdown level1 summary"><p>Gets or sets how the connector should handle communication exceptions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommExceptionBehaviour ExceptionBehaviour { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.CommExceptionBehaviour.html">CommExceptionBehaviour</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_IdentityProvider.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.IdentityProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L129">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_IdentityProvider_" data-uid="AXSharp.Connector.Connector.IdentityProvider*"></a>
+  <h4 id="AXSharp_Connector_Connector_IdentityProvider" data-uid="AXSharp.Connector.Connector.IdentityProvider">IdentityProvider</h4>
+  <div class="markdown level1 summary"><p>Gets object identity provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TwinIdentityProvider IdentityProvider { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.Identity.TwinIdentityProvider.html">TwinIdentityProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_IsRwLoopSuspended.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.IsRwLoopSuspended%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L232">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_IsRwLoopSuspended_" data-uid="AXSharp.Connector.Connector.IsRwLoopSuspended*"></a>
+  <h4 id="AXSharp_Connector_Connector_IsRwLoopSuspended" data-uid="AXSharp.Connector.Connector.IsRwLoopSuspended">IsRwLoopSuspended</h4>
+  <div class="markdown level1 summary"><p>Gets or set whether RW loop is suspended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRwLoopSuspended { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_Logger.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.Logger%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L86">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_Logger_" data-uid="AXSharp.Connector.Connector.Logger*"></a>
+  <h4 id="AXSharp_Connector_Connector_Logger" data-uid="AXSharp.Connector.Connector.Logger">Logger</h4>
+  <div class="markdown level1 summary"><p>Provides logging capability for this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ILogger Logger { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILogger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_MonitorConnector.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.MonitorConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L162">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_MonitorConnector_" data-uid="AXSharp.Connector.Connector.MonitorConnector*"></a>
+  <h4 id="AXSharp_Connector_Connector_MonitorConnector" data-uid="AXSharp.Connector.Connector.MonitorConnector">MonitorConnector</h4>
+  <div class="markdown level1 summary"><p>Gets or sets value indicating whether the performance of the monitor should be active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MonitorConnector { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_OnlineTags.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.OnlineTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L227">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_OnlineTags_" data-uid="AXSharp.Connector.Connector.OnlineTags*"></a>
+  <h4 id="AXSharp_Connector_Connector_OnlineTags" data-uid="AXSharp.Connector.Connector.OnlineTags">OnlineTags</h4>
+  <div class="markdown level1 summary"><p>Gets online value items tags attached to this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinPrimitive&gt; OnlineTags { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ReadWriteCycleDelay.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ReadWriteCycleDelay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L172">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ReadWriteCycleDelay_" data-uid="AXSharp.Connector.Connector.ReadWriteCycleDelay*"></a>
+  <h4 id="AXSharp_Connector_Connector_ReadWriteCycleDelay" data-uid="AXSharp.Connector.Connector.ReadWriteCycleDelay">ReadWriteCycleDelay</h4>
+  <div class="markdown level1 summary"><p>Gets or sets delay between Read/Write cycles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReadWriteCycleDelay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_RwCycleCount.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.RwCycleCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L134">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_RwCycleCount_" data-uid="AXSharp.Connector.Connector.RwCycleCount*"></a>
+  <h4 id="AXSharp_Connector_Connector_RwCycleCount" data-uid="AXSharp.Connector.Connector.RwCycleCount">RwCycleCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of Read Write cycles from the start of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long RwCycleCount { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_StartUpTime.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.StartUpTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L152">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_StartUpTime_" data-uid="AXSharp.Connector.Connector.StartUpTime*"></a>
+  <h4 id="AXSharp_Connector_Connector_StartUpTime" data-uid="AXSharp.Connector.Connector.StartUpTime">StartUpTime</h4>
+  <div class="markdown level1 summary"><p>Get the connector's startup timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime StartUpTime { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_SubscriptionMode.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.SubscriptionMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L115">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_SubscriptionMode_" data-uid="AXSharp.Connector.Connector.SubscriptionMode*"></a>
+  <h4 id="AXSharp_Connector_Connector_SubscriptionMode" data-uid="AXSharp.Connector.Connector.SubscriptionMode">SubscriptionMode</h4>
+  <div class="markdown level1 summary"><p>Gets or sets subscription mode for reading data from the controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadSubscriptionMode SubscriptionMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ReadSubscriptionMode.html">ReadSubscriptionMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_BuildAndStart.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.BuildAndStart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L266">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_BuildAndStart_" data-uid="AXSharp.Connector.Connector.BuildAndStart*"></a>
+  <h4 id="AXSharp_Connector_Connector_BuildAndStart" data-uid="AXSharp.Connector.Connector.BuildAndStart">BuildAndStart()</h4>
+  <div class="markdown level1 summary"><p>Builds and starts this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Connector BuildAndStart()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.Connector.html">Connector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ClearPeriodicReadSet.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ClearPeriodicReadSet%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L479">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ClearPeriodicReadSet_" data-uid="AXSharp.Connector.Connector.ClearPeriodicReadSet*"></a>
+  <h4 id="AXSharp_Connector_Connector_ClearPeriodicReadSet" data-uid="AXSharp.Connector.Connector.ClearPeriodicReadSet">ClearPeriodicReadSet()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ClearPeriodicReadSet()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_CreateHumanReadable_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.CreateHumanReadable(System.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L304">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_CreateHumanReadable_" data-uid="AXSharp.Connector.Connector.CreateHumanReadable*"></a>
+  <h4 id="AXSharp_Connector_Connector_CreateHumanReadable_System_String_System_String_" data-uid="AXSharp.Connector.Connector.CreateHumanReadable(System.String,System.String)">CreateHumanReadable(string, string)</h4>
+  <div class="markdown level1 summary"><p>Return humanized path combining parent's and member's names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string CreateHumanReadable(string parent, string member)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent's name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">member</span></td>
+        <td><p>Members name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>Combine symbol of parent and member.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_CreateSymbol_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.CreateSymbol(System.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L290">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_CreateSymbol_" data-uid="AXSharp.Connector.Connector.CreateSymbol*"></a>
+  <h4 id="AXSharp_Connector_Connector_CreateSymbol_System_String_System_String_" data-uid="AXSharp.Connector.Connector.CreateSymbol(System.String,System.String)">CreateSymbol(string, string)</h4>
+  <div class="markdown level1 summary"><p>Return symbol path combining parent's and member's symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string CreateSymbol(string parent, string member)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Parent's path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">member</span></td>
+        <td><p>Members name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>Combine symbol of parent and member.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_CyclicRead.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.CyclicRead%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L446">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_CyclicRead_" data-uid="AXSharp.Connector.Connector.CyclicRead*"></a>
+  <h4 id="AXSharp_Connector_Connector_CyclicRead" data-uid="AXSharp.Connector.Connector.CyclicRead">CyclicRead()</h4>
+  <div class="markdown level1 summary"><p>Reads online variables required to be read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task CyclicRead()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_CyclicWrite.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.CyclicWrite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L468">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_CyclicWrite_" data-uid="AXSharp.Connector.Connector.CyclicWrite*"></a>
+  <h4 id="AXSharp_Connector_Connector_CyclicWrite" data-uid="AXSharp.Connector.Connector.CyclicWrite">CyclicWrite()</h4>
+  <div class="markdown level1 summary"><p>Writes modified online variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task CyclicWrite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ReadBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ReadBatchAsync(System.Collections.Generic.IEnumerable%7BAXSharp.Connector.ITwinPrimitive%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L272">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ReadBatchAsync_" data-uid="AXSharp.Connector.Connector.ReadBatchAsync*"></a>
+  <h4 id="AXSharp_Connector_Connector_ReadBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__" data-uid="AXSharp.Connector.Connector.ReadBatchAsync(System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive})">ReadBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;)</h4>
+  <div class="markdown level1 summary"><p>Reads batch of value items from the plc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task ReadBatchAsync(IEnumerable&lt;ITwinPrimitive&gt; primitives)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>&gt;</td>
+        <td><span class="parametername">primitives</span></td>
+        <td><p>Primitive items to be read.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_ReloadConnector.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.ReloadConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L335">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_ReloadConnector_" data-uid="AXSharp.Connector.Connector.ReloadConnector*"></a>
+  <h4 id="AXSharp_Connector_Connector_ReloadConnector" data-uid="AXSharp.Connector.Connector.ReloadConnector">ReloadConnector()</h4>
+  <div class="markdown level1 summary"><p>Forces the connector to reload symbols.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ReloadConnector()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_SetCulture_System_Globalization_CultureInfo_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.SetCulture(System.Globalization.CultureInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L389">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_SetCulture_" data-uid="AXSharp.Connector.Connector.SetCulture*"></a>
+  <h4 id="AXSharp_Connector_Connector_SetCulture_System_Globalization_CultureInfo_" data-uid="AXSharp.Connector.Connector.SetCulture(System.Globalization.CultureInfo)">SetCulture(CultureInfo)</h4>
+  <div class="markdown level1 summary"><p>Sets the culture for this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetCulture(CultureInfo culture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td><span class="parametername">culture</span></td>
+        <td><p>Desired culture</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_SetField__1___0____0_System_String_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.SetField%60%601(%60%600%40%2C%60%600%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L318">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_SetField_" data-uid="AXSharp.Connector.Connector.SetField*"></a>
+  <h4 id="AXSharp_Connector_Connector_SetField__1___0____0_System_String_" data-uid="AXSharp.Connector.Connector.SetField``1(``0@,``0,System.String)">SetField&lt;T&gt;(ref T, T, string)</h4>
+  <div class="markdown level1 summary"><p>Sets properties backing field value and notifies over INotifyPropertyChanged interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool SetField&lt;T&gt;(ref T field, T value, string propertyName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">field</span></td>
+        <td><p>Field.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to be set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td><p>Property name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of backing field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_SetLoggerConfiguration_Serilog_ILogger_.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.SetLoggerConfiguration(Serilog.ILogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L77">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_SetLoggerConfiguration_" data-uid="AXSharp.Connector.Connector.SetLoggerConfiguration*"></a>
+  <h4 id="AXSharp_Connector_Connector_SetLoggerConfiguration_Serilog_ILogger_" data-uid="AXSharp.Connector.Connector.SetLoggerConfiguration(Serilog.ILogger)">SetLoggerConfiguration(ILogger)</h4>
+  <div class="markdown level1 summary"><p>Sets logger for this connector.</p>
+<blockquote>
+<p>![NOTE] The default logger is implemented. Default implementation will log into console and in simple text file.</p>
+</blockquote>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLoggerConfiguration(ILogger logger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILogger</span></td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>Logger</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_StartReadWriteOps.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.StartReadWriteOps%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L399">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_StartReadWriteOps_" data-uid="AXSharp.Connector.Connector.StartReadWriteOps*"></a>
+  <h4 id="AXSharp_Connector_Connector_StartReadWriteOps" data-uid="AXSharp.Connector.Connector.StartReadWriteOps">StartReadWriteOps()</h4>
+  <div class="markdown level1 summary"><p>Starts cyclical read write operation on this connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void StartReadWriteOps()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.WriteBatchAsync(System.Collections.Generic.IEnumerable%7BAXSharp.Connector.ITwinPrimitive%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L280">View Source</a>
+  </span>
+  <a id="AXSharp_Connector_Connector_WriteBatchAsync_" data-uid="AXSharp.Connector.Connector.WriteBatchAsync*"></a>
+  <h4 id="AXSharp_Connector_Connector_WriteBatchAsync_System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__" data-uid="AXSharp.Connector.Connector.WriteBatchAsync(System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive})">WriteBatchAsync(IEnumerable&lt;ITwinPrimitive&gt;)</h4>
+  <div class="markdown level1 summary"><p>Writes batch of value items to the plc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task WriteBatchAsync(IEnumerable&lt;ITwinPrimitive&gt; primitives)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a>&gt;</td>
+        <td><span class="parametername">primitives</span></td>
+        <td><p>Primitive items to be written.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector_PropertyChanged.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector.PropertyChanged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L261">View Source</a>
+  </span>
+  <h4 id="AXSharp_Connector_Connector_PropertyChanged" data-uid="AXSharp.Connector.Connector.PropertyChanged">PropertyChanged</h4>
+  <div class="markdown level1 summary"><p>Implementation of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event PropertyChangedEventHandler PropertyChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler">PropertyChangedEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="AXSharp.Connector.Localizations.TranslatorExtension.html#AXSharp_Connector_Localizations_TranslatorExtension_Translate_AXSharp_Connector_ITwinElement_System_String_System_Globalization_CultureInfo_">TranslatorExtension.Translate(ITwinElement, string, CultureInfo)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_HasAttribute__1_AXSharp_Connector_ITwinElement_">TwinObjectExtensions.HasAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StartPolling_AXSharp_Connector_ITwinElement_System_Int32_System_Object_">TwinObjectExtensions.StartPolling(ITwinElement, int, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_StopPolling_AXSharp_Connector_ITwinElement_System_Object_">TwinObjectExtensions.StopPolling(ITwinElement, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetAttribute__1_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetAttribute&lt;T&gt;(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinPrimitiveExtensions.html#AXSharp_Connector_TwinPrimitiveExtensions_GetPropertyInfoViaSymbol_AXSharp_Connector_ITwinElement_">TwinPrimitiveExtensions.GetPropertyInfoViaSymbol(ITwinElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_CreatePoco_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.CreatePoco(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_MakeReadOnce_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.MakeReadOnce(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_MakeReadOnly_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.MakeReadOnly(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_OnlineToShadowAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.OnlineToShadowAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ReadAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ReadAsync__1_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ReadAsync&lt;T&gt;(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_RetrievePrimitives_AXSharp_Connector_ITwinObject_System_Collections_Generic_List_AXSharp_Connector_ITwinPrimitive__">TwinObjectExtensions.RetrievePrimitives(ITwinObject, List&lt;ITwinPrimitive&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_ShadowToOnlineAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.ShadowToOnlineAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_SubscribeEditValueChange_AXSharp_Connector_ITwinObject_AXSharp_Connector_ValueTypes_OnlinerBase_ValueChangeDelegate_">TwinObjectExtensions.SubscribeEditValueChange(ITwinObject, OnlinerBase.ValueChangeDelegate)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_SubscribeShadowValueChange_AXSharp_Connector_ITwinObject_AXSharp_Connector_ValueTypes_OnlinerBase_ValueChangeDelegate_">TwinObjectExtensions.SubscribeShadowValueChange(ITwinObject, OnlinerBase.ValueChangeDelegate)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_UnSubscribeEditValueChange_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.UnSubscribeEditValueChange(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_UnSubscribeShadowValueChange_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.UnSubscribeShadowValueChange(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.WriteAsync(ITwinObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Connector.TwinObjectExtensions.html#AXSharp_Connector_TwinObjectExtensions_WriteAsync__1_AXSharp_Connector_ITwinObject_">TwinObjectExtensions.WriteAsync&lt;T&gt;(ITwinObject)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="AXSharp.Connector.RootTwinObject.html">RootTwinObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Connector_Connector.md&amp;value=---%0Auid%3A%20AXSharp.Connector.Connector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.connectors/src/AXSharp.Connector/Connector/Connector.cs/#L33" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

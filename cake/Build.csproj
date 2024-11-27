@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -14,12 +14,12 @@
 	  <PackageReference Include="Cake.Frosting" Version="2.3.0" />
 	  <PackageReference Include="Cake.Powershell" Version="2.0.0" />
 	  <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+    <PackageReference Include="GitVersion.MsBuild" Version="6.0.5">
 	    <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\ix.tools\src\ix.nuget.update\ix.nuget.update.csproj" />
+    <ProjectReference Include="..\src\AXSharp.tools\src\AXSharp.nuget.update\AXSharp.nuget.update.csproj" />
   </ItemGroup>
 </Project>

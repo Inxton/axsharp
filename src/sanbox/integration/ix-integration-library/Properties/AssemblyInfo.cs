@@ -1,4 +1,4 @@
 ﻿using System.Reflection;
-using Ix.Presentation.Blazor.Attributes;
+using AXSharp.Presentation.Blazor.Attributes;
 
 [assembly: RenderableBlazorAssemblyAttribute()]

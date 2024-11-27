@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "Profile 1": {
+      "commandName": "Project"
+    },
+    "app-withref": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\ix-ax\\axopen.templates\\templates.simple\\app\\"
+    }
+  }
+}

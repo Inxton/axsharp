@@ -1,3 +1,2 @@
-# run build
-dotnet run --project cake/Build.csproj -- $args --do-docs true
-exit $LASTEXITCODE;
+.\build.ps1
+dotnet docfx .\docfx\docfx.json

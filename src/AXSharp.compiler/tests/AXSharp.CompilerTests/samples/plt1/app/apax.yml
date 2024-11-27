@@ -1,0 +1,11 @@
+name: "plt-app"
+version: 0.1.0
+type: app
+targets:
+  - "1500"
+  - axunit-llvm
+dependencies:
+  "plt-lib": ^0.1.0
+  "plt-lib2": ^0.1.0
+devDependencies:
+  "@ax/sdk": 3.0.8

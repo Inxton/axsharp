@@ -1,3 +1,3 @@
-# IX API Documentation
+# AXSharp API Documentation
 
 ![](~/images/banner.png)

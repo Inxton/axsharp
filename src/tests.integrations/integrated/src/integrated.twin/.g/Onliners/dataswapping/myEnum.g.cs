@@ -1,7 +1,9 @@
 using System;
-using Ix.Connector;
-using Ix.Connector.ValueTypes;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
+using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
 
 public enum myEnum
 {

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS ixcomponent
     VAR PUBLIC
         {#ix-set:AttributeName = "My integer"}
@@ -14,6 +15,7 @@ CLASS ixcomponent
 END_CLASS
 
 NAMESPACE MySecondNamespace
+    {S7.extern=ReadWrite}
     CLASS ixcomponent
         VAR PUBLIC
             {#ix-set:AttributeName = "My integer"}
@@ -27,6 +29,7 @@ NAMESPACE MySecondNamespace
 END_NAMESPACE
 
 NAMESPACE ThirdNamespace
+    {S7.extern=ReadWrite}
     CLASS ixcomponent
         VAR PUBLIC
             {#ix-set:AttributeName = "My integer"}

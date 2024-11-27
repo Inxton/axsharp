@@ -2,13 +2,13 @@
 
 ## .NET PLC TWINs
 
-The core functionality of IX is to provide connectivity between SIMATIC AX based PLC project and .NET PLC TWIN objects. Twin objects replicate consistently the data structures of the PLC program, so that the access path to data members in the PLC program and in .NET environment are the same.
+The core functionality of AXSharp is to provide connectivity between SIMATIC AX based PLC project and .NET PLC TWIN objects. Twin objects replicate consistently the data structures of the PLC program, so that the access path to data members in the PLC program and in .NET environment are the same.
 
 In the following diagram you can observe that there are two basic components `ixc` which is the compiler that trans-piles the data types into .NET library and `Connector` that provides the connectivity between the object produces by the `ixc` and the PLC.
 
 ![ix-con-plc](~/images/conceptual/ix_ixc_con.svg)
 
-These two mechanism of the IX technology provide the structured access to any .NET based application.
+These two mechanism of the AXSharp technology provide the structured access to any .NET based application.
 
 See also:
 [Compiler](~/articles/compiler/README.md)
@@ -16,7 +16,7 @@ See also:
 
 ## Automated UI generation
 
-IX provides a possibilty to automatically render the data from the PLC controller. Rendering engine provides the possibilty to direct the basic layout using attributes directly in the PLC code. There are several types of attributes that can add human readable strings that will be displayed in the UI.
+AXSharp provides a possibilty to automatically render the data from the PLC controller. Rendering engine provides the possibilty to direct the basic layout using attributes directly in the PLC code. There are several types of attributes that can add human readable strings that will be displayed in the UI.
 
 Following code will be transpiled into TwinObject and rendered as follows:
 

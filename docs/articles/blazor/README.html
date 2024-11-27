@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Ix.Presentation.Blazor | System.Dynamic.ExpandoObject </title>
+    <title>AXSharp.Presentation.Blazor | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Ix.Presentation.Blazor | System.Dynamic.ExpandoObject ">
+    <meta name="title" content="AXSharp.Presentation.Blazor | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
     <link rel="shortcut icon" href="../../images/favicon.ico">
@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -77,33 +77,33 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="ixpresentationblazor">Ix.Presentation.Blazor</h1>
+<h1 id="axsharppresentationblazor">AXSharp.Presentation.Blazor</h1>
 
-<p>Ix.Presentation.Blazor is set of libraries, which provides automatic generation of UI and custom styles.</p>
+<p>AXSharp.Presentation.Blazor is set of libraries, which provides automatic generation of UI and custom styles.</p>
 <hr>
 <h2 id="prerequisites">Prerequisites</h2>
 <p><a href="../../index.html#prerequisites">Checkout you have installed all prerequisites</a></p>
 <p><a href="../../index.html#add-package-source">Install package source</a></p>
 <hr>
 <h2 id="installing">Installing</h2>
-<h3 id="install-latest-nuget-package-ixpresentationblazorcontrols"><strong>Install latest NuGet package Ix.Presentation.Blazor.Controls</strong></h3>
-<pre><code>$ dotnet add package Ix.Presentation.Blazor.Controls 
+<h3 id="install-latest-nuget-package-axsharppresentationblazorcontrols"><strong>Install latest NuGet package AXSharp.Presentation.Blazor.Controls</strong></h3>
+<pre><code>$ dotnet add package AXSharp.Presentation.Blazor.Controls 
 </code></pre>
 <hr>
-<h3 id="add-ixframework-namespace-to-blazor-application"><strong>Add Ix.Framework namespace to Blazor application.</strong></h3>
+<h3 id="add-axsharp-namespace-to-blazor-application"><strong>Add AXSharp namespace to Blazor application.</strong></h3>
 <p>Add the following line to<code>_Imports.razor</code> file:</p>
-<pre><code>@using Ix.Presentation.Blazor.Controls.RenderableContent
+<pre><code>@using AXSharp.Presentation.Blazor.Controls.RenderableContent
 </code></pre>
 <hr>
-<p><strong>Register Ix.Framework.Blazor services in DI container and build PLC connector.</strong></p>
-<p>Add Ix services to container located in <code>Program.cs</code> file and build PLC connector:</p>
+<p><strong>Register AXSharp.Framework.Blazor services in DI container and build PLC connector.</strong></p>
+<p>Add AXSharp services to container located in <code>Program.cs</code> file and build PLC connector:</p>
 <pre><code>builder.Services.AddIxBlazorServices();
 Entry.Plc.Connector.BuildAndStart();
 </code></pre>
 <p>Notes:</p>
 <ul>
 <li>Replace <code>Plc</code> with the name of your PLC instance.</li>
-<li>Ix.Framework.Blazor services are located in <em>Ix.Presentation.Blazor.Services</em> namespace.</li>
+<li>AXSharp.Framework.Blazor services are located in <em>AXSharp.Presentation.Blazor.Services</em> namespace.</li>
 </ul>
 <hr>
 <h2 id="how-to-access-plc-variables-and-automatically-update-ui">How to access PLC variables and automatically update UI</h2>
@@ -129,6 +129,7 @@ The following line demonstrates the basic usage of the RenderableContentControl 
                           Context=&quot;@Entry.Plc.prgWeatherStations&quot;/&gt;
 </code></pre>
 <p>Documentation for RenderableContentControl component can be found in <strong><a href="RENDERABLECONTENT.html">RENDERABLECONTENT</a></strong> file.</p>
+
 </article>
           </div>
 
@@ -137,12 +138,12 @@ The following line demonstrates the basic usage of the RenderableContentControl 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/blazor/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/blazor/README.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

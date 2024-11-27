@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    
+    <RootNamespace>AXSharp.ixc_doc</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>True</PackAsTool>
+    <ToolCommandName>ixd</ToolCommandName>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>ix-ax</Authors>
+	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Title>AX# documentation compiler CLI</Title>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/ix-ax/axsharp/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+    <NoWarn>1701;1702;1591;8618</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+    <NoWarn>1701;1702;1591;8618</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+    <NoWarn>1701;1702;1591;8618</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+    <NoWarn>1701;1702;1591;8618</NoWarn>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" />
+		<PackageReference Include="LibGit2Sharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="YamlDotNet" />
+		<PackageReference Include="CommandLineParser" />    
+	</ItemGroup>
+
+	
+
+	<ItemGroup>
+		<Reference Include="AX.ST.Semantic">
+			<HintPath>..\..\..\apax\stc\bin\AX.ST.Semantic.dll</HintPath>
+      <Private>False</Private>
+		</Reference>
+		<Reference Include="AX.ST.Syntax">
+			<HintPath>..\..\..\apax\stc\bin\AX.ST.Syntax.dll</HintPath>
+      <Private>False</Private>
+		</Reference>
+		<Reference Include="AX.Text">
+			<HintPath>..\..\..\apax\stc\bin\AX.Text.dll</HintPath>
+      <Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="tests\samples\TestStruct.st">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="tests\samples\MyTestClass.st">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>	
+	  <Folder Include="tests\docfx\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+	    <PackagePath>\</PackagePath>
+	    <Pack>True</Pack>
+	  </None>
+	  <None Include="..\..\..\apax\apax.yml" Link=".apax\apax.yml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+	    <PackagePath>\</PackagePath>
+	    <Pack>True</Pack>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\AXSharp.Compiler\AXSharp.Compiler.csproj" />
+	</ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include=".apax\" />
+  </ItemGroup>
+</Project>

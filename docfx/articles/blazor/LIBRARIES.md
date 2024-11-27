@@ -16,7 +16,7 @@ Create Razor class library in your solution.
 ### 2. Add references 
 
 
-- Install `Ix.Presentation.Blazor.Controls` nuget package or if you are using raw projects, add reference to `Ix.Presentation.Blazor.Controls` project.
+- Install `AXSharp.Presentation.Blazor.Controls` nuget package or if you are using raw projects, add reference to `AXSharp.Presentation.Blazor.Controls` project.
 
 - Add reference from Razor Class library to PLC project.
 
@@ -31,7 +31,7 @@ Dependency graph should look like this:
 
 Add namespace of renderer to `_Imports.razor` in razor class library.
 ```
-@using Ix.Presentation.Blazor.Controls.RenderableContent
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
 ```
 ### 4. Add renderable attribute
 
@@ -43,7 +43,7 @@ Add `RenderableBlazorAssemblyAttribute` to Razor class library.
 
 ```
 using System.Reflection;
-using Ix.Presentation.Blazor.Attributes;
+using AXSharp.Presentation.Blazor.Attributes;
 
 [assembly: RenderableBlazorAssemblyAttribute()]
 
@@ -82,7 +82,7 @@ Build plc project with `apax build` and compile it with `apax ixc` command.
 - Define your view.
 
 ```C#
-@namespace Ix.Presentation.Blazor.Controls.Templates
+@namespace AXSharp.Presentation.Blazor.Controls.Templates
 @inherits RenderableComplexComponentBase<ixcomponent>
 
 <h1>IxComponentView</h1>
@@ -103,7 +103,7 @@ Build plc project with `apax build` and compile it with `apax ixc` command.
 
 ```
 
-Note: If your plc variable is declared in global namespace, `Ix.Presentation.Blazor.Controls.Templates` namespace must be used to correctly locate view. 
+Note: If your plc variable is declared in global namespace, `AXSharp.Presentation.Blazor.Controls.Templates` namespace must be used to correctly locate view. 
 
 If you plc variable is declared in your own namespace, make sure **namespace of custom view is the same as the namespace in plc file**.
 
@@ -138,7 +138,7 @@ Create `IxComponentServiceView.razor` file and `IxComponentViewModel.cs` file in
 Make sure, that viewmodel inherits from `RenderableViewModelBase`.
 Copy following code into `IxComponentViewModel.cs` viewmodel class.
 ```C#
-using Ix.Presentation;
+using AXSharp.Presentation;
 
 namespace ix_integration_library.IxComponentServiceViewModel
 {
@@ -178,6 +178,40 @@ Copy following code into `IxComponentServiceView.razor` file. Make sure, that `R
 }
 ```
 Note: viewmodel properties and variables can be accessed with inherited `ViewModel` variable.
+
+## Optimizing PLC Data Polling
+
+The `RenderableComponentBase` class contains an overridable method, `AddToPolling`, which is primarily tasked with adding elements to the polling queue. However, given the automatic subscription of all inner elements within a given object to the polling queue by default, it becomes imperative to manage this operation more precisely, especially when dealing with large objects.
+
+Overriding this method in derived classes allows for the customization of how many and which elements are added to the polling queue. This capability is crucial for controlling resources and optimizing performance by preventing the automatic addition of potentially large numbers of elements to the polling queue.
+
+Here is an example where the overridden method ensures that no elements are added to the polling queue:
+
+```C#
+public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+{
+    // Overriding with an empty method ensures no elements are added to the polling queue.
+}
+```
+
+Contrastingly, in the following example, the overridden method only subscribes first-level primitive elements for polling, thus creating a more resource-efficient application:
+
+```C#
+public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+{
+    var sequencer = (AxoSequencer)element;
+    var firstLevelPrimitives = sequencer.GetValueTags().ToList();
+
+    firstLevelPrimitives.ForEach(p =>
+    {
+        p.StartPolling(pollingInterval, this);
+        PolledElements.Add(p);
+    });
+}
+```
+This strategy allows for a more efficient use of resources by reducing the load of polled elements on the system.
+
+For more details about polling [General Polling](../connectors/README.md#polling).
 
 ### 3. Render created component
 

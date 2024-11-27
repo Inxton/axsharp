@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+		<!--NuGet Specific part-->
+		<Description> AX# Comminucation layer over Web API for simatix-ax based project</Description>
+
+		<!-- NuGet Common part-->
+		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>ix-ax</Authors>
+		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Title>Ix Web API</Title>
+		<PackageIcon>icon_128_128.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReleaseNotes>
+			Release notes are published here:
+			https://github.com/ix-ax/axsharp/releases
+		</PackageReleaseNotes>
+		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+
+		<!--Packing dependands projects dlls-->
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
+
+
+	<Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+		</ItemGroup>
+	</Target>
+	<ItemGroup>
+		<InternalsVisibleTo Include="AXSharp.Connector.Sax.WebAPITests" />
+	</ItemGroup>
+
+
+	<ItemGroup>		
+		<PackageReference Include="Microsoft.CSharp"/>
+		<PackageReference Include="Newtonsoft.Json"/>
+		<PackageReference Include="Serilog.Sinks.Console"/>
+		<PackageReference Include="Serilog.Sinks.File"/>
+		<PackageReference Include="Siemens.Simatic.S7.Webserver.API"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+		</None>
+		<None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AXSharp.Connector\AXSharp.Connector.csproj">
+			<PrivateAssets>all</PrivateAssets>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

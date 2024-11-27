@@ -1,0 +1,1082 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CsOnlinerSourceBuilder | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CsOnlinerSourceBuilder | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder">
+
+
+
+  <h1 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder" class="text-break">Class CsOnlinerSourceBuilder</h1>
+  <div class="markdown level0 summary"><p>Source builder for <a class="xref" href="AXSharp.Compiler.Cs.Onliner.html">AXSharp.Compiler.Cs.Onliner</a> twins.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">CsOnlinerSourceBuilder</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a></div>
+    <div><a class="xref" href="AXSharp.Compiler.Core.ISourceBuilder.html">ISourceBuilder</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Compiler.html">Compiler</a>.<a class="xref" href="AXSharp.Compiler.Cs.html">Cs</a>.<a class="xref" href="AXSharp.Compiler.Cs.Onliner.html">Onliner</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Compiler.Cs.dll</h6>
+  <h5 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder__ctor_AXSharp_Compiler_AXSharpProject_AX_ST_Semantic_Compilation_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.%23ctor(AXSharp.Compiler.AXSharpProject%2CAX.ST.Semantic.Compilation)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L34">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder__ctor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.#ctor*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder__ctor_AXSharp_Compiler_AXSharpProject_AX_ST_Semantic_Compilation_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.#ctor(AXSharp.Compiler.AXSharpProject,AX.ST.Semantic.Compilation)">CsOnlinerSourceBuilder(AXSharpProject, Compilation)</h4>
+  <div class="markdown level1 summary"><p>Creates new instance of <a class="xref" href="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.html">CsOnlinerSourceBuilder</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CsOnlinerSourceBuilder(AXSharpProject project, Compilation compilation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.AXSharpProject.html">AXSharpProject</a></td>
+        <td><span class="parametername">project</span></td>
+        <td><p>Ix project name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Compilation</span></td>
+        <td><span class="parametername">compilation</span></td>
+        <td><p>AX compilation</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_BuilderType.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.BuilderType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L345">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_BuilderType_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.BuilderType*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_BuilderType" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.BuilderType">BuilderType</h4>
+  <div class="markdown level1 summary"><p>Gets builder type. Builder type is used by CompilerOmits attribute to prevent compilation of constructs for specific
+compilation outputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BuilderType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Compilation.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Compilation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L43">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Compilation_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Compilation*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Compilation" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Compilation">Compilation</h4>
+  <div class="markdown level1 summary"><p>Get the semantic compilation for this builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Compilation Compilation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Compilation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CompilerOptions.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CompilerOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L45">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CompilerOptions_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CompilerOptions*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CompilerOptions" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CompilerOptions">CompilerOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICompilerOptions? CompilerOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.ICompilerOptions.html">ICompilerOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Group.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Group%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L336">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Group_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Group*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Group" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Group">Group</h4>
+  <div class="markdown level1 summary"><p>Get source group name. The output of this builder will be places into sub-folder name after this
+<a class="xref" href="AXSharp.Compiler.Core.ISourceBuilder.html#AXSharp_Compiler_Core_ISourceBuilder_Group">Group</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Group { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Output.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Output%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L339">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Output_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Output*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_Output" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.Output">Output</h4>
+  <div class="markdown level1 summary"><p>Gets string output of the builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Output { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_OutputFileSuffix.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.OutputFileSuffix%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L342">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_OutputFileSuffix_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.OutputFileSuffix*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_OutputFileSuffix" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.OutputFileSuffix">OutputFileSuffix</h4>
+  <div class="markdown level1 summary"><p>Suffix of output files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OutputFileSuffix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_TypeCommAccessibility.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.TypeCommAccessibility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L103">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_TypeCommAccessibility_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.TypeCommAccessibility*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_TypeCommAccessibility" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.TypeCommAccessibility">TypeCommAccessibility</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public eCommAccessibility TypeCommAccessibility { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.eCommAccessibility.html">eCommAccessibility</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateArrayTypeDeclaration_AX_ST_Semantic_Model_Declarations_Types_IArrayTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateArrayTypeDeclaration(AX.ST.Semantic.Model.Declarations.Types.IArrayTypeDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L330">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateArrayTypeDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateArrayTypeDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateArrayTypeDeclaration_AX_ST_Semantic_Model_Declarations_Types_IArrayTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateArrayTypeDeclaration(AX.ST.Semantic.Model.Declarations.Types.IArrayTypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateArrayTypeDeclaration(IArrayTypeDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates array type declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IArrayTypeDeclaration</span></td>
+        <td><span class="parametername">arrayTypeDeclaration</span></td>
+        <td><p>Array type semantics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateClassDeclaration_AX_ST_Syntax_Tree_IClassDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IClassDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateClassDeclaration(AX.ST.Syntax.Tree.IClassDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.IClassDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L106">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateClassDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateClassDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateClassDeclaration_AX_ST_Syntax_Tree_IClassDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IClassDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateClassDeclaration(AX.ST.Syntax.Tree.IClassDeclarationSyntax,AX.ST.Semantic.Model.Declarations.IClassDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateClassDeclaration(IClassDeclarationSyntax, IClassDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates class declaration starting in <span class="xref">AX.ST.Syntax.Tree.ClassDeclarationSyntax</span> node and continues in respective
+semantic node of <span class="xref">AX.ST.Semantic.Model.Declarations.IClassDeclaration</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateClassDeclaration(IClassDeclarationSyntax classDeclarationSyntax, IClassDeclaration classDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IClassDeclarationSyntax</span></td>
+        <td><span class="parametername">classDeclarationSyntax</span></td>
+        <td><p>Class declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IClassDeclaration</span></td>
+        <td><span class="parametername">classDeclaration</span></td>
+        <td><p>Class declaration semantic node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_AX_ST_Semantic_Model_Declarations_IConfigurationDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration(AX.ST.Semantic.Model.Declarations.IConfigurationDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L202">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_AX_ST_Semantic_Model_Declarations_IConfigurationDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration(AX.ST.Semantic.Model.Declarations.IConfigurationDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateConfigDeclaration(IConfigurationDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates configuration declaration from semantic node of <span class="xref">AX.ST.Semantic.Model.Declarations.IConfigurationDeclaration</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateConfigDeclaration(IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IConfigurationDeclaration</span></td>
+        <td><span class="parametername">configurationDeclaration</span></td>
+        <td><p>Configuration declaration semantic node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_AX_ST_Syntax_Tree_IConfigDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IConfigurationDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration(AX.ST.Syntax.Tree.IConfigDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.IConfigurationDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L186">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateConfigDeclaration_AX_ST_Syntax_Tree_IConfigDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IConfigurationDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateConfigDeclaration(AX.ST.Syntax.Tree.IConfigDeclarationSyntax,AX.ST.Semantic.Model.Declarations.IConfigurationDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateConfigDeclaration(IConfigDeclarationSyntax, IConfigurationDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates configuration declaration from starting from syntax node and proceeds in respective semantic node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateConfigDeclaration(IConfigDeclarationSyntax configDeclarationSyntax, IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IConfigDeclarationSyntax</span></td>
+        <td><span class="parametername">configDeclarationSyntax</span></td>
+        <td><p>Configuration declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IConfigurationDeclaration</span></td>
+        <td><span class="parametername">configurationDeclaration</span></td>
+        <td><p>Configuration declaration semantics.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateDocComment_AX_ST_Semantic_Model_Declarations_IDocComment_AXSharp_Compiler_Core_ICombinedThreeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateDocComment(AX.ST.Semantic.Model.Declarations.IDocComment%2CAXSharp.Compiler.Core.ICombinedThreeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L383">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateDocComment_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateDocComment*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateDocComment_AX_ST_Semantic_Model_Declarations_IDocComment_AXSharp_Compiler_Core_ICombinedThreeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateDocComment(AX.ST.Semantic.Model.Declarations.IDocComment,AXSharp.Compiler.Core.ICombinedThreeVisitor)">CreateDocComment(IDocComment, ICombinedThreeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates documentation for</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateDocComment(IDocComment semanticTypeAccess, ICombinedThreeVisitor data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDocComment</span></td>
+        <td><span class="parametername">semanticTypeAccess</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Associated visitor</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateEnumTypeDeclaration_AX_ST_Syntax_Tree_IEnumTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_ITypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateEnumTypeDeclaration(AX.ST.Syntax.Tree.IEnumTypeDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.Types.ITypeDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L213">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateEnumTypeDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateEnumTypeDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateEnumTypeDeclaration_AX_ST_Syntax_Tree_IEnumTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_ITypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateEnumTypeDeclaration(AX.ST.Syntax.Tree.IEnumTypeDeclarationSyntax,AX.ST.Semantic.Model.Declarations.Types.ITypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateEnumTypeDeclaration(IEnumTypeDeclarationSyntax, ITypeDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Created enum declaration starting from syntax node and continues in respective semantic node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateEnumTypeDeclaration(IEnumTypeDeclarationSyntax enumTypeDeclarationSyntax, ITypeDeclaration typeDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumTypeDeclarationSyntax</span></td>
+        <td><span class="parametername">enumTypeDeclarationSyntax</span></td>
+        <td><p>Enum type declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ITypeDeclaration</span></td>
+        <td><span class="parametername">typeDeclaration</span></td>
+        <td><p>Enum type declaration semantic node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateFile_AX_ST_Syntax_Tree_IFileSyntax_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateFile(AX.ST.Syntax.Tree.IFileSyntax%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L50">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateFile_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateFile*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateFile_AX_ST_Syntax_Tree_IFileSyntax_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateFile(AX.ST.Syntax.Tree.IFileSyntax,AXSharp.Compiler.Core.IxNodeVisitor)">CreateFile(IFileSyntax, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates file declaration from <span class="xref">AX.ST.Syntax.Tree.IFileSyntax</span> node of given syntax tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateFile(IFileSyntax fileSyntax, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IFileSyntax</span></td>
+        <td><span class="parametername">fileSyntax</span></td>
+        <td><p>File syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateImplementsList_AX_ST_Syntax_Tree_IImplementsListSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateImplementsList(AX.ST.Syntax.Tree.IImplementsListSyntax%2CAXSharp.Compiler.Core.ICombinedThreeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L268">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateImplementsList_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateImplementsList*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateImplementsList_AX_ST_Syntax_Tree_IImplementsListSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateImplementsList(AX.ST.Syntax.Tree.IImplementsListSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)">CreateImplementsList(IImplementsListSyntax, ICombinedThreeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates implements list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateImplementsList(IImplementsListSyntax implementsListSyntax, ICombinedThreeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IImplementsListSyntax</span></td>
+        <td><span class="parametername">implementsListSyntax</span></td>
+        <td><p>Implements syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_AX_ST_Semantic_Model_Declarations_IInterfaceDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration(AX.ST.Semantic.Model.Declarations.IInterfaceDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L285">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_AX_ST_Semantic_Model_Declarations_IInterfaceDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration(AX.ST.Semantic.Model.Declarations.IInterfaceDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateInterfaceDeclaration(IInterfaceDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates interface declaration from semantic node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateInterfaceDeclaration(IInterfaceDeclaration interfaceDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IInterfaceDeclaration</span></td>
+        <td><span class="parametername">interfaceDeclaration</span></td>
+        <td><p>Interface declaration semantics.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_AX_ST_Syntax_Tree_IInterfaceDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IInterfaceDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration(AX.ST.Syntax.Tree.IInterfaceDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.IInterfaceDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L275">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateInterfaceDeclaration_AX_ST_Syntax_Tree_IInterfaceDeclarationSyntax_AX_ST_Semantic_Model_Declarations_IInterfaceDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration(AX.ST.Syntax.Tree.IInterfaceDeclarationSyntax,AX.ST.Semantic.Model.Declarations.IInterfaceDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateInterfaceDeclaration(IInterfaceDeclarationSyntax, IInterfaceDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates interface declaration syntax starting from syntax node and continues in respective semantic node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateInterfaceDeclaration(IInterfaceDeclarationSyntax interfaceDeclarationSyntax, IInterfaceDeclaration interfaceDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IInterfaceDeclarationSyntax</span></td>
+        <td><span class="parametername">interfaceDeclarationSyntax</span></td>
+        <td><p>Interface declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IInterfaceDeclaration</span></td>
+        <td><span class="parametername">interfaceDeclaration</span></td>
+        <td><p>Interface declarations syntax semantic node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamedValueTypeDeclaration_AX_ST_Syntax_Tree_INamedValueTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_INamedValueTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamedValueTypeDeclaration(AX.ST.Syntax.Tree.INamedValueTypeDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.Types.INamedValueTypeDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L225">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamedValueTypeDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamedValueTypeDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamedValueTypeDeclaration_AX_ST_Syntax_Tree_INamedValueTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_INamedValueTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamedValueTypeDeclaration(AX.ST.Syntax.Tree.INamedValueTypeDeclarationSyntax,AX.ST.Semantic.Model.Declarations.Types.INamedValueTypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateNamedValueTypeDeclaration(INamedValueTypeDeclarationSyntax, INamedValueTypeDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates Named Value Type declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateNamedValueTypeDeclaration(INamedValueTypeDeclarationSyntax namedValueTypeDeclarationSyntax, INamedValueTypeDeclaration namedValueTypeDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">INamedValueTypeDeclarationSyntax</span></td>
+        <td><span class="parametername">namedValueTypeDeclarationSyntax</span></td>
+        <td><p>Named value type declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">INamedValueTypeDeclaration</span></td>
+        <td><span class="parametername">namedValueTypeDeclaration</span></td>
+        <td><p>Named value type declaration semantics.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamespaceDeclaration_AX_ST_Syntax_Tree_INamespaceDeclarationSyntax_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamespaceDeclaration(AX.ST.Syntax.Tree.INamespaceDeclarationSyntax%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L242">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamespaceDeclaration_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamespaceDeclaration*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamespaceDeclaration_AX_ST_Syntax_Tree_INamespaceDeclarationSyntax_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamespaceDeclaration(AX.ST.Syntax.Tree.INamespaceDeclarationSyntax,AXSharp.Compiler.Core.IxNodeVisitor)">CreateNamespaceDeclaration(INamespaceDeclarationSyntax, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates namespace declaration from <span class="xref">AX.ST.Syntax.Tree.INamespaceDeclarationSyntax</span> node of given syntax tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateNamespaceDeclaration(INamespaceDeclarationSyntax namespaceDeclarationSyntax, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">INamespaceDeclarationSyntax</span></td>
+        <td><span class="parametername">namespaceDeclarationSyntax</span></td>
+        <td><p>Namespace declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreatePragma_AX_ST_Semantic_Pragmas_IPragma_AXSharp_Compiler_Core_ICombinedThreeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreatePragma(AX.ST.Semantic.Pragmas.IPragma%2CAXSharp.Compiler.Core.ICombinedThreeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L251">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreatePragma_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreatePragma*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreatePragma_AX_ST_Semantic_Pragmas_IPragma_AXSharp_Compiler_Core_ICombinedThreeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreatePragma(AX.ST.Semantic.Pragmas.IPragma,AXSharp.Compiler.Core.ICombinedThreeVisitor)">CreatePragma(IPragma, ICombinedThreeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates pragma declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreatePragma(IPragma pragma, ICombinedThreeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IPragma</span></td>
+        <td><span class="parametername">pragma</span></td>
+        <td><p>Pragma declaration semantics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateStructuredType_AX_ST_Syntax_Tree_IStructTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_IStructuredTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateStructuredType(AX.ST.Syntax.Tree.IStructTypeDeclarationSyntax%2CAX.ST.Semantic.Model.Declarations.Types.IStructuredTypeDeclaration%2CAXSharp.Compiler.Core.IxNodeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L291">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateStructuredType_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateStructuredType*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateStructuredType_AX_ST_Syntax_Tree_IStructTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_IStructuredTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateStructuredType(AX.ST.Syntax.Tree.IStructTypeDeclarationSyntax,AX.ST.Semantic.Model.Declarations.Types.IStructuredTypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)">CreateStructuredType(IStructTypeDeclarationSyntax, IStructuredTypeDeclaration, IxNodeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates structured type declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateStructuredType(IStructTypeDeclarationSyntax structTypeDeclarationSyntax, IStructuredTypeDeclaration structuredTypeDeclaration, IxNodeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IStructTypeDeclarationSyntax</span></td>
+        <td><span class="parametername">structTypeDeclarationSyntax</span></td>
+        <td><p>Structured type declaration syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IStructuredTypeDeclaration</span></td>
+        <td><span class="parametername">structuredTypeDeclaration</span></td>
+        <td><p>Structured type semantics.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.IxNodeVisitor.html">IxNodeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateUsingDirective_AX_ST_Syntax_Tree_IUsingDirectiveSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateUsingDirective(AX.ST.Syntax.Tree.IUsingDirectiveSyntax%2CAXSharp.Compiler.Core.ICombinedThreeVisitor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L257">View Source</a>
+  </span>
+  <a id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateUsingDirective_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateUsingDirective*"></a>
+  <h4 id="AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateUsingDirective_AX_ST_Syntax_Tree_IUsingDirectiveSyntax_AXSharp_Compiler_Core_ICombinedThreeVisitor_" data-uid="AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateUsingDirective(AX.ST.Syntax.Tree.IUsingDirectiveSyntax,AXSharp.Compiler.Core.ICombinedThreeVisitor)">CreateUsingDirective(IUsingDirectiveSyntax, ICombinedThreeVisitor)</h4>
+  <div class="markdown level1 summary"><p>Creates using directive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateUsingDirective(IUsingDirectiveSyntax usingDirectiveSyntax, ICombinedThreeVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IUsingDirectiveSyntax</span></td>
+        <td><span class="parametername">usingDirectiveSyntax</span></td>
+        <td><p>Using directive syntax node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td><p>Associated visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="AXSharp.Compiler.Core.ICombinedThreeVisitor.html">ICombinedThreeVisitor</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Compiler.Core.ISourceBuilder.html">ISourceBuilder</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder.md&amp;value=---%0Auid%3A%20AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.compiler/src/AXSharp.Cs.Compiler/Onliner/CsOnlinerSourceBuilder.cs/#L25" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

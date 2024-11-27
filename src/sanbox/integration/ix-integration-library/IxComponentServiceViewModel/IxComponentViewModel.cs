@@ -1,4 +1,4 @@
-﻿using Ix.Presentation;
+﻿using AXSharp.Presentation;
 
 namespace ix_integration_library.IxComponentServiceViewModel
 {

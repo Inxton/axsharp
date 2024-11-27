@@ -1,0 +1,20 @@
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@typeparam T
+@inherits EnumeratorsBaseShadow<T>
+
+<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+        <label for="@ComponentId" >@Onliner.AttributeName</label>
+        <select id="@ComponentId"
+                class="w-100 form-select @AccessStatus"
+                @bind="@Onliner.Shadow"
+                disabled="@IsReadOnly"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="@ToolTipText">
+            @foreach (var name in Names)
+            {
+                <option class="form-control" value=@EnumToIntConverter.ConvertBack(name,null,null,null)>@name</option>
+            }
+        </select>
+</TemplateView>

@@ -1,0 +1,18 @@
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@inherits TemplateBaseOnline<T>
+@typeparam T
+
+<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <input id="@ComponentId"
+           readonly="readonly"
+           class="w-100 form-control @AccessStatus"
+           style="@(IsReadOnly? "" : "background-color:transparent")"
+           type="text"
+           step="any"
+           value="@Onliner.Cyclic"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
+</TemplateView>

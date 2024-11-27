@@ -1,9 +1,15 @@
 using System;
+using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
-    public partial class all_primitives
+    public partial class all_primitives : AXSharp.Connector.IPlain
     {
+        public all_primitives()
+        {
+        }
+
         public Boolean myBOOL { get; set; }
 
         public Byte myBYTE { get; set; }

@@ -1,3 +1,3 @@
-# IX
+# AXSharp
 
-This package is part of IX.
+This package is part of AXSharp.

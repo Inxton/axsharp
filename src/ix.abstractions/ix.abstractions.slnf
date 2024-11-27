@@ -1,8 +1,0 @@
-{
-  "solution": {
-    "path": "..\\ix.sln",
-    "projects": [
-      "ix.abstractions\\src\\Ix.Framework.Abstractions\\Ix.Framework.Abstractions.csproj"
-    ]
-  }
-}

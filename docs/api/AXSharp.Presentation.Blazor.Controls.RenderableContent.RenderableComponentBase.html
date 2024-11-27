@@ -1,0 +1,741 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RenderableComponentBase | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RenderableComponentBase | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AX#</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase">
+
+
+
+  <h1 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase" class="text-break">Class RenderableComponentBase</h1>
+  <div class="markdown level0 summary"><p>Base class which implements methods to update UI when PLC values are changed.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase">ComponentBase</a></div>
+    <div class="level2"><span class="xref">RenderableComponentBase</span></div>
+      <div class="level3"><a class="xref" href="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase-1.html">RenderableComplexComponentBase&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableViewModelComponentBase-1.html">RenderableViewModelComponentBase&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html">TemplateBase&lt;T&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent">IComponent</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent">IHandleEvent</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender">IHandleAfterRender</a></div>
+    <div><a class="xref" href="AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent.html">IRenderableComponent</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree">ComponentBase.BuildRenderTree(RenderTreeBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized">ComponentBase.OnInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync">ComponentBase.OnInitializedAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset">ComponentBase.OnParametersSet()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync">ComponentBase.OnParametersSetAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged">ComponentBase.StateHasChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender">ComponentBase.ShouldRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender">ComponentBase.OnAfterRender(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync">ComponentBase.OnAfterRenderAsync(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)">ComponentBase.InvokeAsync(Action)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))">ComponentBase.InvokeAsync(Func&lt;Task&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync">ComponentBase.SetParametersAsync(ParameterView)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AXSharp.html">AXSharp</a>.<a class="xref" href="AXSharp.Presentation.html">Presentation</a>.<a class="xref" href="AXSharp.Presentation.Blazor.html">Blazor</a>.<a class="xref" href="AXSharp.Presentation.Blazor.Controls.html">Controls</a>.<a class="xref" href="AXSharp.Presentation.Blazor.Controls.RenderableContent.html">RenderableContent</a></h6>
+  <h6><strong>Assembly</strong>: AXSharp.Presentation.Blazor.Controls.dll</h6>
+  <h5 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RenderableComponentBase : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HasFocus.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L49">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HasFocus_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HasFocus" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus">HasFocus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFocus { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PolledElements.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PolledElements%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L47">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PolledElements_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PolledElements*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PolledElements" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PolledElements">PolledElements</h4>
+  <div class="markdown level1 summary"><p>Contains set of elements polled for this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;ITwinElement&gt; PolledElements { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PollingInterval.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L34">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PollingInterval_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PollingInterval" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval">PollingInterval</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public int PollingInterval { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RccContainer.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L31">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RccContainer_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RccContainer" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RccContainer">RccContainer</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the RenderableContentControl that encapsulates this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public object RccContainer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.AddToPolling(AXSharp.Connector.ITwinElement%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L59">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_AddToPolling_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.AddToPolling*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.AddToPolling(AXSharp.Connector.ITwinElement,System.Int32)">AddToPolling(ITwinElement, int)</h4>
+  <div class="markdown level1 summary"><p>Adds element to the polling queue.</p>
+<blockquote>
+<p>[!IMPORTANT] This method should be overriden in the derived class to limit the number of elements to be polled for large objects.
+All inner primitive types of the element will be added to the polling queue by default. When creating override remember to add the polled element to
+the <a class="xref" href="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html#AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_PolledElements">PolledElements</a> set that is needed for removal of the element from the polling queue once the component is disposed.</p>
+</blockquote>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void AddToPolling(ITwinElement element, int pollingInterval = 250)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>Element to be added to the polling queue.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">pollingInterval</span></td>
+        <td><p>Sets polling interval for the element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_Dispose.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L39">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_Dispose_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_Dispose" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Disposes this object as well as communication resources used by this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChanged_System_Object_System_ComponentModel_PropertyChangedEventArgs_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChanged(System.Object%2CSystem.ComponentModel.PropertyChangedEventArgs)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L160">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChanged_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChanged*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChanged_System_Object_System_ComponentModel_PropertyChangedEventArgs_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">HandlePropertyChanged(object, PropertyChangedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void HandlePropertyChanged(object sender, PropertyChangedEventArgs a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventargs">PropertyChangedEventArgs</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChangedOnOutFocus_System_Object_System_ComponentModel_PropertyChangedEventArgs_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus(System.Object%2CSystem.ComponentModel.PropertyChangedEventArgs)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L196">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChangedOnOutFocus_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandlePropertyChangedOnOutFocus_System_Object_System_ComponentModel_PropertyChangedEventArgs_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus(System.Object,System.ComponentModel.PropertyChangedEventArgs)">HandlePropertyChangedOnOutFocus(object, PropertyChangedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void HandlePropertyChangedOnOutFocus(object sender, PropertyChangedEventArgs a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventargs">PropertyChangedEventArgs</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandleShadowPropertyChanged_System_Object_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandleShadowPropertyChanged(System.Object%2CAXSharp.Connector.ValueTypes.ValueChangedEventArgs)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L168">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandleShadowPropertyChanged_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandleShadowPropertyChanged*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_HandleShadowPropertyChanged_System_Object_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandleShadowPropertyChanged(System.Object,AXSharp.Connector.ValueTypes.ValueChangedEventArgs)">HandleShadowPropertyChanged(object, ValueChangedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void HandleShadowPropertyChanged(object sender, ValueChangedEventArgs a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.ValueChangedEventArgs.html">ValueChangedEventArgs</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RemovePolledElements.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L68">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RemovePolledElements_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_RemovePolledElements" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements">RemovePolledElements()</h4>
+  <div class="markdown level1 summary"><p>Removes elements added for polling from this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePolledElements()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_ShouldBeUpdated_AXSharp_Connector_ITwinElement_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated(AXSharp.Connector.ITwinElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L173">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_ShouldBeUpdated_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_ShouldBeUpdated_AXSharp_Connector_ITwinElement_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.ShouldBeUpdated(AXSharp.Connector.ITwinElement)">ShouldBeUpdated(ITwinElement)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool ShouldBeUpdated(ITwinElement element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></td>
+        <td><span class="parametername">element</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_AXSharp_Connector_ITwinObject_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L129">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_AXSharp_Connector_ITwinObject_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)">UpdateShadowValuesOnChange(ITwinObject)</h4>
+  <div class="markdown level1 summary"><p>Method, which updates are primitive shadow values of ITwinObject</p>
+<param name="element">ITwinObject instance.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateShadowValuesOnChange(ITwinObject element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinObject.html">ITwinObject</a></td>
+        <td><span class="parametername">element</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_AXSharp_Connector_ITwinPrimitive_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinPrimitive)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L145">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateShadowValuesOnChange_AXSharp_Connector_ITwinPrimitive_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinPrimitive)">UpdateShadowValuesOnChange(ITwinPrimitive)</h4>
+  <div class="markdown level1 summary"><p>Method, which updates shadow primitive value.</p>
+<param name="tag">IValueTag instance.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateShadowValuesOnChange(ITwinPrimitive tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinPrimitive.html">ITwinPrimitive</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChange_AXSharp_Connector_ITwinElement_System_Int32_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinElement%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L110">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChange_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChange_AXSharp_Connector_ITwinElement_System_Int32_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinElement,System.Int32)">UpdateValuesOnChange(ITwinElement, int)</h4>
+  <div class="markdown level1 summary"><p>Method, which updates are primitive values of ITwinObject instance</p>
+<param name="element">ITwinElement instance.<param name="pollingInterval">Polling interval
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateValuesOnChange(ITwinElement element, int pollingInterval = 250)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ITwinElement.html">ITwinElement</a></td>
+        <td><span class="parametername">element</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">pollingInterval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChangeOutFocus_AXSharp_Connector_ValueTypes_OnlinerBase_.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChangeOutFocus(AXSharp.Connector.ValueTypes.OnlinerBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L155">View Source</a>
+  </span>
+  <a id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChangeOutFocus_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChangeOutFocus*"></a>
+  <h4 id="AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase_UpdateValuesOnChangeOutFocus_AXSharp_Connector_ValueTypes_OnlinerBase_" data-uid="AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChangeOutFocus(AXSharp.Connector.ValueTypes.OnlinerBase)">UpdateValuesOnChangeOutFocus(OnlinerBase)</h4>
+  <div class="markdown level1 summary"><p>Method, which updates primitive value only, when element is out of focus.
+Public property IsFocus can be set. If is true, element won't be updated.</p>
+<param name="tag">IValueTag instance.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateValuesOnChangeOutFocus(OnlinerBase tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXSharp.Connector.ValueTypes.OnlinerBase.html">OnlinerBase</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent">IComponent</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent">IHandleEvent</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender">IHandleAfterRender</a>
+  </div>
+  <div>
+      <a class="xref" href="AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent.html">IRenderableComponent</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/new/dev/apiSpec/new?filename=AXSharp_Presentation_Blazor_Controls_RenderableContent_RenderableComponentBase.md&amp;value=---%0Auid%3A%20AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/src/AXSharp.blazor/src/AXSharp.Presentation.Blazor.Controls/RenderableContent/RenderableComponentBase.cs/#L26" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

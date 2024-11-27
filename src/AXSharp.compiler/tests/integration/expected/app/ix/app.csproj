@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.6.0-alpha.3" />
+		<PackageReference Include="AXSharp.Connector" Version="0.6.0-alpha.3" />		
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\lib1\ix\lib1.csproj" />
+	  <ProjectReference Include="..\..\lib2\ix\lib2.csproj" />
+	</ItemGroup>
+</Project>

@@ -11,10 +11,11 @@ Syntax
 Example
 
 ~~~iecst
-{#ix-attr:[Container(Layoyt.Wrap)]} (* Example of an attribute declared at type level. *)
+{S7.extern=ReadWrite}
+{#ix-attr:[Container(Layout.Wrap)]} (* Example of an attribute declared at type level. *)
 CLASS PUBLIC MyClass
     VAR PUBLIC
-        {#ix-attr:[Container(Layoyt.Tabs)]} (* Example of an attribute declared at member level.*)
+        {#ix-attr:[Container(Layout.Tabs)]} (* Example of an attribute declared at member level.*)
         Nested : MyNestedStructure;
     END_VAR
 END_CLASS
@@ -35,7 +36,7 @@ ReadOnce attribute can be only applied to members (property, field), not type (C
 Example
 
 ~~~iecst
-
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnce()]} // this structure will be read only once
@@ -48,11 +49,11 @@ END_CLASS
 
 ### ReadOnly attribute
 
-ReadOnly attribute render the member (variable) inaccessible for write operation from the IX application. It does not prevent the variable from writing in the PLC or by other means of connection.
+ReadOnly attribute render the member (variable) inaccessible for write operation from the AXSharp application. It does not prevent the variable from writing in the PLC or by other means of connection.
 
 
 ~~~iecst
-
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnly()]} // this structure will be read only
@@ -75,6 +76,7 @@ CompilerOmits attribute instructs the compiler to skip the compilation of a memb
 
 
 ~~~iecst
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[CompilerOmits()]} 
@@ -87,6 +89,65 @@ CLASS PUBLIC MyClass
         MyStringIgnoredInPocosAndOnliners : STRING;
     END_VAR
 END_CLASS
+~~~
+
+### Ignoring Communication with the Controller for POCO Operations
+
+To minimize the communication overhead between the application and the controller during POCO operations, you can annotate specific members of a type to bypass data exchange. This attribute should be applied when the compiler omits the compilation of particular members in the POCO object.
+
+```iecst
+{S7.extern=ReadWrite}
+CLASS PUBLIC MyClass
+    VAR PUBLIC        
+        {#ix-attr:[CompilerOmits("POCO")]} 
+        {#ix-attr:[IgnoreOnPocoOperation()]} 
+        MyStringIgnoredInPocos : STRING;        
+    END_VAR
+END_CLASS
+```
+
+### Generic extension attributes
+
+ixc allows to declare generic attributes in ST that will add a genetic notation to transpiled types.
+The use of generics is an advanced scenario aimed at simplifying some tasks where templating is needed. 
+This feature was explicitly crafted for data exchange scenarios, and it does not support the entire range of use of generics in C#.
+
+
+#### Use
+
+Any class can be annotated with the following attribute:
+
+~~~iecst
+   {#ix-generic:<TOnline, TPlain> where TOnline : ITwinObject}
+    CLASS PUBLIC Extender
+    
+    END_CLASS
+~~~
+
+That will create the following type declaration in twin type:
+
+~~~C#
+public partial class Extender<TOnline, TPlain> : AXSharp.Connector.ITwinObject where TOnline : ITwinObject
+~~~
+
+
+When deriving from a class with generic annotation following additional annotation should be used for a generic member of the class:
+
+~~~iecst
+    CLASS PUBLIC Extendee2 EXTENDS Extender
+        VAR PUBLIC
+            {#ix-generic:TOnline}
+            {#ix-generic:TPlain as POCO}
+            SomeType : SomeType;          
+        END_VAR
+    END_CLASS
+~~~
+
+Where TOnline generic type will be substituted with `SomeType`. The `as POCO` will transpale `TPlain` generic attribute as the corresponding plain (aka POCO) type.
+
+The previous example will transpile as follows.
+~~~C#
+public partial class Extendee : Generics.Extender<Generics.SomeType, Pocos.Generics.SomeType>
 ~~~
 
 ### See also 

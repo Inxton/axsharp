@@ -1,0 +1,19 @@
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+<div name="@Symbol" class="w-100 form-group mb-2">
+
+    @ChildContent
+    
+    <div class="invalid-feedback">
+        @FailureReason
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public string Symbol { get; set; }
+    [Parameter]
+    public string FailureReason { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

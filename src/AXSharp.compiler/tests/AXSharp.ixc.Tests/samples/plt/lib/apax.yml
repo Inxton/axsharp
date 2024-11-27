@@ -1,0 +1,11 @@
+name: "plt-lib"
+version: 0.1.0
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit-llvm
+files:
+  - src
+devDependencies:
+  "@ax/sdk": 3.0.8

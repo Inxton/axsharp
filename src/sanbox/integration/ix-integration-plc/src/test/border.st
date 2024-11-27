@@ -1,5 +1,6 @@
 {#ix-attr:[Container(Layout.Stack)]}
-{#ix-attr:[Group(GroupLayout.Border)]}   
+{#ix-attr:[Group(GroupLayout.Border)]}  
+{S7.extern=ReadWrite} 
 CLASS border
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Integer From PLC#>"}	

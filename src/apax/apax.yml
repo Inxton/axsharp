@@ -5,4 +5,6 @@ targets:
   - "1500"
   - axunit-llvm
 devDependencies:
-  "@ax/stc": 4.2.19
+  "@ax/stc": 7.1.81
+installStrategy: strict
+apaxVersion: 3.1.1

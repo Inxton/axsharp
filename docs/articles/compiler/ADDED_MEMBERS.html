@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -79,14 +79,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="added-members">Added members</h1>
 
-<p>The IX Compiler allows the declaration of additional members for any TwinObject. These members will be added to the TwinObject but not accessible from the PLC. Added members are useful when we want to provide additional usually static information about the object (description, humanized annotation, etc), but we do not want to put additional load on the communication between the application and the PLC.
+<p>The AXSharp Compiler allows the declaration of additional members for any TwinObject. These members will be added to the TwinObject but not accessible from the PLC. Added members are useful when we want to provide additional usually static information about the object (description, humanized annotation, etc), but we do not want to put additional load on the communication between the application and the PLC.
 Added members are also a useful feature to provide additional context about the type or its particular instance.</p>
 <h2 id="added-member-declaration">Added member declaration</h2>
 <p>Syntax</p>
 <pre><code class="lang-iecst">{#ix-prop:access_modifier type member_name}
 </code></pre>
 <p>Example</p>
-<pre><code class="lang-iecst">{#ix-prop:public string Description}
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+{#ix-prop:public string Description}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         Nested : MyNestedStructure;
@@ -110,7 +111,8 @@ END_CLASS
 CLASS_DECLARATION | STRUCTURED_TYPE_DECLARATION
 </code></pre>
 <p>Example</p>
-<pre><code class="lang-iecst">{#ix-prop:public string Description}
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+{#ix-prop:public string Description}
 {#ix-set:Description = &quot;This is my classy description.&quot;}
 CLASS PUBLIC MyClass
     VAR PUBLIC
@@ -132,13 +134,15 @@ END_CLASS
 <pre><code class="lang-iecst">{#ix-set:member_name = value}
 FIELD_DECLARATION | VARIABLE_DECLARATION
 </code></pre>
-<pre><code class="lang-iecst">CLASS PUBLIC MyClass
+<pre><code class="lang-iecst">{S7.extern=ReadWrite}
+CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-set:Description = &quot;This is my nested classy description.&quot;}
         Nested : MyNestedStructure;
     END_VAR
 END_CLASS
 
+{S7.extern=ReadWrite}
 {#ix-prop:public string Description}
 CLASS PUBLIC MyNestedStructure 
 END_CLASS
@@ -149,16 +153,16 @@ END_CLASS
 </blockquote>
 <h2 id="default-properties-of-twins">Default properties of Twins</h2>
 <h2 id="common-added-members">Common added members</h2>
-<p><strong>The following members are present by default in any type created by IX compiler.</strong></p>
+<p><strong>The following members are present by default in any type created by AX# compiler.</strong></p>
 <h2 id="attributename">AttributeName</h2>
-<p>AttributeName is the default added member of all types within IX. They are used to represent the name of the variable or object in a humanized way. These attributes can be later used to label the variables consistently in the UI.</p>
+<p>AttributeName is the default added member of all types within AXSharp. They are used to represent the name of the variable or object in a humanized way. These attributes can be later used to label the variables consistently in the UI.</p>
 <pre><code>{#ix-set: AttributeName = &quot;Length&quot;}
 _length : REAL;
 </code></pre>
 <h2 id="primitive-added-members">Primitive added members</h2>
-<p><strong>The following members are present by default in any primitive type create by IX compiler.</strong></p>
+<p><strong>The following members are present by default in any primitive type create by AXSharp compiler.</strong></p>
 <h2 id="attributeunits">AttributeUnits</h2>
-<p>AttributeUnit is the default added member of all PrimitiveTwins within IX. They are used to represent the unit measure of a variable.</p>
+<p>AttributeUnit is the default added member of all PrimitiveTwins within AXSharp. They are used to represent the unit measure of a variable.</p>
 <pre><code>{#ix-set: AttributeUnits = &quot;mm&quot;}
 _length : REAL;
 </code></pre>
@@ -166,7 +170,7 @@ _length : REAL;
 System.Console.WriteLine(MainPlc.MAIN._length.AttributeUnits);
 </code></pre>
 <h2 id="attributeminimum">AttributeMinimum</h2>
-<p>AttributeMinimum is the default added member of all PrimitiveTwins within IX. They are used to get or set the minimum value for the variable. By default, this attribute contains the minimal value of a given type.</p>
+<p>AttributeMinimum is the default added member of all PrimitiveTwins within AXSharp. They are used to get or set the minimum value for the variable. By default, this attribute contains the minimal value of a given type.</p>
 <pre><code>{#ix-set: AttributeMininum = 10.5f}
 _length : REAL;
 </code></pre>
@@ -174,7 +178,7 @@ _length : REAL;
 System.Console.WriteLine(MainPlc.MAIN._length.AttributeMinimum);
 </code></pre>
 <h2 id="attributemaximum">AttributeMaximum</h2>
-<p>AttributeMaximum is the default added member of all PrimitiveTwins within IX. They are used to get or set the maximum value for the variable. By default, this attribute contains the maximum value of a given type.</p>
+<p>AttributeMaximum is the default added member of all PrimitiveTwins within AXSharp. They are used to get or set the maximum value for the variable. By default, this attribute contains the maximum value of a given type.</p>
 <pre><code>{#ix-set: AttributeMaximum = 1525.5f}
 _length : REAL;
 </code></pre>
@@ -186,6 +190,7 @@ System.Console.WriteLine(MainPlc.MAIN._length.AttributeMaximum);
 <p>When the application tries to write to the variable it first validates that the value to be written corresponds to the limit given by AttributeMinimum and AttributeMaximum. If the value to be written does not fall within the range this value is not written to the PLC and the writing operation is silently ignored.</p>
 <h2 id="attributetooltip">AttributeToolTip</h2>
 <p>AttributeToolTip allows you to describe the variable or an object. These can be then used to give short hints to the user in the application. This attribute can be localized.</p>
+
 </article>
           </div>
 
@@ -194,12 +199,12 @@ System.Console.WriteLine(MainPlc.MAIN._length.AttributeMaximum);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/compiler/ADDED_MEMBERS.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/compiler/ADDED_MEMBERS.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

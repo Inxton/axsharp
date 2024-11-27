@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX</p>
+                <p class="text-logo">AX#</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -82,7 +82,7 @@
 <p>Ixr is command line tool which can generate resx files for AX projects. Resx file contains localizable strings from project, that can be further used in translation.</p>
 <h2 id="quick-start">Quick start</h2>
 <h3 id="1-install-ixr-tool">1. Install ixr tool</h3>
-<pre><code>dotnet tool install Ix.ixr --prerelease --local
+<pre><code>dotnet tool install AXSharp.ixr --prerelease --local
 </code></pre>
 <h3 id="2-run-ixr-compiler">2. Run ixr compiler</h3>
 <pre><code>dotnet ixr -x $PATH_TO_AX_PROJECT -o $PATH_TO_RESX_FILE
@@ -91,6 +91,11 @@
 <code>$PATH_TO_AX_PROJECT</code> - is path to <strong>AX project</strong><br>
 <code>$PATH_TO_RESX_FILE</code> - is path to <strong>resx file</strong>, where the localizable strings will be generated</p>
 <p>Localizable string are exported only from string attributes and pragmas of attribute name.</p>
+<p><code>ixr</code> can be run without parameters from within an AX project folder. In that case it will use the settings from <code>ixc</code> <code>AXSharp.config.json</code> and emit the resource file into <code>.g\Resource\PlcStringResource.resx</code> file of the ax twin project.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>More about implementing resx file into your project see <a href="../connectors/README.html#controller-string-localization">here</a>.</p>
+</div>
 <h2 id="localizable-string">Localizable string</h2>
 <p>Localizable string must start with <code>&lt;#</code> and end with <code>#&gt;</code> tags.<br>
 For example:<br>
@@ -102,8 +107,10 @@ For example:<br>
 <p>Ixr support all these special characters:<br>
 <code>!&quot;#$'()*+,-.:;&lt;=&gt;?@[\]^_`{|}~€</code><br>
 No other characters can be used.</p>
+<p><a href="../connectors/README.html#controller-string-localization">See also</a></p>
 <h2 id="notes">Notes</h2>
 <p>Ixr is still in early development, so some features may be missing and bugs may occur.</p>
+
 </article>
           </div>
 
@@ -112,12 +119,12 @@ No other characters can be used.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/ixr/IXR.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/axsharp/blob/dev/docfx/articles/ixr/IXR.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

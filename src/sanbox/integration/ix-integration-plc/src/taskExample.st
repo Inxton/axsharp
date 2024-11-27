@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TaskExample
     VAR PUBLIC
         example : STRING;

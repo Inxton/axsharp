@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\..\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
+	  <ProjectReference Include="..\..\..\..\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\PlcStringResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PlcStringResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<!--<ItemGroup>
+	  <Compile Update="ResourcesOverrride\OverridePlcStringResources.Designer.cs">
+	    <DependentUpon>OverridePlcStringResources.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="ResourcesOverrride\OverridePlcStringResources.resx">
+	    <LastGenOutput>OverridePlcStringResources.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
+	    <Generator></Generator>
+	  </EmbeddedResource>
+	</ItemGroup>-->
+</Project>
