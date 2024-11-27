@@ -169,7 +169,7 @@ public class BuildContext : FrostingContext
         }
     }
 
-    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net7.0", "net8.0" };
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net8.0" };
 
     public IEnumerable<(string ax, string approject, string solution)> GetTemplateProjects()
     {
