@@ -14,7 +14,7 @@
 	  <PackageReference Include="Cake.Frosting" Version="2.3.0" />
 	  <PackageReference Include="Cake.Powershell" Version="2.0.0" />
 	  <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="GitVersion.MsBuild" Version="6.0.5">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
 	    <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
