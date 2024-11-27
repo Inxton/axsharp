@@ -123,10 +123,10 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerShadowToPlainBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", false));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-            builder.AddToSource($"public async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-            builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+            builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+            builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
 
             semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
@@ -140,12 +140,12 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerShadowToPlainBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             var qualifier = isExtended ? "new" : string.Empty;
 
-            builder.AddToSource($"public {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-            builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+            builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+            builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
 
             if (isExtended)
             {

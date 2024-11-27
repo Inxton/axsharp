@@ -17,6 +17,7 @@ using AXSharp.Compiler.Cs.Helpers.Onliners;
 using AXSharp.Compiler.Cs.Helpers.Plain;
 using AXSharp.Connector;
 
+
 namespace AXSharp.Compiler.Cs.Onliner;
 
 internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
@@ -121,16 +122,16 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
 
     protected static readonly string MethodName = TwinObjectExtensions.OnlineToPlainMethodName;
     protected static readonly string MethodNameNoac = $"_{TwinObjectExtensions.OnlineToPlainMethodName}Noac";
-
+    
     public static CsOnlinerPlainerOnlineToPlainBuilder Create(IxNodeVisitor visitor, IStructuredTypeDeclaration semantics,
         ISourceBuilder sourceBuilder)
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", false));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-        builder.AddToSource($"public async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
@@ -142,8 +143,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
         // Noac method
         builder.AddToSource($"[Obsolete(\"This method should not be used if you indent to access the controllers data. Use `{MethodName}` instead.\")]");
         builder.AddToSource("[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]");
-        builder.AddToSource($"public async Task<Pocos.{semantics.FullyQualifiedName}> {MethodNameNoac}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodNameNoac}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
         builder.AddToSource($"return plain;");
@@ -157,12 +158,12 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName,$"Pocos.{semantics.FullyQualifiedName}", isExtended));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName,$"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
         var qualifier = isExtended ? "new" : string.Empty;
         
-        builder.AddToSource($"public {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
 
         if (isExtended)
@@ -180,8 +181,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
 
         builder.AddToSource($"[Obsolete(\"This method should not be used if you indent to access the controllers data. Use `{MethodName}` instead.\")]");
         builder.AddToSource("[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]");
-        builder.AddToSource($"public {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodNameNoac}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodNameNoac}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         
         if (isExtended)
         {
