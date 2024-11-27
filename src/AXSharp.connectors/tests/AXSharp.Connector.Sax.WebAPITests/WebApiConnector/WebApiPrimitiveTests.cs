@@ -9,7 +9,10 @@ using AXSharp.Connector.S71500.WebApi;
 using AXSharp.Connector.ValueTypes;
 using System;
 using System.IO;
+using System.Net.Http;
+using System.Net.Security;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -17,14 +20,6 @@ using Xunit;
 
 namespace AXSharp.Connector.S71500.WebAPITests.Primitives
 {
-
-    public static class TestConnector
-    {
-        private static string TargetIp { get; } = Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET") ?? "10.10.101.1";
-
-        public static WebApiConnector TestApiConnector { get; } = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true).BuildAndStart() as WebApiConnector;
-    }
-
     public abstract class WebApiPrimitiveTests<T, N> where T : OnlinerBase<N>, new()
     {
 

@@ -4,15 +4,20 @@ type: app
 targets:
   - "1500"
   - llvm
-  - plcsim
-  - swcpu
+variables:
+  AXTARGET: 10.222.6.1
+  AXTARGETPLATFORMINPUT: .\bin\1500\
+  AX_USERNAME: "adm"
+  AX_TARGET_PWD: "123ABCDabcd$#!"
+  MY_VERY_STRONG_PASSWORD: $AX_TARGET_PWD
+  COM_CERT_PATH: .\certs\Communication.cer
+
 devDependencies:
-  "@ax/sdk": 2311.0.1
+  "@ax/sdk": 2405.2.0
   # "@ax/stc": ^5.4.89
-  #"@ax/sld": ^2.0.5
+  "@ax/sld": ^3.0.6-alpha
 scripts:
-  postbuild: dotnet run --project
-    ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework
-    net7.0
-installStrategy: strict
+  postbuild: dotnet run --project ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework net7.0
+  download: apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME
+installStrategy: overridable
 apaxVersion: 3.1.0
