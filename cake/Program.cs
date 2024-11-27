@@ -314,7 +314,7 @@ public sealed class TemplatesUpdateAndBuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        if (!context.BuildParameters.DoPublish)
+        if (!context.BuildParameters.DoPublish || !Helpers.CanReleaseInternal() || !Helpers.CanReleasePublic())
         {
             context.Log.Warning($"Skipping template package build.");
             return;
