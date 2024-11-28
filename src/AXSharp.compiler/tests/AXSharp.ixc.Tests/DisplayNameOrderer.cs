@@ -7,7 +7,7 @@
 
 using Xunit.Abstractions;
 
-[assembly: TestCollectionOrderer("AXSharp.ixcTests.DisplayNameOrderer", "AXSharp.ixcTests")]
+[assembly: TestCollectionOrderer("AXSharp.ixcTests.DisplayNameOrderer", "AXSharp.ixc.Tests")]
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace AXSharp.ixcTests;

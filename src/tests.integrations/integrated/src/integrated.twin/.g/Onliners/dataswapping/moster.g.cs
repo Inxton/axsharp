@@ -10,11 +10,8 @@ namespace MonsterData
     public partial class MonsterBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerString Description { get; }
-
         public OnlinerULInt Id { get; }
-
         public OnlinerByte[] ArrayOfBytes { get; }
-
         public MonsterData.DriveBase[] ArrayOfDrives { get; }
 
         [IgnoreOnPocoOperation()]
@@ -258,18 +255,21 @@ namespace MonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -326,9 +326,7 @@ namespace MonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
@@ -487,11 +485,8 @@ namespace MonsterData
     public partial class DriveBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
-
         public OnlinerLReal Velo { get; }
-
         public OnlinerLReal Acc { get; }
-
         public OnlinerLReal Dcc { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -671,18 +666,21 @@ namespace MonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -739,9 +737,7 @@ namespace MonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 }

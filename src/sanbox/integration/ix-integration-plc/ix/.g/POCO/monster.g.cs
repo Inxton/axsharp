@@ -45,11 +45,8 @@ namespace MonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
         }
     }

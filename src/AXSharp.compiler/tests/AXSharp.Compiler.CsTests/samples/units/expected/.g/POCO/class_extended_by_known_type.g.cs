@@ -26,7 +26,6 @@ namespace Simatic.Ax.StateFramework
             }
 
             public Int16 StateID { get; set; }
-
             public string StateName { get; set; } = string.Empty;
         }
     }

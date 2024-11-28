@@ -7,9 +7,7 @@ namespace Pocos
     public partial class unitsTwinController
     {
         public Boolean MotorOn { get; set; }
-
         public Int16 MotorState { get; set; }
-
         public global::Pocos.Motor Motor1 { get; set; } = new global::Pocos.Motor();
         public global::Pocos.Motor Motor2 { get; set; } = new global::Pocos.Motor();
         public global::Pocos.struct1 s1 { get; set; } = new global::Pocos.struct1();
@@ -87,7 +85,6 @@ namespace Pocos
         }
 
         public Boolean Run { get; set; }
-
         public Boolean ReverseDirection { get; set; }
     }
 }

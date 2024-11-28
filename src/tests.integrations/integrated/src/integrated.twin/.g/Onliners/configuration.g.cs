@@ -9,71 +9,38 @@ using RealMonsterData;
 public partial class integratedTwinController : ITwinController
 {
     public AXSharp.Connector.Connector Connector { get; }
-
     public MonsterData.Monster Monster { get; }
-
     public MonsterData.Monster OnlineToPlain_should_copy_entire_structure { get; }
-
     public MonsterData.Monster PlainToOnline_should_copy_entire_structure { get; }
-
     public MonsterData.Monster OnlineToShadowAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ShadowToOnlineAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectOnlineToPlain_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectPlainToOnline_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectOnlineToShadowAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectShadowToOnlineAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ShadowToPlainAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster PlainToShadowAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectShadowToPlainAsync_should_copy_entire_structure { get; }
-
     public MonsterData.Monster ITwinObjectPlainToShadowAsync_should_copy_entire_structure { get; }
-
     public Pokus Pokus { get; }
-
     public RealMonsterData.RealMonster RealMonster { get; }
-
     public RealMonsterData.RealMonster OnlineToShadow_should_copy { get; }
-
     public RealMonsterData.RealMonster ShadowToOnline_should_copy { get; }
-
     public RealMonsterData.RealMonster OnlineToPlain_should_copy { get; }
-
     public RealMonsterData.RealMonster PlainToOnline_should_copy { get; }
-
     public RealMonsterData.RealMonster ITwinObjectOnlineToShadow_should_copy { get; }
-
     public RealMonsterData.RealMonster ITwinObjectShadowToOnline_should_copy { get; }
-
     public RealMonsterData.RealMonster ITwinObjectOnlineToPlain_should_copy { get; }
-
     public RealMonsterData.RealMonster ITwinObjectPlainToOnline_should_copy { get; }
-
     public all_primitives p_online_shadow { get; }
-
     public all_primitives p_shadow_online { get; }
-
     public all_primitives p_online_plain { get; }
-
     public all_primitives p_plain_online { get; }
-
     public all_primitives p_shadow_plain { get; }
-
     public all_primitives p_plain_shadow { get; }
-
     public RealMonsterData.RealMonster StartPolling_should_update_cyclic_property { get; }
-
     public RealMonsterData.RealMonster StartPolling_ConcurentOverload { get; }
-
     public RealMonsterData.RealMonster ChangeDetections { get; }
-
     public GH_ISSUE_183.GH_ISSUE_183_1 GH_ISSUE_183 { get; }
 
     public integratedTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)
@@ -272,18 +239,21 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -340,9 +310,7 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }
 
@@ -465,18 +433,21 @@ public partial class Nested : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -533,8 +504,6 @@ public partial class Nested : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }

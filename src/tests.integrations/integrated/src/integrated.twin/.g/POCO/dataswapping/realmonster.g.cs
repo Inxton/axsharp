@@ -17,7 +17,6 @@ namespace RealMonsterData
 
             public string Description { get; set; } = string.Empty;
             public UInt64 Id { get; set; }
-
             public DateOnly TestDate { get; set; } = default(DateOnly);
             public DateTime TestDateTime { get; set; } = default(DateTime);
             public TimeSpan TestTimeSpan { get; set; } = default(TimeSpan);
@@ -47,13 +46,9 @@ namespace RealMonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
-
             public RealMonsterData.Pocos.NestedLevelOne NestedLevelOne { get; set; } = new RealMonsterData.Pocos.NestedLevelOne();
         }
     }
@@ -67,13 +62,9 @@ namespace RealMonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
-
             public RealMonsterData.Pocos.NestedLevelTwo NestedLevelTwo { get; set; } = new RealMonsterData.Pocos.NestedLevelTwo();
         }
     }
@@ -87,13 +78,9 @@ namespace RealMonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
-
             public RealMonsterData.Pocos.NestedLevelThree NestedLevelThree { get; set; } = new RealMonsterData.Pocos.NestedLevelThree();
         }
     }
@@ -107,11 +94,8 @@ namespace RealMonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
         }
     }

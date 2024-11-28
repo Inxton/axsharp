@@ -39,14 +39,17 @@ namespace MeasurementExample
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Stack panel")]
             public MeasurementExample.Pocos.Measurement measurement_stack { get; set; } = new MeasurementExample.Pocos.Measurement();
+
             [Container(Layout.Wrap)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Wrap panel")]
             public MeasurementExample.Pocos.Measurement measurement_wrap { get; set; } = new MeasurementExample.Pocos.Measurement();
+
             [Container(Layout.UniformGrid)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Grid")]
             public MeasurementExample.Pocos.Measurement measurement_grid { get; set; } = new MeasurementExample.Pocos.Measurement();
+
             [Container(Layout.Tabs)]
             [Group(GroupLayout.GroupBox)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Tabs")]

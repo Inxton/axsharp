@@ -13,7 +13,6 @@ namespace Enums
             }
 
             public global::Enums.Colors colors { get; set; }
-
             public String NamedValuesColors { get; set; }
         }
     }

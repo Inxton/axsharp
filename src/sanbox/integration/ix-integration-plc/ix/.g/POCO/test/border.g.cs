@@ -18,6 +18,7 @@ namespace Pocos
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#STRING From PLC#>")]
         public string testString { get; set; } = string.Empty;
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#WORD From PLC#>")]
         public UInt16 testWord { get; set; }
 
@@ -35,10 +36,13 @@ namespace Pocos
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#DATE From PLC#>")]
         public DateOnly TestDate { get; set; } = default(DateOnly);
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#DATE_AND_TIME From PLC#>")]
         public DateTime TestDateTime { get; set; } = default(DateTime);
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#TIME_OF_DAY From PLC#>")]
         public TimeSpan TestTimeOfDay { get; set; } = default(TimeSpan);
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#ENUM Station status#>")]
         public global::enumStationStatus Status { get; set; }
     }

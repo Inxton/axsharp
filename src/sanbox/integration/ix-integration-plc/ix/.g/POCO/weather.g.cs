@@ -12,12 +12,9 @@ namespace Pocos
 
         public global::Pocos.GeoLocation GeoLocation { get; set; } = new global::Pocos.GeoLocation();
         public Single Temperature { get; set; }
-
         public Single Humidity { get; set; }
-
         public string Location { get; set; } = string.Empty;
         public Single ChillFactor { get; set; }
-
         public global::Feeling Feeling { get; set; }
     }
 }

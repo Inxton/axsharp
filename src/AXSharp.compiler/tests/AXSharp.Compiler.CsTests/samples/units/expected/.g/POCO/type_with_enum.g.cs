@@ -20,7 +20,6 @@ namespace Simatic.Ax.StateFramework
             }
 
             public Int64 CompareToValue { get; set; }
-
             public global::Simatic.Ax.StateFramework.Condition Condition { get; set; }
         }
     }

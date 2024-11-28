@@ -8,47 +8,26 @@ using AXSharp.Abstractions.Presentation;
 public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool myBOOL { get; }
-
     public OnlinerByte myBYTE { get; }
-
     public OnlinerWord myWORD { get; }
-
     public OnlinerDWord myDWORD { get; }
-
     public OnlinerLWord myLWORD { get; }
-
     public OnlinerSInt mySINT { get; }
-
     public OnlinerInt myINT { get; }
-
     public OnlinerDInt myDINT { get; }
-
     public OnlinerLInt myLINT { get; }
-
     public OnlinerUSInt myUSINT { get; }
-
     public OnlinerUInt myUINT { get; }
-
     public OnlinerUDInt myUDINT { get; }
-
     public OnlinerULInt myULINT { get; }
-
     public OnlinerReal myREAL { get; }
-
     public OnlinerLReal myLREAL { get; }
-
     public OnlinerTime myTIME { get; }
-
     public OnlinerLTime myLTIME { get; }
-
     public OnlinerDate myDATE { get; }
-
     public OnlinerTimeOfDay myTIME_OF_DAY { get; }
-
     public OnlinerDateTime myDATE_AND_TIME { get; }
-
     public OnlinerString mySTRING { get; }
-
     public OnlinerWString myWSTRING { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -498,18 +477,21 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -566,8 +548,6 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }

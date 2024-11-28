@@ -8,61 +8,33 @@ using AXSharp.Abstractions.Presentation;
 public partial class unitsTwinController : ITwinController
 {
     public AXSharp.Connector.Connector Connector { get; }
-
     public ComplexForConfig Complex { get; }
-
     public OnlinerBool myBOOL { get; }
-
     public OnlinerByte myBYTE { get; }
-
     public OnlinerWord myWORD { get; }
-
     public OnlinerDWord myDWORD { get; }
-
     public OnlinerLWord myLWORD { get; }
-
     public OnlinerSInt mySINT { get; }
-
     public OnlinerInt myINT { get; }
-
     public OnlinerDInt myDINT { get; }
-
     public OnlinerLInt myLINT { get; }
-
     public OnlinerUSInt myUSINT { get; }
-
     public OnlinerUInt myUINT { get; }
-
     public OnlinerUDInt myUDINT { get; }
-
     public OnlinerULInt myULINT { get; }
-
     public OnlinerReal myREAL { get; }
-
     public OnlinerLReal myLREAL { get; }
-
     public OnlinerTime myTIME { get; }
-
     public OnlinerLTime myLTIME { get; }
-
     public OnlinerDate myDATE { get; }
-
     public OnlinerDate myLDATE { get; }
-
     public OnlinerTimeOfDay myTIME_OF_DAY { get; }
-
     public OnlinerLTimeOfDay myLTIME_OF_DAY { get; }
-
     public OnlinerDateTime myDATE_AND_TIME { get; }
-
     public OnlinerLDateTime myLDATE_AND_TIME { get; }
-
     public OnlinerChar myCHAR { get; }
-
     public OnlinerWChar myWCHAR { get; }
-
     public OnlinerString mySTRING { get; }
-
     public OnlinerWString myWSTRING { get; }
 
     [ReadOnce()]
@@ -178,59 +150,32 @@ public partial class unitsTwinController : ITwinController
 public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool myBOOL { get; }
-
     public OnlinerByte myBYTE { get; }
-
     public OnlinerWord myWORD { get; }
-
     public OnlinerDWord myDWORD { get; }
-
     public OnlinerLWord myLWORD { get; }
-
     public OnlinerSInt mySINT { get; }
-
     public OnlinerInt myINT { get; }
-
     public OnlinerDInt myDINT { get; }
-
     public OnlinerLInt myLINT { get; }
-
     public OnlinerUSInt myUSINT { get; }
-
     public OnlinerUInt myUINT { get; }
-
     public OnlinerUDInt myUDINT { get; }
-
     public OnlinerULInt myULINT { get; }
-
     public OnlinerReal myREAL { get; }
-
     public OnlinerLReal myLREAL { get; }
-
     public OnlinerTime myTIME { get; }
-
     public OnlinerLTime myLTIME { get; }
-
     public OnlinerDate myDATE { get; }
-
     public OnlinerDate myLDATE { get; }
-
     public OnlinerTimeOfDay myTIME_OF_DAY { get; }
-
     public OnlinerLTimeOfDay myLTIME_OF_DAY { get; }
-
     public OnlinerDateTime myDATE_AND_TIME { get; }
-
     public OnlinerLDateTime myLDATE_AND_TIME { get; }
-
     public OnlinerChar myCHAR { get; }
-
     public OnlinerWChar myWCHAR { get; }
-
     public OnlinerString mySTRING { get; }
-
     public OnlinerWString myWSTRING { get; }
-
     public Motor myMotor { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -776,18 +721,21 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -844,9 +792,7 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
@@ -998,18 +944,21 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -1066,16 +1015,13 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
 public partial class Vehicle : AXSharp.Connector.ITwinObject
 {
     public Motor m { get; }
-
     public OnlinerInt displacement { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -1229,18 +1175,21 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -1297,8 +1246,6 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }

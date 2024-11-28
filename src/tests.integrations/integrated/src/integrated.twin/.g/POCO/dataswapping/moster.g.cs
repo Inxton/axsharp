@@ -17,11 +17,12 @@ namespace MonsterData
 
             public string Description { get; set; } = string.Empty;
             public UInt64 Id { get; set; }
-
             public Byte[] ArrayOfBytes { get; set; } = new Byte[4];
             public MonsterData.Pocos.DriveBase[] ArrayOfDrives { get; set; } = new MonsterData.Pocos.DriveBase[4];
+
             [IgnoreOnPocoOperation()]
             public MonsterData.Pocos.DriveBase DriveBase_tobeignoredbypocooperations { get; set; } = new MonsterData.Pocos.DriveBase();
+
             [IgnoreOnPocoOperation()]
             public string Description_tobeignoredbypocooperations { get; set; } = string.Empty;
         }
@@ -48,11 +49,8 @@ namespace MonsterData
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
         }
     }

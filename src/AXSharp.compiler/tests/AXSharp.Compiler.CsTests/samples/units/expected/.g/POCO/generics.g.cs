@@ -23,7 +23,6 @@ namespace GenericsTests
             }
 
             public Boolean Boolean { get; set; }
-
             public Int16 Cele { get; set; }
         }
     }

@@ -15,6 +15,7 @@ namespace makereadonly
             [ReadOnly()]
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
+
             [ReadOnly()]
             public makereadonly.Pocos.ComplexMember makeReadComplexMember { get; set; } = new makereadonly.Pocos.ComplexMember();
             public makereadonly.Pocos.ComplexMember someotherComplexMember { get; set; } = new makereadonly.Pocos.ComplexMember();

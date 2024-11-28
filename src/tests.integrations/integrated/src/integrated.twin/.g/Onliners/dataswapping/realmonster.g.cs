@@ -10,17 +10,11 @@ namespace RealMonsterData
     public partial class RealMonsterBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerString Description { get; }
-
         public OnlinerULInt Id { get; }
-
         public OnlinerDate TestDate { get; }
-
         public OnlinerDateTime TestDateTime { get; }
-
         public OnlinerTimeOfDay TestTimeSpan { get; }
-
         public OnlinerByte[] ArrayOfBytes { get; }
-
         public RealMonsterData.DriveBaseNested[] ArrayOfDrives { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -267,18 +261,21 @@ namespace RealMonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -335,9 +332,7 @@ namespace RealMonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
@@ -496,13 +491,9 @@ namespace RealMonsterData
     public partial class DriveBaseNested : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
-
         public OnlinerLReal Velo { get; }
-
         public OnlinerLReal Acc { get; }
-
         public OnlinerLReal Dcc { get; }
-
         public RealMonsterData.NestedLevelOne NestedLevelOne { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -703,18 +694,21 @@ namespace RealMonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -771,22 +765,16 @@ namespace RealMonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
     public partial class NestedLevelOne : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
-
         public OnlinerLReal Velo { get; }
-
         public OnlinerLReal Acc { get; }
-
         public OnlinerLReal Dcc { get; }
-
         public RealMonsterData.NestedLevelTwo NestedLevelTwo { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -987,18 +975,21 @@ namespace RealMonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -1055,22 +1046,16 @@ namespace RealMonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
     public partial class NestedLevelTwo : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
-
         public OnlinerLReal Velo { get; }
-
         public OnlinerLReal Acc { get; }
-
         public OnlinerLReal Dcc { get; }
-
         public RealMonsterData.NestedLevelThree NestedLevelThree { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -1271,18 +1256,21 @@ namespace RealMonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -1339,20 +1327,15 @@ namespace RealMonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
     public partial class NestedLevelThree : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
-
         public OnlinerLReal Velo { get; }
-
         public OnlinerLReal Acc { get; }
-
         public OnlinerLReal Dcc { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -1532,18 +1515,21 @@ namespace RealMonsterData
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -1600,9 +1586,7 @@ namespace RealMonsterData
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 }

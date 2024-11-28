@@ -15,6 +15,7 @@ namespace makereadonce
             [ReadOnce()]
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
+
             [ReadOnce()]
             public makereadonce.Pocos.ComplexMember makeReadComplexMember { get; set; } = new makereadonce.Pocos.ComplexMember();
             public makereadonce.Pocos.ComplexMember someotherComplexMember { get; set; } = new makereadonce.Pocos.ComplexMember();
