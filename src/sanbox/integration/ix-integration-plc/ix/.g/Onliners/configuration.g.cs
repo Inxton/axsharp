@@ -9,17 +9,11 @@ using MonsterData;
 public partial class ix_integration_plcTwinController : ITwinController
 {
     public AXSharp.Connector.Connector Connector { get; }
-
     public all_primitives all_primitives { get; }
-
     public weather weather { get; }
-
     public weathers weathers { get; }
-
     public Layouts.Stacked.weather weather_stacked { get; }
-
     public Layouts.Wrapped.weather weather_wrapped { get; }
-
     public Layouts.Tabbed.weather weather_tabbed { get; }
 
     [ReadOnce()]
@@ -27,13 +21,9 @@ public partial class ix_integration_plcTwinController : ITwinController
 
     [ReadOnly()]
     public Layouts.Stacked.weather weather_readOnly { get; }
-
     public example test_example { get; }
-
     public MeasurementExample.Measurements measurements { get; }
-
     public ixcomponent ixcomponent { get; }
-
     public MonsterData.Monster monster { get; }
 
     public ix_integration_plcTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)

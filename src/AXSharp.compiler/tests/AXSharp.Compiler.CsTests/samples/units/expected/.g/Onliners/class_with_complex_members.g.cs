@@ -32,9 +32,9 @@ namespace ClassWithComplexTypesNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes> OnlineToPlainAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes> OnlineToPlainAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes();
+            ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain = new ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -44,9 +44,9 @@ namespace ClassWithComplexTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes> _OnlineToPlainNoacAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes();
+            ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain = new ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -55,7 +55,7 @@ namespace ClassWithComplexTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes> _OnlineToPlainNoacAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain)
+        protected async Task<ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes> _OnlineToPlainNoacAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain)
         {
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -68,7 +68,7 @@ namespace ClassWithComplexTypesNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -78,7 +78,7 @@ namespace ClassWithComplexTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain)
+        public async Task _PlainToOnlineNoacAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -90,14 +90,14 @@ namespace ClassWithComplexTypesNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes> ShadowToPlainAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes> ShadowToPlainAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain = new Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes();
+            ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain = new ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes();
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes> ShadowToPlainAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain)
+        protected async Task<ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes> ShadowToPlainAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain)
         {
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
@@ -108,7 +108,7 @@ namespace ClassWithComplexTypesNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain)
         {
             await this.myComplexType.PlainToShadowAsync(plain.myComplexType);
             return this.RetrievePrimitives();
@@ -124,7 +124,7 @@ namespace ClassWithComplexTypesNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes plain, Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes plain, ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -143,24 +143,27 @@ namespace ClassWithComplexTypesNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes CreateEmptyPoco()
+        public ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes CreateEmptyPoco()
         {
-            return new Pocos.ClassWithComplexTypesNamespace.ClassWithComplexTypes();
+            return new ClassWithComplexTypesNamespace.Pocos.ClassWithComplexTypes();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -217,9 +220,7 @@ namespace ClassWithComplexTypesNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
@@ -245,24 +246,24 @@ namespace ClassWithComplexTypesNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ComplexType1> OnlineToPlainAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ComplexType1> OnlineToPlainAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain = new Pocos.ClassWithComplexTypesNamespace.ComplexType1();
+            ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain = new ClassWithComplexTypesNamespace.Pocos.ComplexType1();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ComplexType1> _OnlineToPlainNoacAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain = new Pocos.ClassWithComplexTypesNamespace.ComplexType1();
+            ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain = new ClassWithComplexTypesNamespace.Pocos.ComplexType1();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ClassWithComplexTypesNamespace.ComplexType1> _OnlineToPlainNoacAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain)
+        protected async Task<ClassWithComplexTypesNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain)
         {
             return plain;
         }
@@ -272,14 +273,14 @@ namespace ClassWithComplexTypesNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain)
+        public async Task _PlainToOnlineNoacAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain)
         {
         }
 
@@ -288,13 +289,13 @@ namespace ClassWithComplexTypesNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithComplexTypesNamespace.ComplexType1> ShadowToPlainAsync()
+        public async Task<ClassWithComplexTypesNamespace.Pocos.ComplexType1> ShadowToPlainAsync()
         {
-            Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain = new Pocos.ClassWithComplexTypesNamespace.ComplexType1();
+            ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain = new ClassWithComplexTypesNamespace.Pocos.ComplexType1();
             return plain;
         }
 
-        protected async Task<Pocos.ClassWithComplexTypesNamespace.ComplexType1> ShadowToPlainAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain)
+        protected async Task<ClassWithComplexTypesNamespace.Pocos.ComplexType1> ShadowToPlainAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain)
         {
             return plain;
         }
@@ -304,7 +305,7 @@ namespace ClassWithComplexTypesNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain)
         {
             return this.RetrievePrimitives();
         }
@@ -319,7 +320,7 @@ namespace ClassWithComplexTypesNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithComplexTypesNamespace.ComplexType1 plain, Pocos.ClassWithComplexTypesNamespace.ComplexType1 latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ClassWithComplexTypesNamespace.Pocos.ComplexType1 plain, ClassWithComplexTypesNamespace.Pocos.ComplexType1 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -336,24 +337,27 @@ namespace ClassWithComplexTypesNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ClassWithComplexTypesNamespace.ComplexType1 CreateEmptyPoco()
+        public ClassWithComplexTypesNamespace.Pocos.ComplexType1 CreateEmptyPoco()
         {
-            return new Pocos.ClassWithComplexTypesNamespace.ComplexType1();
+            return new ClassWithComplexTypesNamespace.Pocos.ComplexType1();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -410,9 +414,7 @@ namespace ClassWithComplexTypesNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

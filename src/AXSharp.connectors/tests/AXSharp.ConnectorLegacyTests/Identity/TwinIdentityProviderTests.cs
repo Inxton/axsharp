@@ -38,8 +38,8 @@ namespace AXSharp.Connector.Identity.Tests
 
             //-- Assert
             var actual = identityProvider.GetTwinByIdentity(1000);
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
         }
 
@@ -58,12 +58,12 @@ namespace AXSharp.Connector.Identity.Tests
 
             //-- Assert
             var actual = identityProvider.GetTwinByIdentity(1000);
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
             actual = identityProvider.GetTwinByIdentity(2000);
-            Assert.AreEqual("s2000", actual.Symbol);
-            Assert.AreEqual("n2000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s2000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n2000"));
         }
 
         [Test()]
@@ -84,17 +84,17 @@ namespace AXSharp.Connector.Identity.Tests
             await identityProvider.SortIdentitiesAsync();
 
             //-- Assert
-            Assert.AreEqual(2, identityProvider.IdentitiesCount);
+            Assert.That(identityProvider.IdentitiesCount, Is.EqualTo(2));
 
             var actual = identityProvider.GetTwinByIdentity(1000);            
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
 
             actual = identityProvider.GetTwinByIdentity(255854);
-            Assert.AreEqual(2, identityProvider.IdentitiesCount);
-            Assert.AreEqual("x1000", actual.Symbol);
-            Assert.AreEqual("x1000", actual.AttributeName);      
+            Assert.That(identityProvider.IdentitiesCount, Is.EqualTo(2));
+            Assert.That(actual.Symbol, Is.EqualTo("x1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("x1000"));      
         }
     }
 

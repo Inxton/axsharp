@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-      <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+  <PropertyGroup>     
       <IsPackable>false</IsPackable>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>

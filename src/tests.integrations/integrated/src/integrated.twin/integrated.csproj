@@ -26,5 +26,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".g\Onliners\issues\" />
+    <Folder Include="certs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ax\certs\Communication.cer" Link="certs\Communication.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ax\certs\S71516-hw.cer" Link="certs\S71516-hw.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

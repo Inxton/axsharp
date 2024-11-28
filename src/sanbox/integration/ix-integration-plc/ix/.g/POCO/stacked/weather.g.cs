@@ -2,11 +2,11 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace Layouts.Stacked
 {
-    namespace Layouts.Stacked
+    namespace Pocos
     {
-        public partial class weather : weatherBase, AXSharp.Connector.IPlain
+        public partial class weather : global::Pocos.weatherBase, AXSharp.Connector.IPlain
         {
             public weather() : base()
             {

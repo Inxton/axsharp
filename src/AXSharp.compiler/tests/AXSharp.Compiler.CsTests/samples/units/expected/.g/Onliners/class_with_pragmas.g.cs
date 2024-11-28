@@ -34,9 +34,9 @@ namespace ClassWithPragmasNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPragmasNamespace.ClassWithPragmas> OnlineToPlainAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ClassWithPragmas> OnlineToPlainAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain = new Pocos.ClassWithPragmasNamespace.ClassWithPragmas();
+            ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain = new ClassWithPragmasNamespace.Pocos.ClassWithPragmas();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -46,9 +46,9 @@ namespace ClassWithPragmasNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ClassWithPragmasNamespace.ClassWithPragmas> _OnlineToPlainNoacAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ClassWithPragmas> _OnlineToPlainNoacAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain = new Pocos.ClassWithPragmasNamespace.ClassWithPragmas();
+            ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain = new ClassWithPragmasNamespace.Pocos.ClassWithPragmas();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -57,7 +57,7 @@ namespace ClassWithPragmasNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ClassWithPragmasNamespace.ClassWithPragmas> _OnlineToPlainNoacAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain)
+        protected async Task<ClassWithPragmasNamespace.Pocos.ClassWithPragmas> _OnlineToPlainNoacAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain)
         {
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -70,7 +70,7 @@ namespace ClassWithPragmasNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -80,7 +80,7 @@ namespace ClassWithPragmasNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain)
+        public async Task _PlainToOnlineNoacAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -92,14 +92,14 @@ namespace ClassWithPragmasNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPragmasNamespace.ClassWithPragmas> ShadowToPlainAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ClassWithPragmas> ShadowToPlainAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain = new Pocos.ClassWithPragmasNamespace.ClassWithPragmas();
+            ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain = new ClassWithPragmasNamespace.Pocos.ClassWithPragmas();
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<Pocos.ClassWithPragmasNamespace.ClassWithPragmas> ShadowToPlainAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain)
+        protected async Task<ClassWithPragmasNamespace.Pocos.ClassWithPragmas> ShadowToPlainAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain)
         {
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
@@ -110,7 +110,7 @@ namespace ClassWithPragmasNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain)
         {
             await this.myComplexType.PlainToShadowAsync(plain.myComplexType);
             return this.RetrievePrimitives();
@@ -126,7 +126,7 @@ namespace ClassWithPragmasNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithPragmasNamespace.ClassWithPragmas plain, Pocos.ClassWithPragmasNamespace.ClassWithPragmas latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ClassWithPragmasNamespace.Pocos.ClassWithPragmas plain, ClassWithPragmasNamespace.Pocos.ClassWithPragmas latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -145,24 +145,27 @@ namespace ClassWithPragmasNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ClassWithPragmasNamespace.ClassWithPragmas CreateEmptyPoco()
+        public ClassWithPragmasNamespace.Pocos.ClassWithPragmas CreateEmptyPoco()
         {
-            return new Pocos.ClassWithPragmasNamespace.ClassWithPragmas();
+            return new ClassWithPragmasNamespace.Pocos.ClassWithPragmas();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -219,9 +222,7 @@ namespace ClassWithPragmasNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
@@ -247,24 +248,24 @@ namespace ClassWithPragmasNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPragmasNamespace.ComplexType1> OnlineToPlainAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ComplexType1> OnlineToPlainAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ComplexType1 plain = new Pocos.ClassWithPragmasNamespace.ComplexType1();
+            ClassWithPragmasNamespace.Pocos.ComplexType1 plain = new ClassWithPragmasNamespace.Pocos.ComplexType1();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ClassWithPragmasNamespace.ComplexType1> _OnlineToPlainNoacAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ComplexType1 plain = new Pocos.ClassWithPragmasNamespace.ComplexType1();
+            ClassWithPragmasNamespace.Pocos.ComplexType1 plain = new ClassWithPragmasNamespace.Pocos.ComplexType1();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ClassWithPragmasNamespace.ComplexType1> _OnlineToPlainNoacAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain)
+        protected async Task<ClassWithPragmasNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain)
         {
             return plain;
         }
@@ -274,14 +275,14 @@ namespace ClassWithPragmasNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain)
+        public async Task _PlainToOnlineNoacAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain)
         {
         }
 
@@ -290,13 +291,13 @@ namespace ClassWithPragmasNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPragmasNamespace.ComplexType1> ShadowToPlainAsync()
+        public async Task<ClassWithPragmasNamespace.Pocos.ComplexType1> ShadowToPlainAsync()
         {
-            Pocos.ClassWithPragmasNamespace.ComplexType1 plain = new Pocos.ClassWithPragmasNamespace.ComplexType1();
+            ClassWithPragmasNamespace.Pocos.ComplexType1 plain = new ClassWithPragmasNamespace.Pocos.ComplexType1();
             return plain;
         }
 
-        protected async Task<Pocos.ClassWithPragmasNamespace.ComplexType1> ShadowToPlainAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain)
+        protected async Task<ClassWithPragmasNamespace.Pocos.ComplexType1> ShadowToPlainAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain)
         {
             return plain;
         }
@@ -306,7 +307,7 @@ namespace ClassWithPragmasNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain)
         {
             return this.RetrievePrimitives();
         }
@@ -321,7 +322,7 @@ namespace ClassWithPragmasNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithPragmasNamespace.ComplexType1 plain, Pocos.ClassWithPragmasNamespace.ComplexType1 latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ClassWithPragmasNamespace.Pocos.ComplexType1 plain, ClassWithPragmasNamespace.Pocos.ComplexType1 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -338,24 +339,27 @@ namespace ClassWithPragmasNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ClassWithPragmasNamespace.ComplexType1 CreateEmptyPoco()
+        public ClassWithPragmasNamespace.Pocos.ComplexType1 CreateEmptyPoco()
         {
-            return new Pocos.ClassWithPragmasNamespace.ComplexType1();
+            return new ClassWithPragmasNamespace.Pocos.ComplexType1();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -412,9 +416,7 @@ namespace ClassWithPragmasNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

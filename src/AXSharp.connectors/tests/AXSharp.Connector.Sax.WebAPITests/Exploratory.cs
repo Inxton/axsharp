@@ -36,7 +36,7 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
 #if RELEASE
     return;
 #endif
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
 
             
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
@@ -156,7 +156,7 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
 #if RELEASE
     return;
 #endif
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
 
             
 

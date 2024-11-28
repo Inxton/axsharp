@@ -27,24 +27,24 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos._NULL_CONTEXT_MULTIPLE> OnlineToPlainAsync()
+    public async Task<global::Pocos._NULL_CONTEXT_MULTIPLE> OnlineToPlainAsync()
     {
-        Pocos._NULL_CONTEXT_MULTIPLE plain = new Pocos._NULL_CONTEXT_MULTIPLE();
+        global::Pocos._NULL_CONTEXT_MULTIPLE plain = new global::Pocos._NULL_CONTEXT_MULTIPLE();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos._NULL_CONTEXT_MULTIPLE> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos._NULL_CONTEXT_MULTIPLE> _OnlineToPlainNoacAsync()
     {
-        Pocos._NULL_CONTEXT_MULTIPLE plain = new Pocos._NULL_CONTEXT_MULTIPLE();
+        global::Pocos._NULL_CONTEXT_MULTIPLE plain = new global::Pocos._NULL_CONTEXT_MULTIPLE();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos._NULL_CONTEXT_MULTIPLE> _OnlineToPlainNoacAsync(Pocos._NULL_CONTEXT_MULTIPLE plain)
+    protected async Task<global::Pocos._NULL_CONTEXT_MULTIPLE> _OnlineToPlainNoacAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain)
     {
         return plain;
     }
@@ -54,14 +54,14 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos._NULL_CONTEXT_MULTIPLE plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos._NULL_CONTEXT_MULTIPLE plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain)
     {
     }
 
@@ -70,13 +70,13 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos._NULL_CONTEXT_MULTIPLE> ShadowToPlainAsync()
+    public async Task<global::Pocos._NULL_CONTEXT_MULTIPLE> ShadowToPlainAsync()
     {
-        Pocos._NULL_CONTEXT_MULTIPLE plain = new Pocos._NULL_CONTEXT_MULTIPLE();
+        global::Pocos._NULL_CONTEXT_MULTIPLE plain = new global::Pocos._NULL_CONTEXT_MULTIPLE();
         return plain;
     }
 
-    protected async Task<Pocos._NULL_CONTEXT_MULTIPLE> ShadowToPlainAsync(Pocos._NULL_CONTEXT_MULTIPLE plain)
+    protected async Task<global::Pocos._NULL_CONTEXT_MULTIPLE> ShadowToPlainAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain)
     {
         return plain;
     }
@@ -86,7 +86,7 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos._NULL_CONTEXT_MULTIPLE plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain)
     {
         return this.RetrievePrimitives();
     }
@@ -101,7 +101,7 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos._NULL_CONTEXT_MULTIPLE plain, Pocos._NULL_CONTEXT_MULTIPLE latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos._NULL_CONTEXT_MULTIPLE plain, global::Pocos._NULL_CONTEXT_MULTIPLE latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -118,24 +118,27 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos._NULL_CONTEXT_MULTIPLE CreateEmptyPoco()
+    public global::Pocos._NULL_CONTEXT_MULTIPLE CreateEmptyPoco()
     {
-        return new Pocos._NULL_CONTEXT_MULTIPLE();
+        return new global::Pocos._NULL_CONTEXT_MULTIPLE();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -192,9 +195,7 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 

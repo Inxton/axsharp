@@ -16,8 +16,7 @@ namespace Pocos
 
      using  SimpleFirstLevelNamespace ;  using  SimpleQualifiedNamespace . Qualified ;  using  HelloLevelOne . HelloLevelTwo ; 
 
-}
-
+} }
 namespace SimpleFirstLevelNamespace
 {
 }
@@ -31,4 +30,4 @@ namespace HelloLevelOne
     namespace HelloLevelTwo
     {
     }
-} }
+}

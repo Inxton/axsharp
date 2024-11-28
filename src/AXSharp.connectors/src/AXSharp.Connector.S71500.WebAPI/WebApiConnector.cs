@@ -293,8 +293,8 @@ public class WebApiConnector : Connector
         }
     }
 
-    private const int MAX_READ_REQUEST_SEGMENT = (64 * 1024) - 628;
-    private const int MAX_WRITE_REQUEST_SEGMENT = (64 * 1024) - 628;
+    private const int MAX_READ_REQUEST_SEGMENT = (128 * 1024) - 628*2;
+    private const int MAX_WRITE_REQUEST_SEGMENT = (128 * 1024) - 628*2;
 
     private System.Diagnostics.Stopwatch stopwatch = new();
 

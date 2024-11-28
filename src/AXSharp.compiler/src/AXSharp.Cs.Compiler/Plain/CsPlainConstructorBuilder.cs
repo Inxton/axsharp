@@ -36,7 +36,7 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateClassDeclaration(IClassDeclaration classDeclaration, IxNodeVisitor visitor)
     {
-        AddToSource($"{classDeclaration.GetQualifiedName()}");
+        AddToSource($"{classDeclaration.GetFullyQualifiedPocoName()}");
     }
 
     public void CreateReferenceToDeclaration(IReferenceTypeDeclaration referenceTypeDeclaration, IxNodeVisitor visitor)
@@ -61,7 +61,7 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateStructuredType(IStructuredTypeDeclaration structuredTypeDeclaration, IxNodeVisitor visitor)
     {
-        AddToSource($"{structuredTypeDeclaration.GetQualifiedName()}");
+        AddToSource($"{structuredTypeDeclaration.GetFullyQualifiedPocoName()}");
     }
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)

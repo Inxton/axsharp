@@ -31,7 +31,7 @@ namespace AXSharp.Connector.Tests
             var actual = AXSharp.Connector.StringInterpolator.Interpolate("This is a |[AttributeInterpolated]| string of |[AttributeObjectType]|", interpolatedObject);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -49,7 +49,7 @@ namespace AXSharp.Connector.Tests
             Console.WriteLine(actual);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -67,7 +67,7 @@ namespace AXSharp.Connector.Tests
             Console.WriteLine(actual);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -95,7 +95,7 @@ namespace AXSharp.Connector.Tests
 
             Console.WriteLine(actual);
 
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
     }

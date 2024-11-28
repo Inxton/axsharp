@@ -15,11 +15,15 @@ namespace Pocos
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My string")]
         public string my_string { get; set; } = string.Empty;
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My bool")]
         public Boolean my_bool { get; set; }
     }
+}
 
-    namespace MySecondNamespace
+namespace MySecondNamespace
+{
+    namespace Pocos
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
@@ -32,12 +36,16 @@ namespace Pocos
 
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My string")]
             public string my_string { get; set; } = string.Empty;
+
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My bool")]
             public Boolean my_bool { get; set; }
         }
     }
+}
 
-    namespace ThirdNamespace
+namespace ThirdNamespace
+{
+    namespace Pocos
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
@@ -50,6 +58,7 @@ namespace Pocos
 
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My string")]
             public string my_string { get; set; } = string.Empty;
+
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My bool")]
             public Boolean my_bool { get; set; }
         }

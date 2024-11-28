@@ -67,6 +67,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
             TypeCommAccessibility = eCommAccessibility.ReadOnly;
         }
         
+        
+        AddToSource($"namespace Pocos{{");
+        
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
 
         var classDeclarations = this.Compilation.GetSemanticTree().Classes
@@ -79,7 +82,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
             .Any(p => p.FullyQualifiedName == classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName);
 
         if (isExtended)
-            AddToSource($" : {classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName}");
+            AddToSource($" : {classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.GetFullyQualifiedPocoName()}");
 
 
 
@@ -98,6 +101,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         classDeclaration.Fields.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
+        
+        AddToSource("}"); // Close namespace
     }
 
     /// <inheritdoc />
@@ -195,11 +200,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                  fileSyntax.UsingDirectives
                      .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
         {
-            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+            AddToSource($"using {fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()}.Pocos;");
         }
-        AddToSource("namespace Pocos {");
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
-        AddToSource("}");
     }
 
     /// <inheritdoc />
@@ -209,9 +212,19 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         TypeCommAccessibility = eCommAccessibility.None;
 
+        if (configurationDeclaration.ContainingNamespace.FullyQualifiedName != "$GLOBAL")
+        {
+            AddToSource($"namespace {configurationDeclaration.ContainingNamespace.FullyQualifiedName}.Pocos{{");
+        }
+        else
+        {
+            AddToSource($"namespace Pocos{{");
+        }
+        
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController{{");
         configurationDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
+        AddToSource("}");// closing namespace
     }
 
     /// <inheritdoc />
@@ -320,7 +333,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = structuredTypeDeclaration.GetCommAccessibility(this);
-                
+        
+        AddToSource($"namespace Pocos{{");
+        
         AddToSource(
             $"{structuredTypeDeclaration.AccessModifier.Transform()}partial class {structTypeDeclarationSyntax.Name.Text} : AXSharp.Connector.IPlain");
         AddToSource("{");
@@ -329,6 +344,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
 
         structuredTypeDeclaration.Fields.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
+        
+        AddToSource("}"); // namespace closing
     }
 
     /// <inheritdoc />
@@ -352,13 +369,13 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateClassDeclaration(IClassDeclaration classDeclaration, IxNodeVisitor data)
     {
-        AddToSource(classDeclaration.GetQualifiedName());
+        AddToSource(classDeclaration.GetFullyQualifiedPocoName());
     }
 
     /// <inheritdoc />
     public void CreateInterfaceDeclaration(IInterfaceDeclaration interfaceDeclaration, IxNodeVisitor visitor)
     {
-        AddToSource(interfaceDeclaration.GetQualifiedName());
+        AddToSource(interfaceDeclaration.GetFullyQualifiedPocoName());
     }
 
     /// <inheritdoc />
@@ -387,7 +404,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     public void CreateStructuredType(IStructuredTypeDeclaration structuredTypeDeclaration, IxNodeVisitor visitor)
     {
         structuredTypeDeclaration.Pragmas.ToList().ForEach(p => p.Accept(visitor, this));
-        AddToSource($"{structuredTypeDeclaration.GetQualifiedName()}");
+        AddToSource($"{structuredTypeDeclaration.GetFullyQualifiedPocoName()}");
     }
 
     /// <inheritdoc />

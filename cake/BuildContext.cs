@@ -18,7 +18,6 @@ using Cake.Common.Tools.DotNet.MSBuild;
 using Cake.Common.Tools.DotNet.Restore;
 using Cake.Common.Tools.DotNet.Run;
 using Cake.Common.Tools.DotNet.Test;
-using Cake.Common.Tools.DotNetCore.MSBuild;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -85,7 +84,7 @@ public class BuildContext : FrostingContext
         DotNetRunSettings = new DotNetRunSettings()
         {
             Verbosity = buildParameters.Verbosity,
-            Framework = "net8.0",
+            Framework = "net9.0",
             Configuration = buildParameters.Configuration,
             NoBuild = true,
             NoRestore = true,
@@ -115,7 +114,7 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = " apax build",
+            Arguments = " build",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -128,12 +127,22 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments =
-                $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            Arguments = " download",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
-            RedirectStandardError = false
+            RedirectStandardError = false,
+            RedirectedStandardOutputHandler = (a) => string.Join(System.Environment.NewLine, a),
+            Silent = false
         }).WaitForExit();
+        
+        // this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        // {
+        //     Arguments =
+        //         $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+        //     WorkingDirectory = workingDirectory,
+        //     RedirectStandardOutput = false,
+        //     RedirectStandardError = false
+        // }).WaitForExit();
     }
 
     public void RunTestsFromFilteredSolution(string filteredSolutionFile)
@@ -169,7 +178,7 @@ public class BuildContext : FrostingContext
         }
     }
 
-    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net8.0" };
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0" };
 
     public IEnumerable<(string ax, string approject, string solution)> GetTemplateProjects()
     {

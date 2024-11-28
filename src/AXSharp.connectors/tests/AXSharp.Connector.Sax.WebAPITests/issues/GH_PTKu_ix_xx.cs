@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AXSharp.Connector.S71500.WebAPITests;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -22,8 +23,7 @@ public class GH_PTKu_ix_xx : IDisposable
 
     public GH_PTKu_ix_xx(ITestOutputHelper output)
     {
-        Plc = new ax_test_projectTwinController(ConnectorAdapterBuilder.Build()
-            .CreateWebApi(Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET"), "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true));
+        Plc = TestConnector.SecurePlc;
         Plc.Connector.ReadWriteCycleDelay = 250;
         Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
         Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;

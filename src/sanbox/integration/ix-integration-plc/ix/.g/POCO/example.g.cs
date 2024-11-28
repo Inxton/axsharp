@@ -11,33 +11,43 @@ namespace Pocos
         }
 
         [Container(Layout.Stack)]
-        public test_primitive primitives_stack { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive primitives_stack { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.Wrap)]
-        public test_primitive primitives_wrap { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive primitives_wrap { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.Tabs)]
-        public test_primitive primitives_tabs { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive primitives_tabs { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.UniformGrid)]
-        public test_primitive primitives_uniform { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive primitives_uniform { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.Stack)]
         [Group(GroupLayout.GroupBox)]
-        public test_primitive test_groupbox { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive test_groupbox { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.Stack)]
         [Group(GroupLayout.Border)]
-        public test_primitive test_border { get; set; } = new test_primitive();
+        public global::Pocos.test_primitive test_border { get; set; } = new global::Pocos.test_primitive();
+
         [Container(Layout.Tabs)]
         [Group(GroupLayout.GroupBox)]
-        public groupbox testgroupbox { get; set; } = new groupbox();
-        public border testborder { get; set; } = new border();
-        public ixcomponent ixcomponent_instance { get; set; } = new ixcomponent();
-        public MySecondNamespace.ixcomponent ixcomponent_instance2 { get; set; } = new MySecondNamespace.ixcomponent();
-        public ThirdNamespace.ixcomponent ixcomponent_instance3 { get; set; } = new ThirdNamespace.ixcomponent();
+        public global::Pocos.groupbox testgroupbox { get; set; } = new global::Pocos.groupbox();
+        public global::Pocos.border testborder { get; set; } = new global::Pocos.border();
+        public global::Pocos.ixcomponent ixcomponent_instance { get; set; } = new global::Pocos.ixcomponent();
+        public MySecondNamespace.Pocos.ixcomponent ixcomponent_instance2 { get; set; } = new MySecondNamespace.Pocos.ixcomponent();
+        public ThirdNamespace.Pocos.ixcomponent ixcomponent_instance3 { get; set; } = new ThirdNamespace.Pocos.ixcomponent();
+
         [Container(Layout.Stack)]
-        public compositeLayout compositeStack { get; set; } = new compositeLayout();
+        public global::Pocos.compositeLayout compositeStack { get; set; } = new global::Pocos.compositeLayout();
+
         [Container(Layout.Wrap)]
-        public compositeLayout compositeWrap { get; set; } = new compositeLayout();
+        public global::Pocos.compositeLayout compositeWrap { get; set; } = new global::Pocos.compositeLayout();
+
         [Container(Layout.UniformGrid)]
-        public compositeLayout compositeUniform { get; set; } = new compositeLayout();
+        public global::Pocos.compositeLayout compositeUniform { get; set; } = new global::Pocos.compositeLayout();
+
         [Container(Layout.Tabs)]
-        public compositeLayout compositeTabs { get; set; } = new compositeLayout();
+        public global::Pocos.compositeLayout compositeTabs { get; set; } = new global::Pocos.compositeLayout();
     }
 }

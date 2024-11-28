@@ -17,6 +17,7 @@ using Siemens.Simatic.S7.Webserver.API.Services;
 using Xunit.Abstractions;
 using System.IO;
 using System.Reflection;
+using AXSharp.Connector.S71500.WebAPITests;
 
 namespace AXSharp.Connector.S71500.WebApi.Tests.Issues
 {

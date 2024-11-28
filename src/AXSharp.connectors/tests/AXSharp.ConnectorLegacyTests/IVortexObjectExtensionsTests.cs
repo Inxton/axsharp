@@ -42,22 +42,22 @@ namespace AXSharp.ConnectorTests
             var valueTags = a.RetrievePrimitives();
 
             //-- Assert
-            Assert.AreEqual(42, valueTags.Count());
+            Assert.That(valueTags.Count(), Is.EqualTo(42));
 
-            
+
             //-- Subscribe
             a.SubscribeEditValueChange(DetectEditValueChange);
 
             foreach (var tag in valueTags)
             {
-                Assert.IsInstanceOf(typeof(OnlinerBase.ValueChangeDelegate), tag.EditValueChange, tag.Symbol);
+                Assert.That(tag.EditValueChange, Is.InstanceOf<OnlinerBase.ValueChangeDelegate>(), tag.Symbol);
             }
 
             //-- Make change
             a.Bool.Edit = true;
             a.String.Edit = "hdfahks dhfkahs";
 
-            Assert.AreEqual("+Edit False : True+Edit  : hdfahks dhfkahs", EditValueChanges);
+            Assert.That(EditValueChanges, Is.EqualTo("+Edit False : True+Edit  : hdfahks dhfkahs"));
         }
 
         [Test()]
@@ -70,7 +70,7 @@ namespace AXSharp.ConnectorTests
             var valueTags = a.RetrievePrimitives();
 
             //-- Assert
-            Assert.AreEqual(42, valueTags.Count());
+            Assert.That(valueTags.Count(), Is.EqualTo(42));
 
 
             //-- Subscribe
@@ -78,14 +78,14 @@ namespace AXSharp.ConnectorTests
 
             foreach (var tag in valueTags)
             {
-                Assert.IsInstanceOf(typeof(OnlinerBase.ValueChangeDelegate), tag.ShadowValueChange, tag.Symbol);
+                Assert.That(tag.ShadowValueChange, Is.InstanceOf<OnlinerBase.ValueChangeDelegate>(), tag.Symbol);
             }
 
             //-- Make change
             a.Bool.Shadow = true;
             a.String.Shadow = "hdfahks dhfkahs";
 
-            Assert.AreEqual("+Shadow False : True+Shadow  : hdfahks dhfkahs", ShadowValueChanges);
+            Assert.That(ShadowValueChanges, Is.EqualTo("+Shadow False : True+Shadow  : hdfahks dhfkahs"));
         }
 
 

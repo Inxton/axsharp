@@ -32,7 +32,7 @@ internal class CsOnlinerPlainerOnlineToPlainProtectedBuilder : CsOnlinerPlainerO
         ISourceBuilder sourceBuilder)
     {
         var builder = new CsOnlinerPlainerOnlineToPlainProtectedBuilder(sourceBuilder);
-        builder.AddToSource($"protected async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+        builder.AddToSource($"protected async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
         
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
         builder.AddToSource($"return plain;");
@@ -49,7 +49,7 @@ internal class CsOnlinerPlainerOnlineToPlainProtectedBuilder : CsOnlinerPlainerO
         var qualifier = string.Empty;
         builder.AddToSource($"[Obsolete(\"This method should not be used if you indent to access the controllers data. Use `{MethodName}` instead.\")]");
         builder.AddToSource("[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]");
-        builder.AddToSource($"protected {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodNameNoac}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+        builder.AddToSource($"protected {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodNameNoac}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
         
         
         if (isExtended)

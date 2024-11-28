@@ -123,7 +123,7 @@ public class CsProject : ITargetProject
             var defaultCsProjectWhenNotProvidedByTemplate =
                 $@"<Project Sdk=""Microsoft.NET.Sdk"">
 	<PropertyGroup>
-		<TargetFrameworks>net8.0</TargetFrameworks>
+		<TargetFrameworks>net9.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>

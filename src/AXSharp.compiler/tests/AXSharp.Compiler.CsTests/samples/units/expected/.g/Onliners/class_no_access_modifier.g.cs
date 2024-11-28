@@ -27,24 +27,24 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.NoAccessModifierClass> OnlineToPlainAsync()
+    public async Task<global::Pocos.NoAccessModifierClass> OnlineToPlainAsync()
     {
-        Pocos.NoAccessModifierClass plain = new Pocos.NoAccessModifierClass();
+        global::Pocos.NoAccessModifierClass plain = new global::Pocos.NoAccessModifierClass();
         await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<Pocos.NoAccessModifierClass> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.NoAccessModifierClass> _OnlineToPlainNoacAsync()
     {
-        Pocos.NoAccessModifierClass plain = new Pocos.NoAccessModifierClass();
+        global::Pocos.NoAccessModifierClass plain = new global::Pocos.NoAccessModifierClass();
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<Pocos.NoAccessModifierClass> _OnlineToPlainNoacAsync(Pocos.NoAccessModifierClass plain)
+    protected async Task<global::Pocos.NoAccessModifierClass> _OnlineToPlainNoacAsync(global::Pocos.NoAccessModifierClass plain)
     {
         return plain;
     }
@@ -54,14 +54,14 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.NoAccessModifierClass plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.NoAccessModifierClass plain)
     {
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(Pocos.NoAccessModifierClass plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.NoAccessModifierClass plain)
     {
     }
 
@@ -70,13 +70,13 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.NoAccessModifierClass> ShadowToPlainAsync()
+    public async Task<global::Pocos.NoAccessModifierClass> ShadowToPlainAsync()
     {
-        Pocos.NoAccessModifierClass plain = new Pocos.NoAccessModifierClass();
+        global::Pocos.NoAccessModifierClass plain = new global::Pocos.NoAccessModifierClass();
         return plain;
     }
 
-    protected async Task<Pocos.NoAccessModifierClass> ShadowToPlainAsync(Pocos.NoAccessModifierClass plain)
+    protected async Task<global::Pocos.NoAccessModifierClass> ShadowToPlainAsync(global::Pocos.NoAccessModifierClass plain)
     {
         return plain;
     }
@@ -86,7 +86,7 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.NoAccessModifierClass plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.NoAccessModifierClass plain)
     {
         return this.RetrievePrimitives();
     }
@@ -101,7 +101,7 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(Pocos.NoAccessModifierClass plain, Pocos.NoAccessModifierClass latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.NoAccessModifierClass plain, global::Pocos.NoAccessModifierClass latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -118,24 +118,27 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.NoAccessModifierClass CreateEmptyPoco()
+    public global::Pocos.NoAccessModifierClass CreateEmptyPoco()
     {
-        return new Pocos.NoAccessModifierClass();
+        return new global::Pocos.NoAccessModifierClass();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -192,8 +195,6 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
     }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }

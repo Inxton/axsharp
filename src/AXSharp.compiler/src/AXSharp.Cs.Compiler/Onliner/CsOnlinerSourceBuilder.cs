@@ -180,7 +180,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     private void AddCreatePocoMethod(ITypeDeclaration typeDeclaration, bool isExtended)
     {
         var qualifier = isExtended ? "new" : string.Empty;
-        AddToSource($"public {qualifier} Pocos.{typeDeclaration.FullyQualifiedName} CreateEmptyPoco(){{ return new Pocos.{typeDeclaration.FullyQualifiedName}();}}");
+        AddToSource($"public {qualifier} {typeDeclaration.GetFullyQualifiedPocoName()} CreateEmptyPoco(){{ return new {typeDeclaration.GetFullyQualifiedPocoName()}();}}");
     }
 
     /// <inheritdoc />

@@ -11,12 +11,10 @@ namespace makereadonly
     {
         [ReadOnly()]
         public OnlinerString makeReadOnceMember { get; }
-
         public OnlinerString someOtherMember { get; }
 
         [ReadOnly()]
         public makereadonly.ComplexMember makeReadComplexMember { get; }
-
         public makereadonly.ComplexMember someotherComplexMember { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -45,9 +43,9 @@ namespace makereadonly
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.makereadonly.MembersWithMakeReadOnly> OnlineToPlainAsync()
+        public async Task<makereadonly.Pocos.MembersWithMakeReadOnly> OnlineToPlainAsync()
         {
-            Pocos.makereadonly.MembersWithMakeReadOnly plain = new Pocos.makereadonly.MembersWithMakeReadOnly();
+            makereadonly.Pocos.MembersWithMakeReadOnly plain = new makereadonly.Pocos.MembersWithMakeReadOnly();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.makeReadOnceMember = makeReadOnceMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
@@ -62,9 +60,9 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.makereadonly.MembersWithMakeReadOnly> _OnlineToPlainNoacAsync()
+        public async Task<makereadonly.Pocos.MembersWithMakeReadOnly> _OnlineToPlainNoacAsync()
         {
-            Pocos.makereadonly.MembersWithMakeReadOnly plain = new Pocos.makereadonly.MembersWithMakeReadOnly();
+            makereadonly.Pocos.MembersWithMakeReadOnly plain = new makereadonly.Pocos.MembersWithMakeReadOnly();
             plain.makeReadOnceMember = makeReadOnceMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
 #pragma warning disable CS0612
@@ -78,7 +76,7 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.makereadonly.MembersWithMakeReadOnly> _OnlineToPlainNoacAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        protected async Task<makereadonly.Pocos.MembersWithMakeReadOnly> _OnlineToPlainNoacAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain)
         {
             plain.makeReadOnceMember = makeReadOnceMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
@@ -96,7 +94,7 @@ namespace makereadonly
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain)
         {
 #pragma warning disable CS0612
             makeReadOnceMember.LethargicWrite(plain.makeReadOnceMember);
@@ -115,7 +113,7 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        public async Task _PlainToOnlineNoacAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain)
         {
 #pragma warning disable CS0612
             makeReadOnceMember.LethargicWrite(plain.makeReadOnceMember);
@@ -136,9 +134,9 @@ namespace makereadonly
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.makereadonly.MembersWithMakeReadOnly> ShadowToPlainAsync()
+        public async Task<makereadonly.Pocos.MembersWithMakeReadOnly> ShadowToPlainAsync()
         {
-            Pocos.makereadonly.MembersWithMakeReadOnly plain = new Pocos.makereadonly.MembersWithMakeReadOnly();
+            makereadonly.Pocos.MembersWithMakeReadOnly plain = new makereadonly.Pocos.MembersWithMakeReadOnly();
             plain.makeReadOnceMember = makeReadOnceMember.Shadow;
             plain.someOtherMember = someOtherMember.Shadow;
             plain.makeReadComplexMember = await makeReadComplexMember.ShadowToPlainAsync();
@@ -146,7 +144,7 @@ namespace makereadonly
             return plain;
         }
 
-        protected async Task<Pocos.makereadonly.MembersWithMakeReadOnly> ShadowToPlainAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        protected async Task<makereadonly.Pocos.MembersWithMakeReadOnly> ShadowToPlainAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain)
         {
             plain.makeReadOnceMember = makeReadOnceMember.Shadow;
             plain.someOtherMember = someOtherMember.Shadow;
@@ -160,7 +158,7 @@ namespace makereadonly
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain)
         {
             makeReadOnceMember.Shadow = plain.makeReadOnceMember;
             someOtherMember.Shadow = plain.someOtherMember;
@@ -179,7 +177,7 @@ namespace makereadonly
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.makereadonly.MembersWithMakeReadOnly plain, Pocos.makereadonly.MembersWithMakeReadOnly latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(makereadonly.Pocos.MembersWithMakeReadOnly plain, makereadonly.Pocos.MembersWithMakeReadOnly latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -204,24 +202,27 @@ namespace makereadonly
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.makereadonly.MembersWithMakeReadOnly CreateEmptyPoco()
+        public makereadonly.Pocos.MembersWithMakeReadOnly CreateEmptyPoco()
         {
-            return new Pocos.makereadonly.MembersWithMakeReadOnly();
+            return new makereadonly.Pocos.MembersWithMakeReadOnly();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -278,16 +279,13 @@ namespace makereadonly
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
     public partial class ComplexMember : AXSharp.Connector.ITwinObject
     {
         public OnlinerString someMember { get; }
-
         public OnlinerString someOtherMember { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -312,9 +310,9 @@ namespace makereadonly
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.makereadonly.ComplexMember> OnlineToPlainAsync()
+        public async Task<makereadonly.Pocos.ComplexMember> OnlineToPlainAsync()
         {
-            Pocos.makereadonly.ComplexMember plain = new Pocos.makereadonly.ComplexMember();
+            makereadonly.Pocos.ComplexMember plain = new makereadonly.Pocos.ComplexMember();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.someMember = someMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
@@ -323,9 +321,9 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.makereadonly.ComplexMember> _OnlineToPlainNoacAsync()
+        public async Task<makereadonly.Pocos.ComplexMember> _OnlineToPlainNoacAsync()
         {
-            Pocos.makereadonly.ComplexMember plain = new Pocos.makereadonly.ComplexMember();
+            makereadonly.Pocos.ComplexMember plain = new makereadonly.Pocos.ComplexMember();
             plain.someMember = someMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
             return plain;
@@ -333,7 +331,7 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.makereadonly.ComplexMember> _OnlineToPlainNoacAsync(Pocos.makereadonly.ComplexMember plain)
+        protected async Task<makereadonly.Pocos.ComplexMember> _OnlineToPlainNoacAsync(makereadonly.Pocos.ComplexMember plain)
         {
             plain.someMember = someMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
@@ -345,7 +343,7 @@ namespace makereadonly
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.makereadonly.ComplexMember plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(makereadonly.Pocos.ComplexMember plain)
         {
 #pragma warning disable CS0612
             someMember.LethargicWrite(plain.someMember);
@@ -358,7 +356,7 @@ namespace makereadonly
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.makereadonly.ComplexMember plain)
+        public async Task _PlainToOnlineNoacAsync(makereadonly.Pocos.ComplexMember plain)
         {
 #pragma warning disable CS0612
             someMember.LethargicWrite(plain.someMember);
@@ -373,15 +371,15 @@ namespace makereadonly
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.makereadonly.ComplexMember> ShadowToPlainAsync()
+        public async Task<makereadonly.Pocos.ComplexMember> ShadowToPlainAsync()
         {
-            Pocos.makereadonly.ComplexMember plain = new Pocos.makereadonly.ComplexMember();
+            makereadonly.Pocos.ComplexMember plain = new makereadonly.Pocos.ComplexMember();
             plain.someMember = someMember.Shadow;
             plain.someOtherMember = someOtherMember.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.makereadonly.ComplexMember> ShadowToPlainAsync(Pocos.makereadonly.ComplexMember plain)
+        protected async Task<makereadonly.Pocos.ComplexMember> ShadowToPlainAsync(makereadonly.Pocos.ComplexMember plain)
         {
             plain.someMember = someMember.Shadow;
             plain.someOtherMember = someOtherMember.Shadow;
@@ -393,7 +391,7 @@ namespace makereadonly
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.makereadonly.ComplexMember plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(makereadonly.Pocos.ComplexMember plain)
         {
             someMember.Shadow = plain.someMember;
             someOtherMember.Shadow = plain.someOtherMember;
@@ -410,7 +408,7 @@ namespace makereadonly
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.makereadonly.ComplexMember plain, Pocos.makereadonly.ComplexMember latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(makereadonly.Pocos.ComplexMember plain, makereadonly.Pocos.ComplexMember latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -431,24 +429,27 @@ namespace makereadonly
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.makereadonly.ComplexMember CreateEmptyPoco()
+        public makereadonly.Pocos.ComplexMember CreateEmptyPoco()
         {
-            return new Pocos.makereadonly.ComplexMember();
+            return new makereadonly.Pocos.ComplexMember();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -505,9 +506,7 @@ namespace makereadonly
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

@@ -11,7 +11,6 @@ namespace Pocos
         }
 
         public Boolean Run { get; set; }
-
         public Boolean ReverseDirection { get; set; }
     }
 }

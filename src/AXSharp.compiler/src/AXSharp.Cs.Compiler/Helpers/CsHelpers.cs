@@ -59,4 +59,14 @@ internal static class CsHelpers
         var qualifier = isExtended ? "override" : "virtual";
         return $"public async {qualifier} Task {methodName}<T>(T plain){{\n await this.{methodName}Async((dynamic)plain);\n}}";
     }
+    
+    /// <summary>
+    /// Gets fully qualified name of poco type for a given type declaration.
+    /// </summary>
+    /// <param name="declaration"></param>
+    /// <returns>Fully qualified poco name for given declarations</returns>
+    public static string GetFullyQualifiedPocoName(this IDeclaration declaration)
+    {
+        return declaration.ContainingNamespace.FullyQualifiedName == "$GLOBAL" ?  $"global::Pocos.{declaration.Name}" : $"{declaration.ContainingNamespace.FullyQualifiedName}.Pocos.{declaration.Name}";
+    }
 }

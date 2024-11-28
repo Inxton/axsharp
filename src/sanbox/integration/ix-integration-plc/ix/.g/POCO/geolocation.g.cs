@@ -26,6 +26,7 @@ namespace Pocos
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Short descriptor")]
         public string Description { get; set; } = string.Empty;
+
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Long descriptor")]
         public string LongDescription { get; set; } = string.Empty;
     }

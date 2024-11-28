@@ -31,8 +31,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Edit = true;
 
             //-- Assert
-            Assert.AreEqual(true, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};False;True", logs);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(true));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};False;True"));
 
         }
 
@@ -43,20 +43,20 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Shadow = true;
 
             //-- Assert
-            Assert.AreEqual(true, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};False;True", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(true));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};False;True"));
         }
 
         [Test]
         public override void CanSetAsyncTest()
         {
             Onliner.SetAsync(false).Wait();
-            Assert.AreEqual(false, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(false));
 
             var expected = true;
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }

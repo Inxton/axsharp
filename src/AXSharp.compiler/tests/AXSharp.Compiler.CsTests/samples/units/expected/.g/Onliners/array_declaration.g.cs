@@ -10,7 +10,6 @@ namespace ArrayDeclarationSimpleNamespace
     public partial class array_declaration_class : AXSharp.Connector.ITwinObject
     {
         public OnlinerInt[] primitive { get; }
-
         public ArrayDeclarationSimpleNamespace.some_complex_type[] complex { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -37,9 +36,9 @@ namespace ArrayDeclarationSimpleNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> OnlineToPlainAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class> OnlineToPlainAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain = new Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class();
+            ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain = new ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.primitive = primitive.Select(p => p.LastValue).ToArray();
 #pragma warning disable CS0612
@@ -50,9 +49,9 @@ namespace ArrayDeclarationSimpleNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> _OnlineToPlainNoacAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class> _OnlineToPlainNoacAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain = new Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class();
+            ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain = new ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class();
             plain.primitive = primitive.Select(p => p.LastValue).ToArray();
 #pragma warning disable CS0612
             plain.complex = complex.Select(async p => await p._OnlineToPlainNoacAsync()).Select(p => p.Result).ToArray();
@@ -62,7 +61,7 @@ namespace ArrayDeclarationSimpleNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> _OnlineToPlainNoacAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        protected async Task<ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class> _OnlineToPlainNoacAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain)
         {
             plain.primitive = primitive.Select(p => p.LastValue).ToArray();
 #pragma warning disable CS0612
@@ -76,7 +75,7 @@ namespace ArrayDeclarationSimpleNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain)
         {
             var _primitive_i_FE8484DAB3 = 0;
 #pragma warning disable CS0612
@@ -91,7 +90,7 @@ namespace ArrayDeclarationSimpleNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        public async Task _PlainToOnlineNoacAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain)
         {
             var _primitive_i_FE8484DAB3 = 0;
 #pragma warning disable CS0612
@@ -108,15 +107,15 @@ namespace ArrayDeclarationSimpleNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> ShadowToPlainAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class> ShadowToPlainAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain = new Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class();
+            ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain = new ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class();
             plain.primitive = primitive.Select(p => p.Shadow).ToArray();
             plain.complex = complex.Select(async p => await p.ShadowToPlainAsync()).Select(p => p.Result).ToArray();
             return plain;
         }
 
-        protected async Task<Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> ShadowToPlainAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        protected async Task<ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class> ShadowToPlainAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain)
         {
             plain.primitive = primitive.Select(p => p.Shadow).ToArray();
             plain.complex = complex.Select(async p => await p.ShadowToPlainAsync()).Select(p => p.Result).ToArray();
@@ -128,7 +127,7 @@ namespace ArrayDeclarationSimpleNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain)
         {
             var _primitive_i_FE8484DAB3 = 0;
             primitive.Select(p => p.Shadow = plain.primitive[_primitive_i_FE8484DAB3++]).ToArray();
@@ -147,7 +146,7 @@ namespace ArrayDeclarationSimpleNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain, Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class plain, ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -176,24 +175,27 @@ namespace ArrayDeclarationSimpleNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class CreateEmptyPoco()
+        public ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class CreateEmptyPoco()
         {
-            return new Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class();
+            return new ArrayDeclarationSimpleNamespace.Pocos.array_declaration_class();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -250,9 +252,7 @@ namespace ArrayDeclarationSimpleNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
@@ -278,24 +278,24 @@ namespace ArrayDeclarationSimpleNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> OnlineToPlainAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.some_complex_type> OnlineToPlainAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain = new Pocos.ArrayDeclarationSimpleNamespace.some_complex_type();
+            ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain = new ArrayDeclarationSimpleNamespace.Pocos.some_complex_type();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> _OnlineToPlainNoacAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.some_complex_type> _OnlineToPlainNoacAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain = new Pocos.ArrayDeclarationSimpleNamespace.some_complex_type();
+            ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain = new ArrayDeclarationSimpleNamespace.Pocos.some_complex_type();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> _OnlineToPlainNoacAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        protected async Task<ArrayDeclarationSimpleNamespace.Pocos.some_complex_type> _OnlineToPlainNoacAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain)
         {
             return plain;
         }
@@ -305,14 +305,14 @@ namespace ArrayDeclarationSimpleNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        public async Task _PlainToOnlineNoacAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain)
         {
         }
 
@@ -321,13 +321,13 @@ namespace ArrayDeclarationSimpleNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> ShadowToPlainAsync()
+        public async Task<ArrayDeclarationSimpleNamespace.Pocos.some_complex_type> ShadowToPlainAsync()
         {
-            Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain = new Pocos.ArrayDeclarationSimpleNamespace.some_complex_type();
+            ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain = new ArrayDeclarationSimpleNamespace.Pocos.some_complex_type();
             return plain;
         }
 
-        protected async Task<Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> ShadowToPlainAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        protected async Task<ArrayDeclarationSimpleNamespace.Pocos.some_complex_type> ShadowToPlainAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain)
         {
             return plain;
         }
@@ -337,7 +337,7 @@ namespace ArrayDeclarationSimpleNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain)
         {
             return this.RetrievePrimitives();
         }
@@ -352,7 +352,7 @@ namespace ArrayDeclarationSimpleNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain, Pocos.ArrayDeclarationSimpleNamespace.some_complex_type latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ArrayDeclarationSimpleNamespace.Pocos.some_complex_type plain, ArrayDeclarationSimpleNamespace.Pocos.some_complex_type latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -369,24 +369,27 @@ namespace ArrayDeclarationSimpleNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ArrayDeclarationSimpleNamespace.some_complex_type CreateEmptyPoco()
+        public ArrayDeclarationSimpleNamespace.Pocos.some_complex_type CreateEmptyPoco()
         {
-            return new Pocos.ArrayDeclarationSimpleNamespace.some_complex_type();
+            return new ArrayDeclarationSimpleNamespace.Pocos.some_complex_type();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -443,9 +446,7 @@ namespace ArrayDeclarationSimpleNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

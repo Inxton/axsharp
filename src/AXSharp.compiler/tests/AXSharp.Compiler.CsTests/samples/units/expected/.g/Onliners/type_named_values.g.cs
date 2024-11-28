@@ -40,9 +40,9 @@ namespace NamedValuesNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.NamedValuesNamespace.using_type_named_values> OnlineToPlainAsync()
+        public async Task<NamedValuesNamespace.Pocos.using_type_named_values> OnlineToPlainAsync()
         {
-            Pocos.NamedValuesNamespace.using_type_named_values plain = new Pocos.NamedValuesNamespace.using_type_named_values();
+            NamedValuesNamespace.Pocos.using_type_named_values plain = new NamedValuesNamespace.Pocos.using_type_named_values();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.LColors = LColors.LastValue;
             return plain;
@@ -50,16 +50,16 @@ namespace NamedValuesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.NamedValuesNamespace.using_type_named_values> _OnlineToPlainNoacAsync()
+        public async Task<NamedValuesNamespace.Pocos.using_type_named_values> _OnlineToPlainNoacAsync()
         {
-            Pocos.NamedValuesNamespace.using_type_named_values plain = new Pocos.NamedValuesNamespace.using_type_named_values();
+            NamedValuesNamespace.Pocos.using_type_named_values plain = new NamedValuesNamespace.Pocos.using_type_named_values();
             plain.LColors = LColors.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.NamedValuesNamespace.using_type_named_values> _OnlineToPlainNoacAsync(Pocos.NamedValuesNamespace.using_type_named_values plain)
+        protected async Task<NamedValuesNamespace.Pocos.using_type_named_values> _OnlineToPlainNoacAsync(NamedValuesNamespace.Pocos.using_type_named_values plain)
         {
             plain.LColors = LColors.LastValue;
             return plain;
@@ -70,7 +70,7 @@ namespace NamedValuesNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.NamedValuesNamespace.using_type_named_values plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(NamedValuesNamespace.Pocos.using_type_named_values plain)
         {
 #pragma warning disable CS0612
             LColors.LethargicWrite(plain.LColors);
@@ -80,7 +80,7 @@ namespace NamedValuesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.NamedValuesNamespace.using_type_named_values plain)
+        public async Task _PlainToOnlineNoacAsync(NamedValuesNamespace.Pocos.using_type_named_values plain)
         {
 #pragma warning disable CS0612
             LColors.LethargicWrite(plain.LColors);
@@ -92,14 +92,14 @@ namespace NamedValuesNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.NamedValuesNamespace.using_type_named_values> ShadowToPlainAsync()
+        public async Task<NamedValuesNamespace.Pocos.using_type_named_values> ShadowToPlainAsync()
         {
-            Pocos.NamedValuesNamespace.using_type_named_values plain = new Pocos.NamedValuesNamespace.using_type_named_values();
+            NamedValuesNamespace.Pocos.using_type_named_values plain = new NamedValuesNamespace.Pocos.using_type_named_values();
             plain.LColors = LColors.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.NamedValuesNamespace.using_type_named_values> ShadowToPlainAsync(Pocos.NamedValuesNamespace.using_type_named_values plain)
+        protected async Task<NamedValuesNamespace.Pocos.using_type_named_values> ShadowToPlainAsync(NamedValuesNamespace.Pocos.using_type_named_values plain)
         {
             plain.LColors = LColors.Shadow;
             return plain;
@@ -110,7 +110,7 @@ namespace NamedValuesNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.NamedValuesNamespace.using_type_named_values plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(NamedValuesNamespace.Pocos.using_type_named_values plain)
         {
             LColors.Shadow = plain.LColors;
             return this.RetrievePrimitives();
@@ -126,7 +126,7 @@ namespace NamedValuesNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.NamedValuesNamespace.using_type_named_values plain, Pocos.NamedValuesNamespace.using_type_named_values latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(NamedValuesNamespace.Pocos.using_type_named_values plain, NamedValuesNamespace.Pocos.using_type_named_values latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -145,24 +145,27 @@ namespace NamedValuesNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.NamedValuesNamespace.using_type_named_values CreateEmptyPoco()
+        public NamedValuesNamespace.Pocos.using_type_named_values CreateEmptyPoco()
         {
-            return new Pocos.NamedValuesNamespace.using_type_named_values();
+            return new NamedValuesNamespace.Pocos.using_type_named_values();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -219,9 +222,7 @@ namespace NamedValuesNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

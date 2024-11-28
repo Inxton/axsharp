@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Pocos
+namespace ClassWithPragmasNamespace
 {
-    namespace ClassWithPragmasNamespace
+    namespace Pocos
     {
         public partial class ClassWithPragmas : AXSharp.Connector.IPlain
         {
@@ -13,9 +13,12 @@ namespace Pocos
             }
 
             [Container(Layout.Wrap)]
-            public ClassWithPragmasNamespace.ComplexType1 myComplexType { get; set; } = new ClassWithPragmasNamespace.ComplexType1();
+            public ClassWithPragmasNamespace.Pocos.ComplexType1 myComplexType { get; set; } = new ClassWithPragmasNamespace.Pocos.ComplexType1();
         }
+    }
 
+    namespace Pocos
+    {
         public partial class ComplexType1 : AXSharp.Connector.IPlain
         {
             public ComplexType1()

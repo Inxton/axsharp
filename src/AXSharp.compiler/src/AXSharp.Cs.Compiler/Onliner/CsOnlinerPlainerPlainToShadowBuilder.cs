@@ -125,9 +125,9 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerPlainToShadowBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", false));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-            builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
             semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
@@ -141,11 +141,11 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerPlainToShadowBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             //var qualifier = isExtended ? "new" : string.Empty;
             var qualifier = string.Empty;
-            builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
 
             if (isExtended)

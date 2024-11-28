@@ -123,7 +123,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerHasChangedBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"Pocos.{semantics.FullyQualifiedName}"));
+            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"{semantics.GetFullyQualifiedPocoName()}"));
 
             builder.AddToSource("///<summary>\n");
             builder.AddToSource("///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.\n");
@@ -131,7 +131,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             builder.AddToSource("///</summary>\n");
 
 
-            builder.AddToSource($"public async Task<bool> {MethodName}(Pocos.{semantics.FullyQualifiedName} plain, Pocos.{semantics.FullyQualifiedName} latest = null){{\n");
+            builder.AddToSource($"public async Task<bool> {MethodName}({semantics.GetFullyQualifiedPocoName()} plain, {semantics.GetFullyQualifiedPocoName()} latest = null){{\n");
             builder.AddToSource("var somethingChanged = false;");
             builder.AddToSource("if(latest == null) latest = await this._OnlineToPlainNoacAsync();");
             builder.AddToSource("return await Task.Run(async () => {\n");
@@ -148,7 +148,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerHasChangedBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"Pocos.{semantics.FullyQualifiedName}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             var qualifier = isExtended ? "new" : string.Empty;
 
@@ -156,7 +156,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             builder.AddToSource("///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.\n");
             builder.AddToSource("///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.\n");
             builder.AddToSource("///</summary>\n");
-            builder.AddToSource($"public {qualifier} async Task<bool> {MethodName}(Pocos.{semantics.FullyQualifiedName} plain, Pocos.{semantics.FullyQualifiedName} latest = null){{\n");
+            builder.AddToSource($"public {qualifier} async Task<bool> {MethodName}({semantics.GetFullyQualifiedPocoName()} plain, {semantics.GetFullyQualifiedPocoName()} latest = null){{\n");
 
             builder.AddToSource("if(latest == null) latest = await this._OnlineToPlainNoacAsync();");
             builder.AddToSource("var somethingChanged = false;");

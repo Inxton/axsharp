@@ -17,7 +17,6 @@ namespace AXSharp.Connector.Onliners.Tests
     {
         protected override OnlinerBase<TimeSpan> Onliner { get; set; }
 
-
         public override void Init()
         {
             Onliner = new OnlinerLTimeOfDay(new TestTwinObject(), $"readableTail", "symbolTail");
@@ -27,31 +26,28 @@ namespace AXSharp.Connector.Onliners.Tests
         public void ChangeEditedValueTest()
         {
             //-- Arrange
-
             var expected = OnlinerLTimeOfDay.MaxValue;
 
             //-- Act
             Onliner.Edit = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};00:00:00;{expected}", logs);
-
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};00:00:00;{expected}"));
         }
 
         [Test()]
         public void ChangeShadow()
         {
             //-- Arrange
-
             var expected = OnlinerLTimeOfDay.MaxValue;
 
             //-- Act
             Onliner.Shadow = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};00:00:00;{expected}", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};00:00:00;{expected}"));
         }
 
         [Test()]
@@ -63,9 +59,9 @@ namespace AXSharp.Connector.Onliners.Tests
             var mid = (OnlinerLTimeOfDay.MaxValue / 2);
 
             //-- Act  
-            Assert.True(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
         }
 
         [Test()]
@@ -79,8 +75,8 @@ namespace AXSharp.Connector.Onliners.Tests
             var max = OnlinerLTimeOfDay.MaxValue;
 
             //-- Act  
-            Assert.IsFalse(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
 
         [Test]
@@ -89,7 +85,7 @@ namespace AXSharp.Connector.Onliners.Tests
             var expected = TimeSpan.FromHours(15);
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }

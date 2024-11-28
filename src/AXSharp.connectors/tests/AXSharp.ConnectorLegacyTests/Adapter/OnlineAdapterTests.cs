@@ -37,7 +37,7 @@ namespace AXSharp.ConnectorTests
         [Test]
         public void GetConnectorTest()
         {
-            Assert.IsInstanceOf(typeof(DummyConnector), adapter.GetConnector(new object[] { }));
+            Assert.That(adapter.GetConnector(new object[] { }), Is.InstanceOf<DummyConnector>());
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace AXSharp.ConnectorTests
             var expected = typeof(OnlineAdapterTestable);
 
             //-- Assert
-            Assert.IsInstanceOf(expected, actual);
+            Assert.That(actual, Is.InstanceOf(expected));
         }
 
         [Test]
@@ -57,10 +57,10 @@ namespace AXSharp.ConnectorTests
             //-- Arrange
             var actual = ConnectorAdapterBuilder.Build().CreateDummy();
             var expected = typeof(ConnectorAdapter);
-            
+
             //-- Assert
-            Assert.IsInstanceOf(expected, actual);
-            Assert.IsInstanceOf<DummyConnectorFactory>(actual.AdapterFactory);
+            Assert.That(actual, Is.InstanceOf(expected));
+            Assert.That(actual.AdapterFactory, Is.InstanceOf<DummyConnectorFactory>());
         }
     }
 }

@@ -8,9 +8,7 @@ using AXSharp.Abstractions.Presentation;
 public partial class appTwinController : ITwinController
 {
     public AXSharp.Connector.Connector Connector { get; }
-
     public lib1.MyClass lib1_MyClass { get; }
-
     public lib2.MyClass lib2_MyClass { get; }
 
     public appTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)

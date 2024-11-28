@@ -10,57 +10,31 @@ namespace ClassWithPrimitiveTypesNamespace
     public partial class ClassWithPrimitiveTypes : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool myBOOL { get; }
-
         public OnlinerByte myBYTE { get; }
-
         public OnlinerWord myWORD { get; }
-
         public OnlinerDWord myDWORD { get; }
-
         public OnlinerLWord myLWORD { get; }
-
         public OnlinerSInt mySINT { get; }
-
         public OnlinerInt myINT { get; }
-
         public OnlinerDInt myDINT { get; }
-
         public OnlinerLInt myLINT { get; }
-
         public OnlinerUSInt myUSINT { get; }
-
         public OnlinerUInt myUINT { get; }
-
         public OnlinerUDInt myUDINT { get; }
-
         public OnlinerULInt myULINT { get; }
-
         public OnlinerReal myREAL { get; }
-
         public OnlinerLReal myLREAL { get; }
-
         public OnlinerTime myTIME { get; }
-
         public OnlinerLTime myLTIME { get; }
-
         public OnlinerDate myDATE { get; }
-
         public OnlinerDate myLDATE { get; }
-
         public OnlinerTimeOfDay myTIME_OF_DAY { get; }
-
         public OnlinerLTimeOfDay myLTIME_OF_DAY { get; }
-
         public OnlinerDateTime myDATE_AND_TIME { get; }
-
         public OnlinerLDateTime myLDATE_AND_TIME { get; }
-
         public OnlinerChar myCHAR { get; }
-
         public OnlinerWChar myWCHAR { get; }
-
         public OnlinerString mySTRING { get; }
-
         public OnlinerWString myWSTRING { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -110,9 +84,9 @@ namespace ClassWithPrimitiveTypesNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> OnlineToPlainAsync()
+        public async Task<ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes> OnlineToPlainAsync()
         {
-            Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain = new Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes();
+            ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain = new ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.myBOOL = myBOOL.LastValue;
             plain.myBYTE = myBYTE.LastValue;
@@ -146,9 +120,9 @@ namespace ClassWithPrimitiveTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> _OnlineToPlainNoacAsync()
+        public async Task<ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes> _OnlineToPlainNoacAsync()
         {
-            Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain = new Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes();
+            ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain = new ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes();
             plain.myBOOL = myBOOL.LastValue;
             plain.myBYTE = myBYTE.LastValue;
             plain.myWORD = myWORD.LastValue;
@@ -181,7 +155,7 @@ namespace ClassWithPrimitiveTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> _OnlineToPlainNoacAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        protected async Task<ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes> _OnlineToPlainNoacAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain)
         {
             plain.myBOOL = myBOOL.LastValue;
             plain.myBYTE = myBYTE.LastValue;
@@ -218,7 +192,7 @@ namespace ClassWithPrimitiveTypesNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain)
         {
 #pragma warning disable CS0612
             myBOOL.LethargicWrite(plain.myBOOL);
@@ -306,7 +280,7 @@ namespace ClassWithPrimitiveTypesNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        public async Task _PlainToOnlineNoacAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain)
         {
 #pragma warning disable CS0612
             myBOOL.LethargicWrite(plain.myBOOL);
@@ -396,9 +370,9 @@ namespace ClassWithPrimitiveTypesNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> ShadowToPlainAsync()
+        public async Task<ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes> ShadowToPlainAsync()
         {
-            Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain = new Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes();
+            ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain = new ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes();
             plain.myBOOL = myBOOL.Shadow;
             plain.myBYTE = myBYTE.Shadow;
             plain.myWORD = myWORD.Shadow;
@@ -429,7 +403,7 @@ namespace ClassWithPrimitiveTypesNamespace
             return plain;
         }
 
-        protected async Task<Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> ShadowToPlainAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        protected async Task<ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes> ShadowToPlainAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain)
         {
             plain.myBOOL = myBOOL.Shadow;
             plain.myBYTE = myBYTE.Shadow;
@@ -466,7 +440,7 @@ namespace ClassWithPrimitiveTypesNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain)
         {
             myBOOL.Shadow = plain.myBOOL;
             myBYTE.Shadow = plain.myBYTE;
@@ -508,7 +482,7 @@ namespace ClassWithPrimitiveTypesNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain, Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes plain, ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -579,24 +553,27 @@ namespace ClassWithPrimitiveTypesNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes CreateEmptyPoco()
+        public ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes CreateEmptyPoco()
         {
-            return new Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes();
+            return new ClassWithPrimitiveTypesNamespace.Pocos.ClassWithPrimitiveTypes();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
         public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
         {
             return Children;
         }
 
         private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
         public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
         {
             return Kids;
         }
 
         private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
         public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
         {
             return ValueTags;
@@ -653,9 +630,7 @@ namespace ClassWithPrimitiveTypesNamespace
         }
 
         protected System.String @SymbolTail { get; set; }
-
         protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 }

@@ -11,7 +11,7 @@ using Xunit;
 using Xunit.Abstractions;
 
 
-[assembly: TestCollectionOrderer("AXSharp.Connector.Sax.WebAPITests.DisplayNameOrderer", "AXSharp.Connector.Sax.WebAPITests")]
+[assembly: TestCollectionOrderer("AXSharp.Connector.Sax.WebAPITests.DisplayNameOrderer", "AXSharp.Connector.S71500.WebAPITests")]
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace AXSharp.Connector.Sax.WebAPITests;

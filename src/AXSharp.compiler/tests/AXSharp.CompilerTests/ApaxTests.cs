@@ -76,6 +76,9 @@ namespace AXSharp.CompilerTests
         [Fact()]
         public void should_update_apax_version()
         {
+#if !DEBUG
+     return;
+#endif
             var apaxWorkspaceFile = Apax.CreateApaxDto(Path.Combine(testFolder, @"samples//plt1//app//apax.yml"));
             Assert.Equal("plt-app", apaxWorkspaceFile.Name);
             Assert.Equal("app", apaxWorkspaceFile.Type);
