@@ -68,7 +68,7 @@ namespace AXSharp.Connector.Onliners.Tests
         [Test()]
         public void GetParentTest()
         {
-            Assert.That(Onliner.GetParent(), Is.EqualTo(typeof(ITwinObject)));
+            Assert.That(Onliner.GetParent(), Is.InstanceOf(typeof(ITwinObject)));
         }
 
         
