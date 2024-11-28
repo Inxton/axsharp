@@ -6,13 +6,7 @@ namespace integrated.tests
 
         public GH_ISSUE_183()
         {
-#if NET6_0
             Task.Delay(250).Wait();
-#endif
-
-#if NET7_0
-            Task.Delay(500).Wait();
-#endif
         }
 
         [Fact]

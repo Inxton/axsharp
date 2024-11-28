@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "AXSharp.sln",
+    "projects": [      
+      "AXSharp.connectors\\tests\\AXSharp.Connector.Sax.WebAPITests\\AXSharp.Connector.S71500.WebAPITests.csproj",            
+      "AXSharp.connectors\\tests\\exploring\\Webserver.Api.Exploratory\\Webserver.Api.Exploratory.csproj",      
+    ]
+  }
+}

@@ -354,7 +354,7 @@ namespace integrated.tests
             Assert.Equal(pos, polling.DriveA.NestedLevelOne.NestedLevelTwo.NestedLevelThree.Position.Cyclic);
         }
 
-        [Fact]
+        [Fact]        
         public async Task StartPolling_polling_should_continue_until_last_subscriber()
         {
             var holderObject = new object();

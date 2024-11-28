@@ -3,22 +3,21 @@ version: 0.0.0
 type: app
 targets:
   - "1500"
-  - llvm
-  - plcsim
-  - swcpu
 devDependencies:
-  "@ax/sdk": ^2311.0.1
+  "@ax/sdk": 2405.2.0
+  "@ax/sld": ^3.0.6-alpha
 variables:
   APAX_BUILD_ARGS: [ -d ]
+  # AXTARGET: $AXTARGET
+  # AXTARGETPLATFORMINPUT: $AXTARGETPLATFORMINPUT
+  # AX_USERNAME: $AX_USERNAME
+  # AX_TARGET_PWD: $AX_TARGET_PWD
+  # MY_VERY_STRONG_PASSWORD: $AX_TARGET_PWD
+  COM_CERT_PATH: .\certs\Communication.cer
 scripts:
   ixc:
-    - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
-  postbuild: dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
-  download:
-    - apax install
-    - apax build
-    # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
-    # --default-server-interface is a must if you are using WebAPI      
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
-installStrategy: strict
+    - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
+  postbuild: dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
+  download: apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME
+installStrategy: overridable
 apaxVersion: 3.1.1

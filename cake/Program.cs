@@ -160,31 +160,29 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         }
 
 
-        if (context.BuildParameters.TestLevel == 1)
+        if (context.BuildParameters.TestLevel >= 1)
         {
             context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L1-tests.slnf"));
         }
-        else if (context.BuildParameters.TestLevel == 2)
+        if (context.BuildParameters.TestLevel >= 2)
         {
             context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L2-tests.slnf"));
         }
-        else if (context.BuildParameters.TestLevel == 3)
-        {
-            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests.slnf"));
-        }
-        else
+        if (context.BuildParameters.TestLevel >= 3)
         {
             context.UploadTestPlc(
                 Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//AXSharp.connectors//tests//ax-test-project//")),
-                Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET"),
+                Environment.GetEnvironmentVariable("AXTARGET"),
                 Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
-
+            
+            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_WebApi.slnf"));
+            
             context.UploadTestPlc(
                 Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//tests.integrations//integrated//src//ax")),
                 Environment.GetEnvironmentVariable("AXTARGET"),
                 Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
-
-            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests.slnf"));
+            
+            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_Integration.slnf"));
         }
 
 

@@ -114,7 +114,7 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = " apax build",
+            Arguments = " build",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -127,12 +127,22 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments =
-                $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            Arguments = " download",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
-            RedirectStandardError = false
+            RedirectStandardError = false,
+            RedirectedStandardOutputHandler = (a) => string.Join(System.Environment.NewLine, a),
+            Silent = false
         }).WaitForExit();
+        
+        // this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        // {
+        //     Arguments =
+        //         $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+        //     WorkingDirectory = workingDirectory,
+        //     RedirectStandardOutput = false,
+        //     RedirectStandardError = false
+        // }).WaitForExit();
     }
 
     public void RunTestsFromFilteredSolution(string filteredSolutionFile)

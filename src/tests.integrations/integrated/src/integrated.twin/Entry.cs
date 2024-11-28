@@ -8,7 +8,12 @@
 using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Security;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.S71500.WebApi;
@@ -17,13 +22,25 @@ namespace integrated
 {
     public static class Entry
     {
-        private static string TargetIp = Environment.GetEnvironmentVariable("AXTARGET"); // <- replace by your IP 
-        private const string UserName = "Anonymous"; //<- replace by user name you have set up in your WebAPI settings
-        private static string Pass = ""; //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
-        private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
+        private static string TargetIp { get; } = Environment.GetEnvironmentVariable("AXTARGET") ?? "10.222.6.1";
+               
+        private static string CertificatePath = "certs\\Communication.cer"; 
+        
+        static string GetCertPath()
+        {
+            var fp = new FileInfo(Path.Combine(Assembly.GetExecutingAssembly().Location));
+            return Path.Combine(fp.DirectoryName, CertificatePath);
+        }
 
-        public static integratedTwinController Plc { get; } 
-            = new (ConnectorAdapterBuilder.Build()
-                .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
+        static readonly X509Certificate2 Certificate = new X509Certificate2(GetCertPath());
+
+        private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return certificate.Thumbprint == Certificate.Thumbprint;
+        }
+     
+        public static integratedTwinController Plc { get; }
+            = new(ConnectorAdapterBuilder.Build()
+                .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USER_NAME"), Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));                
     }
 }
