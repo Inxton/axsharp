@@ -84,7 +84,7 @@ public class BuildContext : FrostingContext
         DotNetRunSettings = new DotNetRunSettings()
         {
             Verbosity = buildParameters.Verbosity,
-            Framework = "net8.0",
+            Framework = "net9.0",
             Configuration = buildParameters.Configuration,
             NoBuild = true,
             NoRestore = true,
