@@ -10,12 +10,12 @@ namespace Pocos
         {
         }
     }
-}
 
-public partial interface IContext_Multiple
-{
-}
+    public partial interface IContext_Multiple
+    {
+    }
 
-public partial interface IObject_Multiple
-{
+    public partial interface IObject_Multiple
+    {
+    }
 }

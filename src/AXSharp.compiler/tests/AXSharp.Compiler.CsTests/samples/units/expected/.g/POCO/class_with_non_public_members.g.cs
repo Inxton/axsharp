@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace ClassWithNonTraspilableMemberssNamespace
+namespace Pocos
 {
-    namespace Pocos
+    namespace ClassWithNonTraspilableMemberssNamespace
     {
         public partial class ClassWithNonTraspilableMembers : AXSharp.Connector.IPlain
         {
@@ -12,12 +12,9 @@ namespace ClassWithNonTraspilableMemberssNamespace
             {
             }
 
-            public ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 myComplexType { get; set; } = new ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1();
+            public ClassWithNonTraspilableMemberssNamespace.ComplexType1 myComplexType { get; set; } = new ClassWithNonTraspilableMemberssNamespace.ComplexType1();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class ComplexType1 : AXSharp.Connector.IPlain
         {
             public ComplexType1()

@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Enums
+namespace Pocos
 {
-    namespace Pocos
+    namespace Enums
     {
         public partial class ClassWithEnums : AXSharp.Connector.IPlain
         {
@@ -16,11 +16,8 @@ namespace Enums
             public String NamedValuesColors { get; set; }
         }
     }
-}
 
-namespace misc
-{
-    namespace Pocos
+    namespace misc
     {
         public partial class VariousMembers : AXSharp.Connector.IPlain
         {
@@ -28,13 +25,10 @@ namespace misc
             {
             }
 
-            public misc.Pocos.SomeClass _SomeClass { get; set; } = new misc.Pocos.SomeClass();
-            public misc.Pocos.Motor _Motor { get; set; } = new misc.Pocos.Motor();
+            public misc.SomeClass _SomeClass { get; set; } = new misc.SomeClass();
+            public misc.Motor _Motor { get; set; } = new misc.Motor();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class SomeClass : AXSharp.Connector.IPlain
         {
             public SomeClass()
@@ -43,10 +37,7 @@ namespace misc
 
             public string SomeClassVariable { get; set; } = string.Empty;
         }
-    }
 
-    namespace Pocos
-    {
         public partial class Motor : AXSharp.Connector.IPlain
         {
             public Motor()
@@ -55,42 +46,33 @@ namespace misc
 
             public Boolean isRunning { get; set; }
         }
-    }
 
-    namespace Pocos
-    {
         public partial class Vehicle : AXSharp.Connector.IPlain
         {
             public Vehicle()
             {
             }
 
-            public misc.Pocos.Motor m { get; set; } = new misc.Pocos.Motor();
+            public misc.Motor m { get; set; } = new misc.Motor();
             public Int16 displacement { get; set; }
         }
     }
-}
 
-namespace UnknownArraysShouldNotBeTraspiled
-{
-    namespace Pocos
+    namespace UnknownArraysShouldNotBeTraspiled
     {
         public partial class ClassWithArrays : AXSharp.Connector.IPlain
         {
             public ClassWithArrays()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, () => new UnknownArraysShouldNotBeTraspiled.Pocos.Complex(), new[] { (0, 10) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, () => new Pocos.UnknownArraysShouldNotBeTraspiled.Complex(), new[] { (0, 10) });
 #pragma warning restore CS0612
             }
 
-            public UnknownArraysShouldNotBeTraspiled.Pocos.Complex[] _complexKnown { get; set; } = new UnknownArraysShouldNotBeTraspiled.Pocos.Complex[11];
+            public UnknownArraysShouldNotBeTraspiled.Complex[] _complexKnown { get; set; } = new UnknownArraysShouldNotBeTraspiled.Complex[11];
             public Byte[] _primitive { get; set; } = new Byte[11];
         }
-    }
 
-    namespace Pocos
-    {
         public partial class Complex : AXSharp.Connector.IPlain
         {
             public Complex()

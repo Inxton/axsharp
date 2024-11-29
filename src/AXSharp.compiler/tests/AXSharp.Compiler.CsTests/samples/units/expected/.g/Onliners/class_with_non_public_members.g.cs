@@ -32,9 +32,9 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers> OnlineToPlainAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> OnlineToPlainAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -44,9 +44,9 @@ namespace ClassWithNonTraspilableMemberssNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> _OnlineToPlainNoacAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers();
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -55,7 +55,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers> _OnlineToPlainNoacAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain)
+        protected async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> _OnlineToPlainNoacAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
         {
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
@@ -68,7 +68,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -78,7 +78,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
@@ -90,14 +90,14 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers> ShadowToPlainAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> ShadowToPlainAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers();
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers> ShadowToPlainAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain)
+        protected async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> ShadowToPlainAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
         {
             plain.myComplexType = await myComplexType.ShadowToPlainAsync();
             return plain;
@@ -108,7 +108,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
         {
             await this.myComplexType.PlainToShadowAsync(plain.myComplexType);
             return this.RetrievePrimitives();
@@ -124,7 +124,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers plain, ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain, Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -143,9 +143,9 @@ namespace ClassWithNonTraspilableMemberssNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers CreateEmptyPoco()
+        public Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers CreateEmptyPoco()
         {
-            return new ClassWithNonTraspilableMemberssNamespace.Pocos.ClassWithNonTraspilableMembers();
+            return new Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -246,24 +246,24 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1> OnlineToPlainAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> OnlineToPlainAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> _OnlineToPlainNoacAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1> _OnlineToPlainNoacAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain)
+        protected async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> _OnlineToPlainNoacAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
         {
             return plain;
         }
@@ -273,14 +273,14 @@ namespace ClassWithNonTraspilableMemberssNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
         {
         }
 
@@ -289,13 +289,13 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1> ShadowToPlainAsync()
+        public async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> ShadowToPlainAsync()
         {
-            ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain = new ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1();
+            Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain = new Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1();
             return plain;
         }
 
-        protected async Task<ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1> ShadowToPlainAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain)
+        protected async Task<Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> ShadowToPlainAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
         {
             return plain;
         }
@@ -305,7 +305,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
         {
             return this.RetrievePrimitives();
         }
@@ -320,7 +320,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 plain, ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain, Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -337,9 +337,9 @@ namespace ClassWithNonTraspilableMemberssNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1 CreateEmptyPoco()
+        public Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 CreateEmptyPoco()
         {
-            return new ClassWithNonTraspilableMemberssNamespace.Pocos.ComplexType1();
+            return new Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

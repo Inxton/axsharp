@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace Simatic.Ax.StateFramework
+namespace Pocos
 {
-    namespace Pocos
+    namespace Simatic.Ax.StateFramework
     {
         public partial class using_type_named_values : AXSharp.Connector.IPlain
         {

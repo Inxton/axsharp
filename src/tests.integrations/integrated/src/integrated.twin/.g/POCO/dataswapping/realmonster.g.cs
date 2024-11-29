@@ -2,16 +2,16 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace RealMonsterData
+namespace Pocos
 {
-    namespace Pocos
+    namespace RealMonsterData
     {
         public partial class RealMonsterBase : AXSharp.Connector.IPlain
         {
             public RealMonsterBase()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new RealMonsterData.Pocos.DriveBaseNested(), new[] { (0, 3) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new Pocos.RealMonsterData.DriveBaseNested(), new[] { (0, 3) });
 #pragma warning restore CS0612
             }
 
@@ -21,24 +21,18 @@ namespace RealMonsterData
             public DateTime TestDateTime { get; set; } = default(DateTime);
             public TimeSpan TestTimeSpan { get; set; } = default(TimeSpan);
             public Byte[] ArrayOfBytes { get; set; } = new Byte[4];
-            public RealMonsterData.Pocos.DriveBaseNested[] ArrayOfDrives { get; set; } = new RealMonsterData.Pocos.DriveBaseNested[4];
+            public RealMonsterData.DriveBaseNested[] ArrayOfDrives { get; set; } = new RealMonsterData.DriveBaseNested[4];
         }
-    }
 
-    namespace Pocos
-    {
-        public partial class RealMonster : RealMonsterData.Pocos.RealMonsterBase, AXSharp.Connector.IPlain
+        public partial class RealMonster : RealMonsterData.RealMonsterBase, AXSharp.Connector.IPlain
         {
             public RealMonster() : base()
             {
             }
 
-            public RealMonsterData.Pocos.DriveBaseNested DriveA { get; set; } = new RealMonsterData.Pocos.DriveBaseNested();
+            public RealMonsterData.DriveBaseNested DriveA { get; set; } = new RealMonsterData.DriveBaseNested();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class DriveBaseNested : AXSharp.Connector.IPlain
         {
             public DriveBaseNested()
@@ -49,12 +43,9 @@ namespace RealMonsterData
             public Double Velo { get; set; }
             public Double Acc { get; set; }
             public Double Dcc { get; set; }
-            public RealMonsterData.Pocos.NestedLevelOne NestedLevelOne { get; set; } = new RealMonsterData.Pocos.NestedLevelOne();
+            public RealMonsterData.NestedLevelOne NestedLevelOne { get; set; } = new RealMonsterData.NestedLevelOne();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class NestedLevelOne : AXSharp.Connector.IPlain
         {
             public NestedLevelOne()
@@ -65,12 +56,9 @@ namespace RealMonsterData
             public Double Velo { get; set; }
             public Double Acc { get; set; }
             public Double Dcc { get; set; }
-            public RealMonsterData.Pocos.NestedLevelTwo NestedLevelTwo { get; set; } = new RealMonsterData.Pocos.NestedLevelTwo();
+            public RealMonsterData.NestedLevelTwo NestedLevelTwo { get; set; } = new RealMonsterData.NestedLevelTwo();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class NestedLevelTwo : AXSharp.Connector.IPlain
         {
             public NestedLevelTwo()
@@ -81,12 +69,9 @@ namespace RealMonsterData
             public Double Velo { get; set; }
             public Double Acc { get; set; }
             public Double Dcc { get; set; }
-            public RealMonsterData.Pocos.NestedLevelThree NestedLevelThree { get; set; } = new RealMonsterData.Pocos.NestedLevelThree();
+            public RealMonsterData.NestedLevelThree NestedLevelThree { get; set; } = new RealMonsterData.NestedLevelThree();
         }
-    }
 
-    namespace Pocos
-    {
         public partial class NestedLevelThree : AXSharp.Connector.IPlain
         {
             public NestedLevelThree()

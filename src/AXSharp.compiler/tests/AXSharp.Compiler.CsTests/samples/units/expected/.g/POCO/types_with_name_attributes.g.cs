@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace TypeWithNameAttributes
+namespace Pocos
 {
-    namespace Pocos
+    namespace TypeWithNameAttributes
     {
         public partial class Motor : AXSharp.Connector.IPlain
         {
@@ -14,23 +14,17 @@ namespace TypeWithNameAttributes
 
             public Boolean isRunning { get; set; }
         }
-    }
 
-    namespace Pocos
-    {
         public partial class Vehicle : AXSharp.Connector.IPlain
         {
             public Vehicle()
             {
             }
 
-            public TypeWithNameAttributes.Pocos.Motor m { get; set; } = new TypeWithNameAttributes.Pocos.Motor();
+            public TypeWithNameAttributes.Motor m { get; set; } = new TypeWithNameAttributes.Motor();
             public Int16 displacement { get; set; }
         }
-    }
 
-    namespace Pocos
-    {
         public partial class NoAccessModifierClass : AXSharp.Connector.IPlain
         {
             public NoAccessModifierClass()

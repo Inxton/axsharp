@@ -48,9 +48,9 @@ namespace MonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<MonsterData.Pocos.MonsterBase> OnlineToPlainAsync()
+        public async Task<Pocos.MonsterData.MonsterBase> OnlineToPlainAsync()
         {
-            MonsterData.Pocos.MonsterBase plain = new MonsterData.Pocos.MonsterBase();
+            Pocos.MonsterData.MonsterBase plain = new Pocos.MonsterData.MonsterBase();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
@@ -67,9 +67,9 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<MonsterData.Pocos.MonsterBase> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.MonsterData.MonsterBase> _OnlineToPlainNoacAsync()
         {
-            MonsterData.Pocos.MonsterBase plain = new MonsterData.Pocos.MonsterBase();
+            Pocos.MonsterData.MonsterBase plain = new Pocos.MonsterData.MonsterBase();
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
             plain.ArrayOfBytes = ArrayOfBytes.Select(p => p.LastValue).ToArray();
@@ -85,7 +85,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<MonsterData.Pocos.MonsterBase> _OnlineToPlainNoacAsync(MonsterData.Pocos.MonsterBase plain)
+        protected async Task<Pocos.MonsterData.MonsterBase> _OnlineToPlainNoacAsync(Pocos.MonsterData.MonsterBase plain)
         {
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
@@ -105,7 +105,7 @@ namespace MonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(MonsterData.Pocos.MonsterBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.MonsterData.MonsterBase plain)
         {
 #pragma warning disable CS0612
             Description.LethargicWrite(plain.Description);
@@ -132,7 +132,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(MonsterData.Pocos.MonsterBase plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.MonsterData.MonsterBase plain)
         {
 #pragma warning disable CS0612
             Description.LethargicWrite(plain.Description);
@@ -161,9 +161,9 @@ namespace MonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<MonsterData.Pocos.MonsterBase> ShadowToPlainAsync()
+        public async Task<Pocos.MonsterData.MonsterBase> ShadowToPlainAsync()
         {
-            MonsterData.Pocos.MonsterBase plain = new MonsterData.Pocos.MonsterBase();
+            Pocos.MonsterData.MonsterBase plain = new Pocos.MonsterData.MonsterBase();
             plain.Description = Description.Shadow;
             plain.Id = Id.Shadow;
             plain.ArrayOfBytes = ArrayOfBytes.Select(p => p.Shadow).ToArray();
@@ -173,7 +173,7 @@ namespace MonsterData
             return plain;
         }
 
-        protected async Task<MonsterData.Pocos.MonsterBase> ShadowToPlainAsync(MonsterData.Pocos.MonsterBase plain)
+        protected async Task<Pocos.MonsterData.MonsterBase> ShadowToPlainAsync(Pocos.MonsterData.MonsterBase plain)
         {
             plain.Description = Description.Shadow;
             plain.Id = Id.Shadow;
@@ -189,7 +189,7 @@ namespace MonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(MonsterData.Pocos.MonsterBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.MonsterData.MonsterBase plain)
         {
             Description.Shadow = plain.Description;
             Id.Shadow = plain.Id;
@@ -212,7 +212,7 @@ namespace MonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(MonsterData.Pocos.MonsterBase plain, MonsterData.Pocos.MonsterBase latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.MonsterData.MonsterBase plain, Pocos.MonsterData.MonsterBase latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -249,9 +249,9 @@ namespace MonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public MonsterData.Pocos.MonsterBase CreateEmptyPoco()
+        public Pocos.MonsterData.MonsterBase CreateEmptyPoco()
         {
-            return new MonsterData.Pocos.MonsterBase();
+            return new Pocos.MonsterData.MonsterBase();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -349,9 +349,9 @@ namespace MonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public new async Task<MonsterData.Pocos.Monster> OnlineToPlainAsync()
+        public new async Task<Pocos.MonsterData.Monster> OnlineToPlainAsync()
         {
-            MonsterData.Pocos.Monster plain = new MonsterData.Pocos.Monster();
+            Pocos.MonsterData.Monster plain = new Pocos.MonsterData.Monster();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -364,9 +364,9 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public new async Task<MonsterData.Pocos.Monster> _OnlineToPlainNoacAsync()
+        public new async Task<Pocos.MonsterData.Monster> _OnlineToPlainNoacAsync()
         {
-            MonsterData.Pocos.Monster plain = new MonsterData.Pocos.Monster();
+            Pocos.MonsterData.Monster plain = new Pocos.MonsterData.Monster();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -378,7 +378,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<MonsterData.Pocos.Monster> _OnlineToPlainNoacAsync(MonsterData.Pocos.Monster plain)
+        protected async Task<Pocos.MonsterData.Monster> _OnlineToPlainNoacAsync(Pocos.MonsterData.Monster plain)
         {
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -394,7 +394,7 @@ namespace MonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(MonsterData.Pocos.Monster plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.MonsterData.Monster plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -405,7 +405,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(MonsterData.Pocos.Monster plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.MonsterData.Monster plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -418,15 +418,15 @@ namespace MonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public new async Task<MonsterData.Pocos.Monster> ShadowToPlainAsync()
+        public new async Task<Pocos.MonsterData.Monster> ShadowToPlainAsync()
         {
-            MonsterData.Pocos.Monster plain = new MonsterData.Pocos.Monster();
+            Pocos.MonsterData.Monster plain = new Pocos.MonsterData.Monster();
             await base.ShadowToPlainAsync(plain);
             plain.DriveA = await DriveA.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<MonsterData.Pocos.Monster> ShadowToPlainAsync(MonsterData.Pocos.Monster plain)
+        protected async Task<Pocos.MonsterData.Monster> ShadowToPlainAsync(Pocos.MonsterData.Monster plain)
         {
             await base.ShadowToPlainAsync(plain);
             plain.DriveA = await DriveA.ShadowToPlainAsync();
@@ -438,7 +438,7 @@ namespace MonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(MonsterData.Pocos.Monster plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.MonsterData.Monster plain)
         {
             await base.PlainToShadowAsync(plain);
             await this.DriveA.PlainToShadowAsync(plain.DriveA);
@@ -455,7 +455,7 @@ namespace MonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public new async Task<bool> DetectsAnyChangeAsync(MonsterData.Pocos.Monster plain, MonsterData.Pocos.Monster latest = null)
+        public new async Task<bool> DetectsAnyChangeAsync(Pocos.MonsterData.Monster plain, Pocos.MonsterData.Monster latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -476,9 +476,9 @@ namespace MonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public new MonsterData.Pocos.Monster CreateEmptyPoco()
+        public new Pocos.MonsterData.Monster CreateEmptyPoco()
         {
-            return new MonsterData.Pocos.Monster();
+            return new Pocos.MonsterData.Monster();
         }
     }
 
@@ -513,9 +513,9 @@ namespace MonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<MonsterData.Pocos.DriveBase> OnlineToPlainAsync()
+        public async Task<Pocos.MonsterData.DriveBase> OnlineToPlainAsync()
         {
-            MonsterData.Pocos.DriveBase plain = new MonsterData.Pocos.DriveBase();
+            Pocos.MonsterData.DriveBase plain = new Pocos.MonsterData.DriveBase();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -526,9 +526,9 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<MonsterData.Pocos.DriveBase> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.MonsterData.DriveBase> _OnlineToPlainNoacAsync()
         {
-            MonsterData.Pocos.DriveBase plain = new MonsterData.Pocos.DriveBase();
+            Pocos.MonsterData.DriveBase plain = new Pocos.MonsterData.DriveBase();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -538,7 +538,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<MonsterData.Pocos.DriveBase> _OnlineToPlainNoacAsync(MonsterData.Pocos.DriveBase plain)
+        protected async Task<Pocos.MonsterData.DriveBase> _OnlineToPlainNoacAsync(Pocos.MonsterData.DriveBase plain)
         {
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -552,7 +552,7 @@ namespace MonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(MonsterData.Pocos.DriveBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.MonsterData.DriveBase plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -571,7 +571,7 @@ namespace MonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(MonsterData.Pocos.DriveBase plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.MonsterData.DriveBase plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -592,9 +592,9 @@ namespace MonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<MonsterData.Pocos.DriveBase> ShadowToPlainAsync()
+        public async Task<Pocos.MonsterData.DriveBase> ShadowToPlainAsync()
         {
-            MonsterData.Pocos.DriveBase plain = new MonsterData.Pocos.DriveBase();
+            Pocos.MonsterData.DriveBase plain = new Pocos.MonsterData.DriveBase();
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
             plain.Acc = Acc.Shadow;
@@ -602,7 +602,7 @@ namespace MonsterData
             return plain;
         }
 
-        protected async Task<MonsterData.Pocos.DriveBase> ShadowToPlainAsync(MonsterData.Pocos.DriveBase plain)
+        protected async Task<Pocos.MonsterData.DriveBase> ShadowToPlainAsync(Pocos.MonsterData.DriveBase plain)
         {
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
@@ -616,7 +616,7 @@ namespace MonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(MonsterData.Pocos.DriveBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.MonsterData.DriveBase plain)
         {
             Position.Shadow = plain.Position;
             Velo.Shadow = plain.Velo;
@@ -635,7 +635,7 @@ namespace MonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(MonsterData.Pocos.DriveBase plain, MonsterData.Pocos.DriveBase latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.MonsterData.DriveBase plain, Pocos.MonsterData.DriveBase latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -660,9 +660,9 @@ namespace MonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public MonsterData.Pocos.DriveBase CreateEmptyPoco()
+        public Pocos.MonsterData.DriveBase CreateEmptyPoco()
         {
-            return new MonsterData.Pocos.DriveBase();
+            return new Pocos.MonsterData.DriveBase();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

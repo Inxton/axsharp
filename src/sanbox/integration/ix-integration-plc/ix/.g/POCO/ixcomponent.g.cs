@@ -19,11 +19,8 @@ namespace Pocos
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "My bool")]
         public Boolean my_bool { get; set; }
     }
-}
 
-namespace MySecondNamespace
-{
-    namespace Pocos
+    namespace MySecondNamespace
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
@@ -41,11 +38,8 @@ namespace MySecondNamespace
             public Boolean my_bool { get; set; }
         }
     }
-}
 
-namespace ThirdNamespace
-{
-    namespace Pocos
+    namespace ThirdNamespace
     {
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
