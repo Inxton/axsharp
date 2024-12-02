@@ -11,10 +11,18 @@ namespace AXSharp.Connector.S71500.WebAPITests;
 public static class TestConnector
 {
     private static string TargetIp { get; } = Environment.GetEnvironmentVariable("AXTARGET") ?? "10.222.6.1";
+    private static string UserName { get; } = Environment.GetEnvironmentVariable("AX_USERNAME") ?? "adm";
+    private static string Password { get; } = Environment.GetEnvironmentVariable("AX_TARGET_PWD");
 
-    public static WebApiConnector TestApiConnector { get; } 
-        = new WebApiConnector(TargetIp, Environment.GetEnvironmentVariable("AX_USER_NAME"), Environment.GetEnvironmentVariable("AX_TARGET_PWD"),CertificateValidation, true).BuildAndStart() as WebApiConnector;
-        
+    
+    public static WebApiConnector TestApiConnector
+    {
+        get
+        {
+            return SecurePlc.Connector as WebApiConnector;
+        }
+    }
+
     private static string CertificatePath = "certs\\Communication.cer"; 
         
     static string GetCertPath()
@@ -29,10 +37,28 @@ public static class TestConnector
     {
         return certificate.Thumbprint == Certificate.Thumbprint;
     }
-     
-    public static ax_test_projectTwinController SecurePlc { get; }
-        = new(ConnectorAdapterBuilder.Build()
-            .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USER_NAME"), Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));
-    
-    
+
+    private static ax_test_projectTwinController securePlc;
+    private static object mutex = new object();
+    public static ax_test_projectTwinController SecurePlc
+    {
+        get
+        {
+            lock (mutex)
+            {
+                if (securePlc == null)
+                {
+                    securePlc = new(ConnectorAdapterBuilder.Build()
+                        .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USERNAME"),
+                            Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));
+                    
+                    SecurePlc.Connector.BuildAndStart();
+                }
+                return securePlc;
+            }
+        }
+    }
+       
+
+
 }

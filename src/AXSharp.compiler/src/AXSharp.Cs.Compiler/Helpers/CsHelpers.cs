@@ -67,6 +67,6 @@ internal static class CsHelpers
     /// <returns>Fully qualified poco name for given declarations</returns>
     public static string GetFullyQualifiedPocoName(this IDeclaration declaration)
     {
-        return declaration.ContainingNamespace.FullyQualifiedName == "$GLOBAL" ?  $"global::Pocos.{declaration.Name}" : $"{declaration.ContainingNamespace.FullyQualifiedName}.Pocos.{declaration.Name}";
+        return declaration.ContainingNamespace.FullyQualifiedName == "$GLOBAL" ?  $"global::Pocos.{declaration.Name}" : $"Pocos.{declaration.ContainingNamespace.FullyQualifiedName}.{declaration.Name}";
     }
 }

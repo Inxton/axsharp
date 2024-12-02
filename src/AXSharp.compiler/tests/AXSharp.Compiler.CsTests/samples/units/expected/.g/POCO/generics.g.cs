@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace GenericsTests
+namespace Pocos
 {
-    namespace Pocos
+    namespace GenericsTests
     {
         public partial class Extender : AXSharp.Connector.IPlain
         {
@@ -12,10 +12,7 @@ namespace GenericsTests
             {
             }
         }
-    }
 
-    namespace Pocos
-    {
         public partial class SomeTypeToBeGeneric : AXSharp.Connector.IPlain
         {
             public SomeTypeToBeGeneric()
@@ -25,11 +22,8 @@ namespace GenericsTests
             public Boolean Boolean { get; set; }
             public Int16 Cele { get; set; }
         }
-    }
 
-    namespace Pocos
-    {
-        public partial class Extendee2 : GenericsTests.Pocos.Extender, AXSharp.Connector.IPlain
+        public partial class Extendee2 : GenericsTests.Extender, AXSharp.Connector.IPlain
         {
             public Extendee2() : base()
             {
@@ -38,7 +32,7 @@ namespace GenericsTests
             [AXOpen.Data.AxoDataEntityAttribute]
             [Container(Layout.Stack)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Shared Header")]
-            public GenericsTests.Pocos.SomeTypeToBeGeneric SomeData { get; set; } = new GenericsTests.Pocos.SomeTypeToBeGeneric();
+            public GenericsTests.SomeTypeToBeGeneric SomeData { get; set; } = new GenericsTests.SomeTypeToBeGeneric();
         }
     }
 }

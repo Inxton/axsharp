@@ -41,6 +41,6 @@ namespace integrated
      
         public static integratedTwinController Plc { get; }
             = new(ConnectorAdapterBuilder.Build()
-                .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USER_NAME"), Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));                
+                .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USERNAME"), Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));                
     }
 }

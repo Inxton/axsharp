@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.20.0-341--NEW-FEATURE-Poco-types-should-be-rather-placed-into-onlinenamespace-Poco-instead-of-Poco-onlinenamespace.257" />
-		<PackageReference Include="AXSharp.Connector" Version="0.20.0-341--NEW-FEATURE-Poco-types-should-be-rather-placed-into-onlinenamespace-Poco-instead-of-Poco-onlinenamespace.257" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.20.1-alpha.261" />
+		<PackageReference Include="AXSharp.Connector" Version="0.20.1-alpha.261" />
 	</ItemGroup>
 
 	<ItemGroup>

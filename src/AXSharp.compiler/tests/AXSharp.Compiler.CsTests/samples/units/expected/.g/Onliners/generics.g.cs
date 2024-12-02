@@ -29,24 +29,24 @@ namespace GenericsTests
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<GenericsTests.Pocos.Extender> OnlineToPlainAsync()
+        public async Task<Pocos.GenericsTests.Extender> OnlineToPlainAsync()
         {
-            GenericsTests.Pocos.Extender plain = new GenericsTests.Pocos.Extender();
+            Pocos.GenericsTests.Extender plain = new Pocos.GenericsTests.Extender();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<GenericsTests.Pocos.Extender> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.GenericsTests.Extender> _OnlineToPlainNoacAsync()
         {
-            GenericsTests.Pocos.Extender plain = new GenericsTests.Pocos.Extender();
+            Pocos.GenericsTests.Extender plain = new Pocos.GenericsTests.Extender();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<GenericsTests.Pocos.Extender> _OnlineToPlainNoacAsync(GenericsTests.Pocos.Extender plain)
+        protected async Task<Pocos.GenericsTests.Extender> _OnlineToPlainNoacAsync(Pocos.GenericsTests.Extender plain)
         {
             return plain;
         }
@@ -56,14 +56,14 @@ namespace GenericsTests
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(GenericsTests.Pocos.Extender plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.GenericsTests.Extender plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(GenericsTests.Pocos.Extender plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.GenericsTests.Extender plain)
         {
         }
 
@@ -72,13 +72,13 @@ namespace GenericsTests
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<GenericsTests.Pocos.Extender> ShadowToPlainAsync()
+        public async Task<Pocos.GenericsTests.Extender> ShadowToPlainAsync()
         {
-            GenericsTests.Pocos.Extender plain = new GenericsTests.Pocos.Extender();
+            Pocos.GenericsTests.Extender plain = new Pocos.GenericsTests.Extender();
             return plain;
         }
 
-        protected async Task<GenericsTests.Pocos.Extender> ShadowToPlainAsync(GenericsTests.Pocos.Extender plain)
+        protected async Task<Pocos.GenericsTests.Extender> ShadowToPlainAsync(Pocos.GenericsTests.Extender plain)
         {
             return plain;
         }
@@ -88,7 +88,7 @@ namespace GenericsTests
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(GenericsTests.Pocos.Extender plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.GenericsTests.Extender plain)
         {
             return this.RetrievePrimitives();
         }
@@ -103,7 +103,7 @@ namespace GenericsTests
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(GenericsTests.Pocos.Extender plain, GenericsTests.Pocos.Extender latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.GenericsTests.Extender plain, Pocos.GenericsTests.Extender latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -120,9 +120,9 @@ namespace GenericsTests
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public GenericsTests.Pocos.Extender CreateEmptyPoco()
+        public Pocos.GenericsTests.Extender CreateEmptyPoco()
         {
-            return new GenericsTests.Pocos.Extender();
+            return new Pocos.GenericsTests.Extender();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -228,9 +228,9 @@ namespace GenericsTests
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<GenericsTests.Pocos.SomeTypeToBeGeneric> OnlineToPlainAsync()
+        public async Task<Pocos.GenericsTests.SomeTypeToBeGeneric> OnlineToPlainAsync()
         {
-            GenericsTests.Pocos.SomeTypeToBeGeneric plain = new GenericsTests.Pocos.SomeTypeToBeGeneric();
+            Pocos.GenericsTests.SomeTypeToBeGeneric plain = new Pocos.GenericsTests.SomeTypeToBeGeneric();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Boolean = Boolean.LastValue;
             plain.Cele = Cele.LastValue;
@@ -239,9 +239,9 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<GenericsTests.Pocos.SomeTypeToBeGeneric> _OnlineToPlainNoacAsync()
+        public async Task<Pocos.GenericsTests.SomeTypeToBeGeneric> _OnlineToPlainNoacAsync()
         {
-            GenericsTests.Pocos.SomeTypeToBeGeneric plain = new GenericsTests.Pocos.SomeTypeToBeGeneric();
+            Pocos.GenericsTests.SomeTypeToBeGeneric plain = new Pocos.GenericsTests.SomeTypeToBeGeneric();
             plain.Boolean = Boolean.LastValue;
             plain.Cele = Cele.LastValue;
             return plain;
@@ -249,7 +249,7 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<GenericsTests.Pocos.SomeTypeToBeGeneric> _OnlineToPlainNoacAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain)
+        protected async Task<Pocos.GenericsTests.SomeTypeToBeGeneric> _OnlineToPlainNoacAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain)
         {
             plain.Boolean = Boolean.LastValue;
             plain.Cele = Cele.LastValue;
@@ -261,7 +261,7 @@ namespace GenericsTests
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain)
         {
 #pragma warning disable CS0612
             Boolean.LethargicWrite(plain.Boolean);
@@ -274,7 +274,7 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain)
         {
 #pragma warning disable CS0612
             Boolean.LethargicWrite(plain.Boolean);
@@ -289,15 +289,15 @@ namespace GenericsTests
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<GenericsTests.Pocos.SomeTypeToBeGeneric> ShadowToPlainAsync()
+        public async Task<Pocos.GenericsTests.SomeTypeToBeGeneric> ShadowToPlainAsync()
         {
-            GenericsTests.Pocos.SomeTypeToBeGeneric plain = new GenericsTests.Pocos.SomeTypeToBeGeneric();
+            Pocos.GenericsTests.SomeTypeToBeGeneric plain = new Pocos.GenericsTests.SomeTypeToBeGeneric();
             plain.Boolean = Boolean.Shadow;
             plain.Cele = Cele.Shadow;
             return plain;
         }
 
-        protected async Task<GenericsTests.Pocos.SomeTypeToBeGeneric> ShadowToPlainAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain)
+        protected async Task<Pocos.GenericsTests.SomeTypeToBeGeneric> ShadowToPlainAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain)
         {
             plain.Boolean = Boolean.Shadow;
             plain.Cele = Cele.Shadow;
@@ -309,7 +309,7 @@ namespace GenericsTests
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain)
         {
             Boolean.Shadow = plain.Boolean;
             Cele.Shadow = plain.Cele;
@@ -326,7 +326,7 @@ namespace GenericsTests
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(GenericsTests.Pocos.SomeTypeToBeGeneric plain, GenericsTests.Pocos.SomeTypeToBeGeneric latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(Pocos.GenericsTests.SomeTypeToBeGeneric plain, Pocos.GenericsTests.SomeTypeToBeGeneric latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -347,9 +347,9 @@ namespace GenericsTests
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public GenericsTests.Pocos.SomeTypeToBeGeneric CreateEmptyPoco()
+        public Pocos.GenericsTests.SomeTypeToBeGeneric CreateEmptyPoco()
         {
-            return new GenericsTests.Pocos.SomeTypeToBeGeneric();
+            return new Pocos.GenericsTests.SomeTypeToBeGeneric();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -450,9 +450,9 @@ namespace GenericsTests
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public new async Task<GenericsTests.Pocos.Extendee2> OnlineToPlainAsync()
+        public new async Task<Pocos.GenericsTests.Extendee2> OnlineToPlainAsync()
         {
-            GenericsTests.Pocos.Extendee2 plain = new GenericsTests.Pocos.Extendee2();
+            Pocos.GenericsTests.Extendee2 plain = new Pocos.GenericsTests.Extendee2();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -465,9 +465,9 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public new async Task<GenericsTests.Pocos.Extendee2> _OnlineToPlainNoacAsync()
+        public new async Task<Pocos.GenericsTests.Extendee2> _OnlineToPlainNoacAsync()
         {
-            GenericsTests.Pocos.Extendee2 plain = new GenericsTests.Pocos.Extendee2();
+            Pocos.GenericsTests.Extendee2 plain = new Pocos.GenericsTests.Extendee2();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -479,7 +479,7 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<GenericsTests.Pocos.Extendee2> _OnlineToPlainNoacAsync(GenericsTests.Pocos.Extendee2 plain)
+        protected async Task<Pocos.GenericsTests.Extendee2> _OnlineToPlainNoacAsync(Pocos.GenericsTests.Extendee2 plain)
         {
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -495,7 +495,7 @@ namespace GenericsTests
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(GenericsTests.Pocos.Extendee2 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.GenericsTests.Extendee2 plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -506,7 +506,7 @@ namespace GenericsTests
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(GenericsTests.Pocos.Extendee2 plain)
+        public async Task _PlainToOnlineNoacAsync(Pocos.GenericsTests.Extendee2 plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -519,15 +519,15 @@ namespace GenericsTests
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public new async Task<GenericsTests.Pocos.Extendee2> ShadowToPlainAsync()
+        public new async Task<Pocos.GenericsTests.Extendee2> ShadowToPlainAsync()
         {
-            GenericsTests.Pocos.Extendee2 plain = new GenericsTests.Pocos.Extendee2();
+            Pocos.GenericsTests.Extendee2 plain = new Pocos.GenericsTests.Extendee2();
             await base.ShadowToPlainAsync(plain);
             plain.SomeData = await SomeData.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<GenericsTests.Pocos.Extendee2> ShadowToPlainAsync(GenericsTests.Pocos.Extendee2 plain)
+        protected async Task<Pocos.GenericsTests.Extendee2> ShadowToPlainAsync(Pocos.GenericsTests.Extendee2 plain)
         {
             await base.ShadowToPlainAsync(plain);
             plain.SomeData = await SomeData.ShadowToPlainAsync();
@@ -539,7 +539,7 @@ namespace GenericsTests
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(GenericsTests.Pocos.Extendee2 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.GenericsTests.Extendee2 plain)
         {
             await base.PlainToShadowAsync(plain);
             await this.SomeData.PlainToShadowAsync(plain.SomeData);
@@ -556,7 +556,7 @@ namespace GenericsTests
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public new async Task<bool> DetectsAnyChangeAsync(GenericsTests.Pocos.Extendee2 plain, GenericsTests.Pocos.Extendee2 latest = null)
+        public new async Task<bool> DetectsAnyChangeAsync(Pocos.GenericsTests.Extendee2 plain, Pocos.GenericsTests.Extendee2 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -577,9 +577,9 @@ namespace GenericsTests
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public new GenericsTests.Pocos.Extendee2 CreateEmptyPoco()
+        public new Pocos.GenericsTests.Extendee2 CreateEmptyPoco()
         {
-            return new GenericsTests.Pocos.Extendee2();
+            return new Pocos.GenericsTests.Extendee2();
         }
     }
 }

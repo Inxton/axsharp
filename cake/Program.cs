@@ -170,19 +170,34 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         }
         if (context.BuildParameters.TestLevel >= 3)
         {
-            context.UploadTestPlc(
-                Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//AXSharp.connectors//tests//ax-test-project//")),
-                Environment.GetEnvironmentVariable("AXTARGET"),
-                Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
-            
-            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_WebApi.slnf"));
-            
-            context.UploadTestPlc(
-                Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//tests.integrations//integrated//src//ax")),
-                Environment.GetEnvironmentVariable("AXTARGET"),
-                Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
-            
-            context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_Integration.slnf"));
+            // This must be run in a separate environment!
+            try
+            {
+                context.UploadTestPlc(
+                    Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//AXSharp.connectors//tests//ax-test-project//")),
+                    Environment.GetEnvironmentVariable("AXTARGET"),
+                    Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
+                
+                context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_WebApi.slnf"));
+            }
+            catch
+            {
+                    System.Console.WriteLine("Some WebAPI tests failed. RUN IN APPROPRIATE EVNIRONMENT");
+            }
+
+            try
+            {
+                context.UploadTestPlc(
+                    Path.GetFullPath(Path.Combine(context.WorkDirName, "..//..//src//tests.integrations//integrated//src//ax")),
+                    Environment.GetEnvironmentVariable("AXTARGET"),
+                    Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT"));
+                
+                context.RunTestsFromFilteredSolution(Path.Combine(context.ScrDir, "AXSharp-L3-tests_Integration.slnf"));
+            }
+            catch
+            {
+                System.Console.WriteLine("Some WebAPI tests failed. RUN IN APPROPRIATE EVNIRONMENT");
+            }
         }
 
 

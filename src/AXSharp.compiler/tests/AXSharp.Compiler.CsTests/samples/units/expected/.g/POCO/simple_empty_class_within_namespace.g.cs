@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace sampleNamespace
+namespace Pocos
 {
-    namespace Pocos
+    namespace sampleNamespace
     {
         public partial class simple_empty_class_within_namespace : AXSharp.Connector.IPlain
         {

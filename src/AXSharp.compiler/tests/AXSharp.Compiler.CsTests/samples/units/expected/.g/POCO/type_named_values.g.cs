@@ -2,9 +2,9 @@ using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 
-namespace NamedValuesNamespace
+namespace Pocos
 {
-    namespace Pocos
+    namespace NamedValuesNamespace
     {
         public partial class using_type_named_values : AXSharp.Connector.IPlain
         {

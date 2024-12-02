@@ -1,13 +1,13 @@
 using System;
 using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
-using FileWithUsingsSimpleFirstLevelNamespace.Pocos;
-using FileWithUsingsSimpleQualifiedNamespace.Qualified.Pocos;
-using FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Pocos;
+using Pocos.FileWithUsingsSimpleFirstLevelNamespace;
+using Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified;
+using Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo;
 
-namespace FileWithUsingsSimpleFirstLevelNamespace
+namespace Pocos
 {
-    namespace Pocos
+    namespace FileWithUsingsSimpleFirstLevelNamespace
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {
@@ -16,11 +16,8 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             }
         }
     }
-}
 
-namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
-{
-    namespace Pocos
+    namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {
@@ -29,13 +26,10 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             }
         }
     }
-}
 
-namespace FileWithUsingsHelloLevelOne
-{
-    namespace FileWithUsingsHelloLevelTwo
+    namespace FileWithUsingsHelloLevelOne
     {
-        namespace Pocos
+        namespace FileWithUsingsHelloLevelTwo
         {
             public partial class Hello : AXSharp.Connector.IPlain
             {
@@ -45,11 +39,8 @@ namespace FileWithUsingsHelloLevelOne
             }
         }
     }
-}
 
-namespace ExampleNamespace
-{
-    namespace Pocos
+    namespace ExampleNamespace
     {
         public partial class Hello : AXSharp.Connector.IPlain
         {

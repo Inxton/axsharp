@@ -12,17 +12,14 @@ namespace Pocos
 
         public Boolean isRunning { get; set; }
     }
-}
 
-namespace Pocos
-{
     public partial class Vehicle : AXSharp.Connector.IPlain
     {
         public Vehicle()
         {
         }
 
-        public global::Pocos.Motor m { get; set; } = new global::Pocos.Motor();
+        public Motor m { get; set; } = new Motor();
         public Int16 displacement { get; set; }
     }
 }
