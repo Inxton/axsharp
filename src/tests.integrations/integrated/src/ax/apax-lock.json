@@ -41,9 +41,9 @@
     },
     "@ax/sld": {
       "name": "@ax/sld",
-      "version": "3.0.6",
-      "integrity": "sha512-j90GJh1jMIpvB521EIxvTq6rhr8OO+6qqwsXn2Of7GxQrzwWi+NEXe9ss/ccFAKL0I7aEGD+SIW8jVHUgMAvow==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-3.0.6.tgz",
+      "version": "3.0.8",
+      "integrity": "sha512-4YSQf0eXLTGN0LmBBKFYUyhuhZAxH11W+kZfHAjXy5cIkJhhf5g50d/GDZHj5q5hcY/GEIerKLL+B3RUBejHgg==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-3.0.8.tgz",
       "cpu": [
         "x64"
       ],
@@ -617,6 +617,13 @@
       ],
       "dependencies": {}
     },
+    "@ax/st-docs": {
+      "name": "@ax/st-docs",
+      "version": "7.1.87",
+      "integrity": "sha512-J5BthD1BR0fu1dkqQFyW3yOByC14TxhG+b/NUl2zXkSqjnsAQQbNtdheZquZ225x0qkJAR8wRrBx9Kr3QdYg8w==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-7.1.87.tgz",
+      "dependencies": {}
+    },
     "@ax/system-strings": {
       "name": "@ax/system-strings",
       "version": "7.1.47",
@@ -677,13 +684,6 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
-    },
-    "@ax/st-docs": {
-      "name": "@ax/st-docs",
-      "version": "7.1.87",
-      "integrity": "sha512-J5BthD1BR0fu1dkqQFyW3yOByC14TxhG+b/NUl2zXkSqjnsAQQbNtdheZquZ225x0qkJAR8wRrBx9Kr3QdYg8w==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-7.1.87.tgz",
       "dependencies": {}
     },
     "@ax/system-math": {

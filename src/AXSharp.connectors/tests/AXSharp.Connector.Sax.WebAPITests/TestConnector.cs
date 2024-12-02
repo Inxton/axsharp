@@ -51,6 +51,8 @@ public static class TestConnector
                     securePlc = new(ConnectorAdapterBuilder.Build()
                         .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USERNAME"),
                             Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));
+                    
+                    SecurePlc.Connector.BuildAndStart();
                 }
                 return securePlc;
             }
