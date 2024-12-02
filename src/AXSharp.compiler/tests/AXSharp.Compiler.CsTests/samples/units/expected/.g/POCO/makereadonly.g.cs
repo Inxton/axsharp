@@ -12,11 +12,8 @@ namespace Pocos
             {
             }
 
-            [ReadOnly()]
             public string makeReadOnceMember { get; set; } = string.Empty;
             public string someOtherMember { get; set; } = string.Empty;
-
-            [ReadOnly()]
             public makereadonly.ComplexMember makeReadComplexMember { get; set; } = new makereadonly.ComplexMember();
             public makereadonly.ComplexMember someotherComplexMember { get; set; } = new makereadonly.ComplexMember();
         }

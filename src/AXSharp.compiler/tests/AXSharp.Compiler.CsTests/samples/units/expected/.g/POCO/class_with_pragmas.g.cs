@@ -12,7 +12,6 @@ namespace Pocos
             {
             }
 
-            [Container(Layout.Wrap)]
             public ClassWithPragmasNamespace.ComplexType1 myComplexType { get; set; } = new ClassWithPragmasNamespace.ComplexType1();
         }
 

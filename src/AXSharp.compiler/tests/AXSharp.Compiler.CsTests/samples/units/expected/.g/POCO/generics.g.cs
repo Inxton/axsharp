@@ -29,8 +29,6 @@ namespace Pocos
             {
             }
 
-            [AXOpen.Data.AxoDataEntityAttribute]
-            [Container(Layout.Stack)]
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Shared Header")]
             public GenericsTests.SomeTypeToBeGeneric SomeData { get; set; } = new GenericsTests.SomeTypeToBeGeneric();
         }
