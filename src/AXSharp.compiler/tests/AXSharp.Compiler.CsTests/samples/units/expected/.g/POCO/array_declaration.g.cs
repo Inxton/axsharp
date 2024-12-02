@@ -11,7 +11,7 @@ namespace Pocos
             public array_declaration_class()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(complex, () => new Pocos.ArrayDeclarationSimpleNamespace.some_complex_type(), new[] { (1, 100) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(complex, () => new global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type(), new[] { (1, 100) });
 #pragma warning restore CS0612
             }
 

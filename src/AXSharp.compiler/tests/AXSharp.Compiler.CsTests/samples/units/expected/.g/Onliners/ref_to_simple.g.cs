@@ -29,24 +29,24 @@ namespace RefToSimple
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RefToSimple.ref_to_simple> OnlineToPlainAsync()
+        public async Task<global::Pocos.RefToSimple.ref_to_simple> OnlineToPlainAsync()
         {
-            Pocos.RefToSimple.ref_to_simple plain = new Pocos.RefToSimple.ref_to_simple();
+            global::Pocos.RefToSimple.ref_to_simple plain = new global::Pocos.RefToSimple.ref_to_simple();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RefToSimple.ref_to_simple> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RefToSimple.ref_to_simple> _OnlineToPlainNoacAsync()
         {
-            Pocos.RefToSimple.ref_to_simple plain = new Pocos.RefToSimple.ref_to_simple();
+            global::Pocos.RefToSimple.ref_to_simple plain = new global::Pocos.RefToSimple.ref_to_simple();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RefToSimple.ref_to_simple> _OnlineToPlainNoacAsync(Pocos.RefToSimple.ref_to_simple plain)
+        protected async Task<global::Pocos.RefToSimple.ref_to_simple> _OnlineToPlainNoacAsync(global::Pocos.RefToSimple.ref_to_simple plain)
         {
             return plain;
         }
@@ -56,14 +56,14 @@ namespace RefToSimple
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RefToSimple.ref_to_simple plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RefToSimple.ref_to_simple plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RefToSimple.ref_to_simple plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RefToSimple.ref_to_simple plain)
         {
         }
 
@@ -72,13 +72,13 @@ namespace RefToSimple
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RefToSimple.ref_to_simple> ShadowToPlainAsync()
+        public async Task<global::Pocos.RefToSimple.ref_to_simple> ShadowToPlainAsync()
         {
-            Pocos.RefToSimple.ref_to_simple plain = new Pocos.RefToSimple.ref_to_simple();
+            global::Pocos.RefToSimple.ref_to_simple plain = new global::Pocos.RefToSimple.ref_to_simple();
             return plain;
         }
 
-        protected async Task<Pocos.RefToSimple.ref_to_simple> ShadowToPlainAsync(Pocos.RefToSimple.ref_to_simple plain)
+        protected async Task<global::Pocos.RefToSimple.ref_to_simple> ShadowToPlainAsync(global::Pocos.RefToSimple.ref_to_simple plain)
         {
             return plain;
         }
@@ -88,7 +88,7 @@ namespace RefToSimple
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RefToSimple.ref_to_simple plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RefToSimple.ref_to_simple plain)
         {
             return this.RetrievePrimitives();
         }
@@ -103,7 +103,7 @@ namespace RefToSimple
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RefToSimple.ref_to_simple plain, Pocos.RefToSimple.ref_to_simple latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RefToSimple.ref_to_simple plain, global::Pocos.RefToSimple.ref_to_simple latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -120,9 +120,9 @@ namespace RefToSimple
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RefToSimple.ref_to_simple CreateEmptyPoco()
+        public global::Pocos.RefToSimple.ref_to_simple CreateEmptyPoco()
         {
-            return new Pocos.RefToSimple.ref_to_simple();
+            return new global::Pocos.RefToSimple.ref_to_simple();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -226,9 +226,9 @@ namespace RefToSimple
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RefToSimple.referenced> OnlineToPlainAsync()
+        public async Task<global::Pocos.RefToSimple.referenced> OnlineToPlainAsync()
         {
-            Pocos.RefToSimple.referenced plain = new Pocos.RefToSimple.referenced();
+            global::Pocos.RefToSimple.referenced plain = new global::Pocos.RefToSimple.referenced();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.b = b.LastValue;
             return plain;
@@ -236,16 +236,16 @@ namespace RefToSimple
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RefToSimple.referenced> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RefToSimple.referenced> _OnlineToPlainNoacAsync()
         {
-            Pocos.RefToSimple.referenced plain = new Pocos.RefToSimple.referenced();
+            global::Pocos.RefToSimple.referenced plain = new global::Pocos.RefToSimple.referenced();
             plain.b = b.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RefToSimple.referenced> _OnlineToPlainNoacAsync(Pocos.RefToSimple.referenced plain)
+        protected async Task<global::Pocos.RefToSimple.referenced> _OnlineToPlainNoacAsync(global::Pocos.RefToSimple.referenced plain)
         {
             plain.b = b.LastValue;
             return plain;
@@ -256,7 +256,7 @@ namespace RefToSimple
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RefToSimple.referenced plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RefToSimple.referenced plain)
         {
 #pragma warning disable CS0612
             b.LethargicWrite(plain.b);
@@ -266,7 +266,7 @@ namespace RefToSimple
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RefToSimple.referenced plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RefToSimple.referenced plain)
         {
 #pragma warning disable CS0612
             b.LethargicWrite(plain.b);
@@ -278,14 +278,14 @@ namespace RefToSimple
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RefToSimple.referenced> ShadowToPlainAsync()
+        public async Task<global::Pocos.RefToSimple.referenced> ShadowToPlainAsync()
         {
-            Pocos.RefToSimple.referenced plain = new Pocos.RefToSimple.referenced();
+            global::Pocos.RefToSimple.referenced plain = new global::Pocos.RefToSimple.referenced();
             plain.b = b.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.RefToSimple.referenced> ShadowToPlainAsync(Pocos.RefToSimple.referenced plain)
+        protected async Task<global::Pocos.RefToSimple.referenced> ShadowToPlainAsync(global::Pocos.RefToSimple.referenced plain)
         {
             plain.b = b.Shadow;
             return plain;
@@ -296,7 +296,7 @@ namespace RefToSimple
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RefToSimple.referenced plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RefToSimple.referenced plain)
         {
             b.Shadow = plain.b;
             return this.RetrievePrimitives();
@@ -312,7 +312,7 @@ namespace RefToSimple
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RefToSimple.referenced plain, Pocos.RefToSimple.referenced latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RefToSimple.referenced plain, global::Pocos.RefToSimple.referenced latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -331,9 +331,9 @@ namespace RefToSimple
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RefToSimple.referenced CreateEmptyPoco()
+        public global::Pocos.RefToSimple.referenced CreateEmptyPoco()
         {
-            return new Pocos.RefToSimple.referenced();
+            return new global::Pocos.RefToSimple.referenced();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

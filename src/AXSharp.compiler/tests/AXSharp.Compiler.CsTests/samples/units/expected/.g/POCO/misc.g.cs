@@ -65,7 +65,7 @@ namespace Pocos
             public ClassWithArrays()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, () => new Pocos.UnknownArraysShouldNotBeTraspiled.Complex(), new[] { (0, 10) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, () => new global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex(), new[] { (0, 10) });
 #pragma warning restore CS0612
             }
 

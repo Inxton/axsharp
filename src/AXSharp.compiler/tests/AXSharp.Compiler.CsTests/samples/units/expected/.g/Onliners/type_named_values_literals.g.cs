@@ -42,9 +42,9 @@ namespace Simatic.Ax.StateFramework
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.Simatic.Ax.StateFramework.using_type_named_values> OnlineToPlainAsync()
+        public async Task<global::Pocos.Simatic.Ax.StateFramework.using_type_named_values> OnlineToPlainAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new Pocos.Simatic.Ax.StateFramework.using_type_named_values();
+            global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new global::Pocos.Simatic.Ax.StateFramework.using_type_named_values();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.LColors = LColors.LastValue;
             return plain;
@@ -52,16 +52,16 @@ namespace Simatic.Ax.StateFramework
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.Simatic.Ax.StateFramework.using_type_named_values> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.Simatic.Ax.StateFramework.using_type_named_values> _OnlineToPlainNoacAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new Pocos.Simatic.Ax.StateFramework.using_type_named_values();
+            global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new global::Pocos.Simatic.Ax.StateFramework.using_type_named_values();
             plain.LColors = LColors.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Simatic.Ax.StateFramework.using_type_named_values> _OnlineToPlainNoacAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
+        protected async Task<global::Pocos.Simatic.Ax.StateFramework.using_type_named_values> _OnlineToPlainNoacAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
         {
             plain.LColors = LColors.LastValue;
             return plain;
@@ -72,7 +72,7 @@ namespace Simatic.Ax.StateFramework
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
         {
 #pragma warning disable CS0612
             LColors.LethargicWrite(plain.LColors);
@@ -82,7 +82,7 @@ namespace Simatic.Ax.StateFramework
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
         {
 #pragma warning disable CS0612
             LColors.LethargicWrite(plain.LColors);
@@ -94,14 +94,14 @@ namespace Simatic.Ax.StateFramework
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.Simatic.Ax.StateFramework.using_type_named_values> ShadowToPlainAsync()
+        public async Task<global::Pocos.Simatic.Ax.StateFramework.using_type_named_values> ShadowToPlainAsync()
         {
-            Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new Pocos.Simatic.Ax.StateFramework.using_type_named_values();
+            global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain = new global::Pocos.Simatic.Ax.StateFramework.using_type_named_values();
             plain.LColors = LColors.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.Simatic.Ax.StateFramework.using_type_named_values> ShadowToPlainAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
+        protected async Task<global::Pocos.Simatic.Ax.StateFramework.using_type_named_values> ShadowToPlainAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
         {
             plain.LColors = LColors.Shadow;
             return plain;
@@ -112,7 +112,7 @@ namespace Simatic.Ax.StateFramework
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain)
         {
             LColors.Shadow = plain.LColors;
             return this.RetrievePrimitives();
@@ -128,7 +128,7 @@ namespace Simatic.Ax.StateFramework
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.Simatic.Ax.StateFramework.using_type_named_values plain, Pocos.Simatic.Ax.StateFramework.using_type_named_values latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Simatic.Ax.StateFramework.using_type_named_values plain, global::Pocos.Simatic.Ax.StateFramework.using_type_named_values latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -147,9 +147,9 @@ namespace Simatic.Ax.StateFramework
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.Simatic.Ax.StateFramework.using_type_named_values CreateEmptyPoco()
+        public global::Pocos.Simatic.Ax.StateFramework.using_type_named_values CreateEmptyPoco()
         {
-            return new Pocos.Simatic.Ax.StateFramework.using_type_named_values();
+            return new global::Pocos.Simatic.Ax.StateFramework.using_type_named_values();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

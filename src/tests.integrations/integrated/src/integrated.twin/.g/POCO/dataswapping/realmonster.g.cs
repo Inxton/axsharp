@@ -11,7 +11,7 @@ namespace Pocos
             public RealMonsterBase()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new Pocos.RealMonsterData.DriveBaseNested(), new[] { (0, 3) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new global::Pocos.RealMonsterData.DriveBaseNested(), new[] { (0, 3) });
 #pragma warning restore CS0612
             }
 

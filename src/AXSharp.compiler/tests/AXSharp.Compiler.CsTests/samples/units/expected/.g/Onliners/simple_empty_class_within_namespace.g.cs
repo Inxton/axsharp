@@ -29,24 +29,24 @@ namespace sampleNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.sampleNamespace.simple_empty_class_within_namespace> OnlineToPlainAsync()
+        public async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> OnlineToPlainAsync()
         {
-            Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new Pocos.sampleNamespace.simple_empty_class_within_namespace();
+            global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new global::Pocos.sampleNamespace.simple_empty_class_within_namespace();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.sampleNamespace.simple_empty_class_within_namespace> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> _OnlineToPlainNoacAsync()
         {
-            Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new Pocos.sampleNamespace.simple_empty_class_within_namespace();
+            global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new global::Pocos.sampleNamespace.simple_empty_class_within_namespace();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.sampleNamespace.simple_empty_class_within_namespace> _OnlineToPlainNoacAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        protected async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> _OnlineToPlainNoacAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
         {
             return plain;
         }
@@ -56,14 +56,14 @@ namespace sampleNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
         {
         }
 
@@ -72,13 +72,13 @@ namespace sampleNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.sampleNamespace.simple_empty_class_within_namespace> ShadowToPlainAsync()
+        public async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> ShadowToPlainAsync()
         {
-            Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new Pocos.sampleNamespace.simple_empty_class_within_namespace();
+            global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new global::Pocos.sampleNamespace.simple_empty_class_within_namespace();
             return plain;
         }
 
-        protected async Task<Pocos.sampleNamespace.simple_empty_class_within_namespace> ShadowToPlainAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        protected async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> ShadowToPlainAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
         {
             return plain;
         }
@@ -88,7 +88,7 @@ namespace sampleNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
         {
             return this.RetrievePrimitives();
         }
@@ -103,7 +103,7 @@ namespace sampleNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.sampleNamespace.simple_empty_class_within_namespace plain, Pocos.sampleNamespace.simple_empty_class_within_namespace latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain, global::Pocos.sampleNamespace.simple_empty_class_within_namespace latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -120,9 +120,9 @@ namespace sampleNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.sampleNamespace.simple_empty_class_within_namespace CreateEmptyPoco()
+        public global::Pocos.sampleNamespace.simple_empty_class_within_namespace CreateEmptyPoco()
         {
-            return new Pocos.sampleNamespace.simple_empty_class_within_namespace();
+            return new global::Pocos.sampleNamespace.simple_empty_class_within_namespace();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

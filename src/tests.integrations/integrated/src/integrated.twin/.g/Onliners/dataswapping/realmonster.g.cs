@@ -46,9 +46,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.RealMonsterBase> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.RealMonsterBase> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.RealMonsterBase plain = new Pocos.RealMonsterData.RealMonsterBase();
+            global::Pocos.RealMonsterData.RealMonsterBase plain = new global::Pocos.RealMonsterData.RealMonsterBase();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
@@ -64,9 +64,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RealMonsterData.RealMonsterBase> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RealMonsterData.RealMonsterBase> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.RealMonsterBase plain = new Pocos.RealMonsterData.RealMonsterBase();
+            global::Pocos.RealMonsterData.RealMonsterBase plain = new global::Pocos.RealMonsterData.RealMonsterBase();
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
             plain.TestDate = TestDate.LastValue;
@@ -81,7 +81,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.RealMonsterBase> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.RealMonsterBase plain)
+        protected async Task<global::Pocos.RealMonsterData.RealMonsterBase> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
         {
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
@@ -100,7 +100,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.RealMonsterBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
         {
 #pragma warning disable CS0612
             Description.LethargicWrite(plain.Description);
@@ -130,7 +130,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.RealMonsterBase plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
         {
 #pragma warning disable CS0612
             Description.LethargicWrite(plain.Description);
@@ -162,9 +162,9 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.RealMonsterBase> ShadowToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.RealMonsterBase> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.RealMonsterBase plain = new Pocos.RealMonsterData.RealMonsterBase();
+            global::Pocos.RealMonsterData.RealMonsterBase plain = new global::Pocos.RealMonsterData.RealMonsterBase();
             plain.Description = Description.Shadow;
             plain.Id = Id.Shadow;
             plain.TestDate = TestDate.Shadow;
@@ -175,7 +175,7 @@ namespace RealMonsterData
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.RealMonsterBase> ShadowToPlainAsync(Pocos.RealMonsterData.RealMonsterBase plain)
+        protected async Task<global::Pocos.RealMonsterData.RealMonsterBase> ShadowToPlainAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
         {
             plain.Description = Description.Shadow;
             plain.Id = Id.Shadow;
@@ -192,7 +192,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.RealMonsterBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
         {
             Description.Shadow = plain.Description;
             Id.Shadow = plain.Id;
@@ -216,7 +216,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.RealMonsterBase plain, Pocos.RealMonsterData.RealMonsterBase latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.RealMonsterBase plain, global::Pocos.RealMonsterData.RealMonsterBase latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -255,9 +255,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RealMonsterData.RealMonsterBase CreateEmptyPoco()
+        public global::Pocos.RealMonsterData.RealMonsterBase CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.RealMonsterBase();
+            return new global::Pocos.RealMonsterData.RealMonsterBase();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -355,9 +355,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public new async Task<Pocos.RealMonsterData.RealMonster> OnlineToPlainAsync()
+        public new async Task<global::Pocos.RealMonsterData.RealMonster> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.RealMonster plain = new Pocos.RealMonsterData.RealMonster();
+            global::Pocos.RealMonsterData.RealMonster plain = new global::Pocos.RealMonsterData.RealMonster();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -370,9 +370,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public new async Task<Pocos.RealMonsterData.RealMonster> _OnlineToPlainNoacAsync()
+        public new async Task<global::Pocos.RealMonsterData.RealMonster> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.RealMonster plain = new Pocos.RealMonsterData.RealMonster();
+            global::Pocos.RealMonsterData.RealMonster plain = new global::Pocos.RealMonsterData.RealMonster();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -384,7 +384,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.RealMonster> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.RealMonster plain)
+        protected async Task<global::Pocos.RealMonsterData.RealMonster> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.RealMonster plain)
         {
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -400,7 +400,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.RealMonster plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonster plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -411,7 +411,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.RealMonster plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.RealMonster plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -424,15 +424,15 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public new async Task<Pocos.RealMonsterData.RealMonster> ShadowToPlainAsync()
+        public new async Task<global::Pocos.RealMonsterData.RealMonster> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.RealMonster plain = new Pocos.RealMonsterData.RealMonster();
+            global::Pocos.RealMonsterData.RealMonster plain = new global::Pocos.RealMonsterData.RealMonster();
             await base.ShadowToPlainAsync(plain);
             plain.DriveA = await DriveA.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.RealMonster> ShadowToPlainAsync(Pocos.RealMonsterData.RealMonster plain)
+        protected async Task<global::Pocos.RealMonsterData.RealMonster> ShadowToPlainAsync(global::Pocos.RealMonsterData.RealMonster plain)
         {
             await base.ShadowToPlainAsync(plain);
             plain.DriveA = await DriveA.ShadowToPlainAsync();
@@ -444,7 +444,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.RealMonster plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.RealMonster plain)
         {
             await base.PlainToShadowAsync(plain);
             await this.DriveA.PlainToShadowAsync(plain.DriveA);
@@ -461,7 +461,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public new async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.RealMonster plain, Pocos.RealMonsterData.RealMonster latest = null)
+        public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.RealMonster plain, global::Pocos.RealMonsterData.RealMonster latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -482,9 +482,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public new Pocos.RealMonsterData.RealMonster CreateEmptyPoco()
+        public new global::Pocos.RealMonsterData.RealMonster CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.RealMonster();
+            return new global::Pocos.RealMonsterData.RealMonster();
         }
     }
 
@@ -521,9 +521,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.DriveBaseNested> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.DriveBaseNested> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.DriveBaseNested plain = new Pocos.RealMonsterData.DriveBaseNested();
+            global::Pocos.RealMonsterData.DriveBaseNested plain = new global::Pocos.RealMonsterData.DriveBaseNested();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -537,9 +537,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RealMonsterData.DriveBaseNested> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RealMonsterData.DriveBaseNested> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.DriveBaseNested plain = new Pocos.RealMonsterData.DriveBaseNested();
+            global::Pocos.RealMonsterData.DriveBaseNested plain = new global::Pocos.RealMonsterData.DriveBaseNested();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -552,7 +552,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.DriveBaseNested> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.DriveBaseNested plain)
+        protected async Task<global::Pocos.RealMonsterData.DriveBaseNested> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
         {
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -569,7 +569,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.DriveBaseNested plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -591,7 +591,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.DriveBaseNested plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -615,9 +615,9 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.DriveBaseNested> ShadowToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.DriveBaseNested> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.DriveBaseNested plain = new Pocos.RealMonsterData.DriveBaseNested();
+            global::Pocos.RealMonsterData.DriveBaseNested plain = new global::Pocos.RealMonsterData.DriveBaseNested();
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
             plain.Acc = Acc.Shadow;
@@ -626,7 +626,7 @@ namespace RealMonsterData
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.DriveBaseNested> ShadowToPlainAsync(Pocos.RealMonsterData.DriveBaseNested plain)
+        protected async Task<global::Pocos.RealMonsterData.DriveBaseNested> ShadowToPlainAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
         {
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
@@ -641,7 +641,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.DriveBaseNested plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
         {
             Position.Shadow = plain.Position;
             Velo.Shadow = plain.Velo;
@@ -661,7 +661,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.DriveBaseNested plain, Pocos.RealMonsterData.DriveBaseNested latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.DriveBaseNested plain, global::Pocos.RealMonsterData.DriveBaseNested latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -688,9 +688,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RealMonsterData.DriveBaseNested CreateEmptyPoco()
+        public global::Pocos.RealMonsterData.DriveBaseNested CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.DriveBaseNested();
+            return new global::Pocos.RealMonsterData.DriveBaseNested();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -802,9 +802,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelOne> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelOne> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelOne plain = new Pocos.RealMonsterData.NestedLevelOne();
+            global::Pocos.RealMonsterData.NestedLevelOne plain = new global::Pocos.RealMonsterData.NestedLevelOne();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -818,9 +818,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RealMonsterData.NestedLevelOne> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelOne> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.NestedLevelOne plain = new Pocos.RealMonsterData.NestedLevelOne();
+            global::Pocos.RealMonsterData.NestedLevelOne plain = new global::Pocos.RealMonsterData.NestedLevelOne();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -833,7 +833,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.NestedLevelOne> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.NestedLevelOne plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelOne> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
         {
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -850,7 +850,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.NestedLevelOne plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -872,7 +872,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.NestedLevelOne plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -896,9 +896,9 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelOne> ShadowToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelOne> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelOne plain = new Pocos.RealMonsterData.NestedLevelOne();
+            global::Pocos.RealMonsterData.NestedLevelOne plain = new global::Pocos.RealMonsterData.NestedLevelOne();
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
             plain.Acc = Acc.Shadow;
@@ -907,7 +907,7 @@ namespace RealMonsterData
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.NestedLevelOne> ShadowToPlainAsync(Pocos.RealMonsterData.NestedLevelOne plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelOne> ShadowToPlainAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
         {
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
@@ -922,7 +922,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.NestedLevelOne plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
         {
             Position.Shadow = plain.Position;
             Velo.Shadow = plain.Velo;
@@ -942,7 +942,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.NestedLevelOne plain, Pocos.RealMonsterData.NestedLevelOne latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.NestedLevelOne plain, global::Pocos.RealMonsterData.NestedLevelOne latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -969,9 +969,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RealMonsterData.NestedLevelOne CreateEmptyPoco()
+        public global::Pocos.RealMonsterData.NestedLevelOne CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.NestedLevelOne();
+            return new global::Pocos.RealMonsterData.NestedLevelOne();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1083,9 +1083,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelTwo> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelTwo> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelTwo plain = new Pocos.RealMonsterData.NestedLevelTwo();
+            global::Pocos.RealMonsterData.NestedLevelTwo plain = new global::Pocos.RealMonsterData.NestedLevelTwo();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -1099,9 +1099,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RealMonsterData.NestedLevelTwo> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelTwo> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.NestedLevelTwo plain = new Pocos.RealMonsterData.NestedLevelTwo();
+            global::Pocos.RealMonsterData.NestedLevelTwo plain = new global::Pocos.RealMonsterData.NestedLevelTwo();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -1114,7 +1114,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.NestedLevelTwo> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.NestedLevelTwo plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelTwo> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
         {
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -1131,7 +1131,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.NestedLevelTwo plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1153,7 +1153,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.NestedLevelTwo plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1177,9 +1177,9 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelTwo> ShadowToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelTwo> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelTwo plain = new Pocos.RealMonsterData.NestedLevelTwo();
+            global::Pocos.RealMonsterData.NestedLevelTwo plain = new global::Pocos.RealMonsterData.NestedLevelTwo();
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
             plain.Acc = Acc.Shadow;
@@ -1188,7 +1188,7 @@ namespace RealMonsterData
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.NestedLevelTwo> ShadowToPlainAsync(Pocos.RealMonsterData.NestedLevelTwo plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelTwo> ShadowToPlainAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
         {
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
@@ -1203,7 +1203,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.NestedLevelTwo plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
         {
             Position.Shadow = plain.Position;
             Velo.Shadow = plain.Velo;
@@ -1223,7 +1223,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.NestedLevelTwo plain, Pocos.RealMonsterData.NestedLevelTwo latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain, global::Pocos.RealMonsterData.NestedLevelTwo latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -1250,9 +1250,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RealMonsterData.NestedLevelTwo CreateEmptyPoco()
+        public global::Pocos.RealMonsterData.NestedLevelTwo CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.NestedLevelTwo();
+            return new global::Pocos.RealMonsterData.NestedLevelTwo();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1362,9 +1362,9 @@ namespace RealMonsterData
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelThree> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelThree> OnlineToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelThree plain = new Pocos.RealMonsterData.NestedLevelThree();
+            global::Pocos.RealMonsterData.NestedLevelThree plain = new global::Pocos.RealMonsterData.NestedLevelThree();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -1375,9 +1375,9 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.RealMonsterData.NestedLevelThree> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelThree> _OnlineToPlainNoacAsync()
         {
-            Pocos.RealMonsterData.NestedLevelThree plain = new Pocos.RealMonsterData.NestedLevelThree();
+            global::Pocos.RealMonsterData.NestedLevelThree plain = new global::Pocos.RealMonsterData.NestedLevelThree();
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -1387,7 +1387,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.RealMonsterData.NestedLevelThree> _OnlineToPlainNoacAsync(Pocos.RealMonsterData.NestedLevelThree plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelThree> _OnlineToPlainNoacAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
         {
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
@@ -1401,7 +1401,7 @@ namespace RealMonsterData
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.RealMonsterData.NestedLevelThree plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1420,7 +1420,7 @@ namespace RealMonsterData
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.RealMonsterData.NestedLevelThree plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1441,9 +1441,9 @@ namespace RealMonsterData
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.RealMonsterData.NestedLevelThree> ShadowToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelThree> ShadowToPlainAsync()
         {
-            Pocos.RealMonsterData.NestedLevelThree plain = new Pocos.RealMonsterData.NestedLevelThree();
+            global::Pocos.RealMonsterData.NestedLevelThree plain = new global::Pocos.RealMonsterData.NestedLevelThree();
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
             plain.Acc = Acc.Shadow;
@@ -1451,7 +1451,7 @@ namespace RealMonsterData
             return plain;
         }
 
-        protected async Task<Pocos.RealMonsterData.NestedLevelThree> ShadowToPlainAsync(Pocos.RealMonsterData.NestedLevelThree plain)
+        protected async Task<global::Pocos.RealMonsterData.NestedLevelThree> ShadowToPlainAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
         {
             plain.Position = Position.Shadow;
             plain.Velo = Velo.Shadow;
@@ -1465,7 +1465,7 @@ namespace RealMonsterData
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.RealMonsterData.NestedLevelThree plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
         {
             Position.Shadow = plain.Position;
             Velo.Shadow = plain.Velo;
@@ -1484,7 +1484,7 @@ namespace RealMonsterData
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.RealMonsterData.NestedLevelThree plain, Pocos.RealMonsterData.NestedLevelThree latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.RealMonsterData.NestedLevelThree plain, global::Pocos.RealMonsterData.NestedLevelThree latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -1509,9 +1509,9 @@ namespace RealMonsterData
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.RealMonsterData.NestedLevelThree CreateEmptyPoco()
+        public global::Pocos.RealMonsterData.NestedLevelThree CreateEmptyPoco()
         {
-            return new Pocos.RealMonsterData.NestedLevelThree();
+            return new global::Pocos.RealMonsterData.NestedLevelThree();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

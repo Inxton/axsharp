@@ -11,7 +11,7 @@ namespace Pocos
             public MonsterBase()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new Pocos.MonsterData.DriveBase(), new[] { (0, 3) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new global::Pocos.MonsterData.DriveBase(), new[] { (0, 3) });
 #pragma warning restore CS0612
             }
 

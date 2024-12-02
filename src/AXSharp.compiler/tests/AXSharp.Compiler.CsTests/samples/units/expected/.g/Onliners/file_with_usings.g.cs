@@ -32,24 +32,24 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> OnlineToPlainAsync()
         {
-            Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
+            global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> _OnlineToPlainNoacAsync()
         {
-            Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
+            global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> _OnlineToPlainNoacAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        protected async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> _OnlineToPlainNoacAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
         {
             return plain;
         }
@@ -59,14 +59,14 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
         {
         }
 
@@ -75,13 +75,13 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> ShadowToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> ShadowToPlainAsync()
         {
-            Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
+            global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
             return plain;
         }
 
-        protected async Task<Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> ShadowToPlainAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        protected async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> ShadowToPlainAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
         {
             return plain;
         }
@@ -91,7 +91,7 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
         {
             return this.RetrievePrimitives();
         }
@@ -106,7 +106,7 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain, Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain, global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -123,9 +123,9 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello CreateEmptyPoco()
+        public global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello CreateEmptyPoco()
         {
-            return new Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
+            return new global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -229,24 +229,24 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> OnlineToPlainAsync()
         {
-            Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
+            global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> _OnlineToPlainNoacAsync()
         {
-            Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
+            global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> _OnlineToPlainNoacAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        protected async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> _OnlineToPlainNoacAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
         {
             return plain;
         }
@@ -256,14 +256,14 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
         {
         }
 
@@ -272,13 +272,13 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> ShadowToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> ShadowToPlainAsync()
         {
-            Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
+            global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
             return plain;
         }
 
-        protected async Task<Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> ShadowToPlainAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        protected async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> ShadowToPlainAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
         {
             return plain;
         }
@@ -288,7 +288,7 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
         {
             return this.RetrievePrimitives();
         }
@@ -303,7 +303,7 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain, Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain, global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -320,9 +320,9 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello CreateEmptyPoco()
+        public global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello CreateEmptyPoco()
         {
-            return new Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
+            return new global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -428,24 +428,24 @@ namespace FileWithUsingsHelloLevelOne
                 return await (dynamic)this.OnlineToPlainAsync();
             }
 
-            public async Task<Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> OnlineToPlainAsync()
+            public async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> OnlineToPlainAsync()
             {
-                Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
+                global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
                 await this.ReadAsync<IgnoreOnPocoOperation>();
                 return plain;
             }
 
             [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-            public async Task<Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> _OnlineToPlainNoacAsync()
+            public async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> _OnlineToPlainNoacAsync()
             {
-                Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
+                global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
                 return plain;
             }
 
             [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-            protected async Task<Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> _OnlineToPlainNoacAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            protected async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> _OnlineToPlainNoacAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
             {
                 return plain;
             }
@@ -455,14 +455,14 @@ namespace FileWithUsingsHelloLevelOne
                 await this.PlainToOnlineAsync((dynamic)plain);
             }
 
-            public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
             {
                 return await this.WriteAsync<IgnoreOnPocoOperation>();
             }
 
             [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-            public async Task _PlainToOnlineNoacAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            public async Task _PlainToOnlineNoacAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
             {
             }
 
@@ -471,13 +471,13 @@ namespace FileWithUsingsHelloLevelOne
                 return await (dynamic)this.ShadowToPlainAsync();
             }
 
-            public async Task<Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> ShadowToPlainAsync()
+            public async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> ShadowToPlainAsync()
             {
-                Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
+                global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
                 return plain;
             }
 
-            protected async Task<Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> ShadowToPlainAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            protected async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> ShadowToPlainAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
             {
                 return plain;
             }
@@ -487,7 +487,7 @@ namespace FileWithUsingsHelloLevelOne
                 await this.PlainToShadowAsync((dynamic)plain);
             }
 
-            public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
             {
                 return this.RetrievePrimitives();
             }
@@ -502,7 +502,7 @@ namespace FileWithUsingsHelloLevelOne
             ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
             ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
             ///</summary>
-            public async Task<bool> DetectsAnyChangeAsync(Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain, Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello latest = null)
+            public async Task<bool> DetectsAnyChangeAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain, global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello latest = null)
             {
                 if (latest == null)
                     latest = await this._OnlineToPlainNoacAsync();
@@ -519,9 +519,9 @@ namespace FileWithUsingsHelloLevelOne
                 this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
             }
 
-            public Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello CreateEmptyPoco()
+            public global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello CreateEmptyPoco()
             {
-                return new Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
+                return new global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
             }
 
             private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -626,24 +626,24 @@ namespace ExampleNamespace
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.ExampleNamespace.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.ExampleNamespace.Hello> OnlineToPlainAsync()
         {
-            Pocos.ExampleNamespace.Hello plain = new Pocos.ExampleNamespace.Hello();
+            global::Pocos.ExampleNamespace.Hello plain = new global::Pocos.ExampleNamespace.Hello();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.ExampleNamespace.Hello> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.ExampleNamespace.Hello> _OnlineToPlainNoacAsync()
         {
-            Pocos.ExampleNamespace.Hello plain = new Pocos.ExampleNamespace.Hello();
+            global::Pocos.ExampleNamespace.Hello plain = new global::Pocos.ExampleNamespace.Hello();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.ExampleNamespace.Hello> _OnlineToPlainNoacAsync(Pocos.ExampleNamespace.Hello plain)
+        protected async Task<global::Pocos.ExampleNamespace.Hello> _OnlineToPlainNoacAsync(global::Pocos.ExampleNamespace.Hello plain)
         {
             return plain;
         }
@@ -653,14 +653,14 @@ namespace ExampleNamespace
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.ExampleNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExampleNamespace.Hello plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.ExampleNamespace.Hello plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.ExampleNamespace.Hello plain)
         {
         }
 
@@ -669,13 +669,13 @@ namespace ExampleNamespace
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.ExampleNamespace.Hello> ShadowToPlainAsync()
+        public async Task<global::Pocos.ExampleNamespace.Hello> ShadowToPlainAsync()
         {
-            Pocos.ExampleNamespace.Hello plain = new Pocos.ExampleNamespace.Hello();
+            global::Pocos.ExampleNamespace.Hello plain = new global::Pocos.ExampleNamespace.Hello();
             return plain;
         }
 
-        protected async Task<Pocos.ExampleNamespace.Hello> ShadowToPlainAsync(Pocos.ExampleNamespace.Hello plain)
+        protected async Task<global::Pocos.ExampleNamespace.Hello> ShadowToPlainAsync(global::Pocos.ExampleNamespace.Hello plain)
         {
             return plain;
         }
@@ -685,7 +685,7 @@ namespace ExampleNamespace
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.ExampleNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.ExampleNamespace.Hello plain)
         {
             return this.RetrievePrimitives();
         }
@@ -700,7 +700,7 @@ namespace ExampleNamespace
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.ExampleNamespace.Hello plain, Pocos.ExampleNamespace.Hello latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.ExampleNamespace.Hello plain, global::Pocos.ExampleNamespace.Hello latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -717,9 +717,9 @@ namespace ExampleNamespace
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.ExampleNamespace.Hello CreateEmptyPoco()
+        public global::Pocos.ExampleNamespace.Hello CreateEmptyPoco()
         {
-            return new Pocos.ExampleNamespace.Hello();
+            return new global::Pocos.ExampleNamespace.Hello();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

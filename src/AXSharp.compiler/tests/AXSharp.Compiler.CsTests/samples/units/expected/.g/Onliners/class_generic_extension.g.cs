@@ -29,24 +29,24 @@ namespace Generics
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.Generics.Extender> OnlineToPlainAsync()
+        public async Task<global::Pocos.Generics.Extender> OnlineToPlainAsync()
         {
-            Pocos.Generics.Extender plain = new Pocos.Generics.Extender();
+            global::Pocos.Generics.Extender plain = new global::Pocos.Generics.Extender();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.Generics.Extender> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.Generics.Extender> _OnlineToPlainNoacAsync()
         {
-            Pocos.Generics.Extender plain = new Pocos.Generics.Extender();
+            global::Pocos.Generics.Extender plain = new global::Pocos.Generics.Extender();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Generics.Extender> _OnlineToPlainNoacAsync(Pocos.Generics.Extender plain)
+        protected async Task<global::Pocos.Generics.Extender> _OnlineToPlainNoacAsync(global::Pocos.Generics.Extender plain)
         {
             return plain;
         }
@@ -56,14 +56,14 @@ namespace Generics
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Generics.Extender plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Generics.Extender plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Generics.Extender plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.Generics.Extender plain)
         {
         }
 
@@ -72,13 +72,13 @@ namespace Generics
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.Generics.Extender> ShadowToPlainAsync()
+        public async Task<global::Pocos.Generics.Extender> ShadowToPlainAsync()
         {
-            Pocos.Generics.Extender plain = new Pocos.Generics.Extender();
+            global::Pocos.Generics.Extender plain = new global::Pocos.Generics.Extender();
             return plain;
         }
 
-        protected async Task<Pocos.Generics.Extender> ShadowToPlainAsync(Pocos.Generics.Extender plain)
+        protected async Task<global::Pocos.Generics.Extender> ShadowToPlainAsync(global::Pocos.Generics.Extender plain)
         {
             return plain;
         }
@@ -88,7 +88,7 @@ namespace Generics
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Generics.Extender plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Generics.Extender plain)
         {
             return this.RetrievePrimitives();
         }
@@ -103,7 +103,7 @@ namespace Generics
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.Generics.Extender plain, Pocos.Generics.Extender latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Generics.Extender plain, global::Pocos.Generics.Extender latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -120,9 +120,9 @@ namespace Generics
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.Generics.Extender CreateEmptyPoco()
+        public global::Pocos.Generics.Extender CreateEmptyPoco()
         {
-            return new Pocos.Generics.Extender();
+            return new global::Pocos.Generics.Extender();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -222,9 +222,9 @@ namespace Generics
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public new async Task<Pocos.Generics.Extendee> OnlineToPlainAsync()
+        public new async Task<global::Pocos.Generics.Extendee> OnlineToPlainAsync()
         {
-            Pocos.Generics.Extendee plain = new Pocos.Generics.Extendee();
+            global::Pocos.Generics.Extendee plain = new global::Pocos.Generics.Extendee();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -240,9 +240,9 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public new async Task<Pocos.Generics.Extendee> _OnlineToPlainNoacAsync()
+        public new async Task<global::Pocos.Generics.Extendee> _OnlineToPlainNoacAsync()
         {
-            Pocos.Generics.Extendee plain = new Pocos.Generics.Extendee();
+            global::Pocos.Generics.Extendee plain = new global::Pocos.Generics.Extendee();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -257,7 +257,7 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Generics.Extendee> _OnlineToPlainNoacAsync(Pocos.Generics.Extendee plain)
+        protected async Task<global::Pocos.Generics.Extendee> _OnlineToPlainNoacAsync(global::Pocos.Generics.Extendee plain)
         {
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -276,7 +276,7 @@ namespace Generics
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Generics.Extendee plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Generics.Extendee plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -290,7 +290,7 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Generics.Extendee plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.Generics.Extendee plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -306,16 +306,16 @@ namespace Generics
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public new async Task<Pocos.Generics.Extendee> ShadowToPlainAsync()
+        public new async Task<global::Pocos.Generics.Extendee> ShadowToPlainAsync()
         {
-            Pocos.Generics.Extendee plain = new Pocos.Generics.Extendee();
+            global::Pocos.Generics.Extendee plain = new global::Pocos.Generics.Extendee();
             await base.ShadowToPlainAsync(plain);
             plain.SomeType = await SomeType.ShadowToPlainAsync();
             plain.SomeTypeAsPoco = await SomeTypeAsPoco.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<Pocos.Generics.Extendee> ShadowToPlainAsync(Pocos.Generics.Extendee plain)
+        protected async Task<global::Pocos.Generics.Extendee> ShadowToPlainAsync(global::Pocos.Generics.Extendee plain)
         {
             await base.ShadowToPlainAsync(plain);
             plain.SomeType = await SomeType.ShadowToPlainAsync();
@@ -328,7 +328,7 @@ namespace Generics
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Generics.Extendee plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Generics.Extendee plain)
         {
             await base.PlainToShadowAsync(plain);
             await this.SomeType.PlainToShadowAsync(plain.SomeType);
@@ -346,7 +346,7 @@ namespace Generics
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public new async Task<bool> DetectsAnyChangeAsync(Pocos.Generics.Extendee plain, Pocos.Generics.Extendee latest = null)
+        public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.Generics.Extendee plain, global::Pocos.Generics.Extendee latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -369,9 +369,9 @@ namespace Generics
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public new Pocos.Generics.Extendee CreateEmptyPoco()
+        public new global::Pocos.Generics.Extendee CreateEmptyPoco()
         {
-            return new Pocos.Generics.Extendee();
+            return new global::Pocos.Generics.Extendee();
         }
     }
 
@@ -394,9 +394,9 @@ namespace Generics
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public new async Task<Pocos.Generics.Extendee2> OnlineToPlainAsync()
+        public new async Task<global::Pocos.Generics.Extendee2> OnlineToPlainAsync()
         {
-            Pocos.Generics.Extendee2 plain = new Pocos.Generics.Extendee2();
+            global::Pocos.Generics.Extendee2 plain = new global::Pocos.Generics.Extendee2();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -409,9 +409,9 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public new async Task<Pocos.Generics.Extendee2> _OnlineToPlainNoacAsync()
+        public new async Task<global::Pocos.Generics.Extendee2> _OnlineToPlainNoacAsync()
         {
-            Pocos.Generics.Extendee2 plain = new Pocos.Generics.Extendee2();
+            global::Pocos.Generics.Extendee2 plain = new global::Pocos.Generics.Extendee2();
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -423,7 +423,7 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Generics.Extendee2> _OnlineToPlainNoacAsync(Pocos.Generics.Extendee2 plain)
+        protected async Task<global::Pocos.Generics.Extendee2> _OnlineToPlainNoacAsync(global::Pocos.Generics.Extendee2 plain)
         {
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
@@ -439,7 +439,7 @@ namespace Generics
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Generics.Extendee2 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Generics.Extendee2 plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -450,7 +450,7 @@ namespace Generics
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Generics.Extendee2 plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.Generics.Extendee2 plain)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -463,15 +463,15 @@ namespace Generics
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public new async Task<Pocos.Generics.Extendee2> ShadowToPlainAsync()
+        public new async Task<global::Pocos.Generics.Extendee2> ShadowToPlainAsync()
         {
-            Pocos.Generics.Extendee2 plain = new Pocos.Generics.Extendee2();
+            global::Pocos.Generics.Extendee2 plain = new global::Pocos.Generics.Extendee2();
             await base.ShadowToPlainAsync(plain);
             plain.SomeType = await SomeType.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<Pocos.Generics.Extendee2> ShadowToPlainAsync(Pocos.Generics.Extendee2 plain)
+        protected async Task<global::Pocos.Generics.Extendee2> ShadowToPlainAsync(global::Pocos.Generics.Extendee2 plain)
         {
             await base.ShadowToPlainAsync(plain);
             plain.SomeType = await SomeType.ShadowToPlainAsync();
@@ -483,7 +483,7 @@ namespace Generics
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Generics.Extendee2 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Generics.Extendee2 plain)
         {
             await base.PlainToShadowAsync(plain);
             await this.SomeType.PlainToShadowAsync(plain.SomeType);
@@ -500,7 +500,7 @@ namespace Generics
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public new async Task<bool> DetectsAnyChangeAsync(Pocos.Generics.Extendee2 plain, Pocos.Generics.Extendee2 latest = null)
+        public new async Task<bool> DetectsAnyChangeAsync(global::Pocos.Generics.Extendee2 plain, global::Pocos.Generics.Extendee2 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -521,9 +521,9 @@ namespace Generics
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public new Pocos.Generics.Extendee2 CreateEmptyPoco()
+        public new global::Pocos.Generics.Extendee2 CreateEmptyPoco()
         {
-            return new Pocos.Generics.Extendee2();
+            return new global::Pocos.Generics.Extendee2();
         }
     }
 
@@ -549,24 +549,24 @@ namespace Generics
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.Generics.SomeType> OnlineToPlainAsync()
+        public async Task<global::Pocos.Generics.SomeType> OnlineToPlainAsync()
         {
-            Pocos.Generics.SomeType plain = new Pocos.Generics.SomeType();
+            global::Pocos.Generics.SomeType plain = new global::Pocos.Generics.SomeType();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.Generics.SomeType> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.Generics.SomeType> _OnlineToPlainNoacAsync()
         {
-            Pocos.Generics.SomeType plain = new Pocos.Generics.SomeType();
+            global::Pocos.Generics.SomeType plain = new global::Pocos.Generics.SomeType();
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.Generics.SomeType> _OnlineToPlainNoacAsync(Pocos.Generics.SomeType plain)
+        protected async Task<global::Pocos.Generics.SomeType> _OnlineToPlainNoacAsync(global::Pocos.Generics.SomeType plain)
         {
             return plain;
         }
@@ -576,14 +576,14 @@ namespace Generics
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Generics.SomeType plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Generics.SomeType plain)
         {
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.Generics.SomeType plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.Generics.SomeType plain)
         {
         }
 
@@ -592,13 +592,13 @@ namespace Generics
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.Generics.SomeType> ShadowToPlainAsync()
+        public async Task<global::Pocos.Generics.SomeType> ShadowToPlainAsync()
         {
-            Pocos.Generics.SomeType plain = new Pocos.Generics.SomeType();
+            global::Pocos.Generics.SomeType plain = new global::Pocos.Generics.SomeType();
             return plain;
         }
 
-        protected async Task<Pocos.Generics.SomeType> ShadowToPlainAsync(Pocos.Generics.SomeType plain)
+        protected async Task<global::Pocos.Generics.SomeType> ShadowToPlainAsync(global::Pocos.Generics.SomeType plain)
         {
             return plain;
         }
@@ -608,7 +608,7 @@ namespace Generics
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Generics.SomeType plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Generics.SomeType plain)
         {
             return this.RetrievePrimitives();
         }
@@ -623,7 +623,7 @@ namespace Generics
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.Generics.SomeType plain, Pocos.Generics.SomeType latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Generics.SomeType plain, global::Pocos.Generics.SomeType latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -640,9 +640,9 @@ namespace Generics
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.Generics.SomeType CreateEmptyPoco()
+        public global::Pocos.Generics.SomeType CreateEmptyPoco()
         {
-            return new Pocos.Generics.SomeType();
+            return new global::Pocos.Generics.SomeType();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

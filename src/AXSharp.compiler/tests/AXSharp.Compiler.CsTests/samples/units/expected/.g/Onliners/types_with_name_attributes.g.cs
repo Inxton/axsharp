@@ -33,9 +33,9 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.Motor plain = new Pocos.TypeWithNameAttributes.Motor();
+            global::Pocos.TypeWithNameAttributes.Motor plain = new global::Pocos.TypeWithNameAttributes.Motor();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.isRunning = isRunning.LastValue;
             return plain;
@@ -43,14 +43,14 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.TypeWithNameAttributes.Motor> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Motor> _OnlineToPlainNoacAsync()
         {
-            Pocos.TypeWithNameAttributes.Motor plain = new Pocos.TypeWithNameAttributes.Motor();
+            global::Pocos.TypeWithNameAttributes.Motor plain = new global::Pocos.TypeWithNameAttributes.Motor();
             plain.isRunning = isRunning.LastValue;
             return plain;
         }
 
-        protected async Task<Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync(Pocos.TypeWithNameAttributes.Motor plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
         {
             plain.isRunning = isRunning.LastValue;
             return plain;
@@ -61,7 +61,7 @@ namespace TypeWithNameAttributes
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.TypeWithNameAttributes.Motor plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
         {
 #pragma warning disable CS0612
             isRunning.LethargicWrite(plain.isRunning);
@@ -71,7 +71,7 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.TypeWithNameAttributes.Motor plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
         {
 #pragma warning disable CS0612
             isRunning.LethargicWrite(plain.isRunning);
@@ -83,14 +83,14 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.Motor> ShadowToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Motor> ShadowToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.Motor plain = new Pocos.TypeWithNameAttributes.Motor();
+            global::Pocos.TypeWithNameAttributes.Motor plain = new global::Pocos.TypeWithNameAttributes.Motor();
             plain.isRunning = isRunning.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.TypeWithNameAttributes.Motor> ShadowToPlainAsync(Pocos.TypeWithNameAttributes.Motor plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.Motor> ShadowToPlainAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
         {
             plain.isRunning = isRunning.Shadow;
             return plain;
@@ -101,7 +101,7 @@ namespace TypeWithNameAttributes
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.TypeWithNameAttributes.Motor plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
         {
             isRunning.Shadow = plain.isRunning;
             return this.RetrievePrimitives();
@@ -117,7 +117,7 @@ namespace TypeWithNameAttributes
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.TypeWithNameAttributes.Motor plain, Pocos.TypeWithNameAttributes.Motor latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.TypeWithNameAttributes.Motor plain, global::Pocos.TypeWithNameAttributes.Motor latest = null)
         {
             var somethingChanged = false;
             if (latest == null)
@@ -136,9 +136,9 @@ namespace TypeWithNameAttributes
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.TypeWithNameAttributes.Motor CreateEmptyPoco()
+        public global::Pocos.TypeWithNameAttributes.Motor CreateEmptyPoco()
         {
-            return new Pocos.TypeWithNameAttributes.Motor();
+            return new global::Pocos.TypeWithNameAttributes.Motor();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -244,9 +244,9 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.Vehicle plain = new Pocos.TypeWithNameAttributes.Vehicle();
+            global::Pocos.TypeWithNameAttributes.Vehicle plain = new global::Pocos.TypeWithNameAttributes.Vehicle();
             await this.ReadAsync<IgnoreOnPocoOperation>();
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
@@ -257,9 +257,9 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.TypeWithNameAttributes.Vehicle> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Vehicle> _OnlineToPlainNoacAsync()
         {
-            Pocos.TypeWithNameAttributes.Vehicle plain = new Pocos.TypeWithNameAttributes.Vehicle();
+            global::Pocos.TypeWithNameAttributes.Vehicle plain = new global::Pocos.TypeWithNameAttributes.Vehicle();
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -267,7 +267,7 @@ namespace TypeWithNameAttributes
             return plain;
         }
 
-        protected async Task<Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync(Pocos.TypeWithNameAttributes.Vehicle plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
         {
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
@@ -281,7 +281,7 @@ namespace TypeWithNameAttributes
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.TypeWithNameAttributes.Vehicle plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
         {
 #pragma warning disable CS0612
             await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -294,7 +294,7 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.TypeWithNameAttributes.Vehicle plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
         {
 #pragma warning disable CS0612
             await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -309,15 +309,15 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.Vehicle> ShadowToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Vehicle> ShadowToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.Vehicle plain = new Pocos.TypeWithNameAttributes.Vehicle();
+            global::Pocos.TypeWithNameAttributes.Vehicle plain = new global::Pocos.TypeWithNameAttributes.Vehicle();
             plain.m = await m.ShadowToPlainAsync();
             plain.displacement = displacement.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.TypeWithNameAttributes.Vehicle> ShadowToPlainAsync(Pocos.TypeWithNameAttributes.Vehicle plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.Vehicle> ShadowToPlainAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
         {
             plain.m = await m.ShadowToPlainAsync();
             plain.displacement = displacement.Shadow;
@@ -329,7 +329,7 @@ namespace TypeWithNameAttributes
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.TypeWithNameAttributes.Vehicle plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
         {
             await this.m.PlainToShadowAsync(plain.m);
             displacement.Shadow = plain.displacement;
@@ -346,7 +346,7 @@ namespace TypeWithNameAttributes
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.TypeWithNameAttributes.Vehicle plain, Pocos.TypeWithNameAttributes.Vehicle latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain, global::Pocos.TypeWithNameAttributes.Vehicle latest = null)
         {
             var somethingChanged = false;
             if (latest == null)
@@ -367,9 +367,9 @@ namespace TypeWithNameAttributes
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.TypeWithNameAttributes.Vehicle CreateEmptyPoco()
+        public global::Pocos.TypeWithNameAttributes.Vehicle CreateEmptyPoco()
         {
-            return new Pocos.TypeWithNameAttributes.Vehicle();
+            return new global::Pocos.TypeWithNameAttributes.Vehicle();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -481,9 +481,9 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.NoAccessModifierClass> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> OnlineToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new Pocos.TypeWithNameAttributes.NoAccessModifierClass();
+            global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new global::Pocos.TypeWithNameAttributes.NoAccessModifierClass();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
@@ -491,16 +491,16 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.TypeWithNameAttributes.NoAccessModifierClass> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> _OnlineToPlainNoacAsync()
         {
-            Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new Pocos.TypeWithNameAttributes.NoAccessModifierClass();
+            global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new global::Pocos.TypeWithNameAttributes.NoAccessModifierClass();
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.TypeWithNameAttributes.NoAccessModifierClass> _OnlineToPlainNoacAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> _OnlineToPlainNoacAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
         {
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
@@ -511,7 +511,7 @@ namespace TypeWithNameAttributes
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
         {
 #pragma warning disable CS0612
             SomeClassVariable.LethargicWrite(plain.SomeClassVariable);
@@ -521,7 +521,7 @@ namespace TypeWithNameAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
         {
 #pragma warning disable CS0612
             SomeClassVariable.LethargicWrite(plain.SomeClassVariable);
@@ -533,14 +533,14 @@ namespace TypeWithNameAttributes
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.TypeWithNameAttributes.NoAccessModifierClass> ShadowToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> ShadowToPlainAsync()
         {
-            Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new Pocos.TypeWithNameAttributes.NoAccessModifierClass();
+            global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new global::Pocos.TypeWithNameAttributes.NoAccessModifierClass();
             plain.SomeClassVariable = SomeClassVariable.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.TypeWithNameAttributes.NoAccessModifierClass> ShadowToPlainAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        protected async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> ShadowToPlainAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
         {
             plain.SomeClassVariable = SomeClassVariable.Shadow;
             return plain;
@@ -551,7 +551,7 @@ namespace TypeWithNameAttributes
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
         {
             SomeClassVariable.Shadow = plain.SomeClassVariable;
             return this.RetrievePrimitives();
@@ -567,7 +567,7 @@ namespace TypeWithNameAttributes
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.TypeWithNameAttributes.NoAccessModifierClass plain, Pocos.TypeWithNameAttributes.NoAccessModifierClass latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain, global::Pocos.TypeWithNameAttributes.NoAccessModifierClass latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -586,9 +586,9 @@ namespace TypeWithNameAttributes
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.TypeWithNameAttributes.NoAccessModifierClass CreateEmptyPoco()
+        public global::Pocos.TypeWithNameAttributes.NoAccessModifierClass CreateEmptyPoco()
         {
-            return new Pocos.TypeWithNameAttributes.NoAccessModifierClass();
+            return new global::Pocos.TypeWithNameAttributes.NoAccessModifierClass();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

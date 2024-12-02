@@ -42,9 +42,9 @@ namespace TypesWithPropertyAttributes
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<Pocos.TypesWithPropertyAttributes.SomeAddedProperties> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> OnlineToPlainAsync()
         {
-            Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
             await this.ReadAsync<IgnoreOnPocoOperation>();
             plain.Counter = Counter.LastValue;
             return plain;
@@ -52,16 +52,16 @@ namespace TypesWithPropertyAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync()
         {
-            Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
             plain.Counter = Counter.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        protected async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
         {
             plain.Counter = Counter.LastValue;
             return plain;
@@ -72,7 +72,7 @@ namespace TypesWithPropertyAttributes
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
         {
 #pragma warning disable CS0612
             Counter.LethargicWrite(plain.Counter);
@@ -82,7 +82,7 @@ namespace TypesWithPropertyAttributes
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
         {
 #pragma warning disable CS0612
             Counter.LethargicWrite(plain.Counter);
@@ -94,14 +94,14 @@ namespace TypesWithPropertyAttributes
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync()
+        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync()
         {
-            Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
             plain.Counter = Counter.Shadow;
             return plain;
         }
 
-        protected async Task<Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        protected async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
         {
             plain.Counter = Counter.Shadow;
             return plain;
@@ -112,7 +112,7 @@ namespace TypesWithPropertyAttributes
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
         {
             Counter.Shadow = plain.Counter;
             return this.RetrievePrimitives();
@@ -128,7 +128,7 @@ namespace TypesWithPropertyAttributes
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain, Pocos.TypesWithPropertyAttributes.SomeAddedProperties latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain, global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -147,9 +147,9 @@ namespace TypesWithPropertyAttributes
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Pocos.TypesWithPropertyAttributes.SomeAddedProperties CreateEmptyPoco()
+        public global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties CreateEmptyPoco()
         {
-            return new Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            return new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
