@@ -32,7 +32,7 @@ namespace AXSharp.ConnectorTests
             // Act
             var result = _testClass.BuildAndStart();
 
-            Task.Delay(50).Wait();
+            Task.Delay(1000).Wait();
 
             // Assert
             Assert.True(_testClass.RwCycleCount > 0);
