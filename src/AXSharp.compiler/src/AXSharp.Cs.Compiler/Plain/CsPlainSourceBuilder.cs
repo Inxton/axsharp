@@ -113,8 +113,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
         if (fieldDeclaration.IsMemberEligibleForTranspile(this))
-        {
-            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+        {           
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
@@ -195,8 +194,10 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                  fileSyntax.UsingDirectives
                      .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
         {
-            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+            //AddToSource($"using {fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");           
         }
+
         AddToSource("namespace Pocos {");
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource("}");
@@ -266,8 +267,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     public void CreateVariableDeclaration(IVariableDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
         if (fieldDeclaration.IsMemberEligibleForTranspile(this))
-        {
-            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+        {            
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
