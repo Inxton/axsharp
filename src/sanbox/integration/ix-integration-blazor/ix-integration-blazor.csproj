@@ -8,7 +8,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Interactive"/>
+		<PackageReference Include="System.Interactive" />
+		<PackageReference Include="System.Text.Encodings.Web" />
 	</ItemGroup>
 
   <ItemGroup>

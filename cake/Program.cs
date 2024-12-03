@@ -83,6 +83,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        context.DotNetBuildSettings.MSBuildSettings.Properties.Add("NoWarn", new List<string>() 
+            { "1234;2345;8602;10012;8618;0162;8605;1416;3270;1504;8600;8618;" +
+                "CS0618;CS1591;BL0007;BL0005;CA1416;CA2200;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS219;CS0414;CS0436;CS0472;CS0618;CS1591;CS1998;CS8604;" +
+                "CS8601;SYSLIB0051;SYSLIB0014;CS8625;CS0219;CS8625;CS8625;CS8620;RZ2012;RZ10012;CS4014;CS8981;CS8603;CS8766;CS8619;CS0649;CS8321"
+            });
+            
         ProvisionProjectWideTools(context);
     }
 
@@ -119,6 +125,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+          
         context.DotNetBuild(Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj"), context.DotNetBuildSettings);
 
         var axprojects = new List<string>()
@@ -137,6 +144,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
         foreach (var axproject in axprojects)
         {
             context.DotNetRunSettings.WorkingDirectory = Path.Combine(context.ScrDir, axproject);
+          
             context.DotNetRun(Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj"), context.DotNetRunSettings);
         }
 
