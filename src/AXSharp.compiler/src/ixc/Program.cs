@@ -104,9 +104,9 @@ public static class Program
                           "THIRD PARTY LICENSES CAN BE FOUND AT \n" +
                           "https://github.com/ix-ax/axsharp/blob/master/notices.md");
 
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("ATTENTION: This version requires the usage of `apax sld` v0.14.2 or later!");
         
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine($"Using version '{LegalAcrobatics.StcVersion}' of stc.");
         Console.ForegroundColor = originalColor;
 
         if (int.Parse(GitVersionInformation.Major) < 1 || string.IsNullOrEmpty(GitVersionInformation.PreReleaseLabel))
