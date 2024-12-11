@@ -5,42 +5,6 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
-public partial class unitsTwinController : ITwinController
-{
-    public AXSharp.Connector.Connector Connector { get; }
-    public OnlinerBool MotorOn { get; }
-    public OnlinerInt MotorState { get; }
-    public Motor Motor1 { get; }
-    public Motor Motor2 { get; }
-    public struct1 s1 { get; }
-    public struct4 s4 { get; }
-    public SpecificMotorA mot1 { get; }
-
-    public unitsTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)
-    {
-        this.Connector = adapter.GetConnector(parameters);
-        MotorOn = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this.Connector, "", "MotorOn");
-        MotorState = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this.Connector, "", "MotorState");
-        Motor1 = new Motor(this.Connector, "", "Motor1");
-        Motor2 = new Motor(this.Connector, "", "Motor2");
-        s1 = new struct1(this.Connector, "", "s1");
-        s4 = new struct4(this.Connector, "", "s4");
-        mot1 = new SpecificMotorA(this.Connector, "", "mot1");
-    }
-
-    public unitsTwinController(AXSharp.Connector.ConnectorAdapter adapter)
-    {
-        this.Connector = adapter.GetConnector(adapter.Parameters);
-        MotorOn = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this.Connector, "", "MotorOn");
-        MotorState = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this.Connector, "", "MotorState");
-        Motor1 = new Motor(this.Connector, "", "Motor1");
-        Motor2 = new Motor(this.Connector, "", "Motor2");
-        s1 = new struct1(this.Connector, "", "s1");
-        s4 = new struct4(this.Connector, "", "s4");
-        mot1 = new SpecificMotorA(this.Connector, "", "mot1");
-    }
-}
-
 public partial class Motor : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool Run { get; }

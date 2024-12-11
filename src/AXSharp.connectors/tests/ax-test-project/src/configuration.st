@@ -107,3 +107,11 @@ CONFIGURATION MyConfiguration
         myLDATE_AND_TIME_leap_late  :      LDATE_AND_TIME;
     END_VAR
 END_CONFIGURATION
+
+
+CONFIGURATION MyConfiguration2
+    VAR_GLOBAL
+        {S7.extern=ReadWrite}
+        mins1 : full_of_primitives;
+    END_VAR    
+END_CONFIGURATION    

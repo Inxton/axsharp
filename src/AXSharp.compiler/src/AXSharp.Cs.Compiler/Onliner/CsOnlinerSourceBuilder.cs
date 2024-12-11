@@ -15,6 +15,7 @@ using AX.ST.Syntax.Tree;
 using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Compiler.Cs.Helpers.Plain;
+using AXSharp.Compiler.Cs.Pragmas.PragmaParser;
 using AXSharp.Connector;
 
 namespace AXSharp.Compiler.Cs.Onliner;
@@ -37,6 +38,21 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         Project = project;
         Compilation = compilation;
         CompilerOptions = project.CompilerOptions;
+    }
+
+    public void CreateMergedConfigurations(IxNodeVisitor visitor, Compilation compilation)
+    {
+        var configurations = compilation.GetActiveConfigurations();
+        if(configurations.Count == 0)
+            return;
+        TypeCommAccessibility = configurations.First().GetCommAccessibility(this);
+      
+        AddToSource(
+            $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
+        AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+                
+        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurations, this).Output);
+        AddToSource(CsOnlinerConfigurationConstructorBuilder.Create(visitor, configurations, Project, this).Output);                    
     }
 
     /// <inheritdoc />
@@ -188,26 +204,67 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IConfigurationDeclaration configurationDeclaration,
         IxNodeVisitor visitor)
     {
-        TypeCommAccessibility = eCommAccessibility.None;
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+       
+        return;
+        CreateConfigDeclaration(configurationDeclaration, visitor);
 
-        AddToSource(
-            $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
-        AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
-        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
-        AddToSource(CsOnlinerConfigurationConstructorBuilder
-            .Create(visitor, configurationDeclaration, Project, this).Output);
-        AddToSource("}");
+        //TypeCommAccessibility = eCommAccessibility.None;
+
+        //AddToSource(
+        //    $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
+        //AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+        //AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
+        //AddToSource(CsOnlinerConfigurationConstructorBuilder
+        //    .Create(visitor, configurationDeclaration, Project, this).Output);
+        //AddToSource("}");
     }
 
     /// <inheritdoc />
     public void CreateConfigDeclaration(IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)
     {
-        TypeCommAccessibility = eCommAccessibility.None;
+        // see CreateConfigDeclaration overload comments
+        return;
+        TypeCommAccessibility = configurationDeclaration.GetCommAccessibility(this);
 
-        AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace} : ITwinController {{");
-        AddToSource(@$"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
-        AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, Project, this).Output);
+        AddToSource(configurationDeclaration.Pragmas.AddAttributes());
+        AddToSource(
+            $"public partial class {configurationDeclaration.Name}");
+        AddToSource(":");
+
+        AddToSource(typeof(ITwinObject).n()!);
+
+        AddToSource("\n{");
+
+        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
+
+        AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerPlainerOnlineToPlainBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerOnlineToPlainProtectedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerPlainToOnlineBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerPlainerShadowToPlainBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerShadowToPlainProtectedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerPlainToShadowBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerHasChangedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddPollingMethod(false);
+
+        //AddCreatePocoMethod(structuredTypeDeclaration, false);
+
+        CreateITwinObjectImplementation();
+
         AddToSource("}");
+        //TypeCommAccessibility = eCommAccessibility.None;
+
+        //AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace} : ITwinController {{");
+        //AddToSource(@$"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+        //AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, Project, this).Output);
+        //AddToSource("}");
     }
 
     /// <inheritdoc />

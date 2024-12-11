@@ -4,17 +4,6 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    public partial class unitsTwinController
-    {
-        public Boolean MotorOn { get; set; }
-        public Int16 MotorState { get; set; }
-        public Motor Motor1 { get; set; } = new Motor();
-        public Motor Motor2 { get; set; } = new Motor();
-        public struct1 s1 { get; set; } = new struct1();
-        public struct4 s4 { get; set; } = new struct4();
-        public SpecificMotorA mot1 { get; set; } = new SpecificMotorA();
-    }
-
     public partial class Motor : AXSharp.Connector.IPlain
     {
         public Motor()

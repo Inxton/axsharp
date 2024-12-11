@@ -62,6 +62,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="samples\units\expected\.g\Configurations.g.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Include="samples\units\expected\.g\POCO\generics.g.cs">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

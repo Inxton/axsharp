@@ -88,6 +88,16 @@ CONFIGURATION MyConfiguration
          _must_be_omitted_in_poco : BOOL;
     END_VAR
 END_CONFIGURATION
+
+CONFIGURATION MyConfiguration2
+    VAR_GLOBAL
+        {S7.extern=ReadWrite}
+        Colorss2 : Colorss;
+        {S7.extern=ReadWrite}
+        Colorsss2 : Colorsss;
+    END_VAR    
+END_CONFIGURATION    
+
 {S7.extern=ReadWrite}
 CLASS PUBLIC ComplexForConfig
     VAR PUBLIC

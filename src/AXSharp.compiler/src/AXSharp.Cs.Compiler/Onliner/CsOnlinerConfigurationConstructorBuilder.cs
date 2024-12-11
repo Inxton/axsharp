@@ -45,6 +45,37 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
         return builder;
     }
 
+    public new static CsOnlinerConfigurationConstructorBuilder Create(IxNodeVisitor visitor,
+        IReadOnlyCollection<IConfigurationDeclaration> semantics, AXSharpProject project, ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerConfigurationConstructorBuilder(sourceBuilder);
+        builder.AddToSource(
+            $"public {project.TargetProject.ProjectRootNamespace}TwinController({typeof(ConnectorAdapter).n()} adapter, object[] parameters) {{");
+        builder.AddToSource("this.Connector = adapter.GetConnector(parameters);");
+
+
+        foreach (var conf in semantics)
+        {
+            conf.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+
+        
+        builder.AddToSource("}");
+
+        builder.AddToSource(
+            $"public {project.TargetProject.ProjectRootNamespace}TwinController({typeof(ConnectorAdapter).n()} adapter) {{");
+        builder.AddToSource("this.Connector = adapter.GetConnector(adapter.Parameters);");
+
+        foreach (var conf in semantics)
+        {
+            conf.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+
+        builder.AddToSource("}");
+
+        return builder;
+    }
+
     public override void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
         if (semantics.IsMemberEligibleForConstructor(SourceBuilder))

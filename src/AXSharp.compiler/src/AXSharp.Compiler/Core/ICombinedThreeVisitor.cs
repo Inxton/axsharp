@@ -20,7 +20,12 @@ namespace AXSharp.Compiler.Core;
 /// </summary>
 public interface ICombinedThreeVisitor
 {
-    
+    public virtual void CreateMergedConfigurations(IxNodeVisitor visitor, Compilation compilation)
+    {
+        throw new NotImplementedException();
+    }
+
+
     /// <summary>
     ///     Creates file declaration from <see cref="IFileSyntax" /> node of given syntax tree.
     /// </summary>
