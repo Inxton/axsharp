@@ -203,6 +203,23 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
         return builder;
     }
 
+    public static CsOnlinerMemberBuilder Create(IxNodeVisitor visitor, IReadOnlyCollection<IConfigurationDeclaration> semantics,
+        ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerMemberBuilder(sourceBuilder);
+
+        foreach (var structuredTypeDeclaration in semantics)
+        {
+            builder.AddToSource(structuredTypeDeclaration.DeclareProperties());
+            structuredTypeDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+        
+        builder.AddToSource(@$"partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+            partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);");
+
+        return builder;
+    }
+
     public static CsOnlinerMemberBuilder Create(IxNodeVisitor visitor, IClassDeclaration semantics,
         ISourceBuilder sourceBuilder)
     {

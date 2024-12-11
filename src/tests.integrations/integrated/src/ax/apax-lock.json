@@ -41,9 +41,9 @@
     },
     "@ax/sld": {
       "name": "@ax/sld",
-      "version": "3.0.8",
-      "integrity": "sha512-4YSQf0eXLTGN0LmBBKFYUyhuhZAxH11W+kZfHAjXy5cIkJhhf5g50d/GDZHj5q5hcY/GEIerKLL+B3RUBejHgg==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-3.0.8.tgz",
+      "version": "3.0.9",
+      "integrity": "sha512-9JijTgtQdxjJOwTScqCciAMMMXn59whSKfYWTtndbjKkDhmds+GnuPJz2w0lQdS4IcFm9odxNWWV5I5lfwrZ0Q==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-3.0.9.tgz",
       "cpu": [
         "x64"
       ],

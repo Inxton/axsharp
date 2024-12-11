@@ -106,12 +106,37 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public virtual void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
+
         if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
         {
-            AddToSource($"{semantics.Name}");
-            semantics.Type.Accept(visitor, this);
-            AddToSource($"(this, \"\", \"{semantics.Name}\");");
-        }
+            switch (semantics.Type)
+            {
+                case IArrayTypeDeclaration array:
+                    AddArrayMemberInitialization(array, semantics, visitor);
+                    break;
+                case IEnumTypeDeclaration @enum:
+                    AddMemberInitialization(@enum, semantics);
+                    break;
+                case INamedValueTypeDeclaration namedValue:
+                    AddMemberInitialization(namedValue, semantics, visitor);
+                    break;
+                case IScalarTypeDeclaration scalar:
+                    AddMemberInitialization(scalar, semantics);
+                    break;
+                case IStringTypeDeclaration @string:
+                    AddMemberInitialization(@string, semantics);
+                    break;
+                case IClassDeclaration @class:
+                    AddMemberInitialization(@class, semantics, visitor);
+                    break;
+                case IStructuredTypeDeclaration @struct:
+                    AddMemberInitialization(@struct, semantics, visitor);
+                    break;
+            }
+
+            AddToSource(semantics.SetProperties());
+            AddToSource(semantics.AddAnnotations(this.SourceBuilder));
+        }        
     }
 
     public void CreateEnumTypeDeclaration(IEnumTypeDeclaration enumTypeDeclaration, IxNodeVisitor visitor)
@@ -215,6 +240,36 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     }
 
     public static CsOnlinerConstructorBuilder Create(IxNodeVisitor visitor, IConfigurationDeclaration semantics,
+        ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerConstructorBuilder(sourceBuilder);
+
+
+        builder.AddToSource(
+            $"public {semantics.Name}({typeof(ITwinObject).n()} parent, string readableTail, string symbolTail)");
+
+
+        builder.AddToSource("{");
+        builder.AddToSource(@$"this.@SymbolTail = symbolTail;
+			this.@Connector = parent.GetConnector();
+			this.@Parent = parent;
+			HumanReadable = {typeof(Connector.Connector).n()}.CreateHumanReadable(parent.HumanReadable, readableTail);
+            Symbol = {typeof(Connector.Connector).n()}.CreateSymbol(parent.Symbol, symbolTail);");
+
+        builder.AddToSource(@$"PreConstruct(parent, readableTail, symbolTail);");
+
+        semantics.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        builder.AddToSource("parent.AddChild(this);");
+        builder.AddToSource("parent.AddKid(this);");
+
+        builder.AddToSource(@$"PostConstruct(parent, readableTail, symbolTail);");
+
+        builder.AddToSource("}");
+
+        return builder;
+    }
+
+    public static CsOnlinerConstructorBuilder Create(IxNodeVisitor visitor, IConfigurationDeclaration semantics,
         AXSharpProject project, ISourceBuilder sourceBuilder)
     {
         var builder = new CsOnlinerConstructorBuilder(sourceBuilder);
@@ -227,7 +282,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         return builder;
     }
 
-    private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IFieldDeclaration field,
+    private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
         if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
@@ -277,7 +332,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     }
 
-    private void AddMemberInitialization(IClassDeclaration type, IFieldDeclaration field, IxNodeVisitor visitor)
+    private void AddMemberInitialization(IClassDeclaration type, IStorageDeclaration field, IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");
         AddToSource("= new");
@@ -285,7 +340,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IStructuredTypeDeclaration type, IFieldDeclaration field, IxNodeVisitor visitor)
+    private void AddMemberInitialization(IStructuredTypeDeclaration type, IStorageDeclaration field, IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");
         AddToSource("= new");
@@ -293,14 +348,14 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IScalarTypeDeclaration type, IFieldDeclaration field)
+    private void AddMemberInitialization(IScalarTypeDeclaration type, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IStringTypeDeclaration type, IFieldDeclaration field)
+    private void AddMemberInitialization(IStringTypeDeclaration type, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
@@ -308,7 +363,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     }
 
     // We get warning here about unused method, it is false positive, but we will need to investigate further the object hierarchy.
-    private void AddMemberInitialization(IEnumTypeDeclaration enumType, IFieldDeclaration field)
+    private void AddMemberInitialization(IEnumTypeDeclaration enumType, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource("= @Connector.ConnectorAdapter.AdapterFactory.CreateINT");
@@ -316,7 +371,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource(field.SetProperties());
     }
 
-    private void AddMemberInitialization(INamedValueTypeDeclaration namedValueType, IFieldDeclaration field,
+    private void AddMemberInitialization(INamedValueTypeDeclaration namedValueType, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");

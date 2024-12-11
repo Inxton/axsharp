@@ -208,6 +208,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IConfigurationDeclaration configurationDeclaration,
         IxNodeVisitor visitor)
     {
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+        
+        return;
         TypeCommAccessibility = eCommAccessibility.None;
 
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController{{");
@@ -258,6 +264,11 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateConfigDeclaration(IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)
     {
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+        return;
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}{{");
         configurationDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");

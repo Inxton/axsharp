@@ -138,6 +138,46 @@ public class AXSharpProject : IAXSharpProject
             }
         }
 
+        foreach (var sourceBuilderType in BuilderTypes)
+        {
+            var builder = Activator.CreateInstance(sourceBuilderType, this, compilationResult.Compilation);
+            var treeWalker = builder as ICombinedThreeVisitor;
+            var sourceBuilder = builder as ISourceBuilder;
+
+
+            if (treeWalker == null)
+                throw new FailedToCreateCombineThreeVisitorException(
+                    $"Could not create {sourceBuilderType.Name} as ICombinedThreeVisitor");
+            if (sourceBuilder == null)
+                throw new FailedToCreateSourceBuilderException(
+                    $"Could not create {sourceBuilderType.Name} as ISourceBuilder");
+
+            var visitor = new IxNodeVisitor(compilationResult.Compilation);
+
+            try
+            {
+                treeWalker.CreateMergedConfigurations(visitor, compilationResult.Compilation);
+
+                Policy
+                    .Handle<IOException>()
+                    .WaitAndRetry(5, a => TimeSpan.FromMilliseconds(500))
+                    .Execute(() =>
+                    {
+                        using (var swr = new StreamWriter(Path.Combine(
+                                   EnsureFolder(Path.Combine(OutputFolder, ".g")),
+                                   "Configurations.g.cs")))
+                        {
+                            swr.Write(sourceBuilder.Output);
+                        }
+                    });
+            }
+            catch (NotImplementedException)
+            {
+
+                // swallow if not implemented
+            }
+        }
+
         //TargetProject.ProvisionProjectStructure();
         GenerateMetadata(compilationResult.Compilation);
         TargetProject.GenerateResources();

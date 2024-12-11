@@ -46,7 +46,7 @@ namespace AXSharp.ixcTests
                 ixc.Program.Main(new string[0]);
 
                 Assert.True(Directory.Exists(outputDirectory));
-                Assert.Equal(6, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -79,7 +79,7 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(8, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(9, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -98,12 +98,7 @@ namespace AXSharp.ixcTests
             var axProjectFolder = Path.Combine(TestFolder, "samples","plt","lib");
             var config = AXSharpConfig.UpdateAndGetAXSharpConfig(axProjectFolder);
             var outputDirectory = Path.GetFullPath(Path.Combine(axProjectFolder, $"..{Path.DirectorySeparatorChar}ix-lib-override"));
-            
-            if (Directory.Exists(outputDirectory))
-            {
-                Directory.Delete(outputDirectory, true);
-            }
-
+                       
             var recoverDirectory = Environment.CurrentDirectory;
             Environment.CurrentDirectory = axProjectFolder;
             
@@ -113,7 +108,7 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(6, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
