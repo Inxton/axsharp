@@ -1,3 +1,10 @@
+using System;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
+using System.Collections.Generic;
+using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
+
 public partial class unitsTwinController : ITwinController
 {
     public AXSharp.Connector.Connector Connector { get; }
@@ -171,3 +178,4 @@ public partial class unitsTwinController : ITwinController
         s4 = new struct4(this.Connector, "", "s4");
         mot1 = new SpecificMotorA(this.Connector, "", "mot1");
     }
+}

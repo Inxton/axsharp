@@ -45,6 +45,14 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         var configurations = compilation.GetActiveConfigurations();
         if(configurations.Count == 0)
             return;
+
+        AddToSource("using System;");
+        AddToSource("using AXSharp.Connector;");
+        AddToSource("using AXSharp.Connector.ValueTypes;");
+        AddToSource("using System.Collections.Generic;");
+        AddToSource("using AXSharp.Connector.Localizations;");
+        AddToSource("using AXSharp.Abstractions.Presentation;");
+
         TypeCommAccessibility = configurations.First().GetCommAccessibility(this);
       
         AddToSource(
@@ -52,7 +60,9 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
                 
         AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurations, this).Output);
-        AddToSource(CsOnlinerConfigurationConstructorBuilder.Create(visitor, configurations, Project, this).Output);                    
+        AddToSource(CsOnlinerConfigurationConstructorBuilder.Create(visitor, configurations, Project, this).Output);
+        AddToSource("}");
+
     }
 
     /// <inheritdoc />

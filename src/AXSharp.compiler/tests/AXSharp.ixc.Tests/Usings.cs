@@ -6,3 +6,5 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
 
 global using Xunit;
+
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
