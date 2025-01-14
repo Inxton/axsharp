@@ -1,10 +1,10 @@
 {
   "sitemap": {
-    "baseUrl": "https://ix-ax.github.io/axsharp/",
+    "baseUrl": "https://inxton.github.io/axsharp/",
     "changefreq": "weekly",
     "priority": 0.1
   },
-  "source_base_path": "C:/W/Develop/gh/ix-ax/axsharp/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/axsharp/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
