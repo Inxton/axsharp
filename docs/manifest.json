@@ -4,7 +4,7 @@
     "changefreq": "weekly",
     "priority": 0.1
   },
-  "source_base_path": "C:/W/Develop/gh/inxton/axsharp/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/ax/axsharp/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -14,6 +14,16 @@
           "relative_path": "index.json"
         }
       }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.ContainerAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.ContainerAttribute.html"
+        }
+      },
+      "version": ""
     },
     {
       "type": "ManagedReference",
@@ -31,6 +41,26 @@
       "output": {
         ".html": {
           "relative_path": "api/AXSharp.Abstractions.Presentation.EmptyPresentationProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.GroupAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.GroupAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.GroupLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.GroupLayout.html"
         }
       },
       "version": ""
@@ -57,6 +87,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.Layout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.Layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXSharp.Abstractions.Presentation.PresentationProvider.yml",
       "output": {
         ".html": {
@@ -71,6 +111,46 @@
       "output": {
         ".html": {
           "relative_path": "api/AXSharp.Abstractions.Presentation.PresentationProviderNotAssignedException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html"
         }
       },
       "version": ""
@@ -531,6 +611,16 @@
       "output": {
         ".html": {
           "relative_path": "api/AXSharp.Compiler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXSharp.Connector.AddedPropertiesAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXSharp.Connector.AddedPropertiesAttribute.html"
         }
       },
       "version": ""

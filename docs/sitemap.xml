@@ -1,2510 +1,2564 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.ContainerAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.EmptyGroupProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.EmptyPresentationProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.GroupAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.GroupLayout.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.IGroupLayoutProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.ILayoutProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.Layout.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.PresentationProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.PresentationProviderNotAssignedException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Abstractions.Presentation.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.AXSharpConfig.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.AXSharpProject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Apax.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.AxProject.SemVersion.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.AxProject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.CompanionInfo.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.ICombinedThreeVisitor.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.ISourceBuilder.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.IxNodeVisitor.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.TypeNotFoundInSemanticTreeException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.eCommAccessibility.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Core.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Exceptions.FailedGettingPackageReferenceException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Exceptions.FailedToRetrievePackageReferenceException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Exceptions.PrimitiveTypeNotRecognizedException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Exceptions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Onliner.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Plain.CsPlainSourceBuilder.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Plain.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.PragmaExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Pragmas.PragmaParser.GenericAttributeAstNode.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.Pragmas.PragmaParser.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.SemanticsHelpers.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Cs.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.CsProject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Exceptions.FailedToCreateCombineThreeVisitorException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Exceptions.FailedToCreateTargetProjectException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Exceptions.FailedToReadIxConfigurationFileException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Exceptions.SourceProjectInfoRetrievalException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Exceptions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.FailedToCreateSourceBuilderException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.FailedToDeterminePackageVersion.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.IAXSharpProject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.ICompilerOptions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.IPackageReference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.IProjectReference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.IReference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.ITargetProject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.LegalAcrobatics.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.Log.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.PackageReference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.ProjectReference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Compiler.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.AddedPropertiesAttribute.html</loc>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.BuilderHelpers.Arrays.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.BuilderHelpers.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.CommExceptionBehaviour.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.CompilerOmissionGroups.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.CompilerOmitsAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ConcurrentSet-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Connector.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ConnectorAdapter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ConnectorAdapterBuilder.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ConnectorFactory.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.DummyConnector.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.DummyConnectorExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.DummyConnectorFactory.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.EnumeratorDiscriminatorAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.IPlain.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.IPlainExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinController.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinElement.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinOnlineObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinPrimitive.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinPrimitiveInfo.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ITwinShadowObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Identity.ITwinIdentity.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Identity.MemberByIdentityAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Identity.NullTwinIdentity.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Identity.TwinIdentityProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Identity.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.IgnoreOnPocoOperation.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.IgnoreReflectionAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Localizations.LocalizationHelper.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Localizations.Translator.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Localizations.TranslatorExtension.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.Localizations.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.PrimitiveAccessStatus.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ReadOnceAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ReadOnlyAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ReadSubscriptionMode.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.RootTwinObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.DateTimeTia.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiBool.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiByte.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiConnector.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiConnectorFactory.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiDWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiDate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLDate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiLWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiUInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiULInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiUSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiUdInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiWChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiWString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.WebApiWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.S71500.WebApi.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.StringInterpolator.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.TwinObjectExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.TwinPrimitiveExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnline-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineBool.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineByte.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineDWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineDate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineLWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineUDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineUInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineULInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineUSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineWChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineWString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.IOnlineWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Online.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerBase-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerBase.ValueChangeDelegate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerBool.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerByte.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerDWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerDate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerLWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerUDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerUInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerULInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerUSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerWChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerWString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.OnlinerWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.ReadWriteAccess.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadow-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowBool.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowByte.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowDWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowDate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLDateTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowLWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowReal.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowTime.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowTimeOfDay.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowUDInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowUInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowULInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowUSInt.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowWChar.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowWString.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.IShadowWord.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.Shadows.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.ValueChangedEventArgs.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.ValueChangedEventHandlerDelegate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueTypes.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.BoolValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.ByteValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.CharValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.DWordValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.DateTimeValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.DateValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.DintValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.IValueBoundaries-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.IntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LDateTimeValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LIntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LRealValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LTimeOfDayValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LTimeValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.LWordValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.OnlinerValidationRule-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.RealValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.SIntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.StringValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.TimeOfDayValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.TimeValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.UDIntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.UIntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.ULIntValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.USintValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.ValidationResult.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.WCharValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.WStringValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.WordValueValidationRule.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.ValueValidation.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.WebApiConnectorExtensions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Connector.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Framework.Abstractions.DateTimeProviderBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Framework.Abstractions.DateTimeProviders.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Framework.Abstractions.StandardDateTimeProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Framework.Abstractions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Attributes.PresentationContainerAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Attributes.PresentationGroupAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Attributes.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.BindableBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Attributes.RenderableBlazorAssemblyAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Attributes.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.BlazorLayoutProvider.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.BorderLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.GroupBoxLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.ArrayBorderSetter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.ChildrenLayoutPropSetter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.GroupContainerAttributeSetter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.GroupLayoutSetter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.MainLayoutSetter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.LayoutSetters.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.StackPanelLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents.TabControl.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents.TabPage.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.TabControlLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.UniformGridLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.WrapPanelLayout.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Layouts.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableContentControl.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableViewModelComponentBase-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.RenderableContent.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.Base.Online.TemplateBaseOnline.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.Base.Online.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorContainerControlView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorContainerDisplayView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorContainerShadowControlView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorContainerShadowDisplayView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorsBaseOnline-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.EnumeratorsBaseShadow-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBaseControlView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBaseDisplayView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBaseShadowControlView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBaseShadowDisplayView-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBoolControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBoolDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBoolShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerBoolShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateTimeControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateTimeDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateTimeShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerDateTimeShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLDateTimeControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLDateTimeDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLDateTimeShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLDateTimeShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLRealControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLRealDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLRealShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLRealShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeOfDayControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeOfDayDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeOfDayShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeOfDayShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerLTimeShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerRealControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerRealDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerRealShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerRealShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeOfDayControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeOfDayDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeOfDayShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeOfDayShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeShadowControlView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.OnlinerTimeShadowDisplayView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseOnline-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateBaseShadow-1.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.TemplateView.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.Templates.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls._Imports.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Controls.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.EnumToIntConverter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Exceptions.ParameterWrongTypeRendererException.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Exceptions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Group.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Interfaces.IComponentService.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Interfaces.IRenderableViewModelBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Interfaces.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Services.AttributesHandler.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Services.ComponentService.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Services.ServicesConfiguration.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Services.ViewModelCacheService.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.Services.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.TwinContainerObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.Blazor.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.RenderableAssemblyBaseAttribute.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.RenderableViewModelBase.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.UIExceptions.UIExceptionHandling.AppUiExceptionHandlerDelegate.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.UIExceptions.UIExceptionHandling.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.UIExceptions.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.Presentation.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.TIA2AXSharpAdapter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.TIA2AXSharpSerializer.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.TIABrowseElement.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.TIARootObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.TIATwinObject.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.TIA2AXSharp.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Helpers.YamlHelpers.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Helpers.YamlSerializerHelper.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Helpers.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Interfaces.IYamlBuiderVisitor.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Interfaces.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Models.Comments.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Models.MethodParametersModel.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Models.NamespaceWrapper.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Models.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Item.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Parameter.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Reference.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Remote.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Return.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Source.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Spec.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.Syntax.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.TocSchema.Item.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.TocSchema.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.YamlSchema.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Schemas.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Visitors.MyNodeVisitor.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Visitors.YamlBuilder.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixc_doc.Visitors.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixr_doc.LocalizedStringWrapper.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixr_doc.ResxManager.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixr_doc.StringValueWrapper.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/AXSharp.ixr_doc.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/index.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/ixc.Program.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/api/ixc.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/blazor/LAYOUTS.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/blazor/LIBRARIES.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/blazor/README.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/ADDED_MEMBERS.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/ATTRIBUTES.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/CONFIG_FILE.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/CONSTRUCTOR_EXTENSIONS.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/PACKAGING.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/compiler/README.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/conceptual/Conceptual.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/connectors/Dummy.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/connectors/README.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/connectors/WebAPI.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/general/CODING_STYLE.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/intro.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/ixd/IXD.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/ixr/IXR.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/articles/ltr/LTR.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://inxton.github.io/axsharp/index.html</loc>
-    <lastmod>2024-07-03T11:29:40+02:00</lastmod>
+    <lastmod>2025-01-14T12:58:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
