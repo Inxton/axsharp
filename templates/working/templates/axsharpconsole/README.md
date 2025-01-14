@@ -41,4 +41,4 @@ variables:
 
 ## Resources
 
-Documentation sources: https://github.com/ix-ax/axsharp/tree/dev/docs
+Documentation sources: https://github.com/inxton/axsharp/tree/dev/docs

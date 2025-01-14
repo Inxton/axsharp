@@ -7,17 +7,69 @@ references:
   commentId: N:AXSharp.Abstractions.Presentation
   fullName: AXSharp.Abstractions.Presentation
   nameWithType: AXSharp.Abstractions.Presentation
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute
+  name: ContainerAttribute
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.ContainerAttribute
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute
+  nameWithType: ContainerAttribute
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(AXSharp.Abstractions.Presentation.Layout)
+  name: ContainerAttribute(Layout)
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html#AXSharp_Abstractions_Presentation_ContainerAttribute__ctor_AXSharp_Abstractions_Presentation_Layout_
+  commentId: M:AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(AXSharp.Abstractions.Presentation.Layout)
+  name.vb: New(Layout)
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute.ContainerAttribute(AXSharp.Abstractions.Presentation.Layout)
+  fullName.vb: AXSharp.Abstractions.Presentation.ContainerAttribute.New(AXSharp.Abstractions.Presentation.Layout)
+  nameWithType: ContainerAttribute.ContainerAttribute(Layout)
+  nameWithType.vb: ContainerAttribute.New(Layout)
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(AXSharp.Abstractions.Presentation.Layout,System.Object)
+  name: ContainerAttribute(Layout, object)
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html#AXSharp_Abstractions_Presentation_ContainerAttribute__ctor_AXSharp_Abstractions_Presentation_Layout_System_Object_
+  commentId: M:AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(AXSharp.Abstractions.Presentation.Layout,System.Object)
+  name.vb: New(Layout, Object)
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute.ContainerAttribute(AXSharp.Abstractions.Presentation.Layout, object)
+  fullName.vb: AXSharp.Abstractions.Presentation.ContainerAttribute.New(AXSharp.Abstractions.Presentation.Layout, Object)
+  nameWithType: ContainerAttribute.ContainerAttribute(Layout, object)
+  nameWithType.vb: ContainerAttribute.New(Layout, Object)
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(System.String,System.String)
+  name: ContainerAttribute(string, string)
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html#AXSharp_Abstractions_Presentation_ContainerAttribute__ctor_System_String_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute.ContainerAttribute(string, string)
+  fullName.vb: AXSharp.Abstractions.Presentation.ContainerAttribute.New(String, String)
+  nameWithType: ContainerAttribute.ContainerAttribute(string, string)
+  nameWithType.vb: ContainerAttribute.New(String, String)
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(System.String,System.String,System.Object)
+  name: ContainerAttribute(string, string, object)
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html#AXSharp_Abstractions_Presentation_ContainerAttribute__ctor_System_String_System_String_System_Object_
+  commentId: M:AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor(System.String,System.String,System.Object)
+  name.vb: New(String, String, Object)
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute.ContainerAttribute(string, string, object)
+  fullName.vb: AXSharp.Abstractions.Presentation.ContainerAttribute.New(String, String, Object)
+  nameWithType: ContainerAttribute.ContainerAttribute(string, string, object)
+  nameWithType.vb: ContainerAttribute.New(String, String, Object)
+- uid: AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor*
+  name: ContainerAttribute
+  href: api/AXSharp.Abstractions.Presentation.ContainerAttribute.html#AXSharp_Abstractions_Presentation_ContainerAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.ContainerAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.ContainerAttribute.ContainerAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.ContainerAttribute.New
+  nameWithType: ContainerAttribute.ContainerAttribute
+  nameWithType.vb: ContainerAttribute.New
 - uid: AXSharp.Abstractions.Presentation.EmptyGroupProvider
   name: EmptyGroupProvider
   href: api/AXSharp.Abstractions.Presentation.EmptyGroupProvider.html
   commentId: T:AXSharp.Abstractions.Presentation.EmptyGroupProvider
   fullName: AXSharp.Abstractions.Presentation.EmptyGroupProvider
   nameWithType: EmptyGroupProvider
-- uid: AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(GroupLayout)
+- uid: AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   name: GetControl(GroupLayout)
-  href: api/AXSharp.Abstractions.Presentation.EmptyGroupProvider.html#AXSharp_Abstractions_Presentation_EmptyGroupProvider_GetControl_GroupLayout_
-  commentId: M:AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(GroupLayout)
-  fullName: AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(GroupLayout)
+  href: api/AXSharp.Abstractions.Presentation.EmptyGroupProvider.html#AXSharp_Abstractions_Presentation_EmptyGroupProvider_GetControl_AXSharp_Abstractions_Presentation_GroupLayout_
+  commentId: M:AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
+  fullName: AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   nameWithType: EmptyGroupProvider.GetControl(GroupLayout)
 - uid: AXSharp.Abstractions.Presentation.EmptyGroupProvider.GetControl*
   name: GetControl
@@ -32,11 +84,11 @@ references:
   commentId: T:AXSharp.Abstractions.Presentation.EmptyPresentationProvider
   fullName: AXSharp.Abstractions.Presentation.EmptyPresentationProvider
   nameWithType: EmptyPresentationProvider
-- uid: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(Layout)
+- uid: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   name: GetControl(Layout)
-  href: api/AXSharp.Abstractions.Presentation.EmptyPresentationProvider.html#AXSharp_Abstractions_Presentation_EmptyPresentationProvider_GetControl_Layout_
-  commentId: M:AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(Layout)
-  fullName: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(Layout)
+  href: api/AXSharp.Abstractions.Presentation.EmptyPresentationProvider.html#AXSharp_Abstractions_Presentation_EmptyPresentationProvider_GetControl_AXSharp_Abstractions_Presentation_Layout_
+  commentId: M:AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
+  fullName: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   nameWithType: EmptyPresentationProvider.GetControl(Layout)
 - uid: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl*
   name: GetControl
@@ -45,17 +97,87 @@ references:
   isSpec: "True"
   fullName: AXSharp.Abstractions.Presentation.EmptyPresentationProvider.GetControl
   nameWithType: EmptyPresentationProvider.GetControl
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute
+  name: GroupAttribute
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.GroupAttribute
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute
+  nameWithType: GroupAttribute
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(AXSharp.Abstractions.Presentation.GroupLayout)
+  name: GroupAttribute(GroupLayout)
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html#AXSharp_Abstractions_Presentation_GroupAttribute__ctor_AXSharp_Abstractions_Presentation_GroupLayout_
+  commentId: M:AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(AXSharp.Abstractions.Presentation.GroupLayout)
+  name.vb: New(GroupLayout)
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute.GroupAttribute(AXSharp.Abstractions.Presentation.GroupLayout)
+  fullName.vb: AXSharp.Abstractions.Presentation.GroupAttribute.New(AXSharp.Abstractions.Presentation.GroupLayout)
+  nameWithType: GroupAttribute.GroupAttribute(GroupLayout)
+  nameWithType.vb: GroupAttribute.New(GroupLayout)
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(AXSharp.Abstractions.Presentation.GroupLayout,System.Object)
+  name: GroupAttribute(GroupLayout, object)
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html#AXSharp_Abstractions_Presentation_GroupAttribute__ctor_AXSharp_Abstractions_Presentation_GroupLayout_System_Object_
+  commentId: M:AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(AXSharp.Abstractions.Presentation.GroupLayout,System.Object)
+  name.vb: New(GroupLayout, Object)
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute.GroupAttribute(AXSharp.Abstractions.Presentation.GroupLayout, object)
+  fullName.vb: AXSharp.Abstractions.Presentation.GroupAttribute.New(AXSharp.Abstractions.Presentation.GroupLayout, Object)
+  nameWithType: GroupAttribute.GroupAttribute(GroupLayout, object)
+  nameWithType.vb: GroupAttribute.New(GroupLayout, Object)
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(System.String,System.String)
+  name: GroupAttribute(string, string)
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html#AXSharp_Abstractions_Presentation_GroupAttribute__ctor_System_String_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute.GroupAttribute(string, string)
+  fullName.vb: AXSharp.Abstractions.Presentation.GroupAttribute.New(String, String)
+  nameWithType: GroupAttribute.GroupAttribute(string, string)
+  nameWithType.vb: GroupAttribute.New(String, String)
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(System.String,System.String,System.Object)
+  name: GroupAttribute(string, string, object)
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html#AXSharp_Abstractions_Presentation_GroupAttribute__ctor_System_String_System_String_System_Object_
+  commentId: M:AXSharp.Abstractions.Presentation.GroupAttribute.#ctor(System.String,System.String,System.Object)
+  name.vb: New(String, String, Object)
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute.GroupAttribute(string, string, object)
+  fullName.vb: AXSharp.Abstractions.Presentation.GroupAttribute.New(String, String, Object)
+  nameWithType: GroupAttribute.GroupAttribute(string, string, object)
+  nameWithType.vb: GroupAttribute.New(String, String, Object)
+- uid: AXSharp.Abstractions.Presentation.GroupAttribute.#ctor*
+  name: GroupAttribute
+  href: api/AXSharp.Abstractions.Presentation.GroupAttribute.html#AXSharp_Abstractions_Presentation_GroupAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.GroupAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.GroupAttribute.GroupAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.GroupAttribute.New
+  nameWithType: GroupAttribute.GroupAttribute
+  nameWithType.vb: GroupAttribute.New
+- uid: AXSharp.Abstractions.Presentation.GroupLayout
+  name: GroupLayout
+  href: api/AXSharp.Abstractions.Presentation.GroupLayout.html
+  commentId: T:AXSharp.Abstractions.Presentation.GroupLayout
+  fullName: AXSharp.Abstractions.Presentation.GroupLayout
+  nameWithType: GroupLayout
+- uid: AXSharp.Abstractions.Presentation.GroupLayout.Border
+  name: Border
+  href: api/AXSharp.Abstractions.Presentation.GroupLayout.html#AXSharp_Abstractions_Presentation_GroupLayout_Border
+  commentId: F:AXSharp.Abstractions.Presentation.GroupLayout.Border
+  fullName: AXSharp.Abstractions.Presentation.GroupLayout.Border
+  nameWithType: GroupLayout.Border
+- uid: AXSharp.Abstractions.Presentation.GroupLayout.GroupBox
+  name: GroupBox
+  href: api/AXSharp.Abstractions.Presentation.GroupLayout.html#AXSharp_Abstractions_Presentation_GroupLayout_GroupBox
+  commentId: F:AXSharp.Abstractions.Presentation.GroupLayout.GroupBox
+  fullName: AXSharp.Abstractions.Presentation.GroupLayout.GroupBox
+  nameWithType: GroupLayout.GroupBox
 - uid: AXSharp.Abstractions.Presentation.IGroupLayoutProvider
   name: IGroupLayoutProvider
   href: api/AXSharp.Abstractions.Presentation.IGroupLayoutProvider.html
   commentId: T:AXSharp.Abstractions.Presentation.IGroupLayoutProvider
   fullName: AXSharp.Abstractions.Presentation.IGroupLayoutProvider
   nameWithType: IGroupLayoutProvider
-- uid: AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(GroupLayout)
+- uid: AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   name: GetControl(GroupLayout)
-  href: api/AXSharp.Abstractions.Presentation.IGroupLayoutProvider.html#AXSharp_Abstractions_Presentation_IGroupLayoutProvider_GetControl_GroupLayout_
-  commentId: M:AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(GroupLayout)
-  fullName: AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(GroupLayout)
+  href: api/AXSharp.Abstractions.Presentation.IGroupLayoutProvider.html#AXSharp_Abstractions_Presentation_IGroupLayoutProvider_GetControl_AXSharp_Abstractions_Presentation_GroupLayout_
+  commentId: M:AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
+  fullName: AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   nameWithType: IGroupLayoutProvider.GetControl(GroupLayout)
 - uid: AXSharp.Abstractions.Presentation.IGroupLayoutProvider.GetControl*
   name: GetControl
@@ -70,11 +192,11 @@ references:
   commentId: T:AXSharp.Abstractions.Presentation.ILayoutProvider
   fullName: AXSharp.Abstractions.Presentation.ILayoutProvider
   nameWithType: ILayoutProvider
-- uid: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(Layout)
+- uid: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   name: GetControl(Layout)
-  href: api/AXSharp.Abstractions.Presentation.ILayoutProvider.html#AXSharp_Abstractions_Presentation_ILayoutProvider_GetControl_Layout_
-  commentId: M:AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(Layout)
-  fullName: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(Layout)
+  href: api/AXSharp.Abstractions.Presentation.ILayoutProvider.html#AXSharp_Abstractions_Presentation_ILayoutProvider_GetControl_AXSharp_Abstractions_Presentation_Layout_
+  commentId: M:AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
+  fullName: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   nameWithType: ILayoutProvider.GetControl(Layout)
 - uid: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl*
   name: GetControl
@@ -83,6 +205,54 @@ references:
   isSpec: "True"
   fullName: AXSharp.Abstractions.Presentation.ILayoutProvider.GetControl
   nameWithType: ILayoutProvider.GetControl
+- uid: AXSharp.Abstractions.Presentation.Layout
+  name: Layout
+  href: api/AXSharp.Abstractions.Presentation.Layout.html
+  commentId: T:AXSharp.Abstractions.Presentation.Layout
+  fullName: AXSharp.Abstractions.Presentation.Layout
+  nameWithType: Layout
+- uid: AXSharp.Abstractions.Presentation.Layout.Border
+  name: Border
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_Border
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.Border
+  fullName: AXSharp.Abstractions.Presentation.Layout.Border
+  nameWithType: Layout.Border
+- uid: AXSharp.Abstractions.Presentation.Layout.GroupBox
+  name: GroupBox
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_GroupBox
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.GroupBox
+  fullName: AXSharp.Abstractions.Presentation.Layout.GroupBox
+  nameWithType: Layout.GroupBox
+- uid: AXSharp.Abstractions.Presentation.Layout.Scroll
+  name: Scroll
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_Scroll
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.Scroll
+  fullName: AXSharp.Abstractions.Presentation.Layout.Scroll
+  nameWithType: Layout.Scroll
+- uid: AXSharp.Abstractions.Presentation.Layout.Stack
+  name: Stack
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_Stack
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.Stack
+  fullName: AXSharp.Abstractions.Presentation.Layout.Stack
+  nameWithType: Layout.Stack
+- uid: AXSharp.Abstractions.Presentation.Layout.Tabs
+  name: Tabs
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_Tabs
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.Tabs
+  fullName: AXSharp.Abstractions.Presentation.Layout.Tabs
+  nameWithType: Layout.Tabs
+- uid: AXSharp.Abstractions.Presentation.Layout.UniformGrid
+  name: UniformGrid
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_UniformGrid
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.UniformGrid
+  fullName: AXSharp.Abstractions.Presentation.Layout.UniformGrid
+  nameWithType: Layout.UniformGrid
+- uid: AXSharp.Abstractions.Presentation.Layout.Wrap
+  name: Wrap
+  href: api/AXSharp.Abstractions.Presentation.Layout.html#AXSharp_Abstractions_Presentation_Layout_Wrap
+  commentId: F:AXSharp.Abstractions.Presentation.Layout.Wrap
+  fullName: AXSharp.Abstractions.Presentation.Layout.Wrap
+  nameWithType: Layout.Wrap
 - uid: AXSharp.Abstractions.Presentation.PresentationProvider
   name: PresentationProvider
   href: api/AXSharp.Abstractions.Presentation.PresentationProvider.html
@@ -193,6 +363,192 @@ references:
   fullName.vb: AXSharp.Abstractions.Presentation.PresentationProviderNotAssignedException.New
   nameWithType: PresentationProviderNotAssignedException.PresentationProviderNotAssignedException
   nameWithType.vb: PresentationProviderNotAssignedException.New
+- uid: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute
+  name: RenderAuthorizedAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute
+  fullName: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute
+  nameWithType: RenderAuthorizedAttribute
+- uid: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.#ctor(System.String)
+  name: RenderAuthorizedAttribute(string)
+  href: api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html#AXSharp_Abstractions_Presentation_RenderAuthorizedAttribute__ctor_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.RenderAuthorizedAttribute(string)
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.New(String)
+  nameWithType: RenderAuthorizedAttribute.RenderAuthorizedAttribute(string)
+  nameWithType.vb: RenderAuthorizedAttribute.New(String)
+- uid: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.#ctor*
+  name: RenderAuthorizedAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html#AXSharp_Abstractions_Presentation_RenderAuthorizedAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.RenderAuthorizedAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.New
+  nameWithType: RenderAuthorizedAttribute.RenderAuthorizedAttribute
+  nameWithType.vb: RenderAuthorizedAttribute.New
+- uid: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.Permissions
+  name: Permissions
+  href: api/AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.html#AXSharp_Abstractions_Presentation_RenderAuthorizedAttribute_Permissions
+  commentId: F:AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.Permissions
+  fullName: AXSharp.Abstractions.Presentation.RenderAuthorizedAttribute.Permissions
+  nameWithType: RenderAuthorizedAttribute.Permissions
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute
+  name: RenderIgnoreAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute
+  nameWithType: RenderIgnoreAttribute
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor
+  name: RenderIgnoreAttribute()
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html#AXSharp_Abstractions_Presentation_RenderIgnoreAttribute__ctor
+  commentId: M:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor
+  name.vb: New()
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.RenderIgnoreAttribute()
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.New()
+  nameWithType: RenderIgnoreAttribute.RenderIgnoreAttribute()
+  nameWithType.vb: RenderIgnoreAttribute.New()
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor(System.String[])
+  name: RenderIgnoreAttribute(params string[])
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html#AXSharp_Abstractions_Presentation_RenderIgnoreAttribute__ctor_System_String___
+  commentId: M:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.RenderIgnoreAttribute(params string[])
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.New(ParamArray String())
+  nameWithType: RenderIgnoreAttribute.RenderIgnoreAttribute(params string[])
+  nameWithType.vb: RenderIgnoreAttribute.New(ParamArray String())
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor*
+  name: RenderIgnoreAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html#AXSharp_Abstractions_Presentation_RenderIgnoreAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.RenderIgnoreAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.New
+  nameWithType: RenderIgnoreAttribute.RenderIgnoreAttribute
+  nameWithType.vb: RenderIgnoreAttribute.New
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore(System.String)
+  name: HasIgnore(string)
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html#AXSharp_Abstractions_Presentation_RenderIgnoreAttribute_HasIgnore_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore(System.String)
+  name.vb: HasIgnore(String)
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore(string)
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore(String)
+  nameWithType: RenderIgnoreAttribute.HasIgnore(string)
+  nameWithType.vb: RenderIgnoreAttribute.HasIgnore(String)
+- uid: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore*
+  name: HasIgnore
+  href: api/AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.html#AXSharp_Abstractions_Presentation_RenderIgnoreAttribute_HasIgnore_
+  commentId: Overload:AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore
+  isSpec: "True"
+  fullName: AXSharp.Abstractions.Presentation.RenderIgnoreAttribute.HasIgnore
+  nameWithType: RenderIgnoreAttribute.HasIgnore
+- uid: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute
+  name: RenderTemplateOverrideAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute
+  fullName: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute
+  nameWithType: RenderTemplateOverrideAttribute
+- uid: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.#ctor(System.String)
+  name: RenderTemplateOverrideAttribute(string)
+  href: api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html#AXSharp_Abstractions_Presentation_RenderTemplateOverrideAttribute__ctor_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.RenderTemplateOverrideAttribute(string)
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.New(String)
+  nameWithType: RenderTemplateOverrideAttribute.RenderTemplateOverrideAttribute(string)
+  nameWithType.vb: RenderTemplateOverrideAttribute.New(String)
+- uid: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.#ctor*
+  name: RenderTemplateOverrideAttribute
+  href: api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html#AXSharp_Abstractions_Presentation_RenderTemplateOverrideAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.RenderTemplateOverrideAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.New
+  nameWithType: RenderTemplateOverrideAttribute.RenderTemplateOverrideAttribute
+  nameWithType.vb: RenderTemplateOverrideAttribute.New
+- uid: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName
+  name: TemplateOverrideName
+  href: api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html#AXSharp_Abstractions_Presentation_RenderTemplateOverrideAttribute_TemplateOverrideName
+  commentId: P:AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName
+  fullName: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName
+  nameWithType: RenderTemplateOverrideAttribute.TemplateOverrideName
+- uid: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName*
+  name: TemplateOverrideName
+  href: api/AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.html#AXSharp_Abstractions_Presentation_RenderTemplateOverrideAttribute_TemplateOverrideName_
+  commentId: Overload:AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName
+  isSpec: "True"
+  fullName: AXSharp.Abstractions.Presentation.RenderTemplateOverrideAttribute.TemplateOverrideName
+  nameWithType: RenderTemplateOverrideAttribute.TemplateOverrideName
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute
+  name: TimeFormatAttribute
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html
+  commentId: T:AXSharp.Abstractions.Presentation.TimeFormatAttribute
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute
+  nameWithType: TimeFormatAttribute
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.#ctor(System.String)
+  name: TimeFormatAttribute(string)
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute__ctor_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.TimeFormatAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.TimeFormatAttribute(string)
+  fullName.vb: AXSharp.Abstractions.Presentation.TimeFormatAttribute.New(String)
+  nameWithType: TimeFormatAttribute.TimeFormatAttribute(string)
+  nameWithType.vb: TimeFormatAttribute.New(String)
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.#ctor*
+  name: TimeFormatAttribute
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute__ctor_
+  commentId: Overload:AXSharp.Abstractions.Presentation.TimeFormatAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.TimeFormatAttribute
+  fullName.vb: AXSharp.Abstractions.Presentation.TimeFormatAttribute.New
+  nameWithType: TimeFormatAttribute.TimeFormatAttribute
+  nameWithType.vb: TimeFormatAttribute.New
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString
+  name: FormatString
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_FormatString
+  commentId: P:AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString
+  nameWithType: TimeFormatAttribute.FormatString
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString*
+  name: FormatString
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_FormatString_
+  commentId: Overload:AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString
+  isSpec: "True"
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FormatString
+  nameWithType: TimeFormatAttribute.FormatString
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan(System.TimeSpan)
+  name: FromTimeSpan(TimeSpan)
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_FromTimeSpan_System_TimeSpan_
+  commentId: M:AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan(System.TimeSpan)
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan(System.TimeSpan)
+  nameWithType: TimeFormatAttribute.FromTimeSpan(TimeSpan)
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan*
+  name: FromTimeSpan
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_FromTimeSpan_
+  commentId: Overload:AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan
+  isSpec: "True"
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.FromTimeSpan
+  nameWithType: TimeFormatAttribute.FromTimeSpan
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan(System.String)
+  name: ToTimeSpan(string)
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_ToTimeSpan_System_String_
+  commentId: M:AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan(System.String)
+  name.vb: ToTimeSpan(String)
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan(string)
+  fullName.vb: AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan(String)
+  nameWithType: TimeFormatAttribute.ToTimeSpan(string)
+  nameWithType.vb: TimeFormatAttribute.ToTimeSpan(String)
+- uid: AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan*
+  name: ToTimeSpan
+  href: api/AXSharp.Abstractions.Presentation.TimeFormatAttribute.html#AXSharp_Abstractions_Presentation_TimeFormatAttribute_ToTimeSpan_
+  commentId: Overload:AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan
+  isSpec: "True"
+  fullName: AXSharp.Abstractions.Presentation.TimeFormatAttribute.ToTimeSpan
+  nameWithType: TimeFormatAttribute.ToTimeSpan
 - uid: AXSharp.Compiler
   name: AXSharp.Compiler
   href: api/AXSharp.Compiler.html
@@ -311,6 +667,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.AXSharpConfig.RetrieveAXSharpConfig
   nameWithType: AXSharpConfig.RetrieveAXSharpConfig
+- uid: AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation
+  name: SkipDependencyCompilation
+  href: api/AXSharp.Compiler.AXSharpConfig.html#AXSharp_Compiler_AXSharpConfig_SkipDependencyCompilation
+  commentId: P:AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation
+  fullName: AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation
+  nameWithType: AXSharpConfig.SkipDependencyCompilation
+- uid: AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation*
+  name: SkipDependencyCompilation
+  href: api/AXSharp.Compiler.AXSharpConfig.html#AXSharp_Compiler_AXSharpConfig_SkipDependencyCompilation_
+  commentId: Overload:AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AXSharpConfig.SkipDependencyCompilation
+  nameWithType: AXSharpConfig.SkipDependencyCompilation
 - uid: AXSharp.Compiler.AXSharpConfig.UpdateAndGetAXSharpConfig(System.String,AXSharp.Compiler.ICompilerOptions)
   name: UpdateAndGetAXSharpConfig(string, ICompilerOptions?)
   href: api/AXSharp.Compiler.AXSharpConfig.html#AXSharp_Compiler_AXSharpConfig_UpdateAndGetAXSharpConfig_System_String_AXSharp_Compiler_ICompilerOptions_
@@ -420,6 +789,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.AXSharpProject.Generate
   nameWithType: AXSharpProject.Generate
+- uid: AXSharp.Compiler.AXSharpProject.GetReferences
+  name: GetReferences()
+  href: api/AXSharp.Compiler.AXSharpProject.html#AXSharp_Compiler_AXSharpProject_GetReferences
+  commentId: M:AXSharp.Compiler.AXSharpProject.GetReferences
+  fullName: AXSharp.Compiler.AXSharpProject.GetReferences()
+  nameWithType: AXSharpProject.GetReferences()
+- uid: AXSharp.Compiler.AXSharpProject.GetReferences*
+  name: GetReferences
+  href: api/AXSharp.Compiler.AXSharpProject.html#AXSharp_Compiler_AXSharpProject_GetReferences_
+  commentId: Overload:AXSharp.Compiler.AXSharpProject.GetReferences
+  isSpec: "True"
+  fullName: AXSharp.Compiler.AXSharpProject.GetReferences
+  nameWithType: AXSharpProject.GetReferences
 - uid: AXSharp.Compiler.AXSharpProject.GetRelativePath(System.String,System.String)
   name: GetRelativePath(string, string)
   href: api/AXSharp.Compiler.AXSharpProject.html#AXSharp_Compiler_AXSharpProject_GetRelativePath_System_String_System_String_
@@ -1138,6 +1520,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateInterfaceDeclaration
   nameWithType: ICombinedThreeVisitor.CreateInterfaceDeclaration
+- uid: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor,AX.ST.Semantic.Compilation)
+  name: CreateMergedConfigurations(IxNodeVisitor, Compilation)
+  href: api/AXSharp.Compiler.Core.ICombinedThreeVisitor.html#AXSharp_Compiler_Core_ICombinedThreeVisitor_CreateMergedConfigurations_AXSharp_Compiler_Core_IxNodeVisitor_AX_ST_Semantic_Compilation_
+  commentId: M:AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor,AX.ST.Semantic.Compilation)
+  fullName: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor, AX.ST.Semantic.Compilation)
+  nameWithType: ICombinedThreeVisitor.CreateMergedConfigurations(IxNodeVisitor, Compilation)
+- uid: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations*
+  name: CreateMergedConfigurations
+  href: api/AXSharp.Compiler.Core.ICombinedThreeVisitor.html#AXSharp_Compiler_Core_ICombinedThreeVisitor_CreateMergedConfigurations_
+  commentId: Overload:AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations
+  isSpec: "True"
+  fullName: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateMergedConfigurations
+  nameWithType: ICombinedThreeVisitor.CreateMergedConfigurations
 - uid: AXSharp.Compiler.Core.ICombinedThreeVisitor.CreateNamedValueTypeDeclaration(AX.ST.Semantic.Model.Declarations.Types.INamedValueTypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)
   name: CreateNamedValueTypeDeclaration(INamedValueTypeDeclaration, IxNodeVisitor)
   href: api/AXSharp.Compiler.Core.ICombinedThreeVisitor.html#AXSharp_Compiler_Core_ICombinedThreeVisitor_CreateNamedValueTypeDeclaration_AX_ST_Semantic_Model_Declarations_Types_INamedValueTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_
@@ -1882,6 +2277,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateInterfaceDeclaration
   nameWithType: CsOnlinerSourceBuilder.CreateInterfaceDeclaration
+- uid: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor,AX.ST.Semantic.Compilation)
+  name: CreateMergedConfigurations(IxNodeVisitor, Compilation)
+  href: api/AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.html#AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateMergedConfigurations_AXSharp_Compiler_Core_IxNodeVisitor_AX_ST_Semantic_Compilation_
+  commentId: M:AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor,AX.ST.Semantic.Compilation)
+  fullName: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations(AXSharp.Compiler.Core.IxNodeVisitor, AX.ST.Semantic.Compilation)
+  nameWithType: CsOnlinerSourceBuilder.CreateMergedConfigurations(IxNodeVisitor, Compilation)
+- uid: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations*
+  name: CreateMergedConfigurations
+  href: api/AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.html#AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateMergedConfigurations_
+  commentId: Overload:AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations
+  isSpec: "True"
+  fullName: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateMergedConfigurations
+  nameWithType: CsOnlinerSourceBuilder.CreateMergedConfigurations
 - uid: AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.CreateNamedValueTypeDeclaration(AX.ST.Syntax.Tree.INamedValueTypeDeclarationSyntax,AX.ST.Semantic.Model.Declarations.Types.INamedValueTypeDeclaration,AXSharp.Compiler.Core.IxNodeVisitor)
   name: CreateNamedValueTypeDeclaration(INamedValueTypeDeclarationSyntax, INamedValueTypeDeclaration, IxNodeVisitor)
   href: api/AXSharp.Compiler.Cs.Onliner.CsOnlinerSourceBuilder.html#AXSharp_Compiler_Cs_Onliner_CsOnlinerSourceBuilder_CreateNamedValueTypeDeclaration_AX_ST_Syntax_Tree_INamedValueTypeDeclarationSyntax_AX_ST_Semantic_Model_Declarations_Types_INamedValueTypeDeclaration_AXSharp_Compiler_Core_IxNodeVisitor_
@@ -2433,6 +2841,22 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.Cs.PragmaExtensions.AddAttributes
   nameWithType: PragmaExtensions.AddAttributes
+- uid: AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes(System.Collections.Generic.IEnumerable{AX.ST.Semantic.Pragmas.IPragma})
+  name: AddedPropertiesAsAttributes(IEnumerable<IPragma>)
+  href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_AddedPropertiesAsAttributes_System_Collections_Generic_IEnumerable_AX_ST_Semantic_Pragmas_IPragma__
+  commentId: M:AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes(System.Collections.Generic.IEnumerable{AX.ST.Semantic.Pragmas.IPragma})
+  name.vb: AddedPropertiesAsAttributes(IEnumerable(Of IPragma))
+  fullName: AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes(System.Collections.Generic.IEnumerable<AX.ST.Semantic.Pragmas.IPragma>)
+  fullName.vb: AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes(System.Collections.Generic.IEnumerable(Of AX.ST.Semantic.Pragmas.IPragma))
+  nameWithType: PragmaExtensions.AddedPropertiesAsAttributes(IEnumerable<IPragma>)
+  nameWithType.vb: PragmaExtensions.AddedPropertiesAsAttributes(IEnumerable(Of IPragma))
+- uid: AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes*
+  name: AddedPropertiesAsAttributes
+  href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_AddedPropertiesAsAttributes_
+  commentId: Overload:AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes
+  isSpec: "True"
+  fullName: AXSharp.Compiler.Cs.PragmaExtensions.AddedPropertiesAsAttributes
+  nameWithType: PragmaExtensions.AddedPropertiesAsAttributes
 - uid: AXSharp.Compiler.Cs.PragmaExtensions.DeclareProperties(AX.ST.Semantic.Model.Declarations.IConfigurationDeclaration)
   name: DeclareProperties(IConfigurationDeclaration)
   href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_DeclareProperties_AX_ST_Semantic_Model_Declarations_IConfigurationDeclaration_
@@ -2511,12 +2935,12 @@ references:
   commentId: F:AXSharp.Compiler.Cs.PragmaExtensions.PRAGMA_PROPERTY_SET_SIGNATURE
   fullName: AXSharp.Compiler.Cs.PragmaExtensions.PRAGMA_PROPERTY_SET_SIGNATURE
   nameWithType: PragmaExtensions.PRAGMA_PROPERTY_SET_SIGNATURE
-- uid: AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IFieldDeclaration)
-  name: SetProperties(IFieldDeclaration)
-  href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_SetProperties_AX_ST_Semantic_Model_Declarations_IFieldDeclaration_
-  commentId: M:AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IFieldDeclaration)
-  fullName: AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IFieldDeclaration)
-  nameWithType: PragmaExtensions.SetProperties(IFieldDeclaration)
+- uid: AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IStorageDeclaration)
+  name: SetProperties(IStorageDeclaration)
+  href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_SetProperties_AX_ST_Semantic_Model_Declarations_IStorageDeclaration_
+  commentId: M:AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IStorageDeclaration)
+  fullName: AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IStorageDeclaration)
+  nameWithType: PragmaExtensions.SetProperties(IStorageDeclaration)
 - uid: AXSharp.Compiler.Cs.PragmaExtensions.SetProperties(AX.ST.Semantic.Model.Declarations.IVariableDeclaration)
   name: SetProperties(IVariableDeclaration)
   href: api/AXSharp.Compiler.Cs.PragmaExtensions.html#AXSharp_Compiler_Cs_PragmaExtensions_SetProperties_AX_ST_Semantic_Model_Declarations_IVariableDeclaration_
@@ -2645,6 +3069,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Product
   nameWithType: VisitorProduct.Product
+- uid: AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property
+  name: Property
+  href: api/AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.html#AXSharp_Compiler_Cs_Pragmas_PragmaParser_VisitorProduct_Property
+  commentId: P:AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property
+  fullName: AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property
+  nameWithType: VisitorProduct.Property
+- uid: AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property*
+  name: Property
+  href: api/AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.html#AXSharp_Compiler_Cs_Pragmas_PragmaParser_VisitorProduct_Property_
+  commentId: Overload:AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property
+  isSpec: "True"
+  fullName: AXSharp.Compiler.Cs.Pragmas.PragmaParser.VisitorProduct.Property
+  nameWithType: VisitorProduct.Property
 - uid: AXSharp.Compiler.Cs.SemanticsHelpers
   name: SemanticsHelpers
   href: api/AXSharp.Compiler.Cs.SemanticsHelpers.html
@@ -3139,6 +3576,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.ICompilerOptions.ProjectFile
   nameWithType: ICompilerOptions.ProjectFile
+- uid: AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation
+  name: SkipDependencyCompilation
+  href: api/AXSharp.Compiler.ICompilerOptions.html#AXSharp_Compiler_ICompilerOptions_SkipDependencyCompilation
+  commentId: P:AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation
+  fullName: AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation
+  nameWithType: ICompilerOptions.SkipDependencyCompilation
+- uid: AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation*
+  name: SkipDependencyCompilation
+  href: api/AXSharp.Compiler.ICompilerOptions.html#AXSharp_Compiler_ICompilerOptions_SkipDependencyCompilation_
+  commentId: Overload:AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation
+  isSpec: "True"
+  fullName: AXSharp.Compiler.ICompilerOptions.SkipDependencyCompilation
+  nameWithType: ICompilerOptions.SkipDependencyCompilation
 - uid: AXSharp.Compiler.ICompilerOptions.UseBase
   name: UseBase
   href: api/AXSharp.Compiler.ICompilerOptions.html#AXSharp_Compiler_ICompilerOptions_UseBase
@@ -3357,6 +3807,19 @@ references:
   isSpec: "True"
   fullName: AXSharp.Compiler.LegalAcrobatics.LegalComplianceAcrobatics
   nameWithType: LegalAcrobatics.LegalComplianceAcrobatics
+- uid: AXSharp.Compiler.LegalAcrobatics.StcVersion
+  name: StcVersion
+  href: api/AXSharp.Compiler.LegalAcrobatics.html#AXSharp_Compiler_LegalAcrobatics_StcVersion
+  commentId: P:AXSharp.Compiler.LegalAcrobatics.StcVersion
+  fullName: AXSharp.Compiler.LegalAcrobatics.StcVersion
+  nameWithType: LegalAcrobatics.StcVersion
+- uid: AXSharp.Compiler.LegalAcrobatics.StcVersion*
+  name: StcVersion
+  href: api/AXSharp.Compiler.LegalAcrobatics.html#AXSharp_Compiler_LegalAcrobatics_StcVersion_
+  commentId: Overload:AXSharp.Compiler.LegalAcrobatics.StcVersion
+  isSpec: "True"
+  fullName: AXSharp.Compiler.LegalAcrobatics.StcVersion
+  nameWithType: LegalAcrobatics.StcVersion
 - uid: AXSharp.Compiler.Log
   name: Log
   href: api/AXSharp.Compiler.Log.html
@@ -3652,6 +4115,57 @@ references:
   commentId: N:AXSharp.Connector
   fullName: AXSharp.Connector
   nameWithType: AXSharp.Connector
+- uid: AXSharp.Connector.AddedPropertiesAttribute
+  name: AddedPropertiesAttribute
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html
+  commentId: T:AXSharp.Connector.AddedPropertiesAttribute
+  fullName: AXSharp.Connector.AddedPropertiesAttribute
+  nameWithType: AddedPropertiesAttribute
+- uid: AXSharp.Connector.AddedPropertiesAttribute.#ctor(System.String,System.Object)
+  name: AddedPropertiesAttribute(string, object)
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute__ctor_System_String_System_Object_
+  commentId: M:AXSharp.Connector.AddedPropertiesAttribute.#ctor(System.String,System.Object)
+  name.vb: New(String, Object)
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.AddedPropertiesAttribute(string, object)
+  fullName.vb: AXSharp.Connector.AddedPropertiesAttribute.New(String, Object)
+  nameWithType: AddedPropertiesAttribute.AddedPropertiesAttribute(string, object)
+  nameWithType.vb: AddedPropertiesAttribute.New(String, Object)
+- uid: AXSharp.Connector.AddedPropertiesAttribute.#ctor*
+  name: AddedPropertiesAttribute
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute__ctor_
+  commentId: Overload:AXSharp.Connector.AddedPropertiesAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.AddedPropertiesAttribute
+  fullName.vb: AXSharp.Connector.AddedPropertiesAttribute.New
+  nameWithType: AddedPropertiesAttribute.AddedPropertiesAttribute
+  nameWithType.vb: AddedPropertiesAttribute.New
+- uid: AXSharp.Connector.AddedPropertiesAttribute.PropertyName
+  name: PropertyName
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute_PropertyName
+  commentId: P:AXSharp.Connector.AddedPropertiesAttribute.PropertyName
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.PropertyName
+  nameWithType: AddedPropertiesAttribute.PropertyName
+- uid: AXSharp.Connector.AddedPropertiesAttribute.PropertyName*
+  name: PropertyName
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute_PropertyName_
+  commentId: Overload:AXSharp.Connector.AddedPropertiesAttribute.PropertyName
+  isSpec: "True"
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.PropertyName
+  nameWithType: AddedPropertiesAttribute.PropertyName
+- uid: AXSharp.Connector.AddedPropertiesAttribute.PropertyValue
+  name: PropertyValue
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute_PropertyValue
+  commentId: P:AXSharp.Connector.AddedPropertiesAttribute.PropertyValue
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.PropertyValue
+  nameWithType: AddedPropertiesAttribute.PropertyValue
+- uid: AXSharp.Connector.AddedPropertiesAttribute.PropertyValue*
+  name: PropertyValue
+  href: api/AXSharp.Connector.AddedPropertiesAttribute.html#AXSharp_Connector_AddedPropertiesAttribute_PropertyValue_
+  commentId: Overload:AXSharp.Connector.AddedPropertiesAttribute.PropertyValue
+  isSpec: "True"
+  fullName: AXSharp.Connector.AddedPropertiesAttribute.PropertyValue
+  nameWithType: AddedPropertiesAttribute.PropertyValue
 - uid: AXSharp.Connector.BuilderHelpers
   name: AXSharp.Connector.BuilderHelpers
   href: api/AXSharp.Connector.BuilderHelpers.html
@@ -16082,11 +16596,11 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.New
   nameWithType: BlazorGroupLayoutProvider.BlazorGroupLayoutProvider
   nameWithType.vb: BlazorGroupLayoutProvider.New
-- uid: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(GroupLayout)
+- uid: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   name: GetControl(GroupLayout)
-  href: api/AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.html#AXSharp_Presentation_Blazor_BlazorGroupLayoutProvider_GetControl_GroupLayout_
-  commentId: M:AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(GroupLayout)
-  fullName: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(GroupLayout)
+  href: api/AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.html#AXSharp_Presentation_Blazor_BlazorGroupLayoutProvider_GetControl_AXSharp_Abstractions_Presentation_GroupLayout_
+  commentId: M:AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
+  fullName: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.GroupLayout)
   nameWithType: BlazorGroupLayoutProvider.GetControl(GroupLayout)
 - uid: AXSharp.Presentation.Blazor.BlazorGroupLayoutProvider.GetControl*
   name: GetControl
@@ -16120,11 +16634,11 @@ references:
   fullName.vb: AXSharp.Presentation.Blazor.BlazorLayoutProvider.New
   nameWithType: BlazorLayoutProvider.BlazorLayoutProvider
   nameWithType.vb: BlazorLayoutProvider.New
-- uid: AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(Layout)
+- uid: AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   name: GetControl(Layout)
-  href: api/AXSharp.Presentation.Blazor.BlazorLayoutProvider.html#AXSharp_Presentation_Blazor_BlazorLayoutProvider_GetControl_Layout_
-  commentId: M:AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(Layout)
-  fullName: AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(Layout)
+  href: api/AXSharp.Presentation.Blazor.BlazorLayoutProvider.html#AXSharp_Presentation_Blazor_BlazorLayoutProvider_GetControl_AXSharp_Abstractions_Presentation_Layout_
+  commentId: M:AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
+  fullName: AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl(AXSharp.Abstractions.Presentation.Layout)
   nameWithType: BlazorLayoutProvider.GetControl(Layout)
 - uid: AXSharp.Presentation.Blazor.BlazorLayoutProvider.GetControl*
   name: GetControl

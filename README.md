@@ -1,10 +1,10 @@
 ![](docfx/images/banner_wider.png)
 
-[![dev](https://github.com/ix-ax/axsharp/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/ix-ax/axsharp/actions/workflows/dev.yml)
-[![preview](https://github.com/ix-ax/axsharp/actions/workflows/release.yml/badge.svg?branch=releases%2Fv0)](https://github.com/ix-ax/axsharp/actions/workflows/release.yml)
-[![master](https://github.com/ix-ax/axsharp/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/ix-ax/axsharp/actions/workflows/master.yml)
+[![dev](https://github.com/inxton/axsharp/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/inxton/axsharp/actions/workflows/dev.yml)
+[![preview](https://github.com/inxton/axsharp/actions/workflows/release.yml/badge.svg?branch=releases%2Fv0)](https://github.com/inxton/axsharp/actions/workflows/release.yml)
+[![master](https://github.com/inxton/axsharp/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/inxton/axsharp/actions/workflows/master.yml)
 ![semver](https://img.shields.io/badge/semver-0.10.0-blue)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/ix-ax/axsharp/blob/dev/LICENSE)
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/inxton/axsharp/blob/dev/LICENSE)
 
 > **NOTE**
 > **We have just gone through project-wide refactoring changing the name from **IX** to **AX#** (AXSharp). Some links and documentation may still be using the IX and some links are still broken at this point. We are working hard on fixing those issues. Should any of these block you please feel free to reach out to the team.**
@@ -16,7 +16,7 @@ The **AX#** is a series of tools that extend SIMATIC AX (Automation Xpansion) wi
 
 ## State of the project
 
-This project is under development; however, we are [releasing versions](https://github.com/ix-ax/axsharp/releases) that you can play with before the release of the full version. This project follows [semantic versioning](https://semver.org/).
+This project is under development; however, we are [releasing versions](https://github.com/inxton/axsharp/releases) that you can play with before the release of the full version. This project follows [semantic versioning](https://semver.org/).
 
 All versions released with a major version number `0` (e.g. 0.10.0) can have breaking changes to the previous version at any moment. Stable versions will be released with a major version number greater than `0` (e.g. 1.2.1).
 
@@ -28,13 +28,13 @@ We plan to have production-ready libraries and tools in early spring 2024, that 
 - application templates for quick development and deployment.
 
 
-**Documentation** is a work in progress should you find missing, unclear, or misleading content please feel free to [add an issue](https://github.com/ix-ax/axsharp/issues/new/choose) or to create a pull request with the fix you find appropriate.
+**Documentation** is a work in progress should you find missing, unclear, or misleading content please feel free to [add an issue](https://github.com/inxton/axsharp/issues/new/choose) or to create a pull request with the fix you find appropriate.
 
-There are some **known issues** that we are looking into in the development process. The list of known issues is [here](https://github.com/ix-ax/axsharp/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
+There are some **known issues** that we are looking into in the development process. The list of known issues is [here](https://github.com/inxton/axsharp/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
 
 
 
-**AX#** is the underlying technology for the [AXOpen](https://github.com/ix-ax/AXOpen) that will be rendered public in this organization and will provide a series of libraries and components for building automation projects.
+**AX#** is the underlying technology for the [AXOpen](https://github.com/inxton/AXOpen) that will be rendered public in this organization and will provide a series of libraries and components for building automation projects.
 
 ## Disclaimer
 

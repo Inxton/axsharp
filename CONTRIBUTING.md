@@ -4,7 +4,7 @@ Thank you for considering contributing to this project. This document will help 
 
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via [issue](https://github.com/ix-ax/axsharp/issues) or open a [discussion](https://github.com/ix-ax/axsharp/discussions).
+When contributing to this repository, please first discuss the change you wish to make via [issue](https://github.com/inxton/axsharp/issues) or open a [discussion](https://github.com/inxton/axsharp/discussions).
 
 **IMPORTANT!!!** If you discover a **security issue, do not disclose that information** in public spaces of the repo (issues, discussions), more info [here](SECURITY.md).
 
