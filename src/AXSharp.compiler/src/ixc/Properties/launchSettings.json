@@ -33,9 +33,9 @@
       "commandName": "Project",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\_axopen\\axopen\\src\\traversals\\apax\\"
     },
-    "axopen-data": {
+    "axopen-core": {
       "commandName": "Project",
-      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\_axopen\\axopen\\src\\data\\app\\"
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\ax\\axopen\\src\\core\\ctrl\\"
     }
   }
 }

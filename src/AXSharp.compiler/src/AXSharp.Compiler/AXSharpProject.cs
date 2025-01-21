@@ -46,14 +46,29 @@ public class AXSharpProject : IAXSharpProject
     {
         AxProject = axProject;
         CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions);
-        OutputFolder = Path.GetFullPath(Path.Combine(AxProject.ProjectFolder, CompilerOptions.OutputProjectFolder));
+        if (CompilerOptions != null)
+        {
+            if(string.IsNullOrEmpty(CompilerOptions.OutputProjectFolder))
+                throw new InvalidOperationException("Output project folder must be set in the AXSharp.config.json file.");
+            OutputFolder = Path.GetFullPath(Path.Combine(AxProject.ProjectFolder, CompilerOptions.OutputProjectFolder));
+
+            if (!string.IsNullOrEmpty(CompilerOptions.ProjectFile))
+            {             
+                ProjectFile = Path.Combine(OutputFolder, CompilerOptions.ProjectFile);
+            }
+        }
+        
         if (cliCompilerOptions != null) UseBaseSymbol = cliCompilerOptions.UseBase;
-        
-        
+        if (cliCompilerOptions != null && !string.IsNullOrEmpty(cliCompilerOptions.ProjectFile)) ProjectFile = cliCompilerOptions.ProjectFile;
+
         BuilderTypes = builderTypes;
         TargetProject = Activator.CreateInstance(targetProjectType, this) as ITargetProject ?? throw new
             InvalidOperationException("Target project type must implement ITargetProject interface.");
+
+        
     }
+
+    public string ProjectFile { get; }
 
 
     /// <summary>
