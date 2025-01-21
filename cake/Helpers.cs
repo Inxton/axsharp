@@ -81,6 +81,10 @@ internal class Helpers
             {
                 //swallow
             }
+            catch
+            {
+                Console.WriteLine("Failed to delete apax directory");
+            }
         }
 
     }

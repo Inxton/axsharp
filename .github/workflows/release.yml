@@ -21,7 +21,7 @@ jobs:
       matrix:
         configuration: [Release]
 
-    runs-on: [self-hosted, Windows, X64, L3]  # For a list of available runner types, refer to
+    runs-on: [self-hosted, Windows, X64, L3, AX]  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on    
     steps:
     - name: Checkout

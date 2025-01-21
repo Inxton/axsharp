@@ -32,17 +32,29 @@ public class CsProject : ITargetProject
     public CsProject(AXSharpProject AXSharpProject)
     {
         AxSharpProject = AXSharpProject;
-        ProjectRootNamespace = MakeValidIdentifier(AXSharpProject.AxProject.ProjectInfo.Name);
+        ProjectRootNamespace = MakeValidIdentifier(AXSharpProject.AxProject.ProjectInfo.Name);        
     }
 
     private AXSharpProject AxSharpProject { get; }
 
-
+    
     /// <summary>
     ///     Gets associated IxProject file.
     /// </summary>
-    public string IxProjectFile => Path.Combine(AxSharpProject.OutputFolder,
-        $"{MakeValidFileName(AxSharpProject.AxProject.ProjectInfo.Name)}.csproj");
+    public string IxProjectFile
+    {
+        get 
+        { 
+            if(AxSharpProject.ProjectFile == null)
+            {
+                return Path.Combine(AxSharpProject.OutputFolder,
+                $"{MakeValidFileName(AxSharpProject.AxProject.ProjectInfo.Name)}.csproj");
+            }
+
+            return AxSharpProject.ProjectFile;
+        }
+    }
+        
 
 
     /// <summary>
