@@ -39,18 +39,29 @@ internal static class IecToClrConverter
     private static readonly IDictionary<string, Type> NullabePrimitives = new Dictionary<string, Type>
     {
         { "WSTRING", typeof(string) },
-        { "STRING", typeof(string) },
+        { "STRING", typeof(string) },        
         { "DATE", typeof(DateOnly) },
         { "LDATE", typeof(DateOnly) },
         { "DATE_AND_TIME", typeof(DateTime) },
         { "LDATE_AND_TIME", typeof(DateTime) },
-        { "DATE_TIME", typeof(DateTime) },
+        { "DATE_TIME", typeof(DateTime) },                                        
         { "TIME", typeof(TimeSpan) },
         { "LTIME", typeof(TimeSpan) },
         { "TIME_OF_DAY", typeof(TimeSpan) },
         { "LTIME_OF_DAY", typeof(TimeSpan) },
         { "TOD", typeof(TimeSpan) }
     };
+
+
+    private static readonly IDictionary<string, Type> NullabeDateRelatedPrimitives = new Dictionary<string, Type>
+    {        
+        { "DATE", typeof(DateOnly) },
+        { "LDATE", typeof(DateOnly) },
+        { "DATE_AND_TIME", typeof(DateTime) },
+        { "LDATE_AND_TIME", typeof(DateTime) },
+        { "DATE_TIME", typeof(DateTime) },     
+    };
+
 
     public static bool IsNonNullablePrimitive(this IElementaryTypeSyntax type)
     {
@@ -66,11 +77,44 @@ internal static class IecToClrConverter
     {
         return NullabePrimitives.ContainsKey(type.TypeName);
     }
+    public static bool IsNullableDateRelatedPrimitive(this IScalarTypeDeclaration type)
+    {
+        return NullabeDateRelatedPrimitives.ContainsKey(type.Type.Name);
+    }
 
-    public static bool IsNullablePrimitive(this IScalarTypeDeclaration type)
+    public static string CreateScalarInitializer(this IScalarTypeDeclaration scalar)
+    {
+        if(!scalar.IsNullableDateRelatedPrimitive() && scalar.IsNullablePrimitive())
+        {
+            return $" = default({scalar.TransformType()});\n";
+        }
+
+        if(scalar.IsNullableDateRelatedPrimitive())
+        {
+            switch (scalar.Name.Trim().ToUpper())
+            {
+                case "DATE":
+                    return " = new DateOnly(1970, 1, 1);\n";
+                case "LDATE":
+                    return " = new DateOnly(1970, 1, 1);\n";
+                case "DATE_AND_TIME":
+                    return " = new DateTime(1970, 1, 1);\n";
+                case "LDATE_AND_TIME":
+                    return " = new DateTime(1970, 1, 1);\n";
+                case "LDATE_TIME":
+                    return " = new DateTime(1970, 1, 1);\n";
+                default:
+                    return " = new();";
+            }
+        }
+
+        return string.Empty;
+    }
+
+    private static bool IsNullablePrimitive(this IScalarTypeDeclaration type)
     {
         return NullabePrimitives.ContainsKey(type.Name);
-    }
+    }    
 
     public static string TransformType(this IElementaryTypeSyntax type)
     {

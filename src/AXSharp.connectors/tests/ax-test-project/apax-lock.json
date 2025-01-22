@@ -37,7 +37,8 @@
         "@ax/target-llvm": "7.1.87",
         "@ax/target-mc7plus": "7.1.87",
         "@ax/trace": "2.8.0"
-      }
+      },
+      "deprecated": "This package version is no longer supported. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases#legal-conditions."
     },
     "@ax/sld": {
       "name": "@ax/sld",
@@ -193,7 +194,8 @@
       "dependencies": {
         "@ax/stc-win-x64": "7.1.87",
         "@ax/stc-linux-x64": "7.1.87"
-      }
+      },
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-llvm": {
       "name": "@ax/target-llvm",
@@ -203,7 +205,8 @@
       "dependencies": {
         "@ax/target-llvm-win-x64": "7.1.87",
         "@ax/target-llvm-linux-x64": "7.1.87"
-      }
+      },
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-mc7plus": {
       "name": "@ax/target-mc7plus",
@@ -213,7 +216,8 @@
       "dependencies": {
         "@ax/target-mc7plus-win-x64": "7.1.87",
         "@ax/target-mc7plus-linux-x64": "7.1.87"
-      }
+      },
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/trace": {
       "name": "@ax/trace",
@@ -522,7 +526,8 @@
       ],
       "dependencies": {
         "@ax/st-docs": "7.1.87"
-      }
+      },
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/stc-linux-x64": {
       "name": "@ax/stc-linux-x64",
@@ -537,7 +542,8 @@
       ],
       "dependencies": {
         "@ax/st-docs": "7.1.87"
-      }
+      },
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-llvm-win-x64": {
       "name": "@ax/target-llvm-win-x64",
@@ -550,7 +556,8 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
+      "dependencies": {},
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-llvm-linux-x64": {
       "name": "@ax/target-llvm-linux-x64",
@@ -563,7 +570,8 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
+      "dependencies": {},
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-mc7plus-win-x64": {
       "name": "@ax/target-mc7plus-win-x64",
@@ -576,7 +584,8 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
+      "dependencies": {},
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/target-mc7plus-linux-x64": {
       "name": "@ax/target-mc7plus-linux-x64",
@@ -589,7 +598,8 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
+      "dependencies": {},
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/trace-win-x64": {
       "name": "@ax/trace-win-x64",
@@ -616,6 +626,14 @@
         "x64"
       ],
       "dependencies": {}
+    },
+    "@ax/st-docs": {
+      "name": "@ax/st-docs",
+      "version": "7.1.87",
+      "integrity": "sha512-J5BthD1BR0fu1dkqQFyW3yOByC14TxhG+b/NUl2zXkSqjnsAQQbNtdheZquZ225x0qkJAR8wRrBx9Kr3QdYg8w==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-7.1.87.tgz",
+      "dependencies": {},
+      "deprecated": "This package version is no longer supported and will be deleted from the registry on January 17th. Please update to at least version 7.1.95. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases"
     },
     "@ax/system-strings": {
       "name": "@ax/system-strings",
@@ -677,13 +695,6 @@
       "cpu": [
         "x64"
       ],
-      "dependencies": {}
-    },
-    "@ax/st-docs": {
-      "name": "@ax/st-docs",
-      "version": "7.1.87",
-      "integrity": "sha512-J5BthD1BR0fu1dkqQFyW3yOByC14TxhG+b/NUl2zXkSqjnsAQQbNtdheZquZ225x0qkJAR8wRrBx9Kr3QdYg8w==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-7.1.87.tgz",
       "dependencies": {}
     },
     "@ax/system-math": {

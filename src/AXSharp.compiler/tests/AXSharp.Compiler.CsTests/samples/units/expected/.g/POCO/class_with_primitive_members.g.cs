@@ -29,12 +29,12 @@ namespace Pocos
             public Double myLREAL { get; set; }
             public TimeSpan myTIME { get; set; } = default(TimeSpan);
             public TimeSpan myLTIME { get; set; } = default(TimeSpan);
-            public DateOnly myDATE { get; set; } = default(DateOnly);
-            public DateOnly myLDATE { get; set; } = default(DateOnly);
+            public DateOnly myDATE { get; set; } = new DateOnly(1970, 1, 1);
+            public DateOnly myLDATE { get; set; } = new DateOnly(1970, 1, 1);
             public TimeSpan myTIME_OF_DAY { get; set; } = default(TimeSpan);
             public TimeSpan myLTIME_OF_DAY { get; set; } = default(TimeSpan);
-            public DateTime myDATE_AND_TIME { get; set; } = default(DateTime);
-            public DateTime myLDATE_AND_TIME { get; set; } = default(DateTime);
+            public DateTime myDATE_AND_TIME { get; set; } = new DateTime(1970, 1, 1);
+            public DateTime myLDATE_AND_TIME { get; set; } = new DateTime(1970, 1, 1);
             public Char myCHAR { get; set; }
             public Char myWCHAR { get; set; }
             public string mySTRING { get; set; } = string.Empty;

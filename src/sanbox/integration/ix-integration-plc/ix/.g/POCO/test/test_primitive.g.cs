@@ -35,10 +35,10 @@ namespace Pocos
         public Boolean testBool { get; set; }
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#DATE From PLC#>")]
-        public DateOnly TestDate { get; set; } = default(DateOnly);
+        public DateOnly TestDate { get; set; } = new DateOnly(1970, 1, 1);
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#DATE_AND_TIME From PLC#>")]
-        public DateTime TestDateTime { get; set; } = default(DateTime);
+        public DateTime TestDateTime { get; set; } = new DateTime(1970, 1, 1);
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "<#TIME_OF_DAY From PLC#>")]
         public TimeSpan TestTimeOfDay { get; set; } = default(TimeSpan);
