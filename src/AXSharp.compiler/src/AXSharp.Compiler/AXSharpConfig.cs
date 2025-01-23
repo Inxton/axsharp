@@ -49,12 +49,14 @@ public class AXSharpConfig : ICompilerOptions
     /// Gets or sets whether compiler should use $base for base types of a class.
     /// </summary>
     public bool UseBase { get; set; }
-
+    /// <inheritdoc />
     public bool NoDependencyUpdate { get; set; }
-
+    /// <inheritdoc />
     public bool IgnoreS7Pragmas { get; set; }
+    /// <inheritdoc />
     public bool SkipDependencyCompilation { get; set; }
-
+    /// <inheritdoc />
+    public string TargetPlatfromMoniker { get; set; }
 
     /// <summary>
     /// Gets or sets name of the output project file.
@@ -157,5 +159,6 @@ public class AXSharpConfig : ICompilerOptions
         fromConfig.NoDependencyUpdate = newCompilerOptions.NoDependencyUpdate;
         fromConfig.IgnoreS7Pragmas = newCompilerOptions.IgnoreS7Pragmas;
         fromConfig.SkipDependencyCompilation = newCompilerOptions.SkipDependencyCompilation;
+        fromConfig.TargetPlatfromMoniker = newCompilerOptions.TargetPlatfromMoniker;
     }
 }

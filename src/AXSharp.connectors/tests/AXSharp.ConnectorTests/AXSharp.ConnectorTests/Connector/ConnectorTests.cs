@@ -21,6 +21,8 @@ namespace AXSharp.ConnectorTests
     {
         private class TestConnector : Connector
         {
+            public override string TargetPlatformMoniker => nameof(TestConnector);
+
             public TestConnector(object[] parameters) : base(parameters)
             {
             }

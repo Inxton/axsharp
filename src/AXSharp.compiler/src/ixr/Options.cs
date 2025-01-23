@@ -32,5 +32,9 @@ namespace AXSharp.ixc_doc
 
         public bool IgnoreS7Pragmas { get; set; }
         public bool SkipDependencyCompilation { get; set; }
+
+        [Option('t', "target-platform-moniker", Required = false, Default = "ax",
+        HelpText = "Instructs the compiler to adjust for target platform differences. Possible values 'ax', 'tia'")]
+        public string TargetPlatfromMoniker { get; set; }
     }
 }

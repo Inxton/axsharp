@@ -8,7 +8,7 @@
 using AXSharp.Compiler.Cs.Plain;
 using Xunit.Abstractions;
 
-namespace AXSharp.Compiler.CsTests;
+namespace AXSharp.Compiler.CsTests.Cs.tia;
 
 public class CsPlainSourceBuilderTests : CsSourceBuilderTests
 {
@@ -17,4 +17,8 @@ public class CsPlainSourceBuilderTests : CsSourceBuilderTests
         OutputSubFolder = "POCO";
         builders = new[] { typeof(CsPlainSourceBuilder) };
     }
+
+    protected override ICompilerOptions CompilerOptions => new CompilerTestOptions() { TargetPlatfromMoniker = "tia" };
+
+    protected override string ExpectedFolder => @"samples\units\expected\tia\.g\";
 }

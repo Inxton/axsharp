@@ -143,7 +143,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     break;
                 case IScalarTypeDeclaration scalar:
                     AddPropertyDeclaration(fieldDeclaration, visitor);
-                    AddToSource(scalar.CreateScalarInitializer());                                        
+                    AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));                                        
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:
@@ -305,7 +305,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     break;
                 case IScalarTypeDeclaration scalar:
                     AddPropertyDeclaration(fieldDeclaration, visitor);
-                    AddToSource(scalar.CreateScalarInitializer());
+                    AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:

@@ -293,8 +293,8 @@ public class WebApiConnector : Connector
         }
     }
 
-    private const int MAX_READ_REQUEST_SEGMENT = (128 * 1024) - 628*2;
-    private const int MAX_WRITE_REQUEST_SEGMENT = (128 * 1024) - 628*2;
+    private const int MAX_READ_REQUEST_SEGMENT = (128 * 1024) - 628 * 2;
+    private const int MAX_WRITE_REQUEST_SEGMENT = (128 * 1024) - 628 * 2;
 
     private System.Diagnostics.Stopwatch stopwatch = new();
 
@@ -554,4 +554,22 @@ public class WebApiConnector : Connector
     }
 
     public eTargetProjectPlatform TargetPlatform { get; } = eTargetProjectPlatform.SIMATICAX;
+
+    /// <inherits/>    
+    public override string TargetPlatformMoniker
+    {
+        get
+        {
+            switch(TargetPlatform)
+            {
+                case eTargetProjectPlatform.SIMATICAX:
+                    return "ax";
+                case eTargetProjectPlatform.TIAPORTAL:
+                    return "tia";
+                default:
+                    return TargetPlatform.ToString();
+            }
+            
+        }
+    }
 }

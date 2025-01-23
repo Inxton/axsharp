@@ -82,33 +82,72 @@ internal static class IecToClrConverter
         return NullabeDateRelatedPrimitives.ContainsKey(type.Type.Name);
     }
 
-    public static string CreateScalarInitializer(this IScalarTypeDeclaration scalar)
+    public static string CreateScalarInitializer(this IScalarTypeDeclaration scalar, string? targetPlatformMoniker)
     {
-        if(!scalar.IsNullableDateRelatedPrimitive() && scalar.IsNullablePrimitive())
+        if (targetPlatformMoniker == null)
+        {
+            throw new ArgumentNullException(nameof(targetPlatformMoniker), "Target platform moniker cannot be null.");
+        }
+
+        if (!scalar.IsNullableDateRelatedPrimitive() && scalar.IsNullablePrimitive())
         {
             return $" = default({scalar.TransformType()});\n";
         }
 
-        if(scalar.IsNullableDateRelatedPrimitive())
+        if (scalar.IsNullableDateRelatedPrimitive())
         {
-            switch (scalar.Name.Trim().ToUpper())
+
+            // We need to provide differrent default values for date
+            // related types based on target platform
+
+            switch (targetPlatformMoniker.ToLower())
             {
-                case "DATE":
-                    return " = new DateOnly(1970, 1, 1);\n";
-                case "LDATE":
-                    return " = new DateOnly(1970, 1, 1);\n";
-                case "DATE_AND_TIME":
-                    return " = new DateTime(1970, 1, 1);\n";
-                case "LDATE_AND_TIME":
-                    return " = new DateTime(1970, 1, 1);\n";
-                case "LDATE_TIME":
-                    return " = new DateTime(1970, 1, 1);\n";
-                default:
-                    return " = new();";
-            }
+                case "ax":
+                    return scalar.CreateDefaultValueForAx();
+                case "tia":
+                    return scalar.CreateDefaultValueForTia();
+            }           
         }
 
         return string.Empty;
+    }
+
+    private static string CreateDefaultValueForAx(this IScalarTypeDeclaration scalar)
+    {
+        switch (scalar.Name.Trim().ToUpper())
+        {
+            case "DATE":
+                return " = new DateOnly(1970, 1, 1);\n";
+            case "LDATE":
+                return " = new DateOnly(1970, 1, 1);\n";
+            case "DATE_AND_TIME":
+                return " = new DateTime(1970, 1, 1);\n";
+            case "LDATE_AND_TIME":
+                return " = new DateTime(1970, 1, 1);\n";
+            case "LDATE_TIME":
+                return " = new DateTime(1970, 1, 1);\n";
+            default:
+                return " = new();";
+        }
+    }
+
+    private static string CreateDefaultValueForTia(this IScalarTypeDeclaration scalar)
+    {
+        switch (scalar.Name.Trim().ToUpper())
+        {
+            case "DATE":
+                return " = new DateOnly(1990, 1, 1);\n";
+            case "LDATE":
+                return " = new DateOnly(1990, 1, 1);\n";
+            case "DATE_AND_TIME":
+                return " = new DateTime(1990, 1, 1);\n";
+            case "LDATE_AND_TIME":
+                return " = new DateTime(1990, 1, 1);\n";
+            case "LDATE_TIME":
+                return " = new DateTime(1990, 1, 1);\n";
+            default:
+                return " = new();";
+        }
     }
 
     private static bool IsNullablePrimitive(this IScalarTypeDeclaration type)
