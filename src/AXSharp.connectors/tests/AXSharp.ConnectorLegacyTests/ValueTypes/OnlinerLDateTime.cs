@@ -107,5 +107,15 @@ namespace AXSharp.Connector.Onliners.Tests
 
             Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void CreateDefaultValue_ReturnsCorrectValueForTia()
+        {
+            // Act
+            var result = (Onliner as OnlinerLDateTime).CreateDefaultValue();
+
+            // Assert
+            Assert.That(result, Is.EqualTo(new DateTime(1970, 01, 01)));
+        }
     }
 }

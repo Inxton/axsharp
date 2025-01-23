@@ -56,4 +56,21 @@ public class OnlinerLDateTime : OnlinerBase<DateTime>, IOnlineLDateTime, IShadow
     ///     Gets the min value for this instance.
     /// </summary>
     public override DateTime InstanceMinValue => AttributeMinSet ? AttributeMinimum : MinValue;
+
+    /// <summary>
+    ///    Gets the max value for this instance depnending on target platform.
+    /// </summary>
+    /// <returns>New instance of DateOnly type with value respective of target platform</returns>
+    public DateTime CreateDefaultValue()
+    {
+        switch (this.Parent.GetConnector().TargetPlatformMoniker)
+        {
+            case "tia":
+                return new DateTime(1990, 01, 1);
+            case "ax":
+                return new DateTime(1970, 01, 1);
+            default:
+                return new DateTime(1970, 01, 1);
+        }
+    }
 }

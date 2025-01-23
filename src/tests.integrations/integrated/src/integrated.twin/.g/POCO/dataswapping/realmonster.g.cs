@@ -17,8 +17,8 @@ namespace Pocos
 
             public string Description { get; set; } = string.Empty;
             public UInt64 Id { get; set; }
-            public DateOnly TestDate { get; set; } = default(DateOnly);
-            public DateTime TestDateTime { get; set; } = default(DateTime);
+            public DateOnly TestDate { get; set; } = new DateOnly(1970, 1, 1);
+            public DateTime TestDateTime { get; set; } = new DateTime(1970, 1, 1);
             public TimeSpan TestTimeSpan { get; set; } = default(TimeSpan);
             public Byte[] ArrayOfBytes { get; set; } = new Byte[4];
             public RealMonsterData.DriveBaseNested[] ArrayOfDrives { get; set; } = new RealMonsterData.DriveBaseNested[4];

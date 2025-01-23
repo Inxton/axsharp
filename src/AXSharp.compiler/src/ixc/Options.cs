@@ -41,5 +41,9 @@ internal class Options : ICompilerOptions
     [Option('d', "skip-deps", Required = false, Default = false,
         HelpText = "Instructs the compiler to skip dependencies compilation of referenced AX# project.")]
     public bool SkipDependencyCompilation { get; set; }
+
+    [Option('t', "target-platform-moniker", Required = false, Default = "ax",
+        HelpText = "Instructs the compiler to adjust for target platform differences. Possible values 'ax', 'tia'")]
+    public string TargetPlatfromMoniker { get; set; }
 }
 
