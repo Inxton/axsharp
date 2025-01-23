@@ -29,6 +29,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
     public OnlinerDateTime myDATE_AND_TIME { get; }
     public OnlinerString mySTRING { get; }
     public OnlinerWString myWSTRING { get; }
+    public OnlinerString mySTRING_25 { get; }
+    public OnlinerWString myWSTRING_55 { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -61,7 +63,13 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         myTIME_OF_DAY = @Connector.ConnectorAdapter.AdapterFactory.CreateTIME_OF_DAY(this, "myTIME_OF_DAY", "myTIME_OF_DAY");
         myDATE_AND_TIME = @Connector.ConnectorAdapter.AdapterFactory.CreateDATE_AND_TIME(this, "myDATE_AND_TIME", "myDATE_AND_TIME");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "mySTRING", "mySTRING");
+        mySTRING.Capacity = 254;
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "myWSTRING", "myWSTRING");
+        myWSTRING.Capacity = 254;
+        mySTRING_25 = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "mySTRING_25", "mySTRING_25");
+        mySTRING_25.Capacity = 25;
+        myWSTRING_55 = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "myWSTRING_55", "myWSTRING_55");
+        myWSTRING_55.Capacity = 55;
         parent.AddChild(this);
         parent.AddKid(this);
         PostConstruct(parent, readableTail, symbolTail);
@@ -98,6 +106,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         plain.myDATE_AND_TIME = myDATE_AND_TIME.LastValue;
         plain.mySTRING = mySTRING.LastValue;
         plain.myWSTRING = myWSTRING.LastValue;
+        plain.mySTRING_25 = mySTRING_25.LastValue;
+        plain.myWSTRING_55 = myWSTRING_55.LastValue;
         return plain;
     }
 
@@ -128,6 +138,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         plain.myDATE_AND_TIME = myDATE_AND_TIME.LastValue;
         plain.mySTRING = mySTRING.LastValue;
         plain.myWSTRING = myWSTRING.LastValue;
+        plain.mySTRING_25 = mySTRING_25.LastValue;
+        plain.myWSTRING_55 = myWSTRING_55.LastValue;
         return plain;
     }
 
@@ -157,6 +169,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         plain.myDATE_AND_TIME = myDATE_AND_TIME.LastValue;
         plain.mySTRING = mySTRING.LastValue;
         plain.myWSTRING = myWSTRING.LastValue;
+        plain.mySTRING_25 = mySTRING_25.LastValue;
+        plain.myWSTRING_55 = myWSTRING_55.LastValue;
         return plain;
     }
 
@@ -233,6 +247,12 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 #pragma warning disable CS0612
         myWSTRING.LethargicWrite(plain.myWSTRING);
 #pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySTRING_25.LethargicWrite(plain.mySTRING_25);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWSTRING_55.LethargicWrite(plain.myWSTRING_55);
+#pragma warning restore CS0612
         return await this.WriteAsync<IgnoreOnPocoOperation>();
     }
 
@@ -306,6 +326,12 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
 #pragma warning disable CS0612
         myWSTRING.LethargicWrite(plain.myWSTRING);
 #pragma warning restore CS0612
+#pragma warning disable CS0612
+        mySTRING_25.LethargicWrite(plain.mySTRING_25);
+#pragma warning restore CS0612
+#pragma warning disable CS0612
+        myWSTRING_55.LethargicWrite(plain.myWSTRING_55);
+#pragma warning restore CS0612
     }
 
     public async virtual Task<T> ShadowToPlain<T>()
@@ -338,6 +364,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         plain.myDATE_AND_TIME = myDATE_AND_TIME.Shadow;
         plain.mySTRING = mySTRING.Shadow;
         plain.myWSTRING = myWSTRING.Shadow;
+        plain.mySTRING_25 = mySTRING_25.Shadow;
+        plain.myWSTRING_55 = myWSTRING_55.Shadow;
         return plain;
     }
 
@@ -365,6 +393,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         plain.myDATE_AND_TIME = myDATE_AND_TIME.Shadow;
         plain.mySTRING = mySTRING.Shadow;
         plain.myWSTRING = myWSTRING.Shadow;
+        plain.mySTRING_25 = mySTRING_25.Shadow;
+        plain.myWSTRING_55 = myWSTRING_55.Shadow;
         return plain;
     }
 
@@ -397,6 +427,8 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
         myDATE_AND_TIME.Shadow = plain.myDATE_AND_TIME;
         mySTRING.Shadow = plain.mySTRING;
         myWSTRING.Shadow = plain.myWSTRING;
+        mySTRING_25.Shadow = plain.mySTRING_25;
+        myWSTRING_55.Shadow = plain.myWSTRING_55;
         return this.RetrievePrimitives();
     }
 
@@ -460,6 +492,10 @@ public partial class class_all_primitives : AXSharp.Connector.ITwinObject
             if (plain.mySTRING != mySTRING.LastValue)
                 somethingChanged = true;
             if (plain.myWSTRING != myWSTRING.LastValue)
+                somethingChanged = true;
+            if (plain.mySTRING_25 != mySTRING_25.LastValue)
+                somethingChanged = true;
+            if (plain.myWSTRING_55 != myWSTRING_55.LastValue)
                 somethingChanged = true;
             plain = latest;
             return somethingChanged;
