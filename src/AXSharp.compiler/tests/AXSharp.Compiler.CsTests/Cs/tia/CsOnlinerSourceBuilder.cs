@@ -8,7 +8,7 @@
 using AXSharp.Compiler.Cs.Onliner;
 using Xunit.Abstractions;
 
-namespace AXSharp.Compiler.CsTests;
+namespace AXSharp.Compiler.CsTests.tia;
 
 public class CsOnlinerSourceBuilderTests : CsSourceBuilderTests
 {
@@ -17,4 +17,8 @@ public class CsOnlinerSourceBuilderTests : CsSourceBuilderTests
         OutputSubFolder = "Onliners";
         builders = new[] { typeof(CsOnlinerSourceBuilder) };
     }
+
+    protected override ICompilerOptions CompilerOptions => new CompilerTestOptions() { TargetPlatfromMoniker = "tia" };
+
+    protected override string ExpectedFolder => @"samples\units\expected\tia\.g\";
 }

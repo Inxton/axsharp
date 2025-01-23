@@ -27,9 +27,9 @@ namespace Pocos
         public Double myLREAL { get; set; }
         public TimeSpan myTIME { get; set; } = default(TimeSpan);
         public TimeSpan myLTIME { get; set; } = default(TimeSpan);
-        public DateOnly myDATE { get; set; } = default(DateOnly);
+        public DateOnly myDATE { get; set; } = new DateOnly(1990, 1, 1);
         public TimeSpan myTIME_OF_DAY { get; set; } = default(TimeSpan);
-        public DateTime myDATE_AND_TIME { get; set; } = default(DateTime);
+        public DateTime myDATE_AND_TIME { get; set; } = new DateTime(1990, 1, 1);
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
     }

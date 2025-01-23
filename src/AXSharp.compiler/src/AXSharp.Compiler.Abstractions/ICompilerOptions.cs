@@ -18,4 +18,9 @@ public interface ICompilerOptions
     bool IgnoreS7Pragmas { get; set; }
 
     bool SkipDependencyCompilation { get; set; }
+
+    /// <summary>
+    /// Provides target platform moniker to instruct the compiler about target specific options.
+    /// </summary>
+    string TargetPlatfromMoniker { get; set; }
 }

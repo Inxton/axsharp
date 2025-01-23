@@ -29,6 +29,8 @@ public class DummyConnector : Connector
     }
 
     private volatile object _lock = new();
+    /// <inherits/>    
+    public override string TargetPlatformMoniker => "dummy";
 
     private void RwCycle()
     {

@@ -12,6 +12,7 @@ namespace AXSharp.Connector.Onliners.Tests
     using System.Linq;
     using AXSharp.Connector.Tests;
     using AXSharp.Connector.ValueTypes;
+    using NSubstitute;
 
     public class OnlinerDateTest : OnlinerBaseTests<DateOnly>
     {
@@ -99,5 +100,16 @@ namespace AXSharp.Connector.Onliners.Tests
 
             Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void CreateDefaultValue_ReturnsCorrectValueForTia()
+        {           
+            // Act
+            var result = (Onliner as OnlinerDate).CreateDefaultValue();
+
+            // Assert
+            Assert.That(result, Is.EqualTo(new DateOnly(1970, 01, 01)));
+        }
+               
     }
 }

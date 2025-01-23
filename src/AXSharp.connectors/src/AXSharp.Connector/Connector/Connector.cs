@@ -485,4 +485,10 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     {
         this.Subscribed[primitive.Symbol] = primitive;
     }
+
+    /// <summary>
+    /// Target platform moniker.
+    /// </summary>
+    public abstract string TargetPlatformMoniker { get; }
+   
 }

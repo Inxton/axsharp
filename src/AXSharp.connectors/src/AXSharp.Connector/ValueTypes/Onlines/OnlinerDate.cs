@@ -69,4 +69,21 @@ public class OnlinerDate : OnlinerBase<DateOnly>, IOnlineDate, IShadowDate
     ///     Gets the min value for this instance.
     /// </summary>
     public override DateOnly InstanceMinValue => AttributeMinSet ? AttributeMinimum : MinValue;
+
+    /// <summary>
+    ///    Gets the max value for this instance depnending on target platform.
+    /// </summary>
+    /// <returns>New instance of DateOnly type with value respective of target platform</returns>
+    public DateOnly CreateDefaultValue()
+    {        
+        switch(this.Parent.GetConnector().TargetPlatformMoniker)
+        {
+            case "tia":
+                return new DateOnly(1990, 01, 1);
+            case "ax":
+                return new DateOnly(1970, 01, 1);
+            default:
+                return new DateOnly(1970, 01, 1);
+        }
+    }
 }
