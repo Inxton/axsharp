@@ -31,6 +31,7 @@ namespace MonsterData
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
             Description = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "Description", "Description");
+            Description.Capacity = 254;
             Id = @Connector.ConnectorAdapter.AdapterFactory.CreateULINT(this, "Id", "Id");
             ArrayOfBytes = new OnlinerByte[4];
             AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfBytes, this, "ArrayOfBytes", "ArrayOfBytes", (p, rt, st) => @Connector.ConnectorAdapter.AdapterFactory.CreateBYTE(p, rt, st), new[] { (0, 3) });
@@ -38,6 +39,7 @@ namespace MonsterData
             AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, this, "ArrayOfDrives", "ArrayOfDrives", (p, rt, st) => new MonsterData.DriveBase(p, rt, st), new[] { (0, 3) });
             DriveBase_tobeignoredbypocooperations = new MonsterData.DriveBase(this, "DriveBase_tobeignoredbypocooperations", "DriveBase_tobeignoredbypocooperations");
             Description_tobeignoredbypocooperations = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "Description_tobeignoredbypocooperations", "Description_tobeignoredbypocooperations");
+            Description_tobeignoredbypocooperations.Capacity = 254;
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);

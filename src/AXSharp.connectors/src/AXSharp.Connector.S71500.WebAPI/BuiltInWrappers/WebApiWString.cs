@@ -40,7 +40,7 @@ public class WebApiWString : OnlinerWString, IWebApiPrimitive
     ApiPlcReadRequest IWebApiPrimitive.PeekPlcReadRequestData => _plcReadRequestData ?? WebApiConnector.CreateReadRequest(Symbol, _webApiConnector.DBName);
 
     /// <inheritdoc />
-    ApiPlcWriteRequest IWebApiPrimitive.PeekPlcWriteRequestData => _plcWriteRequestData ?? WebApiConnector.CreateWriteRequest(Symbol, CyclicToWrite.Substring(0, this.Capacity - 1), _webApiConnector.DBName);
+    ApiPlcWriteRequest IWebApiPrimitive.PeekPlcWriteRequestData => _plcWriteRequestData ?? WebApiConnector.CreateWriteRequest(Symbol, NormalizeString(CyclicToWrite), _webApiConnector.DBName);
     
     /// <inheritdoc />
     ApiPlcReadRequest IWebApiPrimitive.PlcReadRequestData
@@ -79,6 +79,13 @@ public class WebApiWString : OnlinerWString, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<string> SetAsync(string value)
     {
-        return await _webApiConnector.WriteAsync(this, value.Substring(0, this.Capacity - 1));
+        return await _webApiConnector.WriteAsync(this, NormalizeString(value));
     }
+
+    private string NormalizeString(string value)
+    {
+        if (value.Length <= 254) return value;
+        return value[..(this.Capacity - 1)];
+    }
+
 }

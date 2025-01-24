@@ -92,11 +92,5 @@ public class OnlinerString : OnlinerBase<string>, IOnlineString, IShadowString
             Cyclic = value;
             return value;
         });
-    }
-
-    /// <summary>
-    /// Gets or sets the capacity of the <see cref="OnlinerString"/>.
-    /// Or, the declared size of the string.
-    /// </summary>
-    public int Capacity { get; set; }
+    }  
 }
