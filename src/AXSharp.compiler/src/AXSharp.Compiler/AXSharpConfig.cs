@@ -81,7 +81,7 @@ public class AXSharpConfig : ICompilerOptions
     /// <param name="directory">AX project directory</param>
     /// <param name="newCompilerOptions">Compiler options.</param>
     /// <returns>Ix configuration for given AX project.</returns>
-    public static AXSharpConfig UpdateAndGetAXSharpConfig(string directory, ICompilerOptions? newCompilerOptions = null)
+    public static AXSharpConfig UpdateAndGetAXSharpConfig(string directory, ICompilerOptions? newCompilerOptions = null, ICompilerOptions dependnantCompilerOptions = null)
     {
         var ixConfigFilePath = Path.Combine(directory, CONFIG_FILE_NAME);
 
@@ -99,6 +99,11 @@ public class AXSharpConfig : ICompilerOptions
         {
             AXSharpConfig.AxProjectFolder = directory;
             OverridesFromCli(AXSharpConfig, newCompilerOptions);
+
+            if (dependnantCompilerOptions != null)
+            {
+                AXSharpConfig.TargetPlatfromMoniker = dependnantCompilerOptions.TargetPlatfromMoniker;
+            }            
         }
 
         using (StreamWriter file = File.CreateText(ixConfigFilePath))
@@ -121,7 +126,7 @@ public class AXSharpConfig : ICompilerOptions
         {
             AXSharpConfig.AxProjectFolder = directory;
         }
-
+        
         return AXSharpConfig;
     }
 

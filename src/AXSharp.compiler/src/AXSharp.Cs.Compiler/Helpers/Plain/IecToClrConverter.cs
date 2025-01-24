@@ -85,7 +85,7 @@ internal static class IecToClrConverter
     public static string CreateScalarInitializer(this IScalarTypeDeclaration scalar, string? targetPlatformMoniker)
     {
         if (targetPlatformMoniker == null)
-        {
+        {            
             throw new ArgumentNullException(nameof(targetPlatformMoniker), "Target platform moniker cannot be null.");
         }
 
