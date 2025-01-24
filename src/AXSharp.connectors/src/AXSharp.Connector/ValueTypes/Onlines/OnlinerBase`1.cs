@@ -644,4 +644,10 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
     {
         this.Cyclic = this.Shadow;
     }
+
+    /// <summary>
+    /// Gets or sets the capacity of this; the declared size of the string.
+    /// >[!IMPORTANT] Currently used only for types STRING and WSTRING.    
+    /// </summary>
+    public int Capacity { get; set; } = 0;
 }

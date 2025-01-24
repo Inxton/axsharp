@@ -58,7 +58,7 @@ public static class WebApiConnectorExtensions
     }
 
     public static DateOnly AdjustForLeapDate(this long value)
-    {
+    {        
         var noLeap = DateOnly.FromDateTime(DateTime.FromBinary(value).AddYears(1969));
         var leapDays = DateTime.IsLeapYear(noLeap.Year) && ((noLeap.Month == 2 && noLeap.Day == 29) || noLeap.Month >= 3) ? -1 : 0;
         return noLeap.AddDays(leapDays);

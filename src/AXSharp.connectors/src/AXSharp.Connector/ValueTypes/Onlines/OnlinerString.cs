@@ -92,5 +92,5 @@ public class OnlinerString : OnlinerBase<string>, IOnlineString, IShadowString
             Cyclic = value;
             return value;
         });
-    }
+    }  
 }

@@ -112,5 +112,5 @@ public class OnlinerWString : OnlinerBase<string>, IOnlineWString, IShadowWStrin
             Cyclic = value;
             return value;
         });
-    }
+    }   
 }
