@@ -32,7 +32,5 @@ namespace Pocos
         public DateTime myDATE_AND_TIME { get; set; } = new DateTime(1990, 1, 1);
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
-        public string mySTRING_25 { get; set; } = string.Empty;
-        public string myWSTRING_55 { get; set; } = string.Empty;
     }
 }
