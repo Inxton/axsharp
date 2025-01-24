@@ -84,7 +84,7 @@ public class WebApiLDateTime : OnlinerLDateTime, IWebApiPrimitive
     private DateTime GetFromBinary(long val)
     {
         var dt = val / 100;
-        return dt.AdjustForLeapDateTime(); // DateTime.FromBinary(dt).AddYears(1969);
+        return dt.ToUtcDateTime(); // DateTime.FromBinary(dt).AddYears(1969);
     }
 
 

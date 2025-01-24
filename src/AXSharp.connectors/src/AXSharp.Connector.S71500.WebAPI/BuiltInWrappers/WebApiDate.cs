@@ -106,7 +106,7 @@ public class WebApiDate : OnlinerDate, IWebApiPrimitive
 
             case eTargetProjectPlatform.SIMATICAX:
                 var valAx = value / 100;
-                return valAx.AdjustForLeapDate();
+                return valAx.GetDateOnly();
             
             default:
                 var valdef = value / 100;

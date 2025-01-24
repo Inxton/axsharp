@@ -57,17 +57,19 @@ public static class WebApiConnectorExtensions
         { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
     }
 
-    public static DateOnly AdjustForLeapDate(this long value)
-    {        
-        var noLeap = DateOnly.FromDateTime(DateTime.FromBinary(value).AddYears(1969));
-        var leapDays = DateTime.IsLeapYear(noLeap.Year) && ((noLeap.Month == 2 && noLeap.Day == 29) || noLeap.Month >= 3) ? -1 : 0;
-        return noLeap.AddDays(leapDays);
+    public static DateOnly GetDateOnly(this long value)
+    {
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddTicks(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
     }
 
-    public static DateTime AdjustForLeapDateTime(this long value)
+    public static DateTime ToUtcDateTime(this long value)
     {
-        var noLeap = DateTime.FromBinary(value).AddYears(1969);
-        var leapDays = DateTime.IsLeapYear(noLeap.Year) && ((noLeap.Month == 2 && noLeap.Day == 29) || noLeap.Month >= 3) ? -1 : 0;
-        return noLeap.AddDays(leapDays);
+        return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddTicks(value);
     }
 }

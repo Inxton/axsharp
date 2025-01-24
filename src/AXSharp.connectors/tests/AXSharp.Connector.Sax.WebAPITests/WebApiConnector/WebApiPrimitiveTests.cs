@@ -186,8 +186,8 @@ namespace AXSharp.Connector.S71500.WebAPITests.Primitives
         [Fact]
         public virtual async void should_synchron_write_leap_value_check_leap()
         {
-            var testDate = new DateOnly(2025, 1, 1);
-            for (int i = 0; i < 100; i++)
+            var testDate = new DateOnly(2024, 1, 1);
+            for (int i = 0; i < 365*5; i++)
             {
                 testDate = testDate.AddDays(1);
                 TestConnector.TestApiConnector.ClearPeriodicReadSet();
@@ -195,7 +195,7 @@ namespace AXSharp.Connector.S71500.WebAPITests.Primitives
                 var actual = await webApiPrimitive.GetAsync();
                 if(testDate != actual)
                     Output.WriteLine($"Expected: {testDate} - Actual: {actual} {testDate == actual}"); 
-               // Assert.Equal(testDate, actual);
+                Assert.Equal(testDate, actual);
             }            
         }
 
