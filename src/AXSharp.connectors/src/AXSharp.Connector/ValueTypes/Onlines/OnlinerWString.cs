@@ -113,10 +113,4 @@ public class OnlinerWString : OnlinerBase<string>, IOnlineWString, IShadowWStrin
             return value;
         });
     }
-
-    /// <summary>
-    /// Gets or sets the capacity of the <see cref="OnlinerWString"/>.
-    /// Or, the declared size of the string.
-    /// </summary>
-    public int Capacity { get; set; }
 }

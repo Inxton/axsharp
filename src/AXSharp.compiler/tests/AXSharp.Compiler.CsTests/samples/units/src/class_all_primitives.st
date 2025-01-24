@@ -28,7 +28,5 @@ CLASS class_all_primitives
      //   myWCHAR	        :       WCHAR	      ;
         mySTRING	        :   STRING	      ;
         myWSTRING	    :       WSTRING	      ;
-        mySTRING_25	        :   STRING[25]	      ;
-        myWSTRING_55	    :       WSTRING[55]	      ;
     END_VAR    
 END_CLASS
