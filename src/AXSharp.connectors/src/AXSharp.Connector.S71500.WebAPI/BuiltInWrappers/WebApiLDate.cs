@@ -84,7 +84,7 @@ public class WebApiLDate : OnlinerDate, IWebApiPrimitive
     private DateOnly GetFromBinary(long value)
     {
         var val = value / 100;
-        return val.AdjustForLeapDate(); // DateOnly.FromDateTime(DateTime.FromBinary(val).AddYears(1969));
+        return val.GetDateOnly(); // DateOnly.FromDateTime(DateTime.FromBinary(val).AddYears(1969));
     }
 
     private string GetFromDate(DateOnly date)
