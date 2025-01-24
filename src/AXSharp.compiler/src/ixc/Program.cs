@@ -70,17 +70,17 @@ public static class Program
         }
     }
 
-    private static AXSharpProject GenerateIxProject(Options o)
-    {
-        var axProjectFolder = string.IsNullOrEmpty(o.AxSourceProjectFolder)
+    private static AXSharpProject GenerateIxProject(Options options)
+    {        
+        var axProjectFolder = string.IsNullOrEmpty(options.AxSourceProjectFolder)
             ? Environment.CurrentDirectory
-            : o.AxSourceProjectFolder;
+            : options.AxSourceProjectFolder;
 
         Environment.CurrentDirectory = GetFullPath(axProjectFolder);
 
         var ax = new AxProject(Environment.CurrentDirectory);
         var project = new AXSharpProject(ax, new[] { typeof(CsOnlinerSourceBuilder), typeof(CsPlainSourceBuilder) },
-            typeof(CsProject), o);
+            typeof(CsProject), options);
 
         var sw = new System.Diagnostics.Stopwatch();
         sw.Start();

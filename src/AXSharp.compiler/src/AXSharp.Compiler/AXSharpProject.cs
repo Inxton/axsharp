@@ -42,7 +42,7 @@ public class AXSharpProject : IAXSharpProject
     /// <param name="cliCompilerOptions">
     ///     Compiler options from CLI.
     /// </param>
-    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null)
+    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null, ICompilerOptions? dependnantCompilerOptions = null)
     {
         AxProject = axProject;
         CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions);
@@ -302,9 +302,15 @@ public class AXSharpProject : IAXSharpProject
                     throw new FailedToCreateTargetProjectException(
                         "Target project is not a valid ITargetProject");
 
-                var project = new AXSharpProject(ax, BuilderTypes, targetProject.GetType());
+                var project = new AXSharpProject(ax, BuilderTypes, targetProject.GetType(), dependnantCompilerOptions: this.CompilerOptions);
 
-                project.Generate();
+            
+                if (project.CompilerOptions.TargetPlatfromMoniker == null)
+                {
+                    throw new Exception("Target platform moniker must be set in the AXSharp.config.json file.");
+                }
+
+            project.Generate();
 
             if(!string.IsNullOrEmpty(ixProjectReference.AxProjectFolder))
                 compiled.Add(ixProjectReference.AxProjectFolder);
