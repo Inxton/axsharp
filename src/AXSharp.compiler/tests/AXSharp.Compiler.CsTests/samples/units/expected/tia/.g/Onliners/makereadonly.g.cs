@@ -28,10 +28,8 @@ namespace makereadonly
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
             makeReadOnceMember = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "makeReadOnceMember", "makeReadOnceMember");
-            makeReadOnceMember.Capacity = 254;
             makeReadOnceMember.MakeReadOnly();
             someOtherMember = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "someOtherMember", "someOtherMember");
-            someOtherMember.Capacity = 254;
             makeReadComplexMember = new makereadonly.ComplexMember(this, "makeReadComplexMember", "makeReadComplexMember");
             makeReadComplexMember.MakeReadOnly();
             someotherComplexMember = new makereadonly.ComplexMember(this, "someotherComplexMember", "someotherComplexMember");
@@ -301,9 +299,7 @@ namespace makereadonly
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
             someMember = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "someMember", "someMember");
-            someMember.Capacity = 254;
             someOtherMember = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "someOtherMember", "someOtherMember");
-            someOtherMember.Capacity = 254;
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);

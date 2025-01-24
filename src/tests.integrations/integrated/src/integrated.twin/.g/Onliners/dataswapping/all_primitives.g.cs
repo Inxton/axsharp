@@ -64,9 +64,7 @@ public partial class all_primitives : AXSharp.Connector.ITwinObject
         myTIME_OF_DAY = @Connector.ConnectorAdapter.AdapterFactory.CreateTIME_OF_DAY(this, "myTIME_OF_DAY", "myTIME_OF_DAY");
         myDATE_AND_TIME = @Connector.ConnectorAdapter.AdapterFactory.CreateDATE_AND_TIME(this, "myDATE_AND_TIME", "myDATE_AND_TIME");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "mySTRING", "mySTRING");
-        mySTRING.Capacity = 254;
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "myWSTRING", "myWSTRING");
-        myWSTRING.Capacity = 254;
         myEnum = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "myEnum", "myEnum");
         parent.AddChild(this);
         parent.AddKid(this);
