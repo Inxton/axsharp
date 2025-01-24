@@ -156,6 +156,7 @@ namespace Simatic.Ax.StateFramework
             PreConstruct(parent, readableTail, symbolTail);
             StateID = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "StateID", "StateID");
             StateName = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "StateName", "StateName");
+            StateName.Capacity = 254;
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);
