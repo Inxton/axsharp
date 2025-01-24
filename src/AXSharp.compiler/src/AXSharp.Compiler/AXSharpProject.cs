@@ -303,11 +303,11 @@ public class AXSharpProject : IAXSharpProject
                         "Target project is not a valid ITargetProject");
 
                 var project = new AXSharpProject(ax, BuilderTypes, targetProject.GetType(), dependnantCompilerOptions: this.CompilerOptions);
-
-            
+                
                 if (project.CompilerOptions.TargetPlatfromMoniker == null)
                 {
-                    throw new Exception("Target platform moniker must be set in the AXSharp.config.json file.");
+                    project.CompilerOptions.TargetPlatfromMoniker = "ax";
+                    Log.Logger.Warning("Target platform moniker should be set in the AXSharp.config.json file, passed as cli parameter. We deafault to 'ax'");
                 }
 
             project.Generate();

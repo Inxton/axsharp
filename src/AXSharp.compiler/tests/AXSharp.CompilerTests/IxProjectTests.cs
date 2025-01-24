@@ -22,6 +22,7 @@ using AX.ST.Semantic.Model;
 using AX.ST.Semantic.Pragmas;
 using AX.ST.Syntax.Tree;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using AXSharp.CompilerTests;
 
 namespace AXSharp.Compiler.Tests
 {
@@ -65,7 +66,7 @@ namespace AXSharp.Compiler.Tests
 
             var actual = new AXSharpProject(axproject,
                 new[] { builder },
-                target);
+                target, new CompilerTestOptions(), new CompilerTestOptions());
 
             actual.Generate();
 
