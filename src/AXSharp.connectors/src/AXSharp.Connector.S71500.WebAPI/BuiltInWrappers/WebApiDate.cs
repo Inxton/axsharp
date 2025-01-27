@@ -101,8 +101,8 @@ public class WebApiDate : OnlinerDate, IWebApiPrimitive
         switch (_webApiConnector.TargetPlatform)
         {
             case eTargetProjectPlatform.TIAPORTAL:
-                int val = ((int)value) - 1;
-                return DateOnly.FromDayNumber(val).AddYears(1989);
+                //int val = ((int)value) - 1;
+                return ((int)value).GetDateOnly();//DateOnly.FromDayNumber((int)value).AddYears(1989);
 
             case eTargetProjectPlatform.SIMATICAX:
                 var valAx = value / 100;

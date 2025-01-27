@@ -57,6 +57,17 @@ public static class WebApiConnectorExtensions
         { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
     }
 
+    public static DateOnly GetDateOnly(this int value)
+    {
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1990, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddDays(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
+    }
+
     public static DateOnly GetDateOnly(this long value)
     {
         // 1 tick = 100 ns
