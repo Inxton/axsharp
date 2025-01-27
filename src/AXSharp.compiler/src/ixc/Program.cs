@@ -13,6 +13,7 @@ using CommandLine;
 using AXSharp.Compiler;
 using AXSharp.Compiler.Cs.Onliner;
 using AXSharp.Compiler.Cs.Plain;
+using System.Text.Json;
 
 namespace ixc;
 
@@ -41,6 +42,10 @@ public static class Program
                 var recoverCurrentDirectory = Environment.CurrentDirectory;
                 try
                 {
+                    //string json = JsonSerializer.Serialize(o);
+
+                    //Console.WriteLine(json);
+
                     Project = GenerateIxProject(o);
                 }
                 catch (Exception e)
