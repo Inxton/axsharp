@@ -103,6 +103,9 @@ public class AXSharpConfig : ICompilerOptions
             if (dependnantCompilerOptions != null)
             {
                 AXSharpConfig.TargetPlatfromMoniker = dependnantCompilerOptions.TargetPlatfromMoniker;
+                AXSharpConfig.IgnoreS7Pragmas = dependnantCompilerOptions.IgnoreS7Pragmas;
+                AXSharpConfig.NoDependencyUpdate = dependnantCompilerOptions.NoDependencyUpdate;
+                AXSharpConfig.SkipDependencyCompilation = dependnantCompilerOptions.SkipDependencyCompilation;
             }            
         }
 
