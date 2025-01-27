@@ -45,7 +45,7 @@ public class AXSharpProject : IAXSharpProject
     public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null, ICompilerOptions? dependnantCompilerOptions = null)
     {
         AxProject = axProject;
-        CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions);
+        CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions, dependnantCompilerOptions);
         if (CompilerOptions != null)
         {
             if(string.IsNullOrEmpty(CompilerOptions.OutputProjectFolder))
