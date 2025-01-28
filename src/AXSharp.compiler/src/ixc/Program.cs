@@ -41,11 +41,11 @@ public static class Program
             {
                 var recoverCurrentDirectory = Environment.CurrentDirectory;
                 try
-                {
-                    //string json = JsonSerializer.Serialize(o);
+                {                    
+                    Log.ConfigureLogger(o.Versbosity);
 
-                    //Console.WriteLine(json);
-
+                    Log.Logger.Verbose(JsonSerializer.Serialize(o));
+                    
                     Project = GenerateIxProject(o);
                 }
                 catch (Exception e)

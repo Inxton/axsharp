@@ -41,7 +41,7 @@ public class CsProject : ITargetProject
     /// <summary>
     ///     Gets associated IxProject file.
     /// </summary>
-    public string IxProjectFile
+    private string CsProjectFile
     {
         get 
         { 
@@ -51,7 +51,7 @@ public class CsProject : ITargetProject
                 $"{MakeValidFileName(AxSharpProject.AxProject.ProjectInfo.Name)}.csproj");
             }
 
-            return AxSharpProject.ProjectFile;
+            return Path.Combine(AxSharpProject.OutputFolder, AxSharpProject.ProjectFile);
         }
     }
         
@@ -276,6 +276,7 @@ namespace {this.ProjectRootNamespace}
             process.BeginErrorReadLine();
 
             process.WaitForExit();
+            process.WaitForExit();
         }
     }
 
@@ -321,6 +322,7 @@ namespace {this.ProjectRootNamespace}
             process.BeginErrorReadLine();
 
             process.WaitForExit();
+            process.WaitForExit();
         }
     }
 
@@ -343,7 +345,7 @@ namespace {this.ProjectRootNamespace}
             {
                 throw new Exception("Missing dependency file.");
             }
-
+            
             foreach (var dependency in dependencies)
             {
                
@@ -357,7 +359,7 @@ namespace {this.ProjectRootNamespace}
                         AddProjectReference(dependent, GetRelativePath(dependent, projectPath));
                         break;
                 }
-            }
+            }            
         }
     }
 
@@ -367,14 +369,18 @@ namespace {this.ProjectRootNamespace}
     /// <returns>List of references.</returns>
     public IEnumerable<IReference> LoadReferences()
     {
-        var directDependencies = GetDirectDependencies(IxProjectFile).ToList();
+        var directDependencies = GetDirectDependencies(CsProjectFile).ToList();
 
         var referenceDependencies = new List<IReference>();
 
         foreach (var dependency in directDependencies)
             GetReferenceDependencies(dependency, referenceDependencies);
 
-        return DistinctBy(referenceDependencies, p => p.ReferencePath);
+        var distinct = DistinctBy(referenceDependencies, p => p.ReferencePath);
+
+        distinct.ToList().ForEach(p => Log.Logger.Debug($"Dependency metadata {this.AxSharpProject.AxProject.ProjectFolder}: \n {string.Join(";", p)}"));
+
+        return distinct;
     }
 
     private static string FileDirectory(string path)
@@ -386,7 +392,7 @@ namespace {this.ProjectRootNamespace}
     {
         var projectPath = projectFile;
 
-        if (!File.Exists(projectPath)) return new List<IReference>();
+        if (!File.Exists(projectPath)) throw new FileNotFoundException(projectFile);
 
         try
         {

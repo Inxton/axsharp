@@ -7,6 +7,7 @@
 
 using CommandLine;
 using AXSharp.Compiler;
+using Serilog.Events;
 
 namespace ixc;
 
@@ -45,5 +46,9 @@ internal class Options : ICompilerOptions
     [Option('t', "target-platform-moniker", Required = false, Default = "ax",
         HelpText = "Instructs the compiler to adjust for target platform differences. Possible values 'ax', 'tia'")]
     public string TargetPlatfromMoniker { get; set; }
+
+    [Option('v', "verbosity", Required = false, Default = LogEventLevel.Information,
+        HelpText = "Level of compiler output. Possible options Verbose, Debug, Information, Warning, Error, Fatal")]
+    public LogEventLevel Versbosity { get; set; }
 }
 
