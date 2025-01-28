@@ -62,18 +62,19 @@ public static class Program
 
 [TaskName("CleanUp")]
 public sealed class CleanUpTask : FrostingTask<BuildContext>
-{
-
-    
-
+{    
     public override void Run(BuildContext context)
     {
+        if(context.BuildParameters.DoPublishOnly)
+        {
+            context.Log.Warning($"Skipping. Preforming publish only");
+            return;
+        }
+
         context.DotNetClean(Path.Combine(context.ScrDir, "AXSharp.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity });
         context.CleaUpAllBinsAndObjs();
         context.CleanDirectory(context.Artifacts);
-        context.CleanDirectory(context.TestResults);
-
-      
+        context.CleanDirectory(context.TestResults);      
     }
 }
 
@@ -83,6 +84,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.DoPublishOnly)
+        {
+            context.Log.Warning($"Skipping. Preforming publish only");
+            return;
+        }
+
         context.DotNetBuildSettings.MSBuildSettings.Properties.Add("NoWarn", new List<string>() 
             { "1234;2345;8602;10012;8618;0162;8605;1416;3270;1504;8600;8618;" +
                 "CS0618;CS1591;BL0007;BL0005;CA1416;CA2200;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS219;CS0414;CS0436;CS0472;CS0618;CS1591;CS1998;CS8604;" +
@@ -125,7 +132,13 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-          
+
+        if (context.BuildParameters.DoPublishOnly)
+        {
+            context.Log.Warning($"Skipping. Preforming publish only");
+            return;
+        }
+
         context.DotNetBuild(Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj"), context.DotNetBuildSettings);
 
         var axprojects = new List<string>()
@@ -160,6 +173,11 @@ public sealed class TestsTask : FrostingTask<BuildContext>
     // Tasks can be asynchronous
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.DoPublishOnly)
+        {
+            context.Log.Warning($"Skipping. Preforming publish only");
+            return;
+        }
 
         if (!context.BuildParameters.DoTest)
         {
@@ -223,7 +241,13 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        if (!context.BuildParameters.DoPublish)
+        if (context.BuildParameters.DoPublishOnly)
+        {
+            context.Log.Warning($"Skipping. Preforming publish only");
+            return;
+        }
+
+        if (!context.BuildParameters.DoPack)
         {
             context.Log.Warning($"Skipping packaging.");
             return;
@@ -272,7 +296,7 @@ public sealed class GenerateApiDocumentationTask : FrostingTask<BuildContext>
 public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
-    {
+    {       
         context.CheckLicenseComplianceInArtifacts();
     }
 }

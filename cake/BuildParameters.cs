@@ -33,4 +33,7 @@ public class BuildParameters
 
     [Option('r', "do-publish-release", Required = false, Default = false, HelpText = "Publishes release on GH")]
     public bool DoPublishRelease { get; set; }
+
+    [Option('o', "do-publish-only", Required = false, Default = false, HelpText = "Perfoms only publishing tasks from previously created artefacts.")]
+    public bool DoPublishOnly { get; set; }
 }

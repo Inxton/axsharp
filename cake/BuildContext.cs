@@ -230,7 +230,7 @@ public class BuildContext : FrostingContext
     }
 
     public void CheckLicenseComplianceInArtifacts()
-    {
+    {        
         //var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", ".apax", "packages"),
         var licensedFiles = Directory.EnumerateFiles(Path.Combine(this.ScrDir, "apax", "stc"),
                 "AX.*.*",
