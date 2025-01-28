@@ -276,6 +276,7 @@ namespace {this.ProjectRootNamespace}
             process.BeginErrorReadLine();
 
             process.WaitForExit();
+            process.WaitForExit();
         }
     }
 
@@ -321,6 +322,7 @@ namespace {this.ProjectRootNamespace}
             process.BeginErrorReadLine();
 
             process.WaitForExit();
+            process.WaitForExit();
         }
     }
 
@@ -343,7 +345,7 @@ namespace {this.ProjectRootNamespace}
             {
                 throw new Exception("Missing dependency file.");
             }
-
+            
             foreach (var dependency in dependencies)
             {
                
@@ -357,7 +359,7 @@ namespace {this.ProjectRootNamespace}
                         AddProjectReference(dependent, GetRelativePath(dependent, projectPath));
                         break;
                 }
-            }
+            }            
         }
     }
 

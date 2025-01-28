@@ -250,8 +250,11 @@ public class AXSharpProject : IAXSharpProject
     }
 
     public IEnumerable<ISyntaxTree> GetReferences() 
-    {               
+    {
+        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
+
         var referencedDependencies = TargetProject.LoadReferences();
+       
 
         if (!this.CompilerOptions.SkipDependencyCompilation)
         {
@@ -269,7 +272,6 @@ public class AXSharpProject : IAXSharpProject
         var refParseTrees = dependencyMetadata.SelectMany(p => p)
             .Select(s => STParser.ParseTextAsync(new StringText(s)).Result);
 
-        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
 
         return refParseTrees;
     }
