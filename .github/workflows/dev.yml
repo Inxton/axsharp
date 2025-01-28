@@ -8,7 +8,12 @@ on:
      - 'cake/**'
      - '.github/**'  
   workflow_dispatch:
-
+    inputs:
+      publish:
+        type: boolean
+        required: false
+        default: false
+        description: "Set to 'true' to publish packages"
 jobs:
   build:
     strategy:
