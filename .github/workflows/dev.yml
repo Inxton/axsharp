@@ -1,12 +1,12 @@
 name: dev
 
-on:
-  push:
-    branches: [ "dev" ]
-    paths:
-     - 'src/**'
-     - 'cake/**'
-     - '.github/**'  
+#on:
+#  push:
+#    branches: [ "dev" ]
+#    paths:
+#     - 'src/**'
+#     - 'cake/**'
+#     - '.github/**'  
   workflow_dispatch:
     inputs:
       publish:
