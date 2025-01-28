@@ -67,7 +67,7 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
     {
         if(context.BuildParameters.DoPublishOnly)
         {
-            context.Log.Warning($"Skipping cleanup. Preforming publish only");
+            context.Log.Warning($"Skipping. Preforming publish only");
             return;
         }
 
@@ -86,7 +86,7 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     {
         if (context.BuildParameters.DoPublishOnly)
         {
-            context.Log.Warning($"Skipping cleanup. Preforming publish only");
+            context.Log.Warning($"Skipping. Preforming publish only");
             return;
         }
 
@@ -135,7 +135,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 
         if (context.BuildParameters.DoPublishOnly)
         {
-            context.Log.Warning($"Skipping cleanup. Preforming publish only");
+            context.Log.Warning($"Skipping. Preforming publish only");
             return;
         }
 
@@ -175,7 +175,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
     {
         if (context.BuildParameters.DoPublishOnly)
         {
-            context.Log.Warning($"Skipping cleanup. Preforming publish only");
+            context.Log.Warning($"Skipping. Preforming publish only");
             return;
         }
 
@@ -243,11 +243,11 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     {
         if (context.BuildParameters.DoPublishOnly)
         {
-            context.Log.Warning($"Skipping cleanup. Preforming publish only");
+            context.Log.Warning($"Skipping. Preforming publish only");
             return;
         }
 
-        if (!context.BuildParameters.DoPublish)
+        if (!context.BuildParameters.DoPack)
         {
             context.Log.Warning($"Skipping packaging.");
             return;
@@ -296,7 +296,7 @@ public sealed class GenerateApiDocumentationTask : FrostingTask<BuildContext>
 public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
-    {
+    {       
         context.CheckLicenseComplianceInArtifacts();
     }
 }
