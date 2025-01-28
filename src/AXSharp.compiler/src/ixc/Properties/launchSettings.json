@@ -1,45 +1,51 @@
 {
-    "profiles": {
-        "ixc": {
-            "commandName": "Project",
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\statemachine\\"
-        },
-        "integration_plc": {
-            "commandName": "Project",
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"
-        },
-        "ixc-simple-template": {
-            "commandName": "Project",
+  "profiles": {
+    "ixc": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\statemachine\\"
+    },
+    "integration_plc": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"
+    },
+    "ixc-simple-template": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\_axopen\\axopen.templates\\axopen.template.simple\\ax"
+    },
+    "ixc-template-ref": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\axopen\\src\\templates.simple\\ctrl"
+    },
+    "ax-connectors-test-project": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\axsharp\\src\\AXSharp.connectors\\tests\\ax-test-project\\"
+    },
+    "app-withref": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen.templates\\templates.simple\\app\\"
+    },
+    "app-withref-cpm": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\templates.simple\\app\\"
+    },
+    "axopen-traversal": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\axopen\\axopen\\src\\traversals\\apax\\"
+    },
+    "axopen-core": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\ax\\axopen\\src\\core\\ctrl\\"
+    },
+    "tiax": {
+      "commandName": "Project",
+      "commandLineArgs": "--source-project-folder  C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax --output-project-folder C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ix --project-file plc1.csproj --target-platform-moniker tia",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\"
+    },
 
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\_axopen\\axopen.templates\\axopen.template.simple\\ax"
-        },
-        "ixc-template-ref": {
-            "commandName": "Project",
-            "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\axopen\\src\\templates.simple\\ctrl"
-        },
-        "ax-connectors-test-project": {
-            "commandName": "Project",
-            "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\axsharp\\src\\AXSharp.connectors\\tests\\ax-test-project\\"
-        },
-        "app-withref": {
-            "commandName": "Project",
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen.templates\\templates.simple\\app\\"
-        },
-        "app-withref-cpm": {
-            "commandName": "Project",
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\templates.simple\\app\\"
-        },
-        "axopen-traversal": {
-            "commandName": "Project",
-            "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\axopen\\axopen\\src\\traversals\\apax\\"
-        },
-        "axopen-core": {
-            "commandName": "Project",
-            "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\ax\\axopen\\src\\core\\ctrl\\"
-        },
-        "tiax": {
-            "commandName": "Project",
-            "workingDirectory": "C:\\MTS\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax\\"
-        }
+    "tiax-rooted": {
+      "commandName": "Project",
+      "commandLineArgs": "-v Verbose",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax"
     }
+  }
 }

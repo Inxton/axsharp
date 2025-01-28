@@ -75,6 +75,35 @@ public class AXSharpConfig : ICompilerOptions
         set => _axProjectFolder = value;
     }
 
+    
+    private static string VerifyRelativePath(string baseFolder, string path)
+    {
+        if (string.IsNullOrWhiteSpace(baseFolder))
+        {
+            throw new ArgumentException("Base folder cannot be null or empty.", nameof(baseFolder));
+        }
+
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+        }
+
+        // Ensure baseFolder is absolute
+        baseFolder = Path.GetFullPath(baseFolder);
+
+        // Check whether the path is already absolute
+        if (Path.IsPathRooted(path))
+        {
+            Log.Logger.Fatal($"Path in AXSharpConfig is absolute '{path}'. Change it to path relative to AX project folder path.");
+            throw new ArgumentException($"Path cannot be absolute '{path}'.", nameof(path));
+        }
+        else
+        {
+            // Convert it to an absolute path based on baseFolder
+            return Path.GetFullPath(Path.Combine(baseFolder, path));
+        }
+    }
+   
     /// <summary>
     /// Gets updated or creates default config for given AX project.
     /// </summary>
@@ -143,7 +172,11 @@ public class AXSharpConfig : ICompilerOptions
             if (config != null)
             {
                 var fi = new FileInfo(ixConfigFilePath);
-                if (fi.DirectoryName != null) config.AxProjectFolder = fi.DirectoryName;
+                if (fi.DirectoryName != null)
+                {
+                    config.AxProjectFolder = fi.DirectoryName;
+                    config.OutputProjectFolder = VerifyRelativePath(fi.DirectoryName, config.OutputProjectFolder);
+                }
             }
 
             return config;
@@ -151,8 +184,7 @@ public class AXSharpConfig : ICompilerOptions
         catch (Exception ex)
         {
             throw new FailedToReadIxConfigurationFileException($"Unable to process '{ixConfigFilePath}'", ex);
-        }
-
+        }        
     }
 
     private static void OverridesFromCli(ICompilerOptions fromConfig, ICompilerOptions? newCompilerOptions)

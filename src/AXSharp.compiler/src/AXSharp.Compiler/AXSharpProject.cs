@@ -52,10 +52,10 @@ public class AXSharpProject : IAXSharpProject
                 throw new InvalidOperationException("Output project folder must be set in the AXSharp.config.json file.");
             OutputFolder = Path.GetFullPath(Path.Combine(AxProject.ProjectFolder, CompilerOptions.OutputProjectFolder));
 
-            if (!string.IsNullOrEmpty(CompilerOptions.ProjectFile))
-            {             
-                ProjectFile = Path.Combine(OutputFolder, CompilerOptions.ProjectFile);
-            }
+            //if (!string.IsNullOrEmpty(CompilerOptions.ProjectFile))
+            //{             
+            //    ProjectFile = Path.Combine(OutputFolder, CompilerOptions.ProjectFile);
+            //}
         }
         
         if (cliCompilerOptions != null) UseBaseSymbol = cliCompilerOptions.UseBase;
@@ -250,9 +250,7 @@ public class AXSharpProject : IAXSharpProject
     }
 
     public IEnumerable<ISyntaxTree> GetReferences() 
-    {
-        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
-        
+    {               
         var referencedDependencies = TargetProject.LoadReferences();
 
         if (!this.CompilerOptions.SkipDependencyCompilation)
@@ -265,8 +263,13 @@ public class AXSharpProject : IAXSharpProject
             .Select(p => p.MetadataPath)
             .Select(p => JsonConvert.DeserializeObject<IEnumerable<string>>(File.ReadAllText(p)));
 
+
+        dependencyMetadata.ToList().ForEach(p => Log.Logger.Debug($"Dependency metadata: \n {string.Join(";", p)}"));
+
         var refParseTrees = dependencyMetadata.SelectMany(p => p)
             .Select(s => STParser.ParseTextAsync(new StringText(s)).Result);
+
+        TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
 
         return refParseTrees;
     }
@@ -277,6 +280,7 @@ public class AXSharpProject : IAXSharpProject
     {        
         foreach (var ixProjectReference in AxProject.AXSharpReferences.OfType<AXSharpConfig>())
         {
+            Log.Logger.Verbose($"Starting compilation of project reference '{ixProjectReference.AxProjectFolder}' into '{ixProjectReference.OutputProjectFolder}'.");
 
             if (compiled.Contains(ixProjectReference.AxProjectFolder))
             {

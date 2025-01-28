@@ -81,7 +81,7 @@ public static class SemanticsHelpers
     public static bool IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder)
     {
         var type = fieldDeclaration.Type;
-        return !(type is IReferenceTypeDeclaration)
+        var isEligible = !(type is IReferenceTypeDeclaration)
                 &&
                 fieldDeclaration.IsAvailableForComm(sourceBuilder)
                 &&
@@ -91,6 +91,13 @@ public static class SemanticsHelpers
                  type is INamedValueTypeDeclaration ||
                  sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
                      p.FullyQualifiedName == type.FullyQualifiedName));
+
+            if(!isEligible) 
+            {
+                Log.Logger.Debug($"Field '{fieldDeclaration.Name}' of type '{fieldDeclaration.Type.FullyQualifiedName}' is not eligible for transpile");
+            }
+
+        return isEligible;
     }
 
     /// <summary>
@@ -102,7 +109,7 @@ public static class SemanticsHelpers
     public static bool IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, ISourceBuilder sourceBuilder)
     {
         var type = variableDeclaration.Type;
-        return !(type is IReferenceTypeDeclaration)
+        var isEligible = !(type is IReferenceTypeDeclaration)
                &&
                variableDeclaration.IsAvailableForComm(sourceBuilder)
                &&
@@ -112,6 +119,13 @@ public static class SemanticsHelpers
                 type is INamedValueTypeDeclaration ||
                 sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
                     p.FullyQualifiedName == type.FullyQualifiedName));
+
+        if (!isEligible)
+        {
+            Log.Logger.Debug($"Variable '{variableDeclaration.Name}' of type '{variableDeclaration.Type.FullyQualifiedName}' is not eligible for transpile");
+        }
+
+        return isEligible;
     }
 
 

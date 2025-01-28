@@ -85,7 +85,7 @@ namespace AXSharp.CompilerTests
             Assert.True(File.Exists(ixConfigFile));
             var result = AXSharpConfig.RetrieveAXSharpConfig(ixConfigFile);
             Assert.True(File.Exists(ixConfigFile));
-            Assert.Equal($"..{Path.DirectorySeparatorChar}ix", result.OutputProjectFolder);
+            Assert.Equal(Path.GetFullPath(Path.Combine(apaxFolder, "..\\ix")), result.OutputProjectFolder);
             Assert.True(result.AxProjectFolder.EndsWith(Path.Combine("samples", "plt", "lib3")));
         }
 
