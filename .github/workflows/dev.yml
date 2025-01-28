@@ -1,6 +1,6 @@
 name: dev
 
-#on:
+on:
 #  push:
 #    branches: [ "dev" ]
 #    paths:
