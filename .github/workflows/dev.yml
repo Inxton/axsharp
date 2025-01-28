@@ -28,10 +28,10 @@ jobs:
       with:
         fetch-depth: '0'   
                    
-    - name: "Build  script"  
+    - name: "Build cake script"  
       run: dotnet build cake/Build.csproj
                        
-    - name: "Run build script"
+    - name: "Run cake script"
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
       run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --framework net9.0
