@@ -47,4 +47,4 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         GH_USER: ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-publish-only
+      run: dotnet run --project cake/Build.csproj --do-publish-only --framework net9.0
