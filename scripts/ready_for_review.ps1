@@ -18,7 +18,7 @@ else
         # Construct the full path to _change_stateScriptPath.ps1
         $_change_stateScriptPath = Join-Path -Path $scriptDir -ChildPath "_change_state.ps1"
         # Call _change_state.ps1 with the parameters IssueId, oldColumnName, newColumnName,doNotCheckOldColumnName, repoOwner, repoName, projectName
-        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "In progress" -newColumnName "In review" -doNotCheckOldColumnName $False -repoOwner "Inxton" -repoName "AXOpen" -projectName "simatic-ax"
+        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "In progress" -newColumnName "In review" -doNotCheckOldColumnName $False -repoOwner "Inxton" -repoName "axsharp" -projectName "simatic-ax"
     } 
     else 
     {

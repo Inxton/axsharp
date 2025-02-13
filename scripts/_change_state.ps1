@@ -4,7 +4,7 @@
     [string]$newColumnName,
     [bool]$doNotCheckOldColumnName = 0,
     [string]$repoOwner = "Inxton",
-    [string]$repoName = "AXOpen",
+    [string]$repoName = "axsharp",
     [string]$projectName = "simatic-ax"
 )
 

@@ -74,7 +74,7 @@ if ([int]::TryParse($IssueId, [ref]$null))
         # Construct the full path to _change_stateScriptPath.ps1
         $_change_stateScriptPath = Join-Path -Path $scriptDir -ChildPath "_change_state.ps1"
         # Call _change_state.ps1 with the parameters IssueId, oldColumnName, newColumnName,doNotCheckOldColumnName, repoOwner, repoName, projectName
-        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "Ready" -newColumnName "In progress" -doNotCheckOldColumnName $doNotCheckOldColumnName -repoOwner "Inxton" -repoName "AXOpen" -projectName "simatic-ax"
+        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "Ready" -newColumnName "In progress" -doNotCheckOldColumnName $doNotCheckOldColumnName -repoOwner "Inxton" -repoName "axsharp" -projectName "simatic-ax"
     } 
     else {
         Write-Output "Error: The issue ID '$IssueId' does not exist in the list of open issues."
