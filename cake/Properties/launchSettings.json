@@ -4,10 +4,13 @@
       "commandName": "WSL2",
       "distributionName": ""
     },
+    "build": {
+      "commandName": "Project"            
+    },
     "PublishOnly": {
       "commandName": "Project",
       "commandLineArgs": "--do-publish-only --do-publish --do-publish-release",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\axsharp\\cake"
-    }
+    }    
   }
 }

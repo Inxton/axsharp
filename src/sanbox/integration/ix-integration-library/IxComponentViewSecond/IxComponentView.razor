@@ -1,4 +1,5 @@
 ﻿@namespace MySecondNamespace
+@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<ixcomponent>
 
 <h3>Second namespace</h3>
@@ -11,8 +12,9 @@
 
 
 @code{
-    protected override void OnInitialized()
+
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Component);
+        StartPolling(Component);
     }
 }

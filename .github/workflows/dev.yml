@@ -32,6 +32,7 @@ jobs:
       run: dotnet build cake/Build.csproj
                        
     - name: "Run cake script"
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'false' }}
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
       run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --framework net9.0
@@ -47,4 +48,4 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         GH_USER: ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release --framework net9.0
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --do-publish-only --do-publish --do-publish-release --framework net9.0

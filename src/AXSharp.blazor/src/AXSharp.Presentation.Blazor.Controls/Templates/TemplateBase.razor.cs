@@ -7,11 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXSharp.Connector;
 
 
 namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
-    public partial class TemplateBase<T> : RenderableComponentBase
+    public abstract class TemplateBase<T> : RenderableComponentBase
     {
         private IJSObjectReference? module;
 

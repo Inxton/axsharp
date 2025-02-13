@@ -21,9 +21,12 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         {
             EnumToIntConverter = new EnumToIntConverter(EnumDiscriminatorAttribute);
             Names = Enum.GetNames(EnumDiscriminatorAttribute.EnumeratorType);
-            UpdateValuesOnChange(Onliner);
             return base.OnInitializedAsync();
         }
 
+        public override void ConfigurePolling()
+        {
+            this.StartPolling(Onliner);
+        }
     }
 }

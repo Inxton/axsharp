@@ -7,3 +7,12 @@
 <p>IxBool service value: @Component.ix_bool.Cyclic</p>
 <p>IxInt service value: @Component.ix_int.Cyclic</p>
 <p>IxString service value: @Component.ix_string.Cyclic</p>
+
+
+@code
+{
+    public override void ConfigurePolling()
+    {
+        StartPolling(this.Component);
+    }
+}

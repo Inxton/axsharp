@@ -19,7 +19,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
     /// <summary>
     ///  Base class for complex components with only code-behind.
     /// </summary>
-    public class RenderableComplexComponentBase<T> : RenderableComponentBase, IRenderableComplexComponentBase where T : ITwinElement
+    public abstract class RenderableComplexComponentBase<T> : RenderableComponentBase, IRenderableComplexComponentBase where T : ITwinElement
     {
         private T _component;
 
