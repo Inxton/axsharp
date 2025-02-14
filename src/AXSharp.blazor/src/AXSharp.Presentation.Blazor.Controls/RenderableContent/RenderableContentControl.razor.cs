@@ -150,16 +150,11 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         private Type _groupContainer { get; set; }
         public Type MainLayoutType { get; set; }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-
-                
-        }
-
         /// <summary>
         /// Forces re-rendering of this rcc.
-        /// [!IMPORTANT] Forced re-rendering may impact client-side performance. The method is automatically called when <see cref="Presentation"/> or <see cref="Context"/> property change.
+        /// [!IMPORTANT]
+        /// > Forced re-rendering may impact client-side performance.
+        /// > The method is automatically called when <see cref="Presentation"/> or <see cref="Context"/> property change.
         /// </summary>
         public void ForceRender()
         {
@@ -282,6 +277,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             __builder.AddAttribute(2, "Onliner", twinPrimitive);
             __builder.AddAttribute(3, "IsReadOnly", HasReadAccess(twinPrimitive));
             __builder.AddAttribute(1, "RccContainer", this);
+            __builder.AddAttribute(4, "PollingInterval", this.PollingInterval);
             __builder.CloseComponent();
         };
 

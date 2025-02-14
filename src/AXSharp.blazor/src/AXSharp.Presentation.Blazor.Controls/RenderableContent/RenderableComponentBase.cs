@@ -91,9 +91,8 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates are primitive values of ITwinObject instance
         /// <param name="element">ITwinObject instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        private void UpdateValuesOnChange(ITwinObject element,int pollingInterval = 250)
+        private void UpdateValuesOnChange(ITwinObject element)
         {
             if (element != null)
             {
@@ -108,9 +107,8 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates primitive value.
         /// <param name="tag">IValueTag instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        private void UpdateValuesOnChange(OnlinerBase tag, int pollingInterval = 250)
+        private void UpdateValuesOnChange(OnlinerBase tag)
         {
             tag.PropertyChanged += new PropertyChangedEventHandler(HandlePropertyChanged);
         }
@@ -118,17 +116,16 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates are primitive values of ITwinObject instance
         /// <param name="element">ITwinElement instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        private void UpdateValuesOnChange(ITwinElement element, int pollingInterval = 250)
+        private void UpdateValuesOnChange(ITwinElement element)
         {
             switch (element)
             {
                 case ITwinObject o:
-                    UpdateValuesOnChange(o, pollingInterval);
+                    UpdateValuesOnChange(o);
                     break;
                 case OnlinerBase b:
-                    UpdateValuesOnChange(b, pollingInterval);
+                    UpdateValuesOnChange(b);
                     break;
             }
         }
