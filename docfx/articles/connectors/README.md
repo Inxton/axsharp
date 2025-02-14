@@ -21,13 +21,17 @@ Each elementary/primitive/base type is represented by twin wrapper objects that 
 **Cyclic access** allows for fast, low-performance cost, two-way access to the PLC variables. Cyclic values are read and written in an optimized periodic loop. The controller twin object contains the entire PLC program, it does not discriminate between the variables and objects that are used by the consumer and those that are not. However, the Cyclic values are accessed via the communication interface only when:
 
 - Twin connector is set to `Auto` subscription, which will set the variable into a cyclic read queue when `Cyclic` property is accessed in the consumer program.
-- Twin connector is set to `Polling` subscription, and reading is activated by `StartPolling`.
+- Twin connector is set to `Polling` subscription, and reading is activated by `StartPolling`. Polling can be stopped by calling the `StopPolling` method.
+
+The polling mechanism keeps track of polling subscribers or holders and will only release the polling when the last subscriber calls the `StopPolling` method. It is good practice to call `StopPolling` when the holder/subscriber object is disposed.
+
+
+> **WARNING** 
+> Cyclic access may result in degraded performance when the cyclic loop contains too many cyclically accessed primitive twins. Consider using `polling` instead of `automatic` subscription to balance the communication load.
 
 
 Primitive Twins implement notification change when the cyclic property changes [INotifyPropertyChanged](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-7.0). This feature is particularly useful for visualization scenarios in presentation frameworks that support data binding with change notification (WPF, Blazor, WinForm).
 
-> **WARNING** 
-> Cyclic access may result in degraded performance when the cyclic loop contains too many cyclically accessed primitive twins. Consider using `polling` instead of `automatic` subscription to balance the communication load.
 
 ~~~ C#
     // Cyclic Read
