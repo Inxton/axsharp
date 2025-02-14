@@ -46,12 +46,6 @@
       "commandName": "Project",
       "commandLineArgs": "-v Verbose",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax"
-    },
-
-    "abcd": {
-      "commandName": "Project",
-      "commandLineArgs": "-v Verbose",
-      "workingDirectory": "D:\\github\\Inxton\\AXOpen\\test_proj\\abcd\\app\\ax" 
     }
   }
 }
