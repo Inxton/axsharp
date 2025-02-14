@@ -41,11 +41,11 @@ public static class Program
             {
                 var recoverCurrentDirectory = Environment.CurrentDirectory;
                 try
-                {                    
+                {
                     Log.ConfigureLogger(o.Versbosity);
 
                     Log.Logger.Verbose(JsonSerializer.Serialize(o));
-                    
+
                     Project = GenerateIxProject(o);
                 }
                 catch (Exception e)
@@ -76,7 +76,7 @@ public static class Program
     }
 
     private static AXSharpProject GenerateIxProject(Options options)
-    {        
+    {
         var axProjectFolder = string.IsNullOrEmpty(options.AxSourceProjectFolder)
             ? Environment.CurrentDirectory
             : options.AxSourceProjectFolder;
@@ -109,7 +109,7 @@ public static class Program
                           "THIRD PARTY LICENSES CAN BE FOUND AT \n" +
                           "https://github.com/inxton/axsharp/blob/master/notices.md");
 
-        
+
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine($"Using version '{LegalAcrobatics.StcVersion}' of stc.");
         Console.ForegroundColor = originalColor;
