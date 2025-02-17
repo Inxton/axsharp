@@ -11,9 +11,10 @@
 
 
 <RenderableContentControl Context="Component.my_int" Presentation="Control"></RenderableContentControl>
-@code {
-    protected override void OnInitialized()
+@code 
+{
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Component);
+        StartPolling(Component);
     }
 }

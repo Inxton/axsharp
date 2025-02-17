@@ -18,7 +18,13 @@ namespace ax_blazor_example
     {
         protected override void OnInitialized()
         {
-            UpdateValuesOnChange(Component);
+            StartPolling(Component);
+        }
+
+
+        public override void Dispose()
+        {
+            this.StopPolling();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
     /// <summary>
     ///  Base class which implements methods to update UI when PLC values are changed.
     /// </summary>
-    public partial class RenderableComponentBase : ComponentBase, IRenderableComponent, IDisposable
+    public abstract class RenderableComponentBase : ComponentBase, IRenderableComponent, IDisposable
     {
         /// <summary>
         /// Gets or sets the RenderableContentControl that encapsulates this component.
@@ -38,7 +38,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// </summary>
         public virtual void Dispose()
         {
-            RemovePolledElements();
+            StopPolling();
         }
 
         /// <summary>
@@ -51,21 +51,34 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         /// Adds <see cref="element"/> to the polling queue.
         /// >[!IMPORTANT] This method should be overriden in the derived class to limit the number of elements to be polled for large objects.
-        /// > All inner primitive types of the element will be added to the polling queue by default. When creating override remember to add the polled element to
-        /// > the <see cref="PolledElements"/> set that is needed for removal of the element from the polling queue once the component is disposed.
+        /// > None of inner primitive types of the element will be added to the polling queue by default.
+        /// > When creating override remember to add the polled element to the <see cref="PolledElements"/>
+        /// > set that is needed for removal of the element from the polling queue once the component is disposed.
         /// </summary>
-        /// <param name="element">Element to be added to the polling queue.</param>
-        /// <param name="pollingInterval">Sets polling interval for the element.</param>
-        public virtual void AddToPolling(ITwinElement element, int pollingInterval = 250) 
+        /// <example>
+        /// <code>
+        ///     /// This will add all primitives from the component object to polling.
+        ///     this.StartPolling(this.Component, pollingInterval);
+        /// </code>
+        /// </example>
+        public abstract void ConfigurePolling(); 
+        
+        /// <summary>
+        /// Starts polling the element.
+        /// </summary>
+        /// <param name="element">Element to be polled.</param>
+        /// <param name="pollingInterval">Polling interval</param>
+        public void StartPolling(ITwinElement element, int pollingInterval = 250)
         {
             element.StartPolling(pollingInterval, this);
+            this.UpdateValuesOnChange(element);
             PolledElements.Add(element);
         }
 
         /// <summary>
         /// Removes elements added for polling from this component.
         /// </summary>
-        public void RemovePolledElements()
+        public void StopPolling()
         {
             PolledElements.ToList().ForEach(p =>
             {
@@ -78,9 +91,8 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates are primitive values of ITwinObject instance
         /// <param name="element">ITwinObject instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        private void UpdateValuesOnChange(ITwinObject element, int pollingInterval = 250)
+        private void UpdateValuesOnChange(ITwinObject element)
         {
             if (element != null)
             {
@@ -95,9 +107,8 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates primitive value.
         /// <param name="tag">IValueTag instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        private void UpdateValuesOnChange(OnlinerBase tag, int pollingInterval = 250)
+        private void UpdateValuesOnChange(OnlinerBase tag)
         {
             tag.PropertyChanged += new PropertyChangedEventHandler(HandlePropertyChanged);
         }
@@ -105,19 +116,16 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// <summary>
         ///  Method, which updates are primitive values of ITwinObject instance
         /// <param name="element">ITwinElement instance.</param>
-        /// <param name="pollingInterval">Polling interval</param>
         /// </summary>
-        public void UpdateValuesOnChange(ITwinElement element, int pollingInterval = 250)
+        private void UpdateValuesOnChange(ITwinElement element)
         {
-            AddToPolling(element, pollingInterval);
-
             switch (element)
             {
                 case ITwinObject o:
-                    UpdateValuesOnChange(o, pollingInterval);
+                    UpdateValuesOnChange(o);
                     break;
                 case OnlinerBase b:
-                    UpdateValuesOnChange(b, pollingInterval);
+                    UpdateValuesOnChange(b);
                     break;
             }
         }
@@ -157,6 +165,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             tag.PropertyChanged += new PropertyChangedEventHandler(HandlePropertyChangedOnOutFocus);
         }
 
+   
         protected void HandlePropertyChanged(object sender, PropertyChangedEventArgs a)
         {
             if (ShouldBeUpdated(sender as ITwinElement))
@@ -165,11 +174,17 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             }
         }
 
+        /// <summary>
+        /// Method, which updates shadow primitive
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="a"></param>
         protected void HandleShadowPropertyChanged(object sender, ValueChangedEventArgs a)
         {
             InvokeAsync(StateHasChanged);
         }
 
+        
         protected virtual bool ShouldBeUpdated(ITwinElement element)
         {
             if (element == null)
@@ -202,7 +217,13 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
                     InvokeAsync(StateHasChanged);
                 }
             }
-                
+        }
+
+
+        protected override Task OnInitializedAsync()
+        {
+            ConfigurePolling();
+            return base.OnInitializedAsync();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXSharp.Connector;
 
 namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
@@ -30,6 +31,11 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         {
            // UpdateShadowValuesOnChange(Onliner);
             return base.OnInitializedAsync();
+        }
+
+        public override void ConfigurePolling()
+        {
+            // No polling for shadow values
         }
     }
 }

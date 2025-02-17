@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using AXSharp.Connector;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -17,10 +18,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
-    
-
-
-
     public partial class TemplateBaseOnline<T> : TemplateBase<T>
     {
         protected string ToolTipText => string.IsNullOrEmpty(Onliner.AttributeToolTip)
@@ -29,9 +26,15 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 
         protected override Task OnInitializedAsync()
         {
-            AddToPolling(this.Onliner, this.PollingInterval);
             UpdateValuesOnChangeOutFocus(Onliner);
+            ConfigurePolling();
             return base.OnInitializedAsync();
+        }
+
+
+        public override void ConfigurePolling()
+        {
+            StartPolling(this.Onliner, this.PollingInterval);
         }
     }
 }

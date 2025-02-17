@@ -1,4 +1,5 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using AXSharp.Connector
 @using ix_integration_library.IxComponentServiceViewModel
 @inherits RenderableViewModelComponentBase<IxComponentViewModel>
 
@@ -12,8 +13,8 @@
 
 
 @code {
-    protected override void OnInitialized()
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(ViewModel.Component);
+        StartPolling(ViewModel.Component);
     }
 }

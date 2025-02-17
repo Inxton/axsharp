@@ -11,17 +11,11 @@ namespace AXSharp.Presentation.Blazor.Interfaces
 {
     public interface IRenderableComponent
     {
-        /// <summary>
-        /// Adds <see cref="element"/> to the polling queue.
-        /// <param name="element">Element to be added to the polling queue.</param>
-        /// <param name="pollingInterval">Sets polling interval for the element.</param>
-        void AddToPolling(ITwinElement element, int pollingInterval = 250);
 
+        void ConfigurePolling();
         /// <summary>
         /// Removes elements added for polling from this component.
         /// </summary>
-        void RemovePolledElements();
-
-        
+        void StopPolling();
     }
 }

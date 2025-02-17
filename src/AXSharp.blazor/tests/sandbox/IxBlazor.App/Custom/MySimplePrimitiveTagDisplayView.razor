@@ -13,8 +13,8 @@
     [Parameter]
     public bool IsReadOnly { get; set; }
 
-    protected override void OnInitialized()
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Onliner);
+        StartPolling(Onliner);
     }
 }

@@ -6,3 +6,10 @@
     <h1>Overrided My Simple Primitive Struct Display View</h1>
 </div>
 
+@code
+{
+    public override void ConfigurePolling()
+    {
+        StartPolling(this.Component);
+    }
+}

@@ -4,6 +4,11 @@
 
 
 <input type="text" @bind="ViewModel.DummyText" />
+
 @code {
 
+    public override void ConfigurePolling()
+    {
+        StartPolling(this.ViewModel.Component);
+    }
 }
