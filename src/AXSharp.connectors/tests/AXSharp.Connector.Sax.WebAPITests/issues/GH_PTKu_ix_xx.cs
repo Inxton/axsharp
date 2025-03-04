@@ -17,9 +17,9 @@ namespace AXSharp.Connector.S71500.WebApi.Tests.Issues;
 public class GH_PTKu_ix_xx : IDisposable
 {
     private readonly ITestOutputHelper report;
-    private readonly int batchCycles = 3;
+    private readonly int batchCycles = 10;
 
-    private readonly int simultaneousCycles = 10;
+    private readonly int simultaneousCycles = 20;
 
     public GH_PTKu_ix_xx(ITestOutputHelper output)
     {
@@ -32,7 +32,7 @@ public class GH_PTKu_ix_xx : IDisposable
         Task.Delay(1000).Wait();
         report = output;
         Plc.Connector.ConcurrentRequestMaxCount = 3;
-        Plc.Connector.ConcurrentRequestDelay = 3;
+        Plc.Connector.ConcurrentRequestDelay = 10;
         report.WriteLine($"Max requests limit: {Plc.Connector.ConcurrentRequestMaxCount}");
         report.WriteLine($"Concurrent request delay: {Plc.Connector.ConcurrentRequestDelay}");
     }

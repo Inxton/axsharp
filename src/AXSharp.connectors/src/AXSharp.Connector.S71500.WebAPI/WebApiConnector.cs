@@ -103,6 +103,8 @@ public class WebApiConnector : Connector
         requestHandler = new ApiHttpClientRequestHandler(Client,
             new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker);
 
+        requestHandler.Init();
+
         requestHandler.ApiLogout();
         requestHandler.ApiLogin(UserName, UserPassword ?? string.Empty, true);
 
@@ -237,6 +239,14 @@ public class WebApiConnector : Connector
         foreach (var errorResponse in response.ErrorResponses)
         {
             var failedItem = originalRequest.FirstOrDefault(p => p.Id == errorResponse.Id);
+            if (failedItem == null)
+            {
+                var msg =
+                    $"{errorResponse.Error.Message} [{errorResponse.Error.Code}] : {string.Join(";", originalRequest.Select(p => $"Id:{p.Id}| Method : {p.Method}, {string.Join("; ", p.Params.Select(p => $"{p.Key} : {p.Value}"))}"))}";
+                Logger.Error(msg);
+                continue;
+            }
+
             var failedItemParams = string.Join(";", failedItem.Params.Select(p => $"{p.Key} : {p.Value}"));
             if (string.IsNullOrEmpty(firstFailedItemParams))
             {
@@ -351,10 +361,11 @@ public class WebApiConnector : Connector
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
-            foreach (var requestSegment in webApiPrimitives.SegmentReadRequest(MAX_READ_REQUEST_SEGMENT))
+            //foreach (var requestSegment in webApiPrimitives.SegmentReadRequest(MAX_READ_REQUEST_SEGMENT))
             {
+                var requestSegment = webApiPrimitives;
                 var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-                var segment = apiPrimitives.Select(p => p.PeekPlcReadRequestData).ToList();
+                var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
                 try
                 {
                     await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
@@ -408,7 +419,7 @@ public class WebApiConnector : Connector
     /// <inheritdoc />
     public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive>? primitives)
     {
-        if (primitives == null) return;
+        if (primitives == null || !primitives.Any()) return;
 
         try
         {
@@ -425,12 +436,13 @@ public class WebApiConnector : Connector
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
-            foreach (var requestSegment in webApiPrimitives.SegmentWriteRequest(MAX_WRITE_REQUEST_SEGMENT))
+            //foreach (var requestSegment in webApiPrimitives.SegmentWriteRequest(MAX_WRITE_REQUEST_SEGMENT))
             {
+                var requestSegment = webApiPrimitives;
                 var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
                 try
                 {
-                    await RetryPolicy.ExecuteAsync(async () => await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PeekPlcWriteRequestData)));
+                    await RetryPolicy.ExecuteAsync(async () => await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
                 }
                 catch (ApiBulkRequestException apiException)
                 {
