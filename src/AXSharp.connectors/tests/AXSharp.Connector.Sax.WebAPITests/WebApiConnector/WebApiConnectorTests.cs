@@ -1779,7 +1779,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch read failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch read failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist] ", myBYTE.AccessStatus.FailureReason);
         }
 
         [Fact]
@@ -1792,7 +1792,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch write failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist;value : 55] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch write failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist;value : 55] ", myBYTE.AccessStatus.FailureReason);
         }
 
        
@@ -1817,7 +1817,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch read failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_o] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch read failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_o] ", myBYTE.AccessStatus.FailureReason);
         }
 
         [Fact]
@@ -1840,7 +1840,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch write failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_o;value : 0] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch write failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_o;value : 0] ", myBYTE.AccessStatus.FailureReason);
         }
 
 

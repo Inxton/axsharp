@@ -49,11 +49,11 @@
 
 
 	<ItemGroup>		
-		<PackageReference Include="Microsoft.CSharp"/>
-		<PackageReference Include="Newtonsoft.Json"/>
-		<PackageReference Include="Serilog.Sinks.Console"/>
-		<PackageReference Include="Serilog.Sinks.File"/>
-		<PackageReference Include="Siemens.Simatic.S7.Webserver.API"/>
+		<PackageReference Include="Microsoft.CSharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Siemens.Simatic.S7.Webserver.API" />
 	</ItemGroup>
 
 	<ItemGroup>
