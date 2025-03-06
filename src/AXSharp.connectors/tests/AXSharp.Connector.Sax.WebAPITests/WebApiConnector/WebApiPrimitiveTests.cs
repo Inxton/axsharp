@@ -498,9 +498,9 @@ namespace AXSharp.Connector.S71500.WebAPITests.Primitives
         [Fact]
         public override async void should_write_cyclic_max_value()
         {
-            webApiPrimitive!.Cyclic = Min;
+            webApiPrimitive!.Cyclic = Max;
             await Task.Delay(WaitTimeForCyclicOperations);
-            Assert.Equal((int)(Min * d), (int)(await webApiPrimitive.GetAsync() * d));
+            Assert.Equal((int)(Max * d), (int)(await webApiPrimitive.GetAsync() * d));
         }
 
         [Fact]
