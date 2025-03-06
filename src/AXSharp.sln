@@ -140,8 +140,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.TIA2AX.Transformer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.TIA2AX.TransformerTests", "AXSharp.tools\src\AXSharp.TIA2AX.TranformerTests\AXSharp.TIA2AX.TransformerTests.csproj", "{ECC1D9CE-EB81-430D-9784-007700D285FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webserver.API", "..\..\..\..\PTKu\simatic-s7-webserver-api\src\Webserver.API\Webserver.API.csproj", "{F0E56D9A-A83F-4761-AE65-D433C877C30F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -632,18 +630,6 @@ Global
 		{ECC1D9CE-EB81-430D-9784-007700D285FE}.Release|x64.Build.0 = Release|Any CPU
 		{ECC1D9CE-EB81-430D-9784-007700D285FE}.Release|x86.ActiveCfg = Release|Any CPU
 		{ECC1D9CE-EB81-430D-9784-007700D285FE}.Release|x86.Build.0 = Release|Any CPU
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|x64.ActiveCfg = Debug|x64
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|x64.Build.0 = Debug|x64
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|x86.ActiveCfg = Debug|x86
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Debug|x86.Build.0 = Debug|x86
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|x64.ActiveCfg = Release|x64
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|x64.Build.0 = Release|x64
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|x86.ActiveCfg = Release|x86
-		{F0E56D9A-A83F-4761-AE65-D433C877C30F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

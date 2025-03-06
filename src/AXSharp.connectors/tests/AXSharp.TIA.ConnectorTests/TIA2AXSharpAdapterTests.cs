@@ -184,8 +184,10 @@ namespace AXSharp.TIA2AXSharpTests
             var serviceFactory = new ApiStandardServiceFactory();
             var Client = serviceFactory.GetHttpClient("10.10.10.180", "Everybody", string.Empty);
 
+            var splitter = new ApiRequestSplitterByBytes();
+
             var requestHandler = new ApiHttpClientRequestHandler(Client,
-                new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker);
+                new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker, splitter);
 
             await requestHandler.ApiLogoutAsync();
 

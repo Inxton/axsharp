@@ -5,7 +5,6 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
-using AXSharp.Connector.S71500.WebAPI;
 using AXSharp.Connector.ValueTypes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -68,10 +67,14 @@ public class WebApiConnector : Connector
             ServerCertificateCallback.CertificateCallback =
                 (sender, cert, chain, sslPolicyErrors) => true;
 
+        var splitter = new ApiRequestSplitterByBytes();
+
         var serviceFactory = new ApiStandardServiceFactory();
         var client = serviceFactory.GetHttpClient(ipAddress, UserName, UserPassword);
         requestHandler = new ApiHttpClientRequestHandler(client,
-            new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker);
+            new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker, splitter);
+
+        requestHandler.Init();
 
         NumberOfInstances++;
     }
@@ -84,7 +87,8 @@ public class WebApiConnector : Connector
     /// <param name="password">Password.</param>
     /// <param name="ignoreSSLErros">When set to 'true' the connection will ignore SSL errors.</param>
     /// <param name="dbName">Root DB name (AX uses 'TGlobalVariablesDB')</param>
-    public WebApiConnector(string ipAddress, string userName, string password, bool ignoreSSLErros, eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
+    public WebApiConnector(string ipAddress, string userName, string password, bool ignoreSSLErros,
+        eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
     {
         IPAddress = ipAddress;
@@ -100,8 +104,9 @@ public class WebApiConnector : Connector
         var serviceFactory = new ApiStandardServiceFactory();
         Client = serviceFactory.GetHttpClient(ipAddress, UserName, UserPassword ?? string.Empty);
 
+        var splitter = new ApiRequestSplitterByBytes();
         requestHandler = new ApiHttpClientRequestHandler(Client,
-            new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker);
+            new ApiRequestFactory(ReqIdGenerator, RequestParameterChecker), ApiResponseChecker, splitter);
 
         requestHandler.Init();
 
@@ -126,15 +131,9 @@ public class WebApiConnector : Connector
 
     private readonly ApiHttpClientRequestHandler requestHandler;
 
-    private ApiHttpClientRequestHandler RequestHandler
-    {
-        get
-        {
-            return requestHandler;
-        }
-    }
+    private ApiHttpClientRequestHandler RequestHandler => requestHandler;
 
-    private readonly object concurentCountMutex = new object();
+    private readonly object concurentCountMutex = new();
 
     private async Task AntiThrottling(IEnumerable<ITwinPrimitive> primitives)
     {
@@ -147,17 +146,10 @@ public class WebApiConnector : Connector
                 concurrent = concurrentRequest;
             }
 
-            if (concurrent >= ConcurrentRequestMaxCount)
-            {
-                await Task.Delay(ConcurrentRequestDelay);
-            }
-
+            if (concurrent >= ConcurrentRequestMaxCount) await Task.Delay(ConcurrentRequestDelay);
         } while (concurrent >= ConcurrentRequestMaxCount);
 
-        if (concurrent > ConcurrentRequestMaxCount)
-        {
-            throw new Exception($"Too many requests {concurrent}");
-        }
+        if (concurrent > ConcurrentRequestMaxCount) throw new Exception($"Too many requests {concurrent}");
 
         lock (concurentCountMutex)
         {
@@ -197,7 +189,7 @@ public class WebApiConnector : Connector
 
     public async Task ReLoginToConnectorApi()
     {
-        bool Conncected = false;
+        var Conncected = false;
 
         IsRwLoopSuspended = true; // suspen cyclic R/W operations
 
@@ -220,7 +212,7 @@ public class WebApiConnector : Connector
                 } while (mode != Siemens.Simatic.S7.Webserver.API.Enums.ApiPlcOperatingMode.Run);
 
                 Conncected = true;
-                this.IsRwLoopSuspended = false;
+                IsRwLoopSuspended = false;
             }
             catch (Exception ex)
             {
@@ -232,9 +224,9 @@ public class WebApiConnector : Connector
     internal void HandleCommFailure(Exception exception, string description, IEnumerable<ITwinPrimitive> primitives,
         ApiBulkResponse response, IEnumerable<ApiRequestBase> originalRequest)
     {
-        string firstFailedItemParams = string.Empty;
+        var firstFailedItemParams = string.Empty;
 
-        bool WasPermitionChanged = false;
+        var WasPermitionChanged = false;
 
         foreach (var errorResponse in response.ErrorResponses)
         {
@@ -248,28 +240,19 @@ public class WebApiConnector : Connector
             }
 
             var failedItemParams = string.Join(";", failedItem.Params.Select(p => $"{p.Key} : {p.Value}"));
-            if (string.IsNullOrEmpty(firstFailedItemParams))
-            {
-                firstFailedItemParams = failedItemParams;
-            }
+            if (string.IsNullOrEmpty(firstFailedItemParams)) firstFailedItemParams = failedItemParams;
 
             Logger.Error($"{failedItemParams} : {errorResponse.Error.Message} [{errorResponse.Error.Code}]");
 
-            if (!WasPermitionChanged && (errorResponse.Error.Code == Siemens.Simatic.S7.Webserver.API.Enums.ApiErrorCode.PermissionDenied))
-            {
-                WasPermitionChanged = true;
-            }
+            if (!WasPermitionChanged && errorResponse.Error.Code ==
+                Siemens.Simatic.S7.Webserver.API.Enums.ApiErrorCode.PermissionDenied) WasPermitionChanged = true;
         }
 
         foreach (var primitive in primitives)
-        {
-            primitive?.AccessStatus.Update(RwCycleCount, $"{description}: '{exception.Message}' [{firstFailedItemParams}] ");
-        }
+            primitive?.AccessStatus.Update(RwCycleCount,
+                $"{description}: '{exception.Message}' [{firstFailedItemParams}] ");
 
-        if (WasPermitionChanged)
-        {
-            ReLoginToConnectorApi(); // Start in async task.
-        }
+        if (WasPermitionChanged) ReLoginToConnectorApi(); // Start in async task.
 
         switch (ExceptionBehaviour)
         {
@@ -303,10 +286,7 @@ public class WebApiConnector : Connector
         }
     }
 
-    private const int MAX_READ_REQUEST_SEGMENT = (128 * 1024) - 628 * 2;
-    private const int MAX_WRITE_REQUEST_SEGMENT = (128 * 1024) - 628 * 2;
-
-    private System.Diagnostics.Stopwatch stopwatch = new();
+    private Stopwatch stopwatch = new();
 
     private volatile int concurrentRequest = 0;
 
@@ -320,11 +300,12 @@ public class WebApiConnector : Connector
     {
         get
         {
-            return _retryPolicy ??= Polly.Policy
+            return _retryPolicy ??= Policy
                 .Handle<HttpRequestException>()
                 .RetryAsync(5, (exception, i) =>
                 {
-                    Log.Logger.Error($"{exception.Message} : {exception.InnerException?.Message} | Number of concurrent requests {concurrentRequest}");
+                    Log.Logger.Error(
+                        $"{exception.Message} : {exception.InnerException?.Message} | Number of concurrent requests {concurrentRequest}");
                     Task.Delay(100).Wait();
                 });
         }
@@ -334,75 +315,65 @@ public class WebApiConnector : Connector
     /// <inheritdoc />
     public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive>? primitives)
     {
-        if (primitives == null) return;
+        if (!primitives.Any()) return;
 
         var responseData = new ApiBulkResponse();
-
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
-        if (!twinPrimitives.Any()) return;
         try
         {
-            if (Logger.IsEnabled(LogEventLevel.Debug))
-            {
-                stopwatch.Restart();
-            }
+            if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatch.Restart();
 
             if (Logger.IsEnabled(LogEventLevel.Verbose))
-            {
-                this.Logger
+                Logger
                     .Verbose("{vars}",
-                    string.Join("\n",
-                        (twinPrimitives).Select(p =>
-                            $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
-            }
+                        string.Join("\n",
+                            twinPrimitives.Select(p =>
+                                $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
 
             await AntiThrottling(primitives);
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
-            //foreach (var requestSegment in webApiPrimitives.SegmentReadRequest(MAX_READ_REQUEST_SEGMENT))
+
+            var requestSegment = webApiPrimitives;
+            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+            var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
+            try
             {
-                var requestSegment = webApiPrimitives;
-                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-                var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
-                try
-                {
-                    await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
+                await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
 
-                    // This is needed when unassigned CHAR or WCHAR are read; they won't be present in the response.
-                    if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
+                // This is needed when unassigned CHAR or WCHAR are read; they won't be present in the response.
+                if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
+                {
+                    foreach (var response in responseData.SuccessfulResponses)
                     {
-                        foreach (var response in responseData.SuccessfulResponses)
+                        var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
+                        if (a == null) continue;
+                        a.Read(response.Result.ToString());
+                        a.AccessStatus.Update(RwCycleCount);
+                    }
+                }
+                else
+                {
+                    var position = 0;
+                    apiPrimitives.ToList()
+                        .ForEach(p =>
                         {
-                            var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
-                            if (a == null) continue;
-                            a.Read(response.Result.ToString());
-                            a.AccessStatus.Update(RwCycleCount);
-                        }
-                    }
-                    else
-                    {
-                        var position = 0;
-                        apiPrimitives.ToList()
-                            .ForEach(p =>
-                            {
-                                p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
-                                p.AccessStatus.Update(RwCycleCount);
-                            });
-                    }
-
+                            p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
+                            p.AccessStatus.Update(RwCycleCount);
+                        });
                 }
-                catch (ApiBulkRequestException apiException)
-                {
-                    HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
-                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-                }
-                catch (Exception e)
-                {
-                    HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
-                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-                }
+            }
+            catch (ApiBulkRequestException apiException)
+            {
+                HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
+                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+            }
+            catch (Exception e)
+            {
+                HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
+                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
             }
         }
         finally
@@ -411,9 +382,7 @@ public class WebApiConnector : Connector
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
-        {
-            this.Logger.Debug($"Bulk reading: {twinPrimitives.Count()} items read in {stopwatch.ElapsedMilliseconds} ms.");
-        }
+            Logger.Debug($"Bulk reading: {twinPrimitives.Count()} items read in {stopwatch.ElapsedMilliseconds} ms.");
     }
 
     /// <inheritdoc />
@@ -429,31 +398,28 @@ public class WebApiConnector : Connector
             var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
             if (twinPrimitives.Any())
-            {
                 if (Logger.IsEnabled(LogEventLevel.Verbose))
-                    this.Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
-            }
+                    Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
-            //foreach (var requestSegment in webApiPrimitives.SegmentWriteRequest(MAX_WRITE_REQUEST_SEGMENT))
+
+            var requestSegment = webApiPrimitives;
+            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+            try
             {
-                var requestSegment = webApiPrimitives;
-                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-                try
-                {
-                    await RetryPolicy.ExecuteAsync(async () => await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
-                }
-                catch (ApiBulkRequestException apiException)
-                {
-                    HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
-                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-                }
-                catch (Exception e)
-                {
-                    HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
-                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-                }
+                await RetryPolicy.ExecuteAsync(async () =>
+                    await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
+            }
+            catch (ApiBulkRequestException apiException)
+            {
+                HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
+                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+            }
+            catch (Exception e)
+            {
+                HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
+                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
             }
         }
         finally
@@ -487,7 +453,6 @@ public class WebApiConnector : Connector
             var response = await RequestHandler.PlcProgramReadAsync<T>($"{DBName}.{symbol}");
             return (response.Result, response);
         }
-
     }
 
     internal async Task<T> ReadAsync<T>(IWebApiPrimitive primitive)
@@ -527,27 +492,18 @@ public class WebApiConnector : Connector
     internal static ApiPlcReadRequest CreateReadRequest(string symbol, string root = "\"TGlobalVariablesDB\"")
     {
         if (string.IsNullOrEmpty(root))
-        {
             return new ApiPlcReadRequest($"{symbol}");
-        }
         else
-        {
             return new ApiPlcReadRequest($"{root}.{symbol}");
-        }
     }
 
     internal static ApiPlcWriteRequest CreateWriteRequest(string symbol, object value,
         string root = "\"TGlobalVariablesDB\"")
     {
         if (string.IsNullOrEmpty(root))
-        {
             return new ApiPlcWriteRequest($"{symbol}", value);
-        }
         else
-        {
             return new ApiPlcWriteRequest($"{root}.{symbol}", value);
-        }
-
     }
 
     internal static WebApiConnector Cast(Connector connector)
@@ -572,7 +528,7 @@ public class WebApiConnector : Connector
     {
         get
         {
-            switch(TargetPlatform)
+            switch (TargetPlatform)
             {
                 case eTargetProjectPlatform.SIMATICAX:
                     return "ax";
@@ -581,7 +537,6 @@ public class WebApiConnector : Connector
                 default:
                     return TargetPlatform.ToString();
             }
-            
         }
     }
 }

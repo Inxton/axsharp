@@ -53,7 +53,7 @@
 		<PackageReference Include="Newtonsoft.Json" />
 		<PackageReference Include="Serilog.Sinks.Console" />
 		<PackageReference Include="Serilog.Sinks.File" />
-		<!--<PackageReference Include="Siemens.Simatic.S7.Webserver.API" />-->
+		<PackageReference Include="Siemens.Simatic.S7.Webserver.API" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -68,7 +68,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\..\..\..\PTKu\simatic-s7-webserver-api\src\Webserver.API\Webserver.API.csproj" />
 		<ProjectReference Include="..\AXSharp.Connector\AXSharp.Connector.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>

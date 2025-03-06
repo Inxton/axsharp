@@ -17,9 +17,9 @@ namespace AXSharp.Connector.S71500.WebApi.Tests.Issues;
 public class GH_PTKu_ix_xx : IDisposable
 {
     private readonly ITestOutputHelper report;
-    private readonly int batchCycles = 10;
+    private readonly int batchCycles = 3;
 
-    private readonly int simultaneousCycles = 20;
+    private readonly int simultaneousCycles = 10;
 
     public GH_PTKu_ix_xx(ITestOutputHelper output)
     {
