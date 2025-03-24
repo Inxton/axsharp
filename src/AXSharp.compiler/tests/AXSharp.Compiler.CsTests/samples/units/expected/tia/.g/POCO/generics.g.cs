@@ -29,7 +29,7 @@ namespace Pocos
             {
             }
 
-            [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", "Shared Header")]
+            [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", @"Shared Header")]
             public GenericsTests.SomeTypeToBeGeneric SomeData { get; set; } = new GenericsTests.SomeTypeToBeGeneric();
         }
     }

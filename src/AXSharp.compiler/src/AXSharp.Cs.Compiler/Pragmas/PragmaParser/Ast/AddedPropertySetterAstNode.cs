@@ -22,8 +22,18 @@ internal class AddedPropertySetterAstNode : AstNode
         var grammar = context.GetGrammar();
         if (grammar != null)
         {
-            PropertyName = treeNode.GetTheOnlyNode(grammar.AddedPropertyIdentifier.Name).FindTokenAndGetText();
-            InitValue = treeNode.GetTheOnlyNode(grammar.AddedPropertyInitializer.Name).FindTokenAndGetText();
+            PropertyName = treeNode.GetTheOnlyNode(grammar.AddedPropertyIdentifier.Name).FindTokenAndGetText();            
+            var asFreeTextLiteral = InitValue = treeNode.GetTheOnlyNode(grammar.AddedPropertyInitializer.Name).FindTokenAndGetText();
+
+            if (asFreeTextLiteral.StartsWith("\""))
+            {
+                InitValue = $"@{asFreeTextLiteral}";
+            }
+            else
+            {
+                InitValue = asFreeTextLiteral;
+            }
+                        
             MemberName = context.GetContext()?.Declaration?.Name;
         }
     }

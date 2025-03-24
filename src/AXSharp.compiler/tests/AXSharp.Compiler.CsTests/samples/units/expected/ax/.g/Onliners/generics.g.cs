@@ -441,7 +441,7 @@ namespace GenericsTests
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
             PreConstruct(parent, readableTail, symbolTail);
             SomeData = new GenericsTests.SomeTypeToBeGeneric(this, "Shared Header", "SomeData");
-            SomeData.AttributeName = "Shared Header";
+            SomeData.AttributeName = @"Shared Header";
             PostConstruct(parent, readableTail, symbolTail);
         }
 

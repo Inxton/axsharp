@@ -5,33 +5,34 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
-namespace TypesWithPropertyAttributes
+namespace MultilinePragmas
 {
-    public partial class SomeAddedProperties : AXSharp.Connector.ITwinObject
+    public partial class Extendee2 : AXSharp.Connector.ITwinObject
     {
-        private string _Description;
-        public string Description { get => string.IsNullOrEmpty(_Description) ? SymbolTail : _Description.Interpolate(this).CleanUpLocalizationTokens(); set => _Description = value; }
-
-        public string GetDescription(System.Globalization.CultureInfo culture)
-        {
-            return this.Translate(_Description, culture).Interpolate(this);
-        }
-
-        public OnlinerInt Counter { get; }
+        public OnlinerInt _messge { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-        public SomeAddedProperties(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        public Extendee2(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
-            Description = @"Some added property name value";
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
             this.@SymbolTail = symbolTail;
             this.@Connector = parent.GetConnector();
             this.@Parent = parent;
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
-            Counter = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "Pocitadlo", "Counter");
-            Counter.AttributeName = @"Pocitadlo";
+            _messge = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "_messge", "_messge");
+            _messge.PlcTextList = @"[1]:'<#Messenger 1: message text for message code 1#>':'<#Messenger 1: help text for message code 1#>';
+                                    [2]:'<#Messenger 1: message text for message code 2#>':'<#Messenger 1: help text for message code 2#>';
+                                    [3]:'<#Messenger 1: message text for message code 3#>':'<#Messenger 1: help text for message code 3#>';
+                                    [4]:'<#Messenger 1: message text for message code 4#>':'<#Messenger 1: help text for message code 4#>';
+                                    [5]:'<#Messenger 1: message text for message code 5#>':'<#Messenger 1: help text for message code 5#>';
+                                    [6]:'<#Messenger 1: message text for message code 6#>':'<#Messenger 1: help text for message code 6#>';
+                                    [7]:'<#Messenger 1: message text for message code 7#>':'<#Messenger 1: help text for message code 7#>';
+                                    [8]:'<#Messenger 1: message text for message code 8#>':'<#Messenger 1: help text for message code 8#>';
+                                    [9]:'<#Messenger 1: message text for message code 9#>':'<#Messenger 1: help text for message code 9#>';
+                                    [10]:'<#Messenger 1: message text for message code 10#>':'<#Messenger 1: help text for message code 10#>';
+                                    [11]:'<#Messenger 1: message text for message code 11#>':'<#Messenger 1: help text for message code 11#>'";
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);
@@ -42,28 +43,28 @@ namespace TypesWithPropertyAttributes
             return await (dynamic)this.OnlineToPlainAsync();
         }
 
-        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> OnlineToPlainAsync()
+        public async Task<global::Pocos.MultilinePragmas.Extendee2> OnlineToPlainAsync()
         {
-            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            global::Pocos.MultilinePragmas.Extendee2 plain = new global::Pocos.MultilinePragmas.Extendee2();
             await this.ReadAsync<IgnoreOnPocoOperation>();
-            plain.Counter = Counter.LastValue;
+            plain._messge = _messge.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.MultilinePragmas.Extendee2> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
-            plain.Counter = Counter.LastValue;
+            global::Pocos.MultilinePragmas.Extendee2 plain = new global::Pocos.MultilinePragmas.Extendee2();
+            plain._messge = _messge.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> _OnlineToPlainNoacAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        protected async Task<global::Pocos.MultilinePragmas.Extendee2> _OnlineToPlainNoacAsync(global::Pocos.MultilinePragmas.Extendee2 plain)
         {
-            plain.Counter = Counter.LastValue;
+            plain._messge = _messge.LastValue;
             return plain;
         }
 
@@ -72,20 +73,20 @@ namespace TypesWithPropertyAttributes
             await this.PlainToOnlineAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.MultilinePragmas.Extendee2 plain)
         {
 #pragma warning disable CS0612
-            Counter.LethargicWrite(plain.Counter);
+            _messge.LethargicWrite(plain._messge);
 #pragma warning restore CS0612
             return await this.WriteAsync<IgnoreOnPocoOperation>();
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.MultilinePragmas.Extendee2 plain)
         {
 #pragma warning disable CS0612
-            Counter.LethargicWrite(plain.Counter);
+            _messge.LethargicWrite(plain._messge);
 #pragma warning restore CS0612
         }
 
@@ -94,16 +95,16 @@ namespace TypesWithPropertyAttributes
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync()
+        public async Task<global::Pocos.MultilinePragmas.Extendee2> ShadowToPlainAsync()
         {
-            global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain = new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
-            plain.Counter = Counter.Shadow;
+            global::Pocos.MultilinePragmas.Extendee2 plain = new global::Pocos.MultilinePragmas.Extendee2();
+            plain._messge = _messge.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties> ShadowToPlainAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        protected async Task<global::Pocos.MultilinePragmas.Extendee2> ShadowToPlainAsync(global::Pocos.MultilinePragmas.Extendee2 plain)
         {
-            plain.Counter = Counter.Shadow;
+            plain._messge = _messge.Shadow;
             return plain;
         }
 
@@ -112,9 +113,9 @@ namespace TypesWithPropertyAttributes
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.MultilinePragmas.Extendee2 plain)
         {
-            Counter.Shadow = plain.Counter;
+            _messge.Shadow = plain._messge;
             return this.RetrievePrimitives();
         }
 
@@ -128,14 +129,14 @@ namespace TypesWithPropertyAttributes
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties plain, global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.MultilinePragmas.Extendee2 plain, global::Pocos.MultilinePragmas.Extendee2 latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
             var somethingChanged = false;
             return await Task.Run(async () =>
             {
-                if (plain.Counter != Counter.LastValue)
+                if (plain._messge != _messge.LastValue)
                     somethingChanged = true;
                 plain = latest;
                 return somethingChanged;
@@ -147,9 +148,9 @@ namespace TypesWithPropertyAttributes
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties CreateEmptyPoco()
+        public global::Pocos.MultilinePragmas.Extendee2 CreateEmptyPoco()
         {
-            return new global::Pocos.TypesWithPropertyAttributes.SomeAddedProperties();
+            return new global::Pocos.MultilinePragmas.Extendee2();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
