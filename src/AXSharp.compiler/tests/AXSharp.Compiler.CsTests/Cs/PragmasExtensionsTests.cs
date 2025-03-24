@@ -72,7 +72,7 @@ public class PragmasExtensionsTests
     [Fact]
     public void should_set_property_string()
     {
-        var expected = "someField.AttributeName = \"This is name\";";
+        var expected = "someField.AttributeName = @\"This is name\";";
         var field = NSubstitute.Substitute.For<IFieldDeclaration>();
         field.Name.Returns("someField");
         field.Pragmas.Returns(new ReadOnlyCollection<IPragma>(new IPragma[]
@@ -108,6 +108,28 @@ public class PragmasExtensionsTests
         //        new PragmaMock("#ix-set:AttributeMinimum = 10.5f")
         //    }));
 
+        var actual = field.SetProperties();
+
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void should_set_property_multiline_string()
+    {
+        var expected = "someField.MultilineSet = @\"Line 1 \n Line 2\";";
+        var field = NSubstitute.Substitute.For<IFieldDeclaration>();
+        field.Name.Returns("someField");
+        field.Pragmas.Returns(new ReadOnlyCollection<IPragma>(new IPragma[]
+        {
+            new PragmaMock("#ix-set:MultilineSet =  \"Line 1 \n Line 2\"")
+        }));
+
+        //var field = new FieldMock("someField",
+        //    new ReadOnlyCollection<IPragma>(new IPragma[]
+        //    {
+        //        new PragmaMock("#ix-set:AttributeMinimum = 10.5f")
+        //    }));
+        
         var actual = field.SetProperties();
 
         Assert.Equal(expected, actual);

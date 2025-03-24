@@ -289,7 +289,13 @@ public abstract partial class CsSourceBuilderTests
         CompareOutputs(GetMethodName());
     }
 
+    [Fact]
+    public void multiline_pragmas()
+    {
+        CompareOutputs(GetMethodName());
+    }
 
+    
     protected abstract ICompilerOptions CompilerOptions { get; }
 
 

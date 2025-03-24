@@ -23,7 +23,7 @@ namespace TypesWithPropertyAttributes
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         public SomeAddedProperties(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
-            Description = "Some added property name value";
+            Description = @"Some added property name value";
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
             this.@SymbolTail = symbolTail;
             this.@Connector = parent.GetConnector();
@@ -31,7 +31,7 @@ namespace TypesWithPropertyAttributes
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
             Counter = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "Pocitadlo", "Counter");
-            Counter.AttributeName = "Pocitadlo";
+            Counter.AttributeName = @"Pocitadlo";
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);
