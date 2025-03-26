@@ -335,7 +335,7 @@ public static class SemanticsHelpers
     public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = field.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
-        return ((field.AccessModifier == AccessModifier.Public && eligibility.isEligibe), eligibility.eligibleType);
+        return ((field.AccessModifier == AccessModifier.Public && eligibility.isEligible), eligibility.eligibleType);
     }
 
     /// <summary>

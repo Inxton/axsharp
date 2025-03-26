@@ -37,7 +37,7 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
         var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
-        if (eligibility.isEligibe)
+        if (eligibility.isEligible)
         {
             CreateAssignment(fieldDeclaration.Type, fieldDeclaration);
         }

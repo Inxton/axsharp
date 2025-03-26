@@ -52,7 +52,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
         var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder);
-        if (eligibility.isEligibe)
+        if (eligibility.isEligible)
         {
             AddToSource(fieldDeclaration.Pragmas.AddAttributes());
 
