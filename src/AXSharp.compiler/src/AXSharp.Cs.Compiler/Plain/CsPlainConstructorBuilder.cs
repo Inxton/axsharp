@@ -66,7 +66,8 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             switch (fieldDeclaration.Type)
             {
@@ -149,7 +150,8 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IFieldDeclaration field,
         IxNodeVisitor visitor)
     {
-        if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
         
         switch (type.ElementTypeAccess.Type)
@@ -161,7 +163,7 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
                 AddToSource("#pragma warning disable CS0612\n");
                 AddToSource($"{typeof(Arrays).n()}.InstantiateArray({field.Name}, " +
                             "() => ");
-                AddToSource("new");
+                AddToSource("new");                
                 type.ElementTypeAccess.Type.Accept(visitor, this);
                 var dimensions = "new[] {";
                 foreach (var dimension in type.Dimensions)

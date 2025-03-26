@@ -49,7 +49,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder))
+        var eligible = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder);
+        if (eligible.isEligibe)
         {
             AddToSource(fieldDeclaration.Pragmas.AddAttributes());
 
@@ -72,7 +73,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.IsEligibleForTranspile(SourceBuilder))
+                    var eligibility = array.IsEligibleForTranspile(SourceBuilder);
+                    if (eligibility.isEligibe)
                     {
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
                         fieldDeclaration.Type.Accept(visitor, this);
@@ -138,7 +140,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-        if (semantics.IsMemberEligibleForTranspile(SourceBuilder))
+        var eligibility = semantics.IsMemberEligibleForTranspile(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             AddToSource(semantics.Pragmas.AddAttributes());
 
@@ -161,7 +164,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.IsEligibleForTranspile(SourceBuilder))
+                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder);
+                    if (arrayEligible.isEligibe)
                     {
                         AddToSource($"public");
                         semantics.Type.Accept(visitor, this);

@@ -112,13 +112,15 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligibe)
         {           
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()}");
@@ -274,13 +276,15 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateVariableDeclaration(IVariableDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligibe)
         {            
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"public");
@@ -369,7 +373,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        if (arrayTypeDeclaration.IsEligibleForTranspile(this)) return;
+        // WATCH!
+        var eligibility = arrayTypeDeclaration.IsEligibleForTranspile(this);
+        if (!eligibility.isEligibe) return;
 
         arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         AddToSource("[]");

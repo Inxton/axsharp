@@ -78,7 +78,8 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
 
     public override void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-        if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = semantics.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             switch (semantics.Type)
             {
@@ -113,7 +114,8 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IVariableDeclaration field,
         IxNodeVisitor visitor)
     {
-        if (!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
 
         AddToSource($"{field.Name}");

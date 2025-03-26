@@ -66,7 +66,8 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             switch (fieldDeclaration.Type)
             {
@@ -106,8 +107,8 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public virtual void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-
-        if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
+        var elibility = semantics.IsMemberEligibleForConstructor(SourceBuilder);
+        if (elibility.isEligibe)
         {
             switch (semantics.Type)
             {
@@ -285,7 +286,8 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
-        if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
 
         AddToSource($"{field.Name}");
