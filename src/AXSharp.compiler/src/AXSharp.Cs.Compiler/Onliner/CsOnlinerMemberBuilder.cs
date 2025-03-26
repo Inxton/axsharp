@@ -80,11 +80,35 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                         AddToSource("{get;}");
                     }
                     break;
+                case UndefinedTypeDeclaration undef:                    
+                    break;               
                 default:
-                    AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
-                    fieldDeclaration.Type.Accept(visitor, this);
-                    AddToSource($" {fieldDeclaration.Name}");
-                    AddToSource("{get;}");
+                    // This is a workaround for ambiguous types.
+                    // We do not require the stc build to be able to resolve the type when not fully qualified.
+                    // STC compilation here may produce errors wich are ignored at this point. This may result in ambiguous types
+                    // wich resolved here.
+                    // TODO: Once we are able to correctly load dependencies for the stc compilation we should remove this workaround.
+                    if (fieldDeclaration.Type.Kind == DeclarationKind.Ambiguous)
+                    {
+                        var fqn = fieldDeclaration.DetermineFullyQualifiedName(this.SourceBuilder.Compilation);
+
+                        if (fqn != null)
+                        {
+                            AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
+                            AddToSource($"{fqn} ");
+                            AddToSource($" {fieldDeclaration.Name}");
+                            AddToSource("{get;}");
+                        }
+                    }
+                    else
+                    {
+                        AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
+                        fieldDeclaration.Type.Accept(visitor, this);
+                        AddToSource($" {fieldDeclaration.Name}");
+                        AddToSource("{get;}");
+                    }
+
+                    
                     break;
             }
         }
@@ -170,10 +194,31 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     }
                     break;
                 default:
-                    AddToSource($"public");
-                    semantics.Type.Accept(visitor, this);
-                    AddToSource($" {semantics.Name}");
-                    AddToSource("{get;}");
+                    // This is a workaround for ambiguous types.
+                    // We do not require the stc build to be able to resolve the type when not fully qualified.
+                    // STC compilation here may produce errors wich are ignored at this point. This may result in ambiguous types
+                    // wich resolved here.
+                    // TODO: Once we are able to correctly load dependencies for the stc compilation we should remove this workaround.
+                    if (semantics.Type.Kind == DeclarationKind.Ambiguous)
+                    {
+                        var fqn = semantics.DetermineFullyQualifiedName(this.SourceBuilder.Compilation);
+
+                        if (fqn != null)
+                        {
+                            AddToSource($"public");
+                            AddToSource($"{fqn} ");
+                            AddToSource($" {semantics.Name}");
+                            AddToSource("{get;}");
+                        }
+                    }
+                    else
+                    {
+                        AddToSource($"public");
+                        semantics.Type.Accept(visitor, this);
+                        AddToSource($" {semantics.Name}");
+                        AddToSource("{get;}");
+                    }
+                   
                     break;
             }
         }
