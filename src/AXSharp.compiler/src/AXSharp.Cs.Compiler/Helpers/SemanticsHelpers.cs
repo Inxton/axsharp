@@ -34,6 +34,69 @@ public static class SemanticsHelpers
     }
 
 
+    /// <summary>
+    /// Finds type declaration.
+    /// </summary>
+    /// <param name="compilation">Compilation object</param>
+    /// <param name="typeAccess">Required type</param>
+    /// <returns>Required type if found.</returns>
+    public static ITypeDeclaration FindTypeDeclaration(this Compilation compilation, AX.ST.Semantic.Model.ISemanticTypeAccess? typeAccess)
+    {
+        // This is to resolve fully qualified type name when the type cannot be determined propeprly form the semantic tree.
+        // TODO: This workaround should be removed once we can properly use project dependencies in the stc.
+        if (typeAccess == null)
+        {
+            return null;
+        }
+
+        var fullyQualified = compilation.GetSemanticTree().Types.DistinctBy(p => p.FullyQualifiedName).Where(p => p.FullyQualifiedName == typeAccess.Type.FullyQualifiedName).FirstOrDefault();
+
+        if (fullyQualified != null)
+        {
+            return fullyQualified;
+        }
+
+        var candidates = compilation.GetSemanticTree().Types.DistinctBy(p => p.FullyQualifiedName).Where(p => p.Name == typeAccess.TypeSymbol.Name);
+        if (candidates.Count() == 1)
+        {
+            return candidates.First();
+        }
+
+        if (candidates.Count() == 0)
+        {
+            Log.Logger.Warning($"Type '{typeAccess?.ToString()}' not found in the semantic tree.");
+        }
+
+        if (candidates.Count() > 1)
+        {
+           Log.Logger.Warning($"Multiple types found for '{typeAccess?.ToString()}' in the semantic tree. You may need to fully qualify the declaration.");
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Determines fully qualified name of the declaration.
+    /// </summary>
+    /// <param name="declaration">Field declaration</param>
+    /// <param name="compilation">Compilation object.</param>
+    /// <returns>Fully qualified name of the declaration.</returns>
+    public static string? DetermineFullyQualifiedName(this IFieldDeclaration declaration, Compilation compilation)
+    {        
+        return compilation.FindTypeDeclaration(declaration.TypeAccess)?.FullyQualifiedName;
+    }
+
+    /// <summary>
+    /// Determines fully qualified name of the declaration.
+    /// </summary>
+    /// <param name="declaration">Variable declaration</param>
+    /// <param name="compilation">Compilation object.</param>
+    /// <returns>Fully qualified name of the declaration.</returns>
+    public static string? DetermineFullyQualifiedName(this IVariableDeclaration declaration, Compilation compilation)
+    {
+        return compilation.FindTypeDeclaration(declaration.TypeAccess)?.FullyQualifiedName;
+    }
+
     private static bool IsToBeOmitted(this IStorageDeclaration fieldDeclaration, ISourceBuilder sourceBuilder, string coBuilder)
     {
 
@@ -89,8 +152,7 @@ public static class SemanticsHelpers
                  type is IStringTypeDeclaration ||
                  type is IStructuredTypeDeclaration ||
                  type is INamedValueTypeDeclaration ||
-                 sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
-                     p.FullyQualifiedName == type.FullyQualifiedName));
+                 sourceBuilder.Compilation.FindTypeDeclaration(fieldDeclaration.TypeAccess) != null);
 
             if(!isEligible) 
             {
@@ -117,8 +179,7 @@ public static class SemanticsHelpers
                 type is IStringTypeDeclaration ||
                 type is IStructuredTypeDeclaration ||
                 type is INamedValueTypeDeclaration ||
-                sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
-                    p.FullyQualifiedName == type.FullyQualifiedName));
+                sourceBuilder.Compilation.FindTypeDeclaration(variableDeclaration.TypeAccess) != null);
 
         if (!isEligible)
         {
@@ -147,8 +208,7 @@ public static class SemanticsHelpers
                               arrayTypeDeclaration.ElementTypeAccess.Type is IStringTypeDeclaration ||
                               arrayTypeDeclaration.ElementTypeAccess.Type is IStructuredTypeDeclaration ||
                               arrayTypeDeclaration.ElementTypeAccess.Type is INamedValueTypeDeclaration ||
-                              sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
-                                  p.FullyQualifiedName == arrayTypeDeclaration.ElementTypeAccess.Type.FullyQualifiedName));
+                              sourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess) != null);
 
         return isEligibleType && singleDimensionalArray;
 
