@@ -28,14 +28,14 @@ public static class SemanticsHelpers
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Lateral builder signature</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration qualifiedName) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligibe, ITypeDeclaration eligibleType) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = field.IsEligibleForTranspile(sourceBuilder);
         var isEligible = (field.AccessModifier == AccessModifier.Public
                             && eligibility.isEligibe
                             && !IsToBeOmitted(field, sourceBuilder, coBuilder));
 
-        return (isEligible, eligibility.qualifiedName);
+        return (isEligible, eligibility.eligibleType);
     }
     
 
@@ -47,6 +47,15 @@ public static class SemanticsHelpers
     /// <returns>Required type if found.</returns>
     public static ITypeDeclaration FindTypeDeclaration(this Compilation compilation, AX.ST.Semantic.Model.ISemanticTypeAccess? typeAccess)
     {
+        if (typeAccess == null)
+            return null;
+
+        if (typeAccess.Type is IScalarTypeDeclaration
+            || typeAccess.Type is IStringTypeDeclaration)
+        {
+            return typeAccess.Type;
+        }
+
         // This is to resolve fully qualified type name when the type cannot be determined propeprly form the semantic tree.
         // TODO: This workaround should be removed once we can properly use project dependencies in the stc.
         if (typeAccess == null)
@@ -223,7 +232,7 @@ public static class SemanticsHelpers
     /// <param name="fieldDeclaration"></param>
     /// <param name="sourceBuilder"></param>
     /// <returns>True when the type is eligible</returns>
-    public static (bool isEligibe, ITypeDeclaration qualifiedName) IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder)
+    public static (bool isEligibe, ITypeDeclaration eligibleType) IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder)
     {
         var type = fieldDeclaration.Type;
         var fullyQualified = sourceBuilder.Compilation.FindTypeDeclaration(fieldDeclaration.TypeAccess);
@@ -251,7 +260,7 @@ public static class SemanticsHelpers
     /// <param name="variableDeclaration"></param>
     /// <param name="sourceBuilder"></param>
     /// <returns>True when the type is eligible</returns>
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, ISourceBuilder sourceBuilder)
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, ISourceBuilder sourceBuilder)
     {
         var type = variableDeclaration.Type;
         var declaration = sourceBuilder.Compilation.FindTypeDeclaration(variableDeclaration.TypeAccess);
@@ -280,7 +289,7 @@ public static class SemanticsHelpers
     /// <param name="arrayTypeDeclaration"></param>
     /// <param name="sourceBuilder">Source builder</param>
     /// <returns></returns>
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
     {
         var singleDimensionalArray = arrayTypeDeclaration.Dimensions.Count == 1;
         var declaration = sourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess);
@@ -306,14 +315,14 @@ public static class SemanticsHelpers
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Co-builder signature (e.g. POCO, Onliner, etc.)</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsMemberEligibleForTranspile(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForTranspile(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = variable.IsEligibleForTranspile(sourceBuilder);
         var eligible = variable.IsInGlobalMemory
                && eligibility.isEligibe
                && !IsToBeOmitted(variable, sourceBuilder, coBuilder);
 
-        return (eligible, eligibility.qualifiedName);
+        return (eligible, eligibility.eligibleType);
     }
 
     /// <summary>
@@ -323,10 +332,10 @@ public static class SemanticsHelpers
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Lateral builder</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsMemberEligibleForConstructor(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = field.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
-        return ((field.AccessModifier == AccessModifier.Public && eligibility.isEligibe), eligibility.qualifiedName);
+        return ((field.AccessModifier == AccessModifier.Public && eligibility.isEligibe), eligibility.eligibleType);
     }
 
     /// <summary>
@@ -336,7 +345,7 @@ public static class SemanticsHelpers
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Lateral builder</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsMemberEligibleForConstructor(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         return variable.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
     }
@@ -397,7 +406,7 @@ public static class SemanticsHelpers
 
 
 
-    public static (bool isEligibe, ITypeDeclaration? qualifiedName) IsMemberEligibleForConstructor(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
     {
         return IsEligibleForTranspile(arrayTypeDeclaration, sourceBuilder);
 

@@ -137,8 +137,9 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
             case IStructuredTypeDeclaration structuredTypeDeclaration:
             case IEnumTypeDeclaration enumTypeDeclaration:
             case INamedValueTypeDeclaration namedValueTypeDeclaration:
-                AddToSource("new");
-                type.ElementTypeAccess.Type.Accept(visitor, this);
+                AddToSource("new");      
+                eligibility.eligibleType.Accept(visitor, this);
+                //type.ElementTypeAccess.Type.Accept(visitor, this);
                 break;
             case IScalarTypeDeclaration scalarTypeDeclaration:
                 AddToSource($"@Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(scalarTypeDeclaration)}");
