@@ -28,7 +28,7 @@ public static class SemanticsHelpers
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Lateral builder signature</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration eligibleType) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligible, ITypeDeclaration eligibleType) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = field.IsEligibleForTranspile(sourceBuilder);
         var isEligible = (field.AccessModifier == AccessModifier.Public
