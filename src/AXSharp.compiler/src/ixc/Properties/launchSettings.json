@@ -10,7 +10,8 @@
     },
     "ixc-simple-template": {
       "commandName": "Project",
-      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\_axopen\\axopen.templates\\axopen.template.simple\\ax"
+      "commandLineArgs": "--skip-deps",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen.template.simple\\ax"
     },
     "ixc-template-ref": {
       "commandName": "Project",

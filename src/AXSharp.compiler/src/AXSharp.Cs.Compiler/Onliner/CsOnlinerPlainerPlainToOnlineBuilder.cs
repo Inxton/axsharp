@@ -36,7 +36,8 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
     
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+        if (eligibility.isEligible)
         {
             CreateAssignment(fieldDeclaration.Type, fieldDeclaration);
         }
@@ -49,7 +50,8 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
 
     public void CreateVariableDeclaration(IVariableDeclaration variableDeclaration, IxNodeVisitor visitor)
     {
-        if (variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+        var eligibility = variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+        if (eligibility.isEligibe)
         {
             CreateAssignment(variableDeclaration.Type, variableDeclaration);
         }
@@ -69,8 +71,8 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
                 AddToSource($"#pragma warning restore CS0612\n");
                 break;
             case IArrayTypeDeclaration arrayTypeDeclaration:
-
-                if (arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+                var arrayEligibility = arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+                if (arrayEligibility.isEligibe)
                 {
                     switch (arrayTypeDeclaration.ElementTypeAccess.Type)
                     {

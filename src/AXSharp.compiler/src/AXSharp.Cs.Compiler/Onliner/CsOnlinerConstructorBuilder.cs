@@ -66,9 +66,10 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
-            switch (fieldDeclaration.Type)
+            switch (eligibility.eligibleType)
             {
                 case IArrayTypeDeclaration array:
                     AddArrayMemberInitialization(array, fieldDeclaration, visitor);
@@ -106,10 +107,10 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public virtual void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-
-        if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
+        var elibility = semantics.IsMemberEligibleForConstructor(SourceBuilder);
+        if (elibility.isEligibe)
         {
-            switch (semantics.Type)
+            switch (elibility.eligibleType)
             {
                 case IArrayTypeDeclaration array:
                     AddArrayMemberInitialization(array, semantics, visitor);
@@ -151,7 +152,9 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
+        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess);
+        type.Accept(visitor, this);
+        //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         AddToSource("[");
         AddToSource(string.Join(",",
             arrayTypeDeclaration.Dimensions.Select(p => p.CountOfElements.ToString(CultureInfo.InvariantCulture))));
@@ -285,11 +288,13 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
-        if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
 
         AddToSource($"{field.Name}");
         AddToSource("= new");
+        //eligibility.eligibleType.Accept(visitor, this);
         type.Accept(visitor, this);
         AddToSource(";");
 
@@ -300,7 +305,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
                     $"\"{field.Name}\", " +
                     "(p, rt, st) => ");
 
-        switch (type.ElementTypeAccess.Type)
+        switch (eligibility.eligibleType)
         {
             
             case IClassDeclaration classDeclaration:
@@ -308,7 +313,8 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
             case IEnumTypeDeclaration enumTypeDeclaration:
             case INamedValueTypeDeclaration namedValueTypeDeclaration:
                 AddToSource("new");
-                type.ElementTypeAccess.Type.Accept(visitor, this);
+                eligibility.eligibleType.Accept(visitor, this);
+                //type.ElementTypeAccess.Type.Accept(visitor, this);
                 break;
             case IScalarTypeDeclaration scalarTypeDeclaration:
                 AddToSource($"@Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(scalarTypeDeclaration)}");

@@ -32,7 +32,9 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
+        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess);
+        //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
+        type.Accept(visitor, this);
         AddToSource("[]");
     }
 
@@ -49,7 +51,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder);
+        if (eligibility.isEligible)
         {
             AddToSource(fieldDeclaration.Pragmas.AddAttributes());
 
@@ -67,14 +70,17 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource(
                         $"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof({namedValue.GetQualifiedName()}))]");
                     AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource($" {fieldDeclaration.Name}");
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.IsEligibleForTranspile(SourceBuilder))
+                    var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder);
+                    if (arrayEligibility.isEligibe)
                     {
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
+                        //arrayEligibility.eligibleType.Accept(visitor, this);
                         fieldDeclaration.Type.Accept(visitor, this);
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get;}");
@@ -82,7 +88,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     break;
                 default:
                     AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource($" {fieldDeclaration.Name}");
                     AddToSource("{get;}");
                     break;
@@ -138,12 +145,13 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-        if (semantics.IsMemberEligibleForTranspile(SourceBuilder))
+        var eligibility = semantics.IsMemberEligibleForTranspile(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             AddToSource(semantics.Pragmas.AddAttributes());
 
             // TODO: This is not nice refactor, also we should embed the int wrapper into actual member of enum type!
-            switch (semantics.Type)
+            switch (eligibility.eligibleType)
             {
                 case IEnumTypeDeclaration @enum:
                     AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof({@enum.GetQualifiedName()}))]");
@@ -156,22 +164,26 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource(
                         $"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof({namedValue.GetQualifiedName()}))]");
                     AddToSource($"public");
-                    semantics.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //semantics.Type.Accept(visitor, this);
                     AddToSource($" {semantics.Name}");
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.IsEligibleForTranspile(SourceBuilder))
+                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder);
+                    if (arrayEligible.isEligibe)
                     {
                         AddToSource($"public");
-                        semantics.Type.Accept(visitor, this);
+                        eligibility.eligibleType.Accept(visitor, this);
+                        //semantics.Type.Accept(visitor, this);
                         AddToSource($" {semantics.Name}");
                         AddToSource("{get;}");
                     }
                     break;
                 default:
                     AddToSource($"public");
-                    semantics.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //semantics.Type.Accept(visitor, this);
                     AddToSource($" {semantics.Name}");
                     AddToSource("{get;}");
                     break;

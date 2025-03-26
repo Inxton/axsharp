@@ -74,14 +74,17 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource(classDeclaration.Pragmas.AddedPropertiesAsAttributes());
         
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
+       
+        var isExtended = false;
+        AX.ST.Semantic.Model.ISemanticTypeAccess? extendedType = classDeclaration.ExtendedTypeAccesses.FirstOrDefault();
 
-        var isExtended = Compilation.GetSemanticTree().Types
-            .Any(p => p.FullyQualifiedName == classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName);
-
-        if (isExtended)
-            AddToSource($" : {classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName}");
-
-
+        //TODO: Workaround for not fully qualified declarations. To be addressed with proper dependency handling in stc.
+        var extend = Compilation.FindTypeDeclaration(extendedType);
+        if (extend != null)
+        {
+            AddToSource($" : {extend.FullyQualifiedName}");
+            isExtended = true;
+        }
 
         AddToSource(isExtended ? ", AXSharp.Connector.IPlain" : ": AXSharp.Connector.IPlain");
 
@@ -112,23 +115,27 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligible)
         {           
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()}");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource("[]");
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get; set;}");
 
                         AddToSource($"= new");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource($"[");
                         AddToSource(string.Join(",", arrayType.Dimensions.Select(p => p.CountOfElements)));
                         AddToSource($"];");
@@ -149,7 +156,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                 case IStructuredTypeDeclaration s:
                     AddPropertyDeclaration(fieldDeclaration, visitor);
                     AddToSource(" = new ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource("();");
                     break;
             }
@@ -274,23 +282,27 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateVariableDeclaration(IVariableDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligibe)
         {            
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"public");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource("[]");
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get; set;}");
 
                         AddToSource($"= new");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource($"[");
                         AddToSource(string.Join(",", arrayType.Dimensions.Select(p => p.CountOfElements)));
                         AddToSource($"];");
@@ -311,7 +323,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                 case IStructuredTypeDeclaration s:
                     AddPropertyDeclaration(fieldDeclaration, visitor);                    
                     AddToSource(" = new ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource("();");
                     break;
             }
@@ -369,9 +382,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        if (arrayTypeDeclaration.IsEligibleForTranspile(this)) return;
+        // WATCH!
+        var eligibility = arrayTypeDeclaration.IsEligibleForTranspile(this);
+        if (!eligibility.isEligibe) return;
 
-        arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
+        eligibility.eligibleType.Accept(visitor, this);
+        //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         AddToSource("[]");
     }
 

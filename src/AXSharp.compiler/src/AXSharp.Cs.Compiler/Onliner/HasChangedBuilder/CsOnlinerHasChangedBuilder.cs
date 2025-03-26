@@ -35,7 +35,8 @@ namespace AXSharp.Compiler.Cs.Onliner
 
         public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
         {
-            if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+            var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+            if (eligibility.isEligible)
             {
                 CreateAssignment(fieldDeclaration.Type, fieldDeclaration);
             }
@@ -48,7 +49,8 @@ namespace AXSharp.Compiler.Cs.Onliner
 
         public void CreateVariableDeclaration(IVariableDeclaration variableDeclaration, IxNodeVisitor visitor)
         {
-            if (variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+            var eligibility = variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+            if (eligibility.isEligibe)
             {
                 CreateAssignment(variableDeclaration.Type, variableDeclaration);
             }
@@ -67,7 +69,8 @@ namespace AXSharp.Compiler.Cs.Onliner
                     AddToSource($" if(await {declaration.Name}.{MethodName}(plain.{declaration.Name}, latest.{declaration.Name})) somethingChanged = true;");
                     break;
                 case IArrayTypeDeclaration arrayTypeDeclaration:
-                    if (arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+                    var eligibility = arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+                    if (eligibility.isEligibe)
                     {
                         switch (arrayTypeDeclaration.ElementTypeAccess.Type)
                         {
