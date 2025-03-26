@@ -102,28 +102,17 @@ public class AXSharpProject : IAXSharpProject
     {
         Log.Logger.Information($"Compilation of project '{AxProject.SrcFolder}' started");
 
-        IEnumerable<(ISyntaxTree parseTree, SourceFileText source)> projectSources = AxProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p).Result, source: p));
+        var projectSources = AxProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p).Result, source: p));
 
         TargetProject.ProvisionProjectStructure();
 
-        var refParseTrees = GetReferences().DistinctBy(p => p.GetText());
+        var refParseTrees = GetReferences();
 
         
         var toCompile = refParseTrees.Concat(projectSources.Select(p => p.parseTree));
 
-        
-        //var packageProvider = AX.Package.DefaultPackageProvider.Empty as DefaultPackageProvider;
-       
-        //var compilationResult = 
-        //     Compilation.Create(projectSources.Select(p => p.parseTree), 
-        //                        new List<ISemanticAnalyzer>(), 
-        //                        new Compilation.Settings(packageProvider, FeatureFlags.None, SemanticOptions.CompileToLib)).Result;
-
         var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
 
-        compilationResult.Compilation.GetDiagnostics().Where(o => o.Severity == AX.Text.Diagnostics.DiagnosticSeverity.Error).ToList()
-            .ForEach(p => Log.Logger.Information($"{p.Severity} : {p.Location} : {p.Message.ToString()}"));
-        
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)
@@ -416,12 +405,12 @@ public class AXSharpProject : IAXSharpProject
         var kind = type.Kind;
         var sb = new StringBuilder();
 
-        
+
         var hasNamespace = type.ContainingNamespace != null;
         if (hasNamespace) sb.Append($"NAMESPACE {type.ContainingNamespace!.FullyQualifiedName}\n\n");
-        
+
         type?.Pragmas?.ToList().ForEach(p => sb.Append($"{{{p.Content}}}\n"));
-        
+
         switch (kind)
         {
             case DeclarationKind.Struct:
