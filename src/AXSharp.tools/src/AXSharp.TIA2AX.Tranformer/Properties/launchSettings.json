@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AXSharp.TIA2AX.Transformer": {
+      "commandName": "Project",
+      "commandLineArgs": "-d .\\DB_CycleTimes_OP30.db -o .\\ax\\OP30 -n OP30",
+      "workingDirectory": "D:\\mts\\2021\\2101035_tiapax-poc\\"
+    }
+  }
+}

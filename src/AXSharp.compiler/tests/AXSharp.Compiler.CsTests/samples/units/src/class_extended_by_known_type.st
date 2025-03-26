@@ -3,6 +3,7 @@ USING Simatic.Ax.StatePattern;
 
 
 NAMESPACE Simatic.Ax.StateFramework
+    {S7.extern=ReadWrite}
     CLASS State1Transition EXTENDS AbstractState
 
         METHOD PUBLIC OVERRIDE OnEntry
@@ -25,6 +26,7 @@ END_NAMESPACE
 
 
 NAMESPACE Simatic.Ax.StateFramework
+    {S7.extern=ReadWrite}
     CLASS ABSTRACT AbstractState IMPLEMENTS IState, IStateMuteable
 
         VAR PUBLIC

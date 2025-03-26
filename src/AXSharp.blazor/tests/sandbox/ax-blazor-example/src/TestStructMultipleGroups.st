@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TestStructMultipleGroups
     VAR PUBLIC
         e:INT;

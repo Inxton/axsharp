@@ -1,12 +1,13 @@
 // AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -30,6 +31,16 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             public string Symbol { get; }
             public string AttributeName { get; }
+            public string GetAttributeName(CultureInfo culture)
+            {
+                return AttributeName;
+            }
+
+            public string GetHumanReadable(CultureInfo culture)
+            {
+                return HumanReadable;
+            }
+
             public string HumanReadable { get; }
 
             private IList<ITwinPrimitive> _primitives = new List<ITwinPrimitive>();
@@ -103,6 +114,11 @@ namespace AXSharp.Connector.S71500.WebAPITests
             }
 
             public Task PlainToShadow<T>(T plain)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task<bool> AnyChangeAsync<T>(T plain)
             {
                 throw new NotImplementedException();
             }

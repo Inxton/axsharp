@@ -1,9 +1,9 @@
 // AXSharp.Compiler
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Newtonsoft.Json;
 using Polly;
@@ -20,10 +20,10 @@ public class AXSharpConfig : ICompilerOptions
     /// <summary>
     /// Creates new instance of IxConfig object.
     /// </summary>
-    [Obsolete("Use 'Create IxConfig' instead.")]
+    [Obsolete($"Use 'Create {nameof(RetrieveAXSharpConfig)} instead.")]
     public AXSharpConfig()
     {
-            
+
     }
 
     /// <summary>
@@ -31,7 +31,9 @@ public class AXSharpConfig : ICompilerOptions
     /// </summary>
     public const string CONFIG_FILE_NAME = "AXSharp.config.json";
 
-   
+
+
+
     private string _outputProjectFolder = "ix";
 
     /// <summary>
@@ -43,7 +45,24 @@ public class AXSharpConfig : ICompilerOptions
         set => _outputProjectFolder = value;
     }
 
-    
+    /// <summary>
+    /// Gets or sets whether compiler should use $base for base types of a class.
+    /// </summary>
+    public bool UseBase { get; set; }
+    /// <inheritdoc />
+    public bool NoDependencyUpdate { get; set; }
+    /// <inheritdoc />
+    public bool IgnoreS7Pragmas { get; set; }
+    /// <inheritdoc />
+    public bool SkipDependencyCompilation { get; set; }
+    /// <inheritdoc />
+    public string TargetPlatfromMoniker { get; set; }
+
+    /// <summary>
+    /// Gets or sets name of the output project file.
+    /// </summary>
+    public string? ProjectFile { get; set; }
+
     private string _axProjectFolder;
 
     /// <summary>
@@ -52,17 +71,46 @@ public class AXSharpConfig : ICompilerOptions
     [JsonIgnore]
     public string AxProjectFolder
     {
-        get => _axProjectFolder.Replace("\\",Path.DirectorySeparatorChar.ToString());
+        get => _axProjectFolder.Replace("\\", Path.DirectorySeparatorChar.ToString());
         set => _axProjectFolder = value;
     }
 
+    
+    private static string VerifyRelativePath(string baseFolder, string path)
+    {
+        if (string.IsNullOrWhiteSpace(baseFolder))
+        {
+            throw new ArgumentException("Base folder cannot be null or empty.", nameof(baseFolder));
+        }
+
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+        }
+
+        // Ensure baseFolder is absolute
+        baseFolder = Path.GetFullPath(baseFolder);
+
+        // Check whether the path is already absolute
+        if (Path.IsPathRooted(path))
+        {
+            Log.Logger.Fatal($"Path in AXSharpConfig is absolute '{path}'. Change it to path relative to AX project folder path.");
+            throw new ArgumentException($"Path cannot be absolute '{path}'.", nameof(path));
+        }
+        else
+        {
+            // Convert it to an absolute path based on baseFolder
+            return Path.GetFullPath(Path.Combine(baseFolder, path));
+        }
+    }
+   
     /// <summary>
     /// Gets updated or creates default config for given AX project.
     /// </summary>
     /// <param name="directory">AX project directory</param>
-    /// <param name="cliCompilerOptions">Compiler options.</param>
+    /// <param name="newCompilerOptions">Compiler options.</param>
     /// <returns>Ix configuration for given AX project.</returns>
-    public static AXSharpConfig UpdateAndGetIxConfig(string directory, ICompilerOptions? cliCompilerOptions = null)
+    public static AXSharpConfig UpdateAndGetAXSharpConfig(string directory, ICompilerOptions? newCompilerOptions = null, ICompilerOptions dependnantCompilerOptions = null)
     {
         var ixConfigFilePath = Path.Combine(directory, CONFIG_FILE_NAME);
 
@@ -79,7 +127,15 @@ public class AXSharpConfig : ICompilerOptions
         if (AXSharpConfig != null)
         {
             AXSharpConfig.AxProjectFolder = directory;
-            OverridesFromCli(AXSharpConfig, cliCompilerOptions);
+            OverridesFromCli(AXSharpConfig, newCompilerOptions);
+
+            if (dependnantCompilerOptions != null)
+            {
+                AXSharpConfig.TargetPlatfromMoniker = dependnantCompilerOptions.TargetPlatfromMoniker;
+                AXSharpConfig.IgnoreS7Pragmas = dependnantCompilerOptions.IgnoreS7Pragmas;
+                AXSharpConfig.NoDependencyUpdate = dependnantCompilerOptions.NoDependencyUpdate;
+                AXSharpConfig.SkipDependencyCompilation = dependnantCompilerOptions.SkipDependencyCompilation;
+            }            
         }
 
         using (StreamWriter file = File.CreateText(ixConfigFilePath))
@@ -87,6 +143,8 @@ public class AXSharpConfig : ICompilerOptions
 #pragma warning disable CS0618
             AXSharpConfig = AXSharpConfig == null ? new AXSharpConfig() { AxProjectFolder = directory } : AXSharpConfig;
 #pragma warning restore CS0618
+            OverridesFromCli(AXSharpConfig, newCompilerOptions);
+
             JsonSerializer serializer = new JsonSerializer();
             serializer.Serialize(file, AXSharpConfig);
         }
@@ -100,12 +158,12 @@ public class AXSharpConfig : ICompilerOptions
         {
             AXSharpConfig.AxProjectFolder = directory;
         }
-
+        
         return AXSharpConfig;
     }
 
-   
-    public static AXSharpConfig RetrieveIxConfig(string ixConfigFilePath)
+
+    public static AXSharpConfig RetrieveAXSharpConfig(string ixConfigFilePath)
     {
         try
         {
@@ -114,7 +172,11 @@ public class AXSharpConfig : ICompilerOptions
             if (config != null)
             {
                 var fi = new FileInfo(ixConfigFilePath);
-                if (fi.DirectoryName != null) config.AxProjectFolder = fi.DirectoryName;
+                if (fi.DirectoryName != null)
+                {
+                    config.AxProjectFolder = fi.DirectoryName;
+                    config.OutputProjectFolder = VerifyRelativePath(fi.DirectoryName, config.OutputProjectFolder);
+                }
             }
 
             return config;
@@ -122,17 +184,21 @@ public class AXSharpConfig : ICompilerOptions
         catch (Exception ex)
         {
             throw new FailedToReadIxConfigurationFileException($"Unable to process '{ixConfigFilePath}'", ex);
-        }
-        
+        }        
     }
 
-    private static void OverridesFromCli(ICompilerOptions fromConfig, ICompilerOptions? fromCli)
+    private static void OverridesFromCli(ICompilerOptions fromConfig, ICompilerOptions? newCompilerOptions)
     {
         // No CLI params
-        if (fromCli == null)
+        if (newCompilerOptions == null)
             return;
 
         // Items to override from the CLI
-        fromConfig.OutputProjectFolder = fromCli.OutputProjectFolder ?? fromConfig.OutputProjectFolder;
+        fromConfig.OutputProjectFolder = newCompilerOptions.OutputProjectFolder ?? fromConfig.OutputProjectFolder;
+        fromConfig.ProjectFile = string.IsNullOrEmpty(newCompilerOptions.ProjectFile) ? fromConfig.ProjectFile : newCompilerOptions.ProjectFile;
+        fromConfig.NoDependencyUpdate = newCompilerOptions.NoDependencyUpdate;
+        fromConfig.IgnoreS7Pragmas = newCompilerOptions.IgnoreS7Pragmas;
+        fromConfig.SkipDependencyCompilation = newCompilerOptions.SkipDependencyCompilation;
+        fromConfig.TargetPlatfromMoniker = newCompilerOptions.TargetPlatfromMoniker;
     }
 }

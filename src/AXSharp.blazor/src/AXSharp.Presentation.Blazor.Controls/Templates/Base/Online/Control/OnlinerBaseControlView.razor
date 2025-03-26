@@ -1,25 +1,29 @@
-﻿@typeparam T
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using System.Globalization;
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
 @inherits TemplateBaseOnline<T>
-@namespace AXSharp.Presentation.Blazor.Controls.Templates
-
+@typeparam T
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-
-    <label for="@ComponentId">@Onliner.AttributeName</label>
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <input id="@ComponentId"
            readonly="@IsReadOnly"
            class="w-100 form-control @AccessStatus"
-           type=@IsNumeric(typeof(T))
-           step=any
-           @onfocus="@( () => {HasFocus = true; LastValue = Onliner.LastValue;} )"
-           @onblur="@( () => HasFocus = false )"
-           @bind="Value" />
-
+           type="@IsNumeric(typeof(T))"
+           step="any"
+           @bind="Value"
+           @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
+           @onblur="@(() => HasFocus = false)"
+           data-bs-toggle="tooltip" 
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
 </TemplateView>
 
-
-@code{
-
+@code {
+    
+    
     private string IsNumeric(Type type)
     {
         if (type == null) return "text";

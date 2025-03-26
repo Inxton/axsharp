@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TestStruct
     VAR PUBLIC
         e:INT;

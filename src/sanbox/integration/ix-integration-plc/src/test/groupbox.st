@@ -1,5 +1,6 @@
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-attr:[Group(GroupLayout.GroupBox)]}   
+{S7.extern=ReadWrite}
 CLASS groupbox
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Integer From PLC#>"}	

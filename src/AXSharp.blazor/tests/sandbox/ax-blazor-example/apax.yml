@@ -5,9 +5,10 @@ targets:
   - "1500"
   - axunit-llvm
 devDependencies:
-  "@ax/sdk": 3.0.2
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": ^4.0.12
+  "@ax/sld": ^2.0.5
 scripts:
-  ixc: 
-  - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
-  
+  ixc:
+    - dotnet run --project
+      ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework
+      net7.0

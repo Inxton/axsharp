@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.ComponentModel;
@@ -15,6 +15,7 @@ using AXSharp.Connector.Localizations;
 using AXSharp.Connector.ValueTypes.Online;
 using AXSharp.Connector.ValueTypes.Shadows;
 using AXSharp.Connector.ValueValidation;
+using Newtonsoft.Json.Linq;
 
 namespace AXSharp.Connector.ValueTypes;
 
@@ -109,6 +110,11 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
 
     private long CwCycle { get; set; }
 
+    internal void SetValueToWrite(T val)
+    {
+        CyclicToWrite = val;
+    }
+
     /// <summary>
     ///     Gets the value that will be written in the next cycle.
     /// </summary>
@@ -144,6 +150,34 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
                 Parent.GetConnector()?.AddToPeriodicWriteSet(this);
             }
         }
+    }
+
+
+    /// <summary>
+    /// Writes the value to be written in the next call of bulk write to the PLC.
+    /// </summary>
+    /// <param name="val">Value to be written.</param>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    [Obsolete("Not to be used in your code my friend... use only if you know what you're doing")]
+    public T LethargicWrite(T val)
+    {
+        if (HasWriteAccess())
+        {
+            CyclicToWrite = val;
+        }
+
+        return val;
+    }
+
+
+    /// <summary>
+    /// Gets <see cref="Cyclic"/> translated with provided <see cref="CultureInfo"/>
+    /// </summary>
+    /// <param name="culture">Desired culture.</param>
+    /// <returns>Translated value</returns>
+    public virtual T GetCyclic(CultureInfo culture = default)
+    {
+        return Cyclic;
     }
 
     /// <summary>
@@ -226,15 +260,25 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
     /// </summary>
     public string AttributeToolTip
     {
-        get => this.Translate(attributeToolTip);
+        get => attributeToolTip.Interpolate(this);
         set => attributeToolTip = value;
     }
 
+    /// <summary>
+    /// Gets translated tooltip for given <see cref="CultureInfo"/>
+    /// </summary>
+    /// <param name="culture">Culture used to translate this tooltip</param>
+    /// <returns>Translated tooltip</returns>
+    public string GetAttributeToolTip(CultureInfo culture)
+    {
+        return this.Translate(AttributeToolTip, culture);
+        
+    }
 
     /// <summary>
     ///     Gets information about this tag's online variable info.
     /// </summary>
-    public ITwinPrimitiveInfo VariableInfo { get; protected set; }
+    protected ITwinPrimitiveInfo VariableInfo { get; set; }
 
 
     /// <summary>
@@ -482,6 +526,16 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
     }
 
     /// <summary>
+    /// Gets value translated in give <see cref="CultureInfo"/>
+    /// </summary>
+    /// <param name="culture">Culture into which the value should be translated.</param>
+    /// <returns>Translated value.</returns>
+    public virtual Task<T> GetAsync(CultureInfo culture = default)
+    {
+        return Task.Run(() => GetCyclic(culture));
+    }
+
+    /// <summary>
     ///     Sets the value of this variable to the controller asynchronously.
     /// </summary>
     /// <remarks>
@@ -590,4 +644,10 @@ public abstract class OnlinerBase<T> : OnlinerBase, IOnline<T>, IShadow<T>, INot
     {
         this.Cyclic = this.Shadow;
     }
+
+    /// <summary>
+    /// Gets or sets the capacity of this; the declared size of the string.
+    /// >[!IMPORTANT] Currently used only for types STRING and WSTRING.    
+    /// </summary>
+    public int Capacity { get; set; } = 0;
 }

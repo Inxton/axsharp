@@ -1,0 +1,476 @@
+﻿TYPE "tCheckDataAnalog_1"
+VERSION : 0.1
+   STRUCT
+      IsExcluded : Bool;
+      IsVisible : Bool;
+      Typecheck : Int;   // 0=inactive, 1-logic,2-analog,3:data
+      analog : Struct
+         Min : Real;
+         Measured : Real;
+         Max : Real;
+      END_STRUCT;
+      PassedTime : Time := T#50ms;
+      FailedTime : Time := T#100ms;
+      Result : Byte;
+      NumberOfRetries : UInt;
+      AllowedNumberOfRetries : UInt;
+      SourceID : UInt;   // identifikator stanice/kroku/rezimu
+      "Name" : WString[32];
+      TimeStamp : Date_And_Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tHeaderResults"
+VERSION : 0.1
+   STRUCT
+      InProgress : Bool;
+      IsPassed : Bool;
+      IsFailed : Bool;
+      IsReset : Bool;
+      IsRework : Bool;
+      IsMaster : Bool;
+      IsSkipped : Bool;
+      wasManual : Bool;
+      wasReset : Bool;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCheckDataDigital"
+VERSION : 0.1
+   STRUCT
+      IsExcluded : Bool;
+      IsVisible : Bool;
+      Typecheck : Int;   // 0=inactive, 1-logic,2-analog,3:data
+      digital : Struct
+         Required : Bool;
+         Measured : Bool;
+      END_STRUCT;
+      PassedTime : Time := T#50ms;
+      FailedTime : Time := T#100ms;
+      Result : Byte;
+      NumberOfRetries : UInt;
+      AllowedNumberOfRetries : UInt;
+      SourceID : UInt;   // identifikator stanice/kroku/rezimu
+      "Name" : WString[32];
+      TimeStamp : Date_And_Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCheckDataAnalog"
+VERSION : 0.1
+   STRUCT
+      IsExcluded : Bool;
+      IsVisible : Bool;
+      Typecheck : Int;   // 0=inactive, 1-logic,2-analog,3:data
+      analog : Struct
+         Min : Real;
+         Measured : Real;
+         Max : Real;
+      END_STRUCT;
+      PassedTime : Time := T#50ms;
+      FailedTime : Time := T#100ms;
+      Result : Byte;
+      NumberOfRetries : UInt;
+      AllowedNumberOfRetries : UInt;
+      SourceID : UInt;   // identifikator stanice/kroku/rezimu
+      "Name" : WString[32];
+      TimeStamp : Date_And_Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCheckDataData"
+VERSION : 0.1
+   STRUCT
+      IsExcluded : Bool;
+      IsVisible : Bool;
+      Typecheck : Int;   // 0=inactive, 1-logic,2-analog,3:data
+      data : Struct
+         Required : String[128];
+         Measured : String[128];
+         StarNotationEnabled : Bool;
+      END_STRUCT;
+      PassedTime : Time := T#50ms;
+      FailedTime : Time := T#100ms;
+      Result : Byte;
+      NumberOfRetries : UInt;
+      AllowedNumberOfRetries : UInt;
+      SourceID : UInt;   // identifikator stanice/kroku/rezimu
+      "Name" : WString[32];
+      TimeStamp : Date_And_Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tHeaderCu"
+VERSION : 0.1
+   STRUCT
+      NextOnPassed : UInt;
+      NextOnFailed : UInt;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tRivetingData"
+VERSION : 0.1
+   STRUCT
+      RivetingExclusion : Bool;
+      InitialHeightCheck { S7_SetPoint := 'False'} : "tCheckDataAnalog_1";
+      InitialPulseLenght : Time;   // pociatocny pulz, nech sa urychli nahrievanie
+      InitialPulseDutyCycle : Real;   // plnenie 0-100percent
+      WorkingPulseLenghtMax : Time;   // pracovny kde sa tavi material, stop ked dosiahne potrebnu vysku
+      WorkingPulseDutyCycle : Real;   // plnenie 0-100percent
+      DeatachPulseDutyCycle : Real;   // plnenie 0-100percent
+      PrePinCoolingStandBy : Time;
+      PinCoolingTime : Time;
+      SwitchOffHeatingHeight : Real;
+      EndHeightCheck { S7_SetPoint := 'False'} : "tCheckDataAnalog_1";
+      DeatachPulseTime : Time;   // odtrhove nahriatie taviacej ihly, aby neotrhlo hlavicku
+      RivetingTimingCheck : Time;
+      PostCooling : Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tLightType"
+VERSION : 0.1
+   STRUCT
+      ID_Type : String[32];
+      ID_Part : String[32];
+      _Type_ : Int;   // 0-nic, 1-base,2-mid,3-high,4type4,5-type5,a.t.d.
+      Type_empty : Bool;
+      Type_Base : Bool;
+      Type_Mid : Bool;
+      Type_High : Bool;
+      Type_4 : Bool;
+      Type_5 : Bool;
+      Type_6 : Bool;
+      Type_7 : Bool;
+      Type_8 : Bool;
+      LHD : Bool;   // EU verzia svetla
+      RHD : Bool;   // UK verzia svetla
+      Muster : Bool;
+      Rework : Bool;
+      LH : Bool;
+      RH : Bool;
+      PartINStation : Bool;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu80Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+      CasOfukovania { S7_SetPoint := 'True'} : Time;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu70Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu60Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      svetlopritomnost : "tCheckDataDigital";
+      ATE_ResultTest : "tCheckDataDigital";
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu50Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      svetlovyska { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      svetlopritomnost : "tCheckDataDigital";
+      svetlopritomnost_15 : "tCheckDataDigital";
+      FTI_Code : "tCheckDataData";
+      CameraCheckConnector : "tCheckDataDigital";
+      CameraCheckGuma : "tCheckDataDigital";
+      CameraCheckLight : "tCheckDataDigital";
+      CameraJob { S7_SetPoint := 'True'} : Int;
+      CameraExcluded : Bool;
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu20Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      svetlovyska { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      svetlopritomnost : "tCheckDataDigital";
+      DataCheck_Priklad_10 : "tCheckDataData";
+      GearAdjusterFront : "tCheckDataDigital";
+      GearAdjusterInputFront : "tCheckDataDigital";
+      GearAdjusterBack : "tCheckDataDigital";
+      GearAdjusterInputBack : "tCheckDataDigital";
+      StudBallBack : "tCheckDataDigital";
+      StudBallTop : "tCheckDataDigital";
+      SlideLevelingMotor : "tCheckDataDigital";
+      SlideHorizontal : "tCheckDataDigital";
+      GearAdjusterFrontPressingOK : "tCheckDataDigital";
+      GearAdjusterBackPressingOK : "tCheckDataDigital";
+      ScrewingBackStatus : "tCheckDataDigital";
+      ScrewingTopStatus : "tCheckDataDigital";
+      ScrewingBackTorque : "tCheckDataAnalog";
+      ScrewingTopTorque : "tCheckDataAnalog";
+      ScrewingBackAngle : "tCheckDataAnalog";
+      ScrewingTopAngle : "tCheckDataAnalog";
+      RivetingResult : "tCheckDataDigital";
+      InitialHeightCheck : "tCheckDataAnalog";
+      EndHeightCheck : "tCheckDataAnalog";
+      PresentPCB : "tCheckDataDigital";
+      PCB_DATA : "tCheckDataData";
+      HotRivetingActive { S7_SetPoint := 'True'} : Bool;
+      HotRivetingSetup : Int;
+      HotRivetingData : "tRivetingData";
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu30Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      svetlovyska { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      svetlopritomnost : "tCheckDataDigital";
+      CameraCheckConnector : "tCheckDataDigital";
+      CameraJob { S7_SetPoint := 'True'} : Int;
+      CameraExcluded : Bool;
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu10Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      LabelRefText : String[32];
+      LabelDMC : String[32];
+      SerialNO : String[8];
+      Label00Sap_Suffix : String[16];
+      LabelName : String[16];   // nazovetikety v tlaciarni
+      sufix : String[2];
+      TempDMC : String[32];
+      Label { S7_SetPoint := 'False'} : "tCheckDataData";
+      SMI_Screewing_1 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      SMI_Screewing_2 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque : "tCheckDataAnalog";
+         Angle : "tCheckDataAnalog";
+      END_STRUCT;
+      SMI_Screewing_3 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque : "tCheckDataAnalog";
+         Angle : "tCheckDataAnalog";
+      END_STRUCT;
+      SMI_Code { S7_SetPoint := 'False'} : "tCheckDataData";
+      LDM_Screewing_1 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Screewing_2 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Screewing_3 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Screewing_4 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Code : "tCheckDataData";
+      HoleHigh : "tCheckDataDigital";
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tHeader"
+VERSION : 0.1
+   STRUCT
+      Identificator : String[50];
+      Reference : String[50];
+      NextStation : UInt;
+      LastStation : UInt;
+      OpenOnStation : UInt;
+      Carrier : UInt;
+      Results { S7_SetPoint := 'False'} : "tHeaderResults";
+      Result { S7_SetPoint := 'True'} : Byte;
+      TimeStampLast {InstructionName := 'DTL'; LibVersion := '1.0'} : DTL;
+      FailureCode : UDInt;
+      FailureDescription : WString[50];
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tCu40Data"
+VERSION : 0.1
+   STRUCT
+      Flow { S7_SetPoint := 'False'} : "tHeaderCu";
+      BasicType : Struct
+         tempBool : Bool;
+      END_STRUCT;
+      svetlovyska { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      svetlopritomnost : "tCheckDataDigital";
+      LDM_Screewing_1 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Screewing_2 : Struct
+         Status { S7_SetPoint := 'False'} : "tCheckDataDigital";
+         Torque { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+         Angle { S7_SetPoint := 'False'} : "tCheckDataAnalog";
+      END_STRUCT;
+      LDM_Code : "tCheckDataData";
+      SBL_Code : "tCheckDataData";
+      ReflectorProjector_Code : "tCheckDataData";
+      Reflector { S7_SetPoint := 'False'} : "tCheckDataDigital";
+      BaseLDMModul : "tCheckDataDigital";
+      HighSBLModul : "tCheckDataDigital";
+      DummyCheckDigital : "tCheckDataDigital";   // "DigitalCheckData"
+      DummyCheckAnalog : "tCheckDataAnalog";   // "AnalogCheckData"
+      DummyCheckData : "tCheckDataData";   // "DataCheckData"
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tData"
+VERSION : 0.1
+   STRUCT
+      EntityHeader { S7_SetPoint := 'False'} : "tHeader";
+      LightType { S7_SetPoint := 'False'} : "tLightType";
+      GlobalData : Struct
+         TraceabilityActive : Bool;
+      END_STRUCT;
+      Cu10 : "tCu10Data";
+      Cu20 : "tCu20Data";
+      Cu30 : "tCu30Data";
+      Cu40 : "tCu40Data";
+      Cu50 : "tCu50Data";
+      Cu60 : "tCu60Data";
+      Cu70 : "tCu70Data";
+      Cu80 : "tCu80Data";
+      ReferenceNo { S7_SetPoint := 'True'} : Int;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tDataManager"
+VERSION : 0.1
+   STRUCT
+      RequiredReference : String[50];
+      PreviousReference : String[50];
+      RequiredReferenceAck : String[50];
+      ActiveStationNo : Int;
+      HmiRequest : Int;
+      ProcessingStatus : Byte;
+      ReferenceLoadStart : Bool;
+      ReferenceLoadDone : Bool;
+      DataChangedOnHmi : Bool;
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tTier"
+VERSION : 0.1
+   STRUCT
+      FirstRun : Bool;
+      Progress : UInt;
+      PreviousProgress : UInt;
+      CycleCounter { S7_SetPoint := 'True'} : UInt;
+      ActualCycleCounter { S7_SetPoint := 'True'} : UInt;
+      ProgressTime { S7_SetPoint := 'True'} : Time;
+      ProgressTimer {InstructionName := 'TON_TIME'; LibVersion := '1.0'; S7_SetPoint := 'False'} : TON_TIME;
+      Message { S7_SetPoint := 'True'} : String[50];
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "tReference"
+VERSION : 0.1
+   STRUCT
+      Manager { S7_SetPoint := 'False'} : "tDataManager";
+      Data : "tData";
+      tier : "tTier";
+   END_STRUCT;
+
+END_TYPE
+
+DATA_BLOCK "DbData"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      Reference { S7_SetPoint := 'False'} : Array[0..10] of "tReference";
+      Station { S7_SetPoint := 'False'} : Array[0..10] of "tData";
+      Carrier : Array[0..10] of "tData";
+      CarrierAtStation { S7_SetPoint := 'True'} : Array[0..10] of UInt;
+   END_VAR
+
+
+BEGIN
+
+END_DATA_BLOCK
+

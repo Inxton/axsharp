@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "AXSharp.sln",
+    "projects": [
+      "tests.integrations\\integrated\\src\\integrated.app\\integrated.hmi.csproj",
+      "tests.integrations\\integrated\\src\\integrated.twin\\integrated.csproj",
+      "tests.integrations\\integrated\\tests\\integrated.tests\\integrated.tests.csproj"
+    ]
+  }
+}

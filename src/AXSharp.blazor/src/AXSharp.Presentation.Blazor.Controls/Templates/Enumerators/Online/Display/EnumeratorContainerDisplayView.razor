@@ -10,5 +10,9 @@
                class="w-100 form-control @AccessStatus"
                readonly="readonly"
                style=@(IsReadOnly ? "" : "background-color:transparent")
-               value="@EnumToIntConverter.Convert(@Onliner.Cyclic,null,null,null)  " />
+               value="@EnumToIntConverter.Convert(@Onliner.Cyclic,null,null,null)  "
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top"
+               data-bs-custom-class="custom-tooltip"
+               data-bs-title="@ToolTipText"/>
 </TemplateView>

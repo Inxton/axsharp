@@ -1,4 +1,5 @@
 NAMESPACE MonsterData
+    {S7.extern=ReadWrite}
     CLASS MonsterBase
         VAR PUBLIC
             ArrayOfBytes : ARRAY[0..3] OF BYTE;
@@ -6,12 +7,15 @@ NAMESPACE MonsterData
             ArrayOfIxComponent : ARRAY[0..3] OF ixcomponent;
         END_VAR        
     END_CLASS
+
+    {S7.extern=ReadWrite}
     CLASS Monster EXTENDS MonsterBase
         VAR PUBLIC
             DriveA : DriveBase;
         END_VAR        
     END_CLASS
-
+    
+    {S7.extern=ReadWrite}
     CLASS DriveBase
         VAR PUBLIC
             Position : LREAL;

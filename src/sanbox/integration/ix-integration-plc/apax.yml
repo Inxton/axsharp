@@ -3,38 +3,43 @@ version: 0.0.0
 type: app
 targets:
   - "1500"
-  - axunit-llvm
+  - llvm
   - plcsim
 devDependencies:
-  "@ax/sdk": 3.0.8
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": 2311.0.1
 variables:
-  APAX_BUILD_ARGS: [ -d ]  
+  APAX_BUILD_ARGS: [ -d ]
 scripts:
-   ixc: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net7.0
-   ixd: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework net7.0
-   postbuild: 
+  ixc: dotnet run --project
+    ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework
+    net7.0
+  ixd: dotnet run --project
+    ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework
+    net7.0
+  postbuild:
     - apax ixc
     - apax ixd
-   download:
-     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
-   check+download: |
-     if [ $AXTARGET ]; then
-       if [ $AXTARGETPLATFORMINPUT ]; then
-         if ping -n 1 $AXTARGET &> /dev/null; then
-           echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
-           apax download
-         else
-           echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
-         fi
-       else
-         echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
-       fi
-     else
-       echo "Environment variable AXTARGET not defined!!!"
-     fi
-   do-it-all:
-     - apax install
-     - apax build 
-     - apax check+download
-
+  download:
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface
+  check+download: |
+    if [ $AXTARGET ]; then
+      if [ $AXTARGETPLATFORMINPUT ]; then
+        if ping -n 1 $AXTARGET &> /dev/null; then
+          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
+          apax download
+        else
+          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
+        fi
+      else
+        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
+      fi
+    else
+      echo "Environment variable AXTARGET not defined!!!"
+    fi
+  do-it-all:
+    - apax install
+    - apax build
+    - apax check+download
+installStrategy: strict
+apaxVersion: 3.1.0

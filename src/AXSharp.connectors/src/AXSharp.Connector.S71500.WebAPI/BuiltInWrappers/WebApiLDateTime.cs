@@ -1,11 +1,12 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
+using Newtonsoft.Json.Linq;
 
 namespace AXSharp.Connector.S71500.WebApi;
 
@@ -72,19 +73,18 @@ public class WebApiLDateTime : OnlinerLDateTime, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<DateTime> GetAsync()
     {
-        var dt = await _webApiConnector.ReadAsync<long>(this);
-        return GetFromBinary(dt);
+        return await _webApiConnector.ReadAsync<DateTime>(this);
     }
 
-    private DateTime GetFromBinary(string val)
+    private DateTime GetFromBinary(string value)
     {
-        return GetFromBinary(long.Parse(val));
+        return long.TryParse(value, out var val) ? GetFromBinary(val) : DateTime.MinValue;
     }
 
     private DateTime GetFromBinary(long val)
     {
         var dt = val / 100;
-        return DateTime.FromBinary(dt).AddYears(1969);
+        return dt.ToUtcDateTime(); // DateTime.FromBinary(dt).AddYears(1969);
     }
 
 
@@ -100,7 +100,6 @@ public class WebApiLDateTime : OnlinerLDateTime, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<DateTime> SetAsync(DateTime value)
     {
-        await _webApiConnector.WriteAsync(this, GetFromDate(value));
-        return value;
+        return await _webApiConnector.WriteAsync(this, value);
     }
 }

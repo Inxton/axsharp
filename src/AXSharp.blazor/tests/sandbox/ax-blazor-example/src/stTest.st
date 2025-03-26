@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTest
     VAR PUBLIC
         p1:INT;

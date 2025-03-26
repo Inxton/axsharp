@@ -6,7 +6,8 @@ NAMESPACE NamedValuesNamespace
             LBLUE := 23
         );
     END_TYPE    
-
+    
+    {S7.extern=ReadWrite}
     CLASS PUBLIC using_type_named_values
         VAR PUBLIC
             LColors : LightColors;

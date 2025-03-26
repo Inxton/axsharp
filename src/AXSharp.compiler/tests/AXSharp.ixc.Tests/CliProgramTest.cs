@@ -1,9 +1,9 @@
 // AXSharp.ixc.Tests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Reflection;
 using AXSharp.Compiler;
@@ -46,7 +46,7 @@ namespace AXSharp.ixcTests
                 ixc.Program.Main(new string[0]);
 
                 Assert.True(Directory.Exists(outputDirectory));
-                Assert.Equal(6, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace AXSharp.ixcTests
         public void should_run_with_setting_retrieved_from_config_file_settings()
         {
             var axProjectFolder = Path.Combine(TestFolder, "samples","plt","app");
-            var config = AXSharpConfig.UpdateAndGetIxConfig(axProjectFolder);
+            var config = AXSharpConfig.UpdateAndGetAXSharpConfig(axProjectFolder);
             var outputDirectory = Path.GetFullPath(Path.Combine(axProjectFolder, config.OutputProjectFolder));
             
             if (Directory.Exists(outputDirectory))
@@ -79,7 +79,7 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(8, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(9, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -96,14 +96,9 @@ namespace AXSharp.ixcTests
         public void should_run_with_setting_retrieved_from_config_file_settings_but_override_from_cli()
         {
             var axProjectFolder = Path.Combine(TestFolder, "samples","plt","lib");
-            var config = AXSharpConfig.UpdateAndGetIxConfig(axProjectFolder);
+            var config = AXSharpConfig.UpdateAndGetAXSharpConfig(axProjectFolder);
             var outputDirectory = Path.GetFullPath(Path.Combine(axProjectFolder, $"..{Path.DirectorySeparatorChar}ix-lib-override"));
-            
-            if (Directory.Exists(outputDirectory))
-            {
-                Directory.Delete(outputDirectory, true);
-            }
-
+                       
             var recoverDirectory = Environment.CurrentDirectory;
             Environment.CurrentDirectory = axProjectFolder;
             
@@ -113,7 +108,7 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(6, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {

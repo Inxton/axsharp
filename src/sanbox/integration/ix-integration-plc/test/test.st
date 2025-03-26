@@ -3,6 +3,7 @@ USING AxUnit;
 NAMESPACE MyTest
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS MyTestFixture
         {Test}
         METHOD PUBLIC MyTestMethod

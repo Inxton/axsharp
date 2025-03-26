@@ -117,6 +117,12 @@ namespace AXSharp.ixc_doc.Schemas
     {
         [JsonProperty("path")]
         public string Path { get; set; }
+
+        [JsonProperty("branch")]
+        public string Branch { get; set; }
+
+        [JsonProperty("repo")]
+        public string Repo { get; set; }
     }
 
     public partial class Syntax

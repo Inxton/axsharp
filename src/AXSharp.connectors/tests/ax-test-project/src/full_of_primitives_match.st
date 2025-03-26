@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS full_of_primitives_match
     VAR PUBLIC
        

@@ -9,6 +9,7 @@ namespace AXSharp.ConnectorTests
     using Xunit;
     using NSubstitute;
     using System.Threading.Tasks;
+    using System.Globalization;
 
     public class MyPlain : IPlain
     {
@@ -140,6 +141,16 @@ namespace AXSharp.ConnectorTests
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);
+        }
+
+        public string GetAttributeName(CultureInfo culture)
+        {
+            return this.Translate(this.AttributeName, culture);
+        }
+
+        public string GetHumanReadable(CultureInfo culture)
+        {
+            return this.Translate(this.HumanReadable, culture);
         }
 
         public async virtual Task<T> OnlineToPlain<T>()
@@ -300,6 +311,11 @@ namespace AXSharp.ConnectorTests
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
+        public Task<bool> AnyChangeAsync<T1>(T1 plain)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.all_primitives plain)
         {
             myBOOL.Shadow = plain.myBOOL;
@@ -390,7 +406,7 @@ namespace AXSharp.ConnectorTests
         public string Symbol { get; protected set; }
 
         private string _attributeName;
-        public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : this.Translate(_attributeName).Interpolate(this); set => _attributeName = value; }
+        public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : _attributeName.Interpolate(this); set => _attributeName = value; }
 
         public string HumanReadable { get; set; }
 

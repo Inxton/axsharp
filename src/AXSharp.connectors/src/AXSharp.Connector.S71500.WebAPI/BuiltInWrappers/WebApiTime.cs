@@ -1,11 +1,12 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
+using Newtonsoft.Json.Linq;
 
 namespace AXSharp.Connector.S71500.WebApi;
 
@@ -41,7 +42,7 @@ public class WebApiTime : OnlinerTime, IWebApiPrimitive
 
     /// <inheritdoc />
     ApiPlcWriteRequest IWebApiPrimitive.PeekPlcWriteRequestData => _plcWriteRequestData ?? WebApiConnector.CreateWriteRequest(Symbol, CyclicToWrite, _webApiConnector.DBName);
-    
+
     /// <inheritdoc />
     ApiPlcReadRequest IWebApiPrimitive.PlcReadRequestData
     {
@@ -58,16 +59,47 @@ public class WebApiTime : OnlinerTime, IWebApiPrimitive
     {
         get
         {
-            // TODO: review this casting to string... reason: there is some problem while creating reuqest from long.
-            _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, ToMicroSeconds(CyclicToWrite), _webApiConnector.DBName);
+            switch (_webApiConnector.TargetPlatform)
+            {
+                case eTargetProjectPlatform.TIAPORTAL:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, ToMilliseconds(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+                case eTargetProjectPlatform.SIMATICAX:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, ToMicroSeconds(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+                default:
+                     // TODO: review this casting to string... reason: there is some problem while creating reuqest from long.
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, ToMicroSeconds(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+
+            }
+
             return _plcWriteRequestData;
         }
     }
 
     /// <inheritdoc />
-    public void Read(string result)
+    public void Read(string value)
     {
-        UpdateRead(TimeSpan.FromMilliseconds(ToMilliseconds(long.Parse(result))));
+        if (long.TryParse(value, out var val))
+        {
+            switch (_webApiConnector.TargetPlatform)
+            {
+                case eTargetProjectPlatform.TIAPORTAL:
+                    UpdateRead(TimeSpan.FromMilliseconds(val));
+                    break;
+                case eTargetProjectPlatform.SIMATICAX:
+                    UpdateRead(TimeSpan.FromMilliseconds(ToMilliseconds(val)));
+                    break;
+
+            }
+        }
+    }
+
+
+    private long ToMilliseconds(TimeSpan value)
+    {
+        return (long)value.TotalMilliseconds;
     }
 
 
@@ -89,13 +121,14 @@ public class WebApiTime : OnlinerTime, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<TimeSpan> GetAsync()
     {
-        return TimeSpan.FromMilliseconds(ToMilliseconds(long.Parse(await _webApiConnector.ReadAsync<string>(this))));
+
+        var l = await _webApiConnector.ReadAsync<TimeSpan>(this);
+        return l;
     }
 
     /// <inheritdoc />
     public override async Task<TimeSpan> SetAsync(TimeSpan value)
     {
-        await _webApiConnector.WriteAsync(this, ToNanoseconds((long)value.TotalMilliseconds).ToString());
-        return value;
+        return await _webApiConnector.WriteAsync(this, value);
     }
 }

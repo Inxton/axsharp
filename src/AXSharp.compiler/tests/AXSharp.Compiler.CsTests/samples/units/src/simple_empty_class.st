@@ -1,2 +1,3 @@
-﻿CLASS PUBLIC simple_class 
+﻿{S7.extern=ReadWrite}
+CLASS PUBLIC simple_class 
 END_CLASS    

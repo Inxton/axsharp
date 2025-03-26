@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using AXSharp.Connector.ValueTypes.Online;
@@ -45,9 +45,20 @@ public class OnlinerDate : OnlinerBase<DateOnly>, IOnlineDate, IShadowDate
     public static DateOnly MaxValue { get; } = new(2262, 4, 11);
 
     /// <summary>
+    ///     Gets the max value of <see cref="OnlinerDate" /> for TIA project.
+    /// </summary>
+    public static DateOnly TIAMaxValue { get; } = new(2169, 6, 6);
+
+    /// <summary>
     ///     Gets the min value of <see cref="OnlinerDate" />.
     /// </summary>
     public static DateOnly MinValue { get; } = new(1970, 01, 1);
+
+
+    /// <summary>
+    ///     Gets the min value of <see cref="OnlinerDate"  /> for TIA project.
+    /// </summary>
+    public static DateOnly TIAMinValue { get; } = new(1990, 01, 1);
 
     /// <summary>
     ///     Gets the max value for this instance.
@@ -58,4 +69,21 @@ public class OnlinerDate : OnlinerBase<DateOnly>, IOnlineDate, IShadowDate
     ///     Gets the min value for this instance.
     /// </summary>
     public override DateOnly InstanceMinValue => AttributeMinSet ? AttributeMinimum : MinValue;
+
+    /// <summary>
+    ///    Gets the max value for this instance depnending on target platform.
+    /// </summary>
+    /// <returns>New instance of DateOnly type with value respective of target platform</returns>
+    public DateOnly CreateDefaultValue()
+    {        
+        switch(this.Parent.GetConnector().TargetPlatformMoniker)
+        {
+            case "tia":
+                return new DateOnly(1990, 01, 1);
+            case "ax":
+                return new DateOnly(1970, 01, 1);
+            default:
+                return new DateOnly(1970, 01, 1);
+        }
+    }
 }

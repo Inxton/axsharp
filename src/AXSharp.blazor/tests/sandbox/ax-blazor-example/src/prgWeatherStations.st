@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 {#ix-attr:[Container(Layout.Stack)]}
 CLASS prgWeatherStations
     VAR PUBLIC

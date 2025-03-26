@@ -1,9 +1,9 @@
 ﻿// AXSharp.CompilerTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Xunit;
 using AXSharp.Compiler;
@@ -22,6 +22,7 @@ using AX.ST.Semantic.Model;
 using AX.ST.Semantic.Pragmas;
 using AX.ST.Syntax.Tree;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using AXSharp.CompilerTests;
 
 namespace AXSharp.Compiler.Tests
 {
@@ -65,7 +66,7 @@ namespace AXSharp.Compiler.Tests
 
             var actual = new AXSharpProject(axproject,
                 new[] { builder },
-                target);
+                target, new CompilerTestOptions(), new CompilerTestOptions());
 
             actual.Generate();
 
@@ -89,6 +90,8 @@ namespace AXSharp.Compiler.Tests
             public string OutputFileSuffix => ".py";
             public string BuilderType => "Mock";
             public Compilation Compilation { get; }
+            public ICompilerOptions? CompilerOptions { get; }
+            public eCommAccessibility TypeCommAccessibility { get; } = eCommAccessibility.ReadWrite;
 
             #region ICombineThreeVisitor
             /// <summary>
@@ -380,6 +383,16 @@ namespace AXSharp.Compiler.Tests
             }
 
             public void GenerateResources()
+            {
+                
+            }
+
+            public void GenerateCompanionData()
+            {
+               
+            }
+
+            public void InstallAXSharpDependencies(IEnumerable<object> dependencies)
             {
                 
             }

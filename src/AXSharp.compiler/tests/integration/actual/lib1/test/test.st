@@ -4,6 +4,7 @@ USING MyLibrary;
 NAMESPACE MyTest
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS MyTestFixture
 
         VAR PROTECTED

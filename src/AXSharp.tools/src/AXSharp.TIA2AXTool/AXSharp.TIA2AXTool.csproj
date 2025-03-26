@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	  <!--NuGet Specific part-->
+	  <Description>Generator of TwinObjects from TIA datablocks</Description>
+	  <PackAsTool>True</PackAsTool>
+	  <ToolCommandName>tia2ax</ToolCommandName>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Title>AX# compiler CLI</Title>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/inxton/axsharp/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+	
+	<ItemGroup>
+		<PackageReference Include="CommandLineParser"/>   
+	</ItemGroup>
+	
+		<ItemGroup>
+    <ProjectReference Include="..\..\..\AXSharp.connectors\src\AXSharp.TIA.Connector\AXSharp.TIA2AXSharp.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

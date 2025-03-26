@@ -1,5 +1,8 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
+
+        //myArrayComplexNested: ARRAY[0..10] OF complexArrayItemNested; 
+
         myBOOL	        :       BOOL	      ;
         myBYTE	        :       BYTE	      ;
         myWORD	        :       WORD	      ;
@@ -27,6 +30,7 @@ PROGRAM MyProgram
         myWCHAR	        :       WCHAR	      ;
         mySTRING	        :   STRING	      ;
         myWSTRING	    :       WSTRING	      ;
+
         mins : full_of_primitives;
         maxs : full_of_primitives;
 
@@ -34,19 +38,40 @@ PROGRAM MyProgram
         maxsmatch : full_of_primitives_match;
 
         myColors : Colors;
+
+        Hierarchy : hierarchy;
+
+
+        myDATE_leap_febr	        :       DATE	      ;
+        myLDATE_leap_febr	        :       LDATE	      ;
+        myDATE_AND_TIME_leap_febr   :      DATE_AND_TIME ;
+        myLDATE_AND_TIME_leap_febr  :      LDATE_AND_TIME;
+
+        myDATE_leap_late	        :       DATE	      ;
+        myLDATE_leap_late	        :       LDATE	      ;
+        myDATE_AND_TIME_leap_late   :      DATE_AND_TIME ;
+        myLDATE_AND_TIME_leap_late  :      LDATE_AND_TIME;
+        //myArrayString: ARRAY[0..10] OF STRING ;
+        //myArrayComplex: ARRAY[0..10] OF complexArrayItem; 
+
     END_VAR
 
     VAR
-
+        _item : complexArrayItem;
     END_VAR
 
     VAR_TEMP
 
     END_VAR
+   
+    //myArrayComplex[1] :=  _item;
+    //myArrayString[1] := 'ahoj2';
 
-    //myDATE := DATE#1970-01-01;
-    myColors := Colors#GREEN;
-    mins.myBOOL	            :=  false    ;
+    
+
+    //myDATE := DATE#2025-02-27;
+    //myColors := Colors#GREEN;
+    //mins.myBOOL	            :=  false    ;
     mins.myBYTE	            :=  BYTE#2#0    ;
     mins.myWORD	            :=  WORD#0    ;
     mins.myDWORD	        :=  DWORD#16#0    ;
@@ -163,4 +188,15 @@ PROGRAM MyProgram
     maxsmatch.myWCHAR	        := maxs.myWCHAR	         =  myWCHAR	        ;
     maxsmatch.mySTRING	        := maxs.mySTRING	     =  mySTRING	    ;   
     maxsmatch.myWSTRING	        := maxs.myWSTRING	     =  myWSTRING	    ;
+
+
+    myDATE_leap_febr	        :=  DATE#2024-02-29;
+    myLDATE_leap_febr	        :=  LDATE#2024-02-29;
+    myDATE_AND_TIME_leap_febr   :=  DATE_AND_TIME#2024-02-29-0:0:0.0;
+    myLDATE_AND_TIME_leap_febr  :=  LDATE_AND_TIME#2024-02-29-0:0:0.0;
+
+    myDATE_leap_late	        :=   DATE#2024-03-05;
+    myLDATE_leap_late	        :=   LDATE#2024-03-05;
+    myDATE_AND_TIME_leap_late   :=   DATE_AND_TIME#2024-03-05-0:0:0.0;
+    myLDATE_AND_TIME_leap_late  :=   LDATE_AND_TIME#2024-03-05-0:0:0.0;
 END_PROGRAM

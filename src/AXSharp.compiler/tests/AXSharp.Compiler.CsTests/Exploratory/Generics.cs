@@ -10,6 +10,7 @@ using System;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
+using System.Globalization;
 using AXSharp.Connector.Localizations;
 
 
@@ -53,6 +54,16 @@ namespace AXSharp.Compiler.CsTests.Exploratory
         public void Poll()
         {
             throw new NotImplementedException();
+        }
+
+        public string GetAttributeName(CultureInfo culture)
+        {
+            return this.Translate(this.AttributeName, culture);
+        }
+
+        public string GetHumanReadable(CultureInfo culture)
+        {
+            return this.Translate(this.HumanReadable, culture);
         }
 
         public Translator Interpreter { get; }
@@ -107,6 +118,11 @@ namespace AXSharp.Compiler.CsTests.Exploratory
         }
 
         public Task PlainToShadow<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AnyChangeAsync<T>(T plain)
         {
             throw new NotImplementedException();
         }

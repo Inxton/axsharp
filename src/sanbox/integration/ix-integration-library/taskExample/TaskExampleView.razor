@@ -1,4 +1,5 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<TaskExample>
 
     <div class="btn-group form-group mb-2">
@@ -57,12 +58,11 @@
 
     public string ButtonClass = "btn-primary";
 
-   public bool IsTaskRunning => false;
+    public bool IsTaskRunning => false;
     public bool IsTaskAborted => false;
 
-    protected override void OnInitialized()
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Component);
-        
+        StartPolling(Component);
     }
 }

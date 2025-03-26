@@ -43,6 +43,9 @@ Ixr support all these special characters:
 ``!"#$'()*+,-.:;<=>?@[\]^_`{|}~€``  
 No other characters can be used.
 
+
+[See also](../connectors/README.md#controller-string-localization)
+
 ## Notes
 
 Ixr is still in early development, so some features may be missing and bugs may occur. 

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS MAIN
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Hello#> <#World#>"}
@@ -35,6 +36,15 @@ CLASS MAIN
         groupBox_test: GroupBox_other;
         cu00: CU00x;
         cuBase: CUBase;
+
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        OverridedSimpleStruct : stSimplePrimitive;
+
+        InnerOverridedStruct : stRenderTemplateOverride;
+
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        OverridedTag : WORD;
+
     END_VAR
     
 END_CLASS

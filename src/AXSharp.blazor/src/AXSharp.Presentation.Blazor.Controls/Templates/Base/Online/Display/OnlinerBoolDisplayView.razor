@@ -2,14 +2,16 @@
 @inherits TemplateBaseOnline<bool>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-
-    <label for="@(ComponentId)" >@Onliner.AttributeName</label>
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <div class="form-check form-switch">
-        <input id="@(ComponentId)"
+        <input id="@ComponentId"
+               disabled
                class="form-check-input @AccessStatus"
                type="checkbox"
                @bind="Onliner.Cyclic"
-               disabled>
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top"
+               data-bs-custom-class="custom-tooltip"
+               data-bs-title="@ToolTipText">
     </div>
-
 </TemplateView>

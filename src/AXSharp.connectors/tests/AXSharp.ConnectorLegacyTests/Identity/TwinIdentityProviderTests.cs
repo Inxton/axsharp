@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using NUnit.Framework;
 using AXSharp.Connector.Identity;
@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.Localizations;
 using AXSharp.Connector.ValueTypes;
+using System.Globalization;
 
 namespace AXSharp.Connector.Identity.Tests
 {
@@ -37,8 +38,8 @@ namespace AXSharp.Connector.Identity.Tests
 
             //-- Assert
             var actual = identityProvider.GetTwinByIdentity(1000);
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
         }
 
@@ -57,12 +58,12 @@ namespace AXSharp.Connector.Identity.Tests
 
             //-- Assert
             var actual = identityProvider.GetTwinByIdentity(1000);
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
             actual = identityProvider.GetTwinByIdentity(2000);
-            Assert.AreEqual("s2000", actual.Symbol);
-            Assert.AreEqual("n2000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s2000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n2000"));
         }
 
         [Test()]
@@ -83,17 +84,17 @@ namespace AXSharp.Connector.Identity.Tests
             await identityProvider.SortIdentitiesAsync();
 
             //-- Assert
-            Assert.AreEqual(2, identityProvider.IdentitiesCount);
+            Assert.That(identityProvider.IdentitiesCount, Is.EqualTo(2));
 
             var actual = identityProvider.GetTwinByIdentity(1000);            
-            Assert.AreEqual("s1000", actual.Symbol);
-            Assert.AreEqual("n1000", actual.AttributeName);
+            Assert.That(actual.Symbol, Is.EqualTo("s1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("n1000"));
 
 
             actual = identityProvider.GetTwinByIdentity(255854);
-            Assert.AreEqual(2, identityProvider.IdentitiesCount);
-            Assert.AreEqual("x1000", actual.Symbol);
-            Assert.AreEqual("x1000", actual.AttributeName);      
+            Assert.That(identityProvider.IdentitiesCount, Is.EqualTo(2));
+            Assert.That(actual.Symbol, Is.EqualTo("x1000"));
+            Assert.That(actual.AttributeName, Is.EqualTo("x1000"));      
         }
     }
 
@@ -192,6 +193,16 @@ namespace AXSharp.Connector.Identity.Tests
             throw new NotImplementedException();
         }
 
+        public string GetAttributeName(CultureInfo culture)
+        {
+            return this.Translate(this.AttributeName, culture);
+        }
+
+        public string GetHumanReadable(CultureInfo culture)
+        {
+            return this.Translate(this.HumanReadable, culture);
+        }
+
         public Connector GetConnector()
         {
             throw new NotImplementedException();
@@ -213,6 +224,11 @@ namespace AXSharp.Connector.Identity.Tests
         }
 
         public Task PlainToShadow<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AnyChangeAsync<T>(T plain)
         {
             throw new NotImplementedException();
         }
@@ -294,6 +310,16 @@ namespace AXSharp.Connector.Identity.Tests
 
         public string HumanReadable => throw new NotImplementedException();
 
+        public string GetAttributeName(CultureInfo culture)
+        {
+            return this.Translate(this.AttributeName, culture);
+        }
+
+        public string GetHumanReadable(CultureInfo culture)
+        {
+            return this.Translate(this.HumanReadable, culture);
+        }
+
         public IEnumerable<ITwinObject> GetChildren()
         {
             throw new NotImplementedException();
@@ -335,6 +361,11 @@ namespace AXSharp.Connector.Identity.Tests
         }
 
         public Task PlainToShadow<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AnyChangeAsync<T>(T plain)
         {
             throw new NotImplementedException();
         }

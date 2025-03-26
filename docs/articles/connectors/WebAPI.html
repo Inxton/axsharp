@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>WebAPI Connector | System.Dynamic.ExpandoObject </title>
+    <title>S71500 WebAPI Connector Documentation | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="WebAPI Connector | System.Dynamic.ExpandoObject ">
+    <meta name="title" content="S71500 WebAPI Connector Documentation | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
     <link rel="shortcut icon" href="../../images/favicon.ico">
@@ -77,12 +77,49 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="webapi-connector">WebAPI Connector</h1>
+<h1 id="s71500-webapi-connector-documentation">S71500 WebAPI Connector Documentation</h1>
 
 <h2 id="api"><a href="../../api/AXSharp.Connector.S71500.WebApi.html">API</a></h2>
-<p>Provides connectivity to S7-15XX PLC systems using WebAPI interface.</p>
+<p>This connector offers an interface to interact with S7-15XX PLC systems through the WebAPI.</p>
+<p>For details how to make the data available see <a href="https://console.simatic-ax.siemens.io/docs/sld/extern-accessibility">extern accessibility</a>.</p>
+<p>Here is an example of how to create an instance of this connector:</p>
 <pre><code class="lang-C#">public static &lt;PLC_TWIN_TYPE&gt; Plc { get; } = new (ConnectorAdapterBuilder.Build().CreateWebApi(Environment.GetEnvironmentVariable(&quot;AXTARGET&quot;) ?? &quot;10.10.101.1&quot;, &quot;Everybody&quot;, &quot;&quot;, true));
 </code></pre>
+<h2 id="considerations-for-webapi-connector-performance">Considerations for WebAPI Connector Performance</h2>
+<p>When working with S7-1500 based PLC systems, especially hardware-based ones, there are limitations regarding the volume of items that can be communicated over a specific communication interface. To prevent performance degradation, it's vital to prudently manage the number of PLC items your application uses at any given time. It is recommended to utilize polling instead of an automatic variable subscription.</p>
+<p>Here is an example on how to set polling subscription mode:</p>
+<pre><code class="lang-C#">Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
+</code></pre>
+<p>For more details about polling within your components, see <a href="../blazor/LIBRARIES.html#polling-data-from-the-plc">Polling Data from the Controller in Components</a> and <a href="README.html#polling">General Polling</a>.</p>
+<h3 id="monitoring-and-logging">Monitoring and Logging</h3>
+<p>The WebAPI connector comes with a built-in logging feature to provide insights into communication performance. You can use any Serilog logger configuration to capture the logs from the connector. The default logging level is <code>Information</code>, which provides basic details about booting, possible communication errors, and warnings. If you need more granular data to debug performance issues, consider setting the logging level to <code>Debug</code>. For even more comprehensive information, use the <code>Verbose</code> level.</p>
+<p>Below is an example of how to set a custom logger for the connector:</p>
+<pre><code class="lang-C#">// This configuration logs to both console and `connector.log` file with `Debug` logging level.
+Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+    .WriteTo
+    .Console()
+    .WriteTo
+    .File($&quot;connector.log&quot;,
+        outputTemplate: &quot;{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}&quot;,
+        fileSizeLimitBytes: 100000)
+    .MinimumLevel.Debug()
+    .CreateLogger());
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><strong>Enabling monitoring will impact the connector perfomance.</strong></p>
+</div>
+<h2 id="performance">Performance</h2>
+<p>Communication via WebAPI has inherent performance constraints based on the target system, request frequency, and payload size. The S71500.WebAPI connector tackles the 64kB limit for single requests by fragmenting them into manageable chunks. However, there is a restriction on the number of requests that can be sent to the controller simultaneously. The maximum threshold is four simultaneous requests, though this can be reduced. Any requests exceeding this limit will be queued and processed after a specified waiting period.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It's worth noting that the controller might be communicating with other devices like HMI or OPC-UA, further intensifying the overall communication load.</p>
+</div>
+<p>Here's a C# code snippet demonstrating how to adjust the concurrent request limit and the associated delay:</p>
+<pre><code class="lang-C#">Entry.Plc.Connector.ConcurrentRequestMaxCount = 1; // Reducing to a single request 
+Entry.Plc.Connector.ConcurrentRequestDelay = 100; // Setting the waiting period to 100ms
+</code></pre>
+
 </article>
           </div>
 
@@ -91,12 +128,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/connectors/WebAPI.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Inxton/axsharp/blob/dev/docfx/articles/connectors/WebAPI.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
@@ -111,7 +148,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+       Generated by DocFx. © MTS spol. s r.o., MTS spol. s r.o., and awesome contributors
       
           </div>
         </div>

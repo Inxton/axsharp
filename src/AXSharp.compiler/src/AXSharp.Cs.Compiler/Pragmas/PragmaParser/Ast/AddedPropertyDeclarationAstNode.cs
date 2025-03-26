@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Irony.Ast;
 using Irony.Interpreter.Ast;
@@ -33,7 +33,11 @@ internal class AddedPropertyDeclarationAstNode : AstNode
                 v.Product.Product = $"private {Type} _{Identifier};" +
                             $"\n{AccessQualifier} {Type} {Identifier} " +
                             $"{{ " +
-                            $"get => string.IsNullOrEmpty(_{Identifier}) ? SymbolTail : this.Translate(_{Identifier}).Interpolate(this); set => _{Identifier} = value; " +
+                            $"get => string.IsNullOrEmpty(_{Identifier}) ? SymbolTail : _{Identifier}.Interpolate(this).CleanUpLocalizationTokens(); set => _{Identifier} = value; " +
+                            $"}}"+
+                            $"{AccessQualifier} {Type} Get{Identifier}(System.Globalization.CultureInfo culture)" +
+                            $"{{"+
+                            $"return this.Translate(_{Identifier}, culture).Interpolate(this);" +
                             $"}}";
             }
             else

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTestMultipleNested
     VAR PUBLIC
         {#ix-attr:[Container(Layout.Tabs)]}

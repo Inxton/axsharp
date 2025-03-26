@@ -9,6 +9,7 @@ NAMESPACE Simatic.Ax.StateFramework
         ) := STATUS_NO_ERR;
     END_TYPE
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC using_type_named_values
         VAR PUBLIC
             LColors : StateControllerStatus;

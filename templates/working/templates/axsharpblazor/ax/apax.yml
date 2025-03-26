@@ -1,0 +1,23 @@
+name: "axsharpblazor"
+version: 0.0.0
+type: app
+targets:
+  - "1500"  
+  - plcsim  
+devDependencies:
+  "@ax/sdk": 2311.0.3  
+variables:
+  AXTARGET: 192.168.0.4 # Replace with the IP of your target system.
+  AXTARGETPLATFORMINPUT: './bin/plcsim/'  #Replace with respective target platform.
+  APAX_BUILD_ARGS: [ -d ] 
+
+scripts:
+  ixc: 
+  - dotnet tool restore --no-cache
+  - dotnet ixc -o ..\\ixsharpblazor.twin
+  postbuild: apax ixc
+  download :   
+    - apax install 
+    - apax build  
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r   
+

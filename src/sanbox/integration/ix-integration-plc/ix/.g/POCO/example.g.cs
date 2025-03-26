@@ -1,9 +1,15 @@
 using System;
+using AXSharp.Abstractions.Presentation;
+using AXSharp.Connector;
 
 namespace Pocos
 {
     public partial class example : AXSharp.Connector.IPlain
     {
+        public example()
+        {
+        }
+
         public test_primitive primitives_stack { get; set; } = new test_primitive();
         public test_primitive primitives_wrap { get; set; } = new test_primitive();
         public test_primitive primitives_tabs { get; set; } = new test_primitive();

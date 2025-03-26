@@ -1,16 +1,19 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
-@typeparam T
 @inherits TemplateBaseShadow<T>
+@typeparam T
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-
-    <label for="@ComponentId" >@Onliner.AttributeName</label>
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <input id="@ComponentId"
-        readonly="@IsReadOnly"
-        class="w-100 form-control @AccessStatus"
-        type="@IsNumeric(typeof(T))"
-            step=any
-            @bind=@Onliner.Shadow /> 
+           readonly="@IsReadOnly"
+           class="w-100 form-control @AccessStatus"
+           type="@IsNumeric(typeof(T))"
+           step="any"
+           @bind="@Onliner.Shadow"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
 </TemplateView>
 @code
 {

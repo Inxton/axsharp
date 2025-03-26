@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -23,5 +23,17 @@
     <ProjectReference Include="..\..\..\..\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\..\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
     <ProjectReference Include="..\..\..\..\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".g\Onliners\issues\" />
+    <Folder Include="certs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ax\certs\Communication.cer" Link="certs\Communication.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ax\certs\S71516-hw.cer" Link="certs\S71516-hw.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

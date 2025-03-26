@@ -1,11 +1,12 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
+using Newtonsoft.Json.Linq;
 
 namespace AXSharp.Connector.S71500.WebApi;
 
@@ -41,7 +42,7 @@ public class WebApiDateTime : OnlinerDateTime, IWebApiPrimitive
 
     /// <inheritdoc />
     ApiPlcWriteRequest IWebApiPrimitive.PeekPlcWriteRequestData => _plcWriteRequestData ?? WebApiConnector.CreateWriteRequest(Symbol, CyclicToWrite, _webApiConnector.DBName);
-    
+
     /// <inheritdoc />
     ApiPlcReadRequest IWebApiPrimitive.PlcReadRequestData
     {
@@ -50,7 +51,6 @@ public class WebApiDateTime : OnlinerDateTime, IWebApiPrimitive
             _plcReadRequestData = WebApiConnector.CreateReadRequest(Symbol, _webApiConnector.DBName);
             return _plcReadRequestData;
         }
-
     }
 
     /// <inheritdoc />
@@ -58,7 +58,21 @@ public class WebApiDateTime : OnlinerDateTime, IWebApiPrimitive
     {
         get
         {
-            _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+            switch (_webApiConnector.TargetPlatform)
+            {
+                case eTargetProjectPlatform.TIAPORTAL:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetTIAJObjectFromDate(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+
+                case eTargetProjectPlatform.SIMATICAX:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+
+                default:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+            }
+
             return _plcWriteRequestData;
         }
     }
@@ -66,25 +80,65 @@ public class WebApiDateTime : OnlinerDateTime, IWebApiPrimitive
     /// <inheritdoc />
     public void Read(string value)
     {
-        UpdateRead(GetFromBinary(value));
+        switch (_webApiConnector.TargetPlatform)
+        {
+            case eTargetProjectPlatform.TIAPORTAL:
+                UpdateRead(ParseFromTIAJson(value));
+                break;
+
+            case eTargetProjectPlatform.SIMATICAX:
+                UpdateRead(GetFromBinary(value));
+                break;
+
+            default:
+                UpdateRead(GetFromBinary(value));
+                break;
+        }
     }
 
     /// <inheritdoc />
     public override async Task<DateTime> GetAsync()
     {
-        var dt = await _webApiConnector.ReadAsync<long>(this);
-        return GetFromBinary(dt);
+        return await _webApiConnector.ReadAsync<DateTime>(this);
     }
 
-    private DateTime GetFromBinary(string val)
+    private DateTime ParseFromTIAJson(string value)
     {
-        return GetFromBinary(long.Parse(val));
+        try
+        {
+            var val = Newtonsoft.Json.JsonConvert.DeserializeObject<DateTimeTia>(value);
+            return new DateTime(val.year, val.month, val.day, val.hour, val.minute, (int)(val.second), (int)((val.second * 1000) % 1000), DateTimeKind.Local);
+        }
+        catch (Exception)
+        {
+            //swallow
+        }
+
+        return MinValueTIA;
+    }
+
+    private JObject GetTIAJObjectFromDate(DateTime dateTime)
+    {
+        if (dateTime <= MinValueTIA)
+            dateTime = MinValueTIA;
+
+        return JObject.FromObject(new DateTimeTia(dateTime));
+    }
+
+    private DateTime GetFromBinary(string value)
+    {
+        if (long.TryParse(value, out var val))
+        {
+            return GetFromBinary(val);
+        }
+
+        return DateTime.MinValue;
     }
 
     private DateTime GetFromBinary(long val)
     {
         var dt = val / 100;
-        return DateTime.FromBinary(dt).AddYears(1969);
+        return dt.ToUtcDateTime(); // DateTime.FromBinary(dt).AddYears(1969);
     }
 
     private string GetFromDate(DateTime dateTime)
@@ -99,7 +153,31 @@ public class WebApiDateTime : OnlinerDateTime, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<DateTime> SetAsync(DateTime value)
     {
-        await _webApiConnector.WriteAsync(this, GetFromDate(value));
-        return value;
+        return await _webApiConnector.WriteAsync(this, value);
     }
+}
+
+public class DateTimeTia
+{
+    public DateTimeTia()
+    {
+    }
+
+    public DateTimeTia(DateTime fromDateTime)
+    {
+        this.year = fromDateTime.Year;
+        this.month = fromDateTime.Month;
+        this.day = fromDateTime.Day;
+        this.hour = fromDateTime.Hour;
+        this.minute = fromDateTime.Minute;
+        this.second = (double)fromDateTime.Second;
+        this.second = second + (((double)fromDateTime.Millisecond) / 1000);
+    }
+
+    public int year { get; set; }
+    public int month { get; set; }
+    public int day { get; set; }
+    public int hour { get; set; }
+    public int minute { get; set; }
+    public double second { get; set; }
 }

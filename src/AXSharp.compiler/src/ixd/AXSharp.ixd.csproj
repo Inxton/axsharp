@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    
     <RootNamespace>AXSharp.ixc_doc</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -10,11 +10,11 @@
     <ToolCommandName>ixd</ToolCommandName>
 
 	  <!-- NuGet Common part-->
-	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <Authors>ix-ax</Authors>
-	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <Title>AX# documentation compiler CLI</Title>
@@ -25,7 +25,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>
 		  Release notes are published here:
-		  https://github.com/ix-ax/axsharp/releases
+		  https://github.com/inxton/axsharp/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -47,13 +47,11 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-		<PackageReference Include="YamlDotNet" Version="13.0.0" />
-		<PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+		<PackageReference Include="Google.Protobuf" />
+		<PackageReference Include="LibGit2Sharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="YamlDotNet" />
+		<PackageReference Include="CommandLineParser" />    
 	</ItemGroup>
 
 	

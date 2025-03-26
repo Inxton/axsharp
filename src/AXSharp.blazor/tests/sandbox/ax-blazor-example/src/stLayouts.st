@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stLayouts
     VAR
         {#ix-set:AttributeName = "B1"}

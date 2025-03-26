@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 namespace AXSharp.Connector.Onliners.Tests
 {
@@ -33,8 +33,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Edit = 'w';
 
             //-- Assert
-            Assert.AreEqual('w', Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};\0;w", logs);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo('w'));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};\0;w"));
         }
 
         [Test]
@@ -46,11 +46,11 @@ namespace AXSharp.Connector.Onliners.Tests
             iShadow.Value = 's';
             iOnliner.Value = 'x';
 
-            Assert.AreEqual('x', this.Onliner.Cyclic);
-            Assert.AreEqual('x', this.Onliner.GetAsync().Result);
-            Assert.AreEqual('s', this.Onliner.Shadow);
+            Assert.That(this.Onliner.Cyclic, Is.EqualTo('x'));
+            Assert.That(this.Onliner.GetAsync().Result, Is.EqualTo('x'));
+            Assert.That(this.Onliner.Shadow, Is.EqualTo('s'));
         }
-        
+
         [Test]
         public void ChangeValueOverShadowInterfaceTest()
         {
@@ -60,9 +60,9 @@ namespace AXSharp.Connector.Onliners.Tests
             iOnliner.Value = 'f';
             iShadow.Value = 'u';
 
-            Assert.AreEqual('f', this.Onliner.Cyclic);
-            Assert.AreEqual('f', this.Onliner.GetAsync().Result);
-            Assert.AreEqual('u', this.Onliner.Shadow);
+            Assert.That(this.Onliner.Cyclic, Is.EqualTo('f'));
+            Assert.That(this.Onliner.GetAsync().Result, Is.EqualTo('f'));
+            Assert.That(this.Onliner.Shadow, Is.EqualTo('u'));
         }
 
         [Test()]
@@ -72,8 +72,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Shadow = 'g';
 
             //-- Assert
-            Assert.AreEqual('g', Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};\0;g", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo('g'));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};\0;g"));
         }
 
         [Test()]
@@ -84,11 +84,11 @@ namespace AXSharp.Connector.Onliners.Tests
             var max = OnlinerWChar.MaxValue;
             var mid = (char)(OnlinerWChar.MaxValue / 2);
             //-- Act  
-            Assert.IsTrue(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsTrue(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsTrue(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            //Assert.IsFalse(Onliner.Validator.Validate((byte)(max), System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            //Assert.IsFalse(Onliner.Validator.Validate((byte)(min), System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            //Assert.That(Onliner.Validator.Validate((byte)(max), System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            //Assert.That(Onliner.Validator.Validate((byte)(min), System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
 
         [Test()]
@@ -102,11 +102,11 @@ namespace AXSharp.Connector.Onliners.Tests
             var max = (char)Onliner.AttributeMaximum;
             var mid = 'ú';
             //-- Act  
-            Assert.IsTrue(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsTrue(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsTrue(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate((char)(max + 1), System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate((char)(min - 1), System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate((char)(max + 1), System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            Assert.That(Onliner.Validator.Validate((char)(min - 1), System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
 
         [Test()]
@@ -121,8 +121,8 @@ namespace AXSharp.Connector.Onliners.Tests
 
 
             //-- Act  
-            Assert.IsFalse(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
 
         [Test]
@@ -130,7 +130,7 @@ namespace AXSharp.Connector.Onliners.Tests
         {
             Onliner.SetAsync((char)(100)).Wait();
 
-            Assert.AreEqual(((char)(100)), Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo((char)(100)));
         }
     }
 }

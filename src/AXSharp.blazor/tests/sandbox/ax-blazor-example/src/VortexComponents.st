@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS IxComponent
     VAR PUBLIC
         ix_bool : BOOL;

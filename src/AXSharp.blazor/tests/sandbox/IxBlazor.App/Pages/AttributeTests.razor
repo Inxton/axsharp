@@ -1,0 +1,33 @@
+﻿@page "/attributeTests"
+<h3>WrapLayout</h3>
+
+
+<div>
+    <p>------- "TAG Display"--------------</p>
+</div>
+<RenderableContentControl Presentation="Display" Context="@Entry.Plc.MAINC.OverridedTag" />
+
+<div>
+    <p>------- "TAG Control"--------------</p>
+</div>
+<RenderableContentControl Presentation="Control" Context="@Entry.Plc.MAINC.OverridedTag" />
+
+<div>
+    <p>------- "STRUCT Display"--------------</p>
+</div>
+<RenderableContentControl Presentation="Display" Context="@Entry.Plc.MAINC.OverridedSimpleStruct" />
+
+<div>
+    <p>------- "STRUCT Control"--------------</p>
+</div>
+<RenderableContentControl Presentation="Control" Context="@Entry.Plc.MAINC.OverridedSimpleStruct" />
+
+<div>
+    <p>------- "INNER STRUCT Display"--------------</p>
+</div>
+<RenderableContentControl Presentation="Display" Context="@Entry.Plc.MAINC.InnerOverridedStruct" />
+
+<div>
+    <p>------- "INNER STRUCT Control"--------------</p>
+</div>
+<RenderableContentControl Presentation="Control" Context="@Entry.Plc.MAINC.InnerOverridedStruct" />

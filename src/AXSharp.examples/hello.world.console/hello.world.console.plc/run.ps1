@@ -2,7 +2,7 @@ $TARGET_IP = "192.168.0.1"
 $TARGET_PLATFORM = ".\bin\1500"
 
 # Installs dependencies
-apax install -L
+apax install
 
 # Runs ixc compiler directly from source
 dotnet run --project ..\..\..\AXSharp.compiler\src\ixc\AXSharp.ixc.csproj --framework net7.0

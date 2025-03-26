@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!--NuGet Specific part-->
+		<Description> Provides some features of AX# for TIA portal based projects.</Description>
+
+		<!-- NuGet Common part-->
+		<PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>inxton</Authors>
+		<Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
+		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Title>Ix Web API</Title>
+		<PackageIcon>icon_128_128.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReleaseNotes>
+			Release notes are published here:
+			https://github.com/inxton/axsharp/releases
+		</PackageReleaseNotes>
+		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
+		<ProjectReference Include="..\AXSharp.Connector\AXSharp.Connector.csproj" />
+	</ItemGroup>
+  
+
+  <ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\NUGET-README.md" Link="NUGET-README.md">
+			<PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

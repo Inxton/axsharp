@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stSimplePrimitive
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Test Integer#>"}

@@ -23,5 +23,10 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             UpdateShadowValuesOnChange(Onliner);
             return base.OnInitializedAsync();
         }
+
+        public override void ConfigurePolling()
+        {
+            // No polling for shadow values.
+        }
     }
 }

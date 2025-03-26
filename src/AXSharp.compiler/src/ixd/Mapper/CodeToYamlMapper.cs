@@ -7,7 +7,7 @@ using AXSharp.ixc_doc.Schemas;
 using System.Xml.Linq;
 using AXSharp.ixc_doc.Visitors;
 using NuGet.Packaging;
-
+using Microsoft.CodeAnalysis;
 
 namespace AXSharp.ixc_doc.Mapper
 {
@@ -21,6 +21,9 @@ namespace AXSharp.ixc_doc.Mapper
 
         public Item PopulateItem(IDeclaration declaration)
         {
+            var gitPath = Helpers.Helpers.FindGitRepositoryRoot(((SourceLocation)declaration.Location).SourceText.Filename);
+            (string? branch, string? repo) = Helpers.Helpers.GetGitBranchAndRepo(gitPath);
+
             return new Item
             {
                 Uid = Helpers.Helpers.GetBaseUid(declaration),
@@ -31,8 +34,19 @@ namespace AXSharp.ixc_doc.Mapper
                 Summary = _yh.GetComments(declaration.Location).summary,
                 Remarks = _yh.GetComments(declaration.Location).remarks,
                 //Assemblies = new string[] { _yh.GetAssembly(_yh.PathToProjectFile) },
-                
-                
+                Source = new Source
+                {
+                    Remote = new Remote
+                    {
+                        Path = ((SourceLocation)declaration.Location).SourceText.Filename.Replace(gitPath + "\\", ""),
+                        Branch = branch,
+                        Repo = repo
+                    },
+                    Id = Helpers.Helpers.GetBaseUid(declaration.FullyQualifiedName),
+                    Path = ((SourceLocation)declaration.Location).SourceText.Filename.Replace(gitPath + "\\", ""),
+                    StartLine = Helpers.Helpers.GetLineNumber(declaration.Location.FullSpan.Start, ((SourceLocation)declaration.Location).SourceText.Lines)
+                }
+
             };
         }
 

@@ -1,4 +1,5 @@
 NAMESPACE makereadonce
+    {S7.extern=ReadWrite}
     CLASS PUBLIC MembersWithMakeReadOnce
         VAR PUBLIC
             {#ix-attr:[ReadOnce()]}
@@ -10,7 +11,7 @@ NAMESPACE makereadonce
             someotherComplexMember : ComplexMember;
         END_VAR    
     END_CLASS    
-
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ComplexMember
         VAR PUBLIC            
             someMember : STRING;

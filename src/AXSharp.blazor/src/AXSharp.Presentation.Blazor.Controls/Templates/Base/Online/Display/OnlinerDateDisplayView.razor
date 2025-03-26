@@ -2,13 +2,15 @@
 @inherits TemplateBaseOnline<DateOnly>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-
-    <label for="@(ComponentId)" >@Onliner.AttributeName</label>
-    <input id="@(ComponentId)" 
-            readonly="readonly"
-            class="w-100 form-control @AccessStatus"
-            style=@(IsReadOnly? "" : "background-color:transparent")
-            type="date"
-            value=@Onliner.Cyclic />
-
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <input id="@ComponentId"
+           readonly="readonly"
+           class="w-100 form-control @AccessStatus"
+           style="@(IsReadOnly? "" : "background-color:transparent")"
+           type="text"
+           value="@Onliner.Cyclic"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
 </TemplateView>

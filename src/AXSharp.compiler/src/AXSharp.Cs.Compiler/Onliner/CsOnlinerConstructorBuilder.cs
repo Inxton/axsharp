@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Globalization;
 using System.Text;
@@ -11,6 +11,7 @@ using AX.ST.Semantic;
 using AX.ST.Semantic.Model;
 using AX.ST.Semantic.Model.Declarations;
 using AX.ST.Semantic.Model.Declarations.Types;
+using AX.ST.Syntax.Parser;
 using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Compiler.Cs.Helpers.Onliners;
@@ -93,7 +94,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
             }
 
             AddToSource(fieldDeclaration.SetProperties());
-            AddToSource(fieldDeclaration.AddAnnotations());
+            AddToSource(fieldDeclaration.AddAnnotations(this.SourceBuilder));
         }
     }
 
@@ -105,12 +106,37 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
     public virtual void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
+
         if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
         {
-            AddToSource($"{semantics.Name}");
-            semantics.Type.Accept(visitor, this);
-            AddToSource($"(this, \"\", \"{semantics.Name}\");");
-        }
+            switch (semantics.Type)
+            {
+                case IArrayTypeDeclaration array:
+                    AddArrayMemberInitialization(array, semantics, visitor);
+                    break;
+                case IEnumTypeDeclaration @enum:
+                    AddMemberInitialization(@enum, semantics);
+                    break;
+                case INamedValueTypeDeclaration namedValue:
+                    AddMemberInitialization(namedValue, semantics, visitor);
+                    break;
+                case IScalarTypeDeclaration scalar:
+                    AddMemberInitialization(scalar, semantics);
+                    break;
+                case IStringTypeDeclaration @string:
+                    AddMemberInitialization(@string, semantics);
+                    break;
+                case IClassDeclaration @class:
+                    AddMemberInitialization(@class, semantics, visitor);
+                    break;
+                case IStructuredTypeDeclaration @struct:
+                    AddMemberInitialization(@struct, semantics, visitor);
+                    break;
+            }
+
+            AddToSource(semantics.SetProperties());
+            AddToSource(semantics.AddAnnotations(this.SourceBuilder));
+        }        
     }
 
     public void CreateEnumTypeDeclaration(IEnumTypeDeclaration enumTypeDeclaration, IxNodeVisitor visitor)
@@ -138,14 +164,22 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     }
 
     public static CsOnlinerConstructorBuilder Create(IxNodeVisitor visitor, IClassDeclaration semantics,
-        ISourceBuilder sourceBuilder, bool isExtended)
+        ISourceBuilder sourceBuilder, bool isExtended, AXSharpProject project)
     {
         var builder = new CsOnlinerConstructorBuilder(sourceBuilder);
 
 
         builder.AddToSource(
             $"public {semantics.Name}({typeof(ITwinObject).n()} parent, string readableTail, string symbolTail)");
-        if (isExtended) builder.AddToSource(": base(parent, readableTail, symbolTail)");
+
+
+        if (isExtended)
+        {
+            builder.AddToSource(project.UseBaseSymbol
+                ? ": base(parent, readableTail, symbolTail + \".$base\") "
+                : ": base(parent, readableTail, symbolTail)");
+        }
+
 
         builder.AddToSource("{");
 
@@ -192,9 +226,43 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 			HumanReadable = {typeof(Connector.Connector).n()}.CreateHumanReadable(parent.HumanReadable, readableTail);
             Symbol = {typeof(Connector.Connector).n()}.CreateSymbol(parent.Symbol, symbolTail);");
 
+        builder.AddToSource(@$"PreConstruct(parent, readableTail, symbolTail);");
+
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
         builder.AddToSource("parent.AddChild(this);");
         builder.AddToSource("parent.AddKid(this);");
+
+        builder.AddToSource(@$"PostConstruct(parent, readableTail, symbolTail);");
+
+        builder.AddToSource("}");
+
+        return builder;
+    }
+
+    public static CsOnlinerConstructorBuilder Create(IxNodeVisitor visitor, IConfigurationDeclaration semantics,
+        ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerConstructorBuilder(sourceBuilder);
+
+
+        builder.AddToSource(
+            $"public {semantics.Name}({typeof(ITwinObject).n()} parent, string readableTail, string symbolTail)");
+
+
+        builder.AddToSource("{");
+        builder.AddToSource(@$"this.@SymbolTail = symbolTail;
+			this.@Connector = parent.GetConnector();
+			this.@Parent = parent;
+			HumanReadable = {typeof(Connector.Connector).n()}.CreateHumanReadable(parent.HumanReadable, readableTail);
+            Symbol = {typeof(Connector.Connector).n()}.CreateSymbol(parent.Symbol, symbolTail);");
+
+        builder.AddToSource(@$"PreConstruct(parent, readableTail, symbolTail);");
+
+        semantics.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        builder.AddToSource("parent.AddChild(this);");
+        builder.AddToSource("parent.AddKid(this);");
+
+        builder.AddToSource(@$"PostConstruct(parent, readableTail, symbolTail);");
 
         builder.AddToSource("}");
 
@@ -214,7 +282,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         return builder;
     }
 
-    private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IFieldDeclaration field,
+    private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
         if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
@@ -225,7 +293,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         type.Accept(visitor, this);
         AddToSource(";");
 
-
+        
         AddToSource($"{typeof(Arrays).n()}.InstantiateArray({field.Name}, " +
                     "this, " +
                     $"\"{field.GetAttributeNameValue(field.Name)}\", " +
@@ -250,10 +318,21 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
                 break;
         }
 
-        AddToSource("(p, rt, st));");
+        var dimensions = "new[] {";
+        foreach (var dimension in type.Dimensions)
+        {
+            dimensions = $"{dimensions}({dimension.LowerBoundValue}, {dimension.UpperBoundValue})";
+        }
+
+        dimensions = $"{dimensions}}}";
+
+        AddToSource($"(p, rt, st), {dimensions});");
+
+        
+
     }
 
-    private void AddMemberInitialization(IClassDeclaration type, IFieldDeclaration field, IxNodeVisitor visitor)
+    private void AddMemberInitialization(IClassDeclaration type, IStorageDeclaration field, IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");
         AddToSource("= new");
@@ -261,7 +340,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IStructuredTypeDeclaration type, IFieldDeclaration field, IxNodeVisitor visitor)
+    private void AddMemberInitialization(IStructuredTypeDeclaration type, IStorageDeclaration field, IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");
         AddToSource("= new");
@@ -269,14 +348,14 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IScalarTypeDeclaration type, IFieldDeclaration field)
+    private void AddMemberInitialization(IScalarTypeDeclaration type, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
     }
 
-    private void AddMemberInitialization(IStringTypeDeclaration type, IFieldDeclaration field)
+    private void AddMemberInitialization(IStringTypeDeclaration type, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
@@ -284,7 +363,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
     }
 
     // We get warning here about unused method, it is false positive, but we will need to investigate further the object hierarchy.
-    private void AddMemberInitialization(IEnumTypeDeclaration enumType, IFieldDeclaration field)
+    private void AddMemberInitialization(IEnumTypeDeclaration enumType, IStorageDeclaration field)
     {
         AddToSource($"{field.Name}");
         AddToSource("= @Connector.ConnectorAdapter.AdapterFactory.CreateINT");
@@ -292,7 +371,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource(field.SetProperties());
     }
 
-    private void AddMemberInitialization(INamedValueTypeDeclaration namedValueType, IFieldDeclaration field,
+    private void AddMemberInitialization(INamedValueTypeDeclaration namedValueType, IStorageDeclaration field,
         IxNodeVisitor visitor)
     {
         AddToSource($"{field.Name}");

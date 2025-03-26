@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS testingProgram
     VAR PUBLIC
         {#ix-set:AttributeName = "instanceOfStPrimitive"}
@@ -21,6 +22,14 @@ CLASS testingProgram
         testMultipleNested: stTestMultipleNested;
 
         testLayouts : stTestLayouts;
+
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveStruct")]}
+        testRenderOverridedSimpleStruct : stSimplePrimitive;
+
+        testRenderInnerOverridedStruct : stRenderTemplateOverride;
+
+        {#ix-attr:[RenderTemplateOverride("ixBlazor.App.Custom.MySimplePrimitiveTag")]}
+        testRenderOverridedTag : WORD;
     END_VAR
     
 END_CLASS

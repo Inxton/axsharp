@@ -15,7 +15,8 @@
       "AXSharp.connectors\\tests\\ax-test-project\\ix\\ax_test_project.csproj",
       "AXSharp.connectors\\tests\\exploring\\Webserver.Api.Exploratory\\Webserver.Api.Exploratory.csproj",
       "AXSharp.connectors\\tests\\exploring\\exploratory.consoleapp\\exploratory.consoleapp.csproj",
-      "AXSharp.tools\\tests\\AXSharp.nuget.update.Tests\\AXSharp.nuget.update.Tests.csproj"
+      "AXSharp.tools\\tests\\AXSharp.nuget.update.Tests\\AXSharp.nuget.update.Tests.csproj",
+      "AXSharp.tools\\tests\\AXSharp.LocalizablesToResx.Tests\\AXSharp.LocalizablesToResx.Tests.csproj"
     ]
   }
 }

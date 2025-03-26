@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TestMixed
     VAR PUBLIC
         {#ix-attr:[Container(Layout.Wrap)]}

@@ -9,7 +9,11 @@
         <select id="@ComponentId"
                 class="w-100 form-select @AccessStatus"
                 @bind="Value"
-                disabled="@IsReadOnly">
+                disabled="@IsReadOnly"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="@ToolTipText">
             @foreach (var name in Names)
             {
                 <option class="form-control" value=@EnumToIntConverter.ConvertBack(name,null,null,null)>@name</option>

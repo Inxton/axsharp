@@ -1,6 +1,7 @@
 NAMESPACE MeasurementExample
     {#ix-attr:[Container(Layout.Wrap)]}
     {#ix-attr:[Group(GroupLayout.GroupBox)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Measurement
         VAR PUBLIC
             {#ix-set:AttributeName = "Minimum"}
@@ -29,7 +30,7 @@ NAMESPACE MeasurementExample
         );
     END_TYPE
 
-
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Measurements
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}

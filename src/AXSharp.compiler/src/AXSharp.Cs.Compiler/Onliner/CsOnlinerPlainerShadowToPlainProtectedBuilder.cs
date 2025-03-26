@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
 using AX.ST.Semantic.Model.Declarations.Types;
@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Compiler.Core;
+using AXSharp.Compiler.Cs.Helpers;
 
 namespace AXSharp.Compiler.Cs.Onliner
 {
@@ -30,7 +31,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             ISourceBuilder sourceBuilder)
         {
             var builder = new CsOnlinerPlainerShadowToPlainProtectedBuilder(sourceBuilder);
-            builder.AddToSource($"protected async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"protected async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
             semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
             builder.AddToSource($"return plain;");
@@ -46,7 +47,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             //var qualifier = isExtended ? "new" : string.Empty;
             var qualifier = string.Empty;
             
-            builder.AddToSource($"protected {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"protected {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
 
             if (isExtended)

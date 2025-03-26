@@ -1,11 +1,12 @@
 ﻿@*This class is view part of RenderableContentControl. It contains UI generation pipeline.*@
 
 @*Call rendering method over context object*@
-<CascadingValue Value="@AlertDialogService">
-    <div name="@_context.Symbol.Replace(".","-")" class="@Class">
-        @RenderComponent(_context)
+@if (Context != null)
+{
+    <div name="@Context.Symbol.Replace(".", "-")" class="@Class">
+        @RenderComponent(Context)
     </div>
-</CascadingValue>
+}
 
 
 
@@ -13,6 +14,9 @@
 {
     private RenderFragment RenderComponent(ITwinElement element) => __builder =>
     {
+        if (element == null)
+            return;
+
         // if it is primitive type, just generate
         if (element is ITwinPrimitive)
         {
@@ -23,7 +27,7 @@
         //try to find complex component (also try predecessors) and generate it
         var twin = (ITwinObject)element;
         var twinType = twin.GetType();
-        var component = ViewLocatorBuilder(twinType, twin, Presentation);
+        var component = ViewLocatorBuilder(twinType, twin, Presentation, PresentationTemplate);
         if (component != null)
         {
             @CreateComplexComponent(twin, component)
@@ -69,9 +73,9 @@
                     var name = String.IsNullOrEmpty(child.AttributeName) ? child.GetSymbolTail() : child.AttributeName;
                     //otherwise is value tag or has mainLayout set, add children layout and continue
                     <ChildrenLayoutPropSetter ChildName="@name"
-                          ChildrenLayout="@parentLayout"
-                          ChildContent="@Generator(child,null)"
-                          Class="@LayoutChildrenClass" />
+                                              ChildrenLayout="@parentLayout"
+                                              ChildContent="@Generator(child,null)"
+                                              Class="@LayoutChildrenClass" />
                 }
                 canEnumerate = enumerator.MoveNext();
             }
@@ -82,10 +86,10 @@
                 var groupContainer = TryLoadGroupTypeFromProperty(child);
 
                 <GroupLayoutSetter ParentLayout="@parentLayout"
-                   GroupLayout="@groupLayout"
-                   GroupContainer="@groupContainer"
-                   GroupName="@group.GroupName"
-                   LayoutClass="@LayoutClass">
+                                   GroupLayout="@groupLayout"
+                                   GroupContainer="@groupContainer"
+                                   GroupName="@group.GroupName"
+                                   LayoutClass="@LayoutClass">
                     @RenderGroup(group, groupLayout)
                 </GroupLayoutSetter>
 
@@ -109,9 +113,9 @@
             {
                 var name = String.IsNullOrEmpty(child.AttributeName) ? child.GetSymbolTail() : child.AttributeName;
                 <ChildrenLayoutPropSetter ChildName="@name"
-                          ChildrenLayout="@groupLayout"
-                          ChildContent="@Generator(child, groupLayout)"
-                          Class="@LayoutChildrenClass" />
+                                          ChildrenLayout="@groupLayout"
+                                          ChildContent="@Generator(child, groupLayout)"
+                                          Class="@LayoutChildrenClass" />
             }
         }
 
@@ -119,7 +123,6 @@
 
     private RenderFragment Generator(ITwinElement kid, Type layout) => __builder =>
     {
-
         if (IsEnumerator(kid))
         {
             var enumDiscriminatorAttribute = AttributesHandler.GetEnumeratorDiscriminatorAttribute(kid);
@@ -135,21 +138,20 @@
             ITwinObject complexKid = (ITwinObject)kid;
             @GenerateComplex(complexKid, layout)
         }
-
     };
 
     private RenderFragment GenerateComplex(ITwinObject twin, Type layout) => __builder =>
     {
         Type mainLayout = null;
 
-        var component = ViewLocatorBuilder(twin.GetType(), twin, Presentation);
+        var component = ViewLocatorBuilder(twin.GetType(), twin, Presentation, PresentationTemplate);
         if (component != null)
         {
             var name = String.IsNullOrEmpty(twin.AttributeName) ? twin.GetSymbolTail() : twin.AttributeName;
             <ChildrenLayoutPropSetter ChildName="@name"
-                          ChildrenLayout="layout"
-                          ChildContent="@CreateComplexComponent(twin, component)"
-                          Class="@LayoutChildrenClass" />
+                                      ChildrenLayout="layout"
+                                      ChildContent="@CreateComplexComponent(twin, component)"
+                                      Class="@LayoutChildrenClass" />
         }
         else
         {
@@ -183,7 +185,7 @@
     {
         string presentationType = GetDisplayPresentationIfEmpty();
         var primitiveKidType = primitiveKid.GetType();
-        var primitiveComponent = ViewLocatorBuilder(primitiveKidType, primitiveKid, presentationType);
+        var primitiveComponent = ViewLocatorBuilder(primitiveKidType, primitiveKid, presentationType, PresentationTemplate);
         @CreatePrimitiveComponent(primitiveKid, primitiveComponent)
     };
 

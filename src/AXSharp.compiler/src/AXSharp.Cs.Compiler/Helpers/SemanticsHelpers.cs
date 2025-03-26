@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
 using AX.ST.Semantic.Model.Declarations;
@@ -29,7 +29,7 @@ public static class SemanticsHelpers
     public static bool IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         return field.AccessModifier == AccessModifier.Public 
-               && field.Type.IsTypeEligibleForTranspile(sourceBuilder)
+               && field.IsEligibleForTranspile(sourceBuilder)
                && !IsToBeOmitted(field, sourceBuilder, coBuilder);
     }
 
@@ -75,20 +75,85 @@ public static class SemanticsHelpers
     /// <summary>
     /// Determines whether the member or type is eligible for generation.
     /// </summary>
-    /// <param name="typeDeclaration"></param>
+    /// <param name="fieldDeclaration"></param>
     /// <param name="sourceBuilder"></param>
-    /// <returns></returns>
-    public static bool IsTypeEligibleForTranspile(this ITypeDeclaration typeDeclaration, ISourceBuilder sourceBuilder)
+    /// <returns>True when the type is eligible</returns>
+    public static bool IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder)
     {
-        return !(typeDeclaration is IReferenceTypeDeclaration)
-               &&
-               (typeDeclaration is IScalarTypeDeclaration ||
-                typeDeclaration is IStringTypeDeclaration ||
-                typeDeclaration is IStructuredTypeDeclaration ||
-                typeDeclaration is INamedValueTypeDeclaration ||
-                sourceBuilder.Compilation.GetSemanticTree().Types.Any(p => p.FullyQualifiedName == typeDeclaration.FullyQualifiedName))
-            ;
+        var type = fieldDeclaration.Type;
+        var isEligible = !(type is IReferenceTypeDeclaration)
+                &&
+                fieldDeclaration.IsAvailableForComm(sourceBuilder)
+                &&
+                (type is IScalarTypeDeclaration ||
+                 type is IStringTypeDeclaration ||
+                 type is IStructuredTypeDeclaration ||
+                 type is INamedValueTypeDeclaration ||
+                 sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
+                     p.FullyQualifiedName == type.FullyQualifiedName));
+
+            if(!isEligible) 
+            {
+                Log.Logger.Debug($"Field '{fieldDeclaration.Name}' of type '{fieldDeclaration.Type.FullyQualifiedName}' is not eligible for transpile");
+            }
+
+        return isEligible;
     }
+
+    /// <summary>
+    /// Determines whether the member or type is eligible for generation.
+    /// </summary>
+    /// <param name="variableDeclaration"></param>
+    /// <param name="sourceBuilder"></param>
+    /// <returns>True when the type is eligible</returns>
+    public static bool IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, ISourceBuilder sourceBuilder)
+    {
+        var type = variableDeclaration.Type;
+        var isEligible = !(type is IReferenceTypeDeclaration)
+               &&
+               variableDeclaration.IsAvailableForComm(sourceBuilder)
+               &&
+               (type is IScalarTypeDeclaration ||
+                type is IStringTypeDeclaration ||
+                type is IStructuredTypeDeclaration ||
+                type is INamedValueTypeDeclaration ||
+                sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
+                    p.FullyQualifiedName == type.FullyQualifiedName));
+
+        if (!isEligible)
+        {
+            Log.Logger.Debug($"Variable '{variableDeclaration.Name}' of type '{variableDeclaration.Type.FullyQualifiedName}' is not eligible for transpile");
+        }
+
+        return isEligible;
+    }
+
+
+    /// <summary>
+    /// Determines whether the member is eligible for generation.
+    /// </summary>
+    /// <param name="arrayTypeDeclaration"></param>
+    /// <param name="sourceBuilder">Source builder</param>
+    /// <returns></returns>
+    public static bool IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
+    {
+        var singleDimensionalArray = arrayTypeDeclaration.Dimensions.Count == 1;
+
+        var isEligibleType = !(arrayTypeDeclaration.ElementTypeAccess.Type is IReferenceTypeDeclaration)
+                             &&
+                             arrayTypeDeclaration.IsAvailableForComm(sourceBuilder)
+                             &&
+                             (arrayTypeDeclaration.ElementTypeAccess.Type is IScalarTypeDeclaration ||
+                              arrayTypeDeclaration.ElementTypeAccess.Type is IStringTypeDeclaration ||
+                              arrayTypeDeclaration.ElementTypeAccess.Type is IStructuredTypeDeclaration ||
+                              arrayTypeDeclaration.ElementTypeAccess.Type is INamedValueTypeDeclaration ||
+                              sourceBuilder.Compilation.GetSemanticTree().Types.Any(p =>
+                                  p.FullyQualifiedName == arrayTypeDeclaration.ElementTypeAccess.Type.FullyQualifiedName));
+
+        return isEligibleType && singleDimensionalArray;
+
+    }
+
 
     /// <summary>
     ///     Determines whether the member is eligible for generation.
@@ -100,7 +165,7 @@ public static class SemanticsHelpers
     public static bool IsMemberEligibleForTranspile(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         return variable.IsInGlobalMemory 
-               && variable.Type.IsTypeEligibleForTranspile(sourceBuilder)
+               && variable.IsEligibleForTranspile(sourceBuilder)
                && !IsToBeOmitted(variable, sourceBuilder, coBuilder); 
     }
 
@@ -128,15 +193,66 @@ public static class SemanticsHelpers
         return variable.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
     }
 
-    /// <summary>
-    /// Determines whether the member is eligible for generation.
-    /// </summary>
-    /// <param name="arrayTypeDeclaration"></param>
-    /// <param name="sourceBuilder">Source builder</param>
-    /// <returns></returns>
+    private static bool IsAvailableForComm(this IDeclaration declaration, ISourceBuilder sourceBuilder)
+    {
+        if (sourceBuilder.CompilerOptions is { IgnoreS7Pragmas: true }) return true;
+        var pragmaReadWrite = "S7.extern=ReadWrite".ToLower();
+        var pragmaRead = "S7.extern=ReadOnly".ToLower();
+        return declaration.Pragmas.Any(p =>
+        {
+            var prgma = p.Content.ToLower().Replace(" ", string.Empty, StringComparison.InvariantCulture);
+            return (prgma == pragmaReadWrite || prgma == pragmaRead);
+        }) || (sourceBuilder.TypeCommAccessibility == eCommAccessibility.ReadOnly || sourceBuilder.TypeCommAccessibility == eCommAccessibility.ReadWrite);
+    }
+    internal static bool IsAvailableReadOnlyForComm(this IDeclaration declaration, ISourceBuilder sourceBuilder)
+    {
+        if (sourceBuilder.CompilerOptions is { IgnoreS7Pragmas: true }) return false;
+
+        var pargmaContent = "S7.extern=Read".ToLower();
+        return declaration.Pragmas.Any(p =>
+        {
+            var prgma = p.Content.ToLower().Replace(" ", string.Empty, StringComparison.InvariantCulture);
+            return (prgma == pargmaContent);
+        });
+    }
+
+    private static bool IsAvailableReadWriteForComm(this IDeclaration declaration, ISourceBuilder sourceBuilder)
+    {
+        if (sourceBuilder.CompilerOptions is { IgnoreS7Pragmas: true }) return false;
+
+        var pargmaContent = "S7.extern=ReadWrite".ToLower();
+        return declaration.Pragmas.Any(p =>
+        {
+            var prgma = p.Content.ToLower().Replace(" ", string.Empty, StringComparison.InvariantCulture);
+            return (prgma == pargmaContent);
+        });
+    }
+
+    public static eCommAccessibility GetCommAccessibility(this IDeclaration declaration, ISourceBuilder sourceBuilder)
+    {
+
+        if (declaration.IsAvailableReadOnlyForComm(sourceBuilder))
+        {
+            return eCommAccessibility.ReadOnly;
+        }
+
+        if (declaration.IsAvailableReadWriteForComm(sourceBuilder))
+        {
+            return eCommAccessibility.ReadWrite;
+        }
+
+        return eCommAccessibility.None;
+    }
+    
+
+    
+
+    
+
     public static bool IsMemberEligibleForConstructor(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
     {
-        return arrayTypeDeclaration.ElementTypeAccess.Type.IsTypeEligibleForTranspile(sourceBuilder);
+        return IsEligibleForTranspile(arrayTypeDeclaration, sourceBuilder);
+
     }
 
     /// <summary>

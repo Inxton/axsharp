@@ -1,4 +1,5 @@
 {#ix-attr:[Container(Layout.Wrap)]}
+{S7.extern=ReadWrite}
 CLASS test_primitive
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Integer From PLC#>"}	

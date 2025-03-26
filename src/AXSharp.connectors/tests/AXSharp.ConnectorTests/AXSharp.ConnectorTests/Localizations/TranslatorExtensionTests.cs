@@ -20,7 +20,7 @@ namespace AXSharp.ConnectorTests.Localizations
             var originalString = "TestValue1961414016";
 
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(originalString, result);
@@ -38,7 +38,7 @@ namespace AXSharp.ConnectorTests.Localizations
             var originalString = "<#In the middle of the night#>";
 
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(originalString.CleanUpLocalizationTokens(), result);
@@ -58,7 +58,7 @@ namespace AXSharp.ConnectorTests.Localizations
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(expected, result);
@@ -78,7 +78,7 @@ namespace AXSharp.ConnectorTests.Localizations
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(expected, result);
@@ -98,7 +98,7 @@ namespace AXSharp.ConnectorTests.Localizations
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(originalString.CleanUpLocalizationTokens(), result);
@@ -118,7 +118,7 @@ namespace AXSharp.ConnectorTests.Localizations
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             // Act
-            var result = twin.Translate(originalString);
+            var result = twin.Translate(originalString, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.Equal(originalString.CleanUpLocalizationTokens(), result);

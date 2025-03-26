@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
 
@@ -50,7 +50,6 @@ public class WebApiDate : OnlinerDate, IWebApiPrimitive
             _plcReadRequestData = WebApiConnector.CreateReadRequest(Symbol, _webApiConnector.DBName);
             return _plcReadRequestData;
         }
-
     }
 
     /// <inheritdoc />
@@ -58,7 +57,19 @@ public class WebApiDate : OnlinerDate, IWebApiPrimitive
     {
         get
         {
-            _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+            switch (_webApiConnector.TargetPlatform)
+            {
+                case eTargetProjectPlatform.TIAPORTAL:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDateTIA(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+                case eTargetProjectPlatform.SIMATICAX:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+                default:
+                    _plcWriteRequestData = WebApiConnector.CreateWriteRequest(Symbol, GetFromDate(CyclicToWrite), _webApiConnector.DBName);
+                    break;
+            }
+
             return _plcWriteRequestData;
         }
     }
@@ -72,35 +83,58 @@ public class WebApiDate : OnlinerDate, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<DateOnly> GetAsync()
     {
-        var dt = await _webApiConnector.ReadAsync<long>(this);
-        return GetFromBinary(dt);
+        return await _webApiConnector.ReadAsync<DateOnly>(this);
     }
 
     private DateOnly GetFromBinary(string value)
     {
-        var val = long.Parse(value);
-        return GetFromBinary(val);
+        if (long.TryParse(value, out var val))
+        {
+            return GetFromBinary(val);
+        }
+
+        return DateOnly.MinValue;
     }
 
     private DateOnly GetFromBinary(long value)
     {
-        var val = value / 100;
-        return DateOnly.FromDateTime(DateTime.FromBinary(val).AddYears(1969));
+        switch (_webApiConnector.TargetPlatform)
+        {
+            case eTargetProjectPlatform.TIAPORTAL:
+                //int val = ((int)value) - 1;
+                return ((int)value).GetDateOnly();//DateOnly.FromDayNumber((int)value).AddYears(1989);
+
+            case eTargetProjectPlatform.SIMATICAX:
+                var valAx = value / 100;
+                return valAx.GetDateOnly();
+            
+            default:
+                var valdef = value / 100;
+                return DateOnly.FromDateTime(DateTime.FromBinary(valdef).AddYears(1969));
+        }
+    }
+
+    private long GetFromDateTIA(DateOnly date)
+    {
+        if (date <= TIAMinValue)
+            date = TIAMinValue;
+
+        var retval = date.ToDateTime(TimeOnly.MinValue) - TIAMinValue.ToDateTime(TimeOnly.MinValue);
+
+        return (long)retval.TotalDays;
     }
 
     private string GetFromDate(DateOnly date)
     {
         if (date <= MinValue)
             date = MinValue;
-
-        var retval = date.ToDateTime(TimeOnly.MinValue) - MinValue.ToDateTime(TimeOnly.MinValue);
+        var retval = date.ToDateTime(TimeOnly.MinValue) - MinValue.ToDateTime(TimeOnly.MinValue); 
         return (new DateTime().AddDays(retval.TotalDays).ToBinary() * 100).ToString();
     }
 
     /// <inheritdoc />
     public override async Task<DateOnly> SetAsync(DateOnly value)
     {
-        await _webApiConnector.WriteAsync(this, GetFromDate(value));
-        return value;
+        return await _webApiConnector.WriteAsync(this, value);
     }
 }

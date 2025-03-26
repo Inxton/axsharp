@@ -1,4 +1,5 @@
 {#ix[Container(Layout.Tabs)]}
+{S7.extern=ReadWrite}
 CLASS weather
     VAR PUBLIC                        
         GeoLocation : GeoLocation;               
@@ -11,6 +12,7 @@ CLASS weather
     END_VAR    
 END_CLASS
 
+{S7.extern=ReadWrite}
 CLASS weathers
     VAR PUBLIC
         i : ARRAY[0..50] OF weatherBase;
@@ -22,6 +24,7 @@ TYPE
 END_TYPE
 
 TYPE
+    {S7.extern=ReadWrite}
     Colors : INT (
         RED := 12,
         GREEN := 14,

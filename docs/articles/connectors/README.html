@@ -170,28 +170,25 @@ public class BatchedAccess
     }
 }
 </code></pre>
-<h2 id="polling">Polling</h2>
-<p>Polling allows the application to query a structure or variable in different intervals. The values are stored in <code>Cyclic</code> property of value types. Polled variables are retrieved from the controlled in the same way as during cylic reading but in a given interval. In contrast to automatic subscription mode the polled values can be unsubscribed.</p>
-<p>To allow polling, the twin connector's subscription must be set to <code>Polling</code></p>
+<p>Polling allows an application to query a structure or variable at different intervals. The values are stored in the <code>Cyclic</code> property of value types. The polled variables are retrieved from the controller in the same way as during cyclic reading but at a specified interval. Unlike automatic subscription mode, the polled values can be unsubscribed.</p>
+<p>To enable polling, the subscription of the twin connector must be set to <code>Polling</code>.</p>
 <pre><code class="lang-C#">Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart();
 </code></pre>
 <blockquote>
 <p><strong>WARNING</strong>
-The subscription mechanism must be selected at the application's start-up before any operation on the twin connector. Mixing subscription mode during lifetime of the application may result in inconsistent behavior.</p>
+The subscription mechanism must be selected at the application's start-up before any operation on the twin connector. Mixing subscription modes during the lifetime of the application may result in inconsistent behavior.</p>
 </blockquote>
-<h3 id="start-polling">Start polling</h3>
-<p>To start polling a structure at given interval, use <code>StartPolling</code> method with an interval in <code>ms</code>.
-StartPolling is an extension method, remember to import the namespace <code>AXSharp.Connector</code>.</p>
+<h3 id="starting-polling">Starting Polling</h3>
+<p>To start polling a structure at a given interval, use the <code>StartPolling</code> method with an interval in milliseconds. <code>StartPolling</code> is an extension method, so remember to import the <code>AXSharp.Connector</code> namespace.</p>
 <pre><code class="lang-C#">using AXSharp.Connector;
 .
 .
 
 Entry.Plc.Settings.StartPolling(50);
 </code></pre>
-<h3 id="stop-polling">Stop polling</h3>
-<p>To stop polling call <code>StopPolling</code> method on the structure you want to stop polling.</p>
-<p>StopPolling is an extension method, remember to import the namespace <code>AXSharp.Connector</code>.</p>
+<h3 id="stopping-polling">Stopping Polling</h3>
+<p>To stop polling, call the <code>StopPolling</code> method on the structure you want to stop polling. <code>StopPolling</code> is also an extension method, so remember to import the <code>AXSharp.Connector</code> namespace.</p>
 <pre><code class="lang-C#">using AXSharp.Connector;
 .
 .
@@ -324,9 +321,19 @@ someWString := &quot;&lt;#This woule be localized#&gt; and this would stay as it
 <p>Example</p>
 <pre><code class="lang-C#">ix_plc.PlcTranslator.Instance.SetLocalizationResource(typeof(myproject.ResourcesOverride.OverridePlcStringResources));
 </code></pre>
+<h3 id="localization-in-a-client-in-server-side-application">Localization in a client in server-side application</h3>
+<p>In order to get translation in given culture for a client in a server side application you should use methods <code>Get{ProperyName}(CultureInfo culture)</code> to get translation for client current culture. The properties will returned original string where localization tokens are removed.</p>
+<pre><code class="lang-csharp">var notTranlsated = obj.AttributeName;
+var translated = obj.GetAttribute(new CultureInfo(&quot;sk-SK&quot;));
+</code></pre>
+<h3 id="setting-connectors-culture">Setting connector's culture</h3>
+<p>In some instances it might be necessary to set the culture for the threads handling connectors. In that case use the following method to impose a specific culture.</p>
+<pre><code class="lang-csharp">AXSharp.Connector.Connector.SetCulture(new CultureInfo(&quot;en-US&quot;));
+</code></pre>
 <p>See also</p>
 <p><a href="Dummy.html">Dummy Connector</a></p>
 <p><a href="WebAPI.html">WebAPI Connector</a></p>
+
 </article>
           </div>
 
@@ -335,12 +342,12 @@ someWString := &quot;&lt;#This woule be localized#&gt; and this would stay as it
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix/blob/dev/docfx/articles/connectors/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Inxton/axsharp/blob/dev/docfx/articles/connectors/README.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
@@ -355,7 +362,7 @@ someWString := &quot;&lt;#This woule be localized#&gt; and this would stay as it
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+       Generated by DocFx. © MTS spol. s r.o., MTS spol. s r.o., and awesome contributors
       
           </div>
         </div>

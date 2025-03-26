@@ -1,14 +1,17 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using System.Globalization;
 @inherits TemplateBaseOnline<TimeSpan>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@(ComponentId)" >@Onliner.AttributeName</label>
-    <input id="@(ComponentId)" 
-            class="w-100 form-control @AccessStatus"
-            style=@(IsReadOnly? "" : "background-color:transparent")
-            type="text"
-            value="@Onliner.Cyclic"
-            readonly="readonly">
-      
-
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <input id="@ComponentId"
+           readonly="readonly"
+           class="w-100 form-control @AccessStatus"
+           style="@(IsReadOnly? "" : "background-color:transparent")"
+           type="text"
+           value="@Onliner.Cyclic.ToString(@"hh\:mm\:ss", CultureInfo.InvariantCulture)"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
 </TemplateView>

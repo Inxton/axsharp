@@ -1,10 +1,11 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using System.Globalization;
 using System.Threading.Tasks;
 using AXSharp.Connector.Localizations;
 using AXSharp.Connector.ValueTypes.Online;
@@ -53,8 +54,14 @@ public class OnlinerString : OnlinerBase<string>, IOnlineString, IShadowString
     /// </summary>
     public override string Cyclic
     {
-        get => this.Translate(base.Cyclic).Interpolate(this);
+        get => base.Cyclic.Interpolate(this);
         set => base.Cyclic = value;
+    }
+
+    /// <inheritdoc />
+    public override string GetCyclic(CultureInfo culture = default)
+    {
+        return this.Translate(this.Cyclic, culture);
     }
 
     /// <summary>
@@ -65,7 +72,13 @@ public class OnlinerString : OnlinerBase<string>, IOnlineString, IShadowString
     /// </returns>
     public override async Task<string> GetAsync()
     {
-        return this.Translate(await base.GetAsync()).Interpolate(this);
+        var retVal = await base.GetAsync();
+        return retVal.Interpolate(this).CleanUpLocalizationTokens();
+    }
+
+    public override async Task<string> GetAsync(CultureInfo culture)
+    {
+        return this.Translate(await this.GetAsync(), culture).Interpolate(this);
     }
 
     /// <summary>
@@ -79,5 +92,5 @@ public class OnlinerString : OnlinerBase<string>, IOnlineString, IShadowString
             Cyclic = value;
             return value;
         });
-    }
+    }  
 }

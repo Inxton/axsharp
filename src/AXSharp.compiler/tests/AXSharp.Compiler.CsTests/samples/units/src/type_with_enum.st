@@ -24,6 +24,7 @@ NAMESPACE Simatic.Ax.StateFramework
         Condition : (GT, EQ, LT, NE, GE, LE);
     END_TYPE
 
+    {S7.extern=ReadWrite}
     CLASS CompareGuardLint IMPLEMENTS IGuard
         VAR PUBLIC
             Value : REF_TO LINT;

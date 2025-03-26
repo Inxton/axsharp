@@ -1,3 +1,3 @@
 # run build
-dotnet run --project cake/Build.csproj -- $args
+dotnet run --project cake/Build.csproj --framework net9.0 -- $args
 exit $LASTEXITCODE;

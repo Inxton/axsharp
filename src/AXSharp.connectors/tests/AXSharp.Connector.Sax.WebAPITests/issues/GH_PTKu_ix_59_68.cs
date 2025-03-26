@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Xunit;
 using AXSharp.Connector.S71500.WebApi;
@@ -17,6 +17,7 @@ using Siemens.Simatic.S7.Webserver.API.Services;
 using Xunit.Abstractions;
 using System.IO;
 using System.Reflection;
+using AXSharp.Connector.S71500.WebAPITests;
 
 namespace AXSharp.Connector.S71500.WebApi.Tests.Issues
 {

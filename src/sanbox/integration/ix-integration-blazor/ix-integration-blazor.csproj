@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ix_integration_blazor</RootNamespace>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Interactive" Version="6.0.1" />
+		<PackageReference Include="System.Interactive" />
+		<PackageReference Include="System.Text.Encodings.Web" />
 	</ItemGroup>
 
   <ItemGroup>

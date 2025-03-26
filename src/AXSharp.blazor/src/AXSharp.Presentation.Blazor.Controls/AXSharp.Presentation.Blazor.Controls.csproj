@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    
 
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
@@ -12,11 +12,11 @@
 	  <Description>Sets of essential presentation controls for AX# - Blazor</Description>
 
 	  <!-- NuGet Common part-->
-	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <Authors>ix-ax</Authors>
-	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <Title>AX# Essential UI control Blazor</Title>
@@ -27,7 +27,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>
 		  Release notes are published here:
-		  https://github.com/ix-ax/axsharp/releases
+		  https://github.com/inxton/axsharp/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
     
@@ -81,24 +81,20 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="7.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+  <ItemGroup>  
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
+    <PackageReference Include="System.Net.Http" />  
+    <PackageReference Include="System.Text.Encodings.Web" />  
+    <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-	    <Folder Include="wwwroot\css\" />
+	    <Folder Include="RenderableContentControl\" />
 	    <Folder Include="wwwroot\js\" />
   </ItemGroup>
-	
+
+	<ItemGroup>
+		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
+	</ItemGroup>
 
 </Project>

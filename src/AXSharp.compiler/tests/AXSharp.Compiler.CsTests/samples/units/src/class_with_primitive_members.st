@@ -1,4 +1,5 @@
 NAMESPACE ClassWithPrimitiveTypesNamespace
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ClassWithPrimitiveTypes
         VAR PUBLIC            
            myBOOL	        :       BOOL	      ;

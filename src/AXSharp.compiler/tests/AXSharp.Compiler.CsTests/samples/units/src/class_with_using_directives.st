@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS INTERNAL ClassWithUsingDirectives
     USING SimpleFirstLevelNamespace, SimpleQualifiedNamespace.Qualified;
     USING HelloLevelOne.HelloLevelTwo;

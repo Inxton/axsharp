@@ -179,6 +179,39 @@ Copy following code into `IxComponentServiceView.razor` file. Make sure, that `R
 ```
 Note: viewmodel properties and variables can be accessed with inherited `ViewModel` variable.
 
+## Optimizing PLC Data Polling
+
+The `RenderableComponentBase` class contains an overridable method, `ConfigurePolling`, which is tasked with adding elements to the polling queue and **must be overridden** in derived components. By default, no polling is activated; it must be explicitly stated which primitives or twin objects should be added to the polling queue.
+
+Overriding this method in derived classes allows for the customization of how many and which elements are added to the polling queue. This capability is crucial for controlling resources and optimizing performance by preventing the automatic addition of potentially large numbers of elements to the polling queue.
+
+Whenever the `RenderableComponent` is disposed, the polling for that component is automatically released in the `Dispose` method.
+
+>[!IMPORTANT]
+>Whenever the `OnInitialized`, `OnInitializedAsync`, or `Dispose` methods are overridden, it is imperative that `base` is called to ensure the proper sequence of polling management.
+
+
+Here is an example where the overridden method ensures that no elements are added to the polling queue:
+
+```C#
+public override void ConfigurePolling()
+{
+    // Overriding with an empty method ensures no elements are added to the polling queue.
+}
+```
+
+```C#
+public override void ConfigurePolling()
+{
+    this.StartPolling(this.Component.Counter, 1500);
+    this.StartPolling(this.Component.Counter2, 250);
+}
+```
+
+This strategy allows for a more efficient use of resources by reducing the load of polled elements on the system.
+
+For more details about polling [General Polling](../connectors/README.md#polling).
+
 ### 3. Render created component
 
 ```C#

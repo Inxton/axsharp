@@ -3,147 +3,11 @@ using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
+using AXSharp.Abstractions.Presentation;
 using RealMonsterData;
-
-public partial class integratedTwinController : ITwinController
-{
-    public AXSharp.Connector.Connector Connector { get; }
-
-    public MonsterData.Monster Monster { get; }
-
-    public MonsterData.Monster OnlineToPlain_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster PlainToOnline_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster OnlineToShadowAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ShadowToOnlineAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectOnlineToPlain_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectPlainToOnline_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectOnlineToShadowAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectShadowToOnlineAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ShadowToPlainAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster PlainToShadowAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectShadowToPlainAsync_should_copy_entire_structure { get; }
-
-    public MonsterData.Monster ITwinObjectPlainToShadowAsync_should_copy_entire_structure { get; }
-
-    public Pokus Pokus { get; }
-
-    public RealMonsterData.RealMonster RealMonster { get; }
-
-    public RealMonsterData.RealMonster OnlineToShadow_should_copy { get; }
-
-    public RealMonsterData.RealMonster ShadowToOnline_should_copy { get; }
-
-    public RealMonsterData.RealMonster OnlineToPlain_should_copy { get; }
-
-    public RealMonsterData.RealMonster PlainToOnline_should_copy { get; }
-
-    public RealMonsterData.RealMonster ITwinObjectOnlineToShadow_should_copy { get; }
-
-    public RealMonsterData.RealMonster ITwinObjectShadowToOnline_should_copy { get; }
-
-    public RealMonsterData.RealMonster ITwinObjectOnlineToPlain_should_copy { get; }
-
-    public RealMonsterData.RealMonster ITwinObjectPlainToOnline_should_copy { get; }
-
-    public all_primitives p_online_shadow { get; }
-
-    public all_primitives p_shadow_online { get; }
-
-    public all_primitives p_online_plain { get; }
-
-    public all_primitives p_plain_online { get; }
-
-    public all_primitives p_shadow_plain { get; }
-
-    public all_primitives p_plain_shadow { get; }
-
-    public RealMonsterData.RealMonster StartPolling_should_update_cyclic_property { get; }
-
-    public integratedTwinController(AXSharp.Connector.ConnectorAdapter adapter, object[] parameters)
-    {
-        this.Connector = adapter.GetConnector(parameters);
-        Monster = new MonsterData.Monster(this.Connector, "", "Monster");
-        OnlineToPlain_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "OnlineToPlain_should_copy_entire_structure");
-        PlainToOnline_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "PlainToOnline_should_copy_entire_structure");
-        OnlineToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "OnlineToShadowAsync_should_copy_entire_structure");
-        ShadowToOnlineAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ShadowToOnlineAsync_should_copy_entire_structure");
-        ITwinObjectOnlineToPlain_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectOnlineToPlain_should_copy_entire_structure");
-        ITwinObjectPlainToOnline_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectPlainToOnline_should_copy_entire_structure");
-        ITwinObjectOnlineToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectOnlineToShadowAsync_should_copy_entire_structure");
-        ITwinObjectShadowToOnlineAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectShadowToOnlineAsync_should_copy_entire_structure");
-        ShadowToPlainAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ShadowToPlainAsync_should_copy_entire_structure");
-        PlainToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "PlainToShadowAsync_should_copy_entire_structure");
-        ITwinObjectShadowToPlainAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectShadowToPlainAsync_should_copy_entire_structure");
-        ITwinObjectPlainToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectPlainToShadowAsync_should_copy_entire_structure");
-        Pokus = new Pokus(this.Connector, "", "Pokus");
-        RealMonster = new RealMonsterData.RealMonster(this.Connector, "", "RealMonster");
-        OnlineToShadow_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "OnlineToShadow_should_copy");
-        ShadowToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ShadowToOnline_should_copy");
-        OnlineToPlain_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "OnlineToPlain_should_copy");
-        PlainToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "PlainToOnline_should_copy");
-        ITwinObjectOnlineToShadow_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectOnlineToShadow_should_copy");
-        ITwinObjectShadowToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectShadowToOnline_should_copy");
-        ITwinObjectOnlineToPlain_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectOnlineToPlain_should_copy");
-        ITwinObjectPlainToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectPlainToOnline_should_copy");
-        p_online_shadow = new all_primitives(this.Connector, "", "p_online_shadow");
-        p_shadow_online = new all_primitives(this.Connector, "", "p_shadow_online");
-        p_online_plain = new all_primitives(this.Connector, "", "p_online_plain");
-        p_plain_online = new all_primitives(this.Connector, "", "p_plain_online");
-        p_shadow_plain = new all_primitives(this.Connector, "", "p_shadow_plain");
-        p_plain_shadow = new all_primitives(this.Connector, "", "p_plain_shadow");
-        StartPolling_should_update_cyclic_property = new RealMonsterData.RealMonster(this.Connector, "", "StartPolling_should_update_cyclic_property");
-    }
-
-    public integratedTwinController(AXSharp.Connector.ConnectorAdapter adapter)
-    {
-        this.Connector = adapter.GetConnector(adapter.Parameters);
-        Monster = new MonsterData.Monster(this.Connector, "", "Monster");
-        OnlineToPlain_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "OnlineToPlain_should_copy_entire_structure");
-        PlainToOnline_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "PlainToOnline_should_copy_entire_structure");
-        OnlineToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "OnlineToShadowAsync_should_copy_entire_structure");
-        ShadowToOnlineAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ShadowToOnlineAsync_should_copy_entire_structure");
-        ITwinObjectOnlineToPlain_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectOnlineToPlain_should_copy_entire_structure");
-        ITwinObjectPlainToOnline_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectPlainToOnline_should_copy_entire_structure");
-        ITwinObjectOnlineToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectOnlineToShadowAsync_should_copy_entire_structure");
-        ITwinObjectShadowToOnlineAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectShadowToOnlineAsync_should_copy_entire_structure");
-        ShadowToPlainAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ShadowToPlainAsync_should_copy_entire_structure");
-        PlainToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "PlainToShadowAsync_should_copy_entire_structure");
-        ITwinObjectShadowToPlainAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectShadowToPlainAsync_should_copy_entire_structure");
-        ITwinObjectPlainToShadowAsync_should_copy_entire_structure = new MonsterData.Monster(this.Connector, "", "ITwinObjectPlainToShadowAsync_should_copy_entire_structure");
-        Pokus = new Pokus(this.Connector, "", "Pokus");
-        RealMonster = new RealMonsterData.RealMonster(this.Connector, "", "RealMonster");
-        OnlineToShadow_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "OnlineToShadow_should_copy");
-        ShadowToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ShadowToOnline_should_copy");
-        OnlineToPlain_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "OnlineToPlain_should_copy");
-        PlainToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "PlainToOnline_should_copy");
-        ITwinObjectOnlineToShadow_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectOnlineToShadow_should_copy");
-        ITwinObjectShadowToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectShadowToOnline_should_copy");
-        ITwinObjectOnlineToPlain_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectOnlineToPlain_should_copy");
-        ITwinObjectPlainToOnline_should_copy = new RealMonsterData.RealMonster(this.Connector, "", "ITwinObjectPlainToOnline_should_copy");
-        p_online_shadow = new all_primitives(this.Connector, "", "p_online_shadow");
-        p_shadow_online = new all_primitives(this.Connector, "", "p_shadow_online");
-        p_online_plain = new all_primitives(this.Connector, "", "p_online_plain");
-        p_plain_online = new all_primitives(this.Connector, "", "p_plain_online");
-        p_shadow_plain = new all_primitives(this.Connector, "", "p_shadow_plain");
-        p_plain_shadow = new all_primitives(this.Connector, "", "p_plain_shadow");
-        StartPolling_should_update_cyclic_property = new RealMonsterData.RealMonster(this.Connector, "", "StartPolling_should_update_cyclic_property");
-    }
-}
 
 public partial class Pokus : AXSharp.Connector.ITwinObject
 {
-    public Nested Nested { get; }
-
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public Pokus(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
@@ -154,7 +18,6 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         PreConstruct(parent, readableTail, symbolTail);
-        Nested = new Nested(this, "Nested", "Nested");
         parent.AddChild(this);
         parent.AddKid(this);
         PostConstruct(parent, readableTail, symbolTail);
@@ -165,17 +28,25 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Pokus> OnlineToPlainAsync()
+    public async Task<global::Pocos.Pokus> OnlineToPlainAsync()
     {
-        Pocos.Pokus plain = new Pocos.Pokus();
-        await this.ReadAsync();
-        plain.Nested = await Nested.OnlineToPlainAsync();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
+        await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
-    protected async Task<Pocos.Pokus> OnlineToPlainAsync(Pocos.Pokus plain)
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task<global::Pocos.Pokus> _OnlineToPlainNoacAsync()
     {
-        plain.Nested = await Nested.OnlineToPlainAsync();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
+        return plain;
+    }
+
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    protected async Task<global::Pocos.Pokus> _OnlineToPlainNoacAsync(global::Pocos.Pokus plain)
+    {
         return plain;
     }
 
@@ -184,10 +55,15 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Pokus plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Pokus plain)
     {
-        await this.Nested.PlainToOnlineAsync(plain.Nested);
-        return await this.WriteAsync();
+        return await this.WriteAsync<IgnoreOnPocoOperation>();
+    }
+
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Pokus plain)
+    {
     }
 
     public async virtual Task<T> ShadowToPlain<T>()
@@ -195,16 +71,14 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Pokus> ShadowToPlainAsync()
+    public async Task<global::Pocos.Pokus> ShadowToPlainAsync()
     {
-        Pocos.Pokus plain = new Pocos.Pokus();
-        plain.Nested = await Nested.ShadowToPlainAsync();
+        global::Pocos.Pokus plain = new global::Pocos.Pokus();
         return plain;
     }
 
-    protected async Task<Pocos.Pokus> ShadowToPlainAsync(Pocos.Pokus plain)
+    protected async Task<global::Pocos.Pokus> ShadowToPlainAsync(global::Pocos.Pokus plain)
     {
-        plain.Nested = await Nested.ShadowToPlainAsync();
         return plain;
     }
 
@@ -213,10 +87,31 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Pokus plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Pokus plain)
     {
-        await this.Nested.PlainToShadowAsync(plain.Nested);
         return this.RetrievePrimitives();
+    }
+
+    ///<inheritdoc/>
+    public async virtual Task<bool> AnyChangeAsync<T>(T plain)
+    {
+        return await this.DetectsAnyChangeAsync((dynamic)plain);
+    }
+
+    ///<summary>
+    ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
+    ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
+    ///</summary>
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Pokus plain, global::Pocos.Pokus latest = null)
+    {
+        if (latest == null)
+            latest = await this._OnlineToPlainNoacAsync();
+        var somethingChanged = false;
+        return await Task.Run(async () =>
+        {
+            plain = latest;
+            return somethingChanged;
+        });
     }
 
     public void Poll()
@@ -224,24 +119,27 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Pokus CreateEmptyPoco()
+    public global::Pocos.Pokus CreateEmptyPoco()
     {
-        return new Pocos.Pokus();
+        return new global::Pocos.Pokus();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -282,25 +180,28 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
     public string Symbol { get; protected set; }
 
     private string _attributeName;
-    public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : this.Translate(_attributeName).Interpolate(this); set => _attributeName = value; }
+    public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : _attributeName.Interpolate(this).CleanUpLocalizationTokens(); set => _attributeName = value; }
 
-    public string HumanReadable { get; set; }
+    public System.String GetAttributeName(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_attributeName, culture).Interpolate(this);
+    }
+
+    private string _humanReadable;
+    public string HumanReadable { get => string.IsNullOrEmpty(_humanReadable) ? SymbolTail : _humanReadable.Interpolate(this).CleanUpLocalizationTokens(); set => _humanReadable = value; }
+
+    public System.String GetHumanReadable(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_humanReadable, culture);
+    }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }
 
 public partial class Nested : AXSharp.Connector.ITwinObject
 {
-    public OnlinerString SomeString { get; }
-
-    public OnlinerInt SomeInt { get; }
-
-    public OnlinerByte SomeByte { get; }
-
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public Nested(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
@@ -311,9 +212,6 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         this.@Parent = parent;
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         PreConstruct(parent, readableTail, symbolTail);
-        SomeString = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "SomeString", "SomeString");
-        SomeInt = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "SomeInt", "SomeInt");
-        SomeByte = @Connector.ConnectorAdapter.AdapterFactory.CreateBYTE(this, "SomeByte", "SomeByte");
         parent.AddChild(this);
         parent.AddKid(this);
         PostConstruct(parent, readableTail, symbolTail);
@@ -324,21 +222,25 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync();
     }
 
-    public async Task<Pocos.Nested> OnlineToPlainAsync()
+    public async Task<global::Pocos.Nested> OnlineToPlainAsync()
     {
-        Pocos.Nested plain = new Pocos.Nested();
-        await this.ReadAsync();
-        plain.SomeString = SomeString.LastValue;
-        plain.SomeInt = SomeInt.LastValue;
-        plain.SomeByte = SomeByte.LastValue;
+        global::Pocos.Nested plain = new global::Pocos.Nested();
+        await this.ReadAsync<IgnoreOnPocoOperation>();
         return plain;
     }
 
-    protected async Task<Pocos.Nested> OnlineToPlainAsync(Pocos.Nested plain)
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task<global::Pocos.Nested> _OnlineToPlainNoacAsync()
     {
-        plain.SomeString = SomeString.LastValue;
-        plain.SomeInt = SomeInt.LastValue;
-        plain.SomeByte = SomeByte.LastValue;
+        global::Pocos.Nested plain = new global::Pocos.Nested();
+        return plain;
+    }
+
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    protected async Task<global::Pocos.Nested> _OnlineToPlainNoacAsync(global::Pocos.Nested plain)
+    {
         return plain;
     }
 
@@ -347,12 +249,15 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.Nested plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Nested plain)
     {
-        SomeString.Cyclic = plain.SomeString;
-        SomeInt.Cyclic = plain.SomeInt;
-        SomeByte.Cyclic = plain.SomeByte;
-        return await this.WriteAsync();
+        return await this.WriteAsync<IgnoreOnPocoOperation>();
+    }
+
+    [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.Nested plain)
+    {
     }
 
     public async virtual Task<T> ShadowToPlain<T>()
@@ -360,20 +265,14 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<Pocos.Nested> ShadowToPlainAsync()
+    public async Task<global::Pocos.Nested> ShadowToPlainAsync()
     {
-        Pocos.Nested plain = new Pocos.Nested();
-        plain.SomeString = SomeString.Shadow;
-        plain.SomeInt = SomeInt.Shadow;
-        plain.SomeByte = SomeByte.Shadow;
+        global::Pocos.Nested plain = new global::Pocos.Nested();
         return plain;
     }
 
-    protected async Task<Pocos.Nested> ShadowToPlainAsync(Pocos.Nested plain)
+    protected async Task<global::Pocos.Nested> ShadowToPlainAsync(global::Pocos.Nested plain)
     {
-        plain.SomeString = SomeString.Shadow;
-        plain.SomeInt = SomeInt.Shadow;
-        plain.SomeByte = SomeByte.Shadow;
         return plain;
     }
 
@@ -382,12 +281,31 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.Nested plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Nested plain)
     {
-        SomeString.Shadow = plain.SomeString;
-        SomeInt.Shadow = plain.SomeInt;
-        SomeByte.Shadow = plain.SomeByte;
         return this.RetrievePrimitives();
+    }
+
+    ///<inheritdoc/>
+    public async virtual Task<bool> AnyChangeAsync<T>(T plain)
+    {
+        return await this.DetectsAnyChangeAsync((dynamic)plain);
+    }
+
+    ///<summary>
+    ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
+    ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
+    ///</summary>
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Nested plain, global::Pocos.Nested latest = null)
+    {
+        if (latest == null)
+            latest = await this._OnlineToPlainNoacAsync();
+        var somethingChanged = false;
+        return await Task.Run(async () =>
+        {
+            plain = latest;
+            return somethingChanged;
+        });
     }
 
     public void Poll()
@@ -395,24 +313,27 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public Pocos.Nested CreateEmptyPoco()
+    public global::Pocos.Nested CreateEmptyPoco()
     {
-        return new Pocos.Nested();
+        return new global::Pocos.Nested();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
+
     public IEnumerable<AXSharp.Connector.ITwinObject> GetChildren()
     {
         return Children;
     }
 
     private IList<AXSharp.Connector.ITwinElement> Kids { get; } = new List<AXSharp.Connector.ITwinElement>();
+
     public IEnumerable<AXSharp.Connector.ITwinElement> GetKids()
     {
         return Kids;
     }
 
     private IList<AXSharp.Connector.ITwinPrimitive> ValueTags { get; } = new List<AXSharp.Connector.ITwinPrimitive>();
+
     public IEnumerable<AXSharp.Connector.ITwinPrimitive> GetValueTags()
     {
         return ValueTags;
@@ -453,13 +374,22 @@ public partial class Nested : AXSharp.Connector.ITwinObject
     public string Symbol { get; protected set; }
 
     private string _attributeName;
-    public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : this.Translate(_attributeName).Interpolate(this); set => _attributeName = value; }
+    public System.String AttributeName { get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : _attributeName.Interpolate(this).CleanUpLocalizationTokens(); set => _attributeName = value; }
 
-    public string HumanReadable { get; set; }
+    public System.String GetAttributeName(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_attributeName, culture).Interpolate(this);
+    }
+
+    private string _humanReadable;
+    public string HumanReadable { get => string.IsNullOrEmpty(_humanReadable) ? SymbolTail : _humanReadable.Interpolate(this).CleanUpLocalizationTokens(); set => _humanReadable = value; }
+
+    public System.String GetHumanReadable(System.Globalization.CultureInfo culture)
+    {
+        return this.Translate(_humanReadable, culture);
+    }
 
     protected System.String @SymbolTail { get; set; }
-
     protected AXSharp.Connector.ITwinObject @Parent { get; set; }
-
     public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }

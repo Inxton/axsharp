@@ -1,17 +1,16 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using AXSharp.Connector.ValueTypes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using AXSharp.Connector.ValueTypes;
 
 namespace AXSharp.Connector;
 
@@ -30,6 +29,8 @@ public class DummyConnector : Connector
     }
 
     private volatile object _lock = new();
+    /// <inherits/>    
+    public override string TargetPlatformMoniker => "dummy";
 
     private void RwCycle()
     {
@@ -95,5 +96,37 @@ public class DummyConnector : Connector
     /// </summary>
     public override void ReloadConnector()
     {
+    }
+
+    internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    {
+        ArgumentNullException.ThrowIfNull(primitives);
+
+        await Task.Run(() =>
+        {
+            lock (_lock)
+            {
+                foreach (var item in primitives)
+                    item.GetType().GetMethod("UpdateRead", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(item,
+                        new[] { item.GetType().GetProperty("Cyclic").GetValue(item) });
+            }
+        });
+    }
+
+    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    {
+        ArgumentNullException.ThrowIfNull(primitives);
+
+        await Task.Run(() =>
+        {
+            lock (_lock)
+            {
+                foreach (var twinPrimitive in primitives)
+                {
+                    var item = (OnlinerBase)twinPrimitive;
+                    item.SetCyclicValue(item.GetCyclicValue<object>());
+                }
+            }
+        });
     }
 }

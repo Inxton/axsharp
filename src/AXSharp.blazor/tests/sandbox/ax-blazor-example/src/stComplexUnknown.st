@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stComplexUnknown
     VAR PUBLIC
         {#ix-set:AttributeName = "<#String unknown From PLC#>"}	

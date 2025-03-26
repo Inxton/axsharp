@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTest3
     VAR PUBLIC
         ix_bool : BOOL;

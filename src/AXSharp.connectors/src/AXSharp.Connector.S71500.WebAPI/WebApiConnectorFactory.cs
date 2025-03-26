@@ -1,10 +1,12 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using AXSharp.Connector.ValueTypes;
 
 namespace AXSharp.Connector.S71500.WebApi;
@@ -15,10 +17,25 @@ public class WebApiConnectorFactory : ConnectorFactory
     /// <inheritdoc />
     public override Connector CreateConnector(object[] parameters)
     {
-        return new WebApiConnector((string)parameters[0],
-            (string)parameters[1],
-            (string)parameters[2],
-            (bool)parameters[3]);
+        if (parameters[3] is bool)
+        {
+            return new WebApiConnector((string)parameters[0],
+                (string)parameters[1],
+                (string)parameters[2],
+                (bool)parameters[3],
+                (eTargetProjectPlatform)parameters[4],
+                (string)parameters[5]);
+        }
+        else
+        {
+            return new WebApiConnector((string)parameters[0],
+                (string)parameters[1],
+                (string)parameters[2],
+                (Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>)parameters[3],
+                (bool)parameters[4],
+                (eTargetProjectPlatform)parameters[5],
+                (string)parameters[6]);
+        }
     }
 
     /// <inheritdoc />

@@ -21,13 +21,17 @@ Each elementary/primitive/base type is represented by twin wrapper objects that 
 **Cyclic access** allows for fast, low-performance cost, two-way access to the PLC variables. Cyclic values are read and written in an optimized periodic loop. The controller twin object contains the entire PLC program, it does not discriminate between the variables and objects that are used by the consumer and those that are not. However, the Cyclic values are accessed via the communication interface only when:
 
 - Twin connector is set to `Auto` subscription, which will set the variable into a cyclic read queue when `Cyclic` property is accessed in the consumer program.
-- Twin connector is set to `Polling` subscription, and reading is activated by `StartPolling`.
+- Twin connector is set to `Polling` subscription, and reading is activated by `StartPolling`. Polling can be stopped by calling the `StopPolling` method.
+
+The polling mechanism keeps track of polling subscribers or holders and will only release the polling when the last subscriber calls the `StopPolling` method. It is good practice to call `StopPolling` when the holder/subscriber object is disposed.
+
+
+> **WARNING** 
+> Cyclic access may result in degraded performance when the cyclic loop contains too many cyclically accessed primitive twins. Consider using `polling` instead of `automatic` subscription to balance the communication load.
 
 
 Primitive Twins implement notification change when the cyclic property changes [INotifyPropertyChanged](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-7.0). This feature is particularly useful for visualization scenarios in presentation frameworks that support data binding with change notification (WPF, Blazor, WinForm).
 
-> **WARNING** 
-> Cyclic access may result in degraded performance when the cyclic loop contains too many cyclically accessed primitive twins. Consider using `polling` instead of `automatic` subscription to balance the communication load.
 
 ~~~ C#
     // Cyclic Read
@@ -109,47 +113,42 @@ public class BatchedAccess
 }
 ~~~
 
-## Polling
+Polling allows an application to query a structure or variable at different intervals. The values are stored in the `Cyclic` property of value types. The polled variables are retrieved from the controller in the same way as during cyclic reading but at a specified interval. Unlike automatic subscription mode, the polled values can be unsubscribed.
 
-Polling allows the application to query a structure or variable in different intervals. The values are stored in `Cyclic` property of value types. Polled variables are retrieved from the controlled in the same way as during cylic reading but in a given interval. In contrast to automatic subscription mode the polled values can be unsubscribed.
+To enable polling, the subscription of the twin connector must be set to `Polling`.
 
-To allow polling, the twin connector's subscription must be set to `Polling`
-
-~~~ C#
+```C#
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart();
-~~~
+```
 
 > **WARNING** 
-> The subscription mechanism must be selected at the application's start-up before any operation on the twin connector. Mixing subscription mode during lifetime of the application may result in inconsistent behavior.
+> The subscription mechanism must be selected at the application's start-up before any operation on the twin connector. Mixing subscription modes during the lifetime of the application may result in inconsistent behavior.
 
-### Start polling
+### Starting Polling
 
-To start polling a structure at given interval, use `StartPolling` method with an interval in `ms`.
-StartPolling is an extension method, remember to import the namespace `AXSharp.Connector`.
+To start polling a structure at a given interval, use the `StartPolling` method with an interval in milliseconds. `StartPolling` is an extension method, so remember to import the `AXSharp.Connector` namespace.
 
-~~~ C#
+```C#
 using AXSharp.Connector;
 .
 .
 
 Entry.Plc.Settings.StartPolling(50);
-~~~
+```
 
+### Stopping Polling 
 
-### Stop polling 
+To stop polling, call the `StopPolling` method on the structure you want to stop polling. `StopPolling` is also an extension method, so remember to import the `AXSharp.Connector` namespace.
 
-To stop polling call `StopPolling` method on the structure you want to stop polling.
-
-StopPolling is an extension method, remember to import the namespace `AXSharp.Connector`.
-
-~~~ C#
+```C#
 using AXSharp.Connector;
 .
 .
 
 Entry.Plc.Settings.StopPolling();
-~~~
+```
+
 See also
 
 [Polling in Blazor application](../blazor/RENDERABLECONTENT.md#renderable-content-control-polling)
@@ -349,6 +348,23 @@ It is possible to override the default resource using [`SetLocalizationResource`
 Example
 ~~~C#
 ix_plc.PlcTranslator.Instance.SetLocalizationResource(typeof(myproject.ResourcesOverride.OverridePlcStringResources));
+~~~
+
+### Localization in a client in server-side application
+
+In order to get translation in given culture for a client in a server side application you should use methods `Get{ProperyName}(CultureInfo culture)` to get translation for client current culture. The properties will returned original string where localization tokens are removed.
+
+~~~csharp
+var notTranlsated = obj.AttributeName;
+var translated = obj.GetAttribute(new CultureInfo("sk-SK"));
+~~~
+
+### Setting connector's culture
+
+In some instances it might be necessary to set the culture for the threads handling connectors. In that case use the following method to impose a specific culture.
+
+~~~csharp
+AXSharp.Connector.Connector.SetCulture(new CultureInfo("en-US"));
 ~~~
 
 See also

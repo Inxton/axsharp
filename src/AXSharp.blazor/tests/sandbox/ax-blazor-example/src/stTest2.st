@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTest2
     VAR
         testVarString: STRING;

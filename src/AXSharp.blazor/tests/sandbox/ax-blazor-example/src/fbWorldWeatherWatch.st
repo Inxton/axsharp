@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS fbWorldWeatherWatch
     VAR PUBLIC
         {#ix-attr:[Container(Layout.Stack)]}

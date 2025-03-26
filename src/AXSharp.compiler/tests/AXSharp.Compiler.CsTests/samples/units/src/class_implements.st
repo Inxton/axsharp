@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IContext
     
 END_CLASS   

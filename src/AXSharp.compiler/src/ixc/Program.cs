@@ -1,9 +1,9 @@
 ﻿// AXSharp.ixc
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -13,6 +13,7 @@ using CommandLine;
 using AXSharp.Compiler;
 using AXSharp.Compiler.Cs.Onliner;
 using AXSharp.Compiler.Cs.Plain;
+using System.Text.Json;
 
 namespace ixc;
 
@@ -41,6 +42,10 @@ public static class Program
                 var recoverCurrentDirectory = Environment.CurrentDirectory;
                 try
                 {
+                    Log.ConfigureLogger(o.Versbosity);
+
+                    Log.Logger.Verbose(JsonSerializer.Serialize(o));
+
                     Project = GenerateIxProject(o);
                 }
                 catch (Exception e)
@@ -70,19 +75,23 @@ public static class Program
         }
     }
 
-    private static AXSharpProject GenerateIxProject(Options o)
+    private static AXSharpProject GenerateIxProject(Options options)
     {
-        var axProjectFolder = string.IsNullOrEmpty(o.AxSourceProjectFolder)
+        var axProjectFolder = string.IsNullOrEmpty(options.AxSourceProjectFolder)
             ? Environment.CurrentDirectory
-            : o.AxSourceProjectFolder;
+            : options.AxSourceProjectFolder;
 
         Environment.CurrentDirectory = GetFullPath(axProjectFolder);
 
         var ax = new AxProject(Environment.CurrentDirectory);
         var project = new AXSharpProject(ax, new[] { typeof(CsOnlinerSourceBuilder), typeof(CsPlainSourceBuilder) },
-            typeof(CsProject), o);
+            typeof(CsProject), options);
 
+        var sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
         project.Generate();
+        sw.Stop();
+        Log.Logger.Information($"Done in {TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds)}");
         return project;
     }
 
@@ -98,11 +107,11 @@ public static class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("THIS PROJECT IS POSSIBLE BECAUSE OF SOME AWESOME OPEN SOURCE PROJECTS\n" +
                           "THIRD PARTY LICENSES CAN BE FOUND AT \n" +
-                          "https://github.com/ix-ax/axsharp/blob/master/notices.md");
+                          "https://github.com/inxton/axsharp/blob/master/notices.md");
+
 
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("ATTENTION: This version requires the usage of `apax sld` v0.14.2 or later!");
-        
+        Console.WriteLine($"Using version '{LegalAcrobatics.StcVersion}' of stc.");
         Console.ForegroundColor = originalColor;
 
         if (int.Parse(GitVersionInformation.Major) < 1 || string.IsNullOrEmpty(GitVersionInformation.PreReleaseLabel))

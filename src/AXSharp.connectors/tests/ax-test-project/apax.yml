@@ -3,16 +3,21 @@ version: 0.0.0
 type: app
 targets:
   - "1500"
-  - axunit-llvm
-  - plcsim
-  - swcpu
+  - llvm
+variables:
+  # AXTARGET: $AXTARGET
+  # AXTARGETPLATFORMINPUT: $AXTARGETPLATFORMINPUT
+  # AX_USERNAME: $AX_USERNAME
+  # AX_TARGET_PWD: $AX_TARGET_PWD
+  # MY_VERY_STRONG_PASSWORD: $AX_TARGET_PWD
+  COM_CERT_PATH: .\certs\Communication.cer
+
 devDependencies:
-  "@ax/sdk": 3.0.17
-dependencies:
-  "@ax/hwld": ^0.7.10
-  "@ax/hwc": ^0.7.92
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": 2405.2.0
+  "@ax/sld": ^3.0.6-alpha
 scripts:
-  postbuild: dotnet run --project
-    ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework
-    net7.0
+  postbuild: dotnet run --project ..//..//..//AXSharp.compiler//src//ixc//AXSharp.ixc.csproj --framework net9.0
+  download: apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME
+  mon_date: apax mon --file date.mon -t $AXTARGET -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME -c
+installStrategy: overridable
+apaxVersion: 3.1.0

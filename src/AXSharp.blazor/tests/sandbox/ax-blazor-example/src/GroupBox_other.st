@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS GroupBox_other
     VAR PUBLIC
         {#ix-set:AttributeName = "B1"}

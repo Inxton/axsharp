@@ -1,4 +1,5 @@
 NAMESPACE CompilerOmmits
+    {S7.extern=ReadWrite}
     CLASS ClassWithArrays
         VAR PUBLIC
             {#ix-attr:[CompilerOmitsAttribute()]}
@@ -12,7 +13,7 @@ NAMESPACE CompilerOmmits
         
     END_CLASS
 
-
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Complex 
         VAR PUBLIC
             HelloString : STRING;
@@ -22,6 +23,7 @@ NAMESPACE CompilerOmmits
 END_NAMESPACE
 
 NAMESPACE Enums
+    {S7.extern=ReadWrite}
     CLASS ClassWithEnums
         VAR PUBLIC              
             colors : Colors;            
@@ -41,6 +43,7 @@ NAMESPACE Enums
 END_NAMESPACE
 
 NAMESPACE misc
+    {S7.extern=ReadWrite}
     CLASS PUBLIC VariousMembers
         VAR PUBLIC
             _SomeClass : SomeClass;  
@@ -48,7 +51,7 @@ NAMESPACE misc
         END_VAR    
     END_CLASS    
     
-      
+    {S7.extern=ReadWrite}  
     CLASS SomeClass
         VAR PUBLIC            
             SomeClassVariable : STRING;
@@ -56,9 +59,11 @@ NAMESPACE misc
     END_CLASS
 
     TYPE
+        {S7.extern=ReadWrite}
         Motor : STRUCT
             isRunning : BOOL;
         END_STRUCT;
+        {S7.extern=ReadWrite}
         Vehicle : STRUCT
             m : Motor;
             displacement : INT;
@@ -67,6 +72,7 @@ NAMESPACE misc
 END_NAMESPACE
 
 NAMESPACE UnknownArraysShouldNotBeTraspiled
+    {S7.extern=ReadWrite}
     CLASS ClassWithArrays
         VAR PUBLIC
             _complexKnown : ARRAY[0..10] OF Complex;
@@ -76,7 +82,7 @@ NAMESPACE UnknownArraysShouldNotBeTraspiled
         
     END_CLASS
 
-
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Complex 
         VAR PUBLIC
             HelloString : STRING;

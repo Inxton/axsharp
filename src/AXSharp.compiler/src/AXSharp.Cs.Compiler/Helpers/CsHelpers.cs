@@ -1,12 +1,14 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using System.Text;
 using AX.ST.Semantic.Model.Declarations;
 using AX.ST.Syntax.Tree;
+using AXSharp.Connector;
 
 namespace AXSharp.Compiler.Cs.Helpers;
 
@@ -43,9 +45,28 @@ internal static class CsHelpers
         return $"public async {qualifier} Task<T> {methodName}<T>(){{\n return await (dynamic)this.{methodName}Async();\n}}";
     }
 
+    public static string CreateGenericHasChangedMethodMethod(string methodName, string pocoTypeName, bool isExtended = false)
+    {
+        var qualifier = isExtended ? "override" : "virtual";
+        var sb = new StringBuilder();
+        sb.AppendLine("///<inheritdoc/>\r\n");
+        sb.AppendLine($"public async {qualifier} Task<bool> {TwinObjectExtensions.HasChangedMethodName}<T>(T plain){{\n return await this.{methodName}((dynamic)plain);\n}}");
+        return sb.ToString();
+    }
+
     public static string CreateGenericSwapperMethodFromPlainer(string methodName, string pocoTypeName, bool isExtended)
     {
         var qualifier = isExtended ? "override" : "virtual";
         return $"public async {qualifier} Task {methodName}<T>(T plain){{\n await this.{methodName}Async((dynamic)plain);\n}}";
+    }
+    
+    /// <summary>
+    /// Gets fully qualified name of poco type for a given type declaration.
+    /// </summary>
+    /// <param name="declaration"></param>
+    /// <returns>Fully qualified poco name for given declarations</returns>
+    public static string GetFullyQualifiedPocoName(this IDeclaration declaration)
+    {
+        return declaration.ContainingNamespace.FullyQualifiedName == "$GLOBAL" ?  $"global::Pocos.{declaration.Name}" : $"global::Pocos.{declaration.ContainingNamespace.FullyQualifiedName}.{declaration.Name}";
     }
 }

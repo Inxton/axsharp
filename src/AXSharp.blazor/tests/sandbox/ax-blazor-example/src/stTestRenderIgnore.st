@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTestRenderIgnore
     VAR PUBLIC
         {#ix-attr:[RenderIgnore()]}

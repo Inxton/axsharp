@@ -11,6 +11,7 @@ Syntax
 Example
 
 ~~~iecst
+{S7.extern=ReadWrite}
 {#ix-attr:[Container(Layout.Wrap)]} (* Example of an attribute declared at type level. *)
 CLASS PUBLIC MyClass
     VAR PUBLIC
@@ -35,7 +36,7 @@ ReadOnce attribute can be only applied to members (property, field), not type (C
 Example
 
 ~~~iecst
-
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnce()]} // this structure will be read only once
@@ -52,7 +53,7 @@ ReadOnly attribute render the member (variable) inaccessible for write operation
 
 
 ~~~iecst
-
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[ReadOnly()]} // this structure will be read only
@@ -75,6 +76,7 @@ CompilerOmits attribute instructs the compiler to skip the compilation of a memb
 
 
 ~~~iecst
+{S7.extern=ReadWrite}
 CLASS PUBLIC MyClass
     VAR PUBLIC
         {#ix-attr:[CompilerOmits()]} 
@@ -88,6 +90,21 @@ CLASS PUBLIC MyClass
     END_VAR
 END_CLASS
 ~~~
+
+### Ignoring Communication with the Controller for POCO Operations
+
+To minimize the communication overhead between the application and the controller during POCO operations, you can annotate specific members of a type to bypass data exchange. This attribute should be applied when the compiler omits the compilation of particular members in the POCO object.
+
+```iecst
+{S7.extern=ReadWrite}
+CLASS PUBLIC MyClass
+    VAR PUBLIC        
+        {#ix-attr:[CompilerOmits("POCO")]} 
+        {#ix-attr:[IgnoreOnPocoOperation()]} 
+        MyStringIgnoredInPocos : STRING;        
+    END_VAR
+END_CLASS
+```
 
 ### Generic extension attributes
 

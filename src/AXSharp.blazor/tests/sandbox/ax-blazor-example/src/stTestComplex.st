@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTestComplex
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Integer From PLC#>"}	

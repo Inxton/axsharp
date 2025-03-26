@@ -60,54 +60,54 @@
   </resheader>
   <data name="Integer_From_PLC" xml:space="preserve">
     <value>Integer From PLC</value>
-    <comment>src\compositeLayout.st,2</comment>
+    <comment>src\compositeLayout.st,3</comment>
   </data>
   <data name="UInteger_From_PLC" xml:space="preserve">
     <value>UInteger From PLC</value>
-    <comment>src\compositeLayout.st,4</comment>
+    <comment>src\compositeLayout.st,5</comment>
   </data>
   <data name="STRING_From_PLC" xml:space="preserve">
     <value>STRING From PLC</value>
-    <comment>src\compositeLayout.st,6</comment>
+    <comment>src\compositeLayout.st,7</comment>
   </data>
   <data name="Task" xml:space="preserve">
     <value>Task</value>
-    <comment>src\compositeLayout.st,8</comment>
+    <comment>src\compositeLayout.st,9</comment>
   </data>
   <data name="LREAL_From_PLC" xml:space="preserve">
     <value>LREAL From PLC</value>
-    <comment>src\compositeLayout.st,11</comment>
+    <comment>src\compositeLayout.st,12</comment>
   </data>
   <data name="BOOL_From_PLC" xml:space="preserve">
     <value>BOOL From PLC</value>
-    <comment>src\compositeLayout.st,13</comment>
+    <comment>src\compositeLayout.st,14</comment>
   </data>
   <data name="DATE_From_PLC" xml:space="preserve">
     <value>DATE From PLC</value>
-    <comment>src\compositeLayout.st,15</comment>
+    <comment>src\compositeLayout.st,16</comment>
   </data>
   <data name="DATE_UNDERSCORE_AND_UNDERSCORE_TIME_From_PLC" xml:space="preserve">
     <value>DATE_AND_TIME From PLC</value>
-    <comment>src\compositeLayout.st,17</comment>
+    <comment>src\compositeLayout.st,18</comment>
   </data>
   <data name="TIME_UNDERSCORE_OF_UNDERSCORE_DAY_From_PLC" xml:space="preserve">
     <value>TIME_OF_DAY From PLC</value>
-    <comment>src\compositeLayout.st,19</comment>
+    <comment>src\compositeLayout.st,20</comment>
   </data>
   <data name="WORD_From_PLC" xml:space="preserve">
     <value>WORD From PLC</value>
-    <comment>src\test\border.st,10</comment>
+    <comment>src\test\border.st,11</comment>
   </data>
   <data name="BYTE_From_PLC" xml:space="preserve">
     <value>BYTE From PLC</value>
-    <comment>src\test\border.st,12</comment>
+    <comment>src\test\border.st,13</comment>
   </data>
   <data name="REAL_From_PLC" xml:space="preserve">
     <value>REAL From PLC</value>
-    <comment>src\test\border.st,14</comment>
+    <comment>src\test\border.st,15</comment>
   </data>
   <data name="ENUM_Station_status" xml:space="preserve">
     <value>ENUM Station status</value>
-    <comment>src\test\border.st,26</comment>
+    <comment>src\test\border.st,27</comment>
   </data>
 </root>

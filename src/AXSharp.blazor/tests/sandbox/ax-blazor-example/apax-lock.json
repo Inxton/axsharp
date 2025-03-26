@@ -1,111 +1,92 @@
 {
   "@ax/apax-build": {
-    "version": "0.5.0",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/apax-build/-/apax-build-0.5.0.tgz",
-    "integrity": "sha512-6p9iZQfpmngx38r4p6XaVVPeEQzTt3UJcywsRSeVBnES6tx1pTVLM20K0RczqRYZmXbyNpz9effPxpvj5L/jKA==",
-    "dependencies": {
-      "@ax/third-party-licenses-apax-build": "0.5.0"
-    }
+    "version": "0.7.0",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/apax-build/-/apax-build-0.7.0.tgz",
+    "integrity": "sha512-OkmqLq6SI0gv9x/7FLFmABuJYylHHyOzZ4Kvmfys2RGiP06/WbOpycmuqYBneK1zAe3KoBu8ZmelPdXbxcK4+w=="
   },
   "@ax/axunit": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit/-/axunit-2.0.8.tgz",
-    "integrity": "sha512-pRM+X++jrS2n/dwBJBuyTtVAL0aQxrYjhbk7Xw3IdpT0aIX4L1DF8S+ftrt6V06HpcatgKhCttOSnpR8nECNzQ==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit/-/axunit-4.0.6.tgz",
+    "integrity": "sha512-zuXuKxqHeP0fdn2cG/CbpogjYAweIwBKpDwZzSrzTG9tCM/axK/c3MZ/+DUN8aINdcyy0NdWTX6Z7kaU68nQBA==",
     "dependencies": {
-      "@ax/axunit-docs": "2.0.8",
-      "@ax/axunit-library": "2.0.8",
-      "@ax/axunit-llvm-runner-gen": "2.0.8",
-      "@ax/axunit-runner-llvm": "2.0.8",
-      "@ax/axunit-runner-mc7plus": "2.0.8",
+      "@ax/axunit-docs": "4.0.6",
+      "@ax/axunit-library": "4.0.6",
+      "@ax/axunit-llvm-runner-gen": "4.0.6",
+      "@ax/axunit-runner-llvm": "4.0.6",
+      "@ax/axunit-runner-mc7plus": "4.0.6",
       "@ax/build-native": "10.1.1",
-      "@ax/target-axunit": "2.0.8",
-      "@ax/third-party-licenses-testingframework": "2.0.8"
+      "@ax/target-axunit": "4.0.6"
     }
   },
   "@ax/axunit-docs": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-docs/-/axunit-docs-2.0.8.tgz",
-    "integrity": "sha512-uY9BbmqbvIOdBlAs7RYrFJH85R1/hsbZ248/NrdeFMdqToJPkQkjERENlXfN+Iz6+HjM60+D3Lz1MqVY6v69OA==",
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-docs/-/axunit-docs-4.0.6.tgz",
+    "integrity": "sha512-IjZke615I44O7NzPO3nuMzPyaaw6lwZ0zxNjNiNqqegITz7BTxhYfRsNEK2EUISc4S3c9f1vY6oT9AuY/cqm6g=="
   },
   "@ax/axunit-library": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-library/-/axunit-library-2.0.8.tgz",
-    "integrity": "sha512-6yVIj8gXTHx4YVTxBYXqJ3q38N0KZe0GXnpyA1xXIapvjFT6Rm1S4WqylYng8M4cgsRfEMRGkzq2HSeIlqUzwQ==",
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-library/-/axunit-library-4.0.6.tgz",
+    "integrity": "sha512-sgg1SNngQ9lTP/v8e+AyZq6hCf+563P3S4xep6uCdHIZMmW9GYkvKTjh56+ZKQMpGFrcr9Sn0Aw6dE7mbINwXg=="
   },
   "@ax/axunit-llvm-runner-gen": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-llvm-runner-gen/-/axunit-llvm-runner-gen-2.0.8.tgz",
-    "integrity": "sha512-CLLqMBSrCCVJwSnP4fvBYC2i18rpcRFbblVzkyU1ITPqaIJXFVjz21jYiaZO5nJnq0FMsOS1U9hhMxAEV4OgYw==",
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-llvm-runner-gen/-/axunit-llvm-runner-gen-4.0.6.tgz",
+    "integrity": "sha512-yL9TSEvBX1Wu5ohFAm07XRQfOHPUmHm6D17CB09mVssYec2VcBl1ORmqomVxTQhGVO4Zxsv5t+qgtBMx+/aytQ=="
+  },
+  "@ax/axunit-ls-contrib": {
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-ls-contrib/-/axunit-ls-contrib-4.0.6.tgz",
+    "integrity": "sha512-BNES+gbcdqEnkzyNeEBnl35Vx8ABkaZOoMdTiiK4ffFy5Y51lY7ZLy9YXQdrvCev8b5xhViWlQMljLSiMRtyZA=="
   },
   "@ax/axunit-runner-llvm": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-runner-llvm/-/axunit-runner-llvm-2.0.8.tgz",
-    "integrity": "sha512-3NUAtjSQymxtQejhgTp8Psr3S46VFpo6Rp9/8dO2pAU4WST57/LlVkHmWixBUlwYJH7wkZrbylpqirg9Hde6/A==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-runner-llvm/-/axunit-runner-llvm-4.0.6.tgz",
+    "integrity": "sha512-YMt1iet7rDxV0sDF0DDoLBmFZZ7O+qW3JhP4faUiOwJRy0GLkyrjYbVuMkOJAeScu4pykgjUe0yNjLZ9c/Nlxw==",
     "dependencies": {
-      "@ax/axunit-runner-llvm-linux-x64": "2.0.8",
-      "@ax/axunit-runner-llvm-win-x64": "2.0.8",
-      "@ax/third-party-licenses-testingframework": "2.0.8"
+      "@ax/axunit-runner-llvm-linux-x64": "4.0.6",
+      "@ax/axunit-runner-llvm-win-x64": "4.0.6"
     }
   },
   "@ax/axunit-runner-llvm-linux-x64": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-runner-llvm-linux-x64/-/axunit-runner-llvm-linux-x64-2.0.8.tgz",
-    "integrity": "sha512-DHC0poRVuAMjrJPEnkyOhVFY43IvSswj4hakis61lKsmre7bffb5GigU5/t0u4oSdvN59DMu8i+iHujECpOS0Q==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-runner-llvm-linux-x64/-/axunit-runner-llvm-linux-x64-4.0.6.tgz",
+    "integrity": "sha512-Za0+ZaWLJDnSR+7Bsr1f1Chh55JvH1tdWtJNtIjNFfpI5dkhQJ60/WCffP7khyNpcRvi2u3wLd1gtbMnXGNJNA==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    ]
   },
   "@ax/axunit-runner-llvm-win-x64": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-runner-llvm-win-x64/-/axunit-runner-llvm-win-x64-2.0.8.tgz",
-    "integrity": "sha512-nso1/ZZW01aPl1J/yanwrTINXKgvSqVEnf7szJ4I+LyL7Jnaa2Gvs+3xFYBdwjL3bEVZdgpC8a3X2rqksgPp3A==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-runner-llvm-win-x64/-/axunit-runner-llvm-win-x64-4.0.6.tgz",
+    "integrity": "sha512-8TJ25XNcLvNLrc6U2r0lfd+CeAt+cMPFwShf3IlT21BS3KeZCmz8joG1YPTq5OyKChEjg5ez5mMg5BvleG7Ybg==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    ]
   },
   "@ax/axunit-runner-mc7plus": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-runner-mc7plus/-/axunit-runner-mc7plus-2.0.8.tgz",
-    "integrity": "sha512-76hxe36fRIymUPQwTfRP4oTtH8yDioxt+TrGRKftrHchWEkR2dy6yncrJAp6Myo6dTwL+25tBWaXUrJ7tDXx3Q==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-runner-mc7plus/-/axunit-runner-mc7plus-4.0.6.tgz",
+    "integrity": "sha512-TrXheqFtzGwUYXKLjaLINU0Gkl54Qp88OFjCnrmaF71z8vOP3xJ5wtGyzYx9b9bPlub7ZIcr7PvSakn2FA21PQ==",
     "dependencies": {
-      "@ax/axunit-runner-mc7plus-win-x64": "2.0.8",
-      "@ax/third-party-licenses-testingframework": "2.0.8"
+      "@ax/axunit-runner-mc7plus-win-x64": "4.0.6"
     }
   },
   "@ax/axunit-runner-mc7plus-win-x64": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/axunit-runner-mc7plus-win-x64/-/axunit-runner-mc7plus-win-x64-2.0.8.tgz",
-    "integrity": "sha512-FRBFUWePIwIfy7st7pUs40L9M3CkC4HoA9kKbC19gpYuhA0K7PQNZn0rDiWeL7GpD3JSjZNomAZFtZN80sM5dw==",
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-runner-mc7plus-win-x64/-/axunit-runner-mc7plus-win-x64-4.0.6.tgz",
+    "integrity": "sha512-2oavPsnLEtgOeMCUjtTJSDwgDZ7SMZ6FVko51K4vO+T/O0ZRyD7eEgOBjBY0BjBTYLXTu5DNFxVnJqCvstSHzg==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    ]
   },
   "@ax/build-native": {
     "version": "10.1.1",
@@ -145,243 +126,156 @@
       "@ax/third-party-licenses-build-native": "10.1.1"
     }
   },
-  "@ax/diag": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/diag/-/diag-0.17.4.tgz",
-    "integrity": "sha512-Z3RNRXWsJgP2DiGR5ed/MxuW9Tt92skjAYZBfHHOR8ni9obNbYG2Uh9Fma9ZrSmU7s+cFfVGyPPvurnPJhQwAg==",
-    "dependencies": {
-      "@ax/diag-linux-x64": "0.17.4",
-      "@ax/diag-win-x64": "0.17.4",
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
-  },
-  "@ax/diag-linux-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/diag-linux-x64/-/diag-linux-x64-0.17.4.tgz",
-    "integrity": "sha512-xXyMhNxLENo8nL4IkQPw2c3w/hroSJMNcYCWNeinu3aLoOMup+i09evJNALYFkMT7sUo2FYqOURIz5O34sn/kw==",
-    "os": [
-      "linux"
-    ],
-    "cpu": [
-      "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
-  },
-  "@ax/diag-win-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/diag-win-x64/-/diag-win-x64-0.17.4.tgz",
-    "integrity": "sha512-HopU/QUggN2sUqMqrqhN11K5VMu1z25VPE5ChDbZpqqDkT0hjpx1+tQqP9pwryDgOL+QwQHG5/D1dEW2RGec+w==",
-    "os": [
-      "win32"
-    ],
-    "cpu": [
-      "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
-  },
   "@ax/mod": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mod/-/mod-0.17.4.tgz",
-    "integrity": "sha512-DBrN+0PB93BiZJ9v+LFtZt9p3k16yujJ21g3nYRGbbxlRvBaoVX36mxpn0HPGec8U1AQi7v7l2yy5UcSt3DHxA==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mod/-/mod-0.19.6.tgz",
+    "integrity": "sha512-ox1VIJyq7UgI+73LIwzjCxLSfOLK1PTOveiW/JwqMJWhdpg0MK+UiV8N8LhTxdciXLb4KVB0TmsteEou12SfEQ==",
     "dependencies": {
-      "@ax/mod-linux-x64": "0.17.4",
-      "@ax/mod-win-x64": "0.17.4",
-      "@ax/third-party-licenses-monitor": "0.17.4"
+      "@ax/mod-linux-x64": "0.19.6",
+      "@ax/mod-win-x64": "0.19.6"
     }
   },
   "@ax/mod-linux-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mod-linux-x64/-/mod-linux-x64-0.17.4.tgz",
-    "integrity": "sha512-CofHcxm9nusmMBIRej2OE6uvPFx3b2Q2pPC2hP6tuESqrfn5ZGRuI1es0AUPXaHZD01konfQ/w5a6FOkOS+cyg==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mod-linux-x64/-/mod-linux-x64-0.19.6.tgz",
+    "integrity": "sha512-n1TP1N+e1CHWIi1BT8h2wu6oQgny23COPqK1q34HduS7Ws3DkNUwmSwt/ypzZcUkrs/ZDLJVzrzyZ9s2TcrCmA==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/mod-win-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mod-win-x64/-/mod-win-x64-0.17.4.tgz",
-    "integrity": "sha512-K1M0BG/RRJFFfCk6SbseFsc7eaDl0/mWiQWvRBvJy6Nda7JjcyOpOJJJo2ENExj0dm6Iw1WP6b1JyZBJPhbKuQ==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mod-win-x64/-/mod-win-x64-0.19.6.tgz",
+    "integrity": "sha512-RRo9oEoKL/XUxwHN3lPHgUDrAuDFQsN96ai9UnEuVrOV6ORNqV2UF3pEERT2Y9yPQBubwr94dPSbtZuGJLimkQ==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/mon": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mon/-/mon-0.17.4.tgz",
-    "integrity": "sha512-V2gtbf36wOiFPnHOTeXlmRpWlkXO33pO4cQ4UZlarhAVnv6+AzvolC0joBDH8NsE1uk9wK349+T283gaC991aw==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mon/-/mon-0.19.6.tgz",
+    "integrity": "sha512-1DzxTbM7hezqKfjWvFppoVURyglO/vDx8yY/ygtOHzp2vN/fgkDS5b0i1ZMYNb8Cqh5bmWiUxef1KCPPuqiLcg==",
     "dependencies": {
-      "@ax/mon-linux-x64": "0.17.4",
-      "@ax/mon-win-x64": "0.17.4",
-      "@ax/third-party-licenses-monitor": "0.17.4"
+      "@ax/mon-linux-x64": "0.19.6",
+      "@ax/mon-win-x64": "0.19.6"
     }
   },
   "@ax/mon-linux-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mon-linux-x64/-/mon-linux-x64-0.17.4.tgz",
-    "integrity": "sha512-NC5nPFdAyvCtjjtDnyYd23oSwMHR9NT3yLJhTLTo0oH+FM58zurDs2CygdkWZIX12aNEhsSJE0lMpJ6RaldiBQ==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mon-linux-x64/-/mon-linux-x64-0.19.6.tgz",
+    "integrity": "sha512-aruXr5+pkXulrf7+AOr6BbtaIUuS2BEmRmr0p5xfxLVfFmqSGspYQK1KCVh4k3lS6f87BQPMviAHXxWElmyvWA==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/mon-win-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/mon-win-x64/-/mon-win-x64-0.17.4.tgz",
-    "integrity": "sha512-R3u02RGnQf3AEo0cicefdwSY/UIKlg9WepPiFuYNf4jq15Pv2dUtZbkFa+5nB8hmOdYDdj1RgbRcsSuLV0SWJw==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/mon-win-x64/-/mon-win-x64-0.19.6.tgz",
+    "integrity": "sha512-suwh5N+dFMNJIgukWp3pzw8QxRzD+ae+tIxZUzHKMV91QbPbcNKJztCqa9y1dRBZyeurz+De5VZUpxZMaRobvw==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/sdb": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sdb/-/sdb-0.17.4.tgz",
-    "integrity": "sha512-uuX4XonmzE3EUHZFxJpqg/oW/hRh260oE3I9s9C1b6LhENfY4M4w/4RWQclwy8kEMAZNJAmLu8mph3wjFPbcqg==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sdb/-/sdb-0.19.6.tgz",
+    "integrity": "sha512-1H2E6VcaYfhGtxnFC58pjekMp8c3ule/byEISTc5G1AWgHV7+ANZtGAgXWIPimYIF5+u6JL/qd4JT94gCweJrA==",
     "dependencies": {
-      "@ax/sdb-linux-x64": "0.17.4",
-      "@ax/sdb-win-x64": "0.17.4",
-      "@ax/third-party-licenses-monitor": "0.17.4"
+      "@ax/sdb-linux-x64": "0.19.6",
+      "@ax/sdb-win-x64": "0.19.6"
     }
   },
   "@ax/sdb-linux-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sdb-linux-x64/-/sdb-linux-x64-0.17.4.tgz",
-    "integrity": "sha512-Z968H7WATjAW35mItoV+LGWFo236gWwlJ5xzii0TXsiRAbbCr14MiTnObDZr3lGUKqe0hUwm3xOTj1hCUcFVrA==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sdb-linux-x64/-/sdb-linux-x64-0.19.6.tgz",
+    "integrity": "sha512-7oVkmc8nCXIj7dPRHxwUipRVvxQpyYpCNpseWYYsgKyfzaeRKeZpwF3zuSe5I9NSsWenGT1HtvJhyfSJ2Dyebg==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/sdb-win-x64": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sdb-win-x64/-/sdb-win-x64-0.17.4.tgz",
-    "integrity": "sha512-SubrVGW/1JY5pZ+2UIgGuJSduDlXXRCL5vFyhGPS7J+RMki2TJCiEMMorxwbAdzUymv9uqTPbvMzQbE17y3XGQ==",
+    "version": "0.19.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sdb-win-x64/-/sdb-win-x64-0.19.6.tgz",
+    "integrity": "sha512-Rkeb7x1I1t3tKpop+xYbNhWw4Qk0u7tU+maj8JsidQyuSEs/dcgOE95nCb32JhaMKRykwZ6uQ0SVsnrqtCvwrA==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-monitor": "0.17.4"
-    }
+    ]
   },
   "@ax/sdk": {
-    "version": "3.0.2",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sdk/-/sdk-3.0.2.tgz",
-    "integrity": "sha512-frtVc5Ohp5GT49Xurm17EsAYGN6janqLJQ316Ip20Y62/ibmntVNgA0fpmCv6H+Ht+IXefjTyCV9Q3I2siXG6Q==",
+    "version": "4.0.12",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sdk/-/sdk-4.0.12.tgz",
+    "integrity": "sha512-EXB8J2voETlwzYWe7GPt25NA/FM+qskre83oahARvS7/7hIoEhinfx7AhZqj63hUruAr9P1XcMZL8cTyQhOYgQ==",
     "dependencies": {
-      "@ax/axunit": "2.0.8",
-      "@ax/diag": "0.17.4",
-      "@ax/mod": "0.17.4",
-      "@ax/mon": "0.17.4",
-      "@ax/sdb": "0.17.4",
-      "@ax/sld": "0.12.1",
-      "@ax/st": "3.0.2",
-      "@ax/target-llvm": "4.1.6",
-      "@ax/target-mc7plus": "4.1.6"
+      "@ax/axunit": "4.0.6",
+      "@ax/axunit-ls-contrib": "4.0.6",
+      "@ax/mod": "0.19.6",
+      "@ax/mon": "0.19.6",
+      "@ax/sdb": "0.19.6",
+      "@ax/simatic-pragma-stc-plugin": "1.0.26",
+      "@ax/sld": "1.0.11",
+      "@ax/st": "4.0.12",
+      "@ax/target-llvm": "5.4.89",
+      "@ax/target-mc7plus": "5.4.89"
     }
+  },
+  "@ax/simatic-pragma-stc-plugin": {
+    "version": "1.0.26",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-pragma-stc-plugin/-/simatic-pragma-stc-plugin-1.0.26.tgz",
+    "integrity": "sha512-2Pj/Encd6bUgsRfXyj3rA4YOUpRroqwzODKU37T95dMNle+BpFXYS3V88FYJyTdOgSrJik4VVdV1AFzH7NUQ8g=="
   },
   "@ax/sld": {
-    "version": "0.12.1",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sld/-/sld-0.12.1.tgz",
-    "integrity": "sha512-9FqP80QhgOjgPEEiVXZBFdemPFIW76XZg7MHylijyGYT4x5vLq2dRa59Hx8zMEPRS5jJVcOrJ5lnQpGZCDJrDQ==",
-    "dependencies": {
-      "@ax/sld-linux-x64": "0.12.1",
-      "@ax/sld-win-x64": "0.12.1",
-      "@ax/third-party-licenses-plc-loader": "0.12.1"
-    }
-  },
-  "@ax/sld-linux-x64": {
-    "version": "0.12.1",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sld-linux-x64/-/sld-linux-x64-0.12.1.tgz",
-    "integrity": "sha512-NeacGQ4xptssaq6SVYqOd3w5su3c0pz+ceRbaBiCk1GgHDXIrsw6I6v6QLeza8P/u688L9q0/8RY4A+JP8+dLA==",
-    "os": [
-      "linux"
-    ],
+    "version": "2.0.5",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-2.0.5.tgz",
+    "integrity": "sha512-upa0HyRVdYyzNu6j7E+gTAnpzP2mfZxvo+0jbm8H6Ci9ergL56SHaCVBC35PnociMZpdZ5d1/LTy6f8lwpDxXA==",
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-plc-loader": "0.12.1"
-    }
-  },
-  "@ax/sld-win-x64": {
-    "version": "0.12.1",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/sld-win-x64/-/sld-win-x64-0.12.1.tgz",
-    "integrity": "sha512-8Ou2iEPE1M3JgUmG1ttn8LHoDwZwcKxiZyTIsj2gTcoiaUYFP56EAABtjniXQM7x0l39M24RgG4GNHS2AN/wHw==",
-    "os": [
-      "win32"
-    ],
-    "cpu": [
-      "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-plc-loader": "0.12.1"
-    }
+    ]
   },
   "@ax/st": {
-    "version": "3.0.2",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/st/-/st-3.0.2.tgz",
-    "integrity": "sha512-uDi0fxvMz+12uHxSmBeP4GlnKuAc0WSxVR0muZ/NGn0ULbSILYQfWp+J7L+k6QGf010Os6WzmwszOK3FOcQc+Q==",
+    "version": "4.0.12",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/st/-/st-4.0.12.tgz",
+    "integrity": "sha512-Y/SZG+Y7Cf9C+kuFBpU0zunU0Jkr7PQaybnlPAnoSt3Vl9XIk1JWIlHi7axKz62TRzlqi2MyBFuAVZKXtSLkIg==",
     "dependencies": {
-      "@ax/apax-build": "0.5.0",
-      "@ax/stc": "4.1.6"
+      "@ax/apax-build": "0.7.0",
+      "@ax/stc": "5.4.89"
     }
   },
   "@ax/st-docs": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/st-docs/-/st-docs-4.1.6.tgz",
-    "integrity": "sha512-7LwS86O52ydoh9avtehEBd4Bm5i9lKNZUZteK/MwpY0GMYNd5Ph2HwS6EmYih+3n95q6joRVBRd62XLVF3abQA==",
-    "dependencies": {
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
-    }
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-5.4.89.tgz",
+    "integrity": "sha512-TogaSV69nQtoPVUFMna4rZOz64SEa5m8mfEjoXcYABI1GgDhqz9ptzzCLbpcz7l6+zimdv1erV36WxRYoX9guQ=="
   },
   "@ax/stc": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/stc/-/stc-4.1.6.tgz",
-    "integrity": "sha512-KjqEcqA4+6IpClC5LJq4ZgrrZ1YiCeGc5Un8p6ideRoh4UZtl13EnCiAiZYXxXcu3uP8hylPN80I6AC2e2kipQ==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc/-/stc-5.4.89.tgz",
+    "integrity": "sha512-PylnoEsIPZj8IK2XwSnjHlDK66CJ7ABaZ9UqBLGP281JI5XLwP88+e9Xjb7RjZbyomeg+1lcvHT1juXZSyc8Ig==",
     "dependencies": {
-      "@ax/stc-linux-x64": "4.1.6",
-      "@ax/stc-win-x64": "4.1.6",
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
+      "@ax/stc-linux-x64": "5.4.89",
+      "@ax/stc-win-x64": "5.4.89"
     }
   },
   "@ax/stc-linux-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/stc-linux-x64/-/stc-linux-x64-4.1.6.tgz",
-    "integrity": "sha512-V+deitre/miL6Az96kbXyRg6SXWccq+hcJcWBHPWich7oHu7NpkIeAaFvWDi4KQMdby2+FEh/9/I6Q++NBragw==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-linux-x64/-/stc-linux-x64-5.4.89.tgz",
+    "integrity": "sha512-WFNqenCSEs+Qy1ZzSEEmmg7eOxUggPyVqJ+ZQjwR+LqAmVYJRm0yFzOFQvTghVO/znvSgGeKywK8W9OjFu2BEw==",
     "os": [
       "linux"
     ],
@@ -389,14 +283,13 @@
       "x64"
     ],
     "dependencies": {
-      "@ax/st-docs": "4.1.6",
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
+      "@ax/st-docs": "5.4.89"
     }
   },
   "@ax/stc-win-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/stc-win-x64/-/stc-win-x64-4.1.6.tgz",
-    "integrity": "sha512-IbeMwRZumkiLkOWegFO+iDw/WdM242jkBsAVx8/SIrEj10WVyv0FiIu11UIBx415kWEEOVNXIC3pwxbgUQZ4VQ==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-win-x64/-/stc-win-x64-5.4.89.tgz",
+    "integrity": "sha512-ysCVJdJ3Gk7p+FzHhntapHYhvKkyHVU0HV36pMBrpYVTCgTOoHlFkeDeTy+JU6cfx7x4LVuIFTzQusJrFPUs8g==",
     "os": [
       "win32"
     ],
@@ -404,122 +297,79 @@
       "x64"
     ],
     "dependencies": {
-      "@ax/st-docs": "4.1.6",
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
+      "@ax/st-docs": "5.4.89"
     }
   },
   "@ax/target-axunit": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-axunit/-/target-axunit-2.0.8.tgz",
-    "integrity": "sha512-aFRPFSR+WN84wFjy9H5EKLh80bb9GbNiCxhuAcD/uEzqS09QWBITfiTFIQVWvnUi/2DUCsNF8Aj+eYntwFAf4A==",
-    "dependencies": {
-      "@ax/third-party-licenses-testingframework": "2.0.8"
-    }
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-axunit/-/target-axunit-4.0.6.tgz",
+    "integrity": "sha512-JSxQsnT/1PjaPLVmv7mORqjhmE5weMUEZ8/xKDdKnH+UxRH8FkCuLMsKgsq+UCQUazdbePm9vFlZ6E4HhI5OGA=="
   },
   "@ax/target-llvm": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-llvm/-/target-llvm-4.1.6.tgz",
-    "integrity": "sha512-++Ja6l5Nn3ef/S5RlWAzywlk/2M8rGcELZJiOt3BgmGN7KrSCpUzb7SNY9sUDg9HASIKA2ZjCxoqmlnqSfNXxQ==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-llvm/-/target-llvm-5.4.89.tgz",
+    "integrity": "sha512-gKooU/g7iFjalErbbmfBwwcYwBbH9GQeeICilgUK+0FFxyGLn28ML9ky4MrL6e3Yq/mWrHPnqZlKK4ZIZsMEDA==",
     "dependencies": {
-      "@ax/target-llvm-linux-x64": "4.1.6",
-      "@ax/target-llvm-win-x64": "4.1.6",
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
+      "@ax/target-llvm-linux-x64": "5.4.89",
+      "@ax/target-llvm-win-x64": "5.4.89"
     }
   },
   "@ax/target-llvm-linux-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-llvm-linux-x64/-/target-llvm-linux-x64-4.1.6.tgz",
-    "integrity": "sha512-Jd/2VrJk2A7vYfweFzdbnEB3KRm0BZmQgZaLiOHBWzv3FdPlLhRCkuC5my9nPMB3d5YtVP/3somEufHNubRCug==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-llvm-linux-x64/-/target-llvm-linux-x64-5.4.89.tgz",
+    "integrity": "sha512-xOFn1jGf3EPCSSOu88lcdPlwW46n59xdiJT19WxBvaOowAzEoCAYQCTXfh3si/XiAix0vLWsnDY9DYRPMhx5qA==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
-    }
+    ]
   },
   "@ax/target-llvm-win-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-llvm-win-x64/-/target-llvm-win-x64-4.1.6.tgz",
-    "integrity": "sha512-iNll599705taC2Bin+gfUafVYtpAH7DqN7Gz7N3nUcIWt2DiSv4TOkz1SSULS5SEBRQAYCz3fZnvUdgL7xKbjw==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-llvm-win-x64/-/target-llvm-win-x64-5.4.89.tgz",
+    "integrity": "sha512-pQdi7/dtf4Hz10yMikkxcOKqDwPzsQTD/d8vG7rfHYLyGHezBslVNHnoVGufaSAbQkU9zwvZJ7EUT89oRrU2lg==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
-    }
+    ]
   },
   "@ax/target-mc7plus": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-mc7plus/-/target-mc7plus-4.1.6.tgz",
-    "integrity": "sha512-ZIHBVwcBWe+P59fZHFa8NrLkJFhqV9GOerxodlJhu9G/m2szr+5MEi3nep4vw8r/dZzahx9UqAU/tnXTb8aJGA==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-mc7plus/-/target-mc7plus-5.4.89.tgz",
+    "integrity": "sha512-5W0MHwuBiAzcs/4SGKKd91ZtM3Dr4RFixU/3bXHdTpyEDHT6S3fGGPjhDO58Cnd9WORleOozFg95zoZgEodcBw==",
     "dependencies": {
-      "@ax/target-mc7plus-linux-x64": "4.1.6",
-      "@ax/target-mc7plus-win-x64": "4.1.6",
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
+      "@ax/target-mc7plus-linux-x64": "5.4.89",
+      "@ax/target-mc7plus-win-x64": "5.4.89"
     }
   },
   "@ax/target-mc7plus-linux-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-mc7plus-linux-x64/-/target-mc7plus-linux-x64-4.1.6.tgz",
-    "integrity": "sha512-z6iURITvnVBnDFv/ifbDUPrpMmloBhmEfVIIZ+rEzKWxmZ57CWLQSBRGGkiXT+TiF8aRyaqEJmwwdWZxUTNPkA==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-mc7plus-linux-x64/-/target-mc7plus-linux-x64-5.4.89.tgz",
+    "integrity": "sha512-WPSfNJI4Ar4DuAH6WZLfoVPU9whR+1arPfvWvmJ3w5Ag38PpfZU8BNfJ8krGbLzZXm/nMvydnE4oyfz4mRgbwg==",
     "os": [
       "linux"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
-    }
+    ]
   },
   "@ax/target-mc7plus-win-x64": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/target-mc7plus-win-x64/-/target-mc7plus-win-x64-4.1.6.tgz",
-    "integrity": "sha512-wKlitqYXvFvaRnfOG3rUsCY1czOmwkawium+FRBVC0/RU6NrrDORXuOGuJWNriNwntACXrYhzoB/WX5KZZq0/A==",
+    "version": "5.4.89",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-mc7plus-win-x64/-/target-mc7plus-win-x64-5.4.89.tgz",
+    "integrity": "sha512-vnlDcCvwLzj06oQKR0sbrEfRf/s/RWKsnfqbhfNzKRt5T3mW+46dmcuR90SSNrYpHi4Szx/mwRl+O1BmxSJI8g==",
     "os": [
       "win32"
     ],
     "cpu": [
       "x64"
-    ],
-    "dependencies": {
-      "@ax/third-party-licenses-st-compiler": "4.1.6"
-    }
-  },
-  "@ax/third-party-licenses-apax-build": {
-    "version": "0.5.0",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-apax-build/-/third-party-licenses-apax-build-0.5.0.tgz",
-    "integrity": "sha512-9okNwDaHttbFwcP1Ln/mFN8ARYL1g+ShCtcMm4OE/BYN98nzoTZBEaUdsdbhju4sL4bD6qDBPVvj9o/cwPIL7Q=="
+    ]
   },
   "@ax/third-party-licenses-build-native": {
     "version": "10.1.1",
     "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-build-native/-/third-party-licenses-build-native-10.1.1.tgz",
     "integrity": "sha512-Da+AT0KujH3K9bKf4K4rqPA3Z+a/WDkw9p6328AlrSqgBIUFyUZzOM3eVOwhhjKCnmNAVSmtSp0r7crDFGICTw=="
-  },
-  "@ax/third-party-licenses-monitor": {
-    "version": "0.17.4",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-monitor/-/third-party-licenses-monitor-0.17.4.tgz",
-    "integrity": "sha512-ac5nbrpOkX0EuaghbQc8G7AZEOow3aTGlNb/jv3P+iBFvdslrpgGFe5wbHnKxPgkt9TaIf/n48Wy/N8IfVdlKg=="
-  },
-  "@ax/third-party-licenses-plc-loader": {
-    "version": "0.12.1",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-plc-loader/-/third-party-licenses-plc-loader-0.12.1.tgz",
-    "integrity": "sha512-6KmsG+8fwmbR7WwEOpaTu/87vvTMMun1g/PcPJQoTUTSAf0fxrDvNmIHYRSIp2gVpt/6v/mryDfIKAnvvSt91g=="
-  },
-  "@ax/third-party-licenses-st-compiler": {
-    "version": "4.1.6",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-st-compiler/-/third-party-licenses-st-compiler-4.1.6.tgz",
-    "integrity": "sha512-rsbijfgPOvWe+NUsD/6D+/uI6b+gZC8vYW0/xLaorKcN2yOkz4dq1VL7Ighz163BjwRlKDNos9Au4Ao1vmG+pA=="
-  },
-  "@ax/third-party-licenses-testingframework": {
-    "version": "2.0.8",
-    "resolved": "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-testingframework/-/third-party-licenses-testingframework-2.0.8.tgz",
-    "integrity": "sha512-pKjnmI18dCvDqM/o6xxTzKqAdF5KIo/pje1JkoZP64BIf5LAwz84NsmDFB1jlmlo3nv3arhSe7aKK9jhjYZAvw=="
   }
 }

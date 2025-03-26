@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic.Model.Declarations.Types;
 using AX.ST.Semantic.Model.Declarations;
@@ -67,20 +67,25 @@ namespace AXSharp.Compiler.Cs.Onliner
                     break;
                 case IArrayTypeDeclaration arrayTypeDeclaration:
 
-
-                    switch (arrayTypeDeclaration.ElementTypeAccess.Type)
+                    if (arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
                     {
-                        case IClassDeclaration classDeclaration:
-                        case IStructuredTypeDeclaration structuredTypeDeclaration:
-                            AddToSource($"var _{declaration.Name}_i_FE8484DAB3 = 0;");
-                            AddToSource($"{declaration.Name}.Select(p => p.{MethodName}Async(plain.{declaration.Name}[_{declaration.Name}_i_FE8484DAB3++])).ToArray();");
-                            break;
-                        case IScalarTypeDeclaration scalarTypeDeclaration:
-                        case IStringTypeDeclaration stringTypeDeclaration:
-                            AddToSource($"var _{declaration.Name}_i_FE8484DAB3 = 0;");
-                            AddToSource($"{declaration.Name}.Select(p => p.Shadow = plain.{declaration.Name}[_{declaration.Name}_i_FE8484DAB3++]).ToArray();");
-                            break;
+                        switch (arrayTypeDeclaration.ElementTypeAccess.Type)
+                        {
+                            case IClassDeclaration classDeclaration:
+                            case IStructuredTypeDeclaration structuredTypeDeclaration:
+                                AddToSource($"var _{declaration.Name}_i_FE8484DAB3 = 0;");
+                                AddToSource(
+                                    $"{declaration.Name}.Select(p => p.{MethodName}Async(plain.{declaration.Name}[_{declaration.Name}_i_FE8484DAB3++])).ToArray();");
+                                break;
+                            case IScalarTypeDeclaration scalarTypeDeclaration:
+                            case IStringTypeDeclaration stringTypeDeclaration:
+                                AddToSource($"var _{declaration.Name}_i_FE8484DAB3 = 0;");
+                                AddToSource(
+                                    $"{declaration.Name}.Select(p => p.Shadow = plain.{declaration.Name}[_{declaration.Name}_i_FE8484DAB3++]).ToArray();");
+                                break;
+                        }
                     }
+
                     break;
                 case IReferenceTypeDeclaration referenceTypeDeclaration:
                     break;
@@ -120,9 +125,9 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerPlainToShadowBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", false));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-            builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
             semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
@@ -136,11 +141,11 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerPlainToShadowBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             //var qualifier = isExtended ? "new" : string.Empty;
             var qualifier = string.Empty;
-            builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async(Pocos.{semantics.FullyQualifiedName} plain){{\n");
+            builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
 
 
             if (isExtended)

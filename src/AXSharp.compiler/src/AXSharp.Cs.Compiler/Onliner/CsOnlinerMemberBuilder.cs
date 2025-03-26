@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using AX.ST.Semantic;
@@ -72,7 +72,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.ElementTypeAccess.Type.IsTypeEligibleForTranspile(SourceBuilder))
+                    if (array.IsEligibleForTranspile(SourceBuilder))
                     {
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
                         fieldDeclaration.Type.Accept(visitor, this);
@@ -161,7 +161,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    if (array.ElementTypeAccess.Type.IsTypeEligibleForTranspile(SourceBuilder))
+                    if (array.IsEligibleForTranspile(SourceBuilder))
                     {
                         AddToSource($"public");
                         semantics.Type.Accept(visitor, this);
@@ -196,6 +196,27 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
         var builder = new CsOnlinerMemberBuilder(sourceBuilder);
         builder.AddToSource(semantics.DeclareProperties());
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
+
+        builder.AddToSource(@$"partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+            partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);");
+
+        return builder;
+    }
+
+    public static CsOnlinerMemberBuilder Create(IxNodeVisitor visitor, IReadOnlyCollection<IConfigurationDeclaration> semantics,
+        ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerMemberBuilder(sourceBuilder);
+
+        foreach (var structuredTypeDeclaration in semantics)
+        {
+            builder.AddToSource(structuredTypeDeclaration.DeclareProperties());
+            structuredTypeDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+        
+        builder.AddToSource(@$"partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
+            partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);");
+
         return builder;
     }
 

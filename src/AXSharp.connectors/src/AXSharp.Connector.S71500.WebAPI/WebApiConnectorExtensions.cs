@@ -1,13 +1,13 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using AXSharp.Connector.S71500.WebApi;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using AXSharp.Connector.S71500.WebApi;
 
 namespace AXSharp.Connector;
 
@@ -28,10 +28,11 @@ public static class WebApiConnectorExtensions
     /// <returns>Connector adapter for WebAPI connection.</returns>
     public static ConnectorAdapter CreateWebApi(this ConnectorAdapterBuilder adapter,
         string ipAddress, string userName, string password, bool ignoreSSLErros,
+        eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
     {
         return new ConnectorAdapter(typeof(WebApiConnectorFactory))
-            { Parameters = new object[] { ipAddress, userName, password, ignoreSSLErros } };
+        { Parameters = new object[] { ipAddress, userName, password, ignoreSSLErros, platform, dbName } };
     }
 
     /// <summary>
@@ -42,14 +43,44 @@ public static class WebApiConnectorExtensions
     /// <param name="userName">User name.</param>
     /// <param name="password">Password.</param>
     /// <param name="customServerCertHandler">Customized server certificate handler.</param>
+    /// <param name="ignoreSslErrors">When set to true ssl errors are ignored</param>
     /// <param name="dbName">Name of default DB. The DB used to store all data in an AX project is 'TGlobalVariablesDB'.</param>
     /// <returns>Connector adapter for WebAPI connection.</returns>
     public static ConnectorAdapter CreateWebApi(this ConnectorAdapterBuilder adapter,
         string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
+        bool ignoreSslErrors = false,
+        eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
     {
         return new ConnectorAdapter(typeof(WebApiConnectorFactory))
-            { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, dbName } };
+        { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
+    }
+
+    public static DateOnly GetDateOnly(this int value)
+    {
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1990, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddDays(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
+    }
+
+    public static DateOnly GetDateOnly(this long value)
+    {
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddTicks(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
+    }
+
+    public static DateTime ToUtcDateTime(this long value)
+    {
+        return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddTicks(value);
     }
 }

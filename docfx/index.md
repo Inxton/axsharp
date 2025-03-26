@@ -3,7 +3,7 @@
 
 **AX# is an open-source project developed by a group of automation engineers. It provides easy access from .NET-based applications to SIMATIC-AX based PLC programs.**
 
-Open source repository is [here](https://github.com/ix-ax/axsharp).
+Open source repository is [here](https://github.com/inxton/axsharp).
 
 >[!NOTE]
 >This project is under development. We periodically release versions that can be used for testing and in non-production environments.
@@ -38,6 +38,7 @@ The presentations provide a mechanism for automated UI generation from PLC code.
 - [axcode](https://axcite.me)
 - [dotnet 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [dotnet 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [dotnet 7](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [vscode](https://code.visualstudio.com/Download) or [vs2022](https://visualstudio.microsoft.com/vs/)
 
 > **Make sure you have installed both .NET6 and .NET7.**
@@ -51,7 +52,7 @@ Make sure you meet all [prerequisites](#prerequisites).
 To get early access to the packages from `AX#` you will need to get access to a dedicated package feed hosted on GitHub. If you do not have a GitHub account please consider creating one by signing up at https://github.com.
 
 ~~~
-dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-inxton "https://nuget.pkg.github.com/inxton/index.json"
 ~~~
 
 Replace GITHUBUSERNAME with your github name

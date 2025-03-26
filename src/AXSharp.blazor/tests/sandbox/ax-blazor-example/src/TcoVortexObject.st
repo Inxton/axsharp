@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TcoIxObject
     VAR PUBLIC
         ix_bool : BOOL;

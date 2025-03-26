@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
@@ -13,11 +13,11 @@
 		<Description>Core abstractions for AX# compiler</Description>
 
 		<!-- NuGet Common part-->
-		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Authors>ix-ax</Authors>
-		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<Authors>inxton</Authors>
+		<Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Title>Ix compiler abstractions</Title>
@@ -28,7 +28,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReleaseNotes>
 			Release notes are published here:
-			https://github.com/ix-ax/axsharp/releases
+			https://github.com/inxton/axsharp/releases
 		</PackageReleaseNotes>
 		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 	</PropertyGroup>
@@ -61,18 +61,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CliWrap" Version="3.6.0" />
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-		<PackageReference Include="NuGet.Configuration" Version="6.3.1" />
-		<PackageReference Include="NuGet.Packaging" Version="6.3.1" />
-		<PackageReference Include="Polly" Version="7.2.3" />
-		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
-		<PackageReference Include="YamlDotNet" Version="12.0.2" />
+		<PackageReference Include="CliWrap" />		
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="NuGet.Configuration" />
+		<PackageReference Include="NuGet.Packaging" />
+		<PackageReference Include="Polly" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+		<PackageReference Include="System.Collections.Immutable" />
+		<PackageReference Include="YamlDotNet" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -90,6 +87,11 @@
 		</Reference>
 		<Reference Include="AX.Text">
 			<HintPath>..\..\..\apax\stc\bin\AX.Text.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
+		<Reference Include="AX.Text">
+			<HintPath>..\..\..\apax\stc\bin\AX.ST.Compiler.PluginAbstractions.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 {#ix-attr:[Container(Layout.UniformGrid)]}
 CLASS TestLayoutOverwriting
     VAR PUBLIC

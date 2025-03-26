@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Transactions;
 using AXSharp.Connector.Localizations;
 
 namespace AXSharp.Connector.Localizations
@@ -18,20 +21,20 @@ namespace AXSharp.Connector.Localizations
         
         private ResourceManager _resourceManager;
 
+        private CultureInfo Culture = CultureInfo.InvariantCulture;
+
         /// <summary>
         /// Translates localized string.
         /// </summary>
         /// <param name="originalString">Localized string.</param>
         /// <param name="twin">Twin element to which the string is attached.</param>
         /// <returns></returns>
-        public string Translate(string originalString, ITwinElement twin)
+        public string Translate(string originalString, ITwinElement twin, CultureInfo culture = null)
         {
-            if (_resourceManager == null)
-            {
-                return originalString.CleanUpLocalizationTokens();
-            }
+            if(culture == null) culture = Culture;
 
-            return Localize(originalString, twin);
+            
+            return Localize(originalString, twin, culture);
         }
 
         /// <summary>
@@ -95,13 +98,13 @@ namespace AXSharp.Connector.Localizations
             return localizables;
         }
 
-        private string LocalizeInParents(string token, ITwinElement rootObj, string translation = null)
+        private string LocalizeInParents(string token, ITwinElement rootObj, CultureInfo culture, string translation = null)
         {
             var obj = rootObj?.GetParent();
 
             while (obj != null)
             {
-                translation = obj.Translate(token);
+                translation = obj.Translate(token, culture);
                 if (translation != null) return translation;
 
                 obj = obj.GetParent();
@@ -110,21 +113,22 @@ namespace AXSharp.Connector.Localizations
             return null;
         }
 
-        public string Localize(string str, ITwinElement twinElement)
+        public string Localize(string str, ITwinElement twinElement, CultureInfo culture)
         {
+            
             foreach (var localizable in GetTranslatable(str))
             {
                 var validIdentifier = LocalizationHelper.CreateId(localizable.CleanUpLocalizationTokens());
 
                 // Search in first level resource
-                var translation = _resourceManager.GetString(validIdentifier);
-
+                var translation = _resourceManager?.GetString(validIdentifier, culture);
+                
                 // Search in parent resources
                 if (translation == null)
                 {
                     try
                     {
-                        return LocalizeInParents(str, twinElement);
+                        return LocalizeInParents(str, twinElement, culture);
                     }
                     catch
                     {

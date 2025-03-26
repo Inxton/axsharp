@@ -1,15 +1,16 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AXSharp.Connector.Localizations;
 using AXSharp.Connector.ValueTypes;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace AXSharp.Connector;
 
@@ -60,6 +61,16 @@ public class RootTwinObject : ITwinObject
     ///     Gets empty name for this root object.
     /// </summary>
     public string AttributeName => string.Empty;
+
+    public string GetAttributeName(CultureInfo culture)
+    {
+        return AttributeName;
+    }
+
+    public string GetHumanReadable(CultureInfo culture)
+    {
+        return HumanReadable;
+    }
 
     /// <summary>
     ///     Gets empty symbol for this root object.
@@ -143,6 +154,11 @@ public class RootTwinObject : ITwinObject
     }
 
     public Task PlainToShadow<T>(T plain)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> AnyChangeAsync<T>(T plain)
     {
         throw new NotImplementedException();
     }

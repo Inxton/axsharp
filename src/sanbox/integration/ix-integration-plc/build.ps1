@@ -2,4 +2,4 @@ dotnet run --project ..\..\..\AXSharp.compiler\src\ixc\AXSharp.ixc.csproj --fram
 $targetIP = [Environment]::GetEnvironmentVariable('AXTARGET')
 $targetInput = [Environment]::GetEnvironmentVariable('AXTARGETPLATFORMINPUT')
 apax build
-apax sld --accept-security-disclaimer -t $targetIP -i $targetInput -r --default-server-interface
+apax sld load --accept-security-disclaimer -t $targetIP -i $targetInput -r 

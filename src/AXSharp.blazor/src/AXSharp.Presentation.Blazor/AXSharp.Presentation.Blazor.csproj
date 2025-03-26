@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    
 
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,11 +11,11 @@
 	  <Description>Core presentation library for AX# - Blazor</Description>
 
 	  <!-- NuGet Common part-->
-	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <Authors>ix-ax</Authors>
-	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <Title>AX# Presentation Core Blazor</Title>
@@ -26,7 +26,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>
 		  Release notes are published here:
-		  https://github.com/ix-ax/axsharp/releases
+		  https://github.com/inxton/axsharp/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 	  
@@ -59,13 +59,12 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  <ItemGroup>   
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.Encodings.Web" />
+    <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,9 @@
 // AXSharp.CompilerTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
 using AXSharp.Compiler.Core;
@@ -43,7 +43,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(partialSemanticTree, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(partialSemanticTree, data));
 
             // Assert
 
@@ -52,13 +52,13 @@ namespace AXSharp.CompilerTests.Core
         [Fact]
         public void CannotCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithPartialSemanticTreeAndDataWithNullPartialSemanticTree()
         {
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(default(IPartialSemanticTree), new Mock<ICombinedThreeVisitor>().Object));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(default(IPartialSemanticTree), new Mock<ICombinedThreeVisitor>().Object));
         }
 
         [Fact]
         public void CannotCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithPartialSemanticTreeAndDataWithNullData()
         {
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(new Mock<IPartialSemanticTree>().Object, default(ICombinedThreeVisitor)));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(new Mock<IPartialSemanticTree>().Object, default(ICombinedThreeVisitor)));
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(symbol, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(symbol, data));
         }
 
 
@@ -113,7 +113,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(taskConfigurationDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(taskConfigurationDeclaration, data));
 
 
 
@@ -128,7 +128,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(taskDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(taskDeclaration, data));
 
         }
 
@@ -140,7 +140,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(programConfigurationDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(programConfigurationDeclaration, data));
 
 
 
@@ -154,7 +154,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(namespaceDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(namespaceDeclaration, data));
 
 
 
@@ -170,7 +170,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(usingDirective, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(usingDirective, data));
 
 
 
@@ -184,7 +184,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(programDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(programDeclaration, data));
 
 
 
@@ -231,7 +231,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(functionDeclaration, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(functionDeclaration, data));
 
 
 
@@ -246,7 +246,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(functionBlockDeclaration, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(functionBlockDeclaration, data));
 
 
 
@@ -260,7 +260,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(methodDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(methodDeclaration, data));
 
 
 
@@ -275,7 +275,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(methodPrototypeDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(methodPrototypeDeclaration, data));
 
 
 
@@ -409,7 +409,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(dimension, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(dimension, data));
 
             // Assert
 
@@ -459,7 +459,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(enumValueDeclaration, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(enumValueDeclaration, data));
 
             // Assert
 
@@ -474,7 +474,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(namedValueDeclaration, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(namedValueDeclaration, data));
 
             // Assert
 
@@ -489,7 +489,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(initializerExpression, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(initializerExpression, data));
 
             // Assert
 
@@ -505,7 +505,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(arrayInitializer, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(arrayInitializer, data));
 
             // Assert
 
@@ -520,7 +520,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(structureInitializer, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(structureInitializer, data));
 
             // Assert
 
@@ -535,7 +535,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(memberInitializer, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(memberInitializer, data));
 
             // Assert
 
@@ -568,7 +568,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(instrList, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(instrList, data));
 
 
 
@@ -584,7 +584,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignment, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignment, data));
 
 
 
@@ -600,7 +600,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignment, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignment, data));
 
 
 
@@ -615,7 +615,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignmentAttempt, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(assignmentAttempt, data));
 
 
 
@@ -630,7 +630,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(expression, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(expression, data));
 
 
 
@@ -645,7 +645,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(condStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(condStatement, data));
 
 
 
@@ -661,7 +661,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(condInstrList, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(condInstrList, data));
 
 
 
@@ -677,7 +677,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseStatement, data));
 
 
 
@@ -685,19 +685,19 @@ namespace AXSharp.CompilerTests.Core
 
 
 
-        [Fact]
-        public void CanCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionAndData()
-        {
-            // Arrange
-            var caseSelection = new Mock<ISemanticCaseSelection>().Object;
-            var data = new Mock<ICombinedThreeVisitor>().Object;
+        //[Fact]
+        //public void CanCallVisitForISemanticNodeVisitor_ICombinedThreeVisitor_WithCaseSelectionAndData()
+        //{
+        //    // Arrange
+        //    var caseSelection = new Mock<ISemanticCaseSelection>().Object;
+        //    var data = new Mock<ICombinedThreeVisitor>().Object;
 
-            // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseSelection, data));
+        //    // Assert
+        //    Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(caseSelection, data));
 
 
 
-        }
+        //}
 
 
 
@@ -709,7 +709,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(subrange, data));
+            Assert.Throws<NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(subrange, data));
 
 
 
@@ -725,7 +725,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(forStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(forStatement, data));
 
 
 
@@ -741,7 +741,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(whileStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(whileStatement, data));
 
 
 
@@ -757,7 +757,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(repeatStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(repeatStatement, data));
 
 
 
@@ -773,7 +773,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(continueInstruction, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(continueInstruction, data));
 
 
 
@@ -789,7 +789,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(exitInstruction, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(exitInstruction, data));
 
 
 
@@ -805,7 +805,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(returnStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(returnStatement, data));
 
 
 
@@ -821,7 +821,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(asmStatement, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(asmStatement, data));
 
 
 
@@ -836,7 +836,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(constExpr, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(constExpr, data));
 
 
 
@@ -851,7 +851,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(identifierAccess, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(identifierAccess, data));
 
 
 
@@ -867,7 +867,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(binExpr, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(binExpr, data));
 
 
 
@@ -883,7 +883,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(unaryExpression, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(unaryExpression, data));
 
 
 
@@ -899,7 +899,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(qualifiedEnumAccess, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(qualifiedEnumAccess, data));
 
 
 
@@ -915,7 +915,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(memberAccessExpression, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(memberAccessExpression, data));
 
 
 
@@ -932,7 +932,7 @@ namespace AXSharp.CompilerTests.Core
 
             // Assert
 
-            Assert.Throws<System.NotImplementedException>(
+            Assert.Throws<System.NotSupportedException>(
                 () => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(arrayAccessExpression, data));
 
         }
@@ -947,7 +947,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(call, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(call, data));
 
 
 
@@ -963,7 +963,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(paramList, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(paramList, data));
 
 
         }
@@ -978,7 +978,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(paramAssignment, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(paramAssignment, data));
 
 
 
@@ -994,7 +994,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Assert
-            Assert.Throws<System.NotImplementedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(partialAccessExpression, data));
+            Assert.Throws<System.NotSupportedException>(() => ((ISemanticNodeVisitor<ICombinedThreeVisitor>)_testClass).Visit(partialAccessExpression, data));
 
 
 

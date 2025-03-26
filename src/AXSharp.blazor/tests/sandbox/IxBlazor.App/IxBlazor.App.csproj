@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -9,6 +9,12 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.Encodings.Web" />
+    <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
 

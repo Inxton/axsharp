@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TestMultipleLayouts
     VAR PUBLIC
         {#ix-set:AttributeName = "B1"}

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS stTestLayouts
     VAR PUBLIC
         {#ix-attr:[Container(Layout.Stack)]}

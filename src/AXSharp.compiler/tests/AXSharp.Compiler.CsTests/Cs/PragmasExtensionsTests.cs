@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.CsTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Collections.ObjectModel;
 using AX.ST.Semantic;
@@ -49,7 +49,7 @@ public class PragmasExtensionsTests
     [Fact]
     public void should_declare_property()
     {
-        var expected = "private string _SomeField;\npublic string SomeField { get => string.IsNullOrEmpty(_SomeField) ? SymbolTail : this.Translate(_SomeField).Interpolate(this); set => _SomeField = value; }";
+        var expected = "private string _SomeField;\npublic string SomeField { get => string.IsNullOrEmpty(_SomeField) ? SymbolTail : _SomeField.Interpolate(this).CleanUpLocalizationTokens(); set => _SomeField = value; }public string GetSomeField(System.Globalization.CultureInfo culture){return this.Translate(_SomeField, culture).Interpolate(this);}";
         var field = NSubstitute.Substitute.For<ITypeDeclaration>();
         field.Name.Returns("someField");
         field.Pragmas.Returns(new ReadOnlyCollection<IPragma>(new IPragma[]
@@ -72,7 +72,7 @@ public class PragmasExtensionsTests
     [Fact]
     public void should_set_property_string()
     {
-        var expected = "someField.AttributeName = \"This is name\";";
+        var expected = "someField.AttributeName = @\"This is name\";";
         var field = NSubstitute.Substitute.For<IFieldDeclaration>();
         field.Name.Returns("someField");
         field.Pragmas.Returns(new ReadOnlyCollection<IPragma>(new IPragma[]
@@ -108,6 +108,28 @@ public class PragmasExtensionsTests
         //        new PragmaMock("#ix-set:AttributeMinimum = 10.5f")
         //    }));
 
+        var actual = field.SetProperties();
+
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void should_set_property_multiline_string()
+    {
+        var expected = "someField.MultilineSet = @\"Line 1 \n Line 2\";";
+        var field = NSubstitute.Substitute.For<IFieldDeclaration>();
+        field.Name.Returns("someField");
+        field.Pragmas.Returns(new ReadOnlyCollection<IPragma>(new IPragma[]
+        {
+            new PragmaMock("#ix-set:MultilineSet =  \"Line 1 \n Line 2\"")
+        }));
+
+        //var field = new FieldMock("someField",
+        //    new ReadOnlyCollection<IPragma>(new IPragma[]
+        //    {
+        //        new PragmaMock("#ix-set:AttributeMinimum = 10.5f")
+        //    }));
+        
         var actual = field.SetProperties();
 
         Assert.Equal(expected, actual);

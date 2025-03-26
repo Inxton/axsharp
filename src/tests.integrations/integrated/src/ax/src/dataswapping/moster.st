@@ -1,18 +1,27 @@
 NAMESPACE MonsterData
+    {S7.extern=ReadWrite}
     CLASS MonsterBase
         VAR PUBLIC
             Description : STRING;
             Id : ULINT;
-            ArrayOfBytes : ARRAY[0..3] OF BYTE;
+            ArrayOfBytes : ARRAY[0..3] OF BYTE;            
             ArrayOfDrives : ARRAY[0..3] OF DriveBase;
+
+            {#ix-attr:[IgnoreOnPocoOperation()]}            
+            DriveBase_tobeignoredbypocooperations : DriveBase;
+
+            {#ix-attr:[IgnoreOnPocoOperation()]}            
+            Description_tobeignoredbypocooperations : STRING;
         END_VAR        
     END_CLASS
+    {S7.extern=ReadWrite}
     CLASS Monster EXTENDS MonsterBase
         VAR PUBLIC
             DriveA : DriveBase;
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DriveBase
         VAR PUBLIC
             Position : LREAL;

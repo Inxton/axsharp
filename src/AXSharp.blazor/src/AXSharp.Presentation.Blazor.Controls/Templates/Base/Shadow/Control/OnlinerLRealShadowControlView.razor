@@ -1,0 +1,26 @@
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using System.Globalization;
+@inherits TemplateBaseOnline<Double>
+
+<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <input id="@ComponentId"
+           readonly="@IsReadOnly"
+           class="w-100 form-control @AccessStatus"
+           type="number"
+           step="any"
+           value="@Onliner.Shadow.ToString().Replace(',', '.')"
+           @onchange="Change"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-custom-class="custom-tooltip"
+           data-bs-title="@ToolTipText">
+</TemplateView>
+
+@code {
+    private void Change(ChangeEventArgs args)
+    {
+        if (Double.TryParse(args.Value.ToString(), out var parseValue))
+            Onliner.Shadow = parseValue;
+    }
+}

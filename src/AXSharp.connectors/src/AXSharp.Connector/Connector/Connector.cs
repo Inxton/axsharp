@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections;
@@ -11,9 +11,11 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using AXSharp.Connector.Identity;
 using AXSharp.Connector.Localizations;
 using AXSharp.Connector.ValueTypes;
@@ -41,6 +43,8 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
 
     private bool isRwLoopSuspended;
     private int readWriteCycleDealy;
+    private int concurrentRequestDelay;
+    private int concurrentRequestMaxCount;
 
     /// <summary>Creates an instance of Connector class</summary>
     /// <param name="parameters">
@@ -66,6 +70,17 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     }
 
     /// <summary>
+    /// Sets logger for this connector.
+    /// >![NOTE] The default logger is implemented. Default implementation will log into console and in simple text file.
+    /// </summary>
+    /// <param name="logger">Logger</param>
+    public void SetLoggerConfiguration(ILogger logger)
+    {
+        this._logger = logger;
+    }
+
+
+    /// <summary>
     ///     Provides logging capability for this connector.
     /// </summary>
     public ILogger Logger
@@ -79,6 +94,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
                 .File($"connector{GetType()}.log",
                     outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
                     fileSizeLimitBytes: 100000)
+                .MinimumLevel.Information()
                 .CreateLogger();
         }
     }
@@ -165,6 +181,45 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         set => SetField(ref readWriteCycleDealy, value, nameof(ReadWriteCycleDelay));
     }
 
+    /// <summary>
+    ///     Gets or sets delay between Concurrent Requests.
+    ///     It is applied when ConcurrentRequestMaxCount is reached.
+    /// </summary>
+    public int ConcurrentRequestDelay
+    {
+        get
+        {
+            if (concurrentRequestDelay <= 10) concurrentRequestDelay = 10;
+
+            return concurrentRequestDelay;
+        }
+
+        set => SetField(ref concurrentRequestDelay, value, nameof(concurrentRequestDelay));
+    }
+
+
+    /// <summary>
+    ///     Gets or sets maximal count of Concurrent Request.
+    ///     Maximum number of simultaneous requests is `4`.
+    ///     >[!NOTE]
+    ///     > The property will be capped to this value if higher value is assigned.
+    ///     >[!IMPORTANT]
+    ///     > When setting this value take into account that other devices may communicate with your target system.
+    /// </summary>
+    public int ConcurrentRequestMaxCount
+    {
+        get
+        {
+            if (concurrentRequestMaxCount > 4) concurrentRequestMaxCount = 4;
+            if (concurrentRequestMaxCount <= 0) concurrentRequestMaxCount = 1;
+            return concurrentRequestMaxCount;
+        }
+
+        set => SetField(ref concurrentRequestMaxCount, value, nameof(concurrentRequestMaxCount));
+    }
+
+
+
 
     /// <summary>
     ///     Gets online value items tags attached to this connector.
@@ -216,11 +271,15 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// <param name="primitives">Primitive items to be read.</param>
     public abstract Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives);
 
+    internal abstract Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives);
+
     /// <summary>
     ///     Writes batch of value items to the plc.
     /// </summary>
     /// <param name="primitives">Primitive items to be written.</param>
     public abstract Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives);
+
+    internal abstract Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives);
 
     /// <summary>
     ///     Return symbol path combining parent's and member's symbol.
@@ -321,6 +380,32 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         NextPeriodicReadSet[primitive.Symbol] = primitive;
     }
 
+    private static CultureInfo desiredCulture = CultureInfo.InvariantCulture;
+    
+    /// <summary>
+    /// Sets the culture for this connector.
+    /// </summary>
+    /// <param name="culture">Desired culture</param>
+    public static void SetCulture(CultureInfo culture)
+    {
+        desiredCulture = culture;
+    }
+
+    /// <summary>
+    /// Start polling queue of subscribed items.
+    /// </summary>
+    public void StartSubscriptionPolling(int pollingInterval = 100)
+    {
+        Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(pollingInterval);
+                await ReadBatchAsync(this.Subscribed.Values);
+            }
+        });
+    }
+
     /// <summary>
     ///     Starts cyclical read write operation on this connector.
     /// </summary>
@@ -335,8 +420,15 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             while (true)
                 if (!IsRwLoopSuspended)
                 {
-                    Thread.Sleep(ReadWriteCycleDelay);
+                    if (desiredCulture.Name != CultureInfo.InvariantCulture.Name 
+                        && (Thread.CurrentThread.CurrentUICulture.Name != desiredCulture.Name ||
+                        Thread.CurrentThread.CurrentCulture.Name != desiredCulture.Name))
+                    {
+                        Thread.CurrentThread.CurrentUICulture = desiredCulture;
+                        Thread.CurrentThread.CurrentCulture = desiredCulture;
+                    }
 
+                    await Task.Delay(ReadWriteCycleDelay);
                     sw.Restart();
                     try
                     {
@@ -361,17 +453,25 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     }
 
     
+
+
     /// <summary>
     ///     Reads online variables required to be read.
     /// </summary>
     protected async Task CyclicRead()
     {
+       
         var primitivesToRead = new List<ITwinPrimitive>();
         primitivesToRead.AddRange(NextPeriodicReadSet.Values);
-        primitivesToRead.AddRange(Subscribed.Values);
-        var distinctPrimitivesToRead = primitivesToRead.Distinct();
-        
-        await ReadBatchAsync(distinctPrimitivesToRead
+        //primitivesToRead.AddRange(Subscribed.Values);
+        var distinctPrimitivesToRead = primitivesToRead.Distinct().ToList();
+
+        if (distinctPrimitivesToRead.Any())
+        {
+            Logger.Debug($"Periodic reading of '{distinctPrimitivesToRead.Count()}' items.");
+        }
+
+        await ReadBatchAsyncCyclic(distinctPrimitivesToRead
             .Where(p => !(p.ReadOnce && p.AccessStatus.LastAccess != OnlinerBase.DefaultDateTime)));
 
         this.ClearPeriodicReadSet();
@@ -382,7 +482,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// </summary>
     protected async Task CyclicWrite()
     {
-        await WriteBatchAsync(NextCycleWriteSet.Values);
+        await WriteBatchAsyncCyclic(NextCycleWriteSet.Values);
         ClearPeriodicWriteSet();
     }
 
@@ -400,4 +500,10 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     {
         this.Subscribed[primitive.Symbol] = primitive;
     }
+
+    /// <summary>
+    /// Target platform moniker.
+    /// </summary>
+    public abstract string TargetPlatformMoniker { get; }
+   
 }

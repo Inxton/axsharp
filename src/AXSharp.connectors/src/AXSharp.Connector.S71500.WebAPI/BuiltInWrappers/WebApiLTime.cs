@@ -1,11 +1,12 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
+using Newtonsoft.Json.Linq;
 
 namespace AXSharp.Connector.S71500.WebApi;
 
@@ -65,9 +66,12 @@ public class WebApiLTime : OnlinerLTime, IWebApiPrimitive
     }
 
     /// <inheritdoc />
-    public void Read(string result)
+    public void Read(string value)
     {
-        UpdateRead(TimeSpan.FromMilliseconds(ToMilliseconds(long.Parse(result))));
+        if (long.TryParse(value, out var val))
+        {
+            UpdateRead(TimeSpan.FromMilliseconds(ToMilliseconds(val)));
+        }
     }
 
 
@@ -89,13 +93,12 @@ public class WebApiLTime : OnlinerLTime, IWebApiPrimitive
     /// <inheritdoc />
     public override async Task<TimeSpan> GetAsync()
     {
-        return TimeSpan.FromMilliseconds(ToMilliseconds(long.Parse(await _webApiConnector.ReadAsync<string>(this))));
+        return await _webApiConnector.ReadAsync<TimeSpan>(this);
     }
 
     /// <inheritdoc />
     public override async Task<TimeSpan> SetAsync(TimeSpan value)
     {
-        await _webApiConnector.WriteAsync(this, ToNanoseconds((long)value.TotalMilliseconds).ToString());
-        return value;
+        return await _webApiConnector.WriteAsync(this, value);
     }
 }

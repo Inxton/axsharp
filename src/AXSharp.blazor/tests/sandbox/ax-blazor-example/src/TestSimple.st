@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS TestSimple
     VAR PUBLIC
         {#ix-set:AttributeName = "A1"}

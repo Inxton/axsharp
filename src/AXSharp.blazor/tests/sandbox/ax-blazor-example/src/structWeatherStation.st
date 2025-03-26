@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS structWeatherStation
     VAR PUBLIC
         {#ix-set:AttributeName = "Station name (ICAO)"}	

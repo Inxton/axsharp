@@ -1,9 +1,9 @@
 ﻿// AXSharp.Presentation.Blazor.Controls
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Microsoft.AspNetCore.Components;
 using System;
@@ -23,14 +23,12 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
     /// <summary>
     ///  Base class for complex components with viewmodel support.
     /// </summary>
-    public class RenderableViewModelComponentBase<T> : RenderableComponentBase, IRenderableViewModelBase where T : RenderableViewModelBase, new()
+    public abstract class RenderableViewModelComponentBase<T> : RenderableComponentBase, IRenderableViewModelBase where T : RenderableViewModelBase, new()
     {
         [Inject]
         private ViewModelCacheService _viewModelCache { get; set; }
 
         private TwinContainerObject _twinContainer;
-
-       
 
         [Parameter]
         public TwinContainerObject TwinContainer

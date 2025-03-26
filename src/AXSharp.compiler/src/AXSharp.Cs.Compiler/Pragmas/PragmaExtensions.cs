@@ -1,15 +1,17 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using AX.ST.Semantic.Model.Declarations;
 using AX.ST.Semantic.Model.Declarations.Types;
 using AX.ST.Semantic.Pragmas;
+using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Pragmas.PragmaParser;
+using AXSharp.Connector;
 
 namespace AXSharp.Compiler.Cs;
 
@@ -39,6 +41,29 @@ public static class PragmaExtensions
                 .Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p).Product));
     }
 
+    public static string AddedPropertiesAsAttributes(this IEnumerable<IPragma> pragmas)
+    {
+        var properties =  pragmas.Where(p => 
+                p.Content.StartsWith(PRAGMA_PROPERTY_SET_SIGNATURE))
+            .Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p).Property);
+
+
+        var valueTuples = properties as (string PropertyName, string InitValue)[] ?? properties.ToArray();
+        if (valueTuples.Count() > 0)
+        {
+            var sb = new StringBuilder();
+            
+            foreach (var property in valueTuples)
+            {
+                sb.AppendLine($"[AXSharp.Connector.AddedPropertiesAttribute(\"{property.PropertyName}\", {property.InitValue})]\n");
+            }
+
+            return sb.ToString();
+        }
+        
+        return string.Empty;
+    }
+    
     /// <summary>
     ///     Produces property from list of ix pragmas declared on type declaration.
     /// </summary>
@@ -68,12 +93,12 @@ public static class PragmaExtensions
     /// </summary>
     /// <param name="fieldDeclaration">Field declaration</param>
     /// <returns>Statement setting property to given value.</returns>
-    public static string SetProperties(this IFieldDeclaration fieldDeclaration)
+    public static string SetProperties(this IStorageDeclaration fieldDeclaration)
     {
         return string.Join("\r\n",
             fieldDeclaration.Pragmas.Where(p => p.Content.StartsWith(PRAGMA_PROPERTY_SET_SIGNATURE)).Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p, fieldDeclaration).Product));
     }
-
+    
     public static VisitorProduct GetGenericAttributes(this ITypeDeclaration typeDeclaration)
     {
         return typeDeclaration.Pragmas
@@ -135,8 +160,9 @@ public static class PragmaExtensions
     ///     Produces statement to annotate the member based on attributes.
     /// </summary>
     /// <param name="declaration">Declaration</param>
+    /// <param name="sourceBuilder">Source builder.</param>
     /// <returns>Annotation statements</returns>
-    public static string AddAnnotations(this IDeclaration declaration)
+    public static string AddAnnotations(this IDeclaration declaration, ISourceBuilder sourceBuilder)
     {
         var sb = new StringBuilder();
         foreach (var attribute in
@@ -156,6 +182,11 @@ public static class PragmaExtensions
 
                     sb.AppendLine($"{declaration.Name}.MakeReadOnly();");
                     break;
+            }
+
+            if (declaration.IsAvailableReadOnlyForComm(sourceBuilder))
+            {
+                sb.AppendLine($"{declaration.Name}.MakeReadOnly();");
             }
         }
             

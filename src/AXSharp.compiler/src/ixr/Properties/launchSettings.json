@@ -6,6 +6,10 @@
     },
     "Profile 1": {
       "commandName": "Project"
+    },
+    "app-withref": {
+      "commandName": "Project",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen.templates\\templates.simple\\app\\"
     }
   }
 }

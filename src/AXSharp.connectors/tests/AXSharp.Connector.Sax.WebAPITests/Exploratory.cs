@@ -1,9 +1,9 @@
 // AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.S71500.WebApi;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
@@ -36,12 +36,9 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
 #if RELEASE
     return;
 #endif
-            var connector = new WebApiConnector(TargetIp, "Everybody", "", true);
+            var connector = TestConnector.TestApiConnector;
 
-            await connector.WriteAsync<byte>("myBYTE", 42);
-            await connector.WriteAsync<bool>("myBOOL", true);
-            await connector.WriteAsync<short>("myINT", 43);
-
+            
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
             var myBYTE = new WebApiByte(connector, "", "myBYTE");
             var myWORD = new WebApiWord(connector, "", "myWORD");
@@ -69,6 +66,10 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
             var myWCHAR = new WebApiWChar(connector, "", "myWCHAR");
             var mySTRING = new WebApiString(connector, "", "mySTRING");
             var myWSTRING = new WebApiWString(connector, "", "myWSTRING");
+
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<short>(myINT, 43);
 
             List<ITwinPrimitive> huge = new List<ITwinPrimitive>();
             
@@ -133,6 +134,9 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
             }
 
 
+            
+
+
             output.WriteLine($"Number of items {huge.Count}");
             var s = new Stopwatch();
             s.Start();
@@ -147,16 +151,14 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
         }
 
         [Fact]
-        public async void should_write_huge()
+        public async Task should_write_huge()
         {
 #if RELEASE
     return;
 #endif
-            var connector = new WebApiConnector(TargetIp, "Everybody", "", true);
+            var connector = TestConnector.TestApiConnector;
 
-            await connector.WriteAsync<byte>("myBYTE", 42);
-            await connector.WriteAsync<bool>("myBOOL", true);
-            await connector.WriteAsync<short>("myINT", 43);
+            
 
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
             var myBYTE = new WebApiByte(connector, "", "myBYTE");
@@ -185,6 +187,10 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
             var myWCHAR = new WebApiWChar(connector, "", "myWCHAR");
             var mySTRING = new WebApiString(connector, "", "mySTRING");
             var myWSTRING = new WebApiWString(connector, "", "myWSTRING");
+
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<short>(myINT, 43);
 
             List<ITwinPrimitive> huge = new List<ITwinPrimitive>();
 

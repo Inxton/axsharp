@@ -1,0 +1,22 @@
+name: "axsharpconsole"
+version: 0.0.0
+type: app
+targets:
+  - "1500"
+  - plcsim
+  - llvm
+devDependencies:
+  "@ax/sdk": 2311.0.3
+variables:
+  AXTARGET: 192.168.0.4 # Replace with the IP of your target system.
+  AXTARGETPLATFORMINPUT: './bin/plcsim/'  #Replace with respective target platform.
+  APAX_BUILD_ARGS: [ -d ]    
+
+scripts:
+  ixc: dotnet ixc -o ..\\axsharpconsole.twin
+  postbuild: dotnet ixc -o ..\\axsharpconsole.twin
+  download:
+    - apax build      
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.1.1
