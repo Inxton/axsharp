@@ -14,6 +14,7 @@ using AXSharp.Compiler.Cs.Exceptions;
 using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Connector;
 
+
 namespace AXSharp.Compiler.Cs;
 
 /// <summary>
@@ -76,15 +77,26 @@ public static class SemanticsHelpers
             return candidates.First();
         }
 
-        if (candidates.Count() == 0)
+        try
         {
-            Log.Logger.Warning($"Type '{typeAccess?.ToString()}' not found in the semantic tree.");
-        }
+            var span = typeAccess?.Location?.GetLineSpan();
+            var line = span.Value.StartLinePosition.Line;
+            var character = span.Value.StartLinePosition.Character;
+            if (candidates.Count() == 0)
+            {
+                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Type '{typeAccess.TypeSymbol.Name}' not found the type may not be eligible for transpile or meta information is not available because this type is not defined in AX# compliant project. ");
+            }
 
-        if (candidates.Count() > 1)
-        {
-            Log.Logger.Warning($"Multiple types found for '{typeAccess?.ToString()}' in the semantic tree. You may need to fully qualify the declaration.");
+            if (candidates.Count() > 1)
+            {
+                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Multiple types found for '{typeAccess.TypeSymbol.Name}' the declaration appears ambiguous. You may need to fully qualify the declaration.");
+            }
         }
+        catch
+        {
+            Log.Logger.Warning($"Failed to determine the location of the type declaration for `{typeAccess?.TypeSymbol?.Name}`.");
+        }
+        
 
         return null;
     }
@@ -113,7 +125,7 @@ public static class SemanticsHelpers
 
         if (candidates.Count() == 0)
         {
-            Log.Logger.Warning($"Type '{typeAccess?.ToString()}' not found in the semantic tree.");
+            Log.Logger.Warning($"Type '{typeAccess?.ToString()}' not found in the semantic tree. {typeAccess?.Location}");
         }
 
         if (candidates.Count() > 1)

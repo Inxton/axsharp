@@ -9,12 +9,12 @@
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"
     },
     "ixc-simple-template": {
-      "commandName": "Project",
-      "commandLineArgs": "--skip-deps",
+      "commandName": "Project",     
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen.template.simple\\ax"
     },
     "ixc-template-ref": {
       "commandName": "Project",
+      "commandLineArgs": "--skip-deps",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\axopen\\src\\templates.simple\\ctrl"
     },
     "ax-connectors-test-project": {
