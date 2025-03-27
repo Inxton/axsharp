@@ -94,8 +94,7 @@ public static class SemanticsHelpers
         }
         catch
         {
-
-            // swallow
+            Log.Logger.Warning($"Failed to determine the location of the type declaration for `{typeAccess?.TypeSymbol?.Name}`.");
         }
         
 
