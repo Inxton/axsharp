@@ -119,7 +119,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         if (eligibility.isEligible)
         {           
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
-            switch (fieldDeclaration.Type)
+            switch (eligibility.eligibleType)
             {
                 case IArrayTypeDeclaration arrayType:
                     var arrayEligibility = arrayType.IsEligibleForTranspile(this);
@@ -142,19 +142,19 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     }
                     break;
                 case IStringTypeDeclaration:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
                 case INamedValueTypeDeclaration namedValueType:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));                                        
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, eligibility.eligibleType, visitor);
                     AddToSource(" = new ");
                     eligibility.eligibleType.Accept(visitor, this);
                     //fieldDeclaration.Type.Accept(visitor, this);
@@ -164,7 +164,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         }
     }
 
-    private void AddPropertyDeclaration(IDeclaration fieldDeclaration, IxNodeVisitor visitor)
+    private void AddPropertyDeclaration(IDeclaration fieldDeclaration, IDeclaration eligibleType,  IxNodeVisitor visitor)
     {
         fieldDeclaration.Pragmas.AddAttributes();
         switch (fieldDeclaration)
@@ -176,7 +176,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                 AddToSource($"public");
                 break;
         }
-        fieldDeclaration.Type.Accept(visitor, this);
+        eligibleType.Type.Accept(visitor, this);
         AddToSource($" {fieldDeclaration.Name}");
         AddToSource("{get; set;}");
     }
@@ -309,19 +309,19 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     }
                     break;
                 case IStringTypeDeclaration:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
                 case INamedValueTypeDeclaration namedValueType:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);                    
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);                    
                     AddToSource(" = new ");
                     eligibility.eligibleType.Accept(visitor, this);
                     //fieldDeclaration.Type.Accept(visitor, this);
