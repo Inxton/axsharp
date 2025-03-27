@@ -8,8 +8,12 @@
       "commandName": "Project",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"
     },
+    "axopen-integration_plc": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\integrations\\app"
+    },
     "ixc-simple-template": {
-      "commandName": "Project",     
+      "commandName": "Project",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen.template.simple\\ax"
     },
     "ixc-template-ref": {
