@@ -1,0 +1,44 @@
+﻿@using System.Globalization
+@inject NavigationManager NavigationManager
+
+<div class="top-row px-2">
+
+    <div class="ms-auto">
+        <select class="form-control" @bind="Culture" @bind:event="oninput">
+            @foreach (var culture in supportedCultures)
+            {
+                <option data value="@culture">@culture.NativeName</option>
+            }
+        </select>
+    </div>
+
+
+</div>
+
+@code {
+    private CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("sk-SK"),
+        new CultureInfo("es-ES")
+    };
+
+    private CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            // Prevent unnecessary navigation
+            if (!Equals(CultureInfo.CurrentCulture, value) && !Equals(CultureInfo.CurrentUICulture, value))
+            {
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+                NavigationManager.NavigateTo($"/culture?culture={cultureEscaped}", true);
+            }
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        Culture = CultureInfo.CurrentCulture;
+    }
+}
