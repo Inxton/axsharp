@@ -17,6 +17,14 @@ namespace TypesWithPropertyAttributes
             return this.Translate(_Description, culture).Interpolate(this);
         }
 
+        public string Description_raw
+        {
+            get
+            {
+                return _Description;
+            }
+        }
+
         public OnlinerInt Counter { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
