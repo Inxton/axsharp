@@ -38,8 +38,8 @@ internal class AddedPropertyDeclarationAstNode : AstNode
                             $"{AccessQualifier} {Type} Get{Identifier}(System.Globalization.CultureInfo culture)" +
                             $"{{"+
                             $"return this.Translate(_{Identifier}, culture).Interpolate(this);" +
-                            $"}}"+
-                            $"{AccessQualifier} {Type} {Identifier}_raw {{ get {{ return _{Identifier}; }}";
+                            $"}}\n"+
+                            $"{AccessQualifier} {Type} {Identifier}_raw {{ get {{ return _{Identifier}; }} }}";
             }
             else
             {

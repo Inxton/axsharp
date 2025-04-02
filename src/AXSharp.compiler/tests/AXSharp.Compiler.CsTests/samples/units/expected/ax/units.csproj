@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.23.0-388-allow-multiline-pragmas.364" />
-		<PackageReference Include="AXSharp.Connector" Version="0.23.0-388-allow-multiline-pragmas.364" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.24.0-400-feature-add-raw-value-of-attribute-string-without-interpolation-and-tranlsation.392" />
+		<PackageReference Include="AXSharp.Connector" Version="0.24.0-400-feature-add-raw-value-of-attribute-string-without-interpolation-and-tranlsation.392" />
 	</ItemGroup>
 
 	<ItemGroup>
