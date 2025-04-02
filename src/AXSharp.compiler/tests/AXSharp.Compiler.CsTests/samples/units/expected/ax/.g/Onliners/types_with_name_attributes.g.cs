@@ -458,6 +458,14 @@ namespace TypeWithNameAttributes
             return this.Translate(_AttributeName, culture).Interpolate(this);
         }
 
+        public string AttributeName_raw
+        {
+            get
+            {
+                return _AttributeName;
+            }
+        }
+
         public OnlinerString SomeClassVariable { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

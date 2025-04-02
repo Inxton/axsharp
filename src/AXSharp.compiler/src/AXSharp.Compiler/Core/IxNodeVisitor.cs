@@ -122,6 +122,11 @@ public partial class IxNodeVisitor : ISemanticNodeVisitor<ICombinedThreeVisitor>
         throw new NotSupportedException();
     }
 
+    public void Visit(IClassMethodDeclaration methodDeclaration, ICombinedThreeVisitor data)
+    {
+        throw new NotSupportedException();
+    }
+
     void ISemanticNodeVisitor<ICombinedThreeVisitor>.Visit(IMethodPrototypeDeclaration methodPrototypeDeclaration,
         ICombinedThreeVisitor data)
     {
