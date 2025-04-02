@@ -112,6 +112,11 @@ namespace AXSharp.ixc_doc.Visitors
             data.CreateMethodYaml(methodDeclaration, this);
         }
 
+        public void Visit(IClassMethodDeclaration methodDeclaration, IYamlBuiderVisitor data)
+        {
+            data.CreateMethodYaml(methodDeclaration, this);
+        }
+
         public void Visit(IMethodPrototypeDeclaration methodPrototypeDeclaration, IYamlBuiderVisitor data)
         {
             data.CreateMethodPrototypeYaml(methodPrototypeDeclaration, this);
