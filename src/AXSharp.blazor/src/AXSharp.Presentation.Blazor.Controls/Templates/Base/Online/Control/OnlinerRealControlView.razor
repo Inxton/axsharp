@@ -9,7 +9,7 @@
            class="w-100 form-control @AccessStatus"
            type="number"
            step="any"
-           value="@Value.ToString().Replace(',', '.')"
+           value="@Value.ToString(CultureInfo.InvariantCulture)"
            @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
            @onblur="@(() => HasFocus = false)"
            @onchange="Change"
@@ -25,7 +25,7 @@
 
     private void Change(ChangeEventArgs args)
     {
-        if (Single.TryParse(args.Value.ToString(), out var parseValue))
+        if (Single.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, out var parseValue))
             Value = parseValue;
 
         Key++;
