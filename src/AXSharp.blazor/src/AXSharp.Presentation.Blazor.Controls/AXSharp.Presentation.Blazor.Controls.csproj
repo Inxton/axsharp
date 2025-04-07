@@ -62,6 +62,10 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="Styles\tailwind.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -96,5 +100,9 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
+
+  <Target Name="BuildTailwindCSS" BeforeTargets="Build">
+    <Exec Command="npm run build:css" />
+  </Target>
 
 </Project>

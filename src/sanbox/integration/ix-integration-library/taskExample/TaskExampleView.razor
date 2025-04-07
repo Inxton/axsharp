@@ -2,67 +2,54 @@
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<TaskExample>
 
-    <div class="btn-group form-group mb-2">
-
-        @if (IsTaskRunning)
-        {
-            <div class="btn @ButtonClass">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span>@Component.AttributeName</span>
-                <button class="btn btn-close btn-close-white" type="button" @onclick="@AbortTask">
-                </button>
-            </div>
-        }
-        else if (IsTaskAborted)
-        {
-            <button class="btn @ButtonClass" type="button" disabled="false" @onclick="@ResumeTask">
-                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
-                <span>@Component.AttributeName</span>
-                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+<div class="mb-4">
+    @if (IsTaskRunning)
+    {
+        <div class="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-md">
+            <span class="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+            <span>@Component.AttributeName</span>
+            <button class="ml-2 text-white hover:text-gray-200" type="button" @onclick="@AbortTask">
+                <span class="sr-only">Close</span>
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
-        }
-        else
-        {
-            <button class="btn @ButtonClass" type="button" disabled="false" @onclick="@InvokeTask">
-                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
-                <span>@Component.AttributeName</span>
-                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
-            </button>
-        }
-        <button class="btn @ButtonClass" type="button" disabled=false @onclick="@RestoreTask">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
-                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
-            </svg>
+        </div>
+    }
+    else if (IsTaskAborted)
+    {
+        <button class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50" 
+                type="button" 
+                @onclick="@ResumeTask">
+            <span>@Component.AttributeName</span>
         </button>
-    </div>
-
-@code
-{
-    protected void InvokeTask()
-    {
-       // Component.RemoteInvoke.Cyclic = true;
     }
-    protected void RestoreTask()
+    else
     {
-        //Component.RemoteRestore.Cyclic = true;
+        <button class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" 
+                type="button" 
+                @onclick="@StartTask">
+            <span>@Component.AttributeName</span>
+        </button>
     }
-    protected void AbortTask()
+</div>
+
+@code {
+    private bool IsTaskRunning => Component.taskRun.Cyclic;
+    private bool IsTaskAborted => Component.taskCancel.Cyclic;
+
+    private void StartTask()
     {
-        //Component.RemoteAbort.Cyclic = true;
-    }
-    protected void ResumeTask()
-    {
-        //Component.RemoteResume.Cyclic = true;
+        Component.taskRun.Cyclic = true;
     }
 
-    public string ButtonClass = "btn-primary";
-
-    public bool IsTaskRunning => false;
-    public bool IsTaskAborted => false;
-
-    public override void ConfigurePolling()
+    private void AbortTask()
     {
-        StartPolling(Component);
+        Component.taskCancel.Cyclic = true;
+    }
+
+    private void ResumeTask()
+    {
+        Component.taskCancel.Cyclic = false;
     }
 }

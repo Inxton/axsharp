@@ -1,0 +1,12 @@
+{
+  "name": "axsharp-presentation-blazor-controls",
+  "scripts": {
+    "build:css": "tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/site.min.css --minify",
+    "watch:css": "tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/site.min.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  }
+}

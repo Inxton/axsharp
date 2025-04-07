@@ -1,64 +1,60 @@
-﻿@page "/swapping/OnlineShadowPlain"
+﻿@page "/swapping/onlineshadowplain"
 
-<h1>OnlineShadow</h1>
-
-<button class="btn btn-primary" @onclick="()=> ShadowToOnline()">ShadowToOnline</button>
-<button class="btn btn-primary" @onclick="()=> OnlineToShadow()">OnlineToShadow</button>
-<button class="btn btn-primary" @onclick="()=> PlainToOnline()">Plain to online</button>
-<button class="btn btn-primary" @onclick="()=> PlainToShadow()">Plain to shadow</button>
-
-<div class="container">
-    <div class="row">
-        <div class="col card m-2">
-            <h2>Shadow Control</h2>
-            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="ShadowControl"></RenderableContentControl>
-        </div>
-
-        <div class="col card m-2">
-            <h2>Online Control</h2>
-            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="Control"></RenderableContentControl>
-        </div>
-
-    </div>
-
+<div class="space-x-4">
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> ShadowToOnline()">
+        ShadowToOnline
+    </button>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> OnlineToShadow()">
+        OnlineToShadow
+    </button>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> PlainToOnline()">
+        Plain to online
+    </button>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> PlainToShadow()">
+        Plain to shadow
+    </button>
 </div>
 
-
+<SwappingElement PlainValue="@PlainValue"
+                 OnlineValue="@Entry.Plc.MAINC.Time.shadow_onliner.Cyclic"
+                 ShadowValue="@Entry.Plc.MAINC.Time.shadow_onliner.Shadow"
+                 Updated="Updated" />
 
 @code {
-    private async Task OnlineToShadow()
-    {
-        await Entry.Plc.RealMonster.OnlineToShadowAsync();
+    private DateTime PlainValue;
 
-    }
-    private async Task ShadowToOnline()
+    private void ShadowToOnline()
     {
-        await Entry.Plc.RealMonster.ShadowToOnlineAsync();
+        Entry.Plc.MAINC.Time.shadow_onliner.FromShadow();
     }
 
-    private void OnlinerToPlain()
+    private void OnlineToShadow()
     {
-        var plain = Entry.Plc.RealMonster.OnlineToPlain<Pocos.RealMonsterData.RealMonster>();
-        Console.WriteLine(plain);
+        Entry.Plc.MAINC.Time.shadow_onliner.ToShadow();
     }
 
     private void PlainToOnline()
     {
-        var plainMonster = new Pocos.RealMonsterData.RealMonster();
-        plainMonster.Description = "This comes from plain to online";
-        Entry.Plc.RealMonster.PlainToOnline(plainMonster);
-    }
-
-    private void ShadowToPlain()
-    {
-        var plain = Entry.Plc.RealMonster.ShadowToPlain<Pocos.RealMonsterData.RealMonster>();
-        Console.WriteLine(plain);
+        Entry.Plc.MAINC.Time.shadow_onliner.Cyclic = PlainValue;
     }
 
     private void PlainToShadow()
     {
-        var plainMonster = new Pocos.RealMonsterData.RealMonster();
-        plainMonster.Description = "This comes from plain to shadow";
-        Entry.Plc.RealMonster.PlainToShadow(plainMonster);
+        Entry.Plc.MAINC.Time.shadow_onliner.Shadow = PlainValue;
+    }
+
+    protected override void OnInitialized()
+    {
+        PlainValue = Entry.Plc.MAINC.Time.shadow_onliner.Cyclic;
+        base.OnInitialized();
+    }
+
+    private void Updated()
+    {
+        PlainValue = Entry.Plc.MAINC.Time.shadow_onliner.Cyclic;
     }
 }

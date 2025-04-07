@@ -1,5 +1,5 @@
 {S7.extern=ReadWrite}
-CLASS MAIN
+CLASS PUBLIC MAIN
     VAR PUBLIC
         {#ix-set:AttributeName = "<#Hello#> <#World#>"}
         Hello_World : STRING := 'Hello world!';

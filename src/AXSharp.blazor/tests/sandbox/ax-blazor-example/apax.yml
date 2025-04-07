@@ -3,10 +3,9 @@ version: 0.0.0
 type: app
 targets:
   - "1500"
-  - axunit-llvm
+  - llvm
 devDependencies:
-  "@ax/sdk": ^4.0.12
-  "@ax/sld": ^2.0.5
+  "@ax/sdk": 2504.0.0-rc.2
 scripts:
   ixc:
     - dotnet run --project

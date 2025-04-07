@@ -2,12 +2,15 @@
 
 <PageTitle>ix-draft-blazor</PageTitle>
 
-<div class="page">
-    <main>
+<div class="min-h-screen flex">
+    <div class="fixed inset-y-0">
+        <NavMenu />
+    </div>
+    
+    <div class="flex-1 ml-[250px]">
         <TopRow />
-        <article class="content px-4">
+        <main class="p-8">
             @Body
-        </article>
-    </main>
-    <NavMenu />
+        </main>
+    </div>
 </div>

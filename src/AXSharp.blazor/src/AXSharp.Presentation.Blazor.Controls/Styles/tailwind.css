@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded font-semibold text-sm;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+  .btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-600;
+  }
+  .form-control {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm;
+  }
+  .nav-link {
+    @apply px-3 py-2 text-gray-700 hover:text-gray-900;
+  }
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+  .card {
+    @apply bg-white rounded-lg shadow-md;
+  }
+}

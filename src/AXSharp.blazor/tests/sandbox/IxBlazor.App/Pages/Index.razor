@@ -2,152 +2,106 @@
 
 <RenderableContentControl Presentation="Manual-Diagnostics"
                           Context="@Entry.Plc.MAINC.cu00">
-
 </RenderableContentControl>
-<div><p>------------------------------------------------</p></div>
+
+<div class="my-4 border-t border-gray-200"></div>
+
 <RenderableContentControl Presentation="fdlkajfa"
                           Context="@Entry.Plc.MAINC.instanceOfstTest">
-
 </RenderableContentControl>
-<div><p>------------------------------------------------</p></div>
+
+<div class="my-4 border-t border-gray-200"></div>
+
 <RenderableContentControl Presentation="Diagnostics"
                           Context="@Entry.Plc.MAINC.cuBase">
-
 </RenderableContentControl>
-<div><p>------------------------------------------------</p></div>
-<div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+
+<div class="my-4 border-t border-gray-200"></div>
+
+<div class="bg-gray-50 rounded-lg p-8 mb-6">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-4">Custom Hero Section</h1>
+        <p class="text-lg text-gray-600 mb-6">Using a series of utilities, you can create this hero section, just like the one in previous versions. Check out the examples below for how you can remix and restyle it to your liking.</p>
+        <button class="px-6 py-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            Example button
+        </button>
     </div>
 </div>
-<h1 class="text-center">ixBlazor</h1>
+
+<h1 class="text-3xl font-bold text-center mb-6">ixBlazor</h1>
+
 <RenderableContentControl Presentation="control"
                           Context="@Entry.Plc.MAINC.groupBox_test">
-
-</RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<div><p>----------------------------------------------------</p></div>
-<!--<RenderableContentControl Presentation="Display"
-                          Context="Entry.Plc.MAINC.instanceOfstMultipleLayouts"></RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="Display"
-                          Context="Entry.Plc.Scroll.multipleNested"></RenderableContentControl>
-
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts.Servo_S6.example">
-
-</RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts">
-
-</RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.MAINC.instanceOfstTest3">
-
 </RenderableContentControl>
 
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.Scroll">
+<div class="my-4 border-t border-gray-200"></div>
 
-</RenderableContentControl>
+<!-- Button controls -->
+<div class="space-x-4">
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            @onclick="ClickedStTest3">
+        Button StTest3
+    </button>
 
-<div><p>stNEsted----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.Scroll.nested">
-
-</RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts.Servo_S6">
-
-</RenderableContentControl>
-
-
-
-
-<button class="btn btn-primary"
-        @onclick="ClickedStTest3">
-    Button StTest3
-</button>
-
-<button class="btn btn-primary"
-        @onclick="ClickedIxComponent">
-    Button IxComponent
-</button>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            @onclick="ClickedIxComponent">
+        Button IxComponent
+    </button>
+</div>
 
 @if (AffectedObject != null)
 {
     <RenderableContentControl Presentation="Manual"
                               Context="AffectedObject" />
 }
+
 <RenderableContentControl Presentation="Service"
                           Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
-
 </RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
+
+<div class="my-4 border-t border-gray-200"></div>
+
 <RenderableContentControl Presentation="Base"
                           Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
-
 </RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
+
+<div class="my-4 border-t border-gray-200"></div>
+
 <RenderableContentControl Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
-
 </RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
+
+<div class="my-4 border-t border-gray-200"></div>
+
 <RenderableContentControl Context="@Entry.Plc.MAINC.instanceOfstTest">
-
 </RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
 
+<div class="my-4 border-t border-gray-200"></div>
 
-<RenderableContentControl Context="@Entry.Plc.testingProgram.testEmpty"></RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Context="@Entry.Plc.testingProgram.testSimple" Presentation="Display">
-
+<RenderableContentControl Context="@Entry.Plc.testingProgram.testEmpty">
 </RenderableContentControl>
-<div><p>----------------------------------------------------</p></div>
-<RenderableContentControl Context="@Entry.Plc.MAINC" Presentation="Display">
 
-</RenderableContentControl>-->
+<div class="my-4 border-t border-gray-200"></div>
 
+<RenderableContentControl Context="@Entry.Plc.testingProgram.testSimple" 
+                          Presentation="Display">
+</RenderableContentControl>
 
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-</button>-->
+<div class="my-4 border-t border-gray-200"></div>
 
-<!-- Modal -->
-<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>-->
+<RenderableContentControl Context="@Entry.Plc.MAINC" 
+                          Presentation="Display">
+</RenderableContentControl>
 
 @code
 {
     private ITwinObject AffectedObject { get; set; } = null;
     private string Presentation { get; set; }
+
     public void ClickedStTest3()
     {
         AffectedObject = @Entry.Plc.MAINC.instanceOfIxComponent;
     }
+
     public void ClickedIxComponent()
     {
         AffectedObject = @Entry.Plc.MAINC.instanceOfstTest3;

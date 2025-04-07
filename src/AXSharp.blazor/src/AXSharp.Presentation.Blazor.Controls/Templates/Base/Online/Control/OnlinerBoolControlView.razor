@@ -2,16 +2,22 @@
 @inherits TemplateBaseOnline<bool>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName @(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $"[{Onliner.AttributeUnits}]")</label>
-    <div class="form-check form-switch">
-        <input id="@ComponentId"
-               disabled="@IsReadOnly"
-               class="form-check-input @AccessStatus"
-               type="checkbox"
-               @bind="Value"
-               data-bs-toggle="tooltip" 
-               data-bs-placement="top"
-               data-bs-custom-class="custom-tooltip"
-               data-bs-title="@ToolTipText">
+    <label class="block text-sm font-medium text-gray-700 mb-1">
+        @Onliner.AttributeName @(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $"[{Onliner.AttributeUnits}]")
+    </label>
+    <div class="flex items-center">
+        <label class="relative inline-flex cursor-pointer items-center">
+            <input id="@ComponentId"
+                   disabled="@IsReadOnly"
+                   class="sr-only peer @AccessStatus"
+                   type="checkbox"
+                   @bind="Value"
+                   data-tooltip-content="@ToolTipText">
+            <div class="h-6 w-11 rounded-full bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 
+                       peer-checked:bg-blue-600 peer-disabled:bg-gray-100 peer-disabled:cursor-not-allowed
+                       after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white 
+                       after:border after:rounded-full after:h-5 after:w-5 after:transition-all
+                       peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+        </label>
     </div>
 </TemplateView>
