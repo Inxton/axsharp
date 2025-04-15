@@ -3,10 +3,11 @@
 @inherits TemplateBaseOnline<Single>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <label 
+        class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <input id="@ComponentId"
     readonly="@IsReadOnly"
-    class="w-100 form-control @AccessStatus"
+    class="base-input @AccessStatus"
     type="number"
     step="any"
     value="@Onliner.Shadow.ToString(CultureInfo.InvariantCulture)"

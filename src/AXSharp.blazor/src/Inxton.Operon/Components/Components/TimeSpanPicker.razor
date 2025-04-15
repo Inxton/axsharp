@@ -1,0 +1,175 @@
+﻿@using System.Globalization
+<div class="relative" tabindex="0" @onkeydown="HandleKeyDown">
+    <div class="inline-flex items-center rounded-full bg-gray-100">
+        <input type="text" class="p-2 focus:outline-none" size="4" @bind-value="@Value" @onclick="TogglePicker" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 me-2" @onclick="TogglePicker">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+    </div>
+    @if (_showTimeSpanPicker)
+    {
+        <!-- Overlay: covers the entire screen and closes the picker when clicked -->
+        <div class="fixed inset-0 z-40" @onclick="() => _showTimeSpanPicker = false"></div>
+
+        <div class="absolute z-500 bg-white rounded-lg shadow sm:w-80 w-full">
+            @* Header *@
+            <div class="flex justify-center items-center mb-2 bg-primary-500 mt-1 p-4 rounded-lg">
+                <div class="text-5xl cursor-pointer @(_activeHour ? "text-white" : "text-gray-200")" @onclick="() => _activeHour = true">
+                    @_valueInner.Hours
+                </div>
+                <div class="text-5xl text-white">
+                    :
+                </div>
+                <div class="text-5xl cursor-pointer @(!_activeHour ? "text-white" : "text-gray-200")" @onclick="() => _activeHour = false">
+                    @_valueInner.Minutes
+                </div>
+            </div>
+
+            <div class="p-4">
+                <!-- Clock -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="@(_centerX * 2)" height="@(_centerY * 2)" viewBox="0 0 @(_centerX * 2) @(_centerY * 2)" class="mx-auto">
+                    <!-- Clock face background -->
+                    <circle cx="@_centerX" cy="@_centerY" r="@_centerY" fill="#f9f9f9" stroke-width="2" />
+
+                    @if (_activeHour)
+                    {
+                        <line x1="@_centerX" y1="@_centerY" x2="@GetX(_valueInner.Hours, true, _valueInner.Hours <= 12 && _valueInner.Hours != 0)" y2="@GetY(_valueInner.Hours, true, _valueInner.Hours <= 12 && _valueInner.Hours != 0)" stroke="var(--color-primary-500)" stroke-width="3" />
+                        <circle cx="@GetX(_valueInner.Hours, true, _valueInner.Hours <= 12 && _valueInner.Hours != 0)" cy="@GetY(_valueInner.Hours, true, _valueInner.Hours <= 12 && _valueInner.Hours != 0)" r="13" fill="var(--color-primary-500)" />
+
+                        @foreach (int hour in Enumerable.Range(1, 12))
+                        {
+                            <svg:text x="@GetX(hour, true)" y="@GetY(hour, true)"
+                                      text-anchor="middle"
+                                      dominant-baseline="middle"
+                                      fill="@(hour == _valueInner.Hours ? "var(--color-white)" : "var(--color-black)")"
+                                      style="user-select:none; font-size:14px; cursor:pointer;"
+                                      @onclick="() => SelectHour(hour)">
+                                @hour
+                            </svg:text>
+                        }
+
+                        @foreach (var hour in Enumerable.Range(1, 12).Select(i => i == 12 ? 0 : i + 12))
+                        {
+                            <svg:text x="@GetX(hour, true, false)" y="@GetY(hour, true, false)"
+                                      text-anchor="middle"
+                                      dominant-baseline="middle"
+                                      fill="@(hour == _valueInner.Hours ? "var(--color-white)" : "var(--color-black)")"
+                                      style="user-select:none; font-size:14px; cursor:pointer;"
+                                      @onclick="() => SelectHour(hour)">
+                                @hour
+                            </svg:text>
+                        }
+                    }
+                    else
+                    {
+                        <line x1="@_centerX" y1="@_centerY" x2="@GetX(_valueInner.Minutes, false)" y2="@GetY(_valueInner.Minutes, false)" stroke="var(--color-primary-500)" stroke-width="3" />
+                        <circle cx="@GetX(_valueInner.Minutes, false)" cy="@GetY(_valueInner.Minutes, false)" r="13" fill="var(--color-primary-500)" />
+
+                        @foreach (var minute in Enumerable.Range(0, 60).Where(m => m % 5 == 0))
+                        {
+                            <svg:text x="@GetX(minute, false)" y="@GetY(minute, false)"
+                                      text-anchor="middle"
+                                      dominant-baseline="middle"
+                                      fill="@(minute == _valueInner.Minutes ? "var(--color-white)" : "var(--color-black)")"
+                                      style="user-select:none; font-size:14px; cursor:pointer;"
+                                      @onclick="() => SelectMinute(minute)">
+                                @minute
+                            </svg:text>
+                        }
+                    }
+                </svg>
+                <!-- Action buttons -->
+                <div class="mt-3 flex justify-end space-x-2">
+                    <button class="btn btn-outline-red" @onclick="() => _showTimeSpanPicker = false">Cancel</button>
+                    <button class="btn btn-primary" @onclick="Confirm">OK</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code {
+    private TimeSpan _valueInner;
+
+    private TimeSpan _value;
+
+    [Parameter, EditorRequired]
+    public TimeSpan Value
+    {
+        get => _value;
+        set
+        {
+            if (_value != value)
+            {
+                _value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+            if (_valueInner != value)
+                _valueInner = value;
+        }
+    }
+
+    [Parameter]
+    public EventCallback<TimeSpan> ValueChanged { get; set; }
+
+    private bool _activeHour = true;
+    private bool _showTimeSpanPicker = false;
+
+    private static int _centerX = 130;
+    private static int _centerY = 130;
+    private static double _innerRadius { get; set; } = 80;
+    private static double _outerRadius { get; set; } = 110;
+
+    private static string GetX(int value, bool hour, bool outerRadius = true)
+    {
+        double angleDeg = (value * 360.0 / (hour ? 12.0 : 60.0)) - 90;
+        double rad = angleDeg * Math.PI / 180.0;
+        double x = _centerX + (outerRadius ? _outerRadius : _innerRadius) * Math.Cos(rad);
+
+        return x.ToString(CultureInfo.InvariantCulture);
+    }
+
+    private static string GetY(int value, bool hour, bool outerRadius = true)
+    {
+        double angleDeg = (value * 360.0 / (hour ? 12.0 : 60.0)) - 90;
+        double rad = angleDeg * Math.PI / 180.0;
+        double y = _centerY + (outerRadius ? _outerRadius : _innerRadius) * Math.Sin(rad);
+
+        return y.ToString(CultureInfo.InvariantCulture);
+    }
+
+    private void TogglePicker()
+    {
+        _activeHour = true;
+        _showTimeSpanPicker = !_showTimeSpanPicker;
+    }
+
+    private void SelectHour(int hour)
+    {
+        _valueInner = new TimeSpan(hour, _valueInner.Minutes, 0);
+        _activeHour = false;
+    }
+
+    private void SelectMinute(int minute)
+    {
+        _valueInner = new TimeSpan(_valueInner.Hours, minute, 0);
+
+        Confirm();
+    }
+
+    private void Confirm()
+    {
+        _showTimeSpanPicker = false;
+
+        Value = _valueInner;
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Escape")
+        {
+            _showTimeSpanPicker = false;
+        }
+    }
+}

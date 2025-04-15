@@ -54,21 +54,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Styles\custom.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Styles\custom.scss">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Styles\tailwind.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\..\..\assets\icons\icon_128_128.png" Link="icon_128_128.png">
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>
@@ -77,7 +62,6 @@
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>
     </None>
-    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   
@@ -94,15 +78,11 @@
 
   <ItemGroup>
 	    <Folder Include="RenderableContentControl\" />
-	    <Folder Include="wwwroot\js\" />
+	    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
-
-  <Target Name="BuildTailwindCSS" BeforeTargets="Build">
-    <Exec Command="npm run build:css" />
-  </Target>
 
 </Project>

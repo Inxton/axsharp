@@ -19,42 +19,57 @@
     </button>
 </div>
 
-<SwappingElement PlainValue="@PlainValue"
-                 OnlineValue="@Entry.Plc.MAINC.Time.shadow_onliner.Cyclic"
-                 ShadowValue="@Entry.Plc.MAINC.Time.shadow_onliner.Shadow"
-                 Updated="Updated" />
+<div class="container">
+    <div class="row">
+        <div class="col card m-2">
+            <h2>Shadow Control</h2>
+            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="ShadowControl"></RenderableContentControl>
+        </div>
+
+        <div class="col card m-2">
+            <h2>Online Control</h2>
+            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="Control"></RenderableContentControl>
+        </div>
+
+    </div>
+
+</div>
+
 
 @code {
-    private DateTime PlainValue;
-
-    private void ShadowToOnline()
+    private async Task OnlineToShadow()
     {
-        Entry.Plc.MAINC.Time.shadow_onliner.FromShadow();
+        await Entry.Plc.RealMonster.OnlineToShadowAsync();
+
+    }
+    private async Task ShadowToOnline()
+    {
+        await Entry.Plc.RealMonster.ShadowToOnlineAsync();
     }
 
-    private void OnlineToShadow()
+    private void OnlinerToPlain()
     {
-        Entry.Plc.MAINC.Time.shadow_onliner.ToShadow();
+        var plain = Entry.Plc.RealMonster.OnlineToPlain<Pocos.RealMonsterData.RealMonster>();
+        Console.WriteLine(plain);
     }
 
     private void PlainToOnline()
     {
-        Entry.Plc.MAINC.Time.shadow_onliner.Cyclic = PlainValue;
+        var plainMonster = new Pocos.RealMonsterData.RealMonster();
+        plainMonster.Description = "This comes from plain to online";
+        Entry.Plc.RealMonster.PlainToOnline(plainMonster);
+    }
+
+    private void ShadowToPlain()
+    {
+        var plain = Entry.Plc.RealMonster.ShadowToPlain<Pocos.RealMonsterData.RealMonster>();
+        Console.WriteLine(plain);
     }
 
     private void PlainToShadow()
     {
-        Entry.Plc.MAINC.Time.shadow_onliner.Shadow = PlainValue;
-    }
-
-    protected override void OnInitialized()
-    {
-        PlainValue = Entry.Plc.MAINC.Time.shadow_onliner.Cyclic;
-        base.OnInitialized();
-    }
-
-    private void Updated()
-    {
-        PlainValue = Entry.Plc.MAINC.Time.shadow_onliner.Cyclic;
+        var plainMonster = new Pocos.RealMonsterData.RealMonster();
+        plainMonster.Description = "This comes from plain to shadow";
+        Entry.Plc.RealMonster.PlainToShadow(plainMonster);
     }
 }

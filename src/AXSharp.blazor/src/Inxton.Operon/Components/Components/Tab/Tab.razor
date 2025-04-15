@@ -1,0 +1,32 @@
+﻿<CascadingValue Value="this">
+    <nav class="flex flex-col sm:flex-row rounded-r-lg @Class">
+        @foreach (TabPage tabPage in Pages)
+        {
+            <button class="tab @(ActivePage == tabPage ? "tab-active" : null)" @onclick="() => ActivePage = tabPage">@tabPage.Title</button>
+        }
+    </nav>
+
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter, EditorRequired]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
+
+    public TabPage ActivePage { get; set; }
+
+    List<TabPage> Pages = new List<TabPage>();
+
+    internal void AddPage(TabPage tabPage)
+    {
+        Pages.Add(tabPage);
+
+        if (Pages.Count == 1)
+            ActivePage = tabPage;
+
+        StateHasChanged();
+    }
+}

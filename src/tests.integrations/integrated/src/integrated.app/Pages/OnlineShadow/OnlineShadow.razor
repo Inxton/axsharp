@@ -11,23 +11,30 @@
     </button>
 </div>
 
-<SwappingElement OnlineValue="@Entry.Plc.MAINC.Time.shadow_onliner.Cyclic"
-                 ShadowValue="@Entry.Plc.MAINC.Time.shadow_onliner.Shadow"
-                 Updated="Updated" />
+<div class="container">
+    <div class="row">
+        <div class="col card m-2">
+            <h2>Shadow Control</h2>
+            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="ShadowControl"></RenderableContentControl>
+        </div>
+
+        <div class="col card m-2">
+            <h2>Online Control</h2>
+            <RenderableContentControl Context="Entry.Plc.RealMonster" Presentation="Control"></RenderableContentControl>
+        </div>
+
+    </div>
+
+</div>
 
 @code {
-    private void ShadowToOnline()
+    private async Task OnlineToShadow()
     {
-        Entry.Plc.MAINC.Time.shadow_onliner.FromShadow();
-    }
+        await Entry.Plc.RealMonster.OnlineToShadowAsync();
 
-    private void OnlineToShadow()
-    {
-        Entry.Plc.MAINC.Time.shadow_onliner.ToShadow();
     }
-
-    private void Updated()
+    private async Task ShadowToOnline()
     {
-        StateHasChanged();
+        await Entry.Plc.RealMonster.ShadowToOnlineAsync();
     }
 }

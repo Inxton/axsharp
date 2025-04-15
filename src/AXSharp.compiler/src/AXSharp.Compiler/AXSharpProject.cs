@@ -113,6 +113,7 @@ public class AXSharpProject : IAXSharpProject
 
         var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
 
+        
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)

@@ -19,6 +19,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" />
     <ProjectReference Include="..\..\..\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
     <ProjectReference Include="..\ComponentsExamples\ComponentsExamples.csproj" />
   </ItemGroup>
@@ -49,6 +50,11 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 

@@ -2,11 +2,11 @@
 @inherits TemplateBaseShadow<bool>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
+    <label class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <div class="form-check form-switch">
         <input id="@ComponentId"
                disabled="@IsReadOnly"
-               class="form-check-input @AccessStatus"
+               class="base-checkbox @AccessStatus"
                type="checkbox"
                @bind="@Onliner.Shadow"
                data-bs-toggle="tooltip" 

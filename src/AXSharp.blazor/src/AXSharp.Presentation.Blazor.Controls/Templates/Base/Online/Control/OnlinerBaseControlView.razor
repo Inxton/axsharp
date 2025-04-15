@@ -6,16 +6,20 @@
 @typeparam T
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId" class="block text-sm font-medium text-gray-700 mb-1">
+    <label for="@ComponentId" class="base-input-label">
         @Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")
     </label>
     <input id="@ComponentId"
            readonly="@IsReadOnly"
-           class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @(IsReadOnly ? "bg-gray-100" : "") @AccessStatus"
+           class="base-input @(IsReadOnly ? "bg-gray-100" : "") @AccessStatus"
            type="@IsNumeric(typeof(T))"
            step="any"
            @bind="Value"
-           @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
+           @onfocus="@(() =>
+                     {
+                         HasFocus = true;
+                         LastValue = Onliner.LastValue;
+                     })"
            @onblur="@(() => HasFocus = false)"
            data-tooltip-content="@ToolTipText">
 </TemplateView>

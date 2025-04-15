@@ -1,0 +1,78 @@
+﻿@using System.Linq.Expressions
+@typeparam T
+
+@if (Type.GetTypeCode(typeof(T)) is TypeCode.Boolean)
+{
+    <div class="input-checkbox">
+        <label for="@ComponentId">
+            <input type="checkbox" class="peer" id="@ComponentId" @bind="Value" />
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" stroke-width="1" stroke="currentColor" class="size-4">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
+                </svg>
+            </span>
+        </label>
+        <label for="@ComponentId">@Label</label>
+    </div>
+}
+else
+{
+    <div class="input-floating my-2 @(Validator?.Compile().Invoke(Value) ?? true ? null : "is-invalid")">
+        <input id="@ComponentId" type="@GetInputType(typeof(T))" class="peer" @bind="Value" placeholder="" />
+        <label for="@ComponentId">@Label</label>
+        <div class="invalid-feedback">@InvalidMessage</div>
+    </div>
+}
+
+@code {
+    private T _value;
+
+    [Parameter, EditorRequired]
+    public T Value
+    {
+        get => _value;
+        set
+        {
+            if (!EqualityComparer<T>.Default.Equals(_value, value))
+            {
+                _value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<T> ValueChanged { get; set; }
+
+    [Parameter, EditorRequired]
+    public string Label { get; set; }
+
+    [Parameter]
+    public Expression<Func<T, bool>> Validator { get; set; }
+
+    [Parameter]
+    public string InvalidMessage { get; set; }
+
+    internal string ComponentId { get; set; } = Guid.NewGuid().ToString();
+
+    private string GetInputType(Type type)
+    {
+        if (type == null) return "text";
+        switch (Type.GetTypeCode(type))
+        {
+            case TypeCode.Byte:
+            case TypeCode.Decimal:
+            case TypeCode.Double:
+            case TypeCode.Int16:
+            case TypeCode.Int32:
+            case TypeCode.Int64:
+            case TypeCode.SByte:
+            case TypeCode.Single:
+            case TypeCode.UInt16:
+            case TypeCode.UInt32:
+            case TypeCode.UInt64:
+                return "number";
+        }
+        return "text";
+    }
+}

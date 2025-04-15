@@ -1,0 +1,1112 @@
+﻿@using Inxton.Operon.Components.Components
+@using Microsoft.JSInterop
+
+@inject IJSRuntime _iJSRuntime
+
+@* <h2>Components</h2> *@
+
+<div class="" style="width: calc(100% - var(--spacing) * 50);">
+    <h3 id="Headings">Headings</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="HeadingsTailwind">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "HeadingsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "HeadingsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Paragraphs">Paragraphs</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="ParagraphsTailwind">
+                        <p>Paragraph</p>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "ParagraphsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "ParagraphsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Links">Links</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="LinksTailwind">
+                        <a href="">Link</a>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "LinksTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "LinksTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Buttons">Buttons</h3>
+    <h4 id="NormalButtons">Normal buttons</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="NormalButtonsTailwind">
+                        <button class="btn btn-primary">Primary</button>
+                        <button class="btn btn-secondary">Secondary</button>
+                        <button class="btn btn-red">Red</button>
+                        <button class="btn btn-orange">Orange</button>
+                        <button class="btn btn-amber">Amber</button>
+                        <button class="btn btn-yellow">Yellow</button>
+                        <button class="btn btn-lime">Lime</button>
+                        <button class="btn btn-green">Green</button>
+                        <button class="btn btn-emerald">Emerald</button>
+                        <button class="btn btn-teal">Teal</button>
+                        <button class="btn btn-cyan">Cyan</button>
+                        <button class="btn btn-sky">Sky</button>
+                        <button class="btn btn-blue">Blue</button>
+                        <button class="btn btn-indigo">Indigo</button>
+                        <button class="btn btn-violet">Violet</button>
+                        <button class="btn btn-purple">Purple</button>
+                        <button class="btn btn-fuchsia">Fuchsia</button>
+                        <button class="btn btn-pink">Pink</button>
+                        <button class="btn btn-rose">Rose</button>
+                        <button class="btn btn-slate">Slate</button>
+                        <button class="btn btn-gray">Gray</button>
+                        <button class="btn btn-zinc">Zinc</button>
+                        <button class="btn btn-neutral">Neutral</button>
+                        <button class="btn btn-stone">Stone</button>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "NormalButtonsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "NormalButtonsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+        <p class="text-md">Buttons are for all available colors, plus some extras - like primary and secondary.</p>
+    </div>
+
+    <h4 id="OutlineButtons">Outline buttons</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="OutlineButtonsTailwind">
+                        <button class="btn btn-outline-primary">Primary</button>
+                        <button class="btn btn-outline-secondary">Secondary</button>
+                        <button class="btn btn-outline-red">Red</button>
+                        <button class="btn btn-outline-orange">Orange</button>
+                        <button class="btn btn-outline-amber">Amber</button>
+                        <button class="btn btn-outline-yellow">Yellow</button>
+                        <button class="btn btn-outline-lime">Lime</button>
+                        <button class="btn btn-outline-green">Green</button>
+                        <button class="btn btn-outline-emerald">Emerald</button>
+                        <button class="btn btn-outline-teal">Teal</button>
+                        <button class="btn btn-outline-cyan">Cyan</button>
+                        <button class="btn btn-outline-sky">Sky</button>
+                        <button class="btn btn-outline-blue">Blue</button>
+                        <button class="btn btn-outline-indigo">Indigo</button>
+                        <button class="btn btn-outline-violet">Violet</button>
+                        <button class="btn btn-outline-purple">Purple</button>
+                        <button class="btn btn-outline-fuchsia">Fuchsia</button>
+                        <button class="btn btn-outline-pink">Pink</button>
+                        <button class="btn btn-outline-rose">Rose</button>
+                        <button class="btn btn-outline-slate">Slate</button>
+                        <button class="btn btn-outline-gray">Gray</button>
+                        <button class="btn btn-outline-zinc">Zinc</button>
+                        <button class="btn btn-outline-neutral">Neutral</button>
+                        <button class="btn btn-outline-stone">Stone</button>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "OutlineButtonsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "OutlineButtonsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+
+    <h4 id="NoBackgroundButtons">No background buttons</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="NoBackgroundButtonsTailwind">
+                        <button class="btn btn-no-bg-primary">Primary</button>
+                        <button class="btn btn-no-bg-secondary">Secondary</button>
+                        <button class="btn btn-no-bg-red">Red</button>
+                        <button class="btn btn-no-bg-orange">Orange</button>
+                        <button class="btn btn-no-bg-amber">Amber</button>
+                        <button class="btn btn-no-bg-yellow">Yellow</button>
+                        <button class="btn btn-no-bg-lime">Lime</button>
+                        <button class="btn btn-no-bg-green">Green</button>
+                        <button class="btn btn-no-bg-emerald">Emerald</button>
+                        <button class="btn btn-no-bg-teal">Teal</button>
+                        <button class="btn btn-no-bg-cyan">Cyan</button>
+                        <button class="btn btn-no-bg-sky">Sky</button>
+                        <button class="btn btn-no-bg-blue">Blue</button>
+                        <button class="btn btn-no-bg-indigo">Indigo</button>
+                        <button class="btn btn-no-bg-violet">Violet</button>
+                        <button class="btn btn-no-bg-purple">Purple</button>
+                        <button class="btn btn-no-bg-fuchsia">Fuchsia</button>
+                        <button class="btn btn-no-bg-pink">Pink</button>
+                        <button class="btn btn-no-bg-rose">Rose</button>
+                        <button class="btn btn-no-bg-slate">Slate</button>
+                        <button class="btn btn-no-bg-gray">Gray</button>
+                        <button class="btn btn-no-bg-zinc">Zinc</button>
+                        <button class="btn btn-no-bg-neutral">Neutral</button>
+                        <button class="btn btn-no-bg-stone">Stone</button>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "NoBackgroundButtonsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "NoBackgroundButtonsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="LinkButtons">Link buttons</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="LinkButtonsTailwind">
+                        <a class="btn btn-primary" href="">Button</a>
+                        <a class="btn btn-outline-secondary" href="">Button</a>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "LinkButtonsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "LinkButtonsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="ButtonGroups">Button groups</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="ButtonGroupsTailwind">
+                        <div class="btn-group">
+                            <button class="btn btn-no-bg-primary flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 my-auto me-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-no-bg-primary flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 my-auto me-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                                View
+                            </button>
+                            <button class="btn btn-no-bg-secondary flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 my-auto me-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "ButtonGroupsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "ButtonGroupsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="IconButtons">Icon buttons</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="IconButtonsTailwind">
+                        <a class="hover:text-primary-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487 18.55 2.8a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                            </svg>
+                        </a>
+                        <a class="hover:text-red-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "IconButtonsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "IconButtonsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Inputs">Inputs</h3>
+    <h4 id="NormalInputs">Normal inputs</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="NormalInputsTailwind">
+                        <div class="input">
+                            <label class="me-2" for="NormalInputLabel">Input label</label>
+                            <input type="text" class="input" id="NormalInputLabel" />
+                        </div>
+                        <div class="input">
+                            <label class="me-2" for="NormalInputDisabled">Input disabled</label>
+                            <input type="text" class="input" disabled id="NormalInputDisabled" />
+                        </div>
+                        <div class="input">
+                            <label class="me-2" for="NormalInputWithPlaceholder">Input with placeholder</label>
+                            <input type="text" class="input" placeholder="Type something" id="NormalInputWithPlaceholder" />
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "NormalInputsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "NormalInputsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="FloatingInputs">Floating inputs</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="FloatingInputsComponent">
+                        @code {
+        private string _baseInputString = "string";
+        private double _baseInputDouble = 2;
+                        }
+                        <BaseInput @bind-Value="_baseInputString" Label="String" />
+                        <BaseInput @bind-Value="_baseInputDouble" Label="Double" />
+                        <BaseInput @bind-Value="_baseInputDouble" Label="Validator Bool" Validator="c => c >= 5 && c <= 7" InvalidMessage="Value must be between 5-7" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "FloatingInputsComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "FloatingInputsComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="FloatingInputsTailwind">
+                        <div class="input-floating">
+                            <input class="peer" placeholder="" />
+                            <label>Input label</label>
+                        </div>
+                        <div class="input-floating">
+                            <input class="peer" disabled value="Value" />
+                            <label>Input disabled</label>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "FloatingInputsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "FloatingInputsTailwind")
+                        </p>
+                    </div>
+                </div>
+                <p class="text-md">For proper functionality, the input must have an empty placeholder.</p>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="Checkboxes">Checkboxes</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="CheckboxesComponent">
+                        @code {
+        private bool _baseInputBool = true;
+                        }
+                        <BaseInput @bind-Value="_baseInputBool" Label="Checkbox" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "CheckboxesComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "CheckboxesComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="CheckboxesTailwind">
+                        <div class="input-checkbox">
+                            <label for="checkbox">
+                                <input type="checkbox" checked class="peer" id="checkbox" />
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" stroke-width="1" stroke="currentColor" class="size-4">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <label for="checkbox">Checkbox</label>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "CheckboxesTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "CheckboxesTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="Radios">Radios</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="RadiosTailwind">
+                        <div class="input-radio">
+                            <input id="mercedes" type="radio" checked>
+                            <label for="mercedes">Mercedes</label>
+                        </div>
+                        <div class="input-radio">
+                            <input id="kia" type="radio">
+                            <label for="kia">Kia</label>
+                        </div>
+                        <div class="input-radio">
+                            <input id="bmw" type="radio">
+                            <label for="bmw">BMW</label>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "RadiosTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "RadiosTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="Selects">Selects</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="SelectsTailwind">
+                        @code {
+        private string _selectedValue = "Mercedes";
+                        }
+                        <select @bind="_selectedValue" class="select min-w-6">
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Kia">Kia</option>
+                            <option value="BMW">BMW</option>
+                        </select>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "SelectsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "SelectsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+
+    <h4 id="DateOnlyPickers">DateOnly pickers</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="DateOnlyPickersComponent">
+                        @code {
+        private DateOnly _dateOnly = new DateOnly(2024, 6, 13);
+                        }
+                        <DateOnlyPicker @bind-Value="_dateOnly" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "DateOnlyPickersComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "DateOnlyPickersComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="DateTimePickers">DateTime pickers</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="DateTimePickersComponent">
+                        @code {
+        private DateTime _dateTime = new DateTime(2024, 6, 13, 10, 10, 5);
+                        }
+                        <DateTimePicker @bind-Value="_dateTime" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "DateTimePickersComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "DateTimePickersComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="TimeSpanPickers">TimeSpan pickers</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="TimeSpanPickersComponent">
+                        @code {
+        private TimeSpan _timeSpan = new TimeSpan(10, 10, 5);
+                        }
+                        <TimeSpanPicker @bind-Value="_timeSpan" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TimeSpanPickersComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "TimeSpanPickersComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h4 id="DateTimeRangePickers">DateTimeRange pickers</h4>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="DateTimeRangePickersComponent">
+       @*                  @code {
+        private DateTimeRange _dateTimeRange = new DateTimeRange(DateTime.Now.AddHours(9.8), DateTime.Now);
+                        } *@
+                        @* <DateTimeRangePicker @bind-Value="_dateTimeRange" /> *@
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "DateTimeRangePickersComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "DateTimeRangePickersComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Cards">Cards</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="CardsTailwind">
+                        <div class="card flex-auto">
+                            <h4 class="mb-2">Cart title</h4>
+                            <hr />
+                            <p class="my-1">Card body</p>
+                            <button class="btn btn-outline-primary">Button</button>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "CardsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "CardsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Collapses">Collapses</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="CollapsesTailwind">
+                        @code {
+        private bool _collapseCollapsed = true;
+                        }
+                        <button class="btn btn-outline-primary" @onclick="() => _collapseCollapsed = !_collapseCollapsed">Primary</button>
+
+                        <div class="collapse @(_collapseCollapsed ? "collapse-hide" : "collapse-show")">
+                            <div class="simple-border">
+                                <h4>Collapse title</h4>
+                                <p>Collapse body</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "CollapsesTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "CollapsesTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Dropdowns">Dropdowns</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="DropdownsTailwind">
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "DropdownsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "DropdownsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Modals">Modals</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="ModalsComponent">
+                        @code {
+                            private bool _modalComponentOpen = false;
+                        }
+                        <button class="btn btn-primary" @onclick="() => _modalComponentOpen = !_modalComponentOpen">Open Modal</button>
+
+                        <Modal @bind-Value="_modalComponentOpen">
+                            <div class="card w-120">
+                                <div class="flex mb-4">
+                                    <h2 class="text-xl font-bold">Modal Title</h2>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer ms-auto my-auto" @onclick="() => _modalComponentOpen = false">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+
+                                <p class="mb-4">Modal body</p>
+                                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalComponentOpen = false">Close modal</button>
+                            </div>
+                        </Modal>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "ModalsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "ModalsComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="ModalsTailwind">
+                        @code {
+                            private bool _modalTailwindOpen = false;
+                        }
+                        <button class="btn btn-primary" @onclick="() => _modalTailwindOpen = !_modalTailwindOpen">Open Modal</button>
+
+                        @if (_modalTailwindOpen)
+                        {
+                            <div class="fixed inset-0 z-50 flex items-center justify-center">
+                                <!-- Modal overlay: covers entire viewport and closes modal on click -->
+                                <div class="absolute inset-0 bg-gray-800/70" @onclick="() => _modalTailwindOpen = false"></div>
+
+                                <!-- Modal content: positioned above the overlay -->
+                                <div class="relative card w-120">
+                                    <div class="flex mb-4">
+                                        <h2 class="text-xl font-bold">Modal Title</h2>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer ms-auto my-auto" @onclick="() => _modalTailwindOpen = false">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                        </svg>
+                                    </div>
+
+                                    <p class="mb-4">Modal body</p>
+                                    <button class="btn btn-outline-red ms-auto" @onclick="() => _modalTailwindOpen = false">Close modal</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "ModalsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "ModalsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Alerts">Alerts</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/2 simple-border" id="AlertsTailwind">
+                        <div class="alert bg-primary-50">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 fill-primary-400 me-2 my-auto">
+                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                            </svg>
+                            <h6>Primary alert with icon</h6>
+                            <div class="flex ms-auto">
+                                <h6>Details</h6>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 ms-2 my-auto cursor-pointer">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="alert bg-secondary-50">
+                            <h6>Secondary alert with close button</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ms-auto cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div class="alert bg-red-50">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 me-2 my-auto fill-red-500">
+                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                            </svg>
+                            <h6>Secondary alert with icon and close button</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ms-auto my-auto cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="w-1/2 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "AlertsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "AlertsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Placeholders">Placeholders</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="PlaceholdsTailwind">
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "PlaceholdsTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "PlaceholdsTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Paginations">Paginations</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-2/3 simple-border" id="PaginationsComponent">
+                        @code {
+        private int _count = 983;
+        private int _selected = 1;
+                        }
+                        <Pagination Count="_count" @bind-Selected="_selected" />
+                    </div>
+                    <div class="w-1/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "PaginationsComponent" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "PaginationsComponent")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Tabs">Tabs</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple" id="TabComponent">
+                        <Tab>
+                            <TabPage Title="Tab 1">
+                                <h4>Tab 1 is open</h4>
+                            </TabPage>
+                            <TabPage Title="Tab 2">
+                                <h4>Tab 2 is open</h4>
+                            </TabPage>
+                            <TabPage Title="Tab 3">
+                                <h4>Tab 3 is open</h4>
+                            </TabPage>
+                            <TabPage Title="Tab 4">
+                                <h4>Tab 4 is open</h4>
+                            </TabPage>
+                        </Tab>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TabComponent" , _iJSRuntime))">Copy</button>
+                        <div class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "TabComponent")
+                        </div>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="TabTailwind">
+                        @code {
+        private int _tabOpen = 0;
+                        }
+                        <nav class="flex flex-col sm:flex-row rounded-r-lg">
+                            <button class="tab @(_tabOpen == 0 ? "tab-active" : null)" @onclick="() => _tabOpen = 0">Tab 1</button>
+                            <button class="tab @(_tabOpen == 1 ? "tab-active" : null)" @onclick="() => _tabOpen = 1">Tab 2</button>
+                            <button class="tab @(_tabOpen == 2 ? "tab-active" : null)" @onclick="() => _tabOpen = 2">Tab 3</button>
+                            <button class="tab @(_tabOpen == 3 ? "tab-active" : null)" @onclick="() => _tabOpen = 3">Tab 4</button>
+                        </nav>
+
+                        <nav class="flex flex-col sm:flex-row rounded-r-lg">
+                            <button class="tab @(_tabOpen == 0 ? "tab-active" : null)" @onclick="() => _tabOpen = 0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 me-2 my-auto">
+                                    <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                                </svg>
+                                Tab 1
+                            </button>
+                            <button class="tab @(_tabOpen == 1 ? "tab-active" : null)" @onclick="() => _tabOpen = 1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 me-2 my-auto">
+                                    <path fill-rule="evenodd" d="M4.5 2.25a.75.75 0 0 0 0 1.5v16.5h-.75a.75.75 0 0 0 0 1.5h16.5a.75.75 0 0 0 0-1.5h-.75V3.75a.75.75 0 0 0 0-1.5h-15ZM9 6a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H9Zm-.75 3.75A.75.75 0 0 1 9 9h1.5a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM9 12a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H9Zm3.75-5.25A.75.75 0 0 1 13.5 6H15a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM13.5 9a.75.75 0 0 0 0 1.5H15A.75.75 0 0 0 15 9h-1.5Zm-.75 3.75a.75.75 0 0 1 .75-.75H15a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM9 19.5v-2.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 9 19.5Z" clip-rule="evenodd" />
+                                </svg>
+                                Tab 2
+                            </button>
+                            <button class="tab @(_tabOpen == 2 ? "tab-active" : null)" @onclick="() => _tabOpen = 2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 me-2 my-auto">
+                                    <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                                </svg>
+                                Tab 3
+                            </button>
+                            <button class="tab @(_tabOpen == 3 ? "tab-active" : null)" @onclick="() => _tabOpen = 3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 me-2 my-auto">
+                                    <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                                    <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+                                </svg>
+                                Tab 4
+                            </button>
+                        </nav>
+
+                        @if (_tabOpen == 0)
+                        {
+                            <h4>Tab 1 is open</h4>
+                        }
+                        else if (_tabOpen == 1)
+                        {
+                            <h4>Tab 2 is open</h4>
+                        }
+                        else if (_tabOpen == 2)
+                        {
+                            <h4>Tab 3 is open</h4>
+                        }
+                        else if (_tabOpen == 3)
+                        {
+                            <h4>Tab 4 is open</h4>
+                        }
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TabTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "TabTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Accordion">Accordion</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple" id="AccordionComponent">
+                        <Accordion>
+                            <AccordionItem Title="Title 1">
+                                <p>Accordion 1 is open</p>
+                            </AccordionItem>
+                            <AccordionItem Title="Title 2">
+                                <p>Accordion 2 is open</p>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TabComponent" , _iJSRuntime))">Copy</button>
+                        <div class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "AccordionComponent")
+                        </div>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="AccordionTailwind">
+                        @code {
+        private int _accordionOpen = 0;
+                        }
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-button @(_accordionOpen == 0 ? "accordion-button-active" : null)" @onclick="() => _accordionOpen = 0">
+                                    Title 1
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 accordion-button-icon @(_accordionOpen == 0 ? "open" : null)">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </button>
+                                @if (_accordionOpen == 0)
+                                {
+                                    <div class="accordion-body">
+                                        Accordion 1 is open
+                                    </div>
+                                }
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button @(_accordionOpen == 1 ? "accordion-button-active" : null)" @onclick="() => _accordionOpen = 1">
+                                    Title 2
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 accordion-button-icon @(_accordionOpen == 1 ? "open" : null)">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </button>
+                                @if (_accordionOpen == 1)
+                                {
+                                    <div class="accordion-body">
+                                        Accordion 2 is open
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "AccordionTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "AccordionTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Tables">Tables</h3>
+    <div>
+        <Tab Class="justify-self-end">
+            <TabPage Title="Component">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple" id="TablesComponent">
+                        @code {
+        private class TableData
+        {
+            public string Data1 { get; set; }
+            public string Data2 { get; set; }
+        }
+        private List<TableData> _items = new List<TableData> { new TableData() { Data1 = "Some data", Data2 = "Some data" }, new TableData() { Data1 = "Some data" } };
+                        }
+                        <Table Items="_items" />
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TabComponent" , _iJSRuntime))">Copy</button>
+                        <div class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "TablesComponent")
+                        </div>
+                    </div>
+                </div>
+            </TabPage>
+            <TabPage Title="Tailwind">
+                <div class="flex flex-wrap">
+                    <div class="w-1/3 simple-border" id="TablesTailwind">
+                        <table class="table w-full">
+                            <thead>
+                                <tr>
+                                    <th>Header 1</th>
+                                    <th>Header 2</th>
+                                    <th>Header 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Row 1</td>
+                                    <td>Row 1</td>
+                                    <td>Row 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Row 2</td>
+                                    <td>Row 2</td>
+                                    <td>Row 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Row 3</td>
+                                    <td>Row 3</td>
+                                    <td>Row 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Table striped</h4>
+                        <table class="table table-striped w-full">
+                            <thead>
+                                <tr>
+                                    <th>Header 1</th>
+                                    <th>Header 2</th>
+                                    <th>Header 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Row 1</td>
+                                    <td>Row 1</td>
+                                    <td>Row 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Row 2</td>
+                                    <td>Row 2</td>
+                                    <td>Row 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Row 3</td>
+                                    <td>Row 3</td>
+                                    <td>Row 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="w-2/3 ps-1 max-h-80 relative">
+                        <button class="btn btn-primary absolute top-0 right-0 mt-2 me-6" @onclick="@(() => Helpers.CopyToClipboardExtractedDivContentAsync("Components/Pages/Components.razor" , "TablesTailwind" , _iJSRuntime))">Copy</button>
+                        <p class="whitespace-pre-wrap w-full h-full p-2 text-sm text-gray-50 bg-gray-800 rounded-lg focus:outline-none overflow-auto">
+                            @Helpers.ExtractDivContent("Components/Pages/Components.razor", "TablesTailwind")
+                        </p>
+                    </div>
+                </div>
+            </TabPage>
+        </Tab>
+    </div>
+
+    <h3 id="Colors">Colors</h3>
+    <p>
+        We are using all available colors, plus we created some extra - primary and secondary.
+        Main color is using -500 (eg.: bg-green-500). For hover are mainly using the -600.
+        For background we are using white color, and for diference gray-100.
+    </p>
+
+    <h3 id="Icons">Icons</h3>
+    <p>
+        We are using icons from <a href="https://heroicons.com/">Heroicons</a>.
+        If you want to change size of icon, you can use size - size-5, size-6, ...
+        If you want to use icon with color fill, take from heroIcon solid icon, and change class to fill-color-number.
+    </p>
+</div>
+<div class="fixed w-50 top-0 right-0 px-4">
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Headings">Headings</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Paragraphs">Paragraphs</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Links">Links</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Buttons">Buttons</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#NormalButtons">Normal buttons</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#OutlineButtons">Outline buttons</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#NoBackgroundButtons">No background buttons</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#LinkButtons">Link buttons</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#ButtonGroups">Button groups</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#IconButtons">Icon buttons</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Inputs">Inputs</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#FloatingInputs">Normal inputs</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#NormalInputs">Floating inputs</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Checkboxes">Checkboxes</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Radios">Radios</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#DateOnlyPickers">DateOnly pickers</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#DateTimePickers">DateTime pickers</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#TimeSpanPickers">TimeSpan pickers</a>
+    <a class="flex py-0.5 ps-4 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#DateTimeRangePickers">DateTimeRange pickers</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Cards">Cards</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Collapses">Collapses</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Dropdowns">Dropdowns</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Modals">Modals</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Alerts">Alerts</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Placeholders">Placeholders</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Paginations">Paginations</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Tabs">Tabs</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Accordion">Accordion</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Tables">Tables</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Colors">Colors</a>
+
+    <a class="flex py-0.5 ps-0 text-gray-500 transition duration-200 hover:text-gray-800" href="/Components#Icons">Icons</a>
+</div>
+
+@code {
+
+}

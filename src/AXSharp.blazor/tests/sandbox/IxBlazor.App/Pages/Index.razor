@@ -1,96 +1,216 @@
 ﻿@page "/"
-
-<RenderableContentControl Presentation="Manual-Diagnostics"
-                          Context="@Entry.Plc.MAINC.cu00">
-</RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
-<RenderableContentControl Presentation="fdlkajfa"
-                          Context="@Entry.Plc.MAINC.instanceOfstTest">
-</RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
-<RenderableContentControl Presentation="Diagnostics"
-                          Context="@Entry.Plc.MAINC.cuBase">
-</RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
-<div class="bg-gray-50 rounded-lg p-8 mb-6">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold mb-4">Custom Hero Section</h1>
-        <p class="text-lg text-gray-600 mb-6">Using a series of utilities, you can create this hero section, just like the one in previous versions. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="px-6 py-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-            Example button
-        </button>
+@using Operon
+@using AXSharp.Presentation.Blazor.Controls.Templates
+<div class="columns-4">
+    <div class="col-1">
+        <h1>Onliner Controls</h1>
+        <OnlinerBaseControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testString"></OnlinerBaseControlView>
+        <OnlinerBoolControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testBool"></OnlinerBoolControlView>
+        <OnlinerDateControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDate"></OnlinerDateControlView>
+        <OnlinerDateTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerDateTimeControlView>
+        <OnlinerLDateTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerLDateTimeControlView>
+        <OnlinerLRealControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testLReal"></OnlinerLRealControlView>
+        <OnlinerLTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeControlView>
+        <OnlinerLTimeOfDayControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayControlView>
+        <OnlinerRealControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealControlView>
+        <OnlinerTimeOfDayControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayControlView>
+        <p class="break-after-column"></p>
+    </div>
+    <div class="col-2">
+        <h1>Onliner Displays</h1>
+        <OnlinerBaseDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testString"></OnlinerBaseDisplayView>
+        <OnlinerBoolDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testBool"></OnlinerBoolDisplayView>
+        <OnlinerDateDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDate"></OnlinerDateDisplayView>
+        <OnlinerDateTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerDateTimeDisplayView>
+        <OnlinerLDateTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerLDateTimeDisplayView>
+        <OnlinerLRealDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testLReal"></OnlinerLRealDisplayView>
+        <OnlinerLTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeDisplayView>
+        <OnlinerLTimeOfDayDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayDisplayView>
+        <OnlinerRealDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealDisplayView>
+        <OnlinerTimeOfDayDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayDisplayView>
+        <p class="break-after-column"></p>
+    </div>
+    <div class="col-3">
+        <h1>Shadow Control</h1>
+        <OnlinerBaseShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testString"></OnlinerBaseShadowControlView>
+        <OnlinerBoolShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testBool"></OnlinerBoolShadowControlView>
+        <OnlinerDateShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDate"></OnlinerDateShadowControlView>
+        <OnlinerDateTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerDateTimeShadowControlView>
+        <OnlinerLDateTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerLDateTimeShadowControlView>
+        <OnlinerLRealShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testLReal"></OnlinerLRealShadowControlView>
+        <OnlinerLTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeShadowControlView>
+        <OnlinerLTimeOfDayShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayShadowControlView>
+        <OnlinerRealShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealShadowControlView>
+        <OnlinerTimeOfDayShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayShadowControlView>
+        <p class="break-after-column"></p>
+    </div>
+    <div class="col-4">
+        <h1>Shadow Display</h1>
+        <OnlinerBaseShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testString"></OnlinerBaseShadowDisplayView>
+        <OnlinerBoolShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testBool"></OnlinerBoolShadowDisplayView>
+        <OnlinerDateShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDate"></OnlinerDateShadowDisplayView>
+        <OnlinerDateTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerDateTimeShadowDisplayView>
+        <OnlinerLDateTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestDateTime"></OnlinerLDateTimeShadowDisplayView>
+        <OnlinerLRealShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testLReal"></OnlinerLRealShadowDisplayView>
+        <OnlinerLTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeShadowDisplayView>
+        <OnlinerLTimeOfDayShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayShadowDisplayView>
+        <OnlinerRealShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealShadowDisplayView>
+        <OnlinerTimeOfDayShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayShadowDisplayView>
+        <p class="break-after-column"></p>
     </div>
 </div>
 
-<h1 class="text-3xl font-bold text-center mb-6">ixBlazor</h1>
+<RenderableContentControl Presentation="Control"
+                          Context="@Entry.Plc.MAINC.instanceOfstBlazor"/>
+
+@* <RenderableContentControl Presentation="Manual-Diagnostics" *@
+@*                           Context="@Entry.Plc.MAINC.cu00"> *@
+@* </RenderableContentControl> *@
+@* *@
+@* <div class="my-4 border-t border-gray-200"></div> *@
+@* *@
+@* <RenderableContentControl Presentation="fdlkajfa" *@
+@*                           Context="@Entry.Plc.MAINC.instanceOfstTest"> *@
+@* </RenderableContentControl> *@
+@* *@
+@* <div class="my-4 border-t border-gray-200"></div> *@
+@* *@
+@* <RenderableContentControl Presentation="Diagnostics" *@
+@*                           Context="@Entry.Plc.MAINC.cuBase"> *@
+@* </RenderableContentControl> *@
+@* *@
+@* *@
+@* *@
+@* $1$ <div class="my-4 border-t border-gray-200"></div> #1# *@
+@* $1$ #1# *@
+@* $1$ <div class="bg-gray-50 rounded-lg p-8 mb-6"> #1# *@
+@* $1$     <div class="max-w-4xl mx-auto"> #1# *@
+@* $1$         <h1 class="text-4xl font-bold mb-4">Custom Hero Section</h1> #1# *@
+@* $1$         <p class="text-lg text-gray-600 mb-6">Using a series of utilities, you can create this hero section, just like the one in previous versions. Check out the examples below for how you can remix and restyle it to your liking.</p> #1# *@
+@* $1$         <button class="px-6 py-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"> #1# *@
+@* $1$             Example button #1# *@
+@* $1$         </button> #1# *@
+@* $1$     </div> #1# *@
+@* $1$ </div> #1# *@
+@* $1$ #1# *@
+@* $1$ <h1 class="text-3xl font-bold text-center mb-6">ixBlazor</h1> #1# *@
+@* *@
+@* <RenderableContentControl Presentation="control" *@
+@*                           Context="@Entry.Plc.MAINC.groupBox_test"> *@
+@* </RenderableContentControl> *@
+@* *@
+@* <div class="my-4 border-t border-gray-200"></div> *@
+
+
+
+
+<!--<RenderableContentControl Presentation="Display"
+                          Context="Entry.Plc.MAINC.instanceOfstMultipleLayouts"></RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="Display"
+                          Context="Entry.Plc.Scroll.multipleNested"></RenderableContentControl>
 
 <RenderableContentControl Presentation="control"
-                          Context="@Entry.Plc.MAINC.groupBox_test">
+                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts.Servo_S6.example">
+
+</RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="control"
+                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts">
+
+</RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="control"
+                          Context="@Entry.Plc.MAINC.instanceOfstTest3">
+
 </RenderableContentControl>
 
-<div class="my-4 border-t border-gray-200"></div>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="control"
+                          Context="@Entry.Plc.Scroll">
 
-<!-- Button controls -->
-<div class="space-x-4">
-    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            @onclick="ClickedStTest3">
-        Button StTest3
-    </button>
+</RenderableContentControl>
 
-    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            @onclick="ClickedIxComponent">
-        Button IxComponent
-    </button>
-</div>
+<div><p>stNEsted----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="control"
+                          Context="@Entry.Plc.Scroll.nested">
+
+</RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Presentation="control"
+                          Context="@Entry.Plc.MAINC.instanceOfstMultipleLayouts.Servo_S6">
+
+</RenderableContentControl>
+
+
+
+
+<button class="btn btn-primary"
+@onclick="ClickedStTest3">
+    Button StTest3
+</button>
+
+<button class="btn btn-primary"
+@onclick="ClickedIxComponent">
+    Button IxComponent
+</button>
 
 @if (AffectedObject != null)
 {
     <RenderableContentControl Presentation="Manual"
                               Context="AffectedObject" />
 }
-
 <RenderableContentControl Presentation="Service"
                           Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
+
 </RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
+<div><p>----------------------------------------------------</p></div>
 <RenderableContentControl Presentation="Base"
                           Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
+
 </RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
+<div><p>----------------------------------------------------</p></div>
 <RenderableContentControl Context="@Entry.Plc.MAINC.InstanceOfTwinComponent">
+
 </RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
+<div><p>----------------------------------------------------</p></div>
 <RenderableContentControl Context="@Entry.Plc.MAINC.instanceOfstTest">
+
 </RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
 
-<div class="my-4 border-t border-gray-200"></div>
 
-<RenderableContentControl Context="@Entry.Plc.testingProgram.testEmpty">
+<RenderableContentControl Context="@Entry.Plc.testingProgram.testEmpty"></RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Context="@Entry.Plc.testingProgram.testSimple" Presentation="Display">
+
 </RenderableContentControl>
+<div><p>----------------------------------------------------</p></div>
+<RenderableContentControl Context="@Entry.Plc.MAINC" Presentation="Display">
 
-<div class="my-4 border-t border-gray-200"></div>
-
-<RenderableContentControl Context="@Entry.Plc.testingProgram.testSimple" 
-                          Presentation="Display">
-</RenderableContentControl>
-
-<div class="my-4 border-t border-gray-200"></div>
-
-<RenderableContentControl Context="@Entry.Plc.MAINC" 
-                          Presentation="Display">
-</RenderableContentControl>
+</RenderableContentControl>-->
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>-->
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>-->
 
 @code
 {

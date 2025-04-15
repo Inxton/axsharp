@@ -1,0 +1,211 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="relative" tabindex="0" @onkeydown="HandleKeyDown">
+    <div class="flex">
+        <div class="inline-flex items-center rounded-full bg-gray-100">
+            <input type="text" class="p-2 focus:outline-none" size="7" value="@Value" @oninput="OnInput" @onclick="TogglePicker" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 me-2" @onclick="TogglePicker">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v.005h-.006v-.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z" />
+            </svg>
+        </div>
+    </div>
+
+    @if (_showDateOnlyPicker)
+    {
+        <!-- Overlay: covers the entire screen and closes the picker when clicked -->
+        <div class="fixed inset-0 z-40" @onclick="() => _showDateOnlyPicker = false"></div>
+
+        <div class="absolute z-500 bg-white rounded-lg shadow sm:w-80 w-full">
+            @* Header *@
+            <div class="flex justify-center items-center mb-2 bg-primary-500 mt-1 p-4 rounded-lg">
+                <div class="text-2xl cursor-pointer text-white">
+                    @_valueInner.ToString("d")
+                </div>
+            </div>
+
+            <div class="p-4">
+                @* Header *@
+                <div class="flex justify-between items-center mb-2">
+                    <div>
+                        <span class="text-lg font-bold text-gray-800">@_monthNames[_currentMonth]</span>
+                        <span class="ml-1 text-lg text-gray-600 font-normal">@_currentYear</span>
+                    </div>
+                    <div>
+                        <button class="p-1 rounded-full cursor-pointer duration-100 hover:bg-gray-200" @onclick="PrevMonth">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button class="p-1 rounded-full cursor-pointer duration-100 hover:bg-gray-200" @onclick="NextMonth">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                @* Days-of-week header *@
+                <div class="w-full flex flex-wrap mb-3 -mx-1">
+                    @foreach (var day in _days)
+                    {
+                        <div style="width: 14.26%" class="px-1">
+                            <div class="text-gray-800 font-medium text-center text-xs">@day</div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Calendar grid -->
+                <div class="flex flex-wrap -mx-1">
+                    @for (int i = 0; i < _blankDays; i++)
+                    {
+                        <div style="width: 14.28%" class="px-1">
+                            <div class="p-1 text-center border border-transparent text-sm"></div>
+                        </div>
+                    }
+                    @foreach (var day in _daysInMonth)
+                    {
+                        <div style="width: 14.28%">
+                            <div class="cursor-pointer p-1 rounded-full text-center text-sm duration-100 hover:bg-gray-200 @(GetDayCssClass(day))" @onclick="() => SelectDate(day)">
+                                @day
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Action buttons -->
+                <div class="mt-3 flex justify-end space-x-2">
+                    <button class="btn btn-outline-red" @onclick="() => _showDateOnlyPicker = false">Cancel</button>
+                    <button class="btn btn-primary" @onclick="Confirm">OK</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private DateOnly _valueInner;
+
+    private DateOnly _value;
+
+    [Parameter, EditorRequired]
+    public DateOnly Value
+    {
+        get => _value;
+        set
+        {
+            if (_value != value)
+            {
+                _value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+            if (_valueInner != value)
+                _valueInner = value;
+        }
+    }
+
+    [Parameter]
+    public EventCallback<DateOnly> ValueChanged { get; set; }
+
+    private bool _showDateOnlyPicker = false;
+    private int _currentMonth;
+    private int _currentYear;
+    private int _blankDays;
+    private List<int> _daysInMonth = new();
+
+    private string[] _monthNames = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Take(12).ToArray();
+    private string[] _days = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+
+    private void CalculateDays()
+    {
+        _daysInMonth.Clear();
+        var days = DateTime.DaysInMonth(_currentYear, _currentMonth + 1);
+        var firstDay = new DateTime(_currentYear, _currentMonth + 1, 1).DayOfWeek;
+        _blankDays = (int)firstDay;
+        for (int day = 1; day <= days; day++)
+        {
+            _daysInMonth.Add(day);
+        }
+    }
+
+    private void PrevMonth()
+    {
+        if (_currentMonth == 0)
+        {
+            _currentMonth = 11;
+            _currentYear--;
+        }
+        else
+        {
+            _currentMonth--;
+        }
+        CalculateDays();
+    }
+
+    private void NextMonth()
+    {
+        if (_currentMonth == 11)
+        {
+            _currentMonth = 0;
+            _currentYear++;
+        }
+        else
+        {
+            _currentMonth++;
+        }
+        CalculateDays();
+    }
+
+    private void TogglePicker()
+    {
+        _showDateOnlyPicker = !_showDateOnlyPicker;
+
+        _currentMonth = _valueInner.Month - 1;
+        _currentYear = _valueInner.Year;
+        CalculateDays();
+    }
+
+
+    private void SelectDate(int day)
+    {
+        var selectedDate = new DateOnly(_currentYear, _currentMonth + 1, day);
+
+        _valueInner = selectedDate;
+    }
+
+    private string GetDayCssClass(int day)
+    {
+        var date = new DateOnly(_currentYear, _currentMonth + 1, day);
+        string css = "";
+        if (date == _valueInner)
+            css += "text-white font-bold bg-primary-500 hover:bg-primary-600";
+        else if (date == DateOnly.FromDateTime(DateTime.Now))
+            css += "font-bold";
+        return css;
+    }
+
+    private void Confirm()
+    {
+        _showDateOnlyPicker = false;
+
+        Value = _valueInner;
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Escape")
+        {
+            _showDateOnlyPicker = false;
+        }
+    }
+
+    private void OnInput(ChangeEventArgs e)
+    {
+        if (DateOnly.TryParse(e.Value.ToString(), out DateOnly date))
+        {
+            Value = date;
+            _valueInner = date;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+}

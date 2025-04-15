@@ -1,8 +1,7 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
-@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<TaskExample>
 
-<div class="mb-4">
+@* <div class="mb-4">
     @if (IsTaskRunning)
     {
         <div class="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-md">
@@ -19,37 +18,44 @@
     else if (IsTaskAborted)
     {
         <button class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50" 
-                type="button" 
-                @onclick="@ResumeTask">
+        type="button" 
+        @onclick="@ResumeTask">
             <span>@Component.AttributeName</span>
         </button>
     }
     else
     {
         <button class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" 
-                type="button" 
-                @onclick="@StartTask">
+        type="button" 
+        @onclick="@StartTask">
             <span>@Component.AttributeName</span>
         </button>
     }
 </div>
-
+ *@
 @code {
-    private bool IsTaskRunning => Component.taskRun.Cyclic;
-    private bool IsTaskAborted => Component.taskCancel.Cyclic;
+    // private bool IsTaskRunning => Component.taskRun.Cyclic;
+    // private bool IsTaskAborted => Component.taskCancel.Cyclic;
 
-    private void StartTask()
+    // private void StartTask()
+    // {
+    //     Component.taskRun.Cyclic = true;
+    // }
+
+    // private void AbortTask()
+    // {
+    //     Component.taskCancel.Cyclic = true;
+    // }
+
+    // private void ResumeTask()
+    // {
+    //     Component.taskCancel.Cyclic = false;
+    // }
+
+
+    public override void ConfigurePolling()
     {
-        Component.taskRun.Cyclic = true;
+        //throw new NotImplementedException();
     }
 
-    private void AbortTask()
-    {
-        Component.taskCancel.Cyclic = true;
-    }
-
-    private void ResumeTask()
-    {
-        Component.taskCancel.Cyclic = false;
-    }
 }

@@ -1,0 +1,25 @@
+﻿<div class="accordion-item">
+    <button class="accordion-button @(Parent.ActiveItem == this ? "accordion-button-active" : null)" @onclick="() => Parent.ActiveItem = Parent.ActiveItem == this ? null : this">
+        @Title
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 accordion-button-icon @(Parent.ActiveItem == this ? "open" : null)">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+    </button>
+    @if (Parent.ActiveItem == this)
+    {
+        <div class="accordion-body">
+            @ChildContent
+        </div>
+    }
+</div>
+
+@code {
+    [CascadingParameter]
+    private Accordion Parent { get; set; }
+
+    [Parameter, EditorRequired]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter, EditorRequired]
+    public string Title { get; set; }
+}

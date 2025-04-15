@@ -1,0 +1,647 @@
+@import "tailwindcss";
+
+@layer base {
+    h1 {
+        @apply text-5xl font-bold truncate text-wrap;
+    }
+
+    h2 {
+        @apply text-4xl font-bold truncate text-wrap;
+    }
+
+    h3 {
+        @apply text-3xl font-bold truncate text-wrap;
+    }
+
+    h4 {
+        @apply text-2xl font-bold truncate text-wrap;
+    }
+
+    h5 {
+        @apply text-xl font-normal truncate text-wrap;
+    }
+
+    h6 {
+        @apply text-lg font-normal truncate text-wrap;
+    }
+
+    p {
+        @apply text-base font-normal truncate text-wrap;
+    }
+
+    a {
+        @apply text-base font-normal truncate cursor-pointer;
+    }
+
+    hr {
+        @apply opacity-30;
+    }
+}
+
+@theme {
+    --color-primary-50: var(--color-amber-50);
+    --color-primary-100: var(--color-amber-100);
+    --color-primary-200: var(--color-amber-200);
+    --color-primary-300: var(--color-amber-300);
+    --color-primary-400: var(--color-amber-400);
+    --color-primary-500: var(--color-amber-500);
+    --color-primary-600: var(--color-amber-600);
+    --color-primary-700: var(--color-amber-700);
+    --color-primary-800: var(--color-amber-800);
+    --color-primary-900: var(--color-amber-900);
+    --color-primary-950: var(--color-amber-950);
+    --color-secondary-50: var(--color-emerald-50);
+    --color-secondary-100: var(--color-emerald-100);
+    --color-secondary-200: var(--color-emerald-200);
+    --color-secondary-300: var(--color-emerald-300);
+    --color-secondary-400: var(--color-emerald-400);
+    --color-secondary-500: var(--color-emerald-500);
+    --color-secondary-600: var(--color-emerald-600);
+    --color-secondary-700: var(--color-emerald-700);
+    --color-secondary-800: var(--color-emerald-800);
+    --color-secondary-900: var(--color-emerald-900);
+    --color-secondary-950: var(--color-emerald-950);
+}
+
+/*#region Buttons*/
+.btn {
+    @apply px-4 py-2 font-medium rounded-lg cursor-pointer transition duration-200 disabled:pointer-events-none disabled:opacity-70;
+}
+
+.btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600;
+}
+
+.btn-outline-primary {
+    @apply bg-transparent border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+}
+
+.btn-no-bg-primary {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-primary-600;
+}
+
+.btn-secondary {
+    @apply bg-secondary-500 text-white hover:bg-secondary-600;
+}
+
+.btn-outline-secondary {
+    @apply bg-transparent border border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white;
+}
+
+.btn-no-bg-secondary {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-secondary-600;
+}
+
+.btn-red {
+    @apply bg-red-500 text-white hover:bg-red-600;
+}
+
+.btn-outline-red {
+    @apply bg-transparent border border-red-500 text-red-500 hover:bg-red-500 hover:text-white;
+}
+
+.btn-no-bg-red {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-red-600;
+}
+
+.btn-orange {
+    @apply bg-orange-500 text-white hover:bg-orange-600;
+}
+
+.btn-outline-orange {
+    @apply bg-transparent border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white;
+}
+
+.btn-no-bg-orange {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-orange-600;
+}
+
+.btn-amber {
+    @apply bg-amber-500 text-white hover:bg-amber-600;
+}
+
+.btn-outline-amber {
+    @apply bg-transparent border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white;
+}
+
+.btn-no-bg-amber {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-amber-600;
+}
+
+.btn-yellow {
+    @apply bg-yellow-500 text-white hover:bg-yellow-600;
+}
+
+.btn-outline-yellow {
+    @apply bg-transparent border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white;
+}
+
+.btn-no-bg-yellow {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-yellow-600;
+}
+
+.btn-lime {
+    @apply bg-lime-500 text-white hover:bg-lime-600;
+}
+
+.btn-outline-lime {
+    @apply bg-transparent border border-lime-500 text-lime-500 hover:bg-lime-500 hover:text-white;
+}
+
+.btn-no-bg-lime {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-lime-600;
+}
+
+.btn-green {
+    @apply bg-green-500 text-white hover:bg-green-600;
+}
+
+.btn-outline-green {
+    @apply bg-transparent border border-green-500 text-green-500 hover:bg-green-500 hover:text-white;
+}
+
+.btn-no-bg-green {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-green-600;
+}
+
+.btn-emerald {
+    @apply bg-emerald-500 text-white hover:bg-emerald-600;
+}
+
+.btn-outline-emerald {
+    @apply bg-transparent border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white;
+}
+
+.btn-no-bg-emerald {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-emerald-600;
+}
+
+.btn-teal {
+    @apply bg-teal-500 text-white hover:bg-teal-600;
+}
+
+.btn-outline-teal {
+    @apply bg-transparent border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white;
+}
+
+.btn-no-bg-teal {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-teal-600;
+}
+
+.btn-cyan {
+    @apply bg-cyan-500 text-white hover:bg-cyan-600;
+}
+
+.btn-outline-cyan {
+    @apply bg-transparent border border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white;
+}
+
+.btn-no-bg-cyan {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-cyan-600;
+}
+
+.btn-sky {
+    @apply bg-sky-500 text-white hover:bg-sky-600;
+}
+
+.btn-outline-sky {
+    @apply bg-transparent border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white;
+}
+
+.btn-no-bg-sky {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-sky-600;
+}
+
+.btn-blue {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.btn-outline-blue {
+    @apply bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+}
+
+.btn-no-bg-blue {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-blue-600;
+}
+
+.btn-indigo {
+    @apply bg-indigo-500 text-white hover:bg-indigo-600;
+}
+
+.btn-outline-indigo {
+    @apply bg-transparent border border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white;
+}
+
+.btn-no-bg-indigo {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-indigo-600;
+}
+
+.btn-violet {
+    @apply bg-violet-500 text-white hover:bg-violet-600;
+}
+
+.btn-outline-violet {
+    @apply bg-transparent border border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white;
+}
+
+.btn-no-bg-violet {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-violet-600;
+}
+
+.btn-purple {
+    @apply bg-purple-500 text-white hover:bg-purple-600;
+}
+
+.btn-outline-purple {
+    @apply bg-transparent border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white;
+}
+
+.btn-no-bg-purple {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-purple-600;
+}
+
+.btn-fuchsia {
+    @apply bg-fuchsia-500 text-white hover:bg-fuchsia-600;
+}
+
+.btn-outline-fuchsia {
+    @apply bg-transparent border border-fuchsia-500 text-fuchsia-500 hover:bg-fuchsia-500 hover:text-white;
+}
+
+.btn-no-bg-fuchsia {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-fuchsia-600;
+}
+
+.btn-pink {
+    @apply bg-pink-500 text-white hover:bg-pink-600;
+}
+
+.btn-outline-pink {
+    @apply bg-transparent border border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white;
+}
+
+.btn-no-bg-pink {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-pink-600;
+}
+
+.btn-rose {
+    @apply bg-rose-500 text-white hover:bg-rose-600;
+}
+
+.btn-outline-rose {
+    @apply bg-transparent border border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white;
+}
+
+.btn-no-bg-rose {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-rose-600;
+}
+
+.btn-slate {
+    @apply bg-slate-500 text-white hover:bg-slate-600;
+}
+
+.btn-outline-slate {
+    @apply bg-transparent border border-slate-500 text-slate-500 hover:bg-slate-500 hover:text-white;
+}
+
+.btn-no-bg-slate {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-slate-600;
+}
+
+.btn-gray {
+    @apply bg-gray-500 text-white hover:bg-gray-600;
+}
+
+.btn-outline-gray {
+    @apply bg-transparent border border-gray-500 text-gray-500 hover:bg-gray-500 hover:text-white;
+}
+
+.btn-no-bg-gray {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-600;
+}
+
+.btn-zinc {
+    @apply bg-zinc-500 text-white hover:bg-zinc-600;
+}
+
+.btn-outline-zinc {
+    @apply bg-transparent border border-zinc-500 text-zinc-500 hover:bg-zinc-500 hover:text-white;
+}
+
+.btn-no-bg-zinc {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-zinc-600;
+}
+
+.btn-neutral {
+    @apply bg-neutral-500 text-white hover:bg-neutral-600;
+}
+
+.btn-outline-neutral {
+    @apply bg-transparent border border-neutral-500 text-neutral-500 hover:bg-neutral-500 hover:text-white;
+}
+
+.btn-no-bg-neutral {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-neutral-600;
+}
+
+.btn-stone {
+    @apply bg-stone-500 text-white hover:bg-stone-600;
+}
+
+.btn-outline-stone {
+    @apply bg-transparent border border-stone-500 text-stone-500 hover:bg-stone-500 hover:text-white;
+}
+
+.btn-no-bg-stone {
+    @apply bg-transparent text-gray-700 hover:bg-gray-100 hover:text-stone-600;
+}
+/*#endregion*/
+
+/* Buttons group */
+.btn-group {
+    @apply inline-flex items-center rounded-lg border border-gray-200;
+}
+
+.btn-group > .btn {
+    @apply rounded-none border-r-1 border-gray-200;
+}
+
+.btn-group:first-child {
+    @apply rounded-l-lg border-l-0;
+}
+
+.btn-group:last-child {
+    @apply rounded-r-lg border-r-0;
+}
+
+/* Alerts */
+.alert {
+    @apply flex px-4 py-4 rounded-lg text-gray-700;
+}
+
+/* Navigation */
+.nav {
+    @apply flex py-2 ps-3 rounded-r-lg text-gray-500 border-l-2 border-gray-300 transition duration-200 hover:text-gray-800 hover:border-gray-500;
+}
+
+.nav-collapse-button {
+    transform: rotate(0deg);
+    transition: transform .2s linear;
+}
+
+.nav-collapse-button.open {
+    transform: rotate(180deg);
+    transition: transform .2s linear;
+}
+
+.nav-active {
+    @apply text-black border-gray-600 font-bold;
+}
+
+/* Tabs */
+.tab {
+    @apply flex px-6 py-4 text-gray-500 text-base font-medium border-b-2 border-gray-300 hover:text-gray-800 hover:border-gray-800 cursor-pointer;
+}
+
+.tab-active {
+    @apply text-primary-500 border-primary-500 font-bold hover:text-primary-600 hover:border-primary-600;
+}
+
+/* Accordion */
+.accordion {
+    @apply w-full;
+}
+
+.accordion > .accordion-item{
+    @apply w-full px-4;
+}
+
+.accordion > .accordion-item > .accordion-button {
+    @apply flex w-full px-4 py-4 text-gray-500 text-base font-medium border-b-2 border-gray-300 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition duration-200;
+}
+
+.accordion > .accordion-item > .accordion-button.accordion-button-active {
+    @apply text-primary-500 border-primary-500 font-bold hover:text-primary-600 hover:border-primary-600;
+}
+
+.accordion > .accordion-item > .accordion-button > .accordion-button-icon {
+    @apply ms-auto my-auto;
+    transform: rotate(0deg);
+    transition: transform .2s linear;
+}
+
+.accordion > .accordion-item > .accordion-button > .accordion-button-icon.open {
+    transform: rotate(180deg);
+    transition: transform .2s linear;
+}
+
+.accordion > .accordion-item > .accordion-body {
+    @apply px-1 py-4 border-b-2 border-gray-300;
+}
+
+.accordion > .accordion-item:last-child > .accordion-body {
+    @apply border-b-0;
+}
+
+
+/* Select */
+.select {
+    @apply block p-2 bg-gray-100 text-black text-sm rounded-lg cursor-pointer focus:border-gray-300;
+}
+
+/* Card */
+.card {
+    @apply flex flex-wrap flex-col bg-white bg-clip-border rounded-xl shadow-md p-4;
+}
+
+.simple-border {
+    @apply border border-gray-300 bg-clip-border rounded-xl px-4 py-2;
+}
+
+/* Collapse */
+/*.collapse {
+    visibility: visible;
+    @apply overflow-hidden transition-all duration-300;
+}
+.collapse-show{
+    height: 100%;
+}
+.collapse-hide {
+    height: 0;
+}*/
+.collapse {
+    visibility: visible;
+    @apply overflow-hidden transition-transform duration-300 scale-y-100 origin-top;
+}
+
+.collapse-hide {
+    height: 0;
+    @apply scale-y-0;
+}
+
+/* Table */
+.table {
+    table-layout: auto;
+    display: table;
+    @apply w-full whitespace-nowrap text-left text-sm divide-y divide-gray-200;
+}
+
+.table:not(.table-stripped) > tbody {
+    @apply divide-y divide-gray-200;
+}
+
+.table-striped > tbody > tr {
+    @apply odd:bg-white even:bg-gray-50;
+}
+
+.table th {
+    @apply px-6 py-3 text-base font-bold text-gray-800 tracking-wider;
+}
+
+.table td {
+    @apply px-6 py-4 text-sm text-gray-700;
+}
+
+.table > tbody > tr {
+    @apply duration-100 hover:bg-gray-100;
+}
+
+.table-dense td {
+    @apply px-2 py-1.5;
+}
+
+/* Input */
+.input {
+    @apply inline-flex items-center;
+}
+
+.input > input {
+    @apply w-full rounded-lg border-1 border-gray-200 px-3 py-1 outline-0 transition-all my-1;
+    @apply focus:border-2 focus:border-primary-500 focus:my-0 focus:my-0;
+}
+
+.input > label {
+    @apply text-gray-800 text-sm;
+}
+
+.input-floating {
+    @apply relative min-w-50;
+}
+
+.input-floating > input {
+    @apply w-full rounded-[7px] border border-gray-200 border-t-transparent px-3 py-2.5 transition-all;
+    @apply placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200;
+    @apply focus:border-2 focus:border-primary-500 focus:border-t-transparent focus:outline-0;
+    @apply disabled:border-0 disabled:bg-gray-50;
+}
+
+.input-floating > label {
+    @apply pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-800 transition-all;
+    @apply before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-200 before:transition-all;
+    @apply after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-200 after:transition-all;
+    @apply peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-800 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent;
+    @apply peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-primary-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-primary-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-primary-500;
+    @apply peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-800;
+}
+
+.input-floating:not(.is-invalid) > .invalid-feedback {
+    @apply hidden;
+}
+
+.input-floating.is-invalid > .invalid-feedback {
+    @apply ms-1 text-sm text-red-600;
+}
+
+.input-checkbox {
+    @apply inline-flex items-center;
+}
+
+.input-checkbox > label:first-child {
+    @apply flex items-center cursor-pointer relative;
+}
+
+.input-checkbox > label:first-child > input {
+    @apply h-5 w-5 cursor-pointer transition-all appearance-none rounded border border-gray-200 checked:bg-primary-500 checked:border-primary-500;
+}
+
+.input-checkbox > label:first-child > span {
+    @apply absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.input-checkbox > label:last-child {
+    @apply cursor-pointer ml-2 text-gray-800 text-sm;
+}
+
+.input-radio {
+    @apply flex items-center gap-x-3;
+}
+
+.input-radio > input {
+    @apply relative size-4 appearance-none rounded-full border border-gray-200;
+    @apply before:absolute before:inset-1 before:rounded-full before:bg-white;
+    @apply not-checked:before:hidden checked:border-primary-500 checked:bg-primary-500;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500;
+    @apply disabled:border-gray-200 disabled:bg-gray-100 disabled:before:bg-gray-400;
+    @apply forced-colors:appearance-auto forced-colors:before:hidden;
+}
+
+.input-radio > label {
+    @apply block text-gray-800;
+}
+
+
+/*
+    Renderable content controls and layouts.
+*/
+
+.base-template-view {
+    @apply p-1;
+}
+
+.base-input {
+    @apply w-full px-3 py-2 border border-primary-300 rounded-md focus:shadow-lg focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600;
+}
+
+.base-select {
+    @apply w-full py-2 border-2 border-primary-300 border border-primary-300 rounded-md focus:shadow-lg focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600;
+}
+.base-input-label {
+    @apply block text-sm font-medium text-primary-950 mb-1;
+}
+
+.base-checkbox {
+    @apply
+    text-primary-500
+    focus:ring-primary-600
+    border-primary-300
+    rounded;
+}
+
+.layout-groupox{
+    @apply w-full rounded-sm border border-primary-200 bg-primary-50 p-4 shadow-sm;
+}
+
+.layout-groupox-caption{
+    @apply mb-3 text-lg font-semibold text-primary-900;
+}
+
+
+.layout-stacked {
+    @apply flex flex-col gap-2;
+}
+
+.layout-wrap {
+    @apply flex flex-wrap;
+}
+
+.layout-grid {
+    @apply grid auto-cols-max grid-flow-col;
+}
+
+.layout-border {
+    @apply w-100 p-2;
+}
+
+.layout-tabcontrol {
+    @apply w-100;
+}

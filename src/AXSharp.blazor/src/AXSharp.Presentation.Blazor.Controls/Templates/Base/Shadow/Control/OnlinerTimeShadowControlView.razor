@@ -6,7 +6,7 @@
     <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
     <input id="@ComponentId"
            readonly="@IsReadOnly"
-           class="w-100 form-control @AccessStatus"
+           class="base-input @AccessStatus"
            type="text"
            value="@Onliner.Shadow.ToString(Onliner.AttributeFormatString ?? "c", CultureInfo.InvariantCulture)"
            @onchange="Change"

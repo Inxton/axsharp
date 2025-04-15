@@ -5,7 +5,7 @@
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
         <label for="@ComponentId" >@Onliner.AttributeName</label>
         <select id="@ComponentId"
-                class="w-100 form-select @AccessStatus"
+                class="base-select @AccessStatus"
                 @bind="@Onliner.Shadow"
                 disabled="@IsReadOnly"
                 data-bs-toggle="tooltip" 

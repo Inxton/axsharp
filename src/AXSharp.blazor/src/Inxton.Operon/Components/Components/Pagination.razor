@@ -1,0 +1,165 @@
+﻿<div class="flex flex-wrap border-t-2 border-gray-200">
+    @if (ShowShowing)
+    {
+        <p class="my-auto me-auto">Showing @(Selected * PageSize - PageSize + 1) to @(Math.Min(Selected * PageSize, Count)) of @Count results</p>
+    }
+    @if (ShowPageSize)
+    {
+        <div class="ms-auto flex">
+            <p class="my-auto">Rows pre page</p>
+            <select @bind="PageSize" class="select min-w-6">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+    }
+    <div class="flex justify-between @(!ShowShowing && !ShowPageSize ? "mx-auto" : "ms-2")">
+        <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 1 ? "text-gray-400" : null)" @onclick="() => Selected = 1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+            </svg>
+        </button>
+        <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 1 ? "text-gray-400" : null)" @onclick="() => Selected = Math.Max(Selected - 1, 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        @if (ShowPages)
+        {
+            @if (_maxPage < 7)
+            {
+                @for (var i = 1; i <= _maxPage; i++)
+                {
+                    var j = i;
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == i ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = j">
+                        <p class="min-w-4">@i</p>
+                    </button>
+                }
+            }
+            else
+            {
+                <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 1 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = 1">
+                    <p class="min-w-4">1</p>
+                </button>
+
+                @if (Selected < 4)
+                {
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 2 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = 2">
+                        <p class="min-w-4">2</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 3 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = 3">
+                        <p class="min-w-4">3</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 4 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = 4">
+                        <p class="min-w-4">4</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == 5 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = 5">
+                        <p class="min-w-4">5</p>
+                    </button>
+                    <p class="min-w-4 my-auto">...</p>
+                }
+                else if (Selected > _maxPage - 4)
+                {
+                    <p class="min-w-4 my-auto">...</p>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage - 4 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = _maxPage - 4">
+                        <p class="min-w-4">@(_maxPage - 4)</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage - 3 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = _maxPage - 3">
+                        <p class="min-w-4">@(_maxPage - 3)</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage - 2 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = _maxPage - 2">
+                        <p class="min-w-4">@(_maxPage - 2)</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage - 1? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = _maxPage - 1">
+                        <p class="min-w-4">@(_maxPage - 1)</p>
+                    </button>
+                }
+                else
+                {
+                    <p class="min-w-4 my-auto">...</p>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == Selected - 1 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = Selected - 1">
+                        <p class="min-w-4">@(Selected - 1)</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == Selected ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = Selected">
+                        <p class="min-w-4">@Selected</p>
+                    </button>
+                    <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == Selected + 1 ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = Selected + 1">
+                        <p class="min-w-4">@(Selected + 1)</p>
+                    </button>
+                    <p class="min-w-4 my-auto">...</p>
+                }
+
+                <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage ? "bg-primary-500 hover:bg-primary-600" : null)" @onclick="() => Selected = _maxPage">
+                    <p class="min-w-4">@_maxPage</p>
+                </button>
+            }
+        }
+        <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage ? "text-gray-400" : null)" @onclick="() => Selected = Math.Min(Selected + 1, _maxPage)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+        <button class="p-2 rounded-full cursor-pointer transition duration-200 hover:bg-gray-200 @(Selected == _maxPage ? "text-gray-400" : null)" @onclick="() => Selected = _maxPage">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public int Count { get; set; }
+
+    private int _selected;
+
+    [Parameter, EditorRequired]
+    public int Selected
+    {
+        get => _selected;
+        set
+        {
+            if (_selected != value)
+            {
+                _selected = value;
+                SelectedChanged.InvokeAsync(value);
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<int> SelectedChanged { get; set; }
+
+    private int _pageSize = 10;
+
+    [Parameter]
+    public int PageSize
+    {
+        get => _pageSize;
+        set
+        {
+            if (_pageSize != value)
+            {
+                Selected = Math.Max((Selected - 1) * PageSize / value, 1);
+                _pageSize = value;
+                PageSizeChanged.InvokeAsync(value);
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<int> PageSizeChanged { get; set; }
+
+    [Parameter]
+    public bool ShowShowing { get; set; } = true;
+
+    [Parameter]
+    public bool ShowPages { get; set; } = true;
+
+    [Parameter]
+    public bool ShowPageSize { get; set; } = true;
+
+    private int _maxPage => Count / PageSize + 1;
+}

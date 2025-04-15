@@ -5,7 +5,7 @@
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
     <label for="@ComponentId" >@Onliner.AttributeName</label>
     <input id="@ComponentId"
-            class="w-100 form-control @AccessStatus"
+            class="base-select @AccessStatus"
             readonly="readonly"
             style=@(IsReadOnly? "" : "background-color:transparent")
             value="@EnumToIntConverter.Convert(@Onliner.Shadow,null,null,null)  "
