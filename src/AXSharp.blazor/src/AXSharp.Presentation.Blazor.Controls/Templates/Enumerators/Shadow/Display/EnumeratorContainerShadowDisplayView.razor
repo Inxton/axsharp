@@ -3,7 +3,7 @@
 @inherits EnumeratorsBaseShadow<T>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId" >@Onliner.AttributeName</label>
+    <label class="base-input-label" for="@ComponentId" >@Onliner.AttributeName</label>
     <input id="@ComponentId"
             class="base-select @AccessStatus"
             readonly="readonly"

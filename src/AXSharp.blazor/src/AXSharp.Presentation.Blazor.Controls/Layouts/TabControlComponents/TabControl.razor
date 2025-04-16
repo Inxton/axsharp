@@ -2,7 +2,7 @@
 @inject IJSRuntime JSRuntime
 
 <CascadingValue Value="this">
-    <div class="flex flex-row border-b border-gray-200">
+    <div class="flex flex-wrap flex-col sm:flex-row">
         @foreach (TabPage tabPage in Pages)
         {
             <div class="mr-2">
@@ -41,8 +41,8 @@
     private string GetButtonClass(TabPage page)
     {
         return page == ActivePage 
-            ? "btn btn-primary" 
-            : "btn btn-outline-primary";
+            ? "tab tab-active" 
+            : "tab";
     }
 
     internal async Task ActivatePageAsync(TabPage page)
