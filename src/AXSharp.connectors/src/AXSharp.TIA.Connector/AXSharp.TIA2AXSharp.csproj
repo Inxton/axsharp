@@ -9,11 +9,11 @@
 		<Description> Provides some features of AX# for TIA portal based projects.</Description>
 
 		<!-- NuGet Common part-->
-		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Authors>ix-ax</Authors>
-		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<Authors>inxton</Authors>
+		<Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Title>Ix Web API</Title>
@@ -24,7 +24,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReleaseNotes>
 			Release notes are published here:
-			https://github.com/ix-ax/axsharp/releases
+			https://github.com/inxton/axsharp/releases
 		</PackageReleaseNotes>
 		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 	</PropertyGroup>

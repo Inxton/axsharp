@@ -1,9 +1,9 @@
 // Build
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,6 @@ using Cake.Common.Tools.DotNet.MSBuild;
 using Cake.Common.Tools.DotNet.Restore;
 using Cake.Common.Tools.DotNet.Run;
 using Cake.Common.Tools.DotNet.Test;
-using Cake.Common.Tools.DotNetCore.MSBuild;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -85,7 +84,7 @@ public class BuildContext : FrostingContext
         DotNetRunSettings = new DotNetRunSettings()
         {
             Verbosity = buildParameters.Verbosity,
-            Framework = "net8.0",
+            Framework = "net9.0",
             Configuration = buildParameters.Configuration,
             NoBuild = true,
             NoRestore = true,
@@ -115,7 +114,7 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = " apax build",
+            Arguments = " build",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -128,12 +127,22 @@ public class BuildContext : FrostingContext
 
         this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments =
-                $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            Arguments = " download",
             WorkingDirectory = workingDirectory,
             RedirectStandardOutput = false,
-            RedirectStandardError = false
+            RedirectStandardError = false,
+            RedirectedStandardOutputHandler = (a) => string.Join(System.Environment.NewLine, a),
+            Silent = false
         }).WaitForExit();
+        
+        // this.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        // {
+        //     Arguments =
+        //         $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+        //     WorkingDirectory = workingDirectory,
+        //     RedirectStandardOutput = false,
+        //     RedirectStandardError = false
+        // }).WaitForExit();
     }
 
     public void RunTestsFromFilteredSolution(string filteredSolutionFile)
@@ -162,14 +171,14 @@ public class BuildContext : FrostingContext
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
                         ApiKey = Environment.GetEnvironmentVariable("GH_TOKEN"),
-                        Source = "https://nuget.pkg.github.com/ix-ax/index.json",
+                        Source = "https://nuget.pkg.github.com/inxton/index.json",
                         SkipDuplicate = true
                     });
             }
         }
     }
 
-    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net8.0" };
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0", "net8.0" };
 
     public IEnumerable<(string ax, string approject, string solution)> GetTemplateProjects()
     {
@@ -221,7 +230,7 @@ public class BuildContext : FrostingContext
     }
 
     public void CheckLicenseComplianceInArtifacts()
-    {
+    {        
         //var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", ".apax", "packages"),
         var licensedFiles = Directory.EnumerateFiles(Path.Combine(this.ScrDir, "apax", "stc"),
                 "AX.*.*",

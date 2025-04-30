@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using AX.ST.Semantic;
@@ -74,14 +74,17 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource(classDeclaration.Pragmas.AddedPropertiesAsAttributes());
         
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
+       
+        var isExtended = false;
+        AX.ST.Semantic.Model.ISemanticTypeAccess? extendedType = classDeclaration.ExtendedTypeAccesses.FirstOrDefault();
 
-        var isExtended = Compilation.GetSemanticTree().Types
-            .Any(p => p.FullyQualifiedName == classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName);
-
-        if (isExtended)
-            AddToSource($" : {classDeclaration.ExtendedTypeAccesses.FirstOrDefault()?.Type.FullyQualifiedName}");
-
-
+        //TODO: Workaround for not fully qualified declarations. To be addressed with proper dependency handling in stc.
+        var extend = Compilation.FindTypeDeclaration(extendedType);
+        if (extend != null)
+        {
+            AddToSource($" : {extend.FullyQualifiedName}");
+            isExtended = true;
+        }
 
         AddToSource(isExtended ? ", AXSharp.Connector.IPlain" : ": AXSharp.Connector.IPlain");
 
@@ -112,55 +115,56 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
-        {
-            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligible)
+        {           
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
-            switch (fieldDeclaration.Type)
+            switch (eligibility.eligibleType)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()}");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource("[]");
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get; set;}");
 
                         AddToSource($"= new");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource($"[");
                         AddToSource(string.Join(",", arrayType.Dimensions.Select(p => p.CountOfElements)));
                         AddToSource($"];");
                     }
                     break;
                 case IStringTypeDeclaration:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
                 case INamedValueTypeDeclaration namedValueType:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
-                    if (scalar.IsNullablePrimitive())
-                    {
-                        AddToSource($" = default({scalar.TransformType()});\n");
-                    }
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
+                    AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));                                        
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, eligibility.eligibleType, visitor);
                     AddToSource(" = new ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource("();");
                     break;
             }
         }
     }
 
-    private void AddPropertyDeclaration(IDeclaration fieldDeclaration, IxNodeVisitor visitor)
+    private void AddPropertyDeclaration(IDeclaration fieldDeclaration, IDeclaration eligibleType,  IxNodeVisitor visitor)
     {
         fieldDeclaration.Pragmas.AddAttributes();
         switch (fieldDeclaration)
@@ -172,7 +176,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                 AddToSource($"public");
                 break;
         }
-        fieldDeclaration.Type.Accept(visitor, this);
+        eligibleType.Type.Accept(visitor, this);
         AddToSource($" {fieldDeclaration.Name}");
         AddToSource("{get; set;}");
     }
@@ -195,8 +199,10 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                  fileSyntax.UsingDirectives
                      .Where(p => this.Compilation.GetSemanticTree().Namespaces.Select(p => p.FullyQualifiedName).Contains(p.QualifiedIdentifierList.GetText())))
         {
-            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+            //AddToSource($"using {fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");
+            AddToSource($"using Pocos.{fileSyntaxUsingDirective.QualifiedIdentifierList.GetText()};");           
         }
+
         AddToSource("namespace Pocos {");
         fileSyntax.Declarations.ToList().ForEach(p => p.Visit(visitor, this));
         AddToSource("}");
@@ -207,6 +213,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IConfigurationDeclaration configurationDeclaration,
         IxNodeVisitor visitor)
     {
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+        
+        return;
         TypeCommAccessibility = eCommAccessibility.None;
 
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController{{");
@@ -257,6 +269,11 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateConfigDeclaration(IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)
     {
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+        return;
         AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace}{{");
         configurationDeclaration.Variables.ToList().ForEach(p => p.Accept(visitor, this));
         AddToSource("}");
@@ -265,48 +282,49 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateVariableDeclaration(IVariableDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(this))
-        {
-            AddToSource(fieldDeclaration.Pragmas.AddAttributes());
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        if (eligibility.isEligibe)
+        {            
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration arrayType:
-                    if (arrayType.IsEligibleForTranspile(this))
+                    var arrayEligibility = arrayType.IsEligibleForTranspile(this);
+                    if (arrayEligibility.isEligibe)
                     {
                         fieldDeclaration.Pragmas.AddAttributes();
                         AddToSource($"public");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource("[]");
                         AddToSource($" {fieldDeclaration.Name}");
                         AddToSource("{get; set;}");
 
                         AddToSource($"= new");
-                        arrayType.ElementTypeAccess.Type.Accept(visitor, this);
+                        arrayEligibility.eligibleType.Accept(visitor, this);
+                        //arrayType.ElementTypeAccess.Type.Accept(visitor, this);
                         AddToSource($"[");
                         AddToSource(string.Join(",", arrayType.Dimensions.Select(p => p.CountOfElements)));
                         AddToSource($"];");
                     }
                     break;
                 case IStringTypeDeclaration:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
                 case INamedValueTypeDeclaration namedValueType:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
-                    if (scalar.IsNullablePrimitive())
-                    {
-                        AddToSource($" = default({scalar.TransformType()});\n");
-                    }
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
+                    AddToSource(scalar.CreateScalarInitializer(this.Project?.CompilerOptions?.TargetPlatfromMoniker));
                     break;
                 case IReferenceTypeDeclaration d:
                 case IStructuredTypeDeclaration s:
-                    AddPropertyDeclaration(fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);                    
                     AddToSource(" = new ");
-                    fieldDeclaration.Type.Accept(visitor, this);
+                    eligibility.eligibleType.Accept(visitor, this);
+                    //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource("();");
                     break;
             }
@@ -364,9 +382,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        if (arrayTypeDeclaration.IsEligibleForTranspile(this)) return;
+        // WATCH!
+        var eligibility = arrayTypeDeclaration.IsEligibleForTranspile(this);
+        if (!eligibility.isEligibe) return;
 
-        arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
+        eligibility.eligibleType.Accept(visitor, this);
+        //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         AddToSource("[]");
     }
 

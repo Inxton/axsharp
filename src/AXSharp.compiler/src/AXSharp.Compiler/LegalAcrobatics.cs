@@ -1,59 +1,59 @@
-﻿using CliWrap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using CliWrap;
+using static AXSharp.Compiler.AxProject;
 
-namespace AXSharp.Compiler
+namespace AXSharp.Compiler;
+
+public static class LegalAcrobatics
 {
-   public static class LegalAcrobatics
-{ 
+    private static IEnumerable<Assembly> AXAssemblies { get; set; }
+
+    public static string? StcVersion { get; private set; }
+
     public static async Task LegalComplianceAcrobatics(string entryAssemblyLocation)
     {
         /*
          We need this to comply with the Siemens legal requirement to allow only users that have access
          to simatic-ax to some APIs.
         */
-        
-        var stcapipath = Path.GetFullPath(Path.Combine(entryAssemblyLocation, $".apax//.apax//packages//@ax//{GetStcNameByPlatform()}//bin//"));
 
-        if(!Directory.Exists(stcapipath))
-        {
-            await ApaxInstallLegalAcrobatics(entryAssemblyLocation);
-        }
-        
+        var stcapipath = Path.GetFullPath(Path.Combine(entryAssemblyLocation,
+            $".apax//.apax//packages//@ax//{GetStcNameByPlatform()}//bin//"));
+
+        if (!Directory.Exists(stcapipath)) await ApaxInstallLegalAcrobatics(entryAssemblyLocation);
+
         SetupAssemblyResolverLegalAcrobatics(entryAssemblyLocation);
     }
 
-    static IEnumerable<Assembly> AXAssemblies { get; set; }
 
-
-    static void SetupAssemblyResolverLegalAcrobatics(string entryAssemblyLocation)
+    private static void SetupAssemblyResolverLegalAcrobatics(string entryAssemblyLocation)
     {
         var axAssemblies = new List<Assembly>();
 
         foreach (var assemblyFile in Directory.EnumerateFiles(
-                     Path.GetFullPath(Path.Combine(entryAssemblyLocation, $".apax//.apax//packages//@ax//{GetStcNameByPlatform()}//bin//")), "*.dll"))
-        {
+                     Path.GetFullPath(Path.Combine(entryAssemblyLocation,
+                         $".apax//.apax//packages//@ax//{GetStcNameByPlatform()}//bin//")), "*.dll"))
             try
             {
                 axAssemblies.Add(Assembly.LoadFile(assemblyFile));
             }
-            catch (System.BadImageFormatException)
+            catch (BadImageFormatException)
             {
                 // We just ignore this...there might be some libraries that we just cannot load, but we do not need them.
             }
-        }
 
         AXAssemblies = axAssemblies;
+
+        StcVersion = AXAssemblies.FirstOrDefault()?.GetName().Version?.ToString();
+       
+
 
         AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
     }
 
-    static async Task ApaxInstallLegalAcrobatics(string entryAssemblyLocation)
+    private static async Task ApaxInstallLegalAcrobatics(string entryAssemblyLocation)
     {
         var stdOutBuffer = new StringBuilder();
         var stdErrBuffer = new StringBuilder();
@@ -71,7 +71,7 @@ namespace AXSharp.Compiler
                 .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
                 .ExecuteAsync();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Logger.Error("There was a problem restoring apax packages.", ex);
         }
@@ -82,12 +82,13 @@ namespace AXSharp.Compiler
         }
     }
 
-    static Assembly? CurrentDomain_AssemblyResolve(object? sender, ResolveEventArgs args)
+    private static Assembly? CurrentDomain_AssemblyResolve(object? sender, ResolveEventArgs args)
     {
         return AXAssemblies.FirstOrDefault(p => p.FullName == args.Name);
     }
 
-  static string GetStcNameByPlatform()
-       => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "stc-linux-x64" : "stc-win-x64";
-}
+    private static string GetStcNameByPlatform()
+    {
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "stc-linux-x64" : "stc-win-x64";
+    }
 }

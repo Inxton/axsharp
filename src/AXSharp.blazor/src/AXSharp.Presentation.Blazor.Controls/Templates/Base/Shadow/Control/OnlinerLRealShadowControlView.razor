@@ -9,7 +9,7 @@
            class="w-100 form-control @AccessStatus"
            type="number"
            step="any"
-           value="@Onliner.Shadow.ToString().Replace(',', '.')"
+           value="@Onliner.Shadow.ToString(CultureInfo.InvariantCulture)"
            @onchange="Change"
            data-bs-toggle="tooltip"
            data-bs-placement="top"
@@ -20,7 +20,7 @@
 @code {
     private void Change(ChangeEventArgs args)
     {
-        if (Double.TryParse(args.Value.ToString(), out var parseValue))
+        if (Double.TryParse(args.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var parseValue))
             Onliner.Shadow = parseValue;
     }
 }

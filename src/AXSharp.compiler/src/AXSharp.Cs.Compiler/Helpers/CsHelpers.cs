@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using AX.ST.Semantic.Model.Declarations;
@@ -58,5 +58,15 @@ internal static class CsHelpers
     {
         var qualifier = isExtended ? "override" : "virtual";
         return $"public async {qualifier} Task {methodName}<T>(T plain){{\n await this.{methodName}Async((dynamic)plain);\n}}";
+    }
+    
+    /// <summary>
+    /// Gets fully qualified name of poco type for a given type declaration.
+    /// </summary>
+    /// <param name="declaration"></param>
+    /// <returns>Fully qualified poco name for given declarations</returns>
+    public static string GetFullyQualifiedPocoName(this IDeclaration declaration)
+    {
+        return declaration.ContainingNamespace.FullyQualifiedName == "$GLOBAL" ?  $"global::Pocos.{declaration.Name}" : $"global::Pocos.{declaration.ContainingNamespace.FullyQualifiedName}.{declaration.Name}";
     }
 }

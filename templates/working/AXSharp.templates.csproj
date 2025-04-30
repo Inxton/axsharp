@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
     <PackageType>Template</PackageType>
     <PackageId>AXSharp.templates</PackageId>
     <Title>AXSharp templates</Title>
-    <Authors>PTKu</Authors>
+    <Authors>MTS spol. s r.o.</Authors>
     <Description>AXSharp project templates.</Description>
     <PackageTags>simatic-ax;axsharp;templates</PackageTags>
     <IncludeContentInPack>true</IncludeContentInPack>
@@ -15,7 +15,7 @@
     <PackageIcon>icon_128_128.png</PackageIcon>
     <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.apax\**" />

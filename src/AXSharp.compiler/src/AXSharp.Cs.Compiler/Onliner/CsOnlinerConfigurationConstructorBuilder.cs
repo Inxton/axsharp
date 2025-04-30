@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
 using AX.ST.Semantic.Model.Declarations;
@@ -45,9 +45,41 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
         return builder;
     }
 
+    public new static CsOnlinerConfigurationConstructorBuilder Create(IxNodeVisitor visitor,
+        IReadOnlyCollection<IConfigurationDeclaration> semantics, AXSharpProject project, ISourceBuilder sourceBuilder)
+    {
+        var builder = new CsOnlinerConfigurationConstructorBuilder(sourceBuilder);
+        builder.AddToSource(
+            $"public {project.TargetProject.ProjectRootNamespace}TwinController({typeof(ConnectorAdapter).n()} adapter, object[] parameters) {{");
+        builder.AddToSource("this.Connector = adapter.GetConnector(parameters);");
+
+
+        foreach (var conf in semantics)
+        {
+            conf.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+
+        
+        builder.AddToSource("}");
+
+        builder.AddToSource(
+            $"public {project.TargetProject.ProjectRootNamespace}TwinController({typeof(ConnectorAdapter).n()} adapter) {{");
+        builder.AddToSource("this.Connector = adapter.GetConnector(adapter.Parameters);");
+
+        foreach (var conf in semantics)
+        {
+            conf.Variables.ToList().ForEach(p => p.Accept(visitor, builder));
+        }
+
+        builder.AddToSource("}");
+
+        return builder;
+    }
+
     public override void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-        if (semantics.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = semantics.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             switch (semantics.Type)
             {
@@ -82,7 +114,8 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IVariableDeclaration field,
         IxNodeVisitor visitor)
     {
-        if (!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
 
         AddToSource($"{field.Name}");
@@ -104,8 +137,9 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
             case IStructuredTypeDeclaration structuredTypeDeclaration:
             case IEnumTypeDeclaration enumTypeDeclaration:
             case INamedValueTypeDeclaration namedValueTypeDeclaration:
-                AddToSource("new");
-                type.ElementTypeAccess.Type.Accept(visitor, this);
+                AddToSource("new");      
+                eligibility.eligibleType.Accept(visitor, this);
+                //type.ElementTypeAccess.Type.Accept(visitor, this);
                 break;
             case IScalarTypeDeclaration scalarTypeDeclaration:
                 AddToSource($"@Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(scalarTypeDeclaration)}");

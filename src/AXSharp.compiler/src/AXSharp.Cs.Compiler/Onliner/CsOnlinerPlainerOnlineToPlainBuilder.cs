@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using AX.ST.Semantic;
@@ -16,6 +16,7 @@ using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Compiler.Cs.Helpers.Onliners;
 using AXSharp.Compiler.Cs.Helpers.Plain;
 using AXSharp.Connector;
+
 
 namespace AXSharp.Compiler.Cs.Onliner;
 
@@ -35,7 +36,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+        var eligible = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+        if (eligible.isEligible)
         {
             CreateAssignment(fieldDeclaration.Type, fieldDeclaration);
         }
@@ -48,7 +50,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
 
     public void CreateVariableDeclaration(IVariableDeclaration variableDeclaration, IxNodeVisitor visitor)
     {
-        if (variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+        var eligibility = variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+        if (eligibility.isEligibe)
         {
             CreateAssignment(variableDeclaration.Type, variableDeclaration);
         }
@@ -69,7 +72,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
                 AddToSource($"#pragma warning restore CS0612\n");
                 break;
             case IArrayTypeDeclaration arrayTypeDeclaration:
-                if (arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+                var arrayEligibility = arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+                if (arrayEligibility.isEligibe)
                 {
                     switch (arrayTypeDeclaration.ElementTypeAccess.Type)
                     {
@@ -121,16 +125,16 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
 
     protected static readonly string MethodName = TwinObjectExtensions.OnlineToPlainMethodName;
     protected static readonly string MethodNameNoac = $"_{TwinObjectExtensions.OnlineToPlainMethodName}Noac";
-
+    
     public static CsOnlinerPlainerOnlineToPlainBuilder Create(IxNodeVisitor visitor, IStructuredTypeDeclaration semantics,
         ISourceBuilder sourceBuilder)
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"Pocos.{semantics.FullyQualifiedName}", false));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-        builder.AddToSource($"public async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
@@ -142,8 +146,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
         // Noac method
         builder.AddToSource($"[Obsolete(\"This method should not be used if you indent to access the controllers data. Use `{MethodName}` instead.\")]");
         builder.AddToSource("[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]");
-        builder.AddToSource($"public async Task<Pocos.{semantics.FullyQualifiedName}> {MethodNameNoac}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodNameNoac}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
         builder.AddToSource($"return plain;");
@@ -157,12 +161,12 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName,$"Pocos.{semantics.FullyQualifiedName}", isExtended));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName,$"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
         var qualifier = isExtended ? "new" : string.Empty;
         
-        builder.AddToSource($"public {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodName}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
 
         if (isExtended)
@@ -180,8 +184,8 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
 
         builder.AddToSource($"[Obsolete(\"This method should not be used if you indent to access the controllers data. Use `{MethodName}` instead.\")]");
         builder.AddToSource("[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]");
-        builder.AddToSource($"public {qualifier} async Task<Pocos.{semantics.FullyQualifiedName}> {MethodNameNoac}Async(){{\n");
-        builder.AddToSource($"Pocos.{semantics.FullyQualifiedName} plain = new Pocos.{semantics.FullyQualifiedName}();");
+        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodNameNoac}Async(){{\n");
+        builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
         
         if (isExtended)
         {

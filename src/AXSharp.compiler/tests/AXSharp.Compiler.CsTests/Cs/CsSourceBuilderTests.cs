@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.CsTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Diagnostics;
 using System.Reflection;
@@ -13,7 +13,7 @@ using Xunit.Abstractions;
 
 namespace AXSharp.Compiler.CsTests;
 
-public abstract class CsSourceBuilderTests
+public abstract partial class CsSourceBuilderTests
 {
     private readonly ITestOutputHelper output;
 
@@ -22,6 +22,8 @@ public abstract class CsSourceBuilderTests
     protected IEnumerable<Type> builders;
 
     protected string OutputSubFolder;
+
+    protected abstract string ExpectedFolder { get; }
 
     protected CsSourceBuilderTests(ITestOutputHelper output)
     {
@@ -243,7 +245,7 @@ public abstract class CsSourceBuilderTests
         var memberName = GetMethodName();
         CompareOutputs(memberName);
     }
-    
+
     [Fact]
     public void misc()
     {
@@ -271,7 +273,7 @@ public abstract class CsSourceBuilderTests
         var memberName = GetMethodName();
         CompareOutputs(memberName);
     }
-    
+
 
     [Fact]
     public void abstract_members()
@@ -287,16 +289,26 @@ public abstract class CsSourceBuilderTests
         CompareOutputs(GetMethodName());
     }
 
+    [Fact]
+    public void multiline_pragmas()
+    {
+        CompareOutputs(GetMethodName());
+    }
+
+    
+    protected abstract ICompilerOptions CompilerOptions { get; }
+
+
 
     private void CompareOutputs(string memberName)
     {
         var sourceFile = Path.Combine(testFolder, $@"samples\units\src\{memberName}.st");
         var project = new AXSharpProject(new AxProject(Path.Combine(testFolder, @"samples\units\"),
                 new[] { sourceFile }),
-            builders, typeof(CsProject));
+            builders, typeof(CsProject), CompilerOptions);
 
         var expectedSourceFile =
-            Path.Combine(testFolder, @$"samples\units\expected\.g\{OutputSubFolder}\{memberName}.g.cs");
+            Path.Combine(testFolder, @$"{this.ExpectedFolder}{OutputSubFolder}\{memberName}.g.cs");
         var actualSourceFile = Path.Combine(project.OutputFolder, @$".g\{OutputSubFolder}\{memberName}.g.cs");
 
         Policy

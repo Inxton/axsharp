@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.ST.Semantic;
 using AX.ST.Semantic.Model.Declarations;
@@ -35,7 +35,8 @@ namespace AXSharp.Compiler.Cs.Onliner
 
         public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
         {
-            if (fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+            var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+            if (eligibility.isEligible)
             {
                 CreateAssignment(fieldDeclaration.Type, fieldDeclaration);
             }
@@ -48,7 +49,8 @@ namespace AXSharp.Compiler.Cs.Onliner
 
         public void CreateVariableDeclaration(IVariableDeclaration variableDeclaration, IxNodeVisitor visitor)
         {
-            if (variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO"))
+            var eligibility = variableDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+            if (eligibility.isEligibe)
             {
                 CreateAssignment(variableDeclaration.Type, variableDeclaration);
             }
@@ -67,7 +69,8 @@ namespace AXSharp.Compiler.Cs.Onliner
                     AddToSource($" if(await {declaration.Name}.{MethodName}(plain.{declaration.Name}, latest.{declaration.Name})) somethingChanged = true;");
                     break;
                 case IArrayTypeDeclaration arrayTypeDeclaration:
-                    if (arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+                    var eligibility = arrayTypeDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+                    if (eligibility.isEligibe)
                     {
                         switch (arrayTypeDeclaration.ElementTypeAccess.Type)
                         {
@@ -123,7 +126,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerHasChangedBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"Pocos.{semantics.FullyQualifiedName}"));
+            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"{semantics.GetFullyQualifiedPocoName()}"));
 
             builder.AddToSource("///<summary>\n");
             builder.AddToSource("///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.\n");
@@ -131,7 +134,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             builder.AddToSource("///</summary>\n");
 
 
-            builder.AddToSource($"public async Task<bool> {MethodName}(Pocos.{semantics.FullyQualifiedName} plain, Pocos.{semantics.FullyQualifiedName} latest = null){{\n");
+            builder.AddToSource($"public async Task<bool> {MethodName}({semantics.GetFullyQualifiedPocoName()} plain, {semantics.GetFullyQualifiedPocoName()} latest = null){{\n");
             builder.AddToSource("var somethingChanged = false;");
             builder.AddToSource("if(latest == null) latest = await this._OnlineToPlainNoacAsync();");
             builder.AddToSource("return await Task.Run(async () => {\n");
@@ -148,7 +151,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerHasChangedBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"Pocos.{semantics.FullyQualifiedName}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericHasChangedMethodMethod(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             var qualifier = isExtended ? "new" : string.Empty;
 
@@ -156,7 +159,7 @@ namespace AXSharp.Compiler.Cs.Onliner
             builder.AddToSource("///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.\n");
             builder.AddToSource("///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.\n");
             builder.AddToSource("///</summary>\n");
-            builder.AddToSource($"public {qualifier} async Task<bool> {MethodName}(Pocos.{semantics.FullyQualifiedName} plain, Pocos.{semantics.FullyQualifiedName} latest = null){{\n");
+            builder.AddToSource($"public {qualifier} async Task<bool> {MethodName}({semantics.GetFullyQualifiedPocoName()} plain, {semantics.GetFullyQualifiedPocoName()} latest = null){{\n");
 
             builder.AddToSource("if(latest == null) latest = await this._OnlineToPlainNoacAsync();");
             builder.AddToSource("var somethingChanged = false;");

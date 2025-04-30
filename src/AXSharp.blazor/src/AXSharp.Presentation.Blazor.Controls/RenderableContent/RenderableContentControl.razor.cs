@@ -1,9 +1,9 @@
 // AXSharp.Presentation.Blazor.Controls
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Linq;
@@ -150,16 +150,11 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         private Type _groupContainer { get; set; }
         public Type MainLayoutType { get; set; }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-
-                
-        }
-
         /// <summary>
         /// Forces re-rendering of this rcc.
-        /// [!IMPORTANT] Forced re-rendering may impact client-side performance. The method is automatically called when <see cref="Presentation"/> or <see cref="Context"/> property change.
+        /// [!IMPORTANT]
+        /// > Forced re-rendering may impact client-side performance.
+        /// > The method is automatically called when <see cref="Presentation"/> or <see cref="Context"/> property change.
         /// </summary>
         public void ForceRender()
         {
@@ -187,26 +182,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
 
         private bool _pollingStarted = false;
 
-        private void SubscribeForPolling(IRenderableComponent component, ITwinElement element)
-        {
-            var presentation = this.Presentation;
-            if (presentation != null && presentation.StartsWith("Shadow")) return;
-            if (component == null) return;
-            if(PolledComponents.Contains(component)) return;
-            PolledComponents?.Add(component);
-            component?.AddToPolling(element, this.PollingInterval);
-            _pollingStarted = true;
-        }
-
-        private void UnSubscribeFromPolling()
-        {
-            foreach (var renderableComponent in PolledComponents)
-            {
-                renderableComponent?.RemovePolledElements();
-            }
-
-            _pollingStarted = false;
-        }
+        
 
         /// <summary>
         /// Method to build component name from passed parameters, which instance will be found in assembly.
@@ -245,7 +221,6 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
                     // try to find override template component view
                     var buildedComponentName = $"{overrideAttribute.TemplateOverrideName}{presentationName}View";
                     component = ComponentService.GetComponent(buildedComponentName);
-                    SubscribeForPolling(component, twin);
                 }
                 if(component == null) // if not set and foun override template
                 {
@@ -302,6 +277,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             __builder.AddAttribute(2, "Onliner", twinPrimitive);
             __builder.AddAttribute(3, "IsReadOnly", HasReadAccess(twinPrimitive));
             __builder.AddAttribute(1, "RccContainer", this);
+            __builder.AddAttribute(4, "PollingInterval", this.PollingInterval);
             __builder.CloseComponent();
         };
 
@@ -469,7 +445,6 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
                         var onlinerName = $"{namespc}.{baseName}";
                         var onlinerBuildedComponentName = $"{onlinerName}{presentationName}View`1";
                         var genericComponent = ComponentService.GetGenericComponent(onlinerBuildedComponentName, genericTypeArg);
-                        SubscribeForPolling(genericComponent, twin);
                         return genericComponent;
                     }
                     else
@@ -477,14 +452,12 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
                         var onlinerName = $"{namespc}.{twinType.Name}";
                         var onlinerBuildedComponentName = $"{onlinerName}{presentationName}View";
                         var primitiveComponent = ComponentService.GetComponent(onlinerBuildedComponentName);
-                        SubscribeForPolling(primitiveComponent, twin);
                         return primitiveComponent;
                     }
                 default:
                     var name = $"{namespc}.{FilterOutGeneric(twinType.Name)}";
                     var buildedComponentName = $"{name}{presentationName}View";
                     var defaultComponent = ComponentService.GetComponent(buildedComponentName);
-                    SubscribeForPolling(defaultComponent, twin);
                     return defaultComponent;
             }
         }
@@ -539,7 +512,6 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
 
         public virtual void Dispose()
         {
-            UnSubscribeFromPolling();
             _viewModelCache.ResetCounter();
         }
     }

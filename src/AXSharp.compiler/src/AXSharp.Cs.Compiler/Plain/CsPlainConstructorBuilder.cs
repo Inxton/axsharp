@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Globalization;
 using System.Text;
@@ -36,7 +36,7 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateClassDeclaration(IClassDeclaration classDeclaration, IxNodeVisitor visitor)
     {
-        AddToSource($"{classDeclaration.GetQualifiedName()}");
+        AddToSource($"{classDeclaration.GetFullyQualifiedPocoName()}");
     }
 
     public void CreateReferenceToDeclaration(IReferenceTypeDeclaration referenceTypeDeclaration, IxNodeVisitor visitor)
@@ -61,17 +61,18 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateStructuredType(IStructuredTypeDeclaration structuredTypeDeclaration, IxNodeVisitor visitor)
     {
-        AddToSource($"{structuredTypeDeclaration.GetQualifiedName()}");
+        AddToSource($"{structuredTypeDeclaration.GetFullyQualifiedPocoName()}");
     }
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        if (fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder))
+        var eligibility = fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
+        if (eligibility.isEligibe)
         {
             switch (fieldDeclaration.Type)
             {
                 case IArrayTypeDeclaration array:
-                    AddArrayMemberInitialization(array, fieldDeclaration, visitor);
+                    AddArrayMemberInitialization(array, fieldDeclaration, visitor);                    
                     break;
             }
         }
@@ -148,11 +149,12 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     private void AddArrayMemberInitialization(IArrayTypeDeclaration type, IFieldDeclaration field,
         IxNodeVisitor visitor)
-    {
-        if(!type.IsMemberEligibleForConstructor(this.SourceBuilder))
+    {       
+        var eligibility = type.IsMemberEligibleForConstructor(this.SourceBuilder);
+        if (!eligibility.isEligibe)
             return;
         
-        switch (type.ElementTypeAccess.Type)
+        switch (eligibility.eligibleType)
         {
             case IClassDeclaration classDeclaration:
             case IStructuredTypeDeclaration structuredTypeDeclaration:
@@ -162,7 +164,8 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
                 AddToSource($"{typeof(Arrays).n()}.InstantiateArray({field.Name}, " +
                             "() => ");
                 AddToSource("new");
-                type.ElementTypeAccess.Type.Accept(visitor, this);
+                eligibility.eligibleType.Accept(visitor, this);
+                //type.ElementTypeAccess.Type.Accept(visitor, this);
                 var dimensions = "new[] {";
                 foreach (var dimension in type.Dimensions)
                 {

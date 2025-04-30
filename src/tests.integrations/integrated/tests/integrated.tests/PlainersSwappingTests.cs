@@ -6,17 +6,7 @@ namespace integrated.tests
 
         public PlainersSwappingTests()
         {
-#if NET6_0
-            Task.Delay(250).Wait();
-#endif
-
-#if NET7_0
-            Task.Delay(500).Wait();
-#endif
-
-#if NET8_0
             Task.Delay(750).Wait();
-#endif
         }
 
         [Fact]

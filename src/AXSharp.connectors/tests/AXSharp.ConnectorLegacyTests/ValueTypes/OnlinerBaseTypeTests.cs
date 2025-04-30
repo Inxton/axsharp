@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Runtime.CompilerServices;
 using NUnit.Framework;
@@ -62,13 +62,13 @@ namespace AXSharp.Connector.Onliners.Tests
         
         public void GetSymbolTailTest()
         {
-            Assert.AreEqual("symbolTail", Onliner.GetSymbolTail());
+            Assert.That(Onliner.GetSymbolTail(), Is.EqualTo("symbolTail"));
         }
 
         [Test()]
         public void GetParentTest()
         {
-            Assert.IsInstanceOf(typeof(ITwinObject), Onliner.GetParent());
+            Assert.That(Onliner.GetParent(), Is.InstanceOf(typeof(ITwinObject)));
         }
 
         
@@ -83,7 +83,7 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Subscribe(action);
 
             //-- Assert
-            Assert.AreEqual(1, Onliner.GetValueChangeEventSubscribers().Count());
+            Assert.That(Onliner.GetValueChangeEventSubscribers().Count(), Is.EqualTo(1));
         }
 
         [Test()]
@@ -93,7 +93,7 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Subscribe();
 
             //-- Assert
-            Assert.True(Onliner.IsSubscribed);
+            Assert.That(Onliner.IsSubscribed, Is.True);
         }
 
         [Test()]
@@ -109,7 +109,7 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Subscribe(action_b);
 
             //-- Assert
-            Assert.AreEqual(2, Onliner.GetValueChangeEventSubscribers().Count());
+            Assert.That(Onliner.GetValueChangeEventSubscribers().Count(), Is.EqualTo(2));
 
         }
 
@@ -127,14 +127,14 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Subscribe(action_b);
 
             //-- Assert
-            Assert.AreEqual(2, Onliner.GetValueChangeEventSubscribers().Count());
+            Assert.That(Onliner.GetValueChangeEventSubscribers().Count(), Is.EqualTo(2));
 
             //-- Act UnSubscribe
             Onliner.UnSubscribe(action_a);
             Onliner.UnSubscribe(action_b);
 
             //-- Assert
-            Assert.AreEqual(0, Onliner.GetValueChangeEventSubscribers().Count());
+            Assert.That(Onliner.GetValueChangeEventSubscribers().Count(), Is.EqualTo(0));
         }
 
         [Test]
@@ -142,7 +142,7 @@ namespace AXSharp.Connector.Onliners.Tests
         {
             Onliner.SetAsync((dynamic)(1)).Wait();
 
-            Assert.AreEqual("1", Onliner.GetAsync().Result.ToString());
+            Assert.That(Onliner.GetAsync().Result.ToString(), Is.EqualTo("1"));
         }
 
         [Test()]
@@ -150,21 +150,21 @@ namespace AXSharp.Connector.Onliners.Tests
         {
             
             //-- Assert
-            Assert.IsTrue(Onliner.HasWriteAccess());
+            Assert.That(Onliner.HasWriteAccess(), Is.True);
 
             //-- Arrange
             Onliner.MakeReadOnly(); // = AccessAttribute.ReadWriteAccess.Read;
 
             //-- Assert
-            Assert.IsFalse(Onliner.HasWriteAccess());
+            Assert.That(Onliner.HasWriteAccess(), Is.False);
 
             Onliner.GetParent().GetConnector().SuspendWriteProtection("Hoj morho vetvo mojho rodu, kto kramou rukou siahne na tvoju slobodu a co i dusu das v tom boji divokom vol nebyt ako byt otrokom!");
 
-            Assert.IsTrue(Onliner.HasWriteAccess());
+            Assert.That(Onliner.HasWriteAccess(), Is.True);
 
             Onliner.GetParent().GetConnector().ResumeWriteProtection();
 
-            Assert.IsFalse(Onliner.HasWriteAccess());
+            Assert.That(Onliner.HasWriteAccess(), Is.False);
         }
 
     }

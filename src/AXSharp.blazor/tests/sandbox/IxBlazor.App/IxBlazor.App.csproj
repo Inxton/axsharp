@@ -11,6 +11,12 @@
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.css.map" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.Encodings.Web" />
+    <PackageReference Include="System.Text.RegularExpressions" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />

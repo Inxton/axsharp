@@ -69,7 +69,7 @@ PROGRAM MyProgram
 
     
 
-    //myDATE := DATE#1970-01-01;
+    //myDATE := DATE#2025-02-27;
     //myColors := Colors#GREEN;
     //mins.myBOOL	            :=  false    ;
     mins.myBYTE	            :=  BYTE#2#0    ;

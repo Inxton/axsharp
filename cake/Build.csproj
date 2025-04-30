@@ -1,25 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net9.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>    
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-	  <PackageReference Include="Cake.DocFx" Version="1.0.0" />
-	  <PackageReference Include="CliWrap" Version="3.5.0" />
-	  <PackageReference Include="CommandLineParser" Version="2.9.1" />
-	  <PackageReference Include="Octokit" Version="4.0.1" />
-	  <PackageReference Include="Octokit.Extensions" Version="1.0.7" />
-	  <PackageReference Include="Cake.Frosting" Version="2.3.0" />
-	  <PackageReference Include="Cake.Powershell" Version="2.0.0" />
-	  <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="GitVersion.MsBuild" Version="6.0.5">
-	    <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+	  <PackageReference Include="Cake.DocFx" />
+	  <PackageReference Include="CliWrap" />
+	  <PackageReference Include="CommandLineParser" />
+	  <PackageReference Include="Octokit" />
+	  <PackageReference Include="Octokit.Extensions" />
+	  <PackageReference Include="Cake.Frosting" />
+	  <PackageReference Include="Cake.Powershell" />
+	  <PackageReference Include="Polly" />
+	  <PackageReference Include="System.IO.Packaging" />
+	  <PackageReference Include="System.Text.Json" />    
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\AXSharp.tools\src\AXSharp.nuget.update\AXSharp.nuget.update.csproj" />
-  </ItemGroup>
+  </ItemGroup>   
 </Project>

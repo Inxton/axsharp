@@ -1,13 +1,14 @@
 ﻿// AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AXSharp.Connector.S71500.WebAPITests;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -22,8 +23,7 @@ public class GH_PTKu_ix_xx : IDisposable
 
     public GH_PTKu_ix_xx(ITestOutputHelper output)
     {
-        Plc = new ax_test_projectTwinController(ConnectorAdapterBuilder.Build()
-            .CreateWebApi(Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET"), "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true));
+        Plc = TestConnector.SecurePlc;
         Plc.Connector.ReadWriteCycleDelay = 250;
         Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
         Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
@@ -32,7 +32,7 @@ public class GH_PTKu_ix_xx : IDisposable
         Task.Delay(1000).Wait();
         report = output;
         Plc.Connector.ConcurrentRequestMaxCount = 3;
-        Plc.Connector.ConcurrentRequestDelay = 3;
+        Plc.Connector.ConcurrentRequestDelay = 10;
         report.WriteLine($"Max requests limit: {Plc.Connector.ConcurrentRequestMaxCount}");
         report.WriteLine($"Concurrent request delay: {Plc.Connector.ConcurrentRequestDelay}");
     }

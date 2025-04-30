@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using NUnit.Framework;
 using System;
@@ -42,22 +42,22 @@ namespace AXSharp.ConnectorTests
             var valueTags = a.RetrievePrimitives();
 
             //-- Assert
-            Assert.AreEqual(42, valueTags.Count());
+            Assert.That(valueTags.Count(), Is.EqualTo(42));
 
-            
+
             //-- Subscribe
             a.SubscribeEditValueChange(DetectEditValueChange);
 
             foreach (var tag in valueTags)
             {
-                Assert.IsInstanceOf(typeof(OnlinerBase.ValueChangeDelegate), tag.EditValueChange, tag.Symbol);
+                Assert.That(tag.EditValueChange, Is.InstanceOf<OnlinerBase.ValueChangeDelegate>(), tag.Symbol);
             }
 
             //-- Make change
             a.Bool.Edit = true;
             a.String.Edit = "hdfahks dhfkahs";
 
-            Assert.AreEqual("+Edit False : True+Edit  : hdfahks dhfkahs", EditValueChanges);
+            Assert.That(EditValueChanges, Is.EqualTo("+Edit False : True+Edit  : hdfahks dhfkahs"));
         }
 
         [Test()]
@@ -70,7 +70,7 @@ namespace AXSharp.ConnectorTests
             var valueTags = a.RetrievePrimitives();
 
             //-- Assert
-            Assert.AreEqual(42, valueTags.Count());
+            Assert.That(valueTags.Count(), Is.EqualTo(42));
 
 
             //-- Subscribe
@@ -78,14 +78,14 @@ namespace AXSharp.ConnectorTests
 
             foreach (var tag in valueTags)
             {
-                Assert.IsInstanceOf(typeof(OnlinerBase.ValueChangeDelegate), tag.ShadowValueChange, tag.Symbol);
+                Assert.That(tag.ShadowValueChange, Is.InstanceOf<OnlinerBase.ValueChangeDelegate>(), tag.Symbol);
             }
 
             //-- Make change
             a.Bool.Shadow = true;
             a.String.Shadow = "hdfahks dhfkahs";
 
-            Assert.AreEqual("+Shadow False : True+Shadow  : hdfahks dhfkahs", ShadowValueChanges);
+            Assert.That(ShadowValueChanges, Is.EqualTo("+Shadow False : True+Shadow  : hdfahks dhfkahs"));
         }
 
 

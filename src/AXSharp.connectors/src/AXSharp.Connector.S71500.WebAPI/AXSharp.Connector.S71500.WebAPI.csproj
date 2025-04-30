@@ -14,11 +14,11 @@
 		<Description> AX# Comminucation layer over Web API for simatix-ax based project</Description>
 
 		<!-- NuGet Common part-->
-		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Authors>ix-ax</Authors>
-		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<Authors>inxton</Authors>
+		<Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Title>Ix Web API</Title>
@@ -29,7 +29,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReleaseNotes>
 			Release notes are published here:
-			https://github.com/ix-ax/axsharp/releases
+			https://github.com/inxton/axsharp/releases
 		</PackageReleaseNotes>
 		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 
@@ -49,11 +49,11 @@
 
 
 	<ItemGroup>		
-		<PackageReference Include="Microsoft.CSharp"/>
-		<PackageReference Include="Newtonsoft.Json"/>
-		<PackageReference Include="Serilog.Sinks.Console"/>
-		<PackageReference Include="Serilog.Sinks.File"/>
-		<PackageReference Include="Siemens.Simatic.S7.Webserver.API"/>
+		<PackageReference Include="Microsoft.CSharp" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Siemens.Simatic.S7.Webserver.API" />
 	</ItemGroup>
 
 	<ItemGroup>

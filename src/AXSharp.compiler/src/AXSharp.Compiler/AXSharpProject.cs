@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Text;
 using System.Xml.Linq;
@@ -42,18 +42,33 @@ public class AXSharpProject : IAXSharpProject
     /// <param name="cliCompilerOptions">
     ///     Compiler options from CLI.
     /// </param>
-    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null)
+    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null, ICompilerOptions? dependnantCompilerOptions = null)
     {
         AxProject = axProject;
-        CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions);
-        OutputFolder = Path.GetFullPath(Path.Combine(AxProject.ProjectFolder, CompilerOptions.OutputProjectFolder));
+        CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions, dependnantCompilerOptions);
+        if (CompilerOptions != null)
+        {
+            if(string.IsNullOrEmpty(CompilerOptions.OutputProjectFolder))
+                throw new InvalidOperationException("Output project folder must be set in the AXSharp.config.json file.");
+            OutputFolder = Path.GetFullPath(Path.Combine(AxProject.ProjectFolder, CompilerOptions.OutputProjectFolder));
+
+            //if (!string.IsNullOrEmpty(CompilerOptions.ProjectFile))
+            //{             
+            //    ProjectFile = Path.Combine(OutputFolder, CompilerOptions.ProjectFile);
+            //}
+        }
+        
         if (cliCompilerOptions != null) UseBaseSymbol = cliCompilerOptions.UseBase;
-        
-        
+        if (cliCompilerOptions != null && !string.IsNullOrEmpty(cliCompilerOptions.ProjectFile)) ProjectFile = cliCompilerOptions.ProjectFile;
+
         BuilderTypes = builderTypes;
         TargetProject = Activator.CreateInstance(targetProjectType, this) as ITargetProject ?? throw new
             InvalidOperationException("Target project type must implement ITargetProject interface.");
+
+        
     }
+
+    public string ProjectFile { get; }
 
 
     /// <summary>
@@ -138,6 +153,46 @@ public class AXSharpProject : IAXSharpProject
             }
         }
 
+        foreach (var sourceBuilderType in BuilderTypes)
+        {
+            var builder = Activator.CreateInstance(sourceBuilderType, this, compilationResult.Compilation);
+            var treeWalker = builder as ICombinedThreeVisitor;
+            var sourceBuilder = builder as ISourceBuilder;
+
+
+            if (treeWalker == null)
+                throw new FailedToCreateCombineThreeVisitorException(
+                    $"Could not create {sourceBuilderType.Name} as ICombinedThreeVisitor");
+            if (sourceBuilder == null)
+                throw new FailedToCreateSourceBuilderException(
+                    $"Could not create {sourceBuilderType.Name} as ISourceBuilder");
+
+            var visitor = new IxNodeVisitor(compilationResult.Compilation);
+
+            try
+            {
+                treeWalker.CreateMergedConfigurations(visitor, compilationResult.Compilation);
+
+                Policy
+                    .Handle<IOException>()
+                    .WaitAndRetry(5, a => TimeSpan.FromMilliseconds(500))
+                    .Execute(() =>
+                    {
+                        using (var swr = new StreamWriter(Path.Combine(
+                                   EnsureFolder(Path.Combine(OutputFolder, ".g")),
+                                   "Configurations.g.cs")))
+                        {
+                            swr.Write(sourceBuilder.Output);
+                        }
+                    });
+            }
+            catch (NotImplementedException)
+            {
+
+                // swallow if not implemented
+            }
+        }
+
         //TargetProject.ProvisionProjectStructure();
         GenerateMetadata(compilationResult.Compilation);
         TargetProject.GenerateResources();
@@ -197,8 +252,9 @@ public class AXSharpProject : IAXSharpProject
     public IEnumerable<ISyntaxTree> GetReferences() 
     {
         TargetProject.InstallAXSharpDependencies(AxProject.AXSharpReferences);
-        
+
         var referencedDependencies = TargetProject.LoadReferences();
+       
 
         if (!this.CompilerOptions.SkipDependencyCompilation)
         {
@@ -210,8 +266,12 @@ public class AXSharpProject : IAXSharpProject
             .Select(p => p.MetadataPath)
             .Select(p => JsonConvert.DeserializeObject<IEnumerable<string>>(File.ReadAllText(p)));
 
+
+        dependencyMetadata.ToList().ForEach(p => Log.Logger.Debug($"Dependency metadata: \n {string.Join(";", p)}"));
+
         var refParseTrees = dependencyMetadata.SelectMany(p => p)
             .Select(s => STParser.ParseTextAsync(new StringText(s)).Result);
+
 
         return refParseTrees;
     }
@@ -222,6 +282,7 @@ public class AXSharpProject : IAXSharpProject
     {        
         foreach (var ixProjectReference in AxProject.AXSharpReferences.OfType<AXSharpConfig>())
         {
+            Log.Logger.Verbose($"Starting compilation of project reference '{ixProjectReference.AxProjectFolder}' into '{ixProjectReference.OutputProjectFolder}'.");
 
             if (compiled.Contains(ixProjectReference.AxProjectFolder))
             {
@@ -247,9 +308,15 @@ public class AXSharpProject : IAXSharpProject
                     throw new FailedToCreateTargetProjectException(
                         "Target project is not a valid ITargetProject");
 
-                var project = new AXSharpProject(ax, BuilderTypes, targetProject.GetType());
+                var project = new AXSharpProject(ax, BuilderTypes, targetProject.GetType(), dependnantCompilerOptions: this.CompilerOptions);
+                
+                if (project.CompilerOptions.TargetPlatfromMoniker == null)
+                {
+                    project.CompilerOptions.TargetPlatfromMoniker = "ax";
+                    Log.Logger.Warning("Target platform moniker should be set in the AXSharp.config.json file, passed as cli parameter. We deafault to 'ax'");
+                }
 
-                project.Generate();
+            project.Generate();
 
             if(!string.IsNullOrEmpty(ixProjectReference.AxProjectFolder))
                 compiled.Add(ixProjectReference.AxProjectFolder);

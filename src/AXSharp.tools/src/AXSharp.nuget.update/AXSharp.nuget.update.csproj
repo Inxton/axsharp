@@ -1,14 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>    
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommandLineParser"/>
-		<PackageReference Include="Newtonsoft.Json"/>
-	</ItemGroup>
+		<PackageReference Include="CommandLineParser" />
+		<PackageReference Include="Newtonsoft.Json" />
+	</ItemGroup>		
 </Project>

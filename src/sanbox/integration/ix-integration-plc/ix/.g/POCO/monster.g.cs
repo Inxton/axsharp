@@ -11,10 +11,10 @@ namespace Pocos
             public MonsterBase()
             {
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new MonsterData.DriveBase(), new[] { (0, 3) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfDrives, () => new global::Pocos.MonsterData.DriveBase(), new[] { (0, 3) });
 #pragma warning restore CS0612
 #pragma warning disable CS0612
-                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfIxComponent, () => new ixcomponent(), new[] { (0, 3) });
+                AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(ArrayOfIxComponent, () => new global::Pocos.ixcomponent(), new[] { (0, 3) });
 #pragma warning restore CS0612
             }
 
@@ -39,11 +39,8 @@ namespace Pocos
             }
 
             public Double Position { get; set; }
-
             public Double Velo { get; set; }
-
             public Double Acc { get; set; }
-
             public Double Dcc { get; set; }
         }
     }

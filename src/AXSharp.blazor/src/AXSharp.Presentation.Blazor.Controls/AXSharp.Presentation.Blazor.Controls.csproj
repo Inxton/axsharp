@@ -12,11 +12,11 @@
 	  <Description>Sets of essential presentation controls for AX# - Blazor</Description>
 
 	  <!-- NuGet Common part-->
-	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ix-ax/axsharp</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/axsharp</RepositoryUrl>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <Authors>ix-ax</Authors>
-	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) MTS spol. s r.o. and Contributors</Copyright>
 	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI</PackageTags>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <Title>AX# Essential UI control Blazor</Title>
@@ -27,7 +27,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>
 		  Release notes are published here:
-		  https://github.com/ix-ax/axsharp/releases
+		  https://github.com/inxton/axsharp/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
     
@@ -82,10 +82,14 @@
   </ItemGroup>
 
   <ItemGroup>  
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
+    <PackageReference Include="System.Net.Http" />  
+    <PackageReference Include="System.Text.Encodings.Web" />  
+    <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
   <ItemGroup>
+	    <Folder Include="RenderableContentControl\" />
 	    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

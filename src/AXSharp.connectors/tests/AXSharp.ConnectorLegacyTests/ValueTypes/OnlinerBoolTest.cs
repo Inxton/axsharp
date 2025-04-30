@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 namespace AXSharp.Connector.Onliners.Tests
 {
@@ -31,8 +31,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Edit = true;
 
             //-- Assert
-            Assert.AreEqual(true, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};False;True", logs);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(true));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};False;True"));
 
         }
 
@@ -43,20 +43,20 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Shadow = true;
 
             //-- Assert
-            Assert.AreEqual(true, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};False;True", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(true));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};False;True"));
         }
 
         [Test]
         public override void CanSetAsyncTest()
         {
             Onliner.SetAsync(false).Wait();
-            Assert.AreEqual(false, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(false));
 
             var expected = true;
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }

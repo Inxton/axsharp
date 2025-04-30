@@ -15,7 +15,7 @@ jobs:
       matrix:
         configuration: [Release]
 
-    runs-on: [self-hosted, Windows, X64, L2]  # For a list of available runner types, refer to
+    runs-on: [self-hosted, Windows, X64, L2, AX]  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on    
     steps:
     - name: Checkout
@@ -27,7 +27,7 @@ jobs:
       run: dotnet build cake/Build.csproj
                        
     - name: "Run build script"
-      run: dotnet run --project cake/Build.csproj --do-test true --do-pack true --test-level 1      
+      run: dotnet run --project cake/Build.csproj --do-test true --do-pack true --test-level 1 --framework net9.0      
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()

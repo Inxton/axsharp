@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections;
@@ -391,7 +391,20 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         desiredCulture = culture;
     }
 
-   
+    /// <summary>
+    /// Start polling queue of subscribed items.
+    /// </summary>
+    public void StartSubscriptionPolling(int pollingInterval = 100)
+    {
+        Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(pollingInterval);
+                await ReadBatchAsync(this.Subscribed.Values);
+            }
+        });
+    }
 
     /// <summary>
     ///     Starts cyclical read write operation on this connector.
@@ -401,7 +414,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         var sw = new Stopwatch();
         long cycleCount = 0;
         var startTimeStamp = DateTime.Now;
-        
+
         await Task.Run(async () =>
         {
             while (true)
@@ -440,6 +453,8 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     }
 
     
+
+
     /// <summary>
     ///     Reads online variables required to be read.
     /// </summary>
@@ -448,7 +463,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
        
         var primitivesToRead = new List<ITwinPrimitive>();
         primitivesToRead.AddRange(NextPeriodicReadSet.Values);
-        primitivesToRead.AddRange(Subscribed.Values);
+        //primitivesToRead.AddRange(Subscribed.Values);
         var distinctPrimitivesToRead = primitivesToRead.Distinct().ToList();
 
         if (distinctPrimitivesToRead.Any())
@@ -485,4 +500,10 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     {
         this.Subscribed[primitive.Symbol] = primitive;
     }
+
+    /// <summary>
+    /// Target platform moniker.
+    /// </summary>
+    public abstract string TargetPlatformMoniker { get; }
+   
 }

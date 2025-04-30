@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
 using Newtonsoft.Json.Linq;
@@ -84,7 +84,7 @@ public class WebApiLDate : OnlinerDate, IWebApiPrimitive
     private DateOnly GetFromBinary(long value)
     {
         var val = value / 100;
-        return val.AdjustForLeapDate(); // DateOnly.FromDateTime(DateTime.FromBinary(val).AddYears(1969));
+        return val.GetDateOnly(); // DateOnly.FromDateTime(DateTime.FromBinary(val).AddYears(1969));
     }
 
     private string GetFromDate(DateOnly date)

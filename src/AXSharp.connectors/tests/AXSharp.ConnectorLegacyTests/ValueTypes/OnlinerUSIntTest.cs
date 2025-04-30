@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 namespace AXSharp.Connector.Onliners.Tests
 {
@@ -17,7 +17,6 @@ namespace AXSharp.Connector.Onliners.Tests
     {
         protected override OnlinerBase<byte> Onliner { get; set; }
 
-
         public override void Init()
         {
             Onliner = new OnlinerUSInt(new TestTwinObject(), $"readableTail", "symbolTail");
@@ -27,31 +26,28 @@ namespace AXSharp.Connector.Onliners.Tests
         public void ChangeEditedValueTest()
         {
             //-- Arrange
-
             var expected = byte.MaxValue;
 
             //-- Act
             Onliner.Edit = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}", logs);
-
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}"));
         }
 
         [Test()]
         public void ChangeShadow()
         {
             //-- Arrange
-
             var expected = byte.MaxValue;
 
             //-- Act
             Onliner.Shadow = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};0;{expected}"));
         }
 
         public void ValidateTightRangeTest()
@@ -62,9 +58,9 @@ namespace AXSharp.Connector.Onliners.Tests
             var mid = (byte)(OnlinerUSInt.MaxValue / 2);
 
             //-- Act  
-            Assert.True(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.True(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(mid, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.True);
         }
 
         [Test()]
@@ -78,8 +74,8 @@ namespace AXSharp.Connector.Onliners.Tests
             var max = OnlinerUSInt.MaxValue;
 
             //-- Act  
-            Assert.IsFalse(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid);
-            Assert.IsFalse(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid);
+            Assert.That(Onliner.Validator.Validate(min, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
+            Assert.That(Onliner.Validator.Validate(max, System.Globalization.CultureInfo.InvariantCulture).IsValid, Is.False);
         }
 
         [Test]
@@ -88,7 +84,7 @@ namespace AXSharp.Connector.Onliners.Tests
             var expected = (byte)(OnlinerUSInt.MaxValue / 12);
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }

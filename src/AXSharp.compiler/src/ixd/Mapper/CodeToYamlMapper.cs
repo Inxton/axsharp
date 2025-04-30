@@ -117,7 +117,7 @@ namespace AXSharp.ixc_doc.Mapper
             var item = PopulateItem((IDeclaration)methodDeclaration);
             item.Uid = Helpers.Helpers.GetBaseUid(methodDeclaration);
             item.Id = Helpers.Helpers.GetBaseUid(methodDeclaration);
-            item.Parent = methodDeclaration.ContainingClass.FullyQualifiedName;
+            item.Parent = methodDeclaration.ContainingStructuredType.FullyQualifiedName;
             item.Type = "Method";
             item.Syntax = new Syntax
             {

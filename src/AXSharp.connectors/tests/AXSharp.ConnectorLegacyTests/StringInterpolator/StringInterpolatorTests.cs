@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using NUnit.Framework;
 using AXSharp.Connector;
@@ -31,7 +31,7 @@ namespace AXSharp.Connector.Tests
             var actual = AXSharp.Connector.StringInterpolator.Interpolate("This is a |[AttributeInterpolated]| string of |[AttributeObjectType]|", interpolatedObject);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -49,7 +49,7 @@ namespace AXSharp.Connector.Tests
             Console.WriteLine(actual);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -67,7 +67,7 @@ namespace AXSharp.Connector.Tests
             Console.WriteLine(actual);
 
             //-- Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test()]
@@ -95,7 +95,7 @@ namespace AXSharp.Connector.Tests
 
             Console.WriteLine(actual);
 
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
     }

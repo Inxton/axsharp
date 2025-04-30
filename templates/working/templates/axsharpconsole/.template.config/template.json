@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "PTKu",
+  "author": "MTS spol. s r.o.",
   "classifications": [ "AX#", "Console-Simple" ],
   "identity": "axsharpconsole",
   "name": "AXsharp Simmple console application",

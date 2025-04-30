@@ -21,8 +21,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Newtonsoft.Json"/>
-    <PackageReference Include="xunit"/>
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -41,12 +41,22 @@
 
   <ItemGroup>
     <Folder Include="exploratory\ix\" />
+    <Folder Include="certs\" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ax-test-project\certs\Communication.cer" Link="certs\Communication.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ax-test-project\certs\S71516-hw.cer" Link="certs\S71516-hw.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

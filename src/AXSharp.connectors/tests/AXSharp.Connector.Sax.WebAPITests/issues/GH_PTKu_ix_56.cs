@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using Xunit;
 using AXSharp.Connector.S71500.WebApi;
@@ -13,6 +13,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXSharp.Connector.S71500.WebAPITests;
 using AXSharp.Connector.S71500.WebAPITests.Primitives;
 
 namespace AXSharp.Connector.S71500.WebApi.Tests.Issues
@@ -79,10 +80,12 @@ namespace AXSharp.Connector.S71500.WebApi.Tests.Issues
         [Fact()]
         public async Task run_on_twin_connector()
         {
-            var twin = new ax_test_projectTwinController(ConnectorAdapterBuilder.Build()
-                .CreateWebApi(Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET"), "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true));
+            // var twin = new ax_test_projectTwinController(ConnectorAdapterBuilder.Build()
+            //     .CreateWebApi(Environment.GetEnvironmentVariable("AX_WEBAPI_TARGET"), "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true));
 
-            var primitives = twin.GH_PKTu_ix_56_SecondInheritance.RetrievePrimitives().Select(p => p.Symbol).ToList();
+
+
+            var twin = TestConnector.SecurePlc;
 
             await twin.GH_PKTu_ix_56_SecondInheritance.ReadAsync();
         }

@@ -1,9 +1,9 @@
 // AXSharp.Connector.S71500.WebAPITests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System;
 using System.Collections;
@@ -43,7 +43,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_write_bool()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true).BuildAndStart() as WebApiConnector;
+            var connector = TestConnector.TestApiConnector;
             //await connector.Authenticate(TargetIp, "Everybody", "");
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
             var actual = await connector.WriteAsync<bool>(myBOOL, true);
@@ -54,7 +54,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_read_bool()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
             await connector.WriteAsync<bool>(myBOOL, true);
             var response = await connector.ReadAsync<bool>("myBOOL");
@@ -65,7 +65,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_write_byte()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             var myBYTE = new WebApiByte(connector, "", "myBYTE");
             var actual = await connector.WriteAsync<byte>(myBYTE, 155);
 
@@ -75,7 +75,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_read_byte()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             var myBYTE = new WebApiByte(connector, "", "myBYTE");
             await connector.WriteAsync<byte>(myBYTE, 158);
             var response = await connector.ReadAsync<byte>("myBYTE");
@@ -86,7 +86,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_read_lint()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             var myLINT = new WebApiLInt(connector, "", "myLINT");
             await connector.WriteAsync<long>(myLINT, 9223372036854775807);
 
@@ -98,7 +98,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_batch_read_primitives()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
 
 
             var myBOOL = new WebApiBool(connector, "", "myBOOL");
@@ -181,7 +181,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_batch_write_primitives()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             
 
             
@@ -900,7 +900,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
 #if RELEASE
     return;
 #endif
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
 
            
 
@@ -1772,27 +1772,27 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_report_failure_when_unable_to_read_single_item()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_does_not_exist");
             var response = await connector.ReadAsync<byte>(myBYTE);
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch read failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch read failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist] ", myBYTE.AccessStatus.FailureReason);
         }
 
         [Fact]
         public async Task should_report_failure_when_unable_to_write_single_item()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_does_not_exist");
             var response = await connector.WriteAsync<byte>(myBYTE,55);
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch write failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist;value : 55] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch write failed.: 'During Bulk request for 1 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_does_not_exist;value : 55] ", myBYTE.AccessStatus.FailureReason);
         }
 
        
@@ -1800,7 +1800,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public async Task should_report_failure_when_unable_to_bulk_read_items()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_o");
             var myWORD = new WebApiWord(connector, "", "myWORD");
@@ -1817,13 +1817,13 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch read failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_o] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch read failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_o] ", myBYTE.AccessStatus.FailureReason);
         }
 
         [Fact]
         public async Task should_report_failure_when_unable_to_bulk_write_items()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_o");
             var myWORD = new WebApiWord(connector, "", "myWORD");
@@ -1840,14 +1840,14 @@ namespace AXSharp.Connector.S71500.WebAPITests
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
-            Assert.Equal("Batch write failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse' [var : \"TGlobalVariablesDB\".myBYTE_o;value : 0] ", myBYTE.AccessStatus.FailureReason);
+            Assert.Equal("Batch write failed.: 'During Bulk request for 3 there have been 1 Errors:\r\nFor details: Check the Property BulkResponse, errors:{\"Code\":200,\"Message\":\"Address does not exist\"}\r\n' [var : \"TGlobalVariablesDB\".myBYTE_o;value : 0] ", myBYTE.AccessStatus.FailureReason);
         }
 
 
         [Fact]
         public void should_rethrow_exception_bulk()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_o");
             var myWORD = new WebApiWord(connector, "", "myWORD");
@@ -1868,7 +1868,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         [Fact]
         public void should_rethrow_exception_single()
         {
-            var connector = new WebApiConnector(TargetIp, "Everybody", Environment.GetEnvironmentVariable("AX_TARGET_PWD"), true);
+            var connector = TestConnector.TestApiConnector;
             connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
             var myBYTE = new WebApiByte(connector, "", "myBYTE_o");
 

@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AX.Text;
 using YamlDotNet.Serialization;
@@ -261,6 +261,7 @@ public class AxProject
                 if (File.Exists(pathAXSharpConfig))
                 {
                     projectDependencies.Add((AXSharpConfig.RetrieveAXSharpConfig(pathAXSharpConfig)));
+                    Log.Logger.Verbose($"Project reference for '{pathAXSharpConfig}' considered.");
                 }
             }
         }
@@ -276,7 +277,10 @@ public class AxProject
                 var packageFile =
                     Path.Combine(dependencyWithCompanion.ApaxFile.Directory.FullName, "package.json");
                 if(File.Exists(packageFile))
+                {
                     projectDependencies.Add(dependencyWithCompanion.Companion);
+                    Log.Logger.Verbose($"Package reference for '{dependencyWithCompanion.ApaxFile.FullName}' considered.");
+                }
             }
         }
 
@@ -285,7 +289,7 @@ public class AxProject
             Log.Logger.Information("Retrieving possible project references from .apax packages did not produce results. " +
                                    "If you have referenced AX# projects, the packages must be previously installed by 'apax install'");
         }
-
+      
         return projectDependencies;
     }
 

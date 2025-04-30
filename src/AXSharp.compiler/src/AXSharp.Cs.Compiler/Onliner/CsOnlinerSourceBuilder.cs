@@ -1,9 +1,9 @@
 ﻿// AXSharp.Compiler.Cs
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -15,6 +15,7 @@ using AX.ST.Syntax.Tree;
 using AXSharp.Compiler.Core;
 using AXSharp.Compiler.Cs.Helpers;
 using AXSharp.Compiler.Cs.Helpers.Plain;
+using AXSharp.Compiler.Cs.Pragmas.PragmaParser;
 using AXSharp.Connector;
 
 namespace AXSharp.Compiler.Cs.Onliner;
@@ -37,6 +38,31 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         Project = project;
         Compilation = compilation;
         CompilerOptions = project.CompilerOptions;
+    }
+
+    public void CreateMergedConfigurations(IxNodeVisitor visitor, Compilation compilation)
+    {
+        var configurations = compilation.GetActiveConfigurations();
+        if(configurations.Count == 0)
+            return;
+
+        AddToSource("using System;");
+        AddToSource("using AXSharp.Connector;");
+        AddToSource("using AXSharp.Connector.ValueTypes;");
+        AddToSource("using System.Collections.Generic;");
+        AddToSource("using AXSharp.Connector.Localizations;");
+        AddToSource("using AXSharp.Abstractions.Presentation;");
+
+        TypeCommAccessibility = configurations.First().GetCommAccessibility(this);
+      
+        AddToSource(
+            $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
+        AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+                
+        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurations, this).Output);
+        AddToSource(CsOnlinerConfigurationConstructorBuilder.Create(visitor, configurations, Project, this).Output);
+        AddToSource("}");
+
     }
 
     /// <inheritdoc />
@@ -129,12 +155,15 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}{generic?.Product}");
         AddToSource(":");
 
+        
         var isExtended = false;
-        var extendedType = classDeclaration.ExtendedTypeAccesses.FirstOrDefault();
-        if (Compilation.GetSemanticTree().Types
-            .Any(p => p.FullyQualifiedName == extendedType?.Type.FullyQualifiedName))
+        AX.ST.Semantic.Model.ISemanticTypeAccess? extendedType = classDeclaration.ExtendedTypeAccesses.FirstOrDefault();
+
+        //TODO: Workaround for not fully qualified declarations. To be addressed with proper dependency handling in stc.
+        var extend = Compilation.FindTypeDeclaration(extendedType);
+        if (extend != null)
         {
-            AddToSource($"{extendedType.Type.FullyQualifiedName}{ReplaceGenericSignature(classDeclaration)}");
+            AddToSource($"{extend.FullyQualifiedName}{ReplaceGenericSignature(classDeclaration)}");
             isExtended = true;
         }
         else
@@ -180,7 +209,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     private void AddCreatePocoMethod(ITypeDeclaration typeDeclaration, bool isExtended)
     {
         var qualifier = isExtended ? "new" : string.Empty;
-        AddToSource($"public {qualifier} Pocos.{typeDeclaration.FullyQualifiedName} CreateEmptyPoco(){{ return new Pocos.{typeDeclaration.FullyQualifiedName}();}}");
+        AddToSource($"public {qualifier} {typeDeclaration.GetFullyQualifiedPocoName()} CreateEmptyPoco(){{ return new {typeDeclaration.GetFullyQualifiedPocoName()}();}}");
     }
 
     /// <inheritdoc />
@@ -188,26 +217,67 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IConfigurationDeclaration configurationDeclaration,
         IxNodeVisitor visitor)
     {
-        TypeCommAccessibility = eCommAccessibility.None;
+        /// In order to align with stc v7 where multiple configurations are allowed that are merged at
+        /// compile time, we need to create a merged configuration class that contains all the configurations.
+        /// We merge the configuration in <see>CreateMergedConfigurations</see> the entry is called outside visitor in
+        /// Generate method of the <see>AXSharpProject</see>.
+       
+        return;
+        CreateConfigDeclaration(configurationDeclaration, visitor);
 
-        AddToSource(
-            $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
-        AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
-        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
-        AddToSource(CsOnlinerConfigurationConstructorBuilder
-            .Create(visitor, configurationDeclaration, Project, this).Output);
-        AddToSource("}");
+        //TypeCommAccessibility = eCommAccessibility.None;
+
+        //AddToSource(
+        //    $"public partial class {Project.TargetProject.ProjectRootNamespace}TwinController : ITwinController {{");
+        //AddToSource($"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+        //AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
+        //AddToSource(CsOnlinerConfigurationConstructorBuilder
+        //    .Create(visitor, configurationDeclaration, Project, this).Output);
+        //AddToSource("}");
     }
 
     /// <inheritdoc />
     public void CreateConfigDeclaration(IConfigurationDeclaration configurationDeclaration, IxNodeVisitor visitor)
     {
-        TypeCommAccessibility = eCommAccessibility.None;
+        // see CreateConfigDeclaration overload comments
+        return;
+        TypeCommAccessibility = configurationDeclaration.GetCommAccessibility(this);
 
-        AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace} : ITwinController {{");
-        AddToSource(@$"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
-        AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, Project, this).Output);
+        AddToSource(configurationDeclaration.Pragmas.AddAttributes());
+        AddToSource(
+            $"public partial class {configurationDeclaration.Name}");
+        AddToSource(":");
+
+        AddToSource(typeof(ITwinObject).n()!);
+
+        AddToSource("\n{");
+
+        AddToSource(CsOnlinerMemberBuilder.Create(visitor, configurationDeclaration, this).Output);
+
+        AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerPlainerOnlineToPlainBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerOnlineToPlainProtectedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerPlainToOnlineBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerPlainerShadowToPlainBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerShadowToPlainProtectedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddToSource(CsOnlinerPlainerPlainToShadowBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+
+        //AddToSource(CsOnlinerHasChangedBuilder.Create(visitor, structuredTypeDeclaration, this).Output);
+        //AddPollingMethod(false);
+
+        //AddCreatePocoMethod(structuredTypeDeclaration, false);
+
+        CreateITwinObjectImplementation();
+
         AddToSource("}");
+        //TypeCommAccessibility = eCommAccessibility.None;
+
+        //AddToSource($"public partial class {Project.TargetProject.ProjectRootNamespace} : ITwinController {{");
+        //AddToSource(@$"public {typeof(Connector.Connector).n()} Connector {{ get; }}");
+        //AddToSource(CsOnlinerConstructorBuilder.Create(visitor, configurationDeclaration, Project, this).Output);
+        //AddToSource("}");
     }
 
     /// <inheritdoc />

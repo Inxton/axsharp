@@ -1,9 +1,9 @@
 ﻿// AXSharp.ConnectorLegacyTests
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 namespace AXSharp.Connector.Onliners.Tests
 {
@@ -16,7 +16,6 @@ namespace AXSharp.Connector.Onliners.Tests
     public class OnlinerWStringTest : OnlinerBaseTests<string>
     {
         protected override OnlinerBase<string> Onliner { get; set; }
-
 
         public override void Init()
         {
@@ -34,9 +33,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Edit = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
-            Assert.AreEqual($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}", logs);
-
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Edit of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}"));
         }
 
         [Test()]
@@ -50,8 +48,8 @@ namespace AXSharp.Connector.Onliners.Tests
             Onliner.Shadow = expected;
 
             //-- Assert
-            Assert.AreEqual(expected, Onliner.Shadow);
-            Assert.AreEqual($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}", logs);
+            Assert.That(Onliner.Shadow, Is.EqualTo(expected));
+            Assert.That(logs, Is.EqualTo($"Shadow of {Onliner.Symbol};{Onliner.HumanReadable};;{expected}"));
         }
 
         [Test]
@@ -60,7 +58,7 @@ namespace AXSharp.Connector.Onliners.Tests
             var expected = "some wstring";
             Onliner.SetAsync(expected).Wait();
 
-            Assert.AreEqual(expected, Onliner.GetAsync().Result);
+            Assert.That(Onliner.GetAsync().Result, Is.EqualTo(expected));
         }
     }
 }

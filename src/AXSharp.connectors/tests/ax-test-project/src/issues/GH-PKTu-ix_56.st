@@ -1,4 +1,4 @@
-// https://github.com/ix-ax/axsharp/issues/56
+// https://github.com/inxton/axsharp/issues/56
 NAMESPACE GH.PKTu.ix_56
     {S7.extern=ReadWrite}
     CLASS ComplexMember

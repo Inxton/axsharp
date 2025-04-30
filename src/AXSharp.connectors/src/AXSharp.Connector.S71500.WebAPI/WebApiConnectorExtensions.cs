@@ -1,9 +1,9 @@
 ﻿// AXSharp.Connector.S71500.WebAPI
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/master/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.S71500.WebApi;
 using System.Net.Security;
@@ -57,17 +57,30 @@ public static class WebApiConnectorExtensions
         { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
     }
 
-    public static DateOnly AdjustForLeapDate(this long value)
+    public static DateOnly GetDateOnly(this int value)
     {
-        var noLeap = DateOnly.FromDateTime(DateTime.FromBinary(value).AddYears(1969));
-        var leapDays = DateTime.IsLeapYear(noLeap.Year) && ((noLeap.Month == 2 && noLeap.Day == 29) || noLeap.Month >= 3) ? -1 : 0;
-        return noLeap.AddDays(leapDays);
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1990, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddDays(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
     }
 
-    public static DateTime AdjustForLeapDateTime(this long value)
+    public static DateOnly GetDateOnly(this long value)
     {
-        var noLeap = DateTime.FromBinary(value).AddYears(1969);
-        var leapDays = DateTime.IsLeapYear(noLeap.Year) && ((noLeap.Month == 2 && noLeap.Day == 29) || noLeap.Month >= 3) ? -1 : 0;
-        return noLeap.AddDays(leapDays);
+        // 1 tick = 100 ns
+        // Use DateTimeKind.Utc for correct interpretation
+        var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                           .AddTicks(value);
+
+        // Return the date portion in UTC
+        return DateOnly.FromDateTime(dateTime.ToUniversalTime());
+    }
+
+    public static DateTime ToUtcDateTime(this long value)
+    {
+        return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddTicks(value);
     }
 }
