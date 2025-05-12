@@ -3,28 +3,5 @@
 @inherits TemplateBaseOnline<Single>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label 
-        class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-    readonly="@IsReadOnly"
-    class="base-input @AccessStatus"
-    type="number"
-    step="any"
-    value="@Onliner.Shadow.ToString(CultureInfo.InvariantCulture)"
-    @onchange="Change"
-    data-bs-toggle="tooltip"
-    data-bs-placement="top"
-    data-bs-custom-class="custom-tooltip"
-    data-bs-title="@ToolTipText">
-
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
-
-@code {
-
-    private void Change(ChangeEventArgs args)
-    {
-
-        if (Single.TryParse(args.Value.ToString(),NumberStyles.Any,CultureInfo.InvariantCulture, out var parseValue))
-            Onliner.Shadow = parseValue;
-    }
-}

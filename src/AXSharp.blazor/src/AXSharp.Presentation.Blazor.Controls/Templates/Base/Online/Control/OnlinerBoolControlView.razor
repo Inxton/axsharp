@@ -2,17 +2,5 @@
 @inherits TemplateBaseOnline<bool>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label class="base-input-label">
-        @Onliner.AttributeName @(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $"[{Onliner.AttributeUnits}]")
-    </label>
-    <div class="flex items-center">
-        <label class="relative inline-flex cursor-pointer items-center">
-            <input id="@ComponentId"
-                   disabled="@IsReadOnly"
-                   class="base-checkbox @AccessStatus"
-                   type="checkbox"
-                   @bind="Value"
-                   data-tooltip-content="@ToolTipText">
-        </label>
-    </div>
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>

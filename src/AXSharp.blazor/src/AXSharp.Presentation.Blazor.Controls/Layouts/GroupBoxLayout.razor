@@ -1,8 +1,10 @@
 ﻿@inherits LayoutComponentBase
 
-<div name="GroupBox" class="layout-groupbox">
-    <h3 class="layout-groupbox-caption">@GroupName</h3>
-    @Body
+<div class="simple-border">
+    <h3>@GroupName</h3>
+    <div class="mt-2">
+        @Body
+    </div>
 </div>
 
 @code {

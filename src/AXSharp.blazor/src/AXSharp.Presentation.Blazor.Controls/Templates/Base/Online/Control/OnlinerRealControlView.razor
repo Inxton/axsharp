@@ -3,28 +3,5 @@
 @inherits TemplateBaseOnline<Single>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="base-input @(IsReadOnly ? "bg-gray-100" : "") @AccessStatus"
-           type="number"
-           step="any"
-           value="@Value.ToString(CultureInfo.InvariantCulture)"
-           @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
-           @onblur="@(() => HasFocus = false)"
-           @onchange="Change"
-           @key="Key"
-           data-tooltip-content="@ToolTipText">
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
-
-@code {
-    private int Key = 0;
-
-    private void Change(ChangeEventArgs args)
-    {
-        if (Single.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, out var parseValue))
-            Value = parseValue;
-
-        Key++;
-    }
-}

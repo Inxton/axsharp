@@ -2,19 +2,17 @@
 @inject IJSRuntime JSRuntime
 
 <CascadingValue Value="this">
-    <div class="flex flex-wrap flex-col sm:flex-row">
+    <nav class="flex flex-wrap flex-col sm:flex-row">
         @foreach (TabPage tabPage in Pages)
         {
-            <div class="mr-2">
-                <button type="button"
-                        class="@GetButtonClass(tabPage) px-4 py-2 font-semibold rounded-t focus:outline-none"
-                        @onclick=@( () => ActivatePageAsync(tabPage) )>
-                    <b>@tabPage.Text</b>
-                </button>
-            </div>
+            <button type="button"
+                    class="tab @GetButtonClass(tabPage)"
+                    @onclick=@( () => ActivatePageAsync(tabPage) )>
+                <b>@tabPage.Text</b>
+            </button>
         }
-    </div>
-    <div class="mt-4">
+    </nav>
+    <div class="mt-2">
         @ChildContent
     </div>
 </CascadingValue>
@@ -40,9 +38,9 @@
 
     private string GetButtonClass(TabPage page)
     {
-        return page == ActivePage 
-            ? "tab tab-active" 
-            : "tab";
+        return page == ActivePage
+            ? "tab-active"
+            : null;
     }
 
     internal async Task ActivatePageAsync(TabPage page)
@@ -55,7 +53,7 @@
     {
         if (firstRender && _module == null)
         {
-           // _module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/tabControl.js");
+            // _module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/tabControl.js");
         }
     }
 

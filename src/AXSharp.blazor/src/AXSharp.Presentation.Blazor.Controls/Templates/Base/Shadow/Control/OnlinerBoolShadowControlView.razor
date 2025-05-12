@@ -2,16 +2,5 @@
 @inherits TemplateBaseShadow<bool>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <div class="form-check form-switch">
-        <input id="@ComponentId"
-               disabled="@IsReadOnly"
-               class="base-checkbox @AccessStatus"
-               type="checkbox"
-               @bind="@Onliner.Shadow"
-               data-bs-toggle="tooltip" 
-               data-bs-placement="top"
-               data-bs-custom-class="custom-tooltip"
-               data-bs-title="@ToolTipText">
-    </div>
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>

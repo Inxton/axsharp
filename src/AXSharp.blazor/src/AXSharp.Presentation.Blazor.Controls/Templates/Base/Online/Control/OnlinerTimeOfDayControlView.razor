@@ -5,38 +5,21 @@
 @inherits TemplateBaseOnline<TimeSpan>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId" class="base-input-label">
-        @Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")
-    </label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="base-input @(IsReadOnly ? "bg-gray-100" : "") @AccessStatus"
-           type="time"
-           step="1"
-           value="@Value.ToString(@"hh\:mm\:ss", CultureInfo.InvariantCulture)"
-           @onfocus="@(() => { HasFocus = true; LastValue = Onliner.LastValue; })"
-           @onblur="@(() => HasFocus = false)"
-           @onfocusout="FocusOut"
-           @onchange="Change"
-           @key="Key"
-           data-tooltip-content="@ToolTipText">
+    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
 
-@code {
-    private TimeSpan InputValue { get; set; }
-    private int Key = 0;
-
-    private void FocusOut(FocusEventArgs args)
+@code
+{
+    private TimeSpan? InputValue
     {
-        if (InputValue != new TimeSpan())
-            Value = InputValue;
-        InputValue = new TimeSpan();
-        Key++;
-    }
-
-    private void Change(ChangeEventArgs args)
-    {
-        if (TimeSpan.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, out var parseValue))
-            InputValue = parseValue;
+        get
+        {
+            return Value;
+        }
+        set
+        {
+            if (value != null)
+                Value = (TimeSpan)value;
+        }
     }
 }

@@ -26,4 +26,8 @@
     
   </ItemGroup>
 
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
+	</PropertyGroup>
+
 </Project>

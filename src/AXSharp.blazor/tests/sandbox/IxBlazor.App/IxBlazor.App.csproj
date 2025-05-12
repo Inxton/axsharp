@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.css" />
-    <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.css.map" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="System.Net.Http" />
     <PackageReference Include="System.Text.Encodings.Web" />
     <PackageReference Include="System.Text.RegularExpressions" />
@@ -19,43 +14,12 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" />
     <ProjectReference Include="..\..\..\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
     <ProjectReference Include="..\ComponentsExamples\ComponentsExamples.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.min.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.min.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.rtl.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.rtl.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.rtl.min.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.rtl.min.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="wwwroot\js\" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
+	</PropertyGroup>
 
 </Project>

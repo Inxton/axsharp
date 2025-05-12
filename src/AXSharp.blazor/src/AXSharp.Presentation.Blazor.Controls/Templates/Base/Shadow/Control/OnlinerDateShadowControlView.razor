@@ -3,38 +3,21 @@
 @inherits TemplateBaseShadow<DateOnly>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="base-input @AccessStatus"
-           type="date"
-           value="@Onliner.Shadow.ToString("yyyy-MM-dd")"
-           @onfocusout="FocusOut"
-           @onchange="Change"
-           @key="Key"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+    <Operon.Components.Pickers.DateOnlyPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
 
 @code
 {
-    private DateOnly InputValue { get; set; }
-    private int Key = 0;
-
-    private void FocusOut(FocusEventArgs args)
+    private DateOnly? InputValue
     {
-        if (InputValue != new DateOnly())
-            Onliner.Shadow = InputValue;
-        InputValue = new DateOnly();
-
-        Key++;
-    }
-
-    private void Change(ChangeEventArgs args)
-    {
-        if (DateOnly.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, DateTimeStyles.None, out var parseValue))
-            InputValue = parseValue;
+        get
+        {
+            return Onliner.Shadow;
+        }
+        set
+        {
+            if (value != null)
+                Onliner.Shadow = (DateOnly)value;
+        }
     }
 }

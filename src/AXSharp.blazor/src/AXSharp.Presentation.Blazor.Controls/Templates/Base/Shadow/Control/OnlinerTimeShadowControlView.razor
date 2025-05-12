@@ -3,29 +3,21 @@
 @inherits TemplateBaseShadow<TimeSpan>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="base-input @AccessStatus"
-           type="text"
-           value="@Onliner.Shadow.ToString(Onliner.AttributeFormatString ?? "c", CultureInfo.InvariantCulture)"
-           @onchange="Change"
-           @key="Key"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
 
 @code
 {
-    private int Key = 0;
-
-    private void Change(ChangeEventArgs args)
+    private TimeSpan? InputValue
     {
-        if (TimeSpan.TryParseExact(args.Value.ToString(), Onliner.AttributeFormatString ?? "c", CultureInfo.InvariantCulture, out var parseValue))
-            Onliner.Shadow = parseValue;
-
-        Key++;
+        get
+        {
+            return Onliner.Shadow;
+        }
+        set
+        {
+            if (value != null)
+                Onliner.Shadow = (TimeSpan)value;
+        }
     }
 }

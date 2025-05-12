@@ -51,9 +51,13 @@
 
   <ItemGroup>
     <Compile Remove="RenderableContentControl\**" />
+    <Compile Remove="wwwroot\**" />
     <Content Remove="RenderableContentControl\**" />
+    <Content Remove="wwwroot\**" />
     <EmbeddedResource Remove="RenderableContentControl\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="RenderableContentControl\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,18 +82,18 @@
 
   <ItemGroup>  
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
+    <PackageReference Include="Operon" />  
     <PackageReference Include="System.Net.Http" />  
     <PackageReference Include="System.Text.Encodings.Web" />  
     <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
-  <ItemGroup>
-	    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\operon\src\Operon\Operon.csproj" />
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
+	</PropertyGroup>
 
 </Project>

@@ -2,22 +2,19 @@
 @typeparam T
 @inherits EnumeratorsBaseOnline<T>
 
+<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+    <label class="me-2" for="@ComponentId">@Onliner.AttributeName</label>
 
- <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-     <label class="base-input-label" for="@ComponentId"  >@Onliner.AttributeName</label>
-
-     <select
-         id="@ComponentId"
-         class="base-select @AccessStatus"
-         @bind="Value"
-         disabled="@IsReadOnly"
-        >
-         @foreach (var name in Names)
-         {
-             <option value="@EnumToIntConverter.ConvertBack(name,null,null,null)">
-                 @name
-             </option>
-         }
-     </select>
-     
- </TemplateView>
+    <select id="@ComponentId"
+            class="select min-w-6 @AccessStatus"
+            @bind="Value"
+            readonly="@IsReadOnly">
+        @foreach (var name in Names)
+        {
+            <option value="@EnumToIntConverter.ConvertBack(name,null,null,null)">
+                @name
+            </option>
+        }
+    </select>
+    @ToolTipText
+</TemplateView>

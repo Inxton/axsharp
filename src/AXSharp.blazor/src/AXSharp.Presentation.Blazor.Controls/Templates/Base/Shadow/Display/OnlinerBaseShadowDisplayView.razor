@@ -3,16 +3,5 @@
 @inherits TemplateBaseShadow<T>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label class="base-input-label" for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="readonly"
-           class="base-input @AccessStatus"
-           style=@(IsReadOnly? "" : "background-color:transparent")
-           type="text"
-           step="any"
-           @bind="@Onliner.Shadow"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" />
 </TemplateView>

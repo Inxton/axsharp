@@ -6,43 +6,5 @@
 @typeparam T
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId" class="base-input-label">
-        @Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")
-    </label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="base-input @(IsReadOnly ? "bg-gray-100" : "") @AccessStatus"
-           type="@IsNumeric(typeof(T))"
-           step="any"
-           @bind="Value"
-           @onfocus="@(() =>
-                     {
-                         HasFocus = true;
-                         LastValue = Onliner.LastValue;
-                     })"
-           @onblur="@(() => HasFocus = false)"
-           data-tooltip-content="@ToolTipText">
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
 </TemplateView>
-
-@code {
-    private string IsNumeric(Type type)
-    {
-        if (type == null) return "text";
-        switch (Type.GetTypeCode(type))
-        {
-            case TypeCode.Byte:
-            case TypeCode.Decimal:
-            case TypeCode.Double:
-            case TypeCode.Int16:
-            case TypeCode.Int32:
-            case TypeCode.Int64:
-            case TypeCode.SByte:
-            case TypeCode.Single:
-            case TypeCode.UInt16:
-            case TypeCode.UInt32:
-            case TypeCode.UInt64:
-                return "number";
-        }
-        return "text";
-    }
-}

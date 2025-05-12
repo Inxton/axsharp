@@ -63,5 +63,10 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             ComponentId = Onliner.Symbol + "_" + Guid.NewGuid().ToString();
             return base.OnInitializedAsync();
         }
+
+        protected string GetLabel()
+        {
+            return Onliner.AttributeName + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
+        }
     }
 }
