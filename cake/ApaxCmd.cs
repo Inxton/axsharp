@@ -49,7 +49,7 @@ public static class ApaxCmd
     }
 
     public static void ApaxCopyArtifacts(this BuildContext context, string folder, string name)
-    {
+    { 
             var packageFile = $"{context.ApaxRegistry}-{name}-{GitVersionInformation.SemVer}.apax.tgz";
             var sourceFile = Path.Combine(folder, packageFile);
             File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));

@@ -244,6 +244,13 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             (Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixd\\"), "axsharp-ixd"),
         };
         
+        // Ensure articfats directory exists
+        if (!Directory.Exists(context.ArtifactsApax))
+        {
+            context.CreateDirectory(context.ArtifactsApax);    
+        }
+        
+        
         apaxConstributedToPack.ToList().ForEach(p => 
             context.UpdateApaxVersion(Path.Combine(p.folder, "apax.yml"), GitVersionInformation.SemVer));
         apaxConstributedToPack.ToList().ForEach(p => context.ApaxPack(p.folder));
