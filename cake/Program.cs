@@ -245,7 +245,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
         };
         
         apaxConstributedToPack.ToList().ForEach(p => 
-            context.UpdateApaxVersion(Path.Combine(p.folder, "apax.yml"), p.name));
+            context.UpdateApaxVersion(Path.Combine(p.folder, "apax.yml"), GitVersionInformation.SemVer));
         apaxConstributedToPack.ToList().ForEach(p => context.ApaxPack(p.folder));
         apaxConstributedToPack.ToList().ForEach(p => context.ApaxCopyArtifacts(p.folder, p.name));
         
