@@ -184,8 +184,8 @@ public class BuildContext : FrostingContext
     }
 
     public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0", "net8.0" };
-    public string ApaxSignKey { get; set; } = System.Environment.GetEnvironmentVariable("APAX_SIGN_KEY");
-    public string GitHubUser { get; set; } = System.Environment.GetEnvironmentVariable("InxtonDev");
+    public string ApaxSignKey { get; set; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
+    public string GitHubUser { get; set; } = System.Environment.GetEnvironmentVariable("GH_USER");
     public string GitHubToken { get; set; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
     
 
