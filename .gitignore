@@ -405,3 +405,6 @@ ix/.g/**
 .apax/
 /src/apax/stc-generic-x64
 TestResults/
+
+# Apax packages
+*.apax.tgz

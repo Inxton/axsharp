@@ -236,6 +236,19 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 NoRestore = true,
                 NoBuild = false,
             });
+
+        var apaxConstributedToPack = new (string folder, string name)[]
+        {
+            (Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\"), "axsharp-ixc"),
+            (Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixr\\"), "axsharp-ixr"),
+            (Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixd\\"), "axsharp-ixd"),
+        };
+        
+        apaxConstributedToPack.ToList().ForEach(p => 
+            context.UpdateApaxVersion(Path.Combine(p.folder, "apax.yml"), p.name));
+        apaxConstributedToPack.ToList().ForEach(p => context.ApaxPack(p.folder));
+        apaxConstributedToPack.ToList().ForEach(p => context.ApaxCopyArtifacts(p.folder, p.name));
+        
     }
 }
 
@@ -284,6 +297,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
         }
 
         context.PushNugetPackages("nugets");
+        context.ApaxPublishAllArtefacts();
     }
 }
 

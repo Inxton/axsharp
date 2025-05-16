@@ -30,8 +30,13 @@ public class BuildContext : FrostingContext
 {
     public string Artifacts  => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//");
 
+    public string ArtifactsApax => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//apax//");
+    
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
 
+    public string RootDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//src//"));
+    public string ApaxRegistry => "inxton";
+    
     public string WorkDirName => Environment.WorkingDirectory.GetDirectoryName();
 
     public string DocumentationOutputDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//docs//"));
@@ -179,6 +184,11 @@ public class BuildContext : FrostingContext
     }
 
     public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0", "net8.0" };
+    public string ApaxSignKey { get; set; } = System.Environment.GetEnvironmentVariable("APAX_SIGN_KEY");
+    public string GitHubUser { get; set; } = System.Environment.GetEnvironmentVariable("InxtonDev");
+    public string GitHubToken { get; set; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
+    
+
 
     public IEnumerable<(string ax, string approject, string solution)> GetTemplateProjects()
     {

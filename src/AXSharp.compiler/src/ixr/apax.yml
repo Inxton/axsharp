@@ -1,0 +1,12 @@
+name: "@inxton/axsharp-ixr"
+description: "AX#Sharp resources compiler"
+version: 0.0.0-dev.0
+type: generic
+files:
+  - "bin/Release/net9.0/**"  
+  - "!bin/Release/net9.0/.apax/.apax/**"  
+contributedCommands:
+  ixc:
+    bin: "bin/Release/net9.0/AXSharp.ixr.exe"
+    description: "AX#Sharp resources compiler"
+    hidden: false
