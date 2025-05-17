@@ -1,6 +1,6 @@
 name: "@inxton/axsharp-ixr"
 description: "AX#Sharp resources compiler"
-version  : '0.30.0-add-contributed-commands.166'
+version  : '0.0.0-dev.0'
 type: generic
 keywords:
   - "compiler"
