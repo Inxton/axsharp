@@ -268,5 +268,23 @@ public class BuildContext : FrostingContext
                 Directory.Delete(ouptutDir, true);
             }
         }
+        
+        foreach (var nugetFile in Directory.EnumerateFiles(this.Artifacts, "*.apax.tgz", SearchOption.AllDirectories))
+        {
+            using (var zip = ZipFile.OpenRead(nugetFile))
+            {
+                var ouptutDir = Path.Combine(this.Artifacts, "verif");
+                zip.ExtractToDirectory(Path.Combine(this.Artifacts, "verif"));
+
+                if (Directory.EnumerateFiles(ouptutDir, "*.*", SearchOption.AllDirectories)
+                    .Select(p => new FileInfo(p))
+                    .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
+                {
+                    throw new Exception("");
+                }
+
+                Directory.Delete(ouptutDir, true);
+            }
+        }
     }
 }
