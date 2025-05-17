@@ -2,14 +2,6 @@ name: "@inxton/axsharp-ixc"
 description: "AX#Sharp twin compiler"
 version: 0.0.0-dev.0
 type: generic
-files:
-  - "bin/Release/net9.0/**"  
-  - "!bin/Release/net9.0/.apax/.apax/**"  
-contributedCommands:
-  ixc:
-    bin: "bin/Release/net9.0/AXSharp.ixc.exe"
-    description: "AX#Sharp twin compiler"
-    hidden: false
 keywords:
   - "compiler"
   - "twin"
@@ -21,13 +13,16 @@ homepage: "https://inxton.github.io/axsharp/articles/compiler/README.html"
 repository:
   type: "git"
   url: "https://github.com/Inxton/axsharp"
-license:
-  type: "MIT"
-  url: "https://github.com/Inxton/axsharp/blob/dev/LICENSE"
 bugs:
   url: "https://github.com/Inxton/axsharp/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug"
-authors:
-  - name: "MTS spol. s r.o."
-    url: "https://www.mts.sk/en"
-    email: "team@inxton.com"       
-   
+license: "MIT"  
+author: "https://github.com/Inxton/axsharp/graphs/contributors"
+files:
+  - "bin/Release/net9.0/**"
+  - "!bin/Release/net9.0/.apax/.apax/**"
+contributedCommands:
+  ixc:
+    bin: "bin/Release/net9.0/AXSharp.ixc.exe"
+    description: "AX#Sharp twin compiler"
+    hidden: false
+
