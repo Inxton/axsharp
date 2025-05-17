@@ -1,0 +1,27 @@
+name: "@inxton/axsharp-ixd"
+description: "AX#Sharp documentation compiler"
+version  : '0.0.0-dev.0'
+type: generic
+keywords:
+  - "compiler"
+  - "twin"
+  - "AX#"
+  - "SIMATIC-AX"
+  - "PLC"
+  - "IT-OT"
+homepage: "https://inxton.github.io/axsharp/articles/compiler/README.html"
+repository:
+  type: "git"
+  url: "https://github.com/Inxton/axsharp"
+bugs:
+  url: "https://github.com/Inxton/axsharp/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug"
+license: "MIT"  
+author: "https://github.com/Inxton/axsharp/graphs/contributors"
+files:
+  - "bin/Release/net9.0/**"  
+  - "!bin/Release/net9.0/.apax/.apax/**"  
+contributedCommands:
+  ixc:
+    bin: "bin/Release/net9.0/AXSharp.ixd.exe"
+    description: "AX#Sharp documentation compiler"
+    hidden: false
