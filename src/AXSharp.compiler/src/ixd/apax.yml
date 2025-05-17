@@ -21,7 +21,7 @@ files:
   - "bin/Release/net9.0/**"  
   - "!bin/Release/net9.0/.apax/.apax/**"  
 contributedCommands:
-  ixc:
+  ixd:
     bin: "bin/Release/net9.0/AXSharp.ixd.exe"
     description: "AX#Sharp documentation compiler"
     hidden: false
