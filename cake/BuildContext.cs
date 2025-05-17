@@ -22,6 +22,8 @@ using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
+using System.Formats.Tar;
+using System.IO.Compression;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
@@ -273,20 +275,26 @@ public class BuildContext : FrostingContext
         {
             foreach (var apaxPackageFile in Directory.EnumerateFiles(this.Artifacts, "*.apax.tgz", SearchOption.AllDirectories))
             {
-                using (var zip = ZipFile.OpenRead(apaxPackageFile))
+                var outputDir = Path.Combine(this.Artifacts, "apax-verif");
+                // ensure clean folder
+                if (Directory.Exists(outputDir)) 
+                    Directory.Delete(outputDir, true);
+                Directory.CreateDirectory(outputDir);
+
+                // open .tgz, gunzip it, then untar into outputDir
+                using var fs = File.OpenRead(apaxPackageFile);
+                using var gz = new GZipStream(fs, CompressionMode.Decompress);
+                TarFile.ExtractToDirectory(gz, outputDir, true);
+
+                // now scan extracted files
+                if (Directory.EnumerateFiles(outputDir, "*.*", SearchOption.AllDirectories)
+                    .Select(p => new FileInfo(p))
+                    .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
                 {
-                    var ouptutDir = Path.Combine(this.Artifacts, "apax-verif");
-                    zip.ExtractToDirectory(Path.Combine(this.Artifacts, "apax-verif"));
-
-                    if (Directory.EnumerateFiles(ouptutDir, "*.*", SearchOption.AllDirectories)
-                        .Select(p => new FileInfo(p))
-                        .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
-                    {
-                        throw new Exception("");
-                    }
-
-                    Directory.Delete(ouptutDir, true);
+                    throw new Exception("License violation detected in .apax.tgz");
                 }
+
+                Directory.Delete(outputDir, true);
             }
         }
         catch (Exception e)
