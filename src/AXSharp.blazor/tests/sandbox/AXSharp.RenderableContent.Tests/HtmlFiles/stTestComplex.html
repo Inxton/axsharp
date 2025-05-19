@@ -1,25 +1,72 @@
-<div name="testingProgram-testComplex" b-gswuladdww><div name="testingProgram-testComplex-testInteger" class="w-100 form-group mb-2"><label for:ignore="testInteger_6aa5c11e-fbee-43e3-9c0f-5244905144ee">Integer From PLC</label>
-    <input id:ignore="testInteger_6aa5c11e-fbee-43e3-9c0f-5244905144ee" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Integer From PLC" />
-    
-    <div class="invalid-feedback"></div></div><div name="testingProgram-testComplex-testComplexInstance-stComplexInteger" class="w-100 form-group mb-2"><label for:ignore="stComplexInteger_aa3b26b2-05a4-4966-ab55-75dd073d0d6c">Integer From PLC</label>
-    <input id:ignore="stComplexInteger_aa3b26b2-05a4-4966-ab55-75dd073d0d6c" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.Integer From PLC" />
-    
-    <div class="invalid-feedback"></div></div><div name="testingProgram-testComplex-testComplexInstance-stComplexString" class="w-100 form-group mb-2"><label for:ignore="stComplexString_4aecd2cc-963a-48f6-b9e2-d42140e25d38">String From PLC</label>
-    <input id:ignore="stComplexString_4aecd2cc-963a-48f6-b9e2-d42140e25d38" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.String From PLC" />
-    
-    <div class="invalid-feedback"></div></div><div name="testingProgram-testComplex-testString" class="w-100 form-group mb-2"><label for:ignore="testString_bff59349-8b75-469d-b592-bd0f4f5cc20f">String From PLC</label>
-    <input id:ignore="testString_bff59349-8b75-469d-b592-bd0f4f5cc20f" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.String From PLC" />
-    
-    <div class="invalid-feedback"></div></div><div name="StackPanel" class="content p-3 "><div><div name="testingProgram-testComplex-testComplexUnknownInstance-stComplexUnknownString" class="w-100 form-group mb-2"><label for:ignore="stComplexUnknownString_1cd5fecc-fdba-452c-9786-324a23f97023">String unknown From PLC</label>
-    <input id:ignore="stComplexUnknownString_1cd5fecc-fdba-452c-9786-324a23f97023" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.String unknown From PLC" />
-    
-    <div class="invalid-feedback"></div></div></div><div><div name="testingProgram-testComplex-testComplexUnknownInstance-testBool" class="w-100 form-group mb-2"><label for:ignore="testBool_f3bdbd6d-3c5d-42d1-931d-ad50e67de144">BOOL unknown From PLC</label>
-    <div class="form-check form-switch"><input id:ignore="testBool_f3bdbd6d-3c5d-42d1-931d-ad50e67de144" disabled class="form-check-input " type="checkbox" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.BOOL unknown From PLC" blazor:onchange="1" /></div>
-    
-    <div class="invalid-feedback"></div></div></div><div><div name="testingProgram-testComplex-testComplexUnknownInstance-stComplexUnknowInteger" class="w-100 form-group mb-2"><label for:ignore="stComplexUnknowInteger_bf164677-4e47-46e4-845b-efbd6c0217cc">Integer unknown From PLC</label>
-    <input id:ignore="stComplexUnknowInteger_bf164677-4e47-46e4-845b-efbd6c0217cc" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" step="any" value="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.Integer unknown From PLC" />
-    
-    <div class="invalid-feedback"></div></div></div><div><div name="testingProgram-testComplex-testComplexUnknownInstance-TestDate" class="w-100 form-group mb-2"><label for:ignore="TestDate_326072d8-f6b5-4436-95b4-b4a8a8df5386">DATE unknown From PLC</label>
-    <input id:ignore="TestDate_326072d8-f6b5-4436-95b4-b4a8a8df5386" readonly="readonly" class="w-100 form-control " style="background-color:transparent" type="text" value="1/1/0001" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="testingProgram.instanceOfStPrimitive.Complex Instance.DATE unknown From PLC" />
-    
-    <div class="invalid-feedback"></div></div></div></div></div>
+<div name="testingProgram-testComplex" b-gswuladdww>
+    <div name="testingProgram-testComplex-testInteger">
+        <div class="input">
+            <label class="me-2" for:ignore="0d3d7e78-af1a-4e33-9580-5d81ad62e4af">Integer From PLC</label>
+            <input type="number" class="disabled " id:ignore="0d3d7e78-af1a-4e33-9580-5d81ad62e4af" blazor:onfocusin="1" blazor:onfocusout="2" step="any" readonly="readonly" value="0" blazor:onchange="3" />
+        </div>
+        <div class="invalid-feedback "></div>
+        <div class="invalid-feedback"></div>
+    </div><div name="testingProgram-testComplex-testComplexInstance-stComplexInteger">
+        <div class="input">
+            <label class="me-2" for:ignore="8ee2230a-61b0-4d1f-a7ec-0aa64e2d725d">Integer From PLC</label>
+            <input type="number" class="disabled " id:ignore="8ee2230a-61b0-4d1f-a7ec-0aa64e2d725d" blazor:onfocusin="7" blazor:onfocusout="8" step="any" readonly="readonly" value="0" blazor:onchange="9" />
+        </div>
+        <div class="invalid-feedback "></div>
+        <div class="invalid-feedback"></div>
+    </div><div name="testingProgram-testComplex-testComplexInstance-stComplexString">
+        <div class="input">
+            <label class="me-2" for:ignore="93416dae-eb29-4746-b6b6-b07b3fe9136b">String From PLC</label>
+            <input type="text" class="disabled " id:ignore="93416dae-eb29-4746-b6b6-b07b3fe9136b" blazor:onfocusin="10" blazor:onfocusout="11" step="any" readonly="readonly" value="" blazor:onchange="12" />
+        </div>
+        <div class="invalid-feedback "></div>
+        <div class="invalid-feedback"></div>
+    </div><div name="testingProgram-testComplex-testString">
+        <div class="input">
+            <label class="me-2" for:ignore="149f37a8-0234-416b-bd48-dba29028a15a">String From PLC</label>
+            <input type="text" class="disabled " id:ignore="149f37a8-0234-416b-bd48-dba29028a15a" blazor:onfocusin="4" blazor:onfocusout="5" step="any" readonly="readonly" value="" blazor:onchange="6" />
+        </div>
+        <div class="invalid-feedback "></div>
+        <div class="invalid-feedback"></div>
+    </div><div class="flex flex-col ">
+        <div>
+            <div name="testingProgram-testComplex-testComplexUnknownInstance-stComplexUnknownString">
+                <div class="input">
+                    <label class="me-2" for:ignore="c3853b24-d7cf-44a5-92e2-1f7fce7edd53">String unknown From PLC</label>
+                    <input type="text" class="disabled " id:ignore="c3853b24-d7cf-44a5-92e2-1f7fce7edd53" blazor:onfocusin="13" blazor:onfocusout="14" step="any" readonly="readonly" value="" blazor:onchange="15" />
+                </div>
+                <div class="invalid-feedback "></div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div><div>
+            <div name="testingProgram-testComplex-testComplexUnknownInstance-testBool">
+                <div class="input-checkbox">
+                    <label for:ignore="613be929-3fcd-49bb-b447-69ce1e11601f">
+                        <input type="checkbox" class="peer " id:ignore="613be929-3fcd-49bb-b447-69ce1e11601f" blazor:onfocusin="16" blazor:onfocusout="17" readonly="readonly" blazor:onchange="18" />
+                        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path></svg></span>
+                    </label>
+                    <label for:ignore="613be929-3fcd-49bb-b447-69ce1e11601f">BOOL unknown From PLC</label>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div><div>
+            <div name="testingProgram-testComplex-testComplexUnknownInstance-stComplexUnknowInteger">
+                <div class="input">
+                    <label class="me-2" for:ignore="33115ee9-e452-4cb8-9626-a1d0e1dd29d2">Integer unknown From PLC</label>
+                    <input type="number" class="disabled " id:ignore="33115ee9-e452-4cb8-9626-a1d0e1dd29d2" blazor:onfocusin="19" blazor:onfocusout="20" step="any" readonly="readonly" value="0" blazor:onchange="21" />
+                </div>
+                <div class="invalid-feedback "></div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div><div>
+            <div name="testingProgram-testComplex-testComplexUnknownInstance-TestDate">
+                <div class="relative" tabindex="0" blazor:onkeydown="22">
+                    <label for:ignore="a118140e-22e1-4191-a4ab-df48fc1e8113" class="text-gray-800 me-2">DATE unknown From PLC</label><div class="inline-flex items-center rounded-full bg-gray-100">
+                        <input type="text" id:ignore="a118140e-22e1-4191-a4ab-df48fc1e8113" class="p-2 focus:outline-none " size="6" blazor:onclick="23" blazor:onfocusin="24" blazor:onfocusout="25" readonly="readonly" value="1. 1. 0001" blazor:onchange="26" />
+                        <button class="cursor-pointer me-2" blazor:onclick="27"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg></button>
+                    </div>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+    </div>
+</div>
