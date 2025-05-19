@@ -15,7 +15,8 @@
 	  <PackageReference Include="Cake.Powershell" />
 	  <PackageReference Include="Polly" />
 	  <PackageReference Include="System.IO.Packaging" />
-	  <PackageReference Include="System.Text.Json" />    
+	  <PackageReference Include="System.Text.Json" />
+	  <PackageReference Include="YamlDotNet"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\AXSharp.tools\src\AXSharp.nuget.update\AXSharp.nuget.update.csproj" />
