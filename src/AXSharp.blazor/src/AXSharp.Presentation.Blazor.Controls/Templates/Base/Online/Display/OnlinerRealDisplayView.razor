@@ -3,5 +3,5 @@
 @inherits TemplateBaseOnline<Single>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <Operon.Components.BaseInput @bind-Value="@Onliner.Cyclic" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" />
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Cyclic" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>

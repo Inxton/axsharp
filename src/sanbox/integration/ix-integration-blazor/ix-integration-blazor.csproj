@@ -19,5 +19,8 @@
     <ProjectReference Include="..\ix-integration-plc\ix\ix_integration_plc.csproj" />
   </ItemGroup>
 
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
+	</PropertyGroup>
 	
 </Project>

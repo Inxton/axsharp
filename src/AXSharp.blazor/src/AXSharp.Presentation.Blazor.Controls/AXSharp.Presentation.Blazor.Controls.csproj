@@ -81,8 +81,8 @@
   </ItemGroup>
 
   <ItemGroup>  
+    <PackageReference Include="Inxton.Operon" />  
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
-    <PackageReference Include="Operon" />  
     <PackageReference Include="System.Net.Http" />  
     <PackageReference Include="System.Text.Encodings.Web" />  
     <PackageReference Include="System.Text.RegularExpressions" />
@@ -93,7 +93,7 @@
 	</ItemGroup>
 
 	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*;</DefaultItemExcludes>
 	</PropertyGroup>
 
 </Project>

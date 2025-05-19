@@ -3,7 +3,7 @@
 @inherits TemplateBaseShadow<TimeSpan>
 
 <TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" />
+    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>
 
 @code

@@ -1,4 +1,7 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import "tailwindcss";
+@import "../../Operon/operon.css";
+@source "../../Operon/Components";
+@source "../../Operon/Icons";
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
