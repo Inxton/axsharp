@@ -75,7 +75,7 @@ variables:
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the template functionality. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "axosimple"
-  AXTARGET: 172.20.30.110
+  AXTARGET: 192.168.100.85
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
@@ -89,7 +89,7 @@ scripts:
     - apax ixc
     - apax ixd
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
