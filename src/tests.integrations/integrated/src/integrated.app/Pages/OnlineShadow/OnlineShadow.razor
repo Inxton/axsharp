@@ -1,10 +1,15 @@
 ﻿@page "/swapping/onlineshadow"
 
-<h1>OnlineShadow</h1>
-
-<button class="btn btn-primary" @onclick="()=> ShadowToOnline()">ShadowToOnline</button>
-<button class="btn btn-primary" @onclick="()=> OnlineToShadow()">OnlineToShadow</button>
-
+<div class="space-x-4">
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> ShadowToOnline()">
+        ShadowToOnline
+    </button>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" 
+            @onclick="()=> OnlineToShadow()">
+        OnlineToShadow
+    </button>
+</div>
 
 <div class="container">
     <div class="row">
@@ -21,8 +26,6 @@
     </div>
 
 </div>
-
-
 
 @code {
     private async Task OnlineToShadow()

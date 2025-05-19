@@ -37,5 +37,8 @@ CONFIGURATION MyConfiguration
         ixcomponent : ixcomponent;
         {S7.extern=ReadWrite}
         monster : Monster;
+
+        {S7.extern=ReadWrite}
+        test_all_primitives : all_primitives;
     END_VAR
 END_CONFIGURATION

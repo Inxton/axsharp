@@ -1,13 +1,16 @@
-﻿<div class="nav-item">
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
 
-    <NavLink class="nav-link" href="@GetLink()" Match="NavLinkMatch.All">
+<div class="px-2">
+    <NavLink class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-blue-100 group [&.active]:bg-blue-500 [&.active]:text-white" href="@GetLink()" Match="NavLinkMatch.All">
         @if (Icon != null)
         {
-            <span class="@Icon" aria-hidden="true"></span>
+            <span class="@Icon mr-2" aria-hidden="true"></span>
         }
-        @Name
+        <span class="font-medium uppercase">@Name</span>
     </NavLink>
 </div>
+
 @code {
     [Parameter]
     public string? Name { get; set; } = null;
@@ -24,7 +27,6 @@
     protected override void OnInitialized()
     {
         _dashedName = Name?.Replace(' ', '-').ToLower();
-
         base.OnInitialized();
     }
 

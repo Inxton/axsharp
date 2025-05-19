@@ -1,110 +1,55 @@
 ﻿@page "/ui/autoui"
-<h3>AutoUI</h3>
+<h3 class="text-2xl font-bold mb-6">AutoUI</h3>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <pre>
-            <code>
-CLASS Counters
-    VAR PUBLIC
-        {#ix-attr:[Container(Layout.Wrap)]}    
-        wrap : Counter;
-        {#ix-attr:[Container(Layout.Stack)]}    
-        stack : Counter;
-        {#ix-attr:[Container(Layout.UniformGrid)]}    
-        grid : Counter;
-        {#ix-attr:[Container(Layout.Tabs)]}    
-        tabs : Counter;
-    END_VAR    
-END_CLASS
-
-CLASS PUBLIC Counter
-    VAR PUBLIC
-        {#ix-set:AttributeName = "Number of revolutions"}
-        Counts : ULINT;
-        {#ix-set:AttributeName = "Count revolutions"}
-        AllowCounter : BOOL;
-        {#ix-set:AttributeName = "Reset counts"}
-        ResetCounter : BOOL;
-    END_VAR
-
-    METHOD PUBLIC RunCounter        
-        IF (AllowCounter) THEN
-            Counts := Counts + ULINT#1;    
-        END_IF;  
-
-        IF(ResetCounter) THEN
-            Counts := ULINT#0;
-            ResetCounter := FALSE;
-        END_IF;    
-    END_METHOD    
-END_CLASS
-    </code>
-</pre>
-        </div>
-        <div class="col">
-            <div class="container" style="border: 10px solid transparent;">
-                <div class="row">
-                    <span class="border border-info">
-                        <pre>
-                        <code>
-{#ix-attr:[Container(Layout.Wrap)]}   
+<div class="container mx-auto px-4">
+    <div class="grid gap-6">
+        <div class="space-y-6">
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <pre class="mb-4 p-4 bg-gray-50 rounded-md overflow-x-auto">
+                    <code>
+{#ix-attr:[Container(Layout.Wrap)]}    
 wrap : Counter;
-            </code>
-        </pre>
+                    </code>
+                </pre>
 
-                        <RenderableContentControl Context="@Entry.Plc.counters.wrap" Presentation="Control"></RenderableContentControl>
+                <RenderableContentControl Context="@Entry.Plc.counters.wrap" Presentation="Control"></RenderableContentControl>
+            </div>
 
-                    </span>
-                </div>
-
-                <div class="row">
-                    <span class="border border-info">
-                        <pre>
-                        <code>
-{#ix-attr:[Container(Layout.Stack)]}   
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <pre class="mb-4 p-4 bg-gray-50 rounded-md overflow-x-auto">
+                    <code>
+{#ix-attr:[Container(Layout.Stack)]}    
 stack : Counter;
-            </code>
-        </pre>
+                    </code>
+                </pre>
 
-                        <RenderableContentControl Context="@Entry.Plc.counters.stack" Presentation="Control"></RenderableContentControl>
+                <RenderableContentControl Context="@Entry.Plc.counters.stack" Presentation="Control"></RenderableContentControl>
+            </div>
 
-                    </span>
-                </div>
-
-                <div class="row">
-                    <span class="border border-info">
-                        <pre>
-                        <code>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <pre class="mb-4 p-4 bg-gray-50 rounded-md overflow-x-auto">
+                    <code>
 {#ix-attr:[Container(Layout.UniformGrid)]}   
 grid : Counter;
-            </code>
-        </pre>
+                    </code>
+                </pre>
 
-                        <RenderableContentControl Context="@Entry.Plc.counters.grid" Presentation="Control"></RenderableContentControl>
+                <RenderableContentControl Context="@Entry.Plc.counters.grid" Presentation="Control"></RenderableContentControl>
+            </div>
 
-                    </span>
-                </div>
-
-                <div class="row">
-                    <span class="border border-info">
-                        <pre>
-                        <code>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <pre class="mb-4 p-4 bg-gray-50 rounded-md overflow-x-auto">
+                    <code>
 {#ix-attr:[Container(Layout.Tabs)]}   
 tabs : Counter;
-            </code>
-        </pre>
+                    </code>
+                </pre>
 
-                        <RenderableContentControl Context="@Entry.Plc.counters.tabs" Presentation="Control"></RenderableContentControl>
-
-                    </span>
-                </div>
+                <RenderableContentControl Context="@Entry.Plc.counters.tabs" Presentation="Control"></RenderableContentControl>
             </div>
         </div>
     </div>
 </div>
 
 @code {
-
 }

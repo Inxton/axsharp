@@ -50,18 +50,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RenderableContentControl\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="RenderableContentControl\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="RenderableContentControl\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="RenderableContentControl\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Styles\custom.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Styles\custom.scss">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +73,6 @@
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>
     </None>
-    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   
@@ -82,19 +81,19 @@
   </ItemGroup>
 
   <ItemGroup>  
+    <PackageReference Include="Inxton.Operon" />  
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
     <PackageReference Include="System.Net.Http" />  
     <PackageReference Include="System.Text.Encodings.Web" />  
     <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 
-  <ItemGroup>
-	    <Folder Include="RenderableContentControl\" />
-	    <Folder Include="wwwroot\js\" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*;</DefaultItemExcludes>
+	</PropertyGroup>
 
 </Project>

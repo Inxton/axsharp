@@ -1,19 +1,33 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
-<div name="@Symbol" class="w-100 form-group mb-2">
-
+<div name="@OnlinerSymbol">
     @ChildContent
-    
     <div class="invalid-feedback">
         @FailureReason
     </div>
+    @if (DevSettings.ShowToolTipOrHumanReadable)
+    {
+        <div class="feedback">
+            @ToolTipOrHumanReadable
+        </div>
+    }
+    @if (DevSettings.ShowSymbol)
+    {
+        <div class="feedback">
+            @Symbol
+        </div>
+    }
 </div>
 
 @code
 {
     [Parameter]
-    public string Symbol { get; set; }
+    public string OnlinerSymbol { get; set; }
     [Parameter]
     public string FailureReason { get; set; }
+    [Parameter]
+    public string ToolTipOrHumanReadable { get; set; }
+    [Parameter]
+    public string Symbol { get; set; }
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

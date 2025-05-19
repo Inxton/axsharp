@@ -16,8 +16,6 @@
 
   <ItemGroup>
     <Content Include="Pages\Index.razor.css" />
-    <Content Include="Shared\Menu\MenuItem.razor.css" />
-    <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
 
   <ItemGroup>

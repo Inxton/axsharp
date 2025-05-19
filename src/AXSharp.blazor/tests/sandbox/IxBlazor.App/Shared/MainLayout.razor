@@ -15,7 +15,6 @@
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/js/addToolTipsAndPopOvers.js");
-        await module.InvokeVoidAsync("addToolTipsAndPopOvers");
+        await base.OnAfterRenderAsync(firstRender);
     }
 }

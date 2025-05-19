@@ -1,31 +1,37 @@
-﻿<div>
-    <div class="nav-item">
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+
+<div class="px-2">
+    <div class="py-1">
         @if (Link != null)
         {
-            <NavLink class="nav-link" href="@Link" Match="NavLinkMatch.All">
-                @if (Icon != null)
-                {
-                    <span class="oi @Icon" aria-hidden="true"></span>
-                }
-                <strong>@Name</strong>
-                <span class="ms-auto oi oi-chevron-top @(_isCollapsed ? "open" : "")" aria-hidden="true"></span>
+            <NavLink class="flex items-center justify-between p-2 text-gray-700 rounded-lg hover:bg-blue-100 group [&.active]:bg-blue-500 [&.active]:text-white" href="@Link" Match="NavLinkMatch.All">
+                <div class="flex items-center">
+                    @if (Icon != null)
+                    {
+                        <span class="@Icon mr-2" aria-hidden="true"></span>
+                    }
+                    <span class="font-semibold uppercase">@Name</span>
+                </div>
+                <span class="transform transition-transform duration-200 oi oi-chevron-top @(!_isCollapsed ? "rotate-180" : "")"></span>
             </NavLink>
         }
         else
         {
-            <NavLink class="nav-link" @onclick='() => Collapse()'>
-                @if (Icon != null)
-                {
-                    <span class="oi @Icon" aria-hidden="true"></span>
-                }
-                <strong>@Name</strong>
-                <span class="ms-auto oi oi-chevron-top @(_isCollapsed ? "open" : "")" aria-hidden="true"></span>
-            </NavLink>
+            <button @onclick='() => Collapse()' class="flex items-center justify-between w-full p-2 text-gray-700 rounded-lg hover:bg-blue-100 group">
+                <div class="flex items-center">
+                    @if (Icon != null)
+                    {
+                        <span class="@Icon mr-2" aria-hidden="true"></span>
+                    }
+                    <span class="font-semibold uppercase">@Name</span>
+                </div>
+                <span class="transform transition-transform duration-200 oi oi-chevron-top @(!_isCollapsed ? "rotate-180" : "")"></span>
+            </button>
         }
     </div>
 
-
-    <div class="ps-2 @(_isCollapsed ? "collapse" : null)">
+    <div class="pl-4 overflow-hidden transition-all duration-200 @(_isCollapsed ? "h-0" : "h-auto")">
         <CascadingValue Value="@this">
             @ChildContent
         </CascadingValue>

@@ -1,22 +1,35 @@
 ﻿<AuthorizeView>
     <Authorized>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="relative">
+            <button @onclick="ToggleDropdown" class="flex items-center space-x-2 text-gray-700 hover:text-gray-900">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                 </svg>
-                @context.User.Identity.Name
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="Identity/Account/Manage" style="margin-left: 0;">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                    <a class="dropdown-item" href="Identity/Account/Logout" style="margin-left: 0;">Log out</a>
-                </li>
-            </ul>
-        </li>
+                <span>@context.User.Identity.Name</span>
+            </button>
+
+            @if (isDropdownOpen)
+            {
+                <div class="absolute right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-xl z-50">
+                    <a href="Identity/Account/Manage" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+                    <div class="border-t border-gray-100"></div>
+                    <a href="Identity/Account/Logout" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Log out</a>
+                </div>
+            }
+        </div>
     </Authorized>
     <NotAuthorized>
-        <a class="btn btn-primary" href="Identity/Account/Login" role="button">Log in</a>
+        <a href="Identity/Account/Login" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            Log in
+        </a>
     </NotAuthorized>
 </AuthorizeView>
+
+@code {
+    private bool isDropdownOpen = false;
+
+    private void ToggleDropdown()
+    {
+        isDropdownOpen = !isDropdownOpen;
+    }
+}

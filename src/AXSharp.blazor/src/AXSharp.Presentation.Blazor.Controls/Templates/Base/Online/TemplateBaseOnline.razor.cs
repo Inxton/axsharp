@@ -20,10 +20,6 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public partial class TemplateBaseOnline<T> : TemplateBase<T>
     {
-        protected string ToolTipText => string.IsNullOrEmpty(Onliner.AttributeToolTip)
-            ? Onliner.HumanReadable
-            : Onliner.AttributeToolTip;
-
         protected override Task OnInitializedAsync()
         {
             UpdateValuesOnChangeOutFocus(Onliner);

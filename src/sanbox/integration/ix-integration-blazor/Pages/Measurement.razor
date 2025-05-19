@@ -1,6 +1,5 @@
 ﻿@page "/Measurement"
 
-
 <PageTitle>Rendering</PageTitle>
 
 <RenderableContentControl Presentation="Display"
@@ -9,17 +8,17 @@
 <RenderableContentControl Presentation="Control"
                           Context="@Entry.Plc.measurements" />
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+<div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Control - can edit</span>
                 <RenderableContentControl Presentation="Control"
                                           Context="@Entry.Plc.measurements.measurement_stack" />
             </div>
         </div>
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Display - cannot edit</span>
                 <RenderableContentControl Presentation="Display"
                                           Context="@Entry.Plc.measurements.measurement_stack" />
@@ -28,38 +27,17 @@
     </div>
 </div>
 
-
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
-                <span>Control - can edit</span>
-                <RenderableContentControl Presentation="Control"
-                                          Context="@Entry.Plc.measurements.measurement_wrap" />
-            </div>
-        </div>
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
-                <span>Display - cannot edit</span>
-                <RenderableContentControl Presentation="Display"
-                                          Context="@Entry.Plc.measurements.measurement_wrap" />
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+<div class="max-w-7xl mx-auto px-4 mt-6">
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Control - can edit</span>
                 <RenderableContentControl Presentation="Control"
                                           Context="@Entry.Plc.measurements.measurement_grid" />
             </div>
         </div>
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Display - cannot edit</span>
                 <RenderableContentControl Presentation="Display"
                                           Context="@Entry.Plc.measurements.measurement_grid" />
@@ -68,17 +46,17 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+<div class="max-w-7xl mx-auto px-4 mt-6">
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Control - can edit</span>
                 <RenderableContentControl Presentation="Control"
                                           Context="@Entry.Plc.measurements.measurement_tabs" />
             </div>
         </div>
-        <div class="col">
-            <div class="border border-success p-2 mb-2">
+        <div>
+            <div class="border border-green-500 p-2 mb-2 rounded-md">
                 <span>Display - cannot edit</span>
                 <RenderableContentControl Presentation="Display"
                                           Context="@Entry.Plc.measurements.measurement_tabs" />
@@ -86,8 +64,6 @@
         </div>
     </div>
 </div>
-
-
 
 @code {
     

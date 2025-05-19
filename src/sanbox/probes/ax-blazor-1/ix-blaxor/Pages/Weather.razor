@@ -2,35 +2,35 @@
 
 <PageTitle>Weather-form-simatic-ax</PageTitle>
 
-<h1>Weather</h1>
+<h1 class="text-2xl font-bold mb-6">Weather</h1>
 
 @Entry.Plc.myINT.Cyclic
 
-<div class="container text-left">
-    <div class="row">
-        <div class="col">
-            <div>
-                <RenderableContentControl Presentation="Display"
-                                          Context="@Entry.Plc.myINT" />
-            </div>
+<div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <RenderableContentControl Presentation="Display"
+                                      Context="@Entry.Plc.myINT" />
         </div>
-        <div class="col">
-            <div>
-                <RenderableContentControl Presentation="Control"
-                                          Context="@Entry.Plc.weather" />
-            </div>
+        <div>
+            <RenderableContentControl Presentation="Control"
+                                      Context="@Entry.Plc.weather" />
         </div>
     </div>
 </div>
 
+<button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" 
+        @onclick="@IncrementTemperature">Please press me</button>
 
-<button class="btn-danger" @onclick="@IncrementTemperature">Please press me</button>
-<button type="button" class="btn-dark" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="I told you not to do it. Did I?">Click to toggle popover</button>
+<button type="button" 
+        class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+        data-bs-toggle="popover" 
+        data-bs-title="Popover title" 
+        data-bs-content="I told you not to do it. Did I?">Click to toggle popover</button>
 
 @code {
-
     private void IncrementTemperature()
     {
-        Entry.Plc.weather.Temperature.Synchron = Entry.Plc.weather.Temperature.Synchron + 1;
+        Entry.Plc.weather.temperature.Cyclic++;
     }
 }

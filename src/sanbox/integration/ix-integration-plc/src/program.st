@@ -8,6 +8,8 @@ PROGRAM MyProgram
         test_example: example;
         measurements : MeasurementExample.Measurements;
         ixcomponent : ixcomponent;
+
+        test_all_primitives : all_primitives;
     END_VAR
 
     VAR
@@ -30,6 +32,8 @@ PROGRAM MyProgram
 
     measurements.Simulate();
     ixcomponent.Simulate();
+
+    test_all_primitives.Simulate();
     
     
 END_PROGRAM

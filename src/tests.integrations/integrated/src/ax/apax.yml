@@ -6,6 +6,8 @@ targets:
 devDependencies:
   "@ax/sdk": 2405.2.0
   "@ax/sld": ^3.0.6-alpha
+dependencies:
+  "@ax/hw-s7-1500": 3.0.0
 variables:
   APAX_BUILD_ARGS: [ -d ]
   # AXTARGET: $AXTARGET

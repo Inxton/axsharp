@@ -1,16 +1,19 @@
 ﻿<div class="ms-1">
-    <nav aria-label="breadcrumb" class="ms-3">
-        <ol class="breadcrumb">
+    <nav class="flex items-center" aria-label="breadcrumb">
+        <ol class="flex items-center space-x-2">
             @foreach (var link in uri)
             {
                 if (link != uri.Last())
                 {
                     partialLink += "/" + link;
-                    <li class="breadcrumb-item h5"><a href="@partialLink">@link</a></li>
+                    <li>
+                        <a href="@partialLink" class="text-gray-600 hover:text-blue-600">@link</a>
+                        <span class="mx-2 text-gray-400">/</span>
+                    </li>
                 }
                 else
                 {
-                    <li class="breadcrumb-item active h5" aria-current="page">@link</li>
+                    <li class="text-blue-600 font-medium" aria-current="page">@link</li>
                 }
             }
         </ol>

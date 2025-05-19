@@ -2,17 +2,11 @@
 @typeparam T
 @inherits EnumeratorsBaseOnline<T>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-        <label for="@ComponentId" >@Onliner.AttributeName</label>
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
+    <label class="me-2" for="@ComponentId">@Onliner.AttributeName</label>
 
-
-        <input id="@ComponentId"
-               class="w-100 form-control @AccessStatus"
-               readonly="readonly"
-               style=@(IsReadOnly ? "" : "background-color:transparent")
-               value="@EnumToIntConverter.Convert(@Onliner.Cyclic,null,null,null)  "
-               data-bs-toggle="tooltip" 
-               data-bs-placement="top"
-               data-bs-custom-class="custom-tooltip"
-               data-bs-title="@ToolTipText"/>
+    <input id="@ComponentId"
+           class="select min-w-6 @AccessStatus"
+           value="@EnumToIntConverter.Convert(@Onliner.Cyclic,null,null,null)"
+           readonly="readonly" />
 </TemplateView>

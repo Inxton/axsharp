@@ -2,16 +2,6 @@
 @using System.Globalization;
 @inherits TemplateBaseOnline<Double>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="readonly"
-           class="w-100 form-control @AccessStatus"
-           style="@(IsReadOnly? "" : "background-color:transparent")"
-           type="text"
-           value="@Onliner.Cyclic.ToString(CultureInfo.InvariantCulture)"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Cyclic" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>

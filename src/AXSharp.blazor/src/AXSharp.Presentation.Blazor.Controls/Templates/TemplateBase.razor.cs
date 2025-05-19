@@ -14,6 +14,12 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
+        protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
+            ? Onliner.HumanReadable
+            : Onliner.AttributeToolTip;
+
+        protected string Symbol => Onliner.Symbol;
+
         private IJSObjectReference? module;
 
         [Inject]
@@ -22,8 +28,6 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             get;
             set;
         }
-
-        protected string ToolTipText => Onliner?.HumanReadable;
 
         [Parameter]
         public virtual OnlinerBase<T> Onliner { get; set; }
@@ -62,6 +66,11 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             AccessStatus = Onliner.AccessStatus.Failure ? "is-invalid" : "";
             ComponentId = Onliner.Symbol + "_" + Guid.NewGuid().ToString();
             return base.OnInitializedAsync();
+        }
+
+        protected string GetLabel()
+        {
+            return Onliner.AttributeName + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
         }
     }
 }

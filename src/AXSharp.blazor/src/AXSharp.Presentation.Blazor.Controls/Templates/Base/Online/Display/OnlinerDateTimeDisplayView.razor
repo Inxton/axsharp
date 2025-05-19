@@ -1,16 +1,23 @@
 ﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using System.Globalization
 @inherits TemplateBaseOnline<DateTime>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="readonly"
-           class="w-100 form-control @AccessStatus"
-           style="@(IsReadOnly? "" : "background-color:transparent")"
-           type="text"
-           value="@Onliner.Cyclic"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
+    <Operon.Components.Pickers.DateTimePicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>
+
+@code
+{
+    private DateTime? InputValue
+    {
+        get
+        {
+            return Onliner.Cyclic;
+        }
+        set
+        {
+            if (value != null)
+                Onliner.Cyclic = (DateTime)value;
+        }
+    }
+}

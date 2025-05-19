@@ -2,40 +2,22 @@
 @using System.Globalization;
 @inherits TemplateBaseShadow<TimeSpan>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
-    <label for="@ComponentId">@Onliner.AttributeName@(string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]")</label>
-    <input id="@ComponentId"
-           readonly="@IsReadOnly"
-           class="w-100 form-control @AccessStatus"
-           type="time"
-           step="1"
-           value="@Onliner.Shadow.ToString(@"hh\:mm\:ss", CultureInfo.InvariantCulture)"
-           @onfocusout="FocusOut"
-           @onchange="Change"
-           @key="Key"
-           data-bs-toggle="tooltip"
-           data-bs-placement="top"
-           data-bs-custom-class="custom-tooltip"
-           data-bs-title="@ToolTipText">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
+    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>
 
 @code
 {
-    private TimeSpan InputValue { get; set; }
-    private int Key = 0;
-
-    private void FocusOut(FocusEventArgs args)
+    private TimeSpan? InputValue
     {
-        if (InputValue != new TimeSpan())
-            Onliner.Shadow = InputValue;
-        InputValue = new TimeSpan();
-
-        Key++;
-    }
-
-    private void Change(ChangeEventArgs args)
-    {
-        if (TimeSpan.TryParse(args.Value.ToString(), CultureInfo.InvariantCulture, out var parseValue))
-            InputValue = parseValue;
+        get
+        {
+            return Onliner.Shadow;
+        }
+        set
+        {
+            if (value != null)
+                Onliner.Shadow = (TimeSpan)value;
+        }
     }
 }

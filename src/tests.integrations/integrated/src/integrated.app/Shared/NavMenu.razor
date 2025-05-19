@@ -1,10 +1,10 @@
-﻿<div class="nav-menu bg-light">
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="oi oi-menu ms-2 p-2" style="font-size: 1.5rem" aria-hidden="true"></span>
+﻿<div class="h-screen bg-white border-r border-blue-500">
+    <button class="p-3 hover:bg-gray-100 lg:hidden" @onclick="ToggleNavMenu">
+        <span class="oi oi-menu text-xl" aria-hidden="true"></span>
     </button>
 
-    <div class="@NavMenuCssClass nav-scrollable">
-        <nav class="flex-column">
+    <div class="@(collapseNavMenu ? "hidden" : "block") lg:block h-[calc(100vh-3.5rem)] overflow-y-auto">
+        <nav class="flex flex-col">
             <MenuItem Name="Home" Link="/" Icon="oi oi-home" />
             <ExpandableMenuItem Name="UI" Icon="oi oi-align-center">
                 <MenuItem Name="Auto UI" Link="/ui/autoui" Icon="oi oi-cog" />
@@ -13,18 +13,12 @@
             <ExpandableMenuItem Name="Swapping" Icon="oi oi-align-center">
                 <MenuItem Name="OnlineShadow" Link="/swapping/onlineshadow" Icon="oi oi-cog" />
             </ExpandableMenuItem>
-            <ExpandableMenuItem Name="Swapping" Icon="oi oi-align-center">
-                <MenuItem Name="OnlineShadow" Link="/swapping/OnlineShadowPlain" Icon="oi oi-cog" />
-            </ExpandableMenuItem>
-            
         </nav>
     </div>
 </div>
 
 @code {
     private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {

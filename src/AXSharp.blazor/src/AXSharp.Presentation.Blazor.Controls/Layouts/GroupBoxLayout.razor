@@ -1,13 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-
-
-<div name="GroupBox" class="card w-100 p-2">
-    <span style='font-weight: bold; padding-bottom:2px;'>@GroupName</span>
-     @Body
+<div class="simple-border">
+    <h3>@GroupName</h3>
+    <div class="mt-2">
+        @Body
+    </div>
 </div>
-@code
-{
+
+@code {
     [Parameter]
-    public string GroupName { get; set; }    
+    public string GroupName { get; set; }
 }
