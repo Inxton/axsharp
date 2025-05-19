@@ -22,6 +22,8 @@ using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
+using System.Formats.Tar;
+using System.IO.Compression;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
@@ -30,8 +32,13 @@ public class BuildContext : FrostingContext
 {
     public string Artifacts  => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//");
 
+    public string ArtifactsApax => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//apax//");
+    
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
 
+    public string RootDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//src//"));
+    public string ApaxRegistry => "inxton";
+    
     public string WorkDirName => Environment.WorkingDirectory.GetDirectoryName();
 
     public string DocumentationOutputDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//docs//"));
@@ -179,6 +186,11 @@ public class BuildContext : FrostingContext
     }
 
     public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0", "net8.0" };
+    public string ApaxSignKey { get; set; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
+    public string GitHubUser { get; set; } = System.Environment.GetEnvironmentVariable("GH_USER");
+    public string GitHubToken { get; set; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
+    
+
 
     public IEnumerable<(string ax, string approject, string solution)> GetTemplateProjects()
     {
@@ -258,5 +270,38 @@ public class BuildContext : FrostingContext
                 Directory.Delete(ouptutDir, true);
             }
         }
+
+        try
+        {
+            foreach (var apaxPackageFile in Directory.EnumerateFiles(this.Artifacts, "*.apax.tgz", SearchOption.AllDirectories))
+            {
+                var outputDir = Path.Combine(this.Artifacts, "apax-verif");
+                // ensure clean folder
+                if (Directory.Exists(outputDir)) 
+                    Directory.Delete(outputDir, true);
+                Directory.CreateDirectory(outputDir);
+
+                // open .tgz, gunzip it, then untar into outputDir
+                using var fs = File.OpenRead(apaxPackageFile);
+                using var gz = new GZipStream(fs, CompressionMode.Decompress);
+                TarFile.ExtractToDirectory(gz, outputDir, true);
+
+                // now scan extracted files
+                if (Directory.EnumerateFiles(outputDir, "*.*", SearchOption.AllDirectories)
+                    .Select(p => new FileInfo(p))
+                    .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
+                {
+                    throw new Exception("License violation detected in .apax.tgz");
+                }
+
+                Directory.Delete(outputDir, true);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
 }
