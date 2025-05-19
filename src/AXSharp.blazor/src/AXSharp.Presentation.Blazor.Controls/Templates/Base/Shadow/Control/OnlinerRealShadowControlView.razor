@@ -2,6 +2,6 @@
 @using System.Globalization;
 @inherits TemplateBaseOnline<Single>
 
-<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" ShowToolTipOrHumanReadable="@ShowToolTipOrHumanReadable" Symbol="@Symbol" ShowSymbol="@ShowSymbol">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
     <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>

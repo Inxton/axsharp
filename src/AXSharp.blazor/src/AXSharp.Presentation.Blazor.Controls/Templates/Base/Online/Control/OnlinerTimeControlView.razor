@@ -3,7 +3,7 @@
 @using System.Text.RegularExpressions;
 @inherits TemplateBaseOnline<TimeSpan>
 
-<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" ShowToolTipOrHumanReadable="@ShowToolTipOrHumanReadable" Symbol="@Symbol" ShowSymbol="@ShowSymbol">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
     <Operon.Components.Pickers.TimeSpanPicker @bind-Value="InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>
 

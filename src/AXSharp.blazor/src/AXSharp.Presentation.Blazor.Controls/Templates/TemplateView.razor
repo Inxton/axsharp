@@ -4,13 +4,13 @@
     <div class="invalid-feedback">
         @FailureReason
     </div>
-    @if (ShowToolTipOrHumanReadable)
+    @if (DevSettings.ShowToolTipOrHumanReadable)
     {
         <div class="feedback">
             @ToolTipOrHumanReadable
         </div>
     }
-    @if (ShowSymbol)
+    @if (DevSettings.ShowSymbol)
     {
         <div class="feedback">
             @Symbol
@@ -27,11 +27,7 @@
     [Parameter]
     public string ToolTipOrHumanReadable { get; set; }
     [Parameter]
-    public bool ShowToolTipOrHumanReadable { get; set; } = false;
-    [Parameter]
     public string Symbol { get; set; }
-    [Parameter]
-    public bool ShowSymbol { get; set; } = false;
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

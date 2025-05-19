@@ -14,10 +14,6 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
-        public static bool ShowToolTipOrHumanReadable { get; set; } = true;
-
-        public static bool ShowSymbol { get; set; } = true;
-
         protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
             ? Onliner.HumanReadable
             : Onliner.AttributeToolTip;
