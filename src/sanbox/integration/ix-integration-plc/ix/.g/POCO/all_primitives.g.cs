@@ -28,9 +28,18 @@ namespace Pocos
         public TimeSpan myTIME { get; set; } = default(TimeSpan);
         public TimeSpan myLTIME { get; set; } = default(TimeSpan);
         public DateOnly myDATE { get; set; } = new DateOnly(1970, 1, 1);
+        public DateOnly myLDATE { get; set; } = new DateOnly(1970, 1, 1);
         public TimeSpan myTIME_OF_DAY { get; set; } = default(TimeSpan);
+        public TimeSpan myLTIME_OF_DAY { get; set; } = default(TimeSpan);
         public DateTime myDATE_AND_TIME { get; set; } = new DateTime(1970, 1, 1);
+        public DateTime myLDATE_AND_TIME { get; set; } = new DateTime(1970, 1, 1);
+        public Char myCHAR { get; set; }
+        public Char myWCHAR { get; set; }
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
+        public UInt64 testLWORD { get; set; }
+        public UInt64 testULINT { get; set; }
+        public UInt64 testULINTPlusOne { get; set; }
+        public UInt64 testLWORDPlusOne { get; set; }
     }
 }

@@ -4,24 +4,92 @@ type: app
 targets:
   - "1500"
   - llvm
-  - plcsim
 devDependencies:
-  "@ax/sdk": 2311.0.1
+  "@ax/apax-build": 2.0.20 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.20
+  "@ax/axunit-mocking": 7.1.6 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  7.0.11
+  "@ax/axunitst": 7.1.6 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  7.0.11
+  "@ax/axunitst-library": 7.1.6 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  7.0.11
+  "@ax/axunitst-ls-contrib": 7.1.6 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  7.0.11
+  "@ax/build-native": 16.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  16.0.3
+  "@ax/certificate-management": 1.1.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.1.3
+  "@ax/dcp-utility": 1.1.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.1.3
+  "@ax/diagnostic-buffer": 1.3.2 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.3.2
+  "@ax/hardware-diagnostics": 0.3.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  0.3.0
+  "@ax/hw-s7-1500": 2.1.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.65
+  "@ax/hwc": 2.1.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.65
+  "@ax/hwld": 2.1.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.20
+  "@ax/mod": 1.6.5 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.6.5
+  "@ax/mon": 1.6.5 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.6.5
+  "@ax/opcua-server-config": 2.0.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.0
+  "@ax/performance-info": 1.1.2 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.1.2
+  "@ax/plc-info": 3.0.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  3.0.0
+  "@ax/sdb": 1.6.5 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  1.6.5
+  "@ax/simatic-1500": 8.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.3
+  "@ax/simatic-1500-alarming": 3.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  3.0.3
+  "@ax/simatic-1500-clocks": 9.0.1 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.1
+  "@ax/simatic-1500-communication": 9.0.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.0
+  "@ax/simatic-1500-crypto": 2.0.7 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.7
+  "@ax/simatic-1500-diagnostics": 3.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  3.0.3
+  "@ax/simatic-1500-diagnostics-hardware": 9.0.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.0
+  "@ax/simatic-1500-distributedio": 9.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.3
+  "@ax/simatic-1500-fileaccess": 8.0.1 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.1
+  "@ax/simatic-1500-hardware-utilities": 4.0.7 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  4.0.7
+  "@ax/simatic-1500-memoryaccess": 4.0.7 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  4.0.7
+  "@ax/simatic-1500-motioncontrol-native-v5": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v6": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v7": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v8": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v9": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v7": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v7-mocking": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v8": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v8-mocking": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v9": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v9-mocking": 8.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  8.0.11
+  "@ax/simatic-1500-processimage": 9.0.1 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.1
+  "@ax/simatic-1500-tasks": 9.0.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.3
+  "@ax/simatic-package-tool": 2.0.11 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.11
+  "@ax/simatic-pragma-stc-plugin": 5.0.8 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  5.0.8
+  "@ax/sld": 3.1.3 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  3.1.2
+  "@ax/st-ls": 9.0.72 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.72
+  "@ax/st-resources.stc-plugin": 2.0.10 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.0.10
+  "@ax/stc": 9.0.72 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.72
+  "@ax/system": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-bitaccess": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-conversion": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-counters": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-datetime": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-edgedetection": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-fastmath": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-math": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-selection": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-serde": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/system-timer": 9.0.12 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.12
+  "@ax/target-llvm": 9.0.72 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.72
+  "@ax/target-mc7plus": 9.0.72 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  9.0.72
+  "@ax/trace": 2.9.0 # @ax/simatic-ax@2504.0.0-rc.1  contained at the time of creation this catalog (1.3.2025) version  2.8.1
+  #"@ax/sdk": 2504.0.0-rc.1
+  # "@ax/hw-s7-1500": 3.0.0
 variables:
-  APAX_BUILD_ARGS: [ -d ]
+  APAX_BUILD_ARGS: [ -d, -O ]
+  # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the template functionality. =>
+  PLC_NAME: "plc_line"
+  DEFAULT_NAMESPACE: "axosimple"
+  AXTARGET: 172.20.30.110
+  AXTARGETPLATFORMINPUT: .\bin\1500\
+  AX_USERNAME: "adm"
+  AX_TARGET_PWD: "123ABCDabcd$#!"
+  USE_PLC_SIM_ADVANCED: "false"
+  HWCONFIG: "HWC"
+  COM_CERT_PATH: .\certs\Communication.cer
 scripts:
-  ixc: dotnet run --project
-    ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework
-    net7.0
-  ixd: dotnet run --project
-    ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework
-    net7.0
+  ixc: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
+  ixd: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework net9.0
   postbuild:
     - apax ixc
     - apax ixd
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -41,5 +109,79 @@ scripts:
     - apax install
     - apax build
     - apax check+download
-installStrategy: strict
+  plcsim: | # start the PlcSimAdvanced if installed and if $USE_PLC_SIM_ADVANCED = true, register instance name according to name of the project, set its IpAddress to the value of $AXTARGET
+    ..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET                                                                            
+  r: | # restart PLC using certificates                                                                                                                     (apax plc-info set-mode STOP [using cert file] & apax plc-info set-mode RUN [using cert file])
+    ..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD    
+  dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
+    ..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
+  dcpd: | # discover all accesible devices connected to adapter with MAC address equal to entered MAC, used to discover MAC-addresses of the slaves         (apax dcp-utility discover)
+    ..\\scripts\\dcp_utility_discover.sh $PNIO_MAC                                                                                                      
+  hdl: | #List configured harware and its state                                                                                                             (apax hw-diag list [using cert file])
+    ..\\scripts\\hw_diag_list.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD
+  ci: | #clean and install dependencies
+    apax clean
+    apax install
+  reset_plc: | #total reset of the PLC including IP and name                                                                                                (apax hwld --reset-plc All)
+    ..\\scripts\\reset_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
+  clean_plc: | #total reset of the PLC excluding IP and name                                                                                                (apax hwld --reset-plc KeepOnlyIP)
+    ..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
+  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
+    ..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+  gsd: | # copy and install all gsdml files from libraries                                                                                                  (copy gsdml files from all assets dir & apax hwc install-gsd)
+    ..\\scripts\\copy_and_install_gsd.sh 
+  hwl: | # copy all templates from libraries
+    ..\\scripts\\copy_hwl_templates.sh 
+  hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
+    ..\\scripts\\hw_compile.sh  
+  hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
+    ..\\scripts\\copy_hardware_ids.sh $DEFAULT_NAMESPACE $PLC_NAME
+  hwadr: | # copy the generated IoAddresses
+    ..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME 
+  #  the following command must be triggered only once          
+  hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, copy the IoAddresses, first download HW using password and upload certificate     (apax gsd & apax hwl & apax hwcc & apax hwid & apax hwadr & apax hwld [using password] & apax plc-cert)
+    ..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD 
+  hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate                               (apax gsd & apax hwl & apax hwcc & apax hwid & apax hwadr & apax hwld [using cert file])
+    ..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
+  hwdo: | # download HW only using certificate                                                                                                              (apax hwld [using cert file])
+    ..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
+  swfd: | # software build and full download                                                                                                                (apax build & dotnet ixc & apax sld load [using cert file])
+    ..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
+  swfdo: | # software full download only                                                                                                                    (apax sld load [using cert file])
+    ..\\..\\..\\scripts\\sw_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
+  swdd: | # software build and delta download                                                                                                               (apax build & dotnet ixc & apax sld load --mode delta [using cert file])
+    ..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD
+  swddo: | # software delta download only                                                                                                                   (apax sld load --mode delta [using cert file])
+    ..\\..\\scripts\\sw_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD 
+  alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw                                      (apax plcsim & apax clean & apax install & apax clean_plc & apax ssc & apax hwfd & apax swfd)
+    START=$(date +%s)
+      ..\\..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  all: | #build and download hardware and software using cert file. If cert file does not exists or its hash is different calls apax alf                    (apax plcsim & apax clean & apax install & apax hwu & apax swfd)
+    START=$(date +%s)
+      ..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  ib: |
+    apax install
+    apax build
+  icb: |
+    apax install --catalog
+    apax ib
+  cib: |
+    apax clean
+    apax ib
+  cicb: |
+    apax clean
+    apax icb
+  ibt: |
+    apax install
+    apax build
+    apax test
+  mm: |
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+publicKeys:
+  "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
+installStrategy: overridable
 apaxVersion: 3.1.0
+dependencies:
+  "@ax/system-strings": ^10.0.24
