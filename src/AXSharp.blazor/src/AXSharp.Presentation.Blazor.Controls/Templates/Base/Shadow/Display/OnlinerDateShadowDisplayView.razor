@@ -2,7 +2,7 @@
 @using System.Globalization
 @inherits TemplateBaseShadow<DateOnly>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" ShowToolTipOrHumanReadable="@ShowToolTipOrHumanReadable" Symbol="@Symbol" ShowSymbol="@ShowSymbol">
     <Operon.Components.Pickers.DateOnlyPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
 </TemplateView>
 

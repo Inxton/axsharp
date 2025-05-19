@@ -2,7 +2,7 @@
 @typeparam T
 @inherits EnumeratorsBaseOnline<T>
 
-<TemplateView Symbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason">
+<TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" ShowToolTipOrHumanReadable="@ShowToolTipOrHumanReadable" Symbol="@Symbol" ShowSymbol="@ShowSymbol">
     <label class="me-2" for="@ComponentId">@Onliner.AttributeName</label>
 
     <select id="@ComponentId"
@@ -16,5 +16,4 @@
             </option>
         }
     </select>
-    @ToolTipText
 </TemplateView>

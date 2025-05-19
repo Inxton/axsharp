@@ -14,6 +14,16 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
+        public static bool ShowToolTipOrHumanReadable { get; set; } = true;
+
+        public static bool ShowSymbol { get; set; } = true;
+
+        protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
+            ? Onliner.HumanReadable
+            : Onliner.AttributeToolTip;
+
+        protected string Symbol => Onliner.Symbol;
+
         private IJSObjectReference? module;
 
         [Inject]
@@ -22,8 +32,6 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             get;
             set;
         }
-
-        protected string ToolTipText => Onliner?.HumanReadable;
 
         [Parameter]
         public virtual OnlinerBase<T> Onliner { get; set; }
