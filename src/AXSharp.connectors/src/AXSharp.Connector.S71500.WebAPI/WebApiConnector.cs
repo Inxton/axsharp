@@ -6,8 +6,6 @@
 // Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
 using AXSharp.Connector.ValueTypes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Polly;
 using Polly.Retry;
 using Serilog;
@@ -17,21 +15,9 @@ using Siemens.Simatic.S7.Webserver.API.Models.Responses;
 using Siemens.Simatic.S7.Webserver.API.Services;
 using Siemens.Simatic.S7.Webserver.API.Services.IdGenerator;
 using Siemens.Simatic.S7.Webserver.API.Services.RequestHandling;
-using System.Collections.Concurrent;
-using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Headers;
 using System.Net.Security;
-using System.Net.Security;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text;
-using System.Xml.Serialization;
 
 namespace AXSharp.Connector.S71500.WebApi;
 
@@ -332,7 +318,7 @@ public class WebApiConnector : Connector
     }
 
     /// <inheritdoc />
-    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive>? primitives)
+    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive>? primitives, eAccessPriority priority = eAccessPriority.Normal)
     {
         if (!primitives.Any()) return;
 
@@ -405,7 +391,7 @@ public class WebApiConnector : Connector
     }
 
     /// <inheritdoc />
-    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive>? primitives)
+    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive>? primitives, eAccessPriority priority = eAccessPriority.Normal)
     {
         if (primitives == null || !primitives.Any()) return;
 
@@ -530,12 +516,13 @@ public class WebApiConnector : Connector
         return connector as WebApiConnector ?? new WebApiConnector();
     }
 
-    internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives,
+        eAccessPriority priority = eAccessPriority.Normal)
     {
-        await ReadBatchAsync(primitives);
+        await ReadBatchAsync(primitives, priority);
     }
 
-    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
     {
         await WriteBatchAsync(primitives);
     }

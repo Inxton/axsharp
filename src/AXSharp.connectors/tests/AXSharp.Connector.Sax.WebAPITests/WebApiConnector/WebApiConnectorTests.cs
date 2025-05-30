@@ -169,7 +169,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
             for (int i = 0; i < 10; i++)
             {
                 sw.Restart();
-                await connector.ReadBatchAsync(primitives);
+                await ((Connector)connector).ReadBatchAsync(primitives);
                 output.WriteLine(sw.ElapsedMilliseconds.ToString());
             }
             
@@ -1760,7 +1760,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
             for (int i = 0; i < 9; i++)
             {
                 sw.Restart();
-                await connector.ReadBatchAsync(primitives);
+                await ((Connector)connector).ReadBatchAsync(primitives);
                 output.WriteLine(sw.ElapsedMilliseconds.ToString());
             }
 
@@ -1813,7 +1813,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 myLWORD
             };
 
-            await connector.ReadBatchAsync(primitives);
+            await ((Connector)connector).ReadBatchAsync(primitives);
 
             Assert.Equal(true, myBYTE.AccessStatus.Failure);
             output.WriteLine(myBYTE.AccessStatus.FailureReason);
@@ -1860,7 +1860,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 myLWORD
             };
 
-           Assert.Throws<System.AggregateException>(() => connector.ReadBatchAsync(primitives).Wait());
+           Assert.Throws<System.AggregateException>(() => ((Connector)connector).ReadBatchAsync(primitives).Wait());
 
            
         }

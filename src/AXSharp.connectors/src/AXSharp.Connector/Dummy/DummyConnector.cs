@@ -55,7 +55,9 @@ public class DummyConnector : Connector
     ///     Reads batch of value items from the plc.
     /// </summary>
     /// <param name="primitives">Value items to be read.</param>
-    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives)
+    /// <param name="priority"></param>
+    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives,
+        eAccessPriority priority = eAccessPriority.Normal)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -74,7 +76,8 @@ public class DummyConnector : Connector
     ///     Writes batch of value items to the plc.
     /// </summary>
     /// <param name="primitives">Value items to be written.</param>
-    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives)
+    /// <param name="priority">Determined this batch priority</param>
+    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -98,7 +101,8 @@ public class DummyConnector : Connector
     {
     }
 
-    internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives,
+        eAccessPriority priority = eAccessPriority.Normal)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -113,7 +117,7 @@ public class DummyConnector : Connector
         });
     }
 
-    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives)
+    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
