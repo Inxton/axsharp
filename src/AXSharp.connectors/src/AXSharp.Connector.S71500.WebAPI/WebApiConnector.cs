@@ -26,6 +26,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Headers;
 using System.Net.Security;
 using System.Net.Security;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -76,6 +77,8 @@ public class WebApiConnector : Connector
 
         requestHandler.Init();
 
+        _throttle = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
+
         NumberOfInstances++;
     }
 
@@ -113,6 +116,8 @@ public class WebApiConnector : Connector
         requestHandler.ApiLogout();
         requestHandler.ApiLogin(UserName, UserPassword ?? string.Empty, true);
 
+        _throttle = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
+
         NumberOfInstances++;
     }
 
@@ -135,6 +140,7 @@ public class WebApiConnector : Connector
 
     private readonly object concurentCountMutex = new();
 
+    [Obsolete()]
     private async Task AntiThrottling(IEnumerable<ITwinPrimitive> primitives)
     {
         var concurrent = 0;
@@ -157,6 +163,7 @@ public class WebApiConnector : Connector
         }
     }
 
+    [Obsolete()]
     private void ReleaseConcurrent(IEnumerable<ITwinPrimitive> primitives)
     {
         lock (concurentCountMutex)
@@ -312,6 +319,18 @@ public class WebApiConnector : Connector
     }
 
 
+    private readonly SemaphoreSlim _throttle;
+
+    private async Task AntiThrottling()
+    {
+        await _throttle.WaitAsync();
+    }
+
+    private void ReleaseConcurrent()
+    {
+        _throttle.Release();
+    }
+
     /// <inheritdoc />
     public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive>? primitives)
     {
@@ -331,7 +350,7 @@ public class WebApiConnector : Connector
                             twinPrimitives.Select(p =>
                                 $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
 
-            await AntiThrottling(primitives);
+            await AntiThrottling();
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
@@ -378,7 +397,7 @@ public class WebApiConnector : Connector
         }
         finally
         {
-            ReleaseConcurrent(primitives);
+            ReleaseConcurrent();
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
@@ -392,7 +411,7 @@ public class WebApiConnector : Connector
 
         try
         {
-            await AntiThrottling(primitives);
+            await AntiThrottling();
 
             var responseData = new ApiBulkResponse();
             var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
@@ -424,7 +443,7 @@ public class WebApiConnector : Connector
         }
         finally
         {
-            ReleaseConcurrent(primitives);
+            ReleaseConcurrent();
         }
     }
 
