@@ -1422,7 +1422,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         }
 
         [Fact]
-        public async Task should_bulk_read_low_priority_with_alternating_parameters()
+        public async Task should_bulk_read_custom_priority_with_alternating_parameters()
         {
             var connector = TestConnector.TestApiConnector;
 
@@ -1441,7 +1441,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 myINT
             };
 
-            await connector.ReadBatchAsync(primitives, eAccessPriority.Low, chunkSize: 100, interChunkDelay: 500);
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Custom, chunkSize: 100, interChunkDelay: 500);
 
             Assert.True(myBOOL.Cyclic);
             Assert.Equal(42, myBYTE.Cyclic);
@@ -1449,7 +1449,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
         }
 
         [Fact]
-        public async Task should_bulk_write_low_priority_with_alternating_parameters()
+        public async Task should_bulk_write_custom_priority_with_alternating_parameters()
         {
             var connector = TestConnector.TestApiConnector;
 
@@ -1468,7 +1468,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 myINT
             };
 
-            await connector.WriteBatchAsync(primitives, eAccessPriority.Low, chunkSize: 50, interChunkDelay: 300);
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Custom, chunkSize: 50, interChunkDelay: 300);
 
             Assert.False(myBOOL.Cyclic);
             Assert.Equal(100, myBYTE.Cyclic);
