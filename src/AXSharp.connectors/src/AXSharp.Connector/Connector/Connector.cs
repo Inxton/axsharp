@@ -194,7 +194,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             return concurrentRequestDelay;
         }
 
-        set => SetField(ref concurrentRequestDelay, value, nameof(concurrentRequestDelay));
+        set => SetField(ref concurrentRequestDelay, value, nameof(ConcurrentRequestDelay));
     }
 
 
@@ -215,7 +215,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             return concurrentRequestMaxCount;
         }
 
-        set => SetField(ref concurrentRequestMaxCount, value, nameof(concurrentRequestMaxCount));
+        set => SetField(ref concurrentRequestMaxCount, value, nameof(ConcurrentRequestMaxCount));
     }
 
 
@@ -266,20 +266,30 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     public abstract Connector BuildAndStart();
 
     /// <summary>
-    ///     Reads batch of value items from the plc.
-    /// </summary>
-    /// <param name="primitives">Primitive items to be read.</param>
-    public abstract Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives);
-
-    internal abstract Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives);
-
-    /// <summary>
-    ///     Writes batch of value items to the plc.
+    /// Reads batch of value items from the PLC.
+    /// For `Normal` priority, all primitives are processed in a single chunk.
+    /// For `Low` priority, primitives are split into smaller chunks with a delay between processing each chunk.
     /// </summary>
     /// <param name="primitives">Primitive items to be written.</param>
-    public abstract Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives);
+    /// <param name="priority">Access priority for the operation.</param>
+    /// <param name="chunkSize">Size of each chunk for processing primitives. Default is 250 for Low priority.</param>
+    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds. Default is 250 for Low priority.</param>
+    public abstract Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
 
-    internal abstract Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives);
+    internal abstract Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
+
+    /// <summary>
+    /// Writes batch of value items to the PLC.
+    /// For `Normal` priority, all primitives are processed in a single chunk.
+    /// For `Low` priority, primitives are split into smaller chunks with a delay between processing each chunk.
+    /// </summary>
+    /// <param name="primitives">Primitive items to be written.</param>
+    /// <param name="priority">Access priority for the operation.</param>
+    /// <param name="chunkSize">Size of each chunk for processing primitives. Default is 250 for Low priority.</param>
+    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds. Default is 250 for Low priority.</param>
+    public abstract Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
+
+    internal abstract Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
 
     /// <summary>
     ///     Return symbol path combining parent's and member's symbol.
