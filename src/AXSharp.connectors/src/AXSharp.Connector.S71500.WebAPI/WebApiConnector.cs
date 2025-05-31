@@ -23,6 +23,7 @@ namespace AXSharp.Connector.S71500.WebApi;
 
 /// <summary>
 /// Provides connector to mediate connection with AX# twins over WebAPI connection.
+/// This connector facilitates communication with Siemens S7 PLCs using WebAPI.
 /// </summary>
 public class WebApiConnector : Connector
 {
@@ -30,14 +31,15 @@ public class WebApiConnector : Connector
 
 
     /// <summary>
-    /// Creates new instance of <see cref="WebApiConnector"/>.
+    /// Creates a new instance of <see cref="WebApiConnector"/>.
     /// </summary>
     /// <param name="ipAddress">Target's IP address.</param>
-    /// <param name="userName">User name.</param>
-    /// <param name="password">Password.</param>
-    /// <param name="customServerCertHandler">Customized server certificate handler.</param>
-    /// <param name="ignoreSSLErros">When set to true ssl error are ignored.</param>
-    /// <param name="dbName">Root DB name (AX uses 'TGlobalVariablesDB')</param>
+    /// <param name="userName">User name for authentication.</param>
+    /// <param name="password">Password for authentication.</param>
+    /// <param name="customServerCertHandler">Optional custom server certificate handler.</param>
+    /// <param name="ignoreSSLErros">When set to true, SSL errors are ignored.</param>
+    /// <param name="platform">Target project platform (default is SIMATICAX).</param>
+    /// <param name="dbName">Root DB name (default is 'TGlobalVariablesDB').</param>
     public WebApiConnector(string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
         bool ignoreSSLErros,
@@ -69,13 +71,14 @@ public class WebApiConnector : Connector
     }
 
     /// <summary>
-    /// Creates new instance of <see cref="WebApiConnector"/>.
+    /// Creates a new instance of <see cref="WebApiConnector"/>.
     /// </summary>
     /// <param name="ipAddress">Target's IP address.</param>
-    /// <param name="userName">User name.</param>
-    /// <param name="password">Password.</param>
-    /// <param name="ignoreSSLErros">When set to 'true' the connection will ignore SSL errors.</param>
-    /// <param name="dbName">Root DB name (AX uses 'TGlobalVariablesDB')</param>
+    /// <param name="userName">User name for authentication.</param>
+    /// <param name="password">Password for authentication.</param>
+    /// <param name="ignoreSSLErros">When set to true, SSL errors are ignored.</param>
+    /// <param name="platform">Target project platform (default is SIMATICAX).</param>
+    /// <param name="dbName">Root DB name (default is 'TGlobalVariablesDB').</param>
     public WebApiConnector(string ipAddress, string userName, string password, bool ignoreSSLErros,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
         string dbName = "\"TGlobalVariablesDB\"")
@@ -180,6 +183,10 @@ public class WebApiConnector : Connector
         return this;
     }
 
+    /// <summary>
+    /// Re-authenticates the connector API session.
+    /// Suspends cyclic read/write operations during the re-login process.
+    /// </summary>
     public async Task ReLoginToConnectorApi()
     {
         var Conncected = false;
@@ -214,6 +221,15 @@ public class WebApiConnector : Connector
         } while (!Conncected);
     }
 
+    /// <summary>
+    /// Handles communication failures during batch operations.
+    /// Logs errors and attempts to recover from permission changes.
+    /// </summary>
+    /// <param name="exception">Exception that occurred.</param>
+    /// <param name="description">Description of the failure.</param>
+    /// <param name="primitives">Affected primitives.</param>
+    /// <param name="response">API bulk response.</param>
+    /// <param name="originalRequest">Original API requests.</param>
     internal void HandleCommFailure(Exception exception, string description, IEnumerable<ITwinPrimitive> primitives,
         ApiBulkResponse response, IEnumerable<ApiRequestBase> originalRequest)
     {
@@ -317,8 +333,25 @@ public class WebApiConnector : Connector
         _throttle.Release();
     }
 
-    /// <inheritdoc />
-    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive>? primitives, eAccessPriority priority = eAccessPriority.Normal)
+
+    public Dictionary<eAccessPriority, (int? chunkSize, int? interChunkDelay)> BatchSettings { get; } = new()
+    {
+        { eAccessPriority.Normal, (null, 25) },
+        { eAccessPriority.Low, (250, 250) },
+        { eAccessPriority.Prioritare, (null, 0) },
+        { eAccessPriority.Custom, (null, null) }
+    };
+
+    /// <summary>
+    /// Reads a batch of value items from the PLC.
+    /// Supports chunking and prioritization for efficient data retrieval.
+    /// </summary>
+    /// <param name="primitives">Primitive items to be read.</param>
+    /// <param name="priority">Access priority for the operation.
+    /// ATTENTION! When set to any other value than <see cref="eAccessPriority.Custom"/> arguments <see cref="chunkSize"/> and <see cref="interChunkDelay"/> are ignored.</param>
+    /// <param name="chunkSize">Size of each chunk for processing primitives (default is 250).</param>
+    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds (default is 250).</param>
+    public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         if (!primitives.Any()) return;
 
@@ -340,45 +373,59 @@ public class WebApiConnector : Connector
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
+            chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
+            interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
 
-            var requestSegment = webApiPrimitives;
-            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-            var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
-            try
+            var chunks = webApiPrimitives.Select((x, i) => new { x, i })
+                                         .GroupBy(x => x.i / chunkSize)
+                                         .Select(g => g.Select(x => x.x).ToArray());
+
+            foreach (var chunk in chunks)
             {
-                await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
+                var requestSegment = chunk;
+                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+                var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
 
-                // This is needed when unassigned CHAR or WCHAR are read; they won't be present in the response.
-                if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
+                try
                 {
-                    foreach (var response in responseData.SuccessfulResponses)
+                    await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
+
+                    if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
                     {
-                        var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
-                        if (a == null) continue;
-                        a.Read(response.Result.ToString());
-                        a.AccessStatus.Update(RwCycleCount);
+                        foreach (var response in responseData.SuccessfulResponses)
+                        {
+                            var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
+                            if (a == null) continue;
+                            a.Read(response.Result.ToString());
+                            a.AccessStatus.Update(RwCycleCount);
+                        }
+                    }
+                    else
+                    {
+                        var position = 0;
+                        apiPrimitives.ToList()
+                            .ForEach(p =>
+                            {
+                                p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
+                                p.AccessStatus.Update(RwCycleCount);
+                            });
                     }
                 }
-                else
+                catch (ApiBulkRequestException apiException)
                 {
-                    var position = 0;
-                    apiPrimitives.ToList()
-                        .ForEach(p =>
-                        {
-                            p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
-                            p.AccessStatus.Update(RwCycleCount);
-                        });
+                    HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
+                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
                 }
-            }
-            catch (ApiBulkRequestException apiException)
-            {
-                HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
-                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-            }
-            catch (Exception e)
-            {
-                HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
-                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+                catch (Exception e)
+                {
+                    HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
+                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+                }
+
+                if (priority == eAccessPriority.Low)
+                {
+                    await Task.Delay(interChunkDelay);
+                }
             }
         }
         finally
@@ -390,8 +437,17 @@ public class WebApiConnector : Connector
             Logger.Debug($"Bulk reading: {twinPrimitives.Count()} items read in {stopwatch.ElapsedMilliseconds} ms.");
     }
 
-    /// <inheritdoc />
-    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive>? primitives, eAccessPriority priority = eAccessPriority.Normal)
+    /// <summary>
+    /// Writes a batch of value items to the PLC.
+    /// Supports chunking and prioritization for efficient data writing.
+    /// </summary>
+    /// <param name="primitives">Primitive items to be written.</param>
+    /// <param name="priority">Access priority for the operation.
+    /// ATTENTION! When set to any other value than <see cref="eAccessPriority.Custom"/> arguments <see cref="chunkSize"/> and <see cref="interChunkDelay"/> are ignored.</param>
+    /// </param>
+    /// <param name="chunkSize">Size of each chunk for processing primitives (default is 250).</param>
+    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds (default is 250).</param>
+    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         if (primitives == null || !primitives.Any()) return;
 
@@ -408,23 +464,38 @@ public class WebApiConnector : Connector
 
             var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
+            chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
+            interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
 
-            var requestSegment = webApiPrimitives;
-            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-            try
+            var chunks = webApiPrimitives.Select((x, i) => new { x, i })
+                                         .GroupBy(x => x.i / chunkSize)
+                                         .Select(g => g.Select(x => x.x).ToArray());
+
+            foreach (var chunk in chunks)
             {
-                await RetryPolicy.ExecuteAsync(async () =>
-                    await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
-            }
-            catch (ApiBulkRequestException apiException)
-            {
-                HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
-                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-            }
-            catch (Exception e)
-            {
-                HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
-                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+                var requestSegment = chunk;
+                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+
+                try
+                {
+                    await RetryPolicy.ExecuteAsync(async () =>
+                        await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
+                }
+                catch (ApiBulkRequestException apiException)
+                {
+                    HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
+                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+                }
+                catch (Exception e)
+                {
+                    HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
+                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+                }
+
+                if (priority == eAccessPriority.Low)
+                {
+                    await Task.Delay(interChunkDelay);
+                }
             }
         }
         finally
@@ -446,6 +517,12 @@ public class WebApiConnector : Connector
         //Task.Delay(300).Wait(); //TODO: we have to address this differently... preventing concurrency...
     }
 
+    /// <summary>
+    /// Reads a single value from the PLC asynchronously.
+    /// </summary>
+    /// <typeparam name="T">Type of the value to be read.</typeparam>
+    /// <param name="symbol">Symbol representing the PLC variable.</param>
+    /// <returns>Tuple containing the result and the API response.</returns>
     internal async Task<(T result, ApiResultResponse<T> response)> ReadAsync<T>(string symbol)
     {
         if (symbol.StartsWith("\""))
@@ -473,6 +550,13 @@ public class WebApiConnector : Connector
         return ((OnlinerBase<T>)primitive).LastValue;
     }
 
+    /// <summary>
+    /// Writes a single value to the PLC asynchronously.
+    /// </summary>
+    /// <typeparam name="T">Type of the value to be written.</typeparam>
+    /// <param name="primitive">Primitive representing the PLC variable.</param>
+    /// <param name="value">Value to be written.</param>
+    /// <returns>The written value.</returns>
     internal async Task<T> WriteAsync<T>(IWebApiPrimitive primitive, T value)
     {
         ((OnlinerBase<T>)primitive).SetValueToWrite(value);
@@ -494,6 +578,12 @@ public class WebApiConnector : Connector
         }
     }
 
+    /// <summary>
+    /// Creates a read request for a PLC variable.
+    /// </summary>
+    /// <param name="symbol">Symbol representing the PLC variable.</param>
+    /// <param name="root">Root DB name (default is 'TGlobalVariablesDB').</param>
+    /// <returns>API PLC read request.</returns>
     internal static ApiPlcReadRequest CreateReadRequest(string symbol, string root = "\"TGlobalVariablesDB\"")
     {
         if (string.IsNullOrEmpty(root))
@@ -502,6 +592,13 @@ public class WebApiConnector : Connector
             return new ApiPlcReadRequest($"{root}.{symbol}");
     }
 
+    /// <summary>
+    /// Creates a write request for a PLC variable.
+    /// </summary>
+    /// <param name="symbol">Symbol representing the PLC variable.</param>
+    /// <param name="value">Value to be written.</param>
+    /// <param name="root">Root DB name (default is 'TGlobalVariablesDB').</param>
+    /// <returns>API PLC write request.</returns>
     internal static ApiPlcWriteRequest CreateWriteRequest(string symbol, object value,
         string root = "\"TGlobalVariablesDB\"")
     {
@@ -511,25 +608,32 @@ public class WebApiConnector : Connector
             return new ApiPlcWriteRequest($"{root}.{symbol}", value);
     }
 
+    /// <summary>
+    /// Casts a generic connector to a <see cref="WebApiConnector"/>.
+    /// </summary>
+    /// <param name="connector">Generic connector instance.</param>
+    /// <returns>WebApiConnector instance.</returns>
     internal static WebApiConnector Cast(Connector connector)
     {
         return connector as WebApiConnector ?? new WebApiConnector();
     }
 
     internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives,
-        eAccessPriority priority = eAccessPriority.Normal)
+        eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
-        await ReadBatchAsync(primitives, priority);
+        await ReadBatchAsync(primitives, priority, chunkSize, interChunkDelay);
     }
 
-    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
+    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
-        await WriteBatchAsync(primitives);
+        await WriteBatchAsync(primitives, priority, chunkSize, interChunkDelay);
     }
 
     public eTargetProjectPlatform TargetPlatform { get; } = eTargetProjectPlatform.SIMATICAX;
 
-    /// <inherits/>    
+    /// <summary>
+    /// Gets the target platform moniker.
+    /// </summary>
     public override string TargetPlatformMoniker
     {
         get

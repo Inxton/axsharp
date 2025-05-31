@@ -16,5 +16,10 @@ public enum eAccessPriority
     /// <summary>
     /// Higher than normal access priority. Used for time-critical or prioritized operations.
     /// </summary>
-    Prioritare
+    Prioritare,
+
+    /// <summary>
+    /// Represents a custom access priority level. This can be used for operations that require a user-defined priority.
+    /// </summary>
+    Custom
 }

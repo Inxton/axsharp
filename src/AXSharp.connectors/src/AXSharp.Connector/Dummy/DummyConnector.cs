@@ -57,7 +57,7 @@ public class DummyConnector : Connector
     /// <param name="primitives">Value items to be read.</param>
     /// <param name="priority"></param>
     public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives,
-        eAccessPriority priority = eAccessPriority.Normal)
+        eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -77,7 +77,9 @@ public class DummyConnector : Connector
     /// </summary>
     /// <param name="primitives">Value items to be written.</param>
     /// <param name="priority">Determined this batch priority</param>
-    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
+    /// <param name="chunkSize">Size of each chunk for processing primitives. Default is 250 for Low priority.</param>
+    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds. Default is 250 for Low priority.</param>
+    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -102,7 +104,7 @@ public class DummyConnector : Connector
     }
 
     internal override async Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives,
-        eAccessPriority priority = eAccessPriority.Normal)
+        eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 
@@ -117,7 +119,7 @@ public class DummyConnector : Connector
         });
     }
 
-    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
+    internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         ArgumentNullException.ThrowIfNull(primitives);
 

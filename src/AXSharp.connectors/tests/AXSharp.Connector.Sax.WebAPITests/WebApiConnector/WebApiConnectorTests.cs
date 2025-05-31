@@ -706,168 +706,6 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 //   myWCHAR	     
                 mySTRING,
                 //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
             };
             var sw = new Stopwatch();
             output.WriteLine(primitives.Count().ToString());
@@ -1235,361 +1073,6 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 //   myWCHAR	     
                 mySTRING,
                 //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
-                myLWORD,
-                mySINT ,
-                myINT,
-                myDINT ,
-                myLINT ,
-                myUSINT,
-                myUINT ,
-                myUDINT,
-                myULINT,
-                myREAL ,
-                myLREAL,
-                myTIME ,
-                myLTIME,
-                myDATE ,
-                //   myLDATE	        :
-                myTIME_OF_DAY,
-                //   myLTIME_OF_DAY	:
-                myDATE_AND_TIME,
-                //   myLDATE_AND_TIME
-                //   myCHAR	        :
-                //   myWCHAR	     
-                mySTRING,
-                //   myWSTRING	    :
-                myBOOL ,
-                myBYTE ,
-                myWORD ,
-                //      DWORD  ,
                 myLWORD,
                 mySINT ,
                 myINT,
@@ -1751,9 +1234,29 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 //   myWCHAR	     
                 mySTRING,
                 //   myWSTRING	    :
-
-
-
+                myLWORD,
+                mySINT ,
+                myINT,
+                myDINT ,
+                myLINT ,
+                myUSINT,
+                myUINT ,
+                myUDINT,
+                myULINT,
+                myREAL ,
+                myLREAL,
+                myTIME ,
+                myLTIME,
+                myDATE ,
+                //   myLDATE	        :
+                myTIME_OF_DAY,
+                //   myLTIME_OF_DAY	:
+                myDATE_AND_TIME,
+                //   myLDATE_AND_TIME
+                //   myCHAR	        :
+                //   myWCHAR	     
+                mySTRING,
+                //   myWSTRING	    :
             };
             var sw = new Stopwatch();
             output.WriteLine(primitives.Count().ToString());
@@ -1875,6 +1378,216 @@ namespace AXSharp.Connector.S71500.WebAPITests
             Assert.Throws<System.AggregateException>(() => connector.ReadAsync<byte>(myBYTE).Result);
 
 
+        }
+
+        [Fact]
+        public async Task should_relogin_to_connector_api()
+        {
+            var connector = TestConnector.TestApiConnector;
+
+            // Simulate a failure scenario that requires re-login
+            connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
+            // Trigger re-login
+            await connector.ReLoginToConnectorApi();
+
+            // Verify that the connector is operational after re-login
+            var myBOOL = new WebApiBool(connector, "", "myBOOL");
+            await connector.WriteAsync<bool>(myBOOL, true);
+            var response = await connector.ReadAsync<bool>("myBOOL");
+
+            Assert.True(response.result);
+        }
+
+        [Fact]
+        public async Task should_handle_comm_failure()
+        {
+            var connector = TestConnector.TestApiConnector;
+            connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
+            var myBYTE = new WebApiByte(connector, "", "myBYTE_does_not_exist");
+            var primitives = new List<ITwinPrimitive> { myBYTE };
+
+            try
+            {
+                await connector.ReadBatchAsync(primitives);
+            }
+            catch (Exception ex)
+            {
+                connector.HandleCommFailure(ex, "Test failure handling", primitives, null, new List<ApiRequestBase>());
+            }
+
+            Assert.True(myBYTE.AccessStatus.Failure);
+            Assert.Contains("Batch read failed", myBYTE.AccessStatus.FailureReason);
+        }
+
+        [Fact]
+        public async Task should_bulk_read_low_priority_with_alternating_parameters()
+        {
+            var connector = TestConnector.TestApiConnector;
+
+            var myBOOL = new WebApiBool(connector, "", "myBOOL");
+            var myBYTE = new WebApiByte(connector, "", "myBYTE");
+            var myINT = new WebApiInt(connector, "", "myINT");
+
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<short>(myINT, 43);
+
+            IEnumerable<ITwinPrimitive> primitives = new ITwinPrimitive[]
+            {
+                myBOOL,
+                myBYTE,
+                myINT
+            };
+
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Low, chunkSize: 100, interChunkDelay: 500);
+
+            Assert.True(myBOOL.Cyclic);
+            Assert.Equal(42, myBYTE.Cyclic);
+            Assert.Equal(43, myINT.Cyclic);
+        }
+
+        [Fact]
+        public async Task should_bulk_write_low_priority_with_alternating_parameters()
+        {
+            var connector = TestConnector.TestApiConnector;
+
+            var myBOOL = new WebApiBool(connector, "", "myBOOL");
+            var myBYTE = new WebApiByte(connector, "", "myBYTE");
+            var myINT = new WebApiInt(connector, "", "myINT");
+
+            myBOOL.Cyclic = false;
+            myBYTE.Cyclic = 100;
+            myINT.Cyclic = 200;
+
+            IEnumerable<ITwinPrimitive> primitives = new ITwinPrimitive[]
+            {
+                myBOOL,
+                myBYTE,
+                myINT
+            };
+
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Low, chunkSize: 50, interChunkDelay: 300);
+
+            Assert.False(myBOOL.Cyclic);
+            Assert.Equal(100, myBYTE.Cyclic);
+            Assert.Equal(200, myINT.Cyclic);
+        }
+
+        [Fact]
+        public async Task should_bulk_read_all_priorities()
+        {
+            var connector = TestConnector.TestApiConnector;
+
+            var myBOOL = new WebApiBool(connector, "", "myBOOL");
+            var myBYTE = new WebApiByte(connector, "", "myBYTE");
+            var myINT = new WebApiInt(connector, "", "myINT");
+
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<short>(myINT, 43);
+
+            IEnumerable<ITwinPrimitive> primitives = new ITwinPrimitive[]
+            {
+                myBOOL,
+                myBYTE,
+                myINT
+            };
+
+            // Test Normal priority
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Normal);
+            Assert.True(myBOOL.Cyclic);
+            Assert.Equal(42, myBYTE.Cyclic);
+            Assert.Equal(43, myINT.Cyclic);
+
+            await connector.WriteAsync<bool>(myBOOL, false);
+            await connector.WriteAsync<byte>(myBYTE, 0);
+            await connector.WriteAsync<short>(myINT, 0);
+
+            // Test Low priority
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<short>(myINT, 43);
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Low, chunkSize: 100, interChunkDelay: 500);
+            Assert.True(myBOOL.Cyclic);
+            Assert.Equal(42, myBYTE.Cyclic);
+            Assert.Equal(43, myINT.Cyclic);
+
+            await connector.WriteAsync<bool>(myBOOL, false);
+            await connector.WriteAsync<byte>(myBYTE, 0);
+            await connector.WriteAsync<short>(myINT, 0);
+
+            // Test Prioritare priority
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<short>(myINT, 43);
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Prioritare);
+            Assert.True(myBOOL.Cyclic);
+            Assert.Equal(42, myBYTE.Cyclic);
+            Assert.Equal(43, myINT.Cyclic);
+
+            await connector.WriteAsync<bool>(myBOOL, false);
+            await connector.WriteAsync<byte>(myBYTE, 0);
+            await connector.WriteAsync<short>(myINT, 0);
+
+            // Test Custom priority
+            await connector.WriteAsync<bool>(myBOOL, true);
+            await connector.WriteAsync<byte>(myBYTE, 42);
+            await connector.WriteAsync<short>(myINT, 43);
+            await connector.ReadBatchAsync(primitives, eAccessPriority.Custom, chunkSize: 50, interChunkDelay: 300);
+            Assert.True(myBOOL.Cyclic);
+            Assert.Equal(42, myBYTE.Cyclic);
+            Assert.Equal(43, myINT.Cyclic);
+
+            await connector.WriteAsync<bool>(myBOOL, false);
+            await connector.WriteAsync<byte>(myBYTE, 0);
+            await connector.WriteAsync<short>(myINT, 0);
+        }
+
+        [Fact]
+        public async Task should_bulk_write_all_priorities()
+        {
+            var connector = TestConnector.TestApiConnector;
+
+            var myBOOL = new WebApiBool(connector, "", "myBOOL");
+            var myBYTE = new WebApiByte(connector, "", "myBYTE");
+            var myINT = new WebApiInt(connector, "", "myINT");
+
+            myBOOL.Cyclic = false;
+            myBYTE.Cyclic = 100;
+            myINT.Cyclic = 200;
+
+            IEnumerable<ITwinPrimitive> primitives = new ITwinPrimitive[]
+            {
+                myBOOL,
+                myBYTE,
+                myINT
+            };
+
+            // Test Normal priority
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Normal);
+            Assert.False(myBOOL.Cyclic);
+            Assert.Equal(100, myBYTE.Cyclic);
+            Assert.Equal(200, myINT.Cyclic);
+
+            // Test Low priority
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Low, chunkSize: 50, interChunkDelay: 300);
+            Assert.False(myBOOL.Cyclic);
+            Assert.Equal(100, myBYTE.Cyclic);
+            Assert.Equal(200, myINT.Cyclic);
+
+            // Test Prioritare priority
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Prioritare);
+            Assert.False(myBOOL.Cyclic);
+            Assert.Equal(100, myBYTE.Cyclic);
+            Assert.Equal(200, myINT.Cyclic);
+
+            // Test Custom priority
+            await connector.WriteBatchAsync(primitives, eAccessPriority.Custom, chunkSize: 25, interChunkDelay: 100);
+            Assert.False(myBOOL.Cyclic);
+            Assert.Equal(100, myBYTE.Cyclic);
+            Assert.Equal(200, myINT.Cyclic);
         }
     }
 }

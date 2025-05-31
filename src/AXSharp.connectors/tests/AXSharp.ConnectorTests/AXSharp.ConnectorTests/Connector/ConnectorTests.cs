@@ -37,23 +37,23 @@ namespace AXSharp.ConnectorTests
             }
 
             public override Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives,
-                eAccessPriority priority = eAccessPriority.Normal)
+                eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
             {
                 return default(Task);
             }
 
             internal override Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives,
-                eAccessPriority priority = eAccessPriority.Normal)
+                eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
             {
                 return default(Task);
             }
 
-            public override Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
+            public override Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
             {
-                return default(Task);
+                return Task.CompletedTask;
             }
 
-            internal override Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal)
+            internal override Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
             {
                 return default(Task);
             }
