@@ -25,14 +25,18 @@ public static class WebApiConnectorExtensions
     /// <param name="password">Password.</param>
     /// <param name="ignoreSSLErros">When true connection will ignore SSL errors.</param>
     /// <param name="dbName">Name of default DB. The DB used to store all data in an AX project is 'TGlobalVariablesDB'.</param>
+    /// <param name="maxConcurrentRequest">Determines max concurrent R/W requests against the controller.</param>
+    /// <param name="concurrentRequestDelay">Determines delay between concurrent requests.</param>
     /// <returns>Connector adapter for WebAPI connection.</returns>
     public static ConnectorAdapter CreateWebApi(this ConnectorAdapterBuilder adapter,
         string ipAddress, string userName, string password, bool ignoreSSLErros,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
-        string dbName = "\"TGlobalVariablesDB\"")
+        string dbName = "\"TGlobalVariablesDB\"",
+        int maxConcurrentRequest = 4,
+        int concurrentRequestDelay = 0)
     {
         return new ConnectorAdapter(typeof(WebApiConnectorFactory))
-        { Parameters = new object[] { ipAddress, userName, password, ignoreSSLErros, platform, dbName } };
+            { Parameters = new object[] { ipAddress, userName, password, ignoreSSLErros, platform, dbName, maxConcurrentRequest, concurrentRequestDelay } };
     }
 
     /// <summary>
@@ -45,16 +49,26 @@ public static class WebApiConnectorExtensions
     /// <param name="customServerCertHandler">Customized server certificate handler.</param>
     /// <param name="ignoreSslErrors">When set to true ssl errors are ignored</param>
     /// <param name="dbName">Name of default DB. The DB used to store all data in an AX project is 'TGlobalVariablesDB'.</param>
+    /// <param name="maxConcurrentRequest">Determines max concurrent R/W requests against the controller.</param>
+    /// <param name="concurrentRequestDelay">Determines delay between concurrent requests.</param>
     /// <returns>Connector adapter for WebAPI connection.</returns>
     public static ConnectorAdapter CreateWebApi(this ConnectorAdapterBuilder adapter,
         string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
         bool ignoreSslErrors = false,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
-        string dbName = "\"TGlobalVariablesDB\"")
+        string dbName = "\"TGlobalVariablesDB\"",
+        int maxConcurrentRequest = 4,
+        int concurrentRequestDelay = 0)
     {
         return new ConnectorAdapter(typeof(WebApiConnectorFactory))
-        { Parameters = new object[] { ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName } };
+        {
+            Parameters = new object[]
+            {
+                ipAddress, userName, password, customServerCertHandler, ignoreSslErrors, platform, dbName,
+                maxConcurrentRequest, concurrentRequestDelay
+            }
+        };
     }
 
     public static DateOnly GetDateOnly(this int value)
@@ -62,7 +76,7 @@ public static class WebApiConnectorExtensions
         // 1 tick = 100 ns
         // Use DateTimeKind.Utc for correct interpretation
         var dateTime = new DateTime(1990, 1, 1, 0, 0, 0, DateTimeKind.Utc)
-                           .AddDays(value);
+            .AddDays(value);
 
         // Return the date portion in UTC
         return DateOnly.FromDateTime(dateTime.ToUniversalTime());
@@ -73,7 +87,7 @@ public static class WebApiConnectorExtensions
         // 1 tick = 100 ns
         // Use DateTimeKind.Utc for correct interpretation
         var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
-                           .AddTicks(value);
+            .AddTicks(value);
 
         // Return the date portion in UTC
         return DateOnly.FromDateTime(dateTime.ToUniversalTime());

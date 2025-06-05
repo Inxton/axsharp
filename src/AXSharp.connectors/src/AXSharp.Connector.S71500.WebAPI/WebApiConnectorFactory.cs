@@ -24,7 +24,9 @@ public class WebApiConnectorFactory : ConnectorFactory
                 (string)parameters[2],
                 (bool)parameters[3],
                 (eTargetProjectPlatform)parameters[4],
-                (string)parameters[5]);
+                (string)parameters[5],
+                (int)parameters[6],
+                (int)parameters[7]);
         }
         else
         {
@@ -34,7 +36,9 @@ public class WebApiConnectorFactory : ConnectorFactory
                 (Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>)parameters[3],
                 (bool)parameters[4],
                 (eTargetProjectPlatform)parameters[5],
-                (string)parameters[6]);
+                (string)parameters[6],
+                (int)parameters[7],
+                (int)parameters[8]);
         }
     }
 

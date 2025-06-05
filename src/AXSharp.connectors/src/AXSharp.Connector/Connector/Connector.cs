@@ -27,6 +27,7 @@ namespace AXSharp.Connector;
 // Type or member is obsolete
 /// <summary>
 ///     <para>Abstract base class provides implementation contract for the PLC connector and basic common underlying logic.</para>
+///     <para>Implements priority-based access control and configurable batch operations for efficient communication.</para>
 /// </summary>
 /// <seealso cref="RootTwinObject" />
 /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
@@ -182,24 +183,19 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     }
 
     /// <summary>
-    ///     Gets or sets delay between Concurrent Requests.
-    ///     It is applied when ConcurrentRequestMaxCount is reached.
+    ///     Gets delay between concurrent requests.
+    ///     It is applied when <see cref="ConcurrentRequestMaxCount"/> is reached.
     /// </summary>
     public int ConcurrentRequestDelay
     {
-        get
-        {
-            if (concurrentRequestDelay <= 10) concurrentRequestDelay = 10;
+        get => concurrentRequestDelay;
 
-            return concurrentRequestDelay;
-        }
-
-        set => SetField(ref concurrentRequestDelay, value, nameof(ConcurrentRequestDelay));
+        protected set => SetField(ref concurrentRequestDelay, value, nameof(ConcurrentRequestDelay));
     }
 
 
     /// <summary>
-    ///     Gets or sets maximal count of Concurrent Request.
+    ///     Gets maximal count of concurrent requests.
     ///     Maximum number of simultaneous requests is `4`.
     ///     >[!NOTE]
     ///     > The property will be capped to this value if higher value is assigned.
@@ -215,7 +211,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             return concurrentRequestMaxCount;
         }
 
-        set => SetField(ref concurrentRequestMaxCount, value, nameof(ConcurrentRequestMaxCount));
+        protected set => SetField(ref concurrentRequestMaxCount, value, nameof(ConcurrentRequestMaxCount));
     }
 
 
@@ -266,27 +262,33 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     public abstract Connector BuildAndStart();
 
     /// <summary>
-    /// Reads batch of value items from the PLC.
-    /// For `Normal` priority, all primitives are processed in a single chunk.
-    /// For `Low` priority, primitives are split into smaller chunks with a delay between processing each chunk.
+    /// Reads a batch of primitives asynchronously with specified priority and batch settings.
     /// </summary>
-    /// <param name="primitives">Primitive items to be written.</param>
-    /// <param name="priority">Access priority for the operation.</param>
-    /// <param name="chunkSize">Size of each chunk for processing primitives. Default is 250 for Low priority.</param>
-    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds. Default is 250 for Low priority.</param>
+    /// <param name="primitives">Collection of primitives to read.</param>
+    /// <param name="priority">Access priority level that determines batch processing parameters.</param>
+    /// <param name="chunkSize">Override for the number of items to process in each chunk.</param>
+    /// <param name="interChunkDelay">Override for the delay between chunks in milliseconds.</param>
+    /// <returns>A task representing the asynchronous read operation.</returns>
+    /// <remarks>
+    /// The actual batch processing parameters (chunk size and delay) may be determined by the
+    /// priority level rather than the provided parameters, depending on the connector implementation.
+    /// </remarks>
     public abstract Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
 
     internal abstract Task ReadBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
 
     /// <summary>
-    /// Writes batch of value items to the PLC.
-    /// For `Normal` priority, all primitives are processed in a single chunk.
-    /// For `Low` priority, primitives are split into smaller chunks with a delay between processing each chunk.
+    /// Writes a batch of primitives asynchronously with specified priority and batch settings.
     /// </summary>
-    /// <param name="primitives">Primitive items to be written.</param>
-    /// <param name="priority">Access priority for the operation.</param>
-    /// <param name="chunkSize">Size of each chunk for processing primitives. Default is 250 for Low priority.</param>
-    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds. Default is 250 for Low priority.</param>
+    /// <param name="primitives">Collection of primitives to write.</param>
+    /// <param name="priority">Access priority level that determines batch processing parameters.</param>
+    /// <param name="chunkSize">Override for the number of items to process in each chunk.</param>
+    /// <param name="interChunkDelay">Override for the delay between chunks in milliseconds.</param>
+    /// <returns>A task representing the asynchronous write operation.</returns>
+    /// <remarks>
+    /// The actual batch processing parameters (chunk size and delay) may be determined by the
+    /// priority level rather than the provided parameters, depending on the connector implementation.
+    /// </remarks>
     public abstract Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
 
     internal abstract Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250);
@@ -404,14 +406,14 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// <summary>
     /// Start polling queue of subscribed items.
     /// </summary>
-    public void StartSubscriptionPolling(int pollingInterval = 100)
+    public void StartSubscriptionPolling(int pollingInterval = 100, int chunkSize = 250, int interChunkDelay = 250)
     {
         Task.Run(async () =>
         {
             while (true)
             {
                 await Task.Delay(pollingInterval);
-                await ReadBatchAsync(this.Subscribed.Values);
+                await ReadBatchAsync(this.Subscribed.Values, eAccessPriority.Custom, chunkSize, interChunkDelay);
             }
         });
     }
@@ -482,7 +484,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         }
 
         await ReadBatchAsyncCyclic(distinctPrimitivesToRead
-            .Where(p => !(p.ReadOnce && p.AccessStatus.LastAccess != OnlinerBase.DefaultDateTime)));
+            .Where(p => !(p.ReadOnce && p.AccessStatus.LastAccess != OnlinerBase.DefaultDateTime)), eAccessPriority.UserInterface);
 
         this.ClearPeriodicReadSet();
     }
@@ -492,7 +494,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// </summary>
     protected async Task CyclicWrite()
     {
-        await WriteBatchAsyncCyclic(NextCycleWriteSet.Values);
+        await WriteBatchAsyncCyclic(NextCycleWriteSet.Values, eAccessPriority.UserInterface);
         ClearPeriodicWriteSet();
     }
 

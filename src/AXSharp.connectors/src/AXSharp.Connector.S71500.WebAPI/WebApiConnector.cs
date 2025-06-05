@@ -24,6 +24,7 @@ namespace AXSharp.Connector.S71500.WebApi;
 /// <summary>
 /// Provides connector to mediate connection with AX# twins over WebAPI connection.
 /// This connector facilitates communication with Siemens S7 PLCs using WebAPI.
+/// Supports priority-based access control and configurable batch operations.
 /// </summary>
 public class WebApiConnector : Connector
 {
@@ -40,17 +41,24 @@ public class WebApiConnector : Connector
     /// <param name="ignoreSSLErros">When set to true, SSL errors are ignored.</param>
     /// <param name="platform">Target project platform (default is SIMATICAX).</param>
     /// <param name="dbName">Root DB name (default is 'TGlobalVariablesDB').</param>
+    /// <param name="maxConcurrentRequest">Determines max concurrent R/W requests against the controller.</param>
+    /// <param name="concurrentRequestDelay">Determines delay between concurrent requests.</param>
     public WebApiConnector(string ipAddress, string userName, string password,
         Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? customServerCertHandler,
         bool ignoreSSLErros,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
-        string dbName = "\"TGlobalVariablesDB\"")
+        string dbName = "\"TGlobalVariablesDB\"",
+        int maxConcurrentRequest = 4,
+        int concurrentRequestDelay = 0)
     {
         IPAddress = ipAddress;
         DBName = dbName;
         TargetPlatform = platform;
         UserName = userName;
         UserPassword = password;
+        this.ConcurrentRequestMaxCount = maxConcurrentRequest;
+        this.ConcurrentRequestDelay = concurrentRequestDelay;
+
 
         if (ignoreSSLErros)
             ServerCertificateCallback.CertificateCallback =
@@ -67,6 +75,7 @@ public class WebApiConnector : Connector
 
         _throttle = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
 
+
         NumberOfInstances++;
     }
 
@@ -79,15 +88,22 @@ public class WebApiConnector : Connector
     /// <param name="ignoreSSLErros">When set to true, SSL errors are ignored.</param>
     /// <param name="platform">Target project platform (default is SIMATICAX).</param>
     /// <param name="dbName">Root DB name (default is 'TGlobalVariablesDB').</param>
+    /// <param name="maxConcurrentRequest">Determines max concurrent R/W requests against the controller.</param>
+    /// <param name="concurrentRequestDelay">Determines delay between concurrent requests.</param>
     public WebApiConnector(string ipAddress, string userName, string password, bool ignoreSSLErros,
         eTargetProjectPlatform platform = eTargetProjectPlatform.SIMATICAX,
-        string dbName = "\"TGlobalVariablesDB\"")
+        string dbName = "\"TGlobalVariablesDB\"",
+        int maxConcurrentRequest = 4,
+        int concurrentRequestDelay = 0)
     {
         IPAddress = ipAddress;
         DBName = dbName;
         TargetPlatform = platform;
         UserName = userName;
         UserPassword = password;
+        this.ConcurrentRequestMaxCount = maxConcurrentRequest;
+        this.ConcurrentRequestDelay = concurrentRequestDelay;
+
 
         if (ignoreSSLErros)
             ServerCertificateCallback.CertificateCallback =
@@ -321,7 +337,7 @@ public class WebApiConnector : Connector
     }
 
 
-    private readonly SemaphoreSlim _throttle;
+    private SemaphoreSlim _throttle;
 
     private async Task AntiThrottling()
     {
@@ -334,23 +350,32 @@ public class WebApiConnector : Connector
     }
 
 
+    /// <summary>
+    /// Gets or sets the batch operation settings for different priority levels.
+    /// Each priority level can have its own chunk size and inter-chunk delay settings.
+    /// </summary>
+    /// <remarks>
+    /// The dictionary maps each priority level to a tuple containing:
+    /// - chunkSize: Maximum number of items to process in a single batch (null uses default)
+    /// - interChunkDelay: Delay in milliseconds between chunks (null uses default)
+    /// </remarks>
     public Dictionary<eAccessPriority, (int? chunkSize, int? interChunkDelay)> BatchSettings { get; } = new()
     {
-        { eAccessPriority.Normal, (null, 25) },
-        { eAccessPriority.Low, (250, 250) },
-        { eAccessPriority.Prioritare, (null, 0) },
+        { eAccessPriority.Low, (100, 500) },
+        { eAccessPriority.Normal, (250, 250) },
+        { eAccessPriority.UserInterface, (null, null) },
+        { eAccessPriority.High, (null, null) },
         { eAccessPriority.Custom, (null, null) }
     };
 
     /// <summary>
-    /// Reads a batch of value items from the PLC.
-    /// Supports chunking and prioritization for efficient data retrieval.
+    /// Reads a batch of primitives asynchronously with the specified priority and batch settings.
     /// </summary>
-    /// <param name="primitives">Primitive items to be read.</param>
-    /// <param name="priority">Access priority for the operation.
-    /// ATTENTION! When set to any other value than <see cref="eAccessPriority.Custom"/> arguments <see cref="chunkSize"/> and <see cref="interChunkDelay"/> are ignored.</param>
-    /// <param name="chunkSize">Size of each chunk for processing primitives (default is 250).</param>
-    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds (default is 250).</param>
+    /// <param name="primitives">Collection of primitives to read.</param>
+    /// <param name="priority">Access priority level that determines batch processing parameters.</param>
+    /// <param name="chunkSize">Override for the number of items to process in each chunk. If not specified, uses the priority's default.</param>
+    /// <param name="interChunkDelay">Override for the delay between chunks in milliseconds. If not specified, uses the priority's default.</param>
+    /// <returns>A task representing the asynchronous read operation.</returns>
     public override async Task ReadBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         if (!primitives.Any()) return;
@@ -358,149 +383,144 @@ public class WebApiConnector : Connector
         var responseData = new ApiBulkResponse();
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
-        try
+
+        if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatch.Restart();
+
+        if (Logger.IsEnabled(LogEventLevel.Verbose))
+            Logger
+                .Verbose("{vars}",
+                    string.Join("\n",
+                        twinPrimitives.Select(p =>
+                            $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
+
+
+        var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
+
+        chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
+        interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
+
+        var chunks = webApiPrimitives.Select((x, i) => new { x, i })
+                                     .GroupBy(x => x.i / chunkSize)
+                                     .Select(g => g.Select(x => x.x).ToArray());
+
+        foreach (var chunk in chunks)
         {
-            if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatch.Restart();
+            var requestSegment = chunk;
+            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+            var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
 
-            if (Logger.IsEnabled(LogEventLevel.Verbose))
-                Logger
-                    .Verbose("{vars}",
-                        string.Join("\n",
-                            twinPrimitives.Select(p =>
-                                $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
-
-            await AntiThrottling();
-
-            var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
-
-            chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
-            interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
-
-            var chunks = webApiPrimitives.Select((x, i) => new { x, i })
-                                         .GroupBy(x => x.i / chunkSize)
-                                         .Select(g => g.Select(x => x.x).ToArray());
-
-            foreach (var chunk in chunks)
+            try
             {
-                var requestSegment = chunk;
-                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-                var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
+                await AntiThrottling();
 
-                try
+                await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
+
+                if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
                 {
-                    await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
-
-                    if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
+                    foreach (var response in responseData.SuccessfulResponses)
                     {
-                        foreach (var response in responseData.SuccessfulResponses)
+                        var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
+                        if (a == null) continue;
+                        a.Read(response.Result.ToString());
+                        a.AccessStatus.Update(RwCycleCount);
+                    }
+                }
+                else
+                {
+                    var position = 0;
+                    apiPrimitives.ToList()
+                        .ForEach(p =>
                         {
-                            var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
-                            if (a == null) continue;
-                            a.Read(response.Result.ToString());
-                            a.AccessStatus.Update(RwCycleCount);
-                        }
-                    }
-                    else
-                    {
-                        var position = 0;
-                        apiPrimitives.ToList()
-                            .ForEach(p =>
-                            {
-                                p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
-                                p.AccessStatus.Update(RwCycleCount);
-                            });
-                    }
-                }
-                catch (ApiBulkRequestException apiException)
-                {
-                    HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
-                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-                }
-                catch (Exception e)
-                {
-                    HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
-                        apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+                            p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
+                            p.AccessStatus.Update(RwCycleCount);
+                        });
                 }
 
-                if (priority == eAccessPriority.Low)
+                if (interChunkDelay > 0)
                 {
                     await Task.Delay(interChunkDelay);
                 }
             }
+            catch (ApiBulkRequestException apiException)
+            {
+                HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
+                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+            }
+            catch (Exception e)
+            {
+                HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
+                    apiPrimitives.Select(p => p.PeekPlcReadRequestData));
+            }
+            finally
+            {
+                ReleaseConcurrent();
+            }
         }
-        finally
-        {
-            ReleaseConcurrent();
-        }
+
+
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
             Logger.Debug($"Bulk reading: {twinPrimitives.Count()} items read in {stopwatch.ElapsedMilliseconds} ms.");
     }
 
     /// <summary>
-    /// Writes a batch of value items to the PLC.
-    /// Supports chunking and prioritization for efficient data writing.
+    /// Writes a batch of primitives asynchronously with the specified priority and batch settings.
     /// </summary>
-    /// <param name="primitives">Primitive items to be written.</param>
-    /// <param name="priority">Access priority for the operation.
-    /// ATTENTION! When set to any other value than <see cref="eAccessPriority.Custom"/> arguments <see cref="chunkSize"/> and <see cref="interChunkDelay"/> are ignored.</param>
-    /// </param>
-    /// <param name="chunkSize">Size of each chunk for processing primitives (default is 250).</param>
-    /// <param name="interChunkDelay">Delay between processing chunks in milliseconds (default is 250).</param>
+    /// <param name="primitives">Collection of primitives to write.</param>
+    /// <param name="priority">Access priority level that determines batch processing parameters.</param>
+    /// <param name="chunkSize">Override for the number of items to process in each chunk. If not specified, uses the priority's default.</param>
+    /// <param name="interChunkDelay">Override for the delay between chunks in milliseconds. If not specified, uses the priority's default.</param>
+    /// <returns>A task representing the asynchronous write operation.</returns>
     public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
         if (primitives == null || !primitives.Any()) return;
 
-        try
+        var responseData = new ApiBulkResponse();
+        var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
+
+        if (twinPrimitives.Any())
+            if (Logger.IsEnabled(LogEventLevel.Verbose))
+                Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
+
+        var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
+
+        chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
+        interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
+
+        var chunks = webApiPrimitives.Select((x, i) => new { x, i })
+                                     .GroupBy(x => x.i / chunkSize)
+                                     .Select(g => g.Select(x => x.x).ToArray());
+
+        foreach (var chunk in chunks)
         {
-            await AntiThrottling();
+            var requestSegment = chunk;
+            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
 
-            var responseData = new ApiBulkResponse();
-            var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
-
-            if (twinPrimitives.Any())
-                if (Logger.IsEnabled(LogEventLevel.Verbose))
-                    Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
-
-            var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
-
-            chunkSize = priority == eAccessPriority.Custom ? chunkSize : BatchSettings[priority].chunkSize ?? webApiPrimitives.Length;
-            interChunkDelay = priority == eAccessPriority.Custom ? interChunkDelay : BatchSettings[priority].interChunkDelay ?? 0;
-
-            var chunks = webApiPrimitives.Select((x, i) => new { x, i })
-                                         .GroupBy(x => x.i / chunkSize)
-                                         .Select(g => g.Select(x => x.x).ToArray());
-
-            foreach (var chunk in chunks)
+            try
             {
-                var requestSegment = chunk;
-                var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+                await AntiThrottling();
+                await RetryPolicy.ExecuteAsync(async () =>
+                    await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
 
-                try
-                {
-                    await RetryPolicy.ExecuteAsync(async () =>
-                        await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
-                }
-                catch (ApiBulkRequestException apiException)
-                {
-                    HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
-                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-                }
-                catch (Exception e)
-                {
-                    HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
-                        apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-                }
-
-                if (priority == eAccessPriority.Low)
+                if (interChunkDelay > 0)
                 {
                     await Task.Delay(interChunkDelay);
                 }
             }
-        }
-        finally
-        {
-            ReleaseConcurrent();
+            catch (ApiBulkRequestException apiException)
+            {
+                HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
+                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+            }
+            catch (Exception e)
+            {
+                HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
+                    apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
+            }
+            finally
+            {
+                ReleaseConcurrent();
+            }
         }
     }
 
