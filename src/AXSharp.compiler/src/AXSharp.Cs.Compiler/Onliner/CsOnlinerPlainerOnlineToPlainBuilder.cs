@@ -131,11 +131,11 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainerOnliners(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(eAccessPriority priority = eAccessPriority.Normal){{\n");
         builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
-        builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
+        builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>(priority);");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
@@ -161,13 +161,13 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerOnlineToPlainBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName,$"{semantics.GetFullyQualifiedPocoName()}", isExtended));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainerOnliners(MethodName,$"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
         var qualifier = isExtended ? "new" : string.Empty;
         
-        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
+        builder.AddToSource($"public {qualifier} async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(eAccessPriority priority = eAccessPriority.Normal){{\n");
         builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
-        builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>();");
+        builder.AddToSource("await this.ReadAsync<IgnoreOnPocoOperation>(priority);");
 
         if (isExtended)
         {
