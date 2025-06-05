@@ -73,7 +73,7 @@ public class WebApiConnector : Connector
 
         requestHandler.Init();
 
-        _throttle = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
+        antiThrottlingSemaphore = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
 
 
         NumberOfInstances++;
@@ -121,7 +121,7 @@ public class WebApiConnector : Connector
         requestHandler.ApiLogout();
         requestHandler.ApiLogin(UserName, UserPassword ?? string.Empty, true);
 
-        _throttle = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
+        antiThrottlingSemaphore = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
 
         NumberOfInstances++;
     }
@@ -337,16 +337,16 @@ public class WebApiConnector : Connector
     }
 
 
-    private SemaphoreSlim _throttle;
+    private SemaphoreSlim antiThrottlingSemaphore;
 
     private async Task AntiThrottling()
     {
-        await _throttle.WaitAsync();
+        await antiThrottlingSemaphore.WaitAsync();
     }
 
     private void ReleaseConcurrent()
     {
-        _throttle.Release();
+        antiThrottlingSemaphore.Release();
     }
 
 
@@ -362,7 +362,7 @@ public class WebApiConnector : Connector
     public Dictionary<eAccessPriority, (int? chunkSize, int? interChunkDelay)> BatchSettings { get; } = new()
     {
         { eAccessPriority.Low, (100, 500) },
-        { eAccessPriority.Normal, (250, 250) },
+        { eAccessPriority.Normal, (null, null) },
         { eAccessPriority.UserInterface, (null, null) },
         { eAccessPriority.High, (null, null) },
         { eAccessPriority.Custom, (null, null) }
