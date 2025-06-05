@@ -411,8 +411,9 @@ namespace integrated.tests
             var pollingConnector = polling.GetParent().GetConnector();
             pollingConnector.SubscriptionMode = ReadSubscriptionMode.Polling;
             pollingConnector.BuildAndStart().ReadWriteCycleDelay = 10;
-            pollingConnector.ConcurrentRequestMaxCount = 6;
-            pollingConnector.ConcurrentRequestDelay = 20;
+            // We can't set the following properties since they need to be set at connector construction time.
+            //pollingConnector.ConcurrentRequestMaxCount = 6;
+            //pollingConnector.ConcurrentRequestDelay = 20;
 
             var testedMembes = new List<PollingTestMember>();
             foreach (var item in polling.RetrievePrimitives().ToList())

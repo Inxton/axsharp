@@ -1522,7 +1522,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
             await connector.WriteAsync<bool>(myBOOL, true);
             await connector.WriteAsync<byte>(myBYTE, 42);
             await connector.WriteAsync<short>(myINT, 43);
-            await connector.ReadBatchAsync(primitives, eAccessPriority.Prioritare);
+            await connector.ReadBatchAsync(primitives, eAccessPriority.High);
             Assert.True(myBOOL.Cyclic);
             Assert.Equal(42, myBYTE.Cyclic);
             Assert.Equal(43, myINT.Cyclic);
@@ -1578,7 +1578,7 @@ namespace AXSharp.Connector.S71500.WebAPITests
             Assert.Equal(200, myINT.Cyclic);
 
             // Test Prioritare priority
-            await connector.WriteBatchAsync(primitives, eAccessPriority.Prioritare);
+            await connector.WriteBatchAsync(primitives, eAccessPriority.High);
             Assert.False(myBOOL.Cyclic);
             Assert.Equal(100, myBYTE.Cyclic);
             Assert.Equal(200, myINT.Cyclic);

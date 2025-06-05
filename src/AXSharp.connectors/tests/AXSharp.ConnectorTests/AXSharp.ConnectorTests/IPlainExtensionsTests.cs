@@ -153,7 +153,7 @@ namespace AXSharp.ConnectorTests
             return this.Translate(this.HumanReadable, culture);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -214,12 +214,12 @@ namespace AXSharp.ConnectorTests
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.all_primitives plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.all_primitives plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             myBOOL.Cyclic = plain.myBOOL;
             myBYTE.Cyclic = plain.myBYTE;

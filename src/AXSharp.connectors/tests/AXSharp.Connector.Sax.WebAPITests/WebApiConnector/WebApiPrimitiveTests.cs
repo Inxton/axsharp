@@ -45,8 +45,9 @@ namespace AXSharp.Connector.S71500.WebAPITests.Primitives
         {
             Output = output;
             TestConnector.TestApiConnector.ReadWriteCycleDelay = 2;
-            TestConnector.TestApiConnector.ConcurrentRequestMaxCount = 4;
-            TestConnector.TestApiConnector.ConcurrentRequestDelay = 10;
+            // These properties cannot be set here, and they need to be set at connector construction time. Default values will be used instead.
+            //TestConnector.TestApiConnector.ConcurrentRequestMaxCount = 4;
+            //TestConnector.TestApiConnector.ConcurrentRequestDelay = 10;
             webApiPrimitive = Activator.CreateInstance(typeof(T), Connector, "", SymbolTail) as T;
             minMatches = new WebApiBool(Connector, "", $"minsmatch.{SymbolTail}");
             maxMatches = new WebApiBool(Connector, "", $"maxsmatch.{SymbolTail}");
