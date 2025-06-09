@@ -349,25 +349,6 @@ public class WebApiConnector : Connector
         antiThrottlingSemaphore.Release();
     }
 
-
-    /// <summary>
-    /// Gets or sets the batch operation settings for different priority levels.
-    /// Each priority level can have its own chunk size and inter-chunk delay settings.
-    /// </summary>
-    /// <remarks>
-    /// The dictionary maps each priority level to a tuple containing:
-    /// - chunkSize: Maximum number of items to process in a single batch (null uses default)
-    /// - interChunkDelay: Delay in milliseconds between chunks (null uses default)
-    /// </remarks>
-    public Dictionary<eAccessPriority, (int? chunkSize, int? interChunkDelay)> BatchSettings { get; } = new()
-    {
-        { eAccessPriority.Low, (100, 500) },
-        { eAccessPriority.Normal, (null, null) },
-        { eAccessPriority.UserInterface, (null, null) },
-        { eAccessPriority.High, (null, null) },
-        { eAccessPriority.Custom, (null, null) }
-    };
-
     /// <summary>
     /// Reads a batch of primitives asynchronously with the specified priority and batch settings.
     /// </summary>
