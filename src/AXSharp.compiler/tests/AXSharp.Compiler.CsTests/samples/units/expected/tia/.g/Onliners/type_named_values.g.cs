@@ -35,15 +35,15 @@ namespace NamedValuesNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.NamedValuesNamespace.using_type_named_values> OnlineToPlainAsync()
+        public async Task<global::Pocos.NamedValuesNamespace.using_type_named_values> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.NamedValuesNamespace.using_type_named_values plain = new global::Pocos.NamedValuesNamespace.using_type_named_values();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.LColors = LColors.LastValue;
             return plain;
         }
@@ -65,17 +65,17 @@ namespace NamedValuesNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.NamedValuesNamespace.using_type_named_values plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.NamedValuesNamespace.using_type_named_values plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             LColors.LethargicWrite(plain.LColors);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

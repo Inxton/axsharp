@@ -25,15 +25,15 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Motor> OnlineToPlainAsync()
+    public async Task<global::Pocos.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.Motor plain = new global::Pocos.Motor();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.isRunning = isRunning.LastValue;
         return plain;
     }
@@ -53,17 +53,17 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         isRunning.LethargicWrite(plain.isRunning);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -236,15 +236,15 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Vehicle> OnlineToPlainAsync()
+    public async Task<global::Pocos.Vehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.Vehicle plain = new global::Pocos.Vehicle();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         plain.m = await m._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -273,12 +273,12 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Vehicle plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Vehicle plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -286,7 +286,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
 #pragma warning disable CS0612
         displacement.LethargicWrite(plain.displacement);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

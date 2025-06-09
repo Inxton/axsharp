@@ -28,15 +28,15 @@ namespace TypeWithNameAttributes
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.TypeWithNameAttributes.Motor plain = new global::Pocos.TypeWithNameAttributes.Motor();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.isRunning = isRunning.LastValue;
             return plain;
         }
@@ -56,17 +56,17 @@ namespace TypeWithNameAttributes
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Motor plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             isRunning.LethargicWrite(plain.isRunning);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -239,15 +239,15 @@ namespace TypeWithNameAttributes
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.Vehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.TypeWithNameAttributes.Vehicle plain = new global::Pocos.TypeWithNameAttributes.Vehicle();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -276,12 +276,12 @@ namespace TypeWithNameAttributes
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.Vehicle plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -289,7 +289,7 @@ namespace TypeWithNameAttributes
 #pragma warning disable CS0612
             displacement.LethargicWrite(plain.displacement);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -484,15 +484,15 @@ namespace TypeWithNameAttributes
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> OnlineToPlainAsync()
+        public async Task<global::Pocos.TypeWithNameAttributes.NoAccessModifierClass> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain = new global::Pocos.TypeWithNameAttributes.NoAccessModifierClass();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
         }
@@ -514,17 +514,17 @@ namespace TypeWithNameAttributes
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.TypeWithNameAttributes.NoAccessModifierClass plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             SomeClassVariable.LethargicWrite(plain.SomeClassVariable);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

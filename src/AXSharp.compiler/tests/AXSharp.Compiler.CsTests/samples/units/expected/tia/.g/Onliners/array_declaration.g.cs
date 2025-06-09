@@ -31,15 +31,15 @@ namespace ArrayDeclarationSimpleNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> OnlineToPlainAsync()
+        public async Task<global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain = new global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.primitive = primitive.Select(p => p.LastValue).ToArray();
 #pragma warning disable CS0612
             plain.complex = complex.Select(async p => await p._OnlineToPlainNoacAsync()).Select(p => p.Result).ToArray();
@@ -70,12 +70,12 @@ namespace ArrayDeclarationSimpleNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ArrayDeclarationSimpleNamespace.array_declaration_class plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             var _primitive_i_FE8484DAB3 = 0;
 #pragma warning disable CS0612
@@ -85,7 +85,7 @@ namespace ArrayDeclarationSimpleNamespace
 #pragma warning disable CS0612
             complex.Select(p => p._PlainToOnlineNoacAsync(plain.complex[_complex_i_FE8484DAB3++])).ToArray();
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -273,15 +273,15 @@ namespace ArrayDeclarationSimpleNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> OnlineToPlainAsync()
+        public async Task<global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain = new global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -300,14 +300,14 @@ namespace ArrayDeclarationSimpleNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ArrayDeclarationSimpleNamespace.some_complex_type plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

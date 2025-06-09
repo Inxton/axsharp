@@ -24,15 +24,15 @@ namespace GenericsTests
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.GenericsTests.Extender> OnlineToPlainAsync()
+        public async Task<global::Pocos.GenericsTests.Extender> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.GenericsTests.Extender plain = new global::Pocos.GenericsTests.Extender();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -51,14 +51,14 @@ namespace GenericsTests
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.Extender plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.Extender plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -223,15 +223,15 @@ namespace GenericsTests
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.GenericsTests.SomeTypeToBeGeneric> OnlineToPlainAsync()
+        public async Task<global::Pocos.GenericsTests.SomeTypeToBeGeneric> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.GenericsTests.SomeTypeToBeGeneric plain = new global::Pocos.GenericsTests.SomeTypeToBeGeneric();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Boolean = Boolean.LastValue;
             plain.Cele = Cele.LastValue;
             return plain;
@@ -256,12 +256,12 @@ namespace GenericsTests
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.SomeTypeToBeGeneric plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.SomeTypeToBeGeneric plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Boolean.LethargicWrite(plain.Boolean);
@@ -269,7 +269,7 @@ namespace GenericsTests
 #pragma warning disable CS0612
             Cele.LethargicWrite(plain.Cele);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -445,15 +445,15 @@ namespace GenericsTests
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<global::Pocos.GenericsTests.Extendee2> OnlineToPlainAsync()
+        public new async Task<global::Pocos.GenericsTests.Extendee2> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.GenericsTests.Extendee2 plain = new global::Pocos.GenericsTests.Extendee2();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -490,18 +490,18 @@ namespace GenericsTests
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.Extendee2 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericsTests.Extendee2 plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
             await this.SomeData._PlainToOnlineNoacAsync(plain.SomeData);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

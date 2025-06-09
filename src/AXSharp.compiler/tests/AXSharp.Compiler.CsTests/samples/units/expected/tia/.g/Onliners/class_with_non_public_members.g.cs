@@ -27,15 +27,15 @@ namespace ClassWithNonTraspilableMemberssNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> OnlineToPlainAsync()
+        public async Task<global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain = new global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             plain.myComplexType = await myComplexType._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -63,17 +63,17 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithNonTraspilableMemberssNamespace.ClassWithNonTraspilableMembers plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             await this.myComplexType._PlainToOnlineNoacAsync(plain.myComplexType);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -241,15 +241,15 @@ namespace ClassWithNonTraspilableMemberssNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> OnlineToPlainAsync()
+        public async Task<global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain = new global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -268,14 +268,14 @@ namespace ClassWithNonTraspilableMemberssNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithNonTraspilableMemberssNamespace.ComplexType1 plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
