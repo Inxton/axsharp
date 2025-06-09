@@ -79,15 +79,15 @@ namespace ClassWithPrimitiveTypesNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> OnlineToPlainAsync()
+        public async Task<global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain = new global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.myBOOL = myBOOL.LastValue;
             plain.myBYTE = myBYTE.LastValue;
             plain.myWORD = myWORD.LastValue;
@@ -187,12 +187,12 @@ namespace ClassWithPrimitiveTypesNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ClassWithPrimitiveTypesNamespace.ClassWithPrimitiveTypes plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             myBOOL.LethargicWrite(plain.myBOOL);
@@ -275,7 +275,7 @@ namespace ClassWithPrimitiveTypesNamespace
 #pragma warning disable CS0612
             myWSTRING.LethargicWrite(plain.myWSTRING);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

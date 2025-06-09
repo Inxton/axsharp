@@ -76,14 +76,14 @@ public interface ITwinObject : ITwinElement
     /// Reads online data and retrieved POCO object populated with actual online data.
     /// </summary>
     /// <returns>POCO with online data of this object</returns>
-    Task<T> OnlineToPlain<T>();
+    Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal);
 
 
     /// <summary>
     /// Writes data from POCO object to online data (PLC)
     /// </summary>
     /// <param name="plain">POCO object to be written to the controller.</param>
-    Task PlainToOnline<T>(T plain);
+    Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal);
 
 
     /// <summary>

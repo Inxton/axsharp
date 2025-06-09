@@ -27,15 +27,15 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain = new global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -54,14 +54,14 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleFirstLevelNamespace.Hello plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -224,15 +224,15 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain = new global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -251,14 +251,14 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsSimpleQualifiedNamespace.Qualified.Hello plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -423,15 +423,15 @@ namespace FileWithUsingsHelloLevelOne
                 PostConstruct(parent, readableTail, symbolTail);
             }
 
-            public async virtual Task<T> OnlineToPlain<T>()
+            public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
             {
-                return await (dynamic)this.OnlineToPlainAsync();
+                return await (dynamic)this.OnlineToPlainAsync(priority);
             }
 
-            public async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> OnlineToPlainAsync()
+            public async Task<global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
             {
                 global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain = new global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello();
-                await this.ReadAsync<IgnoreOnPocoOperation>();
+                await this.ReadAsync<IgnoreOnPocoOperation>(priority);
                 return plain;
             }
 
@@ -450,14 +450,14 @@ namespace FileWithUsingsHelloLevelOne
                 return plain;
             }
 
-            public async virtual Task PlainToOnline<T>(T plain)
+            public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
             {
-                await this.PlainToOnlineAsync((dynamic)plain);
+                await this.PlainToOnlineAsync((dynamic)plain, priority);
             }
 
-            public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain)
+            public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo.Hello plain, eAccessPriority priority = eAccessPriority.Normal)
             {
-                return await this.WriteAsync<IgnoreOnPocoOperation>();
+                return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
             }
 
             [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -621,15 +621,15 @@ namespace ExampleNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.ExampleNamespace.Hello> OnlineToPlainAsync()
+        public async Task<global::Pocos.ExampleNamespace.Hello> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.ExampleNamespace.Hello plain = new global::Pocos.ExampleNamespace.Hello();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -648,14 +648,14 @@ namespace ExampleNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExampleNamespace.Hello plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExampleNamespace.Hello plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

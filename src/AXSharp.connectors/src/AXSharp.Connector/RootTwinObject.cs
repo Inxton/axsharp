@@ -138,12 +138,12 @@ public class RootTwinObject : ITwinObject
         return this as Connector;
     }
 
-    public Task<T> OnlineToPlain<T>()
+    public Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
         throw new NotImplementedException();
     }
 
-    public Task PlainToOnline<T>(T plain)
+    public Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
         throw new NotImplementedException();
     }

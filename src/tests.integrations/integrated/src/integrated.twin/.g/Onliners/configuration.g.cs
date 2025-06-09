@@ -23,15 +23,15 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Pokus> OnlineToPlainAsync()
+    public async Task<global::Pocos.Pokus> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.Pokus plain = new global::Pocos.Pokus();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         return plain;
     }
 
@@ -50,14 +50,14 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Pokus plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Pokus plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -217,15 +217,15 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Nested> OnlineToPlainAsync()
+    public async Task<global::Pocos.Nested> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.Nested plain = new global::Pocos.Nested();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         return plain;
     }
 
@@ -244,14 +244,14 @@ public partial class Nested : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Nested plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Nested plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
