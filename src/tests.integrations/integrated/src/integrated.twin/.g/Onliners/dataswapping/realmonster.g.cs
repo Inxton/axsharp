@@ -41,15 +41,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.RealMonsterData.RealMonsterBase> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.RealMonsterBase> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.RealMonsterBase plain = new global::Pocos.RealMonsterData.RealMonsterBase();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Description = Description.LastValue;
             plain.Id = Id.LastValue;
             plain.TestDate = TestDate.LastValue;
@@ -95,12 +95,12 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonsterBase plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonsterBase plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Description.LethargicWrite(plain.Description);
@@ -125,7 +125,7 @@ namespace RealMonsterData
 #pragma warning disable CS0612
             ArrayOfDrives.Select(p => p._PlainToOnlineNoacAsync(plain.ArrayOfDrives[_ArrayOfDrives_i_FE8484DAB3++])).ToArray();
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -350,15 +350,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<global::Pocos.RealMonsterData.RealMonster> OnlineToPlainAsync()
+        public new async Task<global::Pocos.RealMonsterData.RealMonster> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.RealMonster plain = new global::Pocos.RealMonsterData.RealMonster();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -395,18 +395,18 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonster plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.RealMonster plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
             await this.DriveA._PlainToOnlineNoacAsync(plain.DriveA);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -516,15 +516,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.RealMonsterData.DriveBaseNested> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.DriveBaseNested> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.DriveBaseNested plain = new global::Pocos.RealMonsterData.DriveBaseNested();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -564,12 +564,12 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.DriveBaseNested plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.DriveBaseNested plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -586,7 +586,7 @@ namespace RealMonsterData
 #pragma warning disable CS0612
             await this.NestedLevelOne._PlainToOnlineNoacAsync(plain.NestedLevelOne);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -797,15 +797,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.RealMonsterData.NestedLevelOne> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelOne> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.NestedLevelOne plain = new global::Pocos.RealMonsterData.NestedLevelOne();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -845,12 +845,12 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelOne plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelOne plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -867,7 +867,7 @@ namespace RealMonsterData
 #pragma warning disable CS0612
             await this.NestedLevelTwo._PlainToOnlineNoacAsync(plain.NestedLevelTwo);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -1078,15 +1078,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.RealMonsterData.NestedLevelTwo> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelTwo> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.NestedLevelTwo plain = new global::Pocos.RealMonsterData.NestedLevelTwo();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -1126,12 +1126,12 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelTwo plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1148,7 +1148,7 @@ namespace RealMonsterData
 #pragma warning disable CS0612
             await this.NestedLevelThree._PlainToOnlineNoacAsync(plain.NestedLevelThree);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -1357,15 +1357,15 @@ namespace RealMonsterData
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.RealMonsterData.NestedLevelThree> OnlineToPlainAsync()
+        public async Task<global::Pocos.RealMonsterData.NestedLevelThree> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.RealMonsterData.NestedLevelThree plain = new global::Pocos.RealMonsterData.NestedLevelThree();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.Position = Position.LastValue;
             plain.Velo = Velo.LastValue;
             plain.Acc = Acc.LastValue;
@@ -1396,12 +1396,12 @@ namespace RealMonsterData
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelThree plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.RealMonsterData.NestedLevelThree plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             Position.LethargicWrite(plain.Position);
@@ -1415,7 +1415,7 @@ namespace RealMonsterData
 #pragma warning disable CS0612
             Dcc.LethargicWrite(plain.Dcc);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

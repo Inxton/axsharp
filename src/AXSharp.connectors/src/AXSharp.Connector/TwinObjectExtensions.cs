@@ -99,13 +99,14 @@ public static class TwinObjectExtensions
     /// </summary>
     /// <typeparam name="T">Attribute parameter to be ignored</typeparam>
     /// <param name="structure">Structure to be read</param>
+    /// <param name="priority">Determines access priority</param>
     /// <returns>List of read items.</returns>
-    public static async Task<IEnumerable<ITwinPrimitive>> ReadAsync<T>(this ITwinObject structure) where T : Attribute
+    public static async Task<IEnumerable<ITwinPrimitive>> ReadAsync<T>(this ITwinObject structure, eAccessPriority priority = eAccessPriority.Normal) where T : Attribute
     {
         ArgumentNullException.ThrowIfNull(structure);
         var primitives = RetrievePrimitives<T>(structure);
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
-        await structure.GetConnector().ReadBatchAsync(twinPrimitives);
+        await structure.GetConnector().ReadBatchAsync(twinPrimitives, priority);
         return twinPrimitives;
     }
 
@@ -137,12 +138,13 @@ public static class TwinObjectExtensions
     /// </summary>
     /// <typeparam name="T">Attribute parameter to be ignored</typeparam>
     /// <param name="structure">Structure to be written.</param>
+    /// <param name="priority">Determines access priority</param>
     /// <returns>List of written items.</returns>
-    public static async Task<IEnumerable<ITwinPrimitive>> WriteAsync<T>(this ITwinObject structure) where T : Attribute
+    public static async Task<IEnumerable<ITwinPrimitive>> WriteAsync<T>(this ITwinObject structure, eAccessPriority priority = eAccessPriority.Normal) where T : Attribute
     {
         var primitives = structure.RetrievePrimitives<T>();
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
-        await structure.GetConnector().WriteBatchAsync(twinPrimitives);
+        await structure.GetConnector().WriteBatchAsync(twinPrimitives, priority);
         return twinPrimitives;
     }
 

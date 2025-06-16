@@ -25,15 +25,15 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Motor> OnlineToPlainAsync()
+    public async Task<global::Pocos.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.Motor plain = new global::Pocos.Motor();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.Run = Run.LastValue;
         return plain;
     }
@@ -55,17 +55,17 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -236,15 +236,15 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.struct1> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct1> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.struct1 plain = new global::Pocos.struct1();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         plain.s2 = await s2._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -270,17 +270,17 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct1 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct1 plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         await this.s2._PlainToOnlineNoacAsync(plain.s2);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -451,15 +451,15 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.struct2> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct2> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.struct2 plain = new global::Pocos.struct2();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         plain.s3 = await s3._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -485,17 +485,17 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct2 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct2 plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         await this.s3._PlainToOnlineNoacAsync(plain.s3);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -666,15 +666,15 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.struct3> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct3> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.struct3 plain = new global::Pocos.struct3();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         plain.s4 = await s4._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -700,17 +700,17 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct3 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct3 plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         await this.s4._PlainToOnlineNoacAsync(plain.s4);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -881,15 +881,15 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.struct4> OnlineToPlainAsync()
+    public async Task<global::Pocos.struct4> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.struct4 plain = new global::Pocos.struct4();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.s5 = s5.LastValue;
         return plain;
     }
@@ -909,17 +909,17 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct4 plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.struct4 plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         s5.LethargicWrite(plain.s5);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -1092,15 +1092,15 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.AbstractMotor> OnlineToPlainAsync()
+    public async Task<global::Pocos.AbstractMotor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.AbstractMotor plain = new global::Pocos.AbstractMotor();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.Run = Run.LastValue;
         plain.ReverseDirection = ReverseDirection.LastValue;
         return plain;
@@ -1125,12 +1125,12 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.AbstractMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.AbstractMotor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -1138,7 +1138,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 #pragma warning disable CS0612
         ReverseDirection.LethargicWrite(plain.ReverseDirection);
 #pragma warning restore CS0612
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -1308,15 +1308,15 @@ public partial class GenericMotor : AbstractMotor
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async override Task<T> OnlineToPlain<T>()
+    public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public new async Task<global::Pocos.GenericMotor> OnlineToPlainAsync()
+    public new async Task<global::Pocos.GenericMotor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.GenericMotor plain = new global::Pocos.GenericMotor();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -1344,15 +1344,15 @@ public partial class GenericMotor : AbstractMotor
         return plain;
     }
 
-    public async override Task PlainToOnline<T>(T plain)
+    public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericMotor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.GenericMotor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
         await base._PlainToOnlineNoacAsync(plain);
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -1437,15 +1437,15 @@ public partial class SpecificMotorA : GenericMotor
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async override Task<T> OnlineToPlain<T>()
+    public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public new async Task<global::Pocos.SpecificMotorA> OnlineToPlainAsync()
+    public new async Task<global::Pocos.SpecificMotorA> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.SpecificMotorA plain = new global::Pocos.SpecificMotorA();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -1473,15 +1473,15 @@ public partial class SpecificMotorA : GenericMotor
         return plain;
     }
 
-    public async override Task PlainToOnline<T>(T plain)
+    public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.SpecificMotorA plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.SpecificMotorA plain, eAccessPriority priority = eAccessPriority.Normal)
     {
         await base._PlainToOnlineNoacAsync(plain);
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

@@ -18,15 +18,15 @@ namespace Simatic.Ax.StateFramework
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<global::Pocos.Simatic.Ax.StateFramework.State1Transition> OnlineToPlainAsync()
+        public new async Task<global::Pocos.Simatic.Ax.StateFramework.State1Transition> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.Simatic.Ax.StateFramework.State1Transition plain = new global::Pocos.Simatic.Ax.StateFramework.State1Transition();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -54,15 +54,15 @@ namespace Simatic.Ax.StateFramework
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.State1Transition plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.State1Transition plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base._PlainToOnlineNoacAsync(plain);
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -161,15 +161,15 @@ namespace Simatic.Ax.StateFramework
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.Simatic.Ax.StateFramework.AbstractState> OnlineToPlainAsync()
+        public async Task<global::Pocos.Simatic.Ax.StateFramework.AbstractState> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.Simatic.Ax.StateFramework.AbstractState plain = new global::Pocos.Simatic.Ax.StateFramework.AbstractState();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.StateID = StateID.LastValue;
             plain.StateName = StateName.LastValue;
             return plain;
@@ -194,12 +194,12 @@ namespace Simatic.Ax.StateFramework
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.AbstractState plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.AbstractState plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             StateID.LethargicWrite(plain.StateID);
@@ -207,7 +207,7 @@ namespace Simatic.Ax.StateFramework
 #pragma warning disable CS0612
             StateName.LethargicWrite(plain.StateName);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

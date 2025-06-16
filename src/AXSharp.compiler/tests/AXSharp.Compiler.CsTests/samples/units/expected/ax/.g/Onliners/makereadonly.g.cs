@@ -38,15 +38,15 @@ namespace makereadonly
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.makereadonly.MembersWithMakeReadOnly> OnlineToPlainAsync()
+        public async Task<global::Pocos.makereadonly.MembersWithMakeReadOnly> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.makereadonly.MembersWithMakeReadOnly plain = new global::Pocos.makereadonly.MembersWithMakeReadOnly();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.makeReadOnceMember = makeReadOnceMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
 #pragma warning disable CS0612
@@ -89,12 +89,12 @@ namespace makereadonly
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.makereadonly.MembersWithMakeReadOnly plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.makereadonly.MembersWithMakeReadOnly plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             makeReadOnceMember.LethargicWrite(plain.makeReadOnceMember);
@@ -108,7 +108,7 @@ namespace makereadonly
 #pragma warning disable CS0612
             await this.someotherComplexMember._PlainToOnlineNoacAsync(plain.someotherComplexMember);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -305,15 +305,15 @@ namespace makereadonly
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.makereadonly.ComplexMember> OnlineToPlainAsync()
+        public async Task<global::Pocos.makereadonly.ComplexMember> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.makereadonly.ComplexMember plain = new global::Pocos.makereadonly.ComplexMember();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.someMember = someMember.LastValue;
             plain.someOtherMember = someOtherMember.LastValue;
             return plain;
@@ -338,12 +338,12 @@ namespace makereadonly
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.makereadonly.ComplexMember plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.makereadonly.ComplexMember plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             someMember.LethargicWrite(plain.someMember);
@@ -351,7 +351,7 @@ namespace makereadonly
 #pragma warning disable CS0612
             someOtherMember.LethargicWrite(plain.someOtherMember);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

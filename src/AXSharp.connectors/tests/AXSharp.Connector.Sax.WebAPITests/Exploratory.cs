@@ -140,7 +140,7 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
             output.WriteLine($"Number of items {huge.Count}");
             var s = new Stopwatch();
             s.Start();
-            await connector.ReadBatchAsync(huge);
+            await ((Connector)connector).ReadBatchAsync(huge);
             s.Stop();
 
             output.WriteLine($"Whole {s.ElapsedMilliseconds} | per item: {((double)(s.ElapsedMilliseconds) / ((double)huge.Count))}");
@@ -269,7 +269,7 @@ namespace AXSharp.Connector.S71500.WebAPITests.Exploratory
 
             output.WriteLine($"Whole {s.ElapsedMilliseconds} | per item: {((double)(s.ElapsedMilliseconds) / ((double)huge.Count))}");
 
-            await connector.ReadBatchAsync(huge);
+            await ((Connector)connector).ReadBatchAsync(huge);
 
             Assert.Equal(48, myBYTE.Cyclic);
             Assert.True(myBOOL.Cyclic);
