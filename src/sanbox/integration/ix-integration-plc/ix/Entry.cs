@@ -46,7 +46,8 @@ namespace ix_integration_plc
 
         public static ix_integration_plcTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
-            .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
+                .CreateDummy());
+            //.CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
     }
 
     public static class Entry
