@@ -126,7 +126,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerShadowToPlainBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainerShadows(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
             builder.AddToSource($"public async Task<{semantics.GetFullyQualifiedPocoName()}> {MethodName}Async(){{\n");
             builder.AddToSource($"{semantics.GetFullyQualifiedPocoName()} plain = new {semantics.GetFullyQualifiedPocoName()}();");
@@ -143,7 +143,7 @@ namespace AXSharp.Compiler.Cs.Onliner
         {
             var builder = new CsOnlinerPlainerShadowToPlainBuilder(sourceBuilder);
 
-            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
+            builder.AddToSource(CsHelpers.CreateGenericSwapperMethodToPlainerShadows(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
             var qualifier = isExtended ? "new" : string.Empty;
 

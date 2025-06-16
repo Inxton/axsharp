@@ -47,7 +47,7 @@ namespace AXSharp.TIA2AXSharpTests
                .Where(p => p.Symbol.StartsWith("\"TGlobalVariablesDB\"")).ToList();
 
 
-            await connector.ReadBatchAsync(allVariables);
+            await ((Connector.Connector)connector).ReadBatchAsync(allVariables);
 
             var x = allVariables.FirstOrDefault(p => p.Symbol.Contains("myBOOL"));
 
@@ -80,7 +80,7 @@ namespace AXSharp.TIA2AXSharpTests
                .Where(p => p.Symbol.StartsWith("\"DbData\"")).ToList();
 
 
-            await connector.ReadBatchAsync(allVariables.Take(1000));
+            await ((Connector.Connector)connector).ReadBatchAsync(allVariables.Take(1000));
 
             var x = allVariables.FirstOrDefault(p => p.Symbol.Contains("myBOOL"));
 
@@ -107,7 +107,7 @@ namespace AXSharp.TIA2AXSharpTests
             var allVariables = adapter.First(p => p.Symbol == "\"DbData\"").RetrievePrimitives()
                .Where(p => p.Symbol.StartsWith("\"DbData\"")).ToList();
 
-            await connector.ReadBatchAsync(allVariables.Take(1000));
+            await ((Connector.Connector)connector).ReadBatchAsync(allVariables.Take(1000));
 
             var x = allVariables.FirstOrDefault(p => p.Symbol.Contains("myBOOL"));
 
@@ -130,7 +130,7 @@ namespace AXSharp.TIA2AXSharpTests
 
             var adapter = await TIA2AXSharpAdapter.CreateAdapter(connector, rootObject);
             var allVariables = adapter.First().RetrievePrimitives();
-            await connector.ReadBatchAsync(allVariables);
+            await ((Connector.Connector)connector).ReadBatchAsync(allVariables);
 
 
             foreach (var variable in allVariables)
@@ -159,7 +159,7 @@ namespace AXSharp.TIA2AXSharpTests
             var allVariables = adapter.First(p => p.Symbol == "\"DbData\"").RetrievePrimitives()
                .Where(p => p.Symbol.StartsWith("\"DbData\"")).ToList();
 
-            await connector.ReadBatchAsync(allVariables);
+            await ((Connector.Connector)connector).ReadBatchAsync(allVariables);
 
 
             foreach (var variable in allVariables)

@@ -61,3 +61,62 @@ Entry.Plc.Connector.ConcurrentRequestMaxCount = 1; // Reducing to a single reque
 Entry.Plc.Connector.ConcurrentRequestDelay = 100; // Setting the waiting period to 100ms
 ```
 
+## Batch Operations
+
+The WebAPI connector provides sophisticated batch reading and writing operations with configurable priority levels and chunk settings. This feature enables efficient and controlled data exchange with the PLC while respecting different operational requirements.
+
+### Priority Levels
+
+Batch operations support five priority levels through the `eAccessPriority` enum:
+
+- `Low`: For background or non-critical operations that can tolerate longer response times
+- `Normal`: Standard priority for regular operations (default)
+- `UserInterface`: Priority for operations triggered by direct user interaction, ensuring responsive UI feedback
+- `High`: For time-critical operations requiring minimal latency
+- `Custom`: User-defined priority level for specialized scenarios
+
+### Configurable Batch Settings
+
+Each priority level has its own configuration for chunk size and inter-chunk delay, allowing fine-tuned control over batch processing:
+
+```C#
+// Default batch settings for different priority levels
+Entry.Plc.Connector.BatchSettings[eAccessPriority.Low] = (chunkSize: 100, interChunkDelay: 500);
+Entry.Plc.Connector.BatchSettings[eAccessPriority.Normal] = (chunkSize: 250, interChunkDelay: 250);
+Entry.Plc.Connector.BatchSettings[eAccessPriority.UserInterface] = (chunkSize: 500, interChunkDelay: 100);
+Entry.Plc.Connector.BatchSettings[eAccessPriority.High] = (chunkSize: 1000, interChunkDelay: 50);
+Entry.Plc.Connector.BatchSettings[eAccessPriority.Custom] = (chunkSize: null, interChunkDelay: null);
+```
+
+### Using Batch Operations
+
+Here's how to perform batch operations with different priority levels:
+
+```C#
+// Regular batch read with normal priority
+await connector.ReadBatchAsync(primitives, eAccessPriority.Normal);
+
+// UI-triggered batch operation with higher responsiveness
+await connector.WriteBatchAsync(primitives, eAccessPriority.UserInterface);
+
+// Background batch operation with low priority
+await connector.ReadBatchAsync(primitives, eAccessPriority.Low);
+
+// Time-critical batch operation
+await connector.WriteBatchAsync(primitives, eAccessPriority.High);
+
+// Custom batch operation with specific settings
+await connector.WriteBatchAsync(primitives, eAccessPriority.Custom, chunkSize: 300, interChunkDelay: 150);
+```
+
+> [!TIP]
+> Choose appropriate priority levels based on your application's needs:
+> - Use `Normal` for regular operations that don't require special handling
+> - Use `Low` for background updates or non-critical data that can tolerate delays
+> - Use `UserInterface` for operations triggered by user actions requiring quick feedback
+> - Use `High` for time-critical operations needing minimal latency
+> - Use `Custom` when you need specific chunk size and delay settings
+
+> [!NOTE]
+> The actual performance of batch operations depends on various factors including network conditions, PLC load, and the size of data being transferred. Monitor the connector's logs for insights into batch operation performance.
+

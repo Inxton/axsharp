@@ -10,9 +10,9 @@ namespace AXSharp.Connector.S71500.WebAPITests;
 
 public static class TestConnector
 {
-    private static string TargetIp { get; } = Environment.GetEnvironmentVariable("AXTARGET") ?? "10.222.6.1";
-    private static string UserName { get; } = Environment.GetEnvironmentVariable("AX_USERNAME") ?? "adm";
-    private static string Password { get; } = Environment.GetEnvironmentVariable("AX_TARGET_PWD");
+    private static string TargetIp { get; } = "192.168.100.210";
+    private static string UserName { get; } = "adm";
+    private static string Password { get; } = "123ABCDabcd$#!";
 
     
     public static WebApiConnector TestApiConnector
@@ -23,7 +23,7 @@ public static class TestConnector
         }
     }
 
-    private static string CertificatePath = "certs\\Communication.cer"; 
+    private static string CertificatePath = "..\\..\\..\\..\\ax-test-project\\certs\\plc_line\\plc_line.cer"; 
         
     static string GetCertPath()
     {
@@ -49,8 +49,8 @@ public static class TestConnector
                 if (securePlc == null)
                 {
                     securePlc = new(ConnectorAdapterBuilder.Build()
-                        .CreateWebApi(TargetIp, Environment.GetEnvironmentVariable("AX_USERNAME"),
-                            Environment.GetEnvironmentVariable("AX_TARGET_PWD"), CertificateValidation, true));
+                        .CreateWebApi(TargetIp, UserName, Password
+                            , CertificateValidation, true));
                     
                     SecurePlc.Connector.BuildAndStart();
                 }

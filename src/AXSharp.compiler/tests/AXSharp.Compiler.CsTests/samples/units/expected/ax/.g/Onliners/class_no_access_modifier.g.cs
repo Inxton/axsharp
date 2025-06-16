@@ -22,15 +22,15 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.NoAccessModifierClass> OnlineToPlainAsync()
+    public async Task<global::Pocos.NoAccessModifierClass> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.NoAccessModifierClass plain = new global::Pocos.NoAccessModifierClass();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         return plain;
     }
 
@@ -49,14 +49,14 @@ public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.NoAccessModifierClass plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.NoAccessModifierClass plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

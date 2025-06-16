@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.23.0-388-allow-multiline-pragmas.364" />
-		<PackageReference Include="AXSharp.Connector" Version="0.23.0-388-allow-multiline-pragmas.364" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.32.0-improve-access-prioritization.200" />
+		<PackageReference Include="AXSharp.Connector" Version="0.32.0-improve-access-prioritization.200" />
 	</ItemGroup>
 
 	<ItemGroup>

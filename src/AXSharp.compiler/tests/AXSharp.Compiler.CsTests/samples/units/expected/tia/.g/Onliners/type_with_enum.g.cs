@@ -48,15 +48,15 @@ namespace Simatic.Ax.StateFramework
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint> OnlineToPlainAsync()
+        public async Task<global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain = new global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.CompareToValue = CompareToValue.LastValue;
             plain.Condition = (Simatic.Ax.StateFramework.Condition)Condition.LastValue;
             return plain;
@@ -81,12 +81,12 @@ namespace Simatic.Ax.StateFramework
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Simatic.Ax.StateFramework.CompareGuardLint plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             CompareToValue.LethargicWrite(plain.CompareToValue);
@@ -94,7 +94,7 @@ namespace Simatic.Ax.StateFramework
 #pragma warning disable CS0612
             Condition.LethargicWrite((short)plain.Condition);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

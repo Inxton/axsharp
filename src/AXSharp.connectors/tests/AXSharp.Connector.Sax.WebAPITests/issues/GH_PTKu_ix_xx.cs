@@ -31,8 +31,9 @@ public class GH_PTKu_ix_xx : IDisposable
         Plc.Hierarchy.StartPolling(250, this);
         Task.Delay(1000).Wait();
         report = output;
-        Plc.Connector.ConcurrentRequestMaxCount = 3;
-        Plc.Connector.ConcurrentRequestDelay = 10;
+        // We cannot set these properties here as they need to be set at connector construction time. Default values are used instead.
+        //Plc.Connector.ConcurrentRequestMaxCount = 3;
+        //Plc.Connector.ConcurrentRequestDelay = 10;
         report.WriteLine($"Max requests limit: {Plc.Connector.ConcurrentRequestMaxCount}");
         report.WriteLine($"Concurrent request delay: {Plc.Connector.ConcurrentRequestDelay}");
     }

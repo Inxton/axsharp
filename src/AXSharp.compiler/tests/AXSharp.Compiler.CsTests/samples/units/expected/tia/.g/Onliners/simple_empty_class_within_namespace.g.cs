@@ -24,15 +24,15 @@ namespace sampleNamespace
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> OnlineToPlainAsync()
+        public async Task<global::Pocos.sampleNamespace.simple_empty_class_within_namespace> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain = new global::Pocos.sampleNamespace.simple_empty_class_within_namespace();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             return plain;
         }
 
@@ -51,14 +51,14 @@ namespace sampleNamespace
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.sampleNamespace.simple_empty_class_within_namespace plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]

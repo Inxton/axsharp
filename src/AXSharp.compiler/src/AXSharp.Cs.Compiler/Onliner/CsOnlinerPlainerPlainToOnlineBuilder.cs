@@ -142,13 +142,13 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerPlainToOnlineBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainerOnliner(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", false));
 
-        builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
+        builder.AddToSource($"public async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain, eAccessPriority priority = eAccessPriority.Normal){{\n");
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
-        builder.AddToSource("return await this.WriteAsync<IgnoreOnPocoOperation>();");
+        builder.AddToSource("return await this.WriteAsync<IgnoreOnPocoOperation>(priority);");
 
         builder.AddToSource($"}}");
 
@@ -169,12 +169,12 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
     {
         var builder = new CsOnlinerPlainerPlainToOnlineBuilder(sourceBuilder);
 
-        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainer(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
+        builder.AddToSource(CsHelpers.CreateGenericSwapperMethodFromPlainerOnliner(MethodName, $"{semantics.GetFullyQualifiedPocoName()}", isExtended));
 
         //var qualifier = isExtended ? "new" : string.Empty;
         var qualifier = string.Empty;
 
-        builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain){{\n");
+        builder.AddToSource($"public {qualifier} async Task<IEnumerable<ITwinPrimitive>> {MethodName}Async({semantics.GetFullyQualifiedPocoName()} plain, eAccessPriority priority = eAccessPriority.Normal){{\n");
        
 
         if (isExtended)
@@ -184,7 +184,7 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
 
         semantics.Fields.ToList().ForEach(p => p.Accept(visitor, builder));
 
-        builder.AddToSource("return await this.WriteAsync<IgnoreOnPocoOperation>();");
+        builder.AddToSource("return await this.WriteAsync<IgnoreOnPocoOperation>(priority);");
 
         builder.AddToSource($"}}");
 

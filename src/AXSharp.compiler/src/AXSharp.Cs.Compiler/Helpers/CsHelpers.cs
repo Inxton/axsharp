@@ -39,7 +39,25 @@ internal static class CsHelpers
         return declaration.GetPropertyValue("AttributeName", memberName);
     }
 
-    public static string CreateGenericSwapperMethodToPlainer(string methodName, string pocoTypeName, bool isExtended)
+    //public static string CreateGenericSwapperMethodToPlainer(string methodName,
+    //    string pocoTypeName,
+    //    bool isExtended)
+    //{
+    //    var qualifier = isExtended ? "override" : "virtual";
+    //    return $"public async {qualifier} Task<T> {methodName}<T>(eAccessPriority priority = eAccessPriority.Normal){{\n return await (dynamic)this.{methodName}Async(priority);\n}}";
+    //}
+
+    public static string CreateGenericSwapperMethodToPlainerOnliners(string methodName, 
+                                                             string pocoTypeName, 
+                                                             bool isExtended)
+    {
+        var qualifier = isExtended ? "override" : "virtual";
+        return $"public async {qualifier} Task<T> {methodName}<T>(eAccessPriority priority = eAccessPriority.Normal){{\n return await (dynamic)this.{methodName}Async(priority);\n}}";
+    }
+
+    public static string CreateGenericSwapperMethodToPlainerShadows(string methodName,
+        string pocoTypeName,
+        bool isExtended)
     {
         var qualifier = isExtended ? "override" : "virtual";
         return $"public async {qualifier} Task<T> {methodName}<T>(){{\n return await (dynamic)this.{methodName}Async();\n}}";
@@ -54,12 +72,24 @@ internal static class CsHelpers
         return sb.ToString();
     }
 
-    public static string CreateGenericSwapperMethodFromPlainer(string methodName, string pocoTypeName, bool isExtended)
+    //public static string CreateGenericSwapperMethodFromPlainer(string methodName, string pocoTypeName, bool isExtended)
+    //{
+    //    var qualifier = isExtended ? "override" : "virtual";
+    //    return $"public async {qualifier} Task {methodName}<T>(T plain){{\n await this.{methodName}Async((dynamic)plain);\n}}";
+    //}
+
+    public static string CreateGenericSwapperMethodFromPlainerOnliner(string methodName, string pocoTypeName, bool isExtended)
+    {
+        var qualifier = isExtended ? "override" : "virtual";
+        return $"public async {qualifier} Task {methodName}<T>(T plain, eAccessPriority priority = eAccessPriority.Normal){{\n await this.{methodName}Async((dynamic)plain, priority);\n}}";
+    }
+
+    public static string CreateGenericSwapperMethodFromPlainerShadow(string methodName, string pocoTypeName, bool isExtended)
     {
         var qualifier = isExtended ? "override" : "virtual";
         return $"public async {qualifier} Task {methodName}<T>(T plain){{\n await this.{methodName}Async((dynamic)plain);\n}}";
     }
-    
+
     /// <summary>
     /// Gets fully qualified name of poco type for a given type declaration.
     /// </summary>

@@ -16,15 +16,15 @@ public partial class ExtendsAndImplements : ExtendeeExtendsAndImplements, IImple
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async override Task<T> OnlineToPlain<T>()
+    public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public new async Task<global::Pocos.ExtendsAndImplements> OnlineToPlainAsync()
+    public new async Task<global::Pocos.ExtendsAndImplements> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.ExtendsAndImplements plain = new global::Pocos.ExtendsAndImplements();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         await base._OnlineToPlainNoacAsync(plain);
 #pragma warning restore CS0612
@@ -52,15 +52,15 @@ public partial class ExtendsAndImplements : ExtendeeExtendsAndImplements, IImple
         return plain;
     }
 
-    public async override Task PlainToOnline<T>(T plain)
+    public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExtendsAndImplements plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExtendsAndImplements plain, eAccessPriority priority = eAccessPriority.Normal)
     {
         await base._PlainToOnlineNoacAsync(plain);
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -151,15 +151,15 @@ public partial class ExtendeeExtendsAndImplements : AXSharp.Connector.ITwinObjec
         PostConstruct(parent, readableTail, symbolTail);
     }
 
-    public async virtual Task<T> OnlineToPlain<T>()
+    public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await (dynamic)this.OnlineToPlainAsync();
+        return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.ExtendeeExtendsAndImplements> OnlineToPlainAsync()
+    public async Task<global::Pocos.ExtendeeExtendsAndImplements> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
         global::Pocos.ExtendeeExtendsAndImplements plain = new global::Pocos.ExtendeeExtendsAndImplements();
-        await this.ReadAsync<IgnoreOnPocoOperation>();
+        await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         return plain;
     }
 
@@ -178,14 +178,14 @@ public partial class ExtendeeExtendsAndImplements : AXSharp.Connector.ITwinObjec
         return plain;
     }
 
-    public async virtual Task PlainToOnline<T>(T plain)
+    public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        await this.PlainToOnlineAsync((dynamic)plain);
+        await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExtendeeExtendsAndImplements plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ExtendeeExtendsAndImplements plain, eAccessPriority priority = eAccessPriority.Normal)
     {
-        return await this.WriteAsync<IgnoreOnPocoOperation>();
+        return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
