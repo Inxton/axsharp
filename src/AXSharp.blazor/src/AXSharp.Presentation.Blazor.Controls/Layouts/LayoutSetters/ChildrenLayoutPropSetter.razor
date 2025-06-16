@@ -1,10 +1,11 @@
-﻿
+﻿@using Operon.Components.Tab
+
 
     @switch (LayoutName)
     {
         case "TabControlLayout":
             {
-                <TabPage Text="@ChildName">
+                <TabPage Title="@ChildName">
                     @ChildContent
                 </TabPage>
                 break;
