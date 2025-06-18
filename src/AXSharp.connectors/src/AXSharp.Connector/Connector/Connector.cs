@@ -512,6 +512,12 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// </summary>
     protected async Task CyclicWrite()
     {
+
+        if (NextCycleWriteSet.Any())
+        {
+            Logger.Debug($"Periodic writing of '{NextCycleWriteSet.Count()}' items.");
+        }
+
         await WriteBatchAsyncCyclic(NextCycleWriteSet.Values, eAccessPriority.UserInterface);
         ClearPeriodicWriteSet();
     }

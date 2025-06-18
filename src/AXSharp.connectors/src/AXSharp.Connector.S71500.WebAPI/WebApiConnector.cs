@@ -312,6 +312,7 @@ public class WebApiConnector : Connector
     }
 
     private Stopwatch stopwatch = new();
+    private Stopwatch stopwatchWrite = new();
 
     private volatile int concurrentRequest = 0;
 
@@ -459,6 +460,8 @@ public class WebApiConnector : Connector
         var responseData = new ApiBulkResponse();
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
+        if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatchWrite.Restart();
+
         if (twinPrimitives.Any())
             if (Logger.IsEnabled(LogEventLevel.Verbose))
                 Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
@@ -503,6 +506,9 @@ public class WebApiConnector : Connector
                 ReleaseConcurrent();
             }
         }
+
+        if (Logger.IsEnabled(LogEventLevel.Debug))
+            Logger.Debug($"Bulk writing: {twinPrimitives.Count()} items in {stopwatchWrite.ElapsedMilliseconds} ms.");
     }
 
     /// <inheritdoc />
