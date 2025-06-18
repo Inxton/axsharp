@@ -41,6 +41,17 @@ namespace ix_integration_blazor
             Entry.Plc.Connector.BuildAndStart().SubscriptionMode = ReadSubscriptionMode.Polling;
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
 
+
+            Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+                .WriteTo
+                .Console()
+                //.WriteTo
+                //.File($"connector.log",
+                //    outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
+                //    fileSizeLimitBytes: 100000)
+                .MinimumLevel.Debug()
+                .CreateLogger());
+
             //Entry.Plc.Connector.Translator.SetLocalizationResource(Entry.Plc.GetType(), "Properties.PlcStringResources");
 
             // Configure the HTTP request pipeline.
