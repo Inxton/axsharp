@@ -192,10 +192,16 @@ public class WebApiConnector : Connector
 
     internal string DBName { get; }
 
+    private bool ConnectorStarted = false;
+
     /// <inheritdoc />
     public override Connector BuildAndStart()
     {
-        StartReadWriteOps();
+        if (!ConnectorStarted)
+        {
+            ConnectorStarted = true;
+            StartReadWriteOps();
+        }
         return this;
     }
 
@@ -366,7 +372,7 @@ public class WebApiConnector : Connector
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatch.Restart();
-              
+
         if (Logger.IsEnabled(LogEventLevel.Verbose))
         {
             Logger
@@ -452,7 +458,8 @@ public class WebApiConnector : Connector
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
-            Logger.Debug("Bulk reading: {ItemCount} items read in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatch.ElapsedMilliseconds);
+            Logger.Debug("Bulk reading: {ItemsCount} items read in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatch.ElapsedMilliseconds);
+
     }
 
     /// <summary>
@@ -473,8 +480,10 @@ public class WebApiConnector : Connector
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatchWrite.Restart();
 
         if (twinPrimitives.Any())
+        { 
             if (Logger.IsEnabled(LogEventLevel.Verbose))
-                Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
+                Logger.Verbose("Bulk writing: {ItemsCount} items.", twinPrimitives.Count());
+        }
 
         var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
@@ -518,7 +527,8 @@ public class WebApiConnector : Connector
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
-            Logger.Debug("Bulk writing: {ItemCount} items writen in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatchWrite.ElapsedMilliseconds);
+            Logger.Debug("Bulk writing: {ItemsCount} items written in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatchWrite.ElapsedMilliseconds);
+
     }
 
     /// <inheritdoc />
