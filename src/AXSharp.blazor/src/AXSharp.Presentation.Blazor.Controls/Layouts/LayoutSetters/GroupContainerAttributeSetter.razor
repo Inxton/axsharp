@@ -1,17 +1,13 @@
-﻿
-
-
-
-    @if (LayoutName == "GroupBoxLayout")
-    {
-        <GroupBoxLayout Body="@ChildContent" GroupName="@GroupName"/>
-    }
-    else
-    {
+﻿@if (LayoutName == "GroupBoxLayout")
+{
+    <GroupBoxLayout Body="@ChildContent" GroupName="@GroupName" />
+}
+else
+{
     <LayoutView Layout="@GroupType">
         @ChildContent
     </LayoutView>
-    }
+}
 
 
 @code
@@ -33,7 +29,7 @@
         else
             LayoutName = GroupType.Name;
 
-        if(string.IsNullOrEmpty(GroupName))
-        base.OnInitialized();
+        if (string.IsNullOrEmpty(GroupName))
+            base.OnInitialized();
     }
 }

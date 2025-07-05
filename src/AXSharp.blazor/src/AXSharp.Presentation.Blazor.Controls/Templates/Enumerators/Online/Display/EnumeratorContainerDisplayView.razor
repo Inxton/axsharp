@@ -3,10 +3,18 @@
 @inherits EnumeratorsBaseOnline<T>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <label class="me-2" for="@ComponentId">@Onliner.AttributeName</label>
+    <div class="select-group">
+        <label for="@ComponentId">@Onliner.AttributeName</label>
 
-    <input id="@ComponentId"
-           class="select min-w-6 @AccessStatus"
-           value="@EnumToIntConverter.Convert(@Onliner.Cyclic,null,null,null)"
-           readonly="readonly" />
+        <select id="@ComponentId"
+                class="min-w-6 @AccessStatus"
+                @bind="Value"
+                readonly="@IsReadOnly"
+                disabled="disabled">
+
+            <option>
+                @EnumToIntConverter.Convert(@Onliner.Cyclic, null, null, null)
+            </option>
+        </select>
+    </div>
 </TemplateView>

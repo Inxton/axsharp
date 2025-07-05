@@ -1,18 +1,17 @@
-﻿
-    @if (IsArray)
-    {
-        <div class="card p-2 mt-2">
-            <h4>@Name</h4>
-            @ChildContent
-        </div>
-    }
-    else
-    {
+﻿@if (IsArray)
+{
+    <div class="card p-2 mt-2">
+        <h4>@Name</h4>
         @ChildContent
-    }
+    </div>
+}
+else
+{
+    @ChildContent
+}
 
 
-@code{
+@code {
 
     [Parameter]
     public RenderFragment ChildContent { get; set; }
