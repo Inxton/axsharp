@@ -1,4 +1,5 @@
-﻿@*if it's only one group and the group layout it's not set, just render group and let set layout on kids setter*@
+﻿@using Operon.Components.Tab
+@*if it's only one group and the group layout it's not set, just render group and let set layout on kids setter*@
 
 <CascadingValue Value="@LayoutClass">
 @switch (LayoutName)
@@ -6,7 +7,7 @@
     case "TabControlLayout":
         {
             //if parent is TabControl, create tab page from group and set layout from whole group
-            <TabPage Text="@GroupName">
+            <TabPage Title="@GroupName">
                 <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
                     <LayoutView Layout="GroupLayout">
                         @ChildContent
@@ -18,21 +19,17 @@
         }
     case "WrapPanelLayout":
         {
-
-            <div class="p-2 wrapItem">
+            <div class="flex p-2">
                 <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
                     <LayoutView Layout="GroupLayout">
                         @ChildContent
                     </LayoutView>
                 </GroupContainerAttributeSetter>
             </div>
-
-
             break;
         }
     case "GroupBoxLayout":
         {
-
             <div class="p-2">
                 <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
                     <LayoutView Layout="GroupLayout">
@@ -40,33 +37,26 @@
                     </LayoutView>
                 </GroupContainerAttributeSetter>
             </div>
-
             break;
         }
     case "UniformGridLayout":
         {
-
-            <div class="p-2 flex-even uniformGridItem">
+            <div class="p-2 flex-even">
                 <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
                     <LayoutView Layout="GroupLayout">
                         @ChildContent
                     </LayoutView>
                 </GroupContainerAttributeSetter>
             </div>
-
             break;
         }
     default:
-       
         <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
             <LayoutView Layout="GroupLayout">
                 @ChildContent
             </LayoutView>
         </GroupContainerAttributeSetter>
-        
-
         break;
-
 }
 </CascadingValue>
 @code

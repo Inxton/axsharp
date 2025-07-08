@@ -43,6 +43,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             {
                 if (!HasFocus)
                 {
+                    LastValue = Onliner.Cyclic; // if is only readed, update LastValue for "HasFocus" case
                     return Onliner.Cyclic;
                 }
                 else

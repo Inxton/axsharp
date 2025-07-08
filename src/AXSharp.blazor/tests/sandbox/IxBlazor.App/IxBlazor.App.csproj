@@ -18,8 +18,4 @@
     <ProjectReference Include="..\ComponentsExamples\ComponentsExamples.csproj" />
   </ItemGroup>
 
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*</DefaultItemExcludes>
-	</PropertyGroup>
-
 </Project>

@@ -89,11 +89,10 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<!-- <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
-
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);Operon\**\*;</DefaultItemExcludes>
-	</PropertyGroup>
+	
+	
 
 </Project>

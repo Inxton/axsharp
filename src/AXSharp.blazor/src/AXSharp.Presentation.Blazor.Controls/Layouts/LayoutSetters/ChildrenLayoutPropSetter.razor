@@ -1,53 +1,46 @@
-﻿
+﻿@using Operon.Components.Tab
 
-    @switch (LayoutName)
-    {
-        case "TabControlLayout":
-            {
-                <TabPage Text="@ChildName">
-                    @ChildContent
-                </TabPage>
-                break;
-            }
-        case "WrapPanelLayout":
-            {
-
-                <div class="p-2 @Class">
-                    @ChildContent
-                </div>
-                break;
-            }
-        case "GroupBoxLayout":
-            {
-
-            <div class="p-2 @Class">
-                    @ChildContent
-                </div>
-                break;
-            }
-        case "UniformGridLayout":
-            {
-
-                <div class="p-2 @Class" style="flex: 1;">
-                    @ChildContent
-                </div>
-                break;
-            }
-        case "StackPanelLayout":
-            {
-
-                <div class="@Class">
-                    @ChildContent
-                </div>
-                break;
-            }
-
-        default:
-               @ChildContent
-
+@switch (LayoutName)
+{
+    case "TabControlLayout":
+        {
+            <TabPage Title="@ChildName">
+                @ChildContent
+            </TabPage>
             break;
-    }
-
+        }
+    case "WrapPanelLayout":
+        {
+            <div class="p-2 @Class">
+                @ChildContent
+            </div>
+            break;
+        }
+    case "GroupBoxLayout":
+        {
+            <div class="p-2 @Class">
+                @ChildContent
+            </div>
+            break;
+        }
+    case "UniformGridLayout":
+        {
+            <div class="flex-1 p-2 @Class">
+                @ChildContent
+            </div>
+            break;
+        }
+    case "StackPanelLayout":
+        {
+            <div class="@Class">
+                @ChildContent
+            </div>
+            break;
+        }
+    default:
+        @ChildContent
+        break;
+}
 
 @code
 {

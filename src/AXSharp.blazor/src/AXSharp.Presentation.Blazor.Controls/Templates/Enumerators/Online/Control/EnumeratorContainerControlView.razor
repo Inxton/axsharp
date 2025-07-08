@@ -3,17 +3,20 @@
 @inherits EnumeratorsBaseOnline<T>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <label class="me-2" for="@ComponentId">@Onliner.AttributeName</label>
+    <div class="select-group">
+        <label for="@ComponentId">@Onliner.AttributeName</label>
 
-    <select id="@ComponentId"
-            class="select min-w-6 @AccessStatus"
-            @bind="Value"
-            readonly="@IsReadOnly">
-        @foreach (var name in Names)
-        {
-            <option value="@EnumToIntConverter.ConvertBack(name,null,null,null)">
-                @name
-            </option>
-        }
-    </select>
+        <select id="@ComponentId"
+                class="min-w-6 @AccessStatus"
+                @bind="Value"
+                readonly="@IsReadOnly">
+
+            @foreach (var name in Names)
+            {
+                <option value="@EnumToIntConverter.ConvertBack(name, null, null, null)">
+                    @name
+                </option>
+            }
+        </select>
+    </div>
 </TemplateView>

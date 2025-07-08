@@ -8,8 +8,6 @@
     </div>
 }
 
-
-
 @code
 {
     private RenderFragment RenderComponent(ITwinElement element) => __builder =>
@@ -98,7 +96,6 @@
         }
     };
 
-
     private RenderFragment RenderGroup(Group group, Type groupLayout) => __builder =>
     {
         foreach (var child in group.GroupElements)
@@ -118,7 +115,6 @@
                                           Class="@LayoutChildrenClass" />
             }
         }
-
     };
 
     private RenderFragment Generator(ITwinElement kid, Type layout) => __builder =>
@@ -180,7 +176,6 @@
         }
     };
 
-
     private RenderFragment GeneratePrimitive(ITwinPrimitive primitiveKid) => __builder =>
     {
         string presentationType = GetDisplayPresentationIfEmpty();
@@ -188,7 +183,6 @@
         var primitiveComponent = ViewLocatorBuilder(primitiveKidType, primitiveKid, presentationType, PresentationTemplate);
         @CreatePrimitiveComponent(primitiveKid, primitiveComponent)
     };
-
 
     private RenderFragment GenerateEnum(EnumeratorDiscriminatorAttribute enumDiscriminatorAttribute, ITwinPrimitive kid) => __builder =>
     {
@@ -209,5 +203,4 @@
             @GeneratePrimitive((ITwinPrimitive)element)
         }
     };
-
 }
