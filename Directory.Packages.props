@@ -9,7 +9,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </GlobalPackageReference>
-    <!-- <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.44" /> -->
+    <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.71" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" Condition="'$(TargetFramework)' == 'net9.0'" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
     <PackageVersion Include="System.Collections.Immutable" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />

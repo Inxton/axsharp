@@ -81,7 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>  
-    <!-- <PackageReference Include="Inxton.Operon" />   -->
+    <PackageReference Include="Inxton.Operon" />  
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />  
     <PackageReference Include="System.Net.Http" />  
     <PackageReference Include="System.Text.Encodings.Web" />  
@@ -89,7 +89,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" />
+		<!-- <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
 	
