@@ -5,6 +5,11 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
+using AXSharp.Connector.Identity;
+using AXSharp.Connector.Localizations;
+using AXSharp.Connector.ValueTypes;
+using Serilog;
+using Serilog.Events;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -16,14 +21,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using AXSharp.Connector.Identity;
-using AXSharp.Connector.Localizations;
-using AXSharp.Connector.ValueTypes;
-using Serilog;
 
 namespace AXSharp.Connector;
 
 #pragma warning disable CS0618
+
 // Type or member is obsolete
 /// <summary>
 ///     <para>Abstract base class provides implementation contract for the PLC connector and basic common underlying logic.</para>
@@ -59,7 +61,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     protected Connector(object[] parameters)
     {
         IdentityProvider = new TwinIdentityProvider(this);
-        
     }
 
     /// <summary>
@@ -79,7 +80,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     {
         this._logger = logger;
     }
-
 
     /// <summary>
     /// Gets or sets the batch operation settings for different priority levels.
@@ -184,7 +184,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         set => SetField(ref _monitorConnector, value, nameof(MonitorConnector));
     }
 
-
     /// <summary>
     ///     Gets or sets delay between Read/Write cycles.
     /// </summary>
@@ -211,7 +210,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         protected set => SetField(ref concurrentRequestDelay, value, nameof(ConcurrentRequestDelay));
     }
 
-
     /// <summary>
     ///     Gets maximal count of concurrent requests.
     ///     Maximum number of simultaneous requests is `4`.
@@ -231,9 +229,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
 
         protected set => SetField(ref concurrentRequestMaxCount, value, nameof(ConcurrentRequestMaxCount));
     }
-
-
-
 
     /// <summary>
     ///     Gets online value items tags attached to this connector.
@@ -256,7 +251,6 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             SetField(ref isRwLoopSuspended, value, nameof(IsRwLoopSuspended));
         }
     }
-
 
     internal bool WriteProtectionSuspended { get; private set; }
 
@@ -383,6 +377,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         {
             case null:
                 return;
+
             case
                 "Hoj morho vetvo mojho rodu, kto kramou rukou siahne na tvoju slobodu a co i dusu das v tom boji divokom vol nebyt ako byt otrokom!"
                 :
@@ -411,7 +406,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     }
 
     private static CultureInfo desiredCulture = CultureInfo.InvariantCulture;
-    
+
     /// <summary>
     /// Sets the culture for this connector.
     /// </summary>
@@ -450,7 +445,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
             while (true)
                 if (!IsRwLoopSuspended)
                 {
-                    if (desiredCulture.Name != CultureInfo.InvariantCulture.Name 
+                    if (desiredCulture.Name != CultureInfo.InvariantCulture.Name
                         && (Thread.CurrentThread.CurrentUICulture.Name != desiredCulture.Name ||
                         Thread.CurrentThread.CurrentCulture.Name != desiredCulture.Name))
                     {
@@ -465,7 +460,7 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
                         await CyclicWrite();
                         await CyclicRead();
                     }
-                    catch 
+                    catch
                     {
                         ReloadConnector();
                     }
@@ -482,15 +477,11 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
         });
     }
 
-    
-
-
     /// <summary>
     ///     Reads online variables required to be read.
     /// </summary>
     protected async Task CyclicRead()
     {
-       
         var primitivesToRead = new List<ITwinPrimitive>();
         primitivesToRead.AddRange(NextPeriodicReadSet.Values);
         //primitivesToRead.AddRange(Subscribed.Values);
@@ -498,11 +489,14 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
 
         if (distinctPrimitivesToRead.Any())
         {
-            Logger.Debug($"Periodic reading of '{distinctPrimitivesToRead.Count()}' items.");
+            if (Logger.IsEnabled(LogEventLevel.Debug))
+            {
+                Logger.Debug("Periodic reading of {itemsCount} items.", distinctPrimitivesToRead.Count());
+            }
         }
 
         await ReadBatchAsyncCyclic(distinctPrimitivesToRead
-            .Where(p => !(p.ReadOnce && p.AccessStatus.LastAccess != OnlinerBase.DefaultDateTime)), eAccessPriority.UserInterface);
+        .Where(p => !(p.ReadOnce && p.AccessStatus.LastAccess != OnlinerBase.DefaultDateTime)), eAccessPriority.UserInterface);
 
         this.ClearPeriodicReadSet();
     }
@@ -512,10 +506,12 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// </summary>
     protected async Task CyclicWrite()
     {
-
         if (NextCycleWriteSet.Any())
         {
-            Logger.Debug($"Periodic writing of '{NextCycleWriteSet.Count()}' items.");
+            if (Logger.IsEnabled(LogEventLevel.Debug))
+            {
+                Logger.Debug("Periodic writing of {itemsCount} items.", NextCycleWriteSet.Count());
+            }
         }
 
         await WriteBatchAsyncCyclic(NextCycleWriteSet.Values, eAccessPriority.UserInterface);
@@ -541,5 +537,4 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// Target platform moniker.
     /// </summary>
     public abstract string TargetPlatformMoniker { get; }
-   
 }

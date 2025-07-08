@@ -192,10 +192,16 @@ public class WebApiConnector : Connector
 
     internal string DBName { get; }
 
+    private bool ConnectorStarted = false;
+
     /// <inheritdoc />
     public override Connector BuildAndStart()
     {
-        StartReadWriteOps();
+        if (!ConnectorStarted)
+        {
+            ConnectorStarted = true;
+            StartReadWriteOps();
+        }
         return this;
     }
 
@@ -365,16 +371,28 @@ public class WebApiConnector : Connector
         var responseData = new ApiBulkResponse();
         var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
 
-
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatch.Restart();
 
         if (Logger.IsEnabled(LogEventLevel.Verbose))
+        {
             Logger
-                .Verbose("{vars}",
-                    string.Join("\n",
+                .Verbose(
+                    "Read priority {Priority} ChunkSize {ChunkSize} InterChunkDelay {InterChunkDelay} ms\n{Vars}",
+                    priority,
+                    chunkSize,
+                    interChunkDelay,
+                    string.Join(" ; ",
                         twinPrimitives.Select(p =>
-                            $"{((OnlinerBase)p).Symbol} | pollings: [{string.Join(";", ((OnlinerBase)p).PollingHolders.Select(a => a.Key.ToString()))}]")));
-
+                        {
+                            var onliner = (OnlinerBase)p;
+                            var holders = onliner.PollingHolders
+                                .Select((a, idx) => $" [{idx}] {a.Key}")
+                                .DefaultIfEmpty("[None Holder]");
+                            return $"{onliner.Symbol} => {string.Join(";", holders)}";
+                        })
+                    )
+                );
+        }
 
         var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
@@ -439,10 +457,9 @@ public class WebApiConnector : Connector
             }
         }
 
-
-
         if (Logger.IsEnabled(LogEventLevel.Debug))
-            Logger.Debug($"Bulk reading: {twinPrimitives.Count()} items read in {stopwatch.ElapsedMilliseconds} ms.");
+            Logger.Debug("Bulk reading: {ItemsCount} items read in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatch.ElapsedMilliseconds);
+
     }
 
     /// <summary>
@@ -463,8 +480,10 @@ public class WebApiConnector : Connector
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatchWrite.Restart();
 
         if (twinPrimitives.Any())
+        { 
             if (Logger.IsEnabled(LogEventLevel.Verbose))
-                Logger.Verbose($"Bulk writing: {twinPrimitives.Count()} items.");
+                Logger.Verbose("Bulk writing: {ItemsCount} items.", twinPrimitives.Count());
+        }
 
         var webApiPrimitives = twinPrimitives.Cast<IWebApiPrimitive>().Distinct().ToArray();
 
@@ -508,7 +527,8 @@ public class WebApiConnector : Connector
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
-            Logger.Debug($"Bulk writing: {twinPrimitives.Count()} items in {stopwatchWrite.ElapsedMilliseconds} ms.");
+            Logger.Debug("Bulk writing: {ItemsCount} items written in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatchWrite.ElapsedMilliseconds);
+
     }
 
     /// <inheritdoc />
