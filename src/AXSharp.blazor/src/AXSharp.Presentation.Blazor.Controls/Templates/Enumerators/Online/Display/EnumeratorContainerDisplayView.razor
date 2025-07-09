@@ -12,7 +12,7 @@
                 readonly="@IsReadOnly"
                 disabled="disabled">
 
-            <option>
+            <option value="@EnumToIntConverter.Convert(@Onliner.Cyclic, null, null, null)" selected>
                 @EnumToIntConverter.Convert(@Onliner.Cyclic, null, null, null)
             </option>
         </select>
