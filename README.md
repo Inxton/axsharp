@@ -20,7 +20,7 @@ This project is under development; however, we are [releasing versions](https://
 
 All versions released with a major version number `0` (e.g. 0.10.0) can have breaking changes to the previous version at any moment. Stable versions will be released with a major version number greater than `0` (e.g. 1.2.1).
 
-We plan to have production-ready libraries and tools in early spring 2024, that will cover:
+We plan to have production-ready libraries and tools in early spring 2025, that will cover:
 
 - compiler for building .NET twin object (ix compiler)
 - communication layer between .NET twin objects and S71500 series PLCs
