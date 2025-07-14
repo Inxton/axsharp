@@ -160,7 +160,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         AX.ST.Semantic.Model.ISemanticTypeAccess? extendedType = classDeclaration.ExtendedTypeAccesses.FirstOrDefault();
 
         //TODO: Workaround for not fully qualified declarations. To be addressed with proper dependency handling in stc.
-        var extend = Compilation.FindTypeDeclaration(extendedType, true);
+        var extend = Compilation.FindTypeDeclaration(extendedType, warnMissingOrInconsistent: true);
         if (extend != null)
         {
             AddToSource($"{extend.FullyQualifiedName}{ReplaceGenericSignature(classDeclaration)}");
