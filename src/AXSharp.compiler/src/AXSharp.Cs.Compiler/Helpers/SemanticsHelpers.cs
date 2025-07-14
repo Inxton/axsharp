@@ -94,7 +94,7 @@ public static class SemanticsHelpers
 
             if (candidates.Count() > 1 && warnMissingOrInconsistent)
             {
-                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Multiple types found for '{typeAccess.TypeSymbol.Name}' the declaration appears ambiguous. You may need to fully qualify the declaration.");
+                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Multiple types found for '{typeAccess.TypeSymbol.Name}'. The declaration appears ambiguous. You may need to fully qualify the declaration.");
             }
         }
         catch
