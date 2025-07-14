@@ -28,25 +28,30 @@ public static class SemanticsHelpers
     /// <param name="field">Field declaration</param>
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Lateral builder signature</param>
+    /// <param name="warnMissingOrInconsistent">Issues warning when the type is eligible but not available.</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligible, ITypeDeclaration eligibleType) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligible, ITypeDeclaration eligibleType) IsMemberEligibleForTranspile(this IFieldDeclaration field, ISourceBuilder sourceBuilder, 
+                                    string coBuilder = "", bool warnMissingOrInconsistent = false)
     {
-        var eligibility = field.IsEligibleForTranspile(sourceBuilder);
+        var eligibility = field.IsEligibleForTranspile(sourceBuilder, warnMissingOrInconsistent);
         var isEligible = (field.AccessModifier == AccessModifier.Public
                             && eligibility.isEligibe
                             && !IsToBeOmitted(field, sourceBuilder, coBuilder));
 
         return (isEligible, eligibility.eligibleType);
     }
-    
+
 
     /// <summary>
     /// Finds type declaration.
     /// </summary>
     /// <param name="compilation">Compilation object</param>
     /// <param name="typeAccess">Required type</param>
+    /// <param name="warnMissingOrInconsistent">Will report missing type.</param>
     /// <returns>Required type if found.</returns>
-    public static ITypeDeclaration FindTypeDeclaration(this Compilation compilation, AX.ST.Semantic.Model.ISemanticTypeAccess? typeAccess)
+    public static ITypeDeclaration FindTypeDeclaration
+            (this Compilation compilation, AX.ST.Semantic.Model.ISemanticTypeAccess? typeAccess, 
+                bool warnMissingOrInconsistent = false)
     {
         if (typeAccess == null)
             return null;
@@ -82,12 +87,12 @@ public static class SemanticsHelpers
             var span = typeAccess?.Location?.GetLineSpan();
             var line = span.Value.StartLinePosition.Line;
             var character = span.Value.StartLinePosition.Character;
-            if (candidates.Count() == 0)
+            if (candidates.Count() == 0 && warnMissingOrInconsistent)
             {
-                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Type '{typeAccess.TypeSymbol.Name}' not found the type may not be eligible for transpile or meta information is not available because this type is not defined in AX# compliant project. ");
+                Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Type '{typeAccess.TypeSymbol.Name}' not found. The type may not be eligible for transpile or meta information is not available because this type is not defined in AX# compliant project.");
             }
 
-            if (candidates.Count() > 1)
+            if (candidates.Count() > 1 && warnMissingOrInconsistent)
             {
                 Log.Logger.Warning($"{span?.Filename}({line}:{character}) : Multiple types found for '{typeAccess.TypeSymbol.Name}' the declaration appears ambiguous. You may need to fully qualify the declaration.");
             }
@@ -101,7 +106,8 @@ public static class SemanticsHelpers
         return null;
     }
 
-    public static ITypeDeclaration FindTypeDeclaration(this Compilation compilation, IDeclaration? typeAccess)
+    private static ITypeDeclaration FindTypeDeclaration(this Compilation compilation, IDeclaration? typeAccess, 
+        bool warnMissingOrInconsistent = false)
     {
         // This is to resolve fully qualified type name when the type cannot be determined propeprly form the semantic tree.
         // TODO: This workaround should be removed once we can properly use project dependencies in the stc.
@@ -123,12 +129,12 @@ public static class SemanticsHelpers
             return candidates.First();
         }
 
-        if (candidates.Count() == 0)
+        if (candidates.Count() == 0 && warnMissingOrInconsistent)
         {
             Log.Logger.Warning($"Type '{typeAccess?.ToString()}' not found in the semantic tree. {typeAccess?.Location}");
         }
 
-        if (candidates.Count() > 1)
+        if (candidates.Count() > 1 && warnMissingOrInconsistent)
         {
             Log.Logger.Warning($"Multiple types found for '{typeAccess?.ToString()}' in the semantic tree. You may need to fully qualify the declaration.");
         }
@@ -136,7 +142,7 @@ public static class SemanticsHelpers
         return null;
     }
 
-    public static string? DetermineFullyQualifiedName(this AX.ST.Semantic.Model.ISemanticTypeAccess declaration, Compilation compilation)
+    private static string? DetermineFullyQualifiedName(this AX.ST.Semantic.Model.ISemanticTypeAccess declaration, Compilation compilation)
     {
         return compilation.FindTypeDeclaration(declaration)?.FullyQualifiedName;
     }
@@ -184,7 +190,7 @@ public static class SemanticsHelpers
     /// <param name="declaration">Field declaration</param>
     /// <param name="compilation">Compilation object.</param>
     /// <returns>Fully qualified name of the declaration.</returns>
-    public static string? DetermineFullyQualifiedName(this IFieldDeclaration declaration, Compilation compilation)
+    private static string? DetermineFullyQualifiedName(this IFieldDeclaration declaration, Compilation compilation)
     {
         return compilation.FindTypeDeclaration(declaration.TypeAccess)?.FullyQualifiedName;
     }
@@ -195,7 +201,7 @@ public static class SemanticsHelpers
     /// <param name="declaration">Variable declaration</param>
     /// <param name="compilation">Compilation object.</param>
     /// <returns>Fully qualified name of the declaration.</returns>
-    public static string? DetermineFullyQualifiedName(this IVariableDeclaration declaration, Compilation compilation)
+    private static string? DetermineFullyQualifiedName(this IVariableDeclaration declaration, Compilation compilation)
     {
         return compilation.FindTypeDeclaration(declaration.TypeAccess)?.FullyQualifiedName;
     }
@@ -243,11 +249,12 @@ public static class SemanticsHelpers
     /// </summary>
     /// <param name="fieldDeclaration"></param>
     /// <param name="sourceBuilder"></param>
+    /// <param name="warnMissingOrInconsistent">Issues warning when the type is eligible but not available.</param>
     /// <returns>True when the type is eligible</returns>
-    public static (bool isEligibe, ITypeDeclaration eligibleType) IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder)
+    private static (bool isEligibe, ITypeDeclaration eligibleType) IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder, bool warnMissingOrInconsistent = false)
     {
         var type = fieldDeclaration.Type;
-        var fullyQualified = sourceBuilder.Compilation.FindTypeDeclaration(fieldDeclaration.TypeAccess);
+        var fullyQualified = sourceBuilder.Compilation.FindTypeDeclaration(fieldDeclaration.TypeAccess, warnMissingOrInconsistent);
         var isEligible = !(type is IReferenceTypeDeclaration)
                 &&
                 fieldDeclaration.IsAvailableForComm(sourceBuilder)
@@ -271,11 +278,13 @@ public static class SemanticsHelpers
     /// </summary>
     /// <param name="variableDeclaration"></param>
     /// <param name="sourceBuilder"></param>
+    /// <param name="warnMissingOrInconsistent">Will issue warning when the type is eligible but not available.</param>
     /// <returns>True when the type is eligible</returns>
-    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, ISourceBuilder sourceBuilder)
+    private static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IVariableDeclaration variableDeclaration, 
+                        ISourceBuilder sourceBuilder, bool warnMissingOrInconsistent = false)
     {
         var type = variableDeclaration.Type;
-        var declaration = sourceBuilder.Compilation.FindTypeDeclaration(variableDeclaration.TypeAccess);
+        var declaration = sourceBuilder.Compilation.FindTypeDeclaration(variableDeclaration.TypeAccess, warnMissingOrInconsistent);
         var isEligible = !(type is IReferenceTypeDeclaration)
                &&
                variableDeclaration.IsAvailableForComm(sourceBuilder)
@@ -300,11 +309,14 @@ public static class SemanticsHelpers
     /// </summary>
     /// <param name="arrayTypeDeclaration"></param>
     /// <param name="sourceBuilder">Source builder</param>
+    /// <param name="warnMissingOrInconsistent">Should issue warnign if the type was not found though eligible.</param>
     /// <returns></returns>
-    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, ISourceBuilder sourceBuilder)
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, 
+            ISourceBuilder sourceBuilder, 
+            bool warnMissingOrInconsistent = false )
     {
         var singleDimensionalArray = arrayTypeDeclaration.Dimensions.Count == 1;
-        var declaration = sourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess);
+        var declaration = sourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess, warnMissingOrInconsistent);
         var isEligibleType = !(arrayTypeDeclaration.ElementTypeAccess.Type is IReferenceTypeDeclaration)
                              &&
                              arrayTypeDeclaration.IsAvailableForComm(sourceBuilder)
@@ -326,10 +338,12 @@ public static class SemanticsHelpers
     /// <param name="variable">Variable declaration</param>
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Co-builder signature (e.g. POCO, Onliner, etc.)</param>
+    /// <param name="warnMissingOrInconsistent">Will issue waring when the type is eligible but not found</param>
     /// <returns>True when the member is eligible for generation.</returns>
-    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForTranspile(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
+    public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForTranspile(this IVariableDeclaration variable, 
+                                                    ISourceBuilder sourceBuilder, string coBuilder = "", bool warnMissingOrInconsistent = false)
     {
-        var eligibility = variable.IsEligibleForTranspile(sourceBuilder);
+        var eligibility = variable.IsEligibleForTranspile(sourceBuilder, warnMissingOrInconsistent);
         var eligible = variable.IsInGlobalMemory
                && eligibility.isEligibe
                && !IsToBeOmitted(variable, sourceBuilder, coBuilder);
