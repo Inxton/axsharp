@@ -32,7 +32,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess);
+        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess, warnMissingOrInconsistent: true);
         //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         type.Accept(visitor, this);
         AddToSource("[]");
@@ -51,7 +51,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder);
+        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
         if (eligibility.isEligible)
         {
             AddToSource(fieldDeclaration.Pragmas.AddAttributes());
@@ -76,7 +76,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder);
+                    var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
                     if (arrayEligibility.isEligibe)
                     {
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
@@ -145,7 +145,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateVariableDeclaration(IVariableDeclaration semantics, IxNodeVisitor visitor)
     {
-        var eligibility = semantics.IsMemberEligibleForTranspile(SourceBuilder);
+        var eligibility = semantics.IsMemberEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
         if (eligibility.isEligibe)
         {
             AddToSource(semantics.Pragmas.AddAttributes());
@@ -170,7 +170,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder);
+                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
                     if (arrayEligible.isEligibe)
                     {
                         AddToSource($"public");
