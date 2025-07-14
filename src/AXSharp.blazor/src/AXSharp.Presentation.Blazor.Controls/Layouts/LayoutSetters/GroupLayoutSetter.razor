@@ -19,35 +19,29 @@
         }
     case "WrapPanelLayout":
         {
-            <div class="flex p-2">
-                <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
-                    <LayoutView Layout="GroupLayout">
-                        @ChildContent
-                    </LayoutView>
-                </GroupContainerAttributeSetter>
-            </div>
+            <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
+                <LayoutView Layout="GroupLayout">
+                    @ChildContent
+                </LayoutView>
+            </GroupContainerAttributeSetter>
             break;
         }
     case "GroupBoxLayout":
         {
-            <div class="p-2">
-                <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
-                    <LayoutView Layout="GroupLayout">
-                        @ChildContent
-                    </LayoutView>
-                </GroupContainerAttributeSetter>
-            </div>
+            <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
+                <LayoutView Layout="GroupLayout">
+                    @ChildContent
+                </LayoutView>
+            </GroupContainerAttributeSetter>
             break;
         }
     case "UniformGridLayout":
         {
-            <div class="p-2 flex-even">
-                <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
-                    <LayoutView Layout="GroupLayout">
-                        @ChildContent
-                    </LayoutView>
-                </GroupContainerAttributeSetter>
-            </div>
+            <GroupContainerAttributeSetter GroupType="GroupContainer" GroupName="@GroupName">
+                <LayoutView Layout="GroupLayout">
+                    @ChildContent
+                </LayoutView>
+            </GroupContainerAttributeSetter>
             break;
         }
     default:

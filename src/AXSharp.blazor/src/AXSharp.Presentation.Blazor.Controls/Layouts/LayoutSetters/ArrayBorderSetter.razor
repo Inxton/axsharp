@@ -1,6 +1,6 @@
 ﻿@if (IsArray)
 {
-    <div class="card p-2 mt-2">
+    <div class="flex flex-wrap card p-2">
         <h4>@Name</h4>
         @ChildContent
     </div>
@@ -10,14 +10,11 @@ else
     @ChildContent
 }
 
-
 @code {
-
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
     public bool IsArray { get; set; }
     [Parameter]
     public string Name { get; set; }
-
 }
