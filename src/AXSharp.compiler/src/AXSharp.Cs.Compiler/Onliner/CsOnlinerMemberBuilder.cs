@@ -76,7 +76,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder, true);
+                    var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
                     if (arrayEligibility.isEligibe)
                     {
                         AddToSource($"{fieldDeclaration.AccessModifier.Transform()} ");
