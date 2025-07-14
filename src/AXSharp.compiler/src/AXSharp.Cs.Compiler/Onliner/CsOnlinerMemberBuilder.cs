@@ -170,7 +170,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("{get;}");
                     break;
                 case IArrayTypeDeclaration array:
-                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder, true);
+                    var arrayEligible = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
                     if (arrayEligible.isEligibe)
                     {
                         AddToSource($"public");
