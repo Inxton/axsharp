@@ -309,7 +309,7 @@ public static class SemanticsHelpers
     /// </summary>
     /// <param name="arrayTypeDeclaration"></param>
     /// <param name="sourceBuilder">Source builder</param>
-    /// <param name="warnMissingOrInconsistent">Should issue warnign if the type was not found though eligible.</param>
+    /// <param name="warnMissingOrInconsistent">Should issue warning if the type was not found though eligible.</param>
     /// <returns></returns>
     public static (bool isEligibe, ITypeDeclaration? eligibleType) IsEligibleForTranspile(this IArrayTypeDeclaration arrayTypeDeclaration, 
             ISourceBuilder sourceBuilder, 
