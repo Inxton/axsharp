@@ -32,7 +32,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
 
     public void CreateArrayTypeDeclaration(IArrayTypeDeclaration arrayTypeDeclaration, IxNodeVisitor visitor)
     {
-        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess, true);
+        var type = this.SourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess, warnMissingOrInconsistent: true);
         //arrayTypeDeclaration.ElementTypeAccess.Type.Accept(visitor, this);
         type.Accept(visitor, this);
         AddToSource("[]");
