@@ -338,7 +338,7 @@ public static class SemanticsHelpers
     /// <param name="variable">Variable declaration</param>
     /// <param name="sourceBuilder">Source builder</param>
     /// <param name="coBuilder">Co-builder signature (e.g. POCO, Onliner, etc.)</param>
-    /// <param name="warnMissingOrInconsistent">Will issue waring when the type is eligible but not found</param>
+    /// <param name="warnMissingOrInconsistent">Will issue warning when the type is eligible but not found</param>
     /// <returns>True when the member is eligible for generation.</returns>
     public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForTranspile(this IVariableDeclaration variable, 
                                                     ISourceBuilder sourceBuilder, string coBuilder = "", bool warnMissingOrInconsistent = false)
