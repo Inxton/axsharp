@@ -3,9 +3,16 @@
 @*Call rendering method over context object*@
 @if (Context != null)
 {
-    <div name="@Context.Symbol.Replace(".", "-")" class="@Class">
+    if (!string.IsNullOrEmpty(Class))
+    {
+        <div name="@Context.Symbol.Replace(".", "-")" class="@Class">
+            @RenderComponent(Context)
+        </div>
+    }
+    else
+    {
         @RenderComponent(Context)
-    </div>
+    }
 }
 
 @code

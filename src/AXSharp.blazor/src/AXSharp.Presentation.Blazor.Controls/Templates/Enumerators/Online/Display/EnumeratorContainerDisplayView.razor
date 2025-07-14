@@ -8,12 +8,11 @@
 
         <select id="@ComponentId"
                 class="min-w-6 @AccessStatus"
-                @bind="Value"
                 readonly="@IsReadOnly"
                 disabled="disabled">
 
-            <option>
-                @EnumToIntConverter.Convert(@Onliner.Cyclic, null, null, null)
+            <option selected>
+                @EnumToIntConverter.Convert(Value, null, null, null)
             </option>
         </select>
     </div>
