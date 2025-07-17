@@ -139,6 +139,13 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
         /// </summary>
         [Parameter]
         public string LayoutChildrenClass { get; set; }
+
+        /// <summary>
+        /// Parameter HideLabel, if set to true, will hide label of this control.
+        /// </summary>
+        [Parameter]
+        public bool HideLabel { get; set; } = false;
+
         [Inject]
         public ComponentService ComponentService { get; set; }
         [Inject]
@@ -278,6 +285,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             __builder.AddAttribute(3, "IsReadOnly", HasReadAccess(twinPrimitive));
             __builder.AddAttribute(1, "RccContainer", this);
             __builder.AddAttribute(4, "PollingInterval", this.PollingInterval);
+            __builder.AddAttribute(5, "HideLabel", HideLabel);
             __builder.CloseComponent();
         };
 
@@ -313,6 +321,7 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             __builder.AddAttribute(1, "Onliner", kid);
             __builder.AddAttribute(2, "EnumDiscriminatorAttribute", enumDiscriminatorAttribute);
             __builder.AddAttribute(3, "IsReadOnly", HasReadAccess(kid));
+            __builder.AddAttribute(4, "HideLabel", HideLabel);
             __builder.CloseComponent();
         };
 

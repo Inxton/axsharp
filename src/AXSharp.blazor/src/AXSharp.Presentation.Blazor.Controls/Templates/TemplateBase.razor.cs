@@ -35,6 +35,9 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         [Parameter]
         public bool IsReadOnly { get; set; }
 
+        [Parameter]
+        public bool HideLabel { get; set; } = false;
+
         protected T LastValue { get; set; }
 
         protected T Value
