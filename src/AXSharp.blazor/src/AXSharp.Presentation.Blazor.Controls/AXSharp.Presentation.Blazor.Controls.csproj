@@ -1,8 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    
-
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -30,34 +28,13 @@
 		  https://github.com/inxton/axsharp/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+	  <Version>3.0.50</Version>
     
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="RenderableContentControl\**" />
     <Compile Remove="wwwroot\**" />
-    <Content Remove="RenderableContentControl\**" />
-    <Content Remove="wwwroot\**" />
-    <EmbeddedResource Remove="RenderableContentControl\**" />
-    <EmbeddedResource Remove="wwwroot\**" />
-    <None Remove="RenderableContentControl\**" />
-    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -92,7 +69,14 @@
 		<!-- <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
 	</ItemGroup>
-	
-	
+
+	<ItemGroup>
+		<None Include="Layouts\**\*.*" Pack="true" PackagePath="contentFiles\Layouts\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Templates\**\*.*" Pack="true" PackagePath="contentFiles\Templates\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
+	</PropertyGroup>
 
 </Project>
