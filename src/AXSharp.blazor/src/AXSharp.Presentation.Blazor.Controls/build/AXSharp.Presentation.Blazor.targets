@@ -1,0 +1,25 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyAXSharpAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from AXSharp package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/AXSharp.targets is located -->
+			<AXSharpLayouts Include="$(MSBuildThisFileDirectory)..\contentFiles\Layouts\**\*" />
+			<AXSharpTemplates Include="$(MSBuildThisFileDirectory)..\contentFiles\Templates\**\*" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\AXSharp\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\AXSharp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\AXSharp\Layouts" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\AXSharp\Templates" ContinueOnError="true" />
+
+		<!-- Copy Layouts files -->
+		<Copy SourceFiles="@(AXSharpLayouts)" DestinationFolder="$(MSBuildProjectDirectory)\temp\AXSharp\Layouts\%(RecursiveDir)" SkipUnchangedFiles="true" />
+
+		<!-- Copy Templates files -->
+		<Copy SourceFiles="@(AXSharpTemplates)" DestinationFolder="$(MSBuildProjectDirectory)\temp\AXSharp\Templates\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>
