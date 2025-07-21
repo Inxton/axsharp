@@ -406,7 +406,7 @@ ix/.g/**
 /src/apax/stc-generic-x64
 TestResults/
 
-operon/
+temp/
 
 # Apax packages
 *.apax.tgz
