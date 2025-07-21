@@ -2,5 +2,5 @@
 @inherits TemplateBaseShadow<bool>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
+    <Operon.Components.BaseInput @bind-Value="@Onliner.Shadow" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" />
 </TemplateView>

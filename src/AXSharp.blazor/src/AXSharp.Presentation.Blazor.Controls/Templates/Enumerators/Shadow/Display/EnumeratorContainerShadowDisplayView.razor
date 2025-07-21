@@ -4,7 +4,10 @@
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
     <div class="select-group">
-        <label for="@ComponentId">@Onliner.AttributeName</label>
+        @if (!string.IsNullOrEmpty(Onliner.AttributeName) && !HideLabel)
+        {
+            <label for="@ComponentId">@Onliner.AttributeName</label>
+        }
 
         <select id="@ComponentId"
                 class="min-w-6 @AccessStatus"
