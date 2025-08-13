@@ -17,6 +17,7 @@ using NuGet.Packaging;
 using NuGet.Versioning;
 using Polly;
 using Serilog.Core;
+using System.Text.RegularExpressions;
 
 namespace AXSharp.Compiler;
 
@@ -77,7 +78,7 @@ public class CsProject : ITargetProject
     {
         var fileName = string.Empty;
 
-        if (SyntaxFacts.IsIdentifierPartCharacter(name.FirstOrDefault())) fileName = $"{name.FirstOrDefault()}";
+        if (SyntaxFacts.IsIdentifierPartCharacter(name.FirstOrDefault())) fileName = $"{name.FirstOrDefault()}" ;
 
         for (var i = 1; i < name.Length; i++)
         {
@@ -176,7 +177,7 @@ public class CsProject : ITargetProject
 
     private static readonly string NugetDir =
         SettingsUtility.GetGlobalPackagesFolder(Settings.LoadDefaultSettings(null));
-
+    
 
     /// <inheritdoc />
     public void ProvisionProjectStructure()
@@ -398,8 +399,10 @@ namespace {this.ProjectRootNamespace}
         {
             var csproj = XDocument.Load(projectPath);
             var csprojDir = FileDirectory(projectFile);
-            var nugets = PackageReferences(csproj, projectFile);
-            var projects = ProjectReferences(csproj, csprojDir);
+            // Collect MSBuild properties (Directory.Build.props + project)
+            var (baseProperties, targetFrameworks) = MsBuildConditionEvaluator.CollectBaseProperties(projectPath, csproj);
+            var nugets = PackageReferences(csproj, projectPath, targetFrameworks, baseProperties);
+            var projects = ProjectReferences(csproj, csprojDir, targetFrameworks, baseProperties);
             return nugets.Concat(projects);
         }
         catch (Exception ex)
@@ -470,8 +473,9 @@ namespace {this.ProjectRootNamespace}
         {
             var csproj = XDocument.Load(project.ProjectFilePath);
             var csprojDir = FileDirectory(project.ProjectFilePath);
-            var nugets = PackageReferences(csproj, project.ProjectFilePath);
-            var projects = ProjectReferences(csproj, csprojDir);
+            var (baseProps, tfs) = MsBuildConditionEvaluator.CollectBaseProperties(project.ProjectFilePath, csproj);
+            var nugets = PackageReferences(csproj, project.ProjectFilePath, tfs, baseProps);
+            var projects = ProjectReferences(csproj, csprojDir, tfs, baseProps);
             project.References = nugets.Concat(projects);
             return project.References;
         }
@@ -483,13 +487,30 @@ namespace {this.ProjectRootNamespace}
         }
     }
 
-    private static IEnumerable<IReference> PackageReferences(XDocument csproj, string projectFile)
+    private static IEnumerable<IReference> PackageReferences(XDocument csproj, string projectFile, IEnumerable<string> targetFrameworks, Dictionary<string,string> baseProperties)
     {
-        return csproj
-            .Root!
-            .Elements("ItemGroup")
-            .SelectMany(ig => ig.Elements("PackageReference"))
-            .Select(pr => PackageReference.CreateFromReferenceNode(pr, projectFile));
+        var result = new List<IReference>();
+        var itemGroups = csproj.Root!.Elements("ItemGroup");
+        foreach (var ig in itemGroups)
+        {
+            foreach (var tf in targetFrameworks)
+            {
+                if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
+                foreach (var pr in ig.Elements("PackageReference"))
+                {
+                    if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
+                    try
+                    {
+                        result.Add(PackageReference.CreateFromReferenceNode(pr, projectFile));
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Logger.Warning(e, $"Failed to parse PackageReference '{pr}' in '{projectFile}'");
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     private static string PackageReferenceNugetPath(PackageReference package)
@@ -523,13 +544,25 @@ namespace {this.ProjectRootNamespace}
        
     }
 
-    private static IEnumerable<IReference> ProjectReferences(XDocument csproj, string directory)
+    private static IEnumerable<IReference> ProjectReferences(XDocument csproj, string directory, IEnumerable<string> targetFrameworks, Dictionary<string,string> baseProperties)
     {
-        return csproj
-            .Root!
-            .Elements("ItemGroup")
-            .SelectMany(ig => ig.Elements("ProjectReference"))
-            .Select(pr => new ProjectReference(directory, pr.Attribute("Include")!.Value.Replace("\\",Path.DirectorySeparatorChar.ToString())));
+        var result = new List<IReference>();
+        var itemGroups = csproj.Root!.Elements("ItemGroup");
+        foreach (var ig in itemGroups)
+        {
+            foreach (var tf in targetFrameworks)
+            {
+                if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
+                foreach (var pr in ig.Elements("ProjectReference"))
+                {
+                    if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
+                    var include = pr.Attribute("Include")?.Value.Replace("\\",Path.DirectorySeparatorChar.ToString());
+                    if (string.IsNullOrWhiteSpace(include)) continue;
+                    result.Add(new ProjectReference(directory, include));
+                }
+            }
+        }
+        return result;
     }
 
     #endregion
@@ -562,5 +595,231 @@ namespace {this.ProjectRootNamespace}
                 CompanionInfo.ToFile(new CompanionInfo() { Id = packageId, Version = this.AxSharpProject.AxProject.ProjectInfo.Version }, Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, CompanionInfo.COMPANIONS_FILE_NAME));
             }
         }
+    }
+
+    /// <summary>
+    /// Helper class for naïve MSBuild condition evaluation for dependency discovery.
+    /// Supports equality/inequality with $(Property) and logical AND/OR operators.
+    /// Only properties needed for typical ItemGroup conditions are handled (TargetFramework / Configuration etc.).
+    /// </summary>
+    private static class MsBuildConditionEvaluator
+    {
+        internal static (Dictionary<string,string> properties, List<string> targetFrameworks) CollectBaseProperties(string projectFile, XDocument csproj)
+        {
+            var props = new Dictionary<string,string>(StringComparer.OrdinalIgnoreCase);
+
+            // Walk up directories gathering Directory.Build.props (outermost first)
+            var dir = Path.GetDirectoryName(projectFile)!;
+            var stack = new Stack<string>();
+            var current = dir;
+            while (!string.IsNullOrEmpty(current))
+            {
+                var dbp = Path.Combine(current, "Directory.Build.props");
+                if (File.Exists(dbp)) stack.Push(dbp);
+                var parent = Directory.GetParent(current);
+                if (parent == null) break;
+                current = parent.FullName;
+            }
+
+            foreach (var dbp in stack)
+            {
+                TryLoadProps(dbp, props);
+            }
+
+            // Project properties override
+            TryLoadProjectProperties(csproj, props);
+
+            // Derive target frameworks (TargetFramework overrides TargetFrameworks if present)
+            var frameworks = new List<string>();
+            if (props.TryGetValue("TargetFramework", out var singleTf) && !string.IsNullOrWhiteSpace(singleTf))
+            {
+                frameworks.Add(singleTf.Trim());
+            }
+            else if (props.TryGetValue("TargetFrameworks", out var tfs) && !string.IsNullOrWhiteSpace(tfs))
+            {
+                frameworks.AddRange(tfs.Split(new[]{';'}, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+            }
+            if (frameworks.Count == 0)
+            {
+                // default fallback
+                frameworks.Add("netstandard2.0");
+            }
+            return (props, frameworks);
+        }
+
+        private static void TryLoadProps(string file, Dictionary<string,string> props)
+        {
+            try
+            {
+                var x = XDocument.Load(file);
+                TryLoadProjectProperties(x, props);
+            }
+            catch { /* ignore */ }
+        }
+
+        private static void TryLoadProjectProperties(XDocument xdoc, Dictionary<string,string> props)
+        {
+            foreach (var pg in xdoc.Root!.Elements("PropertyGroup"))
+            {
+                // Ignore conditional property groups for now (most TF definitions are unconditional in props files)
+                foreach (var el in pg.Elements())
+                {
+                    if (!el.HasElements && !string.IsNullOrWhiteSpace(el.Value))
+                    {
+                        props[el.Name.LocalName] = el.Value.Trim();
+                    }
+                }
+            }
+        }
+
+        internal static bool ItemGroupConditionPasses(XElement itemGroup, Dictionary<string,string> baseProps, string targetFramework)
+            => ConditionPasses(itemGroup.Attribute("Condition")?.Value, baseProps, targetFramework);
+
+        internal static bool ElementConditionPasses(XElement element, Dictionary<string,string> baseProps, string targetFramework)
+        {
+            var condition = element.Attribute("Condition")?.Value;
+            var passes = ConditionPasses(condition, baseProps, targetFramework);
+            if (!string.IsNullOrWhiteSpace(condition))
+            {
+                try
+                {
+                    var include = element.Attribute("Include")?.Value;
+                    Log.Logger.Debug($"[MsBuildConditionEvaluator] Element '{element.Name.LocalName}' Include='{include}' condition='{condition}' tf='{targetFramework}' => {passes}");
+                }
+                catch { /* ignore */ }
+            }
+            return passes;
+        }
+
+        private static bool ConditionPasses(string? condition, Dictionary<string,string> baseProps, string targetFramework)
+        {
+            if (string.IsNullOrWhiteSpace(condition)) return true;
+            try
+            {
+                // Fast path for simple TF equality/inequality expressions to avoid parser quirks
+                var simpleTfEq = Regex.Match(condition, @"^\s*'\$\(TargetFramework\)'\s*==\s*'([^']+)'\s*$", RegexOptions.IgnoreCase);
+                if (simpleTfEq.Success)
+                {
+                    var expected = simpleTfEq.Groups[1].Value.Trim();
+                    var ok = string.Equals(expected, targetFramework, StringComparison.OrdinalIgnoreCase);
+                    Log.Logger.Debug($"[MsBuildConditionEvaluator] simple == TF condition '{condition}' => {ok}");
+                    if (!ok) return false; // short circuit
+                }
+                var simpleTfNe = Regex.Match(condition, @"^\s*'\$\(TargetFramework\)'\s*!=\s*'([^']+)'\s*$", RegexOptions.IgnoreCase);
+                if (simpleTfNe.Success)
+                {
+                    var notExpected = simpleTfNe.Groups[1].Value.Trim();
+                    var ok = !string.Equals(notExpected, targetFramework, StringComparison.OrdinalIgnoreCase);
+                    Log.Logger.Debug($"[MsBuildConditionEvaluator] simple != TF condition '{condition}' => {ok}");
+                    if (!ok) return false; // short circuit
+                }
+
+                var expanded = condition;
+                var props = new Dictionary<string,string>(baseProps, StringComparer.OrdinalIgnoreCase)
+                {
+                    ["TargetFramework"] = targetFramework
+                };
+                foreach (var kvp in props)
+                {
+                    expanded = expanded.Replace($"$({kvp.Key})", kvp.Value, StringComparison.OrdinalIgnoreCase);
+                }
+                var result = Evaluate(expanded);
+                if (expanded.Contains("=="))
+                {
+                    var parts = expanded.Split(new[]{"=="}, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                    if (parts.Length == 2)
+                    {
+                        var left = NormalizeLiteral(parts[0]);
+                        var right = NormalizeLiteral(parts[1]);
+                        result = string.Equals(left, right, StringComparison.OrdinalIgnoreCase);
+                    }
+                }
+                else if (expanded.Contains("!="))
+                {
+                    var parts = expanded.Split(new[]{"!="}, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                    if (parts.Length == 2)
+                    {
+                        var left = NormalizeLiteral(parts[0]);
+                        var right = NormalizeLiteral(parts[1]);
+                        result = !string.Equals(left, right, StringComparison.OrdinalIgnoreCase);
+                    }
+                }
+                Log.Logger.Debug($"[MsBuildConditionEvaluator] expanded='{expanded}' tf='{targetFramework}' => {result}");
+                return result;
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Debug(e, $"Failed to evaluate MSBuild condition '{condition}'. Assuming false.");
+                return false;
+            }
+        }
+
+        private static bool Evaluate(string expr)
+        {
+            // Very small parser: handle parentheses removal, quotes, ==, !=, And/Or
+            expr = expr.Trim();
+            if (expr.StartsWith("(") && expr.EndsWith(")"))
+            {
+                expr = expr.Substring(1, expr.Length - 2).Trim();
+            }
+
+            // Split by OR
+            var orParts = Split(expr, new[]{" Or ", " or ", " OR "});
+            if (orParts.Length > 1)
+            {
+                return orParts.Any(p => Evaluate(p));
+            }
+            var andParts = Split(expr, new[]{" And ", " and ", " AND "});
+            if (andParts.Length > 1)
+            {
+                return andParts.All(p => Evaluate(p));
+            }
+
+            // Equality / inequality
+            if (expr.Contains("!="))
+            {
+                var sides = expr.Split(new[]{"!="}, StringSplitOptions.RemoveEmptyEntries);
+                if (sides.Length == 2)
+                {
+                    return !NormalizeLiteral(sides[0]).Equals(NormalizeLiteral(sides[1]), StringComparison.OrdinalIgnoreCase);
+                }
+            }
+            if (expr.Contains("=="))
+            {
+                var sides = expr.Split(new[]{"=="}, StringSplitOptions.RemoveEmptyEntries);
+                if (sides.Length == 2)
+                {
+                    return NormalizeLiteral(sides[0]).Equals(NormalizeLiteral(sides[1]), StringComparison.OrdinalIgnoreCase);
+                }
+            }
+
+            // If cannot parse, default true (MSBuild would treat non-empty?) but safer false.
+            return false;
+        }
+
+        private static string NormalizeLiteral(string val)
+        {
+            val = val.Trim();
+            if (val.StartsWith("'")) val = val.Trim('\'');
+            if (val.StartsWith("\"")) val = val.Trim('"');
+            return val.Trim();
+        }
+
+        private static string[] Split(string expr, string[] separators)
+        {
+            foreach (var sep in separators)
+            {
+                var idx = IndexOfIgnoreCase(expr, sep);
+                if (idx >= 0)
+                {
+                    // simple split (no nested support)
+                    return expr.Split(separators, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                }
+            }
+            return new[]{expr};
+        }
+
+        private static int IndexOfIgnoreCase(string source, string value)
+            => source.IndexOf(value, StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -10,7 +10,6 @@ using AXSharp.Compiler;
 using AXSharp.Compiler.Cs.Onliner;
 using AXSharp.Compiler.Cs.Plain;
 using AXSharp.Compiler.CsTests;
-using Castle.Core.Resource;
 using Polly;
 using Xunit.Abstractions;
 
