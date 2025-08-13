@@ -39,8 +39,6 @@
 		</PackageReference>
 	</ItemGroup>
 
-
-	
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\AXSharp.Compiler\AXSharp.Compiler.csproj" />
 		<ProjectReference Include="..\..\src\AXSharp.Cs.Compiler\AXSharp.Compiler.Cs.csproj" />
@@ -51,6 +49,9 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
     <Content Include="samples\plt\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="samples\conditional\**">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
 	</ItemGroup>
