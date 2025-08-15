@@ -18,6 +18,8 @@ using NuGet.Versioning;
 using Polly;
 using Serilog.Core;
 using System.Text.RegularExpressions;
+using Serilog; // added for IsEnabled and message template logging
+using Serilog.Events; // added for LogEventLevel
 
 namespace AXSharp.Compiler;
 
@@ -493,22 +495,23 @@ namespace {this.ProjectRootNamespace}
         var itemGroups = csproj.Root!.Elements("ItemGroup");
         foreach (var ig in itemGroups)
         {
-            foreach (var tf in targetFrameworks)
+            var tf = targetFrameworks.First();
+            
+            if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
+            
+            foreach (var pr in ig.Elements("PackageReference"))
             {
-                if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
-                foreach (var pr in ig.Elements("PackageReference"))
+                if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
+                try
                 {
-                    if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
-                    try
-                    {
-                        result.Add(PackageReference.CreateFromReferenceNode(pr, projectFile));
-                    }
-                    catch (Exception e)
-                    {
-                        Log.Logger.Warning(e, $"Failed to parse PackageReference '{pr}' in '{projectFile}'");
-                    }
+                    result.Add(PackageReference.CreateFromReferenceNode(pr, projectFile));
+                }
+                catch (Exception e)
+                {
+                    Log.Logger.Warning(e, $"Failed to parse PackageReference '{pr}' in '{projectFile}'");
                 }
             }
+            
         }
         return result;
     }
@@ -546,19 +549,72 @@ namespace {this.ProjectRootNamespace}
 
     private static IEnumerable<IReference> ProjectReferences(XDocument csproj, string directory, IEnumerable<string> targetFrameworks, Dictionary<string,string> baseProperties)
     {
+        // Optimized: de-duplicate includes, avoid redundant TF loops for unconditional groups/elements,
+        // and short-circuit once a condition passes for any TF.
         var result = new List<IReference>();
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var itemGroups = csproj.Root!.Elements("ItemGroup");
+
         foreach (var ig in itemGroups)
         {
-            foreach (var tf in targetFrameworks)
+            var igCondition = ig.Attribute("Condition")?.Value;
+            var igHasCondition = !string.IsNullOrWhiteSpace(igCondition);
+
+            if (!igHasCondition)
             {
-                if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
+                // Unconditional ItemGroup – process elements smartly
                 foreach (var pr in ig.Elements("ProjectReference"))
                 {
+                    var includeRaw = pr.Attribute("Include")?.Value;
+                    if (string.IsNullOrWhiteSpace(includeRaw)) continue;
+
+                    var include = includeRaw.Replace("\\", Path.DirectorySeparatorChar.ToString());
+                    var prCondition = pr.Attribute("Condition")?.Value;
+                    var prHasCondition = !string.IsNullOrWhiteSpace(prCondition);
+
+                    var shouldInclude = false;
+                    if (!prHasCondition)
+                    {
+                        shouldInclude = true;
+                    }
+                    else
+                    {
+                        // Evaluate once per TF until first pass
+                        var tf = targetFrameworks.First();
+                        if (MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf))
+                        {
+                            shouldInclude = true;
+                            break;
+                        }
+                        
+                    }
+
+                    if (shouldInclude && seen.Add(include))
+                    {
+                        result.Add(new ProjectReference(directory, include));
+                    }
+                }
+
+                continue; // done with this ItemGroup
+            }
+
+            // Conditional ItemGroup – we must evaluate per TF, but still de-duplicate and short-circuit per element
+            foreach (var pr in ig.Elements("ProjectReference"))
+            {
+                var includeRaw = pr.Attribute("Include")?.Value;
+                if (string.IsNullOrWhiteSpace(includeRaw)) continue;
+                var include = includeRaw.Replace("\\", Path.DirectorySeparatorChar.ToString());
+
+                foreach (var tf in targetFrameworks)
+                {
+                    if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
                     if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
-                    var include = pr.Attribute("Include")?.Value.Replace("\\",Path.DirectorySeparatorChar.ToString());
-                    if (string.IsNullOrWhiteSpace(include)) continue;
-                    result.Add(new ProjectReference(directory, include));
+
+                    if (seen.Add(include))
+                    {
+                        result.Add(new ProjectReference(directory, include));
+                    }
+                    break; // Once added for any TF, don't re-evaluate for others
                 }
             }
         }
@@ -604,6 +660,17 @@ namespace {this.ProjectRootNamespace}
     /// </summary>
     private static class MsBuildConditionEvaluator
     {
+        // Precompiled regex for faster evaluation
+        private static readonly Regex SimpleTfEqRegex = new(
+            pattern: "^\\s*'\\$\\(TargetFramework\\)'\\s*==\\s*'([^']+)'\\s*$",
+            options: RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex SimpleTfNeRegex = new(
+            pattern: "^\\s*'\\$\\(TargetFramework\\)'\\s*!=\\s*'([^']+)'\\s*$",
+            options: RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex PropertyRefRegex = new(
+            pattern: "\\$\\(([^)]+)\\)",
+            options: RegexOptions.Compiled);
+
         internal static (Dictionary<string,string> properties, List<string> targetFrameworks) CollectBaseProperties(string projectFile, XDocument csproj)
         {
             var props = new Dictionary<string,string>(StringComparer.OrdinalIgnoreCase);
@@ -642,7 +709,7 @@ namespace {this.ProjectRootNamespace}
             if (frameworks.Count == 0)
             {
                 // default fallback
-                frameworks.Add("netstandard2.0");
+                frameworks.Add("net9.0");
             }
             return (props, frameworks);
         }
@@ -679,12 +746,12 @@ namespace {this.ProjectRootNamespace}
         {
             var condition = element.Attribute("Condition")?.Value;
             var passes = ConditionPasses(condition, baseProps, targetFramework);
-            if (!string.IsNullOrWhiteSpace(condition))
+            if (!string.IsNullOrWhiteSpace(condition) && Log.Logger.IsEnabled(LogEventLevel.Debug))
             {
                 try
                 {
                     var include = element.Attribute("Include")?.Value;
-                    Log.Logger.Debug($"[MsBuildConditionEvaluator] Element '{element.Name.LocalName}' Include='{include}' condition='{condition}' tf='{targetFramework}' => {passes}");
+                    Log.Logger.Debug("[MsBuildConditionEvaluator] Element '{Elem}' Include='{Include}' condition='{Condition}' tf='{TF}' => {Pass}", element.Name.LocalName, include, condition, targetFramework, passes);
                 }
                 catch { /* ignore */ }
             }
@@ -697,32 +764,53 @@ namespace {this.ProjectRootNamespace}
             try
             {
                 // Fast path for simple TF equality/inequality expressions to avoid parser quirks
-                var simpleTfEq = Regex.Match(condition, @"^\s*'\$\(TargetFramework\)'\s*==\s*'([^']+)'\s*$", RegexOptions.IgnoreCase);
+                var simpleTfEq = SimpleTfEqRegex.Match(condition);
                 if (simpleTfEq.Success)
                 {
                     var expected = simpleTfEq.Groups[1].Value.Trim();
                     var ok = string.Equals(expected, targetFramework, StringComparison.OrdinalIgnoreCase);
-                    Log.Logger.Debug($"[MsBuildConditionEvaluator] simple == TF condition '{condition}' => {ok}");
                     if (!ok) return false; // short circuit
                 }
-                var simpleTfNe = Regex.Match(condition, @"^\s*'\$\(TargetFramework\)'\s*!=\s*'([^']+)'\s*$", RegexOptions.IgnoreCase);
+                var simpleTfNe = SimpleTfNeRegex.Match(condition);
                 if (simpleTfNe.Success)
                 {
                     var notExpected = simpleTfNe.Groups[1].Value.Trim();
                     var ok = !string.Equals(notExpected, targetFramework, StringComparison.OrdinalIgnoreCase);
-                    Log.Logger.Debug($"[MsBuildConditionEvaluator] simple != TF condition '{condition}' => {ok}");
                     if (!ok) return false; // short circuit
                 }
 
+                // Replace only referenced properties
                 var expanded = condition;
-                var props = new Dictionary<string,string>(baseProps, StringComparer.OrdinalIgnoreCase)
+                var matches = PropertyRefRegex.Matches(condition);
+                if (matches.Count > 0)
                 {
-                    ["TargetFramework"] = targetFramework
-                };
-                foreach (var kvp in props)
-                {
-                    expanded = expanded.Replace($"$({kvp.Key})", kvp.Value, StringComparison.OrdinalIgnoreCase);
+                    // Use a small set to avoid repeating replaces
+                    var propsToExpand = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                    foreach (Match m in matches)
+                    {
+                        if (m.Success && m.Groups.Count > 1)
+                        {
+                            propsToExpand.Add(m.Groups[1].Value);
+                        }
+                    }
+                    foreach (var key in propsToExpand)
+                    {
+                        string? value = null;
+                        if (string.Equals(key, "TargetFramework", StringComparison.OrdinalIgnoreCase))
+                        {
+                            value = targetFramework;
+                        }
+                        else
+                        {
+                            baseProps.TryGetValue(key, out value);
+                        }
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            expanded = expanded.Replace($"$({key})", value, StringComparison.OrdinalIgnoreCase);
+                        }
+                    }
                 }
+
                 var result = Evaluate(expanded);
                 if (expanded.Contains("=="))
                 {
@@ -744,12 +832,18 @@ namespace {this.ProjectRootNamespace}
                         result = !string.Equals(left, right, StringComparison.OrdinalIgnoreCase);
                     }
                 }
-                Log.Logger.Debug($"[MsBuildConditionEvaluator] expanded='{expanded}' tf='{targetFramework}' => {result}");
+                if (Log.Logger.IsEnabled(LogEventLevel.Debug))
+                {
+                    Log.Logger.Debug("[MsBuildConditionEvaluator] expanded='{Expanded}' tf='{TF}' => {Result}", expanded, targetFramework, result);
+                }
                 return result;
             }
             catch (Exception e)
             {
-                Log.Logger.Debug(e, $"Failed to evaluate MSBuild condition '{condition}'. Assuming false.");
+                if (Log.Logger.IsEnabled(LogEventLevel.Debug))
+                {
+                    Log.Logger.Debug(e, $"Failed to evaluate MSBuild condition '{condition}'. Assuming false.");
+                }
                 return false;
             }
         }

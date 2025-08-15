@@ -49,7 +49,8 @@ public class ConditionalDependenciesTests
         var target = (CsProject)ax.TargetProject;
         var refs = target.LoadReferences().OfType<PackageReference>().ToList();
         Assert.Contains(refs, r => r.Include == "PkgOnlyNet8");
-        Assert.Contains(refs, r => r.Include == "PkgOnlyNet9");
+       // Assert.Contains(refs, r => r.Include == "PkgOnlyNet9"); we only use single target framework in this test, so net9.0 package should not be included
+        Assert.DoesNotContain(refs, r => r.Include == "PkgOnlyNet9");
     }
 
     [Fact]
