@@ -495,22 +495,23 @@ namespace {this.ProjectRootNamespace}
         var itemGroups = csproj.Root!.Elements("ItemGroup");
         foreach (var ig in itemGroups)
         {
-            foreach (var tf in targetFrameworks)
+            var tf = targetFrameworks.First();
+            
+            if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
+            
+            foreach (var pr in ig.Elements("PackageReference"))
             {
-                if (!MsBuildConditionEvaluator.ItemGroupConditionPasses(ig, baseProperties, tf)) continue;
-                foreach (var pr in ig.Elements("PackageReference"))
+                if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
+                try
                 {
-                    if (!MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf)) continue;
-                    try
-                    {
-                        result.Add(PackageReference.CreateFromReferenceNode(pr, projectFile));
-                    }
-                    catch (Exception e)
-                    {
-                        Log.Logger.Warning(e, $"Failed to parse PackageReference '{pr}' in '{projectFile}'");
-                    }
+                    result.Add(PackageReference.CreateFromReferenceNode(pr, projectFile));
+                }
+                catch (Exception e)
+                {
+                    Log.Logger.Warning(e, $"Failed to parse PackageReference '{pr}' in '{projectFile}'");
                 }
             }
+            
         }
         return result;
     }
@@ -579,14 +580,13 @@ namespace {this.ProjectRootNamespace}
                     else
                     {
                         // Evaluate once per TF until first pass
-                        foreach (var tf in targetFrameworks)
+                        var tf = targetFrameworks.First();
+                        if (MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf))
                         {
-                            if (MsBuildConditionEvaluator.ElementConditionPasses(pr, baseProperties, tf))
-                            {
-                                shouldInclude = true;
-                                break;
-                            }
+                            shouldInclude = true;
+                            break;
                         }
+                        
                     }
 
                     if (shouldInclude && seen.Add(include))
