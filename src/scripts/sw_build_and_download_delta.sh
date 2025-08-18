@@ -39,7 +39,7 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
-apax build --ignore-scripts
+apax build
 dotnet ixc
 
 #sw_download_delta
