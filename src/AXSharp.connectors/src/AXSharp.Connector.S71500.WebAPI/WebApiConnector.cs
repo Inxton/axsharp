@@ -475,7 +475,8 @@ public class WebApiConnector : Connector
         if (primitives == null || !primitives.Any()) return;
 
         var responseData = new ApiBulkResponse();
-        var twinPrimitives = primitives as ITwinPrimitive[] ?? primitives.ToArray();
+        var writeEnabledPrimitives = primitives.Where(p => p.ReadWriteAccess == ReadWriteAccess.ReadWrite);
+        var twinPrimitives = writeEnabledPrimitives as ITwinPrimitive[] ?? writeEnabledPrimitives.ToArray();
 
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatchWrite.Restart();
 

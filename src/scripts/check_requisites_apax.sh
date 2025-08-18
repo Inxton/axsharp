@@ -1,5 +1,5 @@
 apaxUrl="https://console.simatic-ax.siemens.io/"
-expectedApaxVersion="3.5.0"
+expectedApaxVersion="4.0.0"
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
