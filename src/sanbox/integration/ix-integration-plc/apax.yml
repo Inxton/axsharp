@@ -75,7 +75,7 @@ variables:
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the template functionality. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "axosimple"
-  AXTARGET: 172.20.30.110
+  AXTARGET: 192.168.100.85
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
@@ -89,7 +89,7 @@ scripts:
     - apax ixc
     - apax ixd
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -110,56 +110,56 @@ scripts:
     - apax build
     - apax check+download
   plcsim: | # start the PlcSimAdvanced if installed and if $USE_PLC_SIM_ADVANCED = true, register instance name according to name of the project, set its IpAddress to the value of $AXTARGET
-    ..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET                                                                            
+    ..\\..\\..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET                                                                            
   r: | # restart PLC using certificates                                                                                                                     (apax plc-info set-mode STOP [using cert file] & apax plc-info set-mode RUN [using cert file])
-    ..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD    
+    ..\\..\\..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD    
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
-    ..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
+    ..\\..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
   dcpd: | # discover all accesible devices connected to adapter with MAC address equal to entered MAC, used to discover MAC-addresses of the slaves         (apax dcp-utility discover)
-    ..\\scripts\\dcp_utility_discover.sh $PNIO_MAC                                                                                                      
+    ..\\..\\..\\scripts\\dcp_utility_discover.sh $PNIO_MAC                                                                                                      
   hdl: | #List configured harware and its state                                                                                                             (apax hw-diag list [using cert file])
-    ..\\scripts\\hw_diag_list.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD
+    ..\\..\\..\\scripts\\hw_diag_list.sh $AXTARGET $PLC_NAME $AX_USERNAME $AX_TARGET_PWD
   ci: | #clean and install dependencies
     apax clean
     apax install
   reset_plc: | #total reset of the PLC including IP and name                                                                                                (apax hwld --reset-plc All)
-    ..\\scripts\\reset_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
+    ..\\..\\..\\scripts\\reset_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
   clean_plc: | #total reset of the PLC excluding IP and name                                                                                                (apax hwld --reset-plc KeepOnlyIP)
-    ..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
+    ..\\..\\..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
   ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
-    ..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+    ..\\..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
   gsd: | # copy and install all gsdml files from libraries                                                                                                  (copy gsdml files from all assets dir & apax hwc install-gsd)
-    ..\\scripts\\copy_and_install_gsd.sh 
+    ..\\..\\..\\scripts\\copy_and_install_gsd.sh 
   hwl: | # copy all templates from libraries
-    ..\\scripts\\copy_hwl_templates.sh 
+    ..\\..\\..\\scripts\\copy_hwl_templates.sh 
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
-    ..\\scripts\\hw_compile.sh  
+    ..\\..\\..\\scripts\\hw_compile.sh  
   hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
-    ..\\scripts\\copy_hardware_ids.sh $DEFAULT_NAMESPACE $PLC_NAME
+    ..\\..\\..\\scripts\\copy_hardware_ids.sh $DEFAULT_NAMESPACE $PLC_NAME
   hwadr: | # copy the generated IoAddresses
-    ..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME 
+    ..\\..\\..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME 
   #  the following command must be triggered only once          
   hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, copy the IoAddresses, first download HW using password and upload certificate     (apax gsd & apax hwl & apax hwcc & apax hwid & apax hwadr & apax hwld [using password] & apax plc-cert)
-    ..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD 
+    ..\\..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD 
   hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate                               (apax gsd & apax hwl & apax hwcc & apax hwid & apax hwadr & apax hwld [using cert file])
-    ..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
+    ..\\..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
   hwdo: | # download HW only using certificate                                                                                                              (apax hwld [using cert file])
-    ..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
+    ..\\..\\..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
   swfd: | # software build and full download                                                                                                                (apax build & dotnet ixc & apax sld load [using cert file])
-    ..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
+    ..\\..\\..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
   swfdo: | # software full download only                                                                                                                    (apax sld load [using cert file])
     ..\\..\\..\\scripts\\sw_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
   swdd: | # software build and delta download                                                                                                               (apax build & dotnet ixc & apax sld load --mode delta [using cert file])
-    ..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD
+    ..\\..\\..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD
   swddo: | # software delta download only                                                                                                                   (apax sld load --mode delta [using cert file])
-    ..\\..\\scripts\\sw_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD 
+    ..\\..\\..\\..\\scripts\\sw_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD 
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw                                      (apax plcsim & apax clean & apax install & apax clean_plc & apax ssc & apax hwfd & apax swfd)
     START=$(date +%s)
       ..\\..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   all: | #build and download hardware and software using cert file. If cert file does not exists or its hash is different calls apax alf                    (apax plcsim & apax clean & apax install & apax hwu & apax swfd)
     START=$(date +%s)
-      ..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+      ..\\..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   ib: |
     apax install

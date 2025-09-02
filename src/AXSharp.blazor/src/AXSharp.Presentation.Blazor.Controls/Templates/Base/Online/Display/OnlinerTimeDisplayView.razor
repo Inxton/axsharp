@@ -3,7 +3,7 @@
 @inherits TemplateBaseOnline<TimeSpan>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" />
+    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="true" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" />
 </TemplateView>
 
 @code
@@ -12,12 +12,12 @@
     {
         get
         {
-            return Onliner.Cyclic;
+            return Value;
         }
         set
         {
             if (value != null)
-                Onliner.Cyclic = (TimeSpan)value;
+                Value = (TimeSpan)value;
         }
     }
 }

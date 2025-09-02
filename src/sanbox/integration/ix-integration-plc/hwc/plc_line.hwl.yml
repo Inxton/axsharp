@@ -5,7 +5,7 @@ Devices:
       TemplateName: 6ES7518-3AT10-0AB0_v4_0
       Arguments:
         PLCName: plc_line
-        IpAddress_X1: 172.20.30.110/24
+        IpAddress_X1: 192.168.100.85/24
         IpAddress_X2: 10.10.10.120/24
         ProfinetDeviceName_X1: plc_line_x1
         # CycleCommunicationLoad : 50

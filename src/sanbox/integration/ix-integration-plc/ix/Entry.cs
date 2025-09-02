@@ -25,7 +25,7 @@ namespace ix_integration_plc
 {
     public class TwinConnectorSelector
     {
-        public static string TargetIp { get; } = "172.20.30.110";
+        public static string TargetIp { get; } = "192.168.100.85";
         private static string Pass => @"123ABCDabcd$#!"; //Environment.GetEnvironmentVariable("AX_TARGET_PWD");       //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
         private static string UserName = "adm"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by username you have set up in your WebAPI settings        
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
@@ -46,6 +46,7 @@ namespace ix_integration_plc
 
         public static ix_integration_plcTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
+                //.CreateDummy());
             .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
     }
 

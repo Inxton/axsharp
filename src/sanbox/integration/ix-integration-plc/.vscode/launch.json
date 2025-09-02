@@ -6,7 +6,7 @@
             "type": "plc-debug",
             "request": "launch",
             "program": "${workspaceFolder}",
-            "ip": "172.20.30.110",
+            "ip": "192.168.100.85",
             "username": "adm",         // Add your PLC username here
             "password": "123ABCDabcd$#!",         // Add your PLC password here
             "certificate": "${workspaceFolder}\\certs\\plc_line\\plc_line.cer", // Path to your certificate

@@ -1,18 +1,13 @@
-﻿
-
-
-
-    @if (LayoutName == "GroupBoxLayout")
-    {
-        <GroupBoxLayout Body="@ChildContent" GroupName="@GroupName"/>
-    }
-    else
-    {
+﻿@if (LayoutName == "GroupBoxLayout")
+{
+    <GroupBoxLayout Body="@ChildContent" GroupName="@GroupName" />
+}
+else
+{
     <LayoutView Layout="@GroupType">
         @ChildContent
     </LayoutView>
-    }
-
+}
 
 @code
 {
@@ -23,7 +18,6 @@
     [Parameter]
     public string GroupName { get; set; }
 
-
     public string LayoutName { get; set; }
 
     protected override void OnInitialized()
@@ -33,7 +27,7 @@
         else
             LayoutName = GroupType.Name;
 
-        if(string.IsNullOrEmpty(GroupName))
-        base.OnInitialized();
+        if (string.IsNullOrEmpty(GroupName))
+            base.OnInitialized();
     }
 }

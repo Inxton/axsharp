@@ -1,10 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using Operon.Components.Tab
+@inherits LayoutComponentBase
 
-<div class="@LayoutClass">
-    <TabControl>
-        @Body
-    </TabControl>
-</div>
+<Tab Class="@LayoutClass">
+    @Body
+</Tab>
 
 @code
 {
