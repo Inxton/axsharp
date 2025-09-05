@@ -51,6 +51,8 @@ public class WebApiConnector : Connector
         int maxConcurrentRequest = 4,
         int concurrentRequestDelay = 0)
     {
+        Logger?.Information($"Attempting to connect to '{ipAddress}'");
+
         IPAddress = ipAddress;
         DBName = dbName;
         TargetPlatform = platform;
@@ -96,6 +98,8 @@ public class WebApiConnector : Connector
         int maxConcurrentRequest = 4,
         int concurrentRequestDelay = 0)
     {
+        Logger?.Information($"Attempting to connect to '{ipAddress}'");
+
         IPAddress = ipAddress;
         DBName = dbName;
         TargetPlatform = platform;
@@ -110,6 +114,7 @@ public class WebApiConnector : Connector
                 (sender, cert, chain, sslPolicyErrors) => true;
 
         var serviceFactory = new ApiStandardServiceFactory();
+       
         Client = serviceFactory.GetHttpClient(ipAddress, UserName, UserPassword ?? string.Empty);
 
         var splitter = new ApiRequestSplitterByBytes();
