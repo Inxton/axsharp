@@ -193,27 +193,6 @@ public class TwinIdentityProvider
         {
             _connector.Logger.Information("Reading identities...");
             await _connector.ReadBatchAsync(_identitiesTags);
-            var lastIdentity = 0ul;
-            if (_identitiesTags.Count > 0)
-            {
-                lastIdentity = _identitiesTags.Max(p => p.LastValue);
-            }
-
-            List<ITwinPrimitive> IdentitiesToWrite = new();
-
-            _connector.Logger.Information("Assigning missing identities...");
-            foreach (var it in _identitiesTags)
-            {
-                if (it.LastValue == 0)
-                {
-                    it.Cyclic = ++lastIdentity;
-                    IdentitiesToWrite.Add(it);  
-                }
-               
-            }
-            await _connector.WriteBatchAsync(IdentitiesToWrite);
-
-            _connector.Logger.Information("Reading identities done.");
             _connector.Logger.Information(
                 $"Number of identities: {_identitiesTags.Count} | Unique :{_identities.Count}");
         }
@@ -221,12 +200,45 @@ public class TwinIdentityProvider
         return _identitiesTags;
     }
 
+
+    /// <summary>
+    /// Assigns identities to all elements.
+    /// </summary>
+    /// <param name="identities">Identities</param>
+    /// <param name="identityProvider">Identity creator.</param>
+    /// <returns></returns>
+    public IEnumerable<OnlinerULInt> AssignIdentities(IEnumerable<OnlinerULInt> identities, Func<OnlinerULInt, ulong> identityProvider = null)
+    {
+        // If no identity provider is given, use default one based on hash code of the symbol.
+        identityProvider ??= (x) => x.Cyclic = (ulong)x.Symbol.GetHashCode();
+
+        _connector.Logger.Information("Assigning missing identities...");
+        foreach (var it in identities)
+        {
+            it.Cyclic = identityProvider(it);
+        }
+
+        return identities;
+    }
+
+    /// <summary>
+    /// Writes identities to the PLC.
+    /// </summary>
+    /// <param name="identitiesToWrite">List of identities to be written.</param>
+    /// <returns></returns>
+    public async Task WriteIdentities(IEnumerable<OnlinerULInt> identitiesToWrite)
+    {
+        if(_connector == null) return;
+        await _connector.WriteBatchAsync(identitiesToWrite);
+        _connector.Logger.Information("Identities have been written.");
+    }
+
     /// <summary>
     ///     Refreshes and sorts identities.
     /// </summary>
-    public async Task ConstructIdentitiesAsync()
+    public async Task ConstructIdentitiesAsync(Func<OnlinerULInt, ulong> identityProvider = null)
     {
-        await ReadIdentitiesAsync();
+        await WriteIdentities(AssignIdentities(await ReadIdentitiesAsync(), identityProvider));
         await SortIdentitiesAsync();
     }
 
@@ -243,10 +255,29 @@ public class TwinIdentityProvider
             {
                 var key = identity.Key.LastValue == 0 ? identity.Key.GetAsync().Result : identity.Key.LastValue;
                 if (!_sortedIdentities.ContainsKey(key))
+                {
                     _sortedIdentities.Add(key, identity.Value);
+                }
+                else
+                {
+                    throw new DuplicateIdentityException("There is a duplicate identity: " +
+                                                         $"{identity.Value.Symbol} : {key}." +
+                                                         $"The algorithm for assigning identities needs to be adjusted." +
+                                                         $"Use an algorithm that guarantees unique identities and is less prone to collisions.");
+                }
             }
 
             _connector?.Logger.Information("Sorting identities done.");
         });
+    }
+}
+
+/// <summary>
+/// Exception thrown when a duplicate identity is detected.
+/// </summary>
+public class DuplicateIdentityException : Exception
+{
+    public DuplicateIdentityException(string message) : base(message)
+    {
     }
 }
