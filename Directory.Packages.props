@@ -75,6 +75,5 @@
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.3" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="System.Interactive" Version="6.0.1" />
-    <PackageVersion Include="Operon" Version="0.2.0-alpha.44" />
   </ItemGroup>
 </Project>
