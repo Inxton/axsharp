@@ -28,6 +28,8 @@ namespace AXSharp.RenderableContent.Tests
            Services.AddSingleton<AttributesHandler>();
            Services.AddScoped<ViewModelCacheService>();
            _projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+            JSInterop.SetupModule("./_content/Inxton.Operon/js/centerTab.js");
         }
 
         private void Compare(string fileName, object twin, string presentation)
