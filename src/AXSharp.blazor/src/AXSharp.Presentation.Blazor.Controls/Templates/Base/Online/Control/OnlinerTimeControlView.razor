@@ -4,21 +4,5 @@
 @inherits TemplateBaseOnline<TimeSpan>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <Operon.Components.Pickers.TimeSpanPicker @bind-Value="InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" />
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" />
 </TemplateView>
-
-@code
-{
-    private TimeSpan? InputValue
-    {
-        get
-        {
-            return Value;
-        }
-        set
-        {
-            if (value != null)
-                Value = (TimeSpan)value;
-        }
-    }
-}
