@@ -169,8 +169,8 @@ public class BuildContext : FrostingContext
 
     public void PushNugetPackages(string artifactDirectory)
     {
-        if (Helpers.CanReleaseInternal())
-        {
+        //if (Helpers.CanReleaseInternal())
+        //{
             foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(this.Artifacts, artifactDirectory), "*.nupkg")
                          .Select(p => new FileInfo(p)))
             {
@@ -182,7 +182,7 @@ public class BuildContext : FrostingContext
                         SkipDuplicate = true
                     });
             }
-        }
+        //}
     }
 
     public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net9.0", "net8.0" };
