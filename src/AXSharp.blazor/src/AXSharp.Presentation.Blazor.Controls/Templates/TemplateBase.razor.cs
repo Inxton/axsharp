@@ -38,6 +38,12 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         [Parameter]
         public bool HideLabel { get; set; } = false;
 
+        [Parameter]
+        public string? Unit { get; set; }
+
+        [Parameter]
+        public string? Format { get; set; }
+
         protected T LastValue { get; set; }
 
         protected T Value

@@ -111,6 +111,68 @@ namespace AXSharp.Presentation.Blazor.Services
             return null;
         }
 
+        public FormatAttribute GetFormatAttribute(ITwinElement twinObject)
+        {
+            if (twinObject == null) return null;
+
+            try
+            {
+                var propertyInfo = GetPropertyViaSymbol(twinObject);
+                if (propertyInfo != null)
+                {
+                    if (propertyInfo
+                            .GetCustomAttributes().FirstOrDefault(p => p is FormatAttribute) is FormatAttribute propertyAttribute)
+                    {
+                        return propertyAttribute;
+                    }
+                }
+
+                var typeAttribute = twinObject
+                    .GetType()
+                    .GetCustomAttributes(true)
+                    .FirstOrDefault(p => p is FormatAttribute) as FormatAttribute;
+
+                return typeAttribute;
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+
+            return null;
+        }
+
+        public UnitAttribute GetUnitAttribute(ITwinElement twinObject)
+        {
+            if (twinObject == null) return null;
+
+            try
+            {
+                var propertyInfo = GetPropertyViaSymbol(twinObject);
+                if (propertyInfo != null)
+                {
+                    if (propertyInfo
+                            .GetCustomAttributes().FirstOrDefault(p => p is UnitAttribute) is UnitAttribute propertyAttribute)
+                    {
+                        return propertyAttribute;
+                    }
+                }
+
+                var typeAttribute = twinObject
+                    .GetType()
+                    .GetCustomAttributes(true)
+                    .FirstOrDefault(p => p is UnitAttribute) as UnitAttribute;
+
+                return typeAttribute;
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+
+            return null;
+        }
+
         public PropertyInfo GetPropertyViaSymbol(ITwinElement twinObject)
         {
             if (twinObject == null) return null;

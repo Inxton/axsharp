@@ -12,6 +12,12 @@
     public ITwinPrimitive Onliner { get; set; }
     [Parameter]
     public bool IsReadOnly { get; set; }
+    [Parameter]
+    public bool HideLabel { get; set; }
+    [Parameter]
+    public string? Format { get; set; }
+    [Parameter]
+    public string? Unit { get; set; }
 
     public override void ConfigurePolling()
     {

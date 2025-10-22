@@ -286,6 +286,8 @@ namespace AXSharp.Presentation.Blazor.Controls.RenderableContent
             __builder.AddAttribute(1, "RccContainer", this);
             __builder.AddAttribute(4, "PollingInterval", this.PollingInterval);
             __builder.AddAttribute(5, "HideLabel", HideLabel);
+            __builder.AddAttribute(6, "Format", AttributesHandler.GetFormatAttribute(twinPrimitive)?.FormatString);
+            __builder.AddAttribute(7, "Unit", AttributesHandler.GetUnitAttribute(twinPrimitive)?.UnitString);
             __builder.CloseComponent();
         };
 

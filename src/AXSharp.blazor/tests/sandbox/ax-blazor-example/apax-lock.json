@@ -396,12 +396,13 @@
     "integrity": "sha512-fkv8rJkzFKvRRvoT69sn5gx2P74NIiX2uymB997aKmveHQJb+P7E2rIiAD3hA/VqlXYTo13rh0cc7bMVumKEYA=="
   },
   "@ax/sld": {
-    "version": "2.0.5",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-2.0.5.tgz",
-    "integrity": "sha512-upa0HyRVdYyzNu6j7E+gTAnpzP2mfZxvo+0jbm8H6Ci9ergL56SHaCVBC35PnociMZpdZ5d1/LTy6f8lwpDxXA==",
+    "version": "3.1.3",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-3.1.3.tgz",
+    "integrity": "sha512-kBRxOPMbH7SHT2iPR7vd5X+/E/6kZlOHabxgRiuFMlSnY5zZGwTSW0/vbE5MDQOn/GUByVWyj9t9if2/GzdErA==",
     "cpu": [
       "x64"
-    ]
+    ],
+    "deprecated": "This package version is no longer supported. It is your responsibility to use supported versions. For more information, visit https://console.simatic-ax.siemens.io/docs/releases#legal-conditions."
   },
   "@ax/st-docs": {
     "version": "9.1.36",

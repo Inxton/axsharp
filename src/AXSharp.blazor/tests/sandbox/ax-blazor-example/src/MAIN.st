@@ -20,6 +20,8 @@ CLASS PUBLIC MAIN
         arr1 : ARRAY [0..2] OF stTest := [(p1 := 6, p2 := 3),(p1 := 9, p2 := 10),(p1 := 12,p2 := 33)];	
         arr2 :ARRAY [0..5] OF INT;
         dateVar : DATE;
+
+        unitFormatExample : stUnitFormatExample;
         
         {#ix-set:AttributeName = "instanceOfComplex"}
         instanceOfstComplex: stComplex ;
