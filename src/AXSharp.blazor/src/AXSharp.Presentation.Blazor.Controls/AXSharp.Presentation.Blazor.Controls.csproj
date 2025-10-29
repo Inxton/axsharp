@@ -73,7 +73,7 @@
 	<ItemGroup>
 		<None Include="Layouts\**\*.*" Pack="true" PackagePath="contentFiles\Layouts\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Templates\**\*.*" Pack="true" PackagePath="contentFiles\Templates\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="build\AXSharp.Presentation.Blazor.targets" Pack="true" PackagePath="build\AXSharp.Presentation.Blazor.targets" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="build\AXSharp.Presentation.Blazor.Controls.targets" Pack="true" PackagePath="build\AXSharp.Presentation.Blazor.Controls.targets" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<PropertyGroup>

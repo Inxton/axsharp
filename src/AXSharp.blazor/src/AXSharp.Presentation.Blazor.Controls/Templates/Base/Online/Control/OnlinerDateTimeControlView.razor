@@ -3,21 +3,5 @@
 @inherits TemplateBaseOnline<DateTime>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <Operon.Components.Pickers.DateTimePicker @bind-Value="@InputValue" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" />
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" Unit="@Unit" Format="@Format" />
 </TemplateView>
-
-@code
-{
-    private DateTime? InputValue
-    {
-        get
-        {
-            return Value;
-        }
-        set
-        {
-            if (value != null)
-                Value = (DateTime)value;
-        }
-    }
-}

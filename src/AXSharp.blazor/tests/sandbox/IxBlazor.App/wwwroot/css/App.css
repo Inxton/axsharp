@@ -1,3 +1,4 @@
 @import "tailwindcss";
-@import "../../../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
-@source "../../../../../../../../../operon/src/Operon";
+@import "../../../../../src/AXSharp.Presentation.Blazor.Controls/temp/Operon/operon.css";
+@source "../../../../../src/AXSharp.Presentation.Blazor.Controls/temp/Operon";
+@source "../../../../../src/AXSharp.Presentation.Blazor.Controls";
