@@ -101,8 +101,7 @@ public class AXSharpProject : IAXSharpProject
     public void Generate()
     {
         Log.Logger.Information($"Compilation of project '{AxProject.SrcFolder}' started");
-
-        var projectSources = AxProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p).Result, source: p));
+        var projectSources = AxProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p, SyntaxTreeOptions.Default, this.AxProject.ProjectInfo.Variables?.DefinedPreprocessorSymbols).Result, source: p));
 
         TargetProject.ProvisionProjectStructure();
 

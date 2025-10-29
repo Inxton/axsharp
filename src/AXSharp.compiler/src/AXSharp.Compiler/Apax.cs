@@ -62,6 +62,12 @@ public class Apax
     public IDictionary<string, string>? Dependencies { get; set; }
 
     /// <summary>
+    ///  Gets or sets variables section.
+    ///  This maps to the `variables` node in apax.yml.
+    /// </summary>
+    public ApaxVariables? Variables { get; set; }
+
+    /// <summary>
     /// Creates new instance of <see cref="Apax"/>.
     /// </summary>
     /// <param name="projectFile">Project file from which the ApaxFile object will be created.</param>
@@ -135,4 +141,22 @@ public class Apax
                 "'apax.yml' file was not found in the working directory. Make sure your current directory is simatic-ax project directory or provide source directory argument (for details see ixc --help)");
         }
     }
+}
+
+/// <summary>
+/// Represents the `variables` section of apax.yml.
+/// </summary>
+public class ApaxVariables
+{
+    /// <summary>
+    /// Values for APAX build arguments. Maps to the YAML key `APAX_BUILD_ARGS`.
+    /// </summary>
+    [YamlMember(Alias = "APAX_BUILD_ARGS", ApplyNamingConventions = false)]
+    public IEnumerable<string>? ApaxBuildArgs { get; set; }
+
+    /// <summary>
+    /// Values for defined preprocessor symbols. Maps to the YAML key `DEFINED_PREPROCESSOR_SYMBOLS`.
+    /// </summary>
+    [YamlMember(Alias = "DEFINED_PREPROCESSOR_SYMBOLS", ApplyNamingConventions = false)]
+    public IEnumerable<string>? DefinedPreprocessorSymbols { get; set; }
 }
