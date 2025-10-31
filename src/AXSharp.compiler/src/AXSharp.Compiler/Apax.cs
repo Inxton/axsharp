@@ -109,6 +109,10 @@ public class Apax
         {
             throw new FileNotFoundException(
                 "'apax.yml' file was not found in the working directory. Make sure your current directory is simatic-ax project directory or provide source directory argument (for details see ixc --help)");
+        }        
+        catch(YamlDotNet.Core.YamlException ex) 
+        {
+            throw new InvalidDataException($"Failed to process apax file: '{projectFile}' {ex.ToString()}");            
         }
     }
 

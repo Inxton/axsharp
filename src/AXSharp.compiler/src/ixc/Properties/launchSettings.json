@@ -4,6 +4,10 @@
       "commandName": "Project",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\statemachine\\"
     },
+    "ixc-tom": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\github\\Inxton\\axopen\\src\\components.elements\\app"
+    },    
     "integration_plc": {
       "commandName": "Project",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"

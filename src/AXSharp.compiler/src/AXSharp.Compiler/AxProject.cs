@@ -244,7 +244,7 @@ public class AxProject
 
         nearByProjects = SearchForApaxFiles(GetStartDirectory(this.ProjectFolder, 4), 0, 4)
             .Select(p => new FileInfo(p))
-            .Where(p => !p.Directory.FullName.Contains(".apax"))
+            .Where(p => !(p.Directory.FullName.Contains(".apax") || p.Directory.FullName.Contains("bin") || p.Directory.FullName.Contains("obj")))            
             .Select(a => new NearByProjects() { Apax = Apax.TryCreateApaxDto(a.FullName), ApaxFile = a })
             .ToList(); ;
 
