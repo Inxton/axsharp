@@ -4,36 +4,18 @@
     <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
+
+  <!-- Global Package References -->
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </GlobalPackageReference>
+  </ItemGroup>
+
+  <!-- Framework-Agnostic Packages -->
+  <ItemGroup>
     <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.94" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="System.Collections.Immutable" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="System.IO.Packaging" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="System.Text.Encodings.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="System.Speech" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="System.Collections.Immutable" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="System.IO.Packaging" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="System.Text.Encodings.Web" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="System.Speech" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0" Condition="'$(TargetFramework)' == 'net10.0'" />
     <PackageVersion Include="Cake.DocFx" Version="1.0.0" />
     <PackageVersion Include="Octokit" Version="13.0.1" />
     <PackageVersion Include="Octokit.Extensions" Version="1.0.7" />
@@ -75,5 +57,37 @@
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.3" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="System.Interactive" Version="6.0.1" />
+  </ItemGroup>
+
+  <!-- .NET 9.0 Specific Packages -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="System.Collections.Immutable" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="System.IO.Packaging" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="System.Speech" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+  </ItemGroup>
+
+  <!-- .NET 10.0 Specific Packages -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="System.Collections.Immutable" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="System.IO.Packaging" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="System.Speech" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0-rc.2.25502.107" Condition="'$(TargetFramework)' == 'net10.0'" />
   </ItemGroup>
 </Project>
