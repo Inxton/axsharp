@@ -33,13 +33,13 @@ public class ConditionalDependenciesTests
         var csproj = """
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net8.0'">
     <PackageReference Include="PkgOnlyNet8" Version="1.0.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">
-    <PackageReference Include="PkgOnlyNet9" Version="2.0.0" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net10.0'">
+    <PackageReference Include="PkgOnlyNet10" Version="2.0.0" />
   </ItemGroup>
 </Project>
 """;

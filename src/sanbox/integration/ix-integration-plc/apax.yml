@@ -83,8 +83,8 @@ variables:
   HWCONFIG: "HWC"
   COM_CERT_PATH: .\certs\Communication.cer
 scripts:
-  ixc: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
-  ixd: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework net9.0
+  ixc: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net10.0
+  ixd: dotnet run --project ..\\..\\..\\AXSharp.compiler\\src\\ixr\\AXSharp.ixr.csproj --framework net10.0
   postbuild:
     - apax ixc
     - apax ixd
