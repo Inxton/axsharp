@@ -27,7 +27,7 @@ jobs:
       run: dotnet build cake/Build.csproj
                        
     - name: "Run build script"
-      run: dotnet run --project cake/Build.csproj --do-test true --do-pack true --test-level 1 --framework net9.0      
+      run: dotnet run --project cake/Build.csproj --do-test true --do-pack true --test-level 1
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()

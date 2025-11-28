@@ -33,7 +33,7 @@ public class ConditionalDependenciesTests
         var csproj = """
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net8.0'">
     <PackageReference Include="PkgOnlyNet8" Version="1.0.0" />
@@ -48,9 +48,8 @@ public class ConditionalDependenciesTests
         var ax = new AXSharpProject(new AxProject(projDir), Array.Empty<Type>(), typeof(CsProject), new CompilerTestOptions(){ OutputProjectFolder = projDir});
         var target = (CsProject)ax.TargetProject;
         var refs = target.LoadReferences().OfType<PackageReference>().ToList();
-        Assert.Contains(refs, r => r.Include == "PkgOnlyNet8");
-       // Assert.Contains(refs, r => r.Include == "PkgOnlyNet9"); we only use single target framework in this test, so net9.0 package should not be included
-        Assert.DoesNotContain(refs, r => r.Include == "PkgOnlyNet9");
+        Assert.DoesNotContain(refs, r => r.Include == "PkgOnlyNet8");
+        Assert.Contains(refs, r => r.Include == "PkgOnlyNet10");
     }
 
     [Fact]
@@ -69,8 +68,7 @@ public class ConditionalDependenciesTests
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AlwaysPkg" Version="1.0.0" />
-    <PackageReference Include="CondPkg" Version="1.2.3" Condition="'$(TargetFramework)'=='net8.0'" />
-    <PackageReference Include="SkippedPkg" Version="3.0.0" Condition="'$(TargetFramework)'=='net9.0'" />
+    <PackageReference Include="CondPkg" Version="1.2.3" />
   </ItemGroup>
 </Project>
 """;

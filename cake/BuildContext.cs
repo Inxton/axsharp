@@ -91,7 +91,7 @@ public class BuildContext : FrostingContext
         DotNetRunSettings = new DotNetRunSettings()
         {
             Verbosity = buildParameters.Verbosity,
-            Framework = "net9.0",
+            Framework = "net10.0",
             Configuration = buildParameters.Configuration,
             NoBuild = true,
             NoRestore = true,
@@ -185,7 +185,7 @@ public class BuildContext : FrostingContext
         //}
     }
 
-    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net10.0", "net9.0" };
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net10.0" };
     public string ApaxSignKey { get; set; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
     public string GitHubUser { get; set; } = System.Environment.GetEnvironmentVariable("GH_USER");
     public string GitHubToken { get; set; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");

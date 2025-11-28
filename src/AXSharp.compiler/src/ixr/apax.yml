@@ -18,10 +18,10 @@ bugs:
 license: "MIT"  
 author: "https://github.com/Inxton/axsharp/graphs/contributors"
 files:
-  - "bin/Release/net9.0/**"  
-  - "!bin/Release/net9.0/.apax/.apax/**"  
+  - "bin/Release/net10.0/**"  
+  - "!bin/Release/net10.0/.apax/.apax/**"  
 contributedCommands:
   ixr:
-    bin: "bin/Release/net9.0/AXSharp.ixr.exe"
+    bin: "bin/Release/net10.0/AXSharp.ixr.exe"
     description: "AX#Sharp resources compiler"
     hidden: false        
