@@ -18,8 +18,8 @@ variables:
   COM_CERT_PATH: .\certs\Communication.cer
 scripts:
   ixc:
-    - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
-  postbuild: dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net9.0
+    - dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net10.0
+  postbuild: dotnet run --project ..\\..\\..\\..\\AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj --framework net10.0
   download: apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $COM_CERT_PATH --password $AX_TARGET_PWD --username $AX_USERNAME
 installStrategy: overridable
 apaxVersion: 3.1.1

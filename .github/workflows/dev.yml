@@ -35,13 +35,13 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'false' }}
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
-      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --framework net9.0   
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2
     - name: "Publish packages"
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true' }}
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         GH_USER: ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --do-publish --do-publish-release --framework net9.0
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --do-publish --do-publish-release 
     # - name: Test Report
     #   uses: dorny/test-reporter@v1
     #   if: success() || failure()

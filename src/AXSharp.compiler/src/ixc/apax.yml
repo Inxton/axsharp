@@ -18,11 +18,11 @@ bugs:
 license: "MIT"  
 author: "https://github.com/Inxton/axsharp/graphs/contributors"
 files:
-  - "bin/Release/net9.0/**"
-  - "!bin/Release/net9.0/.apax/.apax/**"
+  - "bin/Release/net10.0/**"
+  - "!bin/Release/net10.0/.apax/.apax/**"
 contributedCommands:
   ixc:
-    bin: "bin/Release/net9.0/AXSharp.ixc.exe"
+    bin: "bin/Release/net10.0/AXSharp.ixc.exe"
     description: "AX#Sharp twin compiler"
     hidden: false
 
