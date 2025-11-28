@@ -111,7 +111,7 @@ public static class Program
 
 
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine($"Using version '> {LegalAcrobatics.StcVersion}' of stc.");
+        Console.WriteLine($"Using version '{LegalAcrobatics.StcVersion}' of stc.");
         Console.ForegroundColor = originalColor;
 
         if (int.Parse(GitVersionInformation.Major) < 1 || string.IsNullOrEmpty(GitVersionInformation.PreReleaseLabel))

@@ -253,7 +253,7 @@ public class PragmaMock : IPragma
 
     public IEnumerable<ISemanticNode> ChildNodes => throw new NotImplementedException();
 
-    public void Accept<T>(ISemanticNodeVisitor<T> visitor, T data)
+    public TResult Accept<TResult, TContext>(ISemanticNodeVisitor<TResult, TContext> visitor, TContext data)
     {
         throw new NotImplementedException();
     }

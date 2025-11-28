@@ -19,91 +19,91 @@ namespace AXSharp.ixc_doc.Interfaces
         /// </summary>
         /// <param name="fileSyntax">File syntax node.</param>
         /// <param name="visitor">Associated visitor.</param>
-        public virtual void CreateFile(IFileSyntax fileSyntax, MyNodeVisitor visitor)
+        public virtual void CreateFile(IFileSyntax fileSyntax, DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateNamespaceYaml(
           INamespaceDeclaration namespaceDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateClassYaml(
           IClassDeclaration classDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateFieldYaml(
           IFieldDeclaration fieldDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateMethodYaml(
          IMethodDeclaration methodDeclaration,
-         MyNodeVisitor visitor)
+         DocNodeVisitor visitor)
             {
             throw new NotImplementedException();
         }
 
         public virtual void CreateNamedValueTypeYaml(
           INamedValueTypeDeclaration namedValueTypeDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateEnumTypeYaml(
             IEnumTypeDeclaration enumTypeDeclaration, 
-            MyNodeVisitor myNodeVisitor)
+            DocNodeVisitor myNodeVisitor)
         {
             throw new NotImplementedException();
         }
 
         void CreateNamedValueYaml(
             INamedValueDeclaration namedValueDeclaration, 
-            MyNodeVisitor myNodeVisitor)
+            DocNodeVisitor myNodeVisitor)
         {
             throw new NotImplementedException();
         }
 
         void CreateEnumValueYaml(
             IEnumValueDeclaration enumValueDeclaration, 
-            MyNodeVisitor myNodeVisitor)
+            DocNodeVisitor myNodeVisitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateInterfaceYaml(
           IInterfaceDeclaration InterfaceDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateMethodPrototypeYaml(
           IMethodPrototypeDeclaration methodPrototypeDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         public virtual void CreateFunctionYaml(
           IFunctionDeclaration functionDeclaration,
-          MyNodeVisitor visitor)
+          DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }
 
         void CreateStructuredTypeYaml(
             IStructuredTypeDeclaration structuredTypeDeclaration, 
-            MyNodeVisitor visitor)
+            DocNodeVisitor visitor)
         {
             throw new NotImplementedException();
         }

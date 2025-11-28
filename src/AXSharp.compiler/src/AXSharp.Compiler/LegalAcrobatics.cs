@@ -46,7 +46,7 @@ public static class LegalAcrobatics
 
         AXAssemblies = axAssemblies;
 
-        StcVersion = AXAssemblies.FirstOrDefault()?.GetName().Version?.ToString();
+        StcVersion = AXAssemblies.FirstOrDefault(p => p.GetName().FullName.StartsWith("AX.ST.Semantic"))?.GetName().Version?.ToString();
        
 
 
