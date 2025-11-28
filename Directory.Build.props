@@ -1,6 +1,6 @@
 <Project>
  <PropertyGroup>
-   <TargetFrameworks>net10.0</TargetFrameworks>  
+   <TargetFramework>net10.0</TargetFramework>  
     <!-- Define output directories based on project names 
     <OutputPath>$(MSBuildThisFileDirectory)\.builds\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildThisFileDirectory)\.builds\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>  -->
