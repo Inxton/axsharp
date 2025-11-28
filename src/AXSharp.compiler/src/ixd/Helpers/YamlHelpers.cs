@@ -205,7 +205,7 @@ namespace AXSharp.ixc_doc.Helpers
         }
 
         //create toc schema, grouped if namespace exists, or only global
-        public void AddToTocSchema(MyNodeVisitor visitor, TocSchema.Item tocSchemaItem, string? tocGroup)
+        public void AddToTocSchema(DocNodeVisitor visitor, TocSchema.Item tocSchemaItem, string? tocGroup)
         {
             if (tocGroup == null || tocGroup == "" || tocGroup == "$GLOBAL")
             {
@@ -255,7 +255,7 @@ namespace AXSharp.ixc_doc.Helpers
         }
 
         //add references of inherited members
-        public void AddReferences(string[] references, MyNodeVisitor v)
+        public void AddReferences(string[] references, DocNodeVisitor v)
         {
             foreach (var member in references)
             {
@@ -300,7 +300,7 @@ namespace AXSharp.ixc_doc.Helpers
             };
         }
         //add general reference
-        public void AddReference(IDeclaration declaration, MyNodeVisitor v)
+        public void AddReference(IDeclaration declaration, DocNodeVisitor v)
         {
             if (v.YamlHelper.References.Where(a => a.Uid == Helpers.GetBaseUid(declaration)).Count() > 0)
                 return;
