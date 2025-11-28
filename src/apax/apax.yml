@@ -3,8 +3,7 @@ version: 0.0.0
 type: app
 targets:
   - "1500"
-  - axunit-llvm
 devDependencies:
-  "@ax/stc": 9.1.36
+  "@ax/stc": 11.1.55
 installStrategy: strict
 apaxVersion: 3.1.1
