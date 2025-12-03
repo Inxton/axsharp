@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <Compile Remove="RenderableContentControl\**" />
-    <Compile Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,16 +67,5 @@
 	<ItemGroup>
 		<!-- <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 		<ProjectReference Include="..\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="Layouts\**\*.*" Pack="true" PackagePath="contentFiles\Layouts\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="Templates\**\*.*" Pack="true" PackagePath="contentFiles\Templates\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="build\AXSharp.Presentation.Blazor.Controls.targets" Pack="true" PackagePath="build\AXSharp.Presentation.Blazor.Controls.targets" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
-	</PropertyGroup>
-
+	</ItemGroup>	
 </Project>
