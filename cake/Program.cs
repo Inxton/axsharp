@@ -6,17 +6,7 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/master/notices.md
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.IO;
-using System.IO.Compression;
-using System.IO.Packaging;
-using System.Linq;
-using System.Management.Automation;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using AXSharp.nuget.update;
 using Build.FilteredSolution;
 using Cake.Common;
 using Cake.Common.IO;
@@ -31,15 +21,26 @@ using Cake.Frosting;
 using Cake.Powershell;
 using CliWrap;
 using CommandLine;
-using AXSharp.nuget.update;
 using Microsoft.Extensions.DependencyInjection;
 using NuGet.Packaging;
 using Octokit;
 using Polly;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Contracts;
+using System.IO;
+using System.IO.Compression;
+using System.IO.Packaging;
+using System.Linq;
+using System.Management.Automation;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using static NuGet.Packaging.PackagingConstants;
 using Credentials = Octokit.Credentials;
 using Path = System.IO.Path;
 using ProductHeaderValue = Octokit.ProductHeaderValue;
-using static NuGet.Packaging.PackagingConstants;
 
 
 public static class Program
@@ -85,6 +86,7 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
             });
             
         ProvisionProjectWideTools(context);
+        context.ProvisionNodeJs();
     }
 
     private static void ProvisionProjectWideTools(BuildContext context)
@@ -119,7 +121,7 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
-    {
+    {        
         context.DotNetBuild(Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj"), context.DotNetBuildSettings);
 
         var axprojects = new List<string>()
@@ -142,9 +144,79 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.DotNetRun(Path.Combine(context.ScrDir, "AXSharp.compiler\\src\\ixc\\AXSharp.ixc.csproj"), context.DotNetRunSettings);
         }
 
+        context.DotNetRestore(Path.Combine(context.ScrDir, "AXSharp.sln"));
+        BuildTailwindCss(context);
         context.DotNetBuild(Path.Combine(context.ScrDir, "AXSharp.sln"), context.DotNetBuildSettings);
 
     }
+
+    private void BuildTailwindCss(BuildContext context)
+    {
+        var stylingFolder = System.IO.Path.Combine(context.RootDir, "AXSharp.blazor", "src", "AXSharp.Presentation.Blazor.Controls");
+        var nodeModulesFolder = System.IO.Path.Combine(stylingFolder, "node_modules");
+
+        context.Log.Information($"Building Tailwind CSS in folder: {stylingFolder}");
+
+        // Check if node_modules exists, if not install packages
+        if (!Directory.Exists(nodeModulesFolder))
+        {
+            context.Log.Information("node_modules not found. Installing npm packages...");
+            var npmInstall = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = "/c npm install",
+                    WorkingDirectory = stylingFolder,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                }
+            };
+            npmInstall.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+            npmInstall.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+            npmInstall.Start();
+            npmInstall.BeginOutputReadLine();
+            npmInstall.BeginErrorReadLine();
+            npmInstall.WaitForExit();
+
+            if (npmInstall.ExitCode != 0)
+            {
+                throw new Exception($"npm install failed with exit code {npmInstall.ExitCode}");
+            }
+        }
+
+        // Run the tailwind build using npx
+        context.Log.Information("Running Tailwind build...");
+        var npxBuild = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/c npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --minify",
+                WorkingDirectory = stylingFolder,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            }
+        };
+        npxBuild.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+        npxBuild.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+        npxBuild.Start();
+        npxBuild.BeginOutputReadLine();
+        npxBuild.BeginErrorReadLine();
+        npxBuild.WaitForExit();
+
+        if (npxBuild.ExitCode != 0)
+        {
+            throw new Exception($"Tailwind CSS build failed with exit code {npxBuild.ExitCode}");
+        }
+
+        context.Log.Information("Tailwind CSS build completed.");
+    }
+
 }
 
 [TaskName("Test")]
