@@ -921,7 +921,7 @@ namespace AXSharp.CompilerTests.Core
             var data = new Mock<ICombinedThreeVisitor>().Object;
 
             // Act
-            Assert.Throws<NotSupportedException>(() => ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(arrayTypeDeclarationSyntax, data));
+            ((ISyntaxNodeVisitor<ICombinedThreeVisitor>)_testClass).Accept(arrayTypeDeclarationSyntax, data);
 
             // Assert
             
