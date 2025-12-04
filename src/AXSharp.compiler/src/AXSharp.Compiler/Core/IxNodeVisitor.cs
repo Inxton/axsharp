@@ -743,7 +743,22 @@ public partial class IxNodeVisitor : ISyntaxNodeVisitor<ICombinedThreeVisitor>
     void ISyntaxNodeVisitor<ICombinedThreeVisitor>.Accept(IArrayTypeDeclarationSyntax arrayTypeDeclarationSyntax,
         ICombinedThreeVisitor data)
     {
-        throw new NotSupportedException();
+        try
+        {
+            // Read Locations SourceText property using reflection.
+            var locationType = arrayTypeDeclarationSyntax.Location.GetType();
+            var sourceTextProperty = locationType.GetProperty("SourceText");
+            var sourceText = sourceTextProperty?.GetValue(arrayTypeDeclarationSyntax.Location);
+            var sourceTextType = sourceText?.GetType();
+            var fileNameProperty = sourceTextType?.GetProperty("Filename") ?? sourceTextType?.GetProperty("FileName");
+            var fileName = fileNameProperty?.GetValue(sourceText) as string ?? "unknown file";
+
+            Log.Logger.Warning($"Array types as declared in '{fileName}' are not supported at this time.");
+        }
+        catch (Exception)
+        {
+            Log.Logger.Warning($"Array types as declared in 'an unknown location' are not supported at this time.");
+        }                
     }
 
     void ISyntaxNodeVisitor<ICombinedThreeVisitor>.Accept(IAsmStatementSyntax asmStatementSyntax,

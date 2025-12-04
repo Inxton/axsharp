@@ -40,7 +40,7 @@
     "axopen-traversal": {
       "commandName": "Project",
       "commandLineArgs": "--verbosity Information",
-      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\traversals\\apax\\"
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen-1\\AXOpen\\src\\traversals\\apax\\"
     },
     "axopen-core": {
       "commandName": "Project",
