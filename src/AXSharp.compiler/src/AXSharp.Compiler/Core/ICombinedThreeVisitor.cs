@@ -22,7 +22,7 @@ public interface ICombinedThreeVisitor
 {
     public virtual void CreateMergedConfigurations(IxNodeVisitor visitor, Compilation compilation)
     {
-        Log.Logger.Information("Merging configurations...");
+        throw new NotImplementedException();
     }
 
 
