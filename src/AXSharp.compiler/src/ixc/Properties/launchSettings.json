@@ -7,7 +7,7 @@
     "ixc-tom": {
       "commandName": "Project",
       "workingDirectory": "D:\\github\\Inxton\\axopen\\src\\components.elements\\app"
-    },    
+    },
     "integration_plc": {
       "commandName": "Project",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\axopen\\src\\integrations\\ctrl\\"
@@ -51,11 +51,15 @@
       "commandLineArgs": "--source-project-folder  C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax --output-project-folder C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ix --project-file plc1.csproj --target-platform-moniker tia",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\"
     },
-
     "tiax-rooted": {
       "commandName": "Project",
       "commandLineArgs": "-v Verbose",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\ax\\TiaAxTools\\Sandbox\\src\\Connectors\\plc1\\ax"
+    },
+    "rangarok": {
+      "commandName": "Project",
+      "commandLineArgs": "--verbosity Information",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\RANGAROK\\ST20\\ax\\"
     }
   }
 }

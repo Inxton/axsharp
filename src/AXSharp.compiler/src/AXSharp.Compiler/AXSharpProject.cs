@@ -112,7 +112,15 @@ public class AXSharpProject : IAXSharpProject
 
         var compilationResult = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
 
-        
+
+        //compilationResult.Compilation.GetDiagnostics()
+        //    .Where(d => d.Severity == AX.Text.Diagnostics.DiagnosticSeverity.Error)
+        //    .ToList()
+        //    .ForEach(d =>
+        //    {
+        //        Log.Logger.Error(d.ToString());
+        //    });
+
         this.CleanOutput(this.OutputFolder);
 
         foreach (var origin in projectSources)
@@ -194,7 +202,7 @@ public class AXSharpProject : IAXSharpProject
         }
 
         //TargetProject.ProvisionProjectStructure();
-        GenerateMetadata(compilationResult.Compilation);
+        GenerateMetadata(compilationResult.Compilation, projectSources);
         TargetProject.GenerateResources();
         TargetProject.GenerateCompanionData();
         Log.Logger.Information($"Compilation of project '{AxProject.SrcFolder}' done.");
@@ -368,9 +376,18 @@ public class AXSharpProject : IAXSharpProject
         return string.Empty;
     }
 
-    private void GenerateMetadata(Compilation compilation)
+    private void GenerateMetadata(Compilation compilation, IEnumerable<(ISyntaxTree parseTree, SourceFileText source)> sources)
     {
-        var meta = compilation.GetSemanticTree().Types.Where(p => p.AccessModifier == AccessModifier.Public)
+        var projectSourceFiles = sources.Select(s => s.source.Filename).ToHashSet();
+        
+        var meta = compilation.GetSemanticTree().Types
+            .Where(p => true)//p.AccessModifier == AccessModifier.Public | p.AccessModifier == AccessModifier.Internal)
+            .Where(p => {
+                var typeLocation = p.Location;
+                if (typeLocation == null) return false;
+                var lineSpan = typeLocation.GetLineSpan();
+                return projectSourceFiles.Contains(lineSpan.Filename);
+            })
             .Select(p => CreateMetaType(p));
 
         using (var swr = new StreamWriter(Path.Combine(EnsureFolder(TargetProject.GetMetaDataFolder), "meta.json")))
@@ -417,13 +434,29 @@ public class AXSharpProject : IAXSharpProject
                 sb.Append($"TYPE {type.Name} : STRUCT ; END_STRUCT\n");
                 break;
             case DeclarationKind.Class:
-                sb.Append($"CLASS {type.Name} \nEND_CLASS\n");
+                sb.Append($"CLASS {type.Name}\n");
+                if (type is IClassDeclaration classDecl)
+                {
+                    foreach (var method in classDecl.Methods)
+                    {
+                        sb.Append(CreateMetaMethod(method));
+                    }
+                }
+                sb.Append("END_CLASS\n");
                 break;
             case DeclarationKind.Enumeration:
                 sb.Append($"TYPE {type.Name} : (item0); \nEND_TYPE\n");
                 break;
             case DeclarationKind.Interface:
-                sb.Append($"INTERFACE {type.Name} \nEND_INTERFACE\n");
+                sb.Append($"INTERFACE {type.Name}\n");
+                if (type is IInterfaceDeclaration interfaceDecl)
+                {
+                    foreach (var method in interfaceDecl.Methods)
+                    {
+                        sb.Append(CreateMetaMethodPrototype(method));
+                    }
+                }
+                sb.Append("END_INTERFACE\n");
                 break;
             case DeclarationKind.NamedValueType:
                 sb.Append($"TYPE {type.Name} : INT (item0 := 0); \nEND_TYPE\n");
@@ -432,6 +465,66 @@ public class AXSharpProject : IAXSharpProject
 
         if (hasNamespace) sb.Append("END_NAMESPACE");
 
+        return sb.ToString();
+    }
+
+    private static string CreateMetaMethod(IMethodDeclaration method)
+    {
+        var sb = new StringBuilder();
+        
+        // Get return type
+        var returnVariable = method.Variables.FirstOrDefault(v => v.Section == Section.Return);
+        var returnType = returnVariable != null ? $" : {returnVariable.Type.Name}" : string.Empty;
+        
+        // Build method signature with access modifier
+        var accessModifier = method.AccessModifier.ToString().ToUpperInvariant();
+        
+        sb.Append($"METHOD {accessModifier} {method.Name}{returnType}\n");
+        
+        // Add VAR_INPUT section if there are input parameters
+        var inputVars = method.Variables.Where(v => v.Section == Section.Input).ToList();
+        if (inputVars.Any())
+        {
+            sb.Append("VAR_INPUT\n");
+            foreach (var inputVar in inputVars)
+            {
+                sb.Append($"{inputVar.Name} : {inputVar.Type.Name};\n");
+            }
+            sb.Append("END_VAR\n");
+        }
+        
+        // Add at least one statement (semicolon) to method body
+        sb.Append(";\n");
+        
+        sb.Append("END_METHOD\n");
+        
+        return sb.ToString();
+    }
+
+    private static string CreateMetaMethodPrototype(IMethodPrototypeDeclaration method)
+    {
+        var sb = new StringBuilder();
+        
+        // Get return type
+        var returnVariable = method.Variables.FirstOrDefault(v => v.Section == Section.Return);
+        var returnType = returnVariable != null ? $" : {returnVariable.Type.Name}" : string.Empty;
+        
+        sb.Append($"METHOD {method.Name}{returnType}\n");
+        
+        // Add VAR_INPUT section if there are input parameters
+        var inputVars = method.Variables.Where(v => v.Section == Section.Input).ToList();
+        if (inputVars.Any())
+        {
+            sb.Append("VAR_INPUT\n");
+            foreach (var inputVar in inputVars)
+            {
+                sb.Append($"{inputVar.Name} : {inputVar.Type.Name};\n");
+            }
+            sb.Append("END_VAR\n");
+        }
+        
+        sb.Append("END_METHOD\n");
+        
         return sb.ToString();
     }
 }
