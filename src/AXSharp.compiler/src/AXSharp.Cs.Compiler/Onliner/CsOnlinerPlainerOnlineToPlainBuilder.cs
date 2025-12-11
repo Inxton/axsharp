@@ -104,6 +104,12 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
             case IStringTypeDeclaration stringTypeDeclaration:
                 AddToSource($" plain.{declaration.Name} = {declaration.Name}.LastValue;");
                 break;
+            default:
+                AddToSource($"#pragma warning disable CS0612\n");
+                AddToSource($" plain.{declaration.Name} = await {declaration.Name}.{MethodNameNoac}Async();");
+                AddToSource($"#pragma warning restore CS0612\n");
+                break;
+
         }
     }
 

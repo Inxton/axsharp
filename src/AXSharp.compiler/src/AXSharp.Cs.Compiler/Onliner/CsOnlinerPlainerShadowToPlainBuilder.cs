@@ -100,6 +100,9 @@ namespace AXSharp.Compiler.Cs.Onliner
                 case IStringTypeDeclaration stringTypeDeclaration:
                     AddToSource($" plain.{declaration.Name} = {declaration.Name}.Shadow;");
                     break;
+                default:
+                    AddToSource($" plain.{declaration.Name} = await {declaration.Name}.{MethodName}Async();");
+                    break;
             }
         }
 

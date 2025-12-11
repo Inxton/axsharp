@@ -114,6 +114,11 @@ internal class CsOnlinerPlainerPlainToOnlineBuilder : ICombinedThreeVisitor
                 AddToSource($" {declaration.Name}.LethargicWrite(plain.{declaration.Name});");
                 AddToSource($"#pragma warning restore CS0612\n");
                 break;
+            default:
+                AddToSource($"#pragma warning disable CS0612\n");
+                AddToSource($" await this.{declaration.Name}.{MethodNameNoac}Async(plain.{declaration.Name});");
+                AddToSource($"#pragma warning restore CS0612\n");
+                break;
         }
     }
 
