@@ -89,7 +89,7 @@ namespace AXSharp.ixc_doc.Helpers
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.StackTrace);
+                Console.Error.WriteLine($"{((SourceLocation)location).SourceText.Filename} at {lineStart}:{charStart} {e.Message}");
             }
 
             return comments;
