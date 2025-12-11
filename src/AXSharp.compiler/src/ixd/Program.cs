@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AX.ST.Semantic;
+using AX.ST.Semantic.Analyzer;
 using AX.ST.Syntax.Parser;
 using AX.ST.Syntax.Tree;
 using AX.Text;
@@ -7,17 +8,17 @@ using AX.Text.Diagnostics;
 using AXSharp.Compiler;
 using AXSharp.ixc_doc;
 using AXSharp.ixc_doc.Interfaces;
-using AXSharp.ixc_doc.Visitors;
-using System;
-using CommandLine;
 using AXSharp.ixc_doc.Schemas;
-using System.Reflection;
-using System.Text;
+using AXSharp.ixc_doc.Visitors;
 using CliWrap;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
-using System.Collections.Generic;
+using CommandLine;
 using NuGet.Packaging;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text;
 
 const string Logo =
 @"| \ / 
@@ -75,9 +76,9 @@ void GenerateYamls(Options o)
     //Console.WriteLine($"Compiling project {axProject.ProjectInfo.Name}...");
     //var projectSources = axProject.Sources.Select(p => (parseTree: STParser.ParseTextAsync(p).Result, source: p));
 
-    var toCompile = projectSources.Select(p => p.parseTree);
+    var toCompile = projectSources.Select(p => p.parseTree).ToList();
 
-    var compilation = Compilation.Create(toCompile, null, Compilation.Settings.Default).Result;
+    var compilation = Compilation.Create(toCompile, new List<ISemanticAnalyzer>(), Compilation.Settings.Default).Result;
 
     var semanticTree = compilation.Compilation.GetSemanticTree();
 
