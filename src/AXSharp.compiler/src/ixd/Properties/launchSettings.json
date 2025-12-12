@@ -2,7 +2,8 @@
   "profiles": {
     "ixd": {
       "commandName": "Project",
-      "commandLineArgs": "ixd -x C:\\MTS\\ix\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\samples\\ax\\ -o C:\\MTS\\ix\\axsharp\\src\\AXSharp.compiler\\src\\ixd\\tests\\docfx\\docfx_project\\api\\"
+      "commandLineArgs": "ixd -x .\\src\\abstractions\\ctrl \r\n.\\src\\core\\ctrl \r\n.\\src\\data\\ctrl\\ \r\n.\\src\\inspectors\\ctrl \r\n.\\src\\components.abstractions\\ctrl \r\n.\\src\\components.cognex.vision\\ctrl \r\n.\\src\\components.pneumatics\\ctrl \r\n.\\src\\components.elements\\ctrl \r\n.\\src\\components.rexroth.drives\\ctrl \r\n.\\src\\components.festo.drives\\ctrl \r\n.\\src\\components.kuka.robotics\\ctrl \r\n.\\src\\components.mitsubishi.robotics\\ctrl \r\n-o .\\docfx\\apictrl\\\r\n",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\"
     },
     "ixd-2": {
       "commandName": "Project",

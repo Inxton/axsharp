@@ -69,6 +69,10 @@
 			<HintPath>..\..\..\apax\stc\bin\AX.Text.dll</HintPath>
       <Private>False</Private>
 		</Reference>
+		<Reference Include="AX.ST.Compiler.PluginAbstractions">
+			<HintPath>..\..\..\apax\stc\bin\AX.ST.Compiler.PluginAbstractions.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>
