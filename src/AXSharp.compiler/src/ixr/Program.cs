@@ -83,7 +83,6 @@ void Generate(Options o)
     foreach (var syntaxTree in syntaxTrees)
     {
         IterateSyntaxTreeForStringLiterals(syntaxTree.GetRoot(),lw, Path.GetRelativePath(axProjectFolder, syntaxTree.Filename));
-
         IterateSyntaxTreeForPragmas(syntaxTree.GetRoot(), lw, Path.GetRelativePath(axProjectFolder, syntaxTree.Filename));
     }
 
@@ -93,12 +92,11 @@ void Generate(Options o)
 
 void IterateSyntaxTreeForStringLiterals(ISyntaxNode root, LocalizedStringWrapper lw, string fileName)
 {
-    //foreach (var literalSyntax in GetChildNodesRecursive(root).OfType<ILiteralSyntax>())
-    //{
-    //    var token = literalSyntax.Tokens.First();
-    //    //literalSyntax.Location
-    //    AddToDictionaryIfLocalizedString(token,lw,fileName);
-    //}
+    foreach (var literalSyntax in GetChildNodesRecursive(root).OfType<ILiteralSyntax>())
+    {
+        var token = literalSyntax.Tokens.First();       
+        AddToDictionaryIfLocalizedStringInLiterals(literalSyntax, lw, fileName);
+    }
 }
 
 
@@ -147,6 +145,44 @@ void AddToDictionaryIfLocalizedString(PragmaSyntax token, LocalizedStringWrapper
         }   
     }
 }
+
+void AddToDictionaryIfLocalizedStringInLiterals(ILiteralSyntax literal, LocalizedStringWrapper lw, string fileName)
+{
+    // if is valid token
+    // if (IsStringLiteral(literal) || true)
+    {
+        foreach (var token in literal.Tokens)
+        {
+
+
+            // try to acquire localized string
+            var localizedStringList = lw.TryToGetLocalizedStrings(token.FullText);
+
+            if (localizedStringList == null)
+            {
+                return;
+            }
+
+            foreach (string localizedString in localizedStringList)
+            {
+                //get raw text from localized string
+                var rawText = lw.GetRawTextFromLocalizedString(localizedString);
+
+                //create id
+                var id = AXSharp.Connector.Localizations.LocalizationHelper.CreateId(rawText);
+
+                //check if identifier is valid
+                if (lw.IsValidId(id))
+                {
+                    var pos = token.Location.GetLineSpan().StartLinePosition;
+                    var wrapper = new StringValueWrapper(rawText, fileName, pos.Line);
+                    // add id and wrapper to dictionary
+                    lw.LocalizedStringsDictionary.TryAdd(id, wrapper);
+                }
+            }
+        }
+    }
+}
 bool IsPragmaToken(PragmaSyntax token)
 { 
     //if(token.SyntaxKind == SyntaxKind.PragmaToken) 
@@ -166,6 +202,19 @@ bool IsStringToken(PragmaSyntax token)
         return true;
     }
     return false; 
+}
+
+
+bool IsStringLiteral(ILiteralSyntax literal)
+{
+    if (literal.SyntaxKind == SyntaxKind.TypedStringDToken ||
+        literal.SyntaxKind == SyntaxKind.TypedStringSToken ||
+        literal.SyntaxKind == SyntaxKind.UntypedStringDToken ||
+        literal.SyntaxKind == SyntaxKind.UntypedStringSToken)
+    {
+        return true;
+    }
+    return false;
 }
 
 IEnumerable<ISyntaxNode> GetChildNodesRecursive(ISyntaxNode syntaxNode)
