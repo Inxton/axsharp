@@ -252,10 +252,10 @@ public static class SemanticsHelpers
     /// <param name="warnMissingOrInconsistent">Issues warning when the type is eligible but not available.</param>
     /// <returns>True when the type is eligible</returns>
     private static (bool isEligibe, ITypeDeclaration eligibleType) IsEligibleForTranspile(this IFieldDeclaration fieldDeclaration, ISourceBuilder sourceBuilder, bool warnMissingOrInconsistent = false)
-    {
-        var type = fieldDeclaration.Type;
+    {        
         var fullyQualified = sourceBuilder.Compilation.FindTypeDeclaration(fieldDeclaration.TypeAccess, warnMissingOrInconsistent);
-        var isEligible = !(type is IReferenceTypeDeclaration)
+        var type = fullyQualified?.Type;
+        var isEligible = !(type is IReferenceTypeDeclaration) && !(type is IInterfaceDeclaration)
                 &&
                 fieldDeclaration.IsAvailableForComm(sourceBuilder)
                 &&
@@ -285,7 +285,8 @@ public static class SemanticsHelpers
     {
         var type = variableDeclaration.Type;
         var declaration = sourceBuilder.Compilation.FindTypeDeclaration(variableDeclaration.TypeAccess, warnMissingOrInconsistent);
-        var isEligible = !(type is IReferenceTypeDeclaration)
+        type = declaration?.Type;
+        var isEligible = !(type is IReferenceTypeDeclaration) && !(type is IInterfaceDeclaration)
                &&
                variableDeclaration.IsAvailableForComm(sourceBuilder)
                &&
@@ -317,7 +318,7 @@ public static class SemanticsHelpers
     {
         var singleDimensionalArray = arrayTypeDeclaration.Dimensions.Count == 1;
         var declaration = sourceBuilder.Compilation.FindTypeDeclaration(arrayTypeDeclaration.ElementTypeAccess, warnMissingOrInconsistent);
-        var isEligibleType = !(arrayTypeDeclaration.ElementTypeAccess.Type is IReferenceTypeDeclaration)
+        var isEligibleType = !(arrayTypeDeclaration.ElementTypeAccess.Type is IReferenceTypeDeclaration) && !(arrayTypeDeclaration.ElementTypeAccess.Type is IInterfaceDeclaration)
                              &&
                              arrayTypeDeclaration.IsAvailableForComm(sourceBuilder)
                              &&
