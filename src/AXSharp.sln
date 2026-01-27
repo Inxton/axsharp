@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.2.11408.102 d18.0
+VisualStudioVersion = 18.2.11408.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.abstractions", "AXSharp.abstractions", "{966916F3-7281-4FFF-89C3-D33B5EF6B285}"
 EndProject
@@ -129,10 +129,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.LocalizablesToResx.Tests", "AXSharp.tools\tests\AXSharp.LocalizablesToResx.Tests\AXSharp.LocalizablesToResx.Tests.csproj", "{4C18C927-8CD6-4ED5-80F1-91DE60D2DD07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{391CFB2E-DC64-4F30-B479-17F21DAF1532}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Operon", "Operon", "{FB2B7879-1FC6-435F-9EC5-A22DAD099BDB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operon", "..\..\..\operon\src\Operon\Operon.csproj", "{E9902E09-1671-CE2C-9C2E-00031054962F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -564,18 +560,6 @@ Global
 		{4C18C927-8CD6-4ED5-80F1-91DE60D2DD07}.Release|x64.Build.0 = Release|Any CPU
 		{4C18C927-8CD6-4ED5-80F1-91DE60D2DD07}.Release|x86.ActiveCfg = Release|Any CPU
 		{4C18C927-8CD6-4ED5-80F1-91DE60D2DD07}.Release|x86.Build.0 = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|x64.Build.0 = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Debug|x86.Build.0 = Debug|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|x64.ActiveCfg = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|x64.Build.0 = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|x86.ActiveCfg = Release|Any CPU
-		{E9902E09-1671-CE2C-9C2E-00031054962F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -634,7 +618,6 @@ Global
 		{6605983C-F5BF-4DD5-8F06-640505C0D6B0} = {E7FC977B-1114-4D27-8FC8-DAB3F1323D24}
 		{CC79093E-00B6-42A6-9548-E3A88494DC27} = {FC332118-F8B8-48DC-A7EA-AC7559CD4A98}
 		{4C18C927-8CD6-4ED5-80F1-91DE60D2DD07} = {FE787422-9AB3-4065-A6D9-97511EC6141C}
-		{E9902E09-1671-CE2C-9C2E-00031054962F} = {FB2B7879-1FC6-435F-9EC5-A22DAD099BDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99D50E81-8A37-4BB9-A435-C2C98430D600}
