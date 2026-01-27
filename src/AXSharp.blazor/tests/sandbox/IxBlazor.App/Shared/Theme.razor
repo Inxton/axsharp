@@ -1,0 +1,13 @@
+﻿@inject ThemeService _themeService
+
+<nav class="tab my-auto">
+    <button type="button" class="btn btn-primary @(0 != 0 ? "active" : null)" @onclick="() => _themeService.SetLightAsync()">
+        <Operon.Icons.HeroIcon Icon="sun" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+    <button type="button" class="btn btn-primary @(0 != 0 ? "active" : null)" @onclick="() => _themeService.SetDarkAsync()">
+        <Operon.Icons.HeroIcon Icon="moon" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+    <button type="button" class="btn btn-primary @(0 != 0 ? "active" : null)" @onclick="() => _themeService.SetSystemAsync()">
+        <Operon.Icons.HeroIcon Icon="computer-desktop" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+</nav>
