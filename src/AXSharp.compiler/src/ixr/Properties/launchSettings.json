@@ -9,7 +9,7 @@
     },
     "app-withref": {
       "commandName": "Project",
-      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen.template.simple\\ax\\"
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\inspectors\\ctrl"
     }
   }
 }
