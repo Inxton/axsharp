@@ -1,24 +1,26 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AX.ST.Semantic;
+using AX.ST.Semantic.Model;
+using AX.ST.Semantic.Model.Declarations;
+using AX.ST.Semantic.Pragmas;
 using AX.ST.Syntax.Parser;
 using AX.ST.Syntax.Tree;
 using AX.Text;
 using AX.Text.Diagnostics;
 using AXSharp.Compiler;
 using AXSharp.ixc_doc;
-using System;
-using CommandLine;
-using System.Reflection;
-using System.Text;
-using CliWrap;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
-using AX.ST.Semantic.Model;
 using AXSharp.ixr_doc;
+using CliWrap;
+using CommandLine;
 using Microsoft.CodeAnalysis;
 using Serilog.Parsing;
-using static System.Net.Mime.MediaTypeNames;
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
 
 
 const string Logo =
@@ -94,30 +96,39 @@ void IterateSyntaxTreeForStringLiterals(ISyntaxNode root, LocalizedStringWrapper
 {
     foreach (var literalSyntax in GetChildNodesRecursive(root).OfType<ILiteralSyntax>())
     {
-        var token = literalSyntax.Tokens.First();       
         AddToDictionaryIfLocalizedStringInLiterals(literalSyntax, lw, fileName);
     }
 }
 
-
-
 void IterateSyntaxTreeForPragmas(ISyntaxNode root, LocalizedStringWrapper lw, string fileName)
 {
-    foreach (var pragmaSyntax in GetChildNodesRecursive(root).OfType<PragmaSyntax>())
+    foreach (var storage in GetChildNodesRecursive(root).OfType<IVariableDeclarationSyntax>())
     {
-        var token = pragmaSyntax;
-        if (lw.IsAttributeNamePragmaToken(token.PragmaContent))
+        storage.GetLeadingPragmas().ToList().ForEach(pragmaSyntax =>
         {
-            AddToDictionaryIfLocalizedString(token, lw, fileName);
-        }
+            var token = pragmaSyntax as PragmaSyntax;
+            if (lw.IsAttributeNamePragmaToken(pragmaSyntax.Content))
+            {
+                AddToDictionaryIfLocalizedStringInPragmas(token, lw, fileName);
+            }
+        });        
+    }
+    foreach (var storage in GetChildNodesRecursive(root).OfType<IDeclarationSyntax>())
+    {
+        storage.GetLeadingPragmas().ToList().ForEach(pragmaSyntax =>
+        {
+            var token = pragmaSyntax;
+            if (lw.IsAttributeNamePragmaToken(pragmaSyntax.Content))
+            {
+                AddToDictionaryIfLocalizedStringInPragmas(token, lw, fileName);
+            }
+        });
     }
 }
 
-void AddToDictionaryIfLocalizedString(PragmaSyntax token, LocalizedStringWrapper lw, string fileName)
+void AddToDictionaryIfLocalizedStringInPragmas(PragmaSyntax token, LocalizedStringWrapper lw, string fileName)
 {
-    // if is valid token
-    if(IsStringToken(token) || IsPragmaToken(token))
-    {
+    
         // try to acquire localized string
         var localizedStringList = lw.TryToGetLocalizedStrings(token.PragmaContent);
 
@@ -142,8 +153,7 @@ void AddToDictionaryIfLocalizedString(PragmaSyntax token, LocalizedStringWrapper
                 // add id and wrapper to dictionary
                 lw.LocalizedStringsDictionary.TryAdd(id, wrapper);
             }
-        }   
-    }
+        }       
 }
 
 void AddToDictionaryIfLocalizedStringInLiterals(ILiteralSyntax literal, LocalizedStringWrapper lw, string fileName)
@@ -158,9 +168,9 @@ void AddToDictionaryIfLocalizedStringInLiterals(ILiteralSyntax literal, Localize
             // try to acquire localized string
             var localizedStringList = lw.TryToGetLocalizedStrings(token.FullText);
 
-            if (localizedStringList == null)
+            if(localizedStringList == null)
             {
-                return;
+                continue; // ✓ Skip to next token
             }
 
             foreach (string localizedString in localizedStringList)
@@ -184,12 +194,8 @@ void AddToDictionaryIfLocalizedStringInLiterals(ILiteralSyntax literal, Localize
     }
 }
 bool IsPragmaToken(PragmaSyntax token)
-{ 
-    //if(token.SyntaxKind == SyntaxKind.PragmaToken) 
-    //{ 
-    //    return true;
-    //}
-    return false; 
+{    
+    return true; 
 }
 
 bool IsStringToken(PragmaSyntax token)
