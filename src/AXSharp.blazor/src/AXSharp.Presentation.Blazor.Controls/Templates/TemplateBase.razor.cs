@@ -15,10 +15,16 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
+        /// <summary>
+        /// Gets the tooltip or human readable name of the Onliner.
+        /// </summary>
         protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
             ? Onliner.GetHumanReadable(CultureInfo.CurrentUICulture) 
             : Onliner.AttributeToolTip;
 
+        /// <summary>
+        /// Gets the symbol of the Onliner.
+        /// </summary>
         protected string Symbol => Onliner.Symbol;
 
         private IJSObjectReference? module;
@@ -30,23 +36,44 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             set;
         }
 
+        /// <summary>
+        /// The Onliner associated with this template.
+        /// </summary>
         [Parameter]
         public virtual OnlinerBase<T> Onliner { get; set; }
 
+        /// <summary>
+        /// Indicates whether the control is read-only.
+        /// </summary>
         [Parameter]
         public bool IsReadOnly { get; set; }
 
+        /// <summary>
+        /// Indicates whether the label should be hidden.
+        /// </summary>
         [Parameter]
         public bool HideLabel { get; set; } = false;
 
+        /// <summary>
+        /// The unit of measurement for the value.
+        /// </summary>
         [Parameter]
         public string? Unit { get; set; }
 
+        /// <summary>
+        /// The format string for displaying the value.
+        /// </summary>
         [Parameter]
         public string? Format { get; set; }
 
+        /// <summary>
+        /// The last known value of the Onliner.
+        /// </summary>
         protected T LastValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets the current value of the Onliner.
+        /// </summary>
         protected T Value
         {
             get
