@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
+using System.Globalization;
 
 
 namespace AXSharp.Presentation.Blazor.Controls.Templates
@@ -15,7 +16,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
         protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
-            ? Onliner.HumanReadable
+            ? Onliner.GetHumanReadable(CultureInfo.CurrentUICulture) 
             : Onliner.AttributeToolTip;
 
         protected string Symbol => Onliner.Symbol;
@@ -52,8 +53,16 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             {
                 if (!HasFocus)
                 {
-                    LastValue = Onliner.Cyclic; // if is only readed, update LastValue for "HasFocus" case
-                    return Onliner.Cyclic;
+                    switch(Onliner)
+                    {
+                        case OnlinerBase<string> onlinerString:
+                            LastValue = (T)(object)onlinerString.GetCyclic(CultureInfo.CurrentUICulture);
+                            break;
+                        case OnlinerBase<T> onliner:
+                            LastValue = onliner.Cyclic;
+                            break;
+                    }
+                    return LastValue;
                 }
                 else
                 {
@@ -78,9 +87,13 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             return base.OnInitializedAsync();
         }
 
+        /// <summary>
+        /// Gets the label for the control based on the Onliner's attribute name and units.
+        /// </summary>
+        /// <returns></returns>
         protected string GetLabel()
         {
-            return Onliner.AttributeName + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
+            return Onliner.GetAttributeName(CultureInfo.CurrentUICulture) + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
         }
     }
 }
