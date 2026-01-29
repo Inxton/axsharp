@@ -35,7 +35,7 @@ public class CsProject : ITargetProject
     public CsProject(AXSharpProject AXSharpProject)
     {
         AxSharpProject = AXSharpProject;
-        ProjectRootNamespace = MakeValidIdentifier(AXSharpProject.AxProject.ProjectInfo.Name);        
+        ProjectRootNamespace = GetProjectRootNamespace();        
     }
 
     private AXSharpProject AxSharpProject { get; }
@@ -95,6 +95,35 @@ public class CsProject : ITargetProject
     {       
         var assemblyPath = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location);
         return assemblyPath!;
+    }
+
+    /// <summary>
+    /// Gets the project root namespace from the csproj file if defined, otherwise uses the project name.
+    /// </summary>
+    /// <returns>The root namespace for the project</returns>
+    private string GetProjectRootNamespace()
+    {
+        try
+        {
+            if (File.Exists(CsProjectFile))
+            {
+                var xDocument = XDocument.Load(CsProjectFile);
+                var rootNamespaceElement = xDocument.Descendants("RootNamespace").FirstOrDefault();
+                
+                if (rootNamespaceElement != null && !string.IsNullOrWhiteSpace(rootNamespaceElement.Value))
+                {
+                    return rootNamespaceElement.Value;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log the error but continue with fallback
+            Log.Logger.Warning($"Failed to read RootNamespace from {CsProjectFile}: {ex.Message}");
+        }
+
+        // Fallback to csproj filename (without extension) if RootNamespace is not defined
+        return MakeValidIdentifier(Path.GetFileNameWithoutExtension(CsProjectFile));
     }
 
 
@@ -209,9 +238,9 @@ namespace {this.ProjectRootNamespace}
 
         private PlcTranslator() 
         {{
-            var defaultResourceType = Assembly.GetAssembly(typeof({this.ProjectRootNamespace}.PlcTranslator))
-                .GetType(""{this.ProjectRootNamespace}.Resources.PlcStringResources"");
-            this.SetLocalizationResource(defaultResourceType);
+            var assembly = Assembly.GetAssembly(typeof({this.ProjectRootNamespace}.PlcTranslator));
+            var resource = assembly.GetType(""{this.ProjectRootNamespace}.Resources.PlcStringResources"");
+            this.SetLocalizationResource(resource, assembly);
         }}
     }}
 }}";
