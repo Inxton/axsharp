@@ -52,7 +52,8 @@ namespace AXSharp.Connector.Localizations
         /// Sets the localization resource for this translator.
         /// </summary>
         /// <param name="resourceType">Type of resource to be used.</param>
-        public void SetLocalizationResource(Type resourceType)
+        /// <param name="originAssembly"></param>
+        public void SetLocalizationResource(Type resourceType, Assembly originAssembly = null)
         {
             if (resourceType != null)
             {
@@ -60,6 +61,10 @@ namespace AXSharp.Connector.Localizations
                 {
                     IgnoreCase = true
                 };
+            }
+            else
+            {
+                Console.WriteLine($"No resource type provided for `{originAssembly?.FullName}`");
             }
         }
 

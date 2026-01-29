@@ -18,9 +18,9 @@ namespace units
 
         private PlcTranslator() 
         {
-            var defaultResourceType = Assembly.GetAssembly(typeof(units.PlcTranslator))
-                .GetType("units.Resources.PlcStringResources");
-            this.SetLocalizationResource(defaultResourceType);
+            var assembly = Assembly.GetAssembly(typeof(units.PlcTranslator));
+            var resource = assembly.GetType("units.Resources.PlcStringResources");
+            this.SetLocalizationResource(resource, assembly);
         }
     }
 }
