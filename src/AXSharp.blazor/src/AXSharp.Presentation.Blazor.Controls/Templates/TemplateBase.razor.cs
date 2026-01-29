@@ -120,7 +120,8 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         /// <returns></returns>
         protected string GetLabel()
         {
-            return Onliner.GetAttributeName(CultureInfo.CurrentUICulture) + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
+            var retVal = Onliner.GetAttributeName(CultureInfo.CurrentUICulture) + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");            
+            return retVal;
         }
     }
 }

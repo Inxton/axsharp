@@ -65,6 +65,10 @@
       "commandName": "Project",
       "commandLineArgs": "--skip-deps",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\ppppppsjsjsjs\\MTS258585\\ax\\"
+    },
+    "axopen-traversal-in-tepmplates": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\traversals\\apax"
     }
   }
 }

@@ -1,12 +1,13 @@
 namespace AXSharp.ConnectorTests.Localizations
 {
+    using AXSharp.Connector;
     using AXSharp.Connector.Localizations;
+    using AXSharp.ConnectorTests.Localizations.Resources;
+    using NSubstitute;
     using System;
     using System.Globalization;
+    using System.Reflection;
     using Xunit;
-    using NSubstitute;
-    using AXSharp.Connector;
-    using AXSharp.ConnectorTests.Localizations.Resources;
 
     public class TranslatorTests
     {
@@ -54,7 +55,7 @@ namespace AXSharp.ConnectorTests.Localizations
             var resourceType = typeof(AXSharp.ConnectorTests.Localizations.Resources.Dictionary);
 
             // Act
-            _testClass.SetLocalizationResource(resourceType);
+            _testClass.SetLocalizationResource(resourceType, Assembly.GetExecutingAssembly());
         }
 
         [Fact]
@@ -80,7 +81,7 @@ namespace AXSharp.ConnectorTests.Localizations
             // Arrange
             Translator.SetPrimaryTranslatorResource(typeof(OverrideApplication));
             var translator = new Translator();
-            translator.SetLocalizationResource(typeof(OverrideLibrary));
+            translator.SetLocalizationResource(typeof(OverrideLibrary), Assembly.GetExecutingAssembly());
             var twin = Substitute.For<ITwinElement>();
             var originalString = "<#Library only#>";
 
