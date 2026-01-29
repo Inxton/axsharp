@@ -59,7 +59,7 @@ namespace AXSharp.Connector.Localizations
             {
                 _libraryResourceManager = new ResourceManager(resourceType)
                 {
-                    IgnoreCase = true
+                    IgnoreCase = false
                 };
             }
             else
@@ -180,7 +180,7 @@ namespace AXSharp.Connector.Localizations
         {
             _applicationResourceManager = new ResourceManager(resourceType)
             {
-                IgnoreCase = true
+                IgnoreCase = false
             };
         }
     }
