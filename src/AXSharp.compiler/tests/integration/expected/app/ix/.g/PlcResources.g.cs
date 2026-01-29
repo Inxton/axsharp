@@ -18,9 +18,9 @@ namespace app
 
         private PlcTranslator() 
         {
-            var defaultResourceType = Assembly.GetAssembly(typeof(app.PlcTranslator))
-                .GetType("app.Resources.PlcStringResources");
-            this.SetLocalizationResource(defaultResourceType);
+            var assembly = Assembly.GetAssembly(typeof(app.PlcTranslator));
+            var resource = assembly.GetType("app.Resources.PlcStringResources");
+            this.SetLocalizationResource(resource, assembly);
         }
     }
 }
