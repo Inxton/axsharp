@@ -1,10 +1,13 @@
 namespace AXSharp.ConnectorTests.Localizations
 {
-    using AXSharp.Connector.Localizations;
-    using System;
-    using Xunit;
-    using NSubstitute;
     using AXSharp.Connector;
+    using AXSharp.Connector.Localizations;
+    using AXSharp.ConnectorTests.Localizations.Resources;
+    using NSubstitute;
+    using System;
+    using System.Globalization;
+    using System.Reflection;
+    using Xunit;
 
     public class TranslatorTests
     {
@@ -52,7 +55,58 @@ namespace AXSharp.ConnectorTests.Localizations
             var resourceType = typeof(AXSharp.ConnectorTests.Localizations.Resources.Dictionary);
 
             // Act
-            _testClass.SetLocalizationResource(resourceType);
-        }        
+            _testClass.SetLocalizationResource(resourceType, Assembly.GetExecutingAssembly());
+        }
+
+        [Fact]
+        public void Translate_prefers_primary_application_resource_over_library_resource()
+        {
+            // Arrange
+            Translator.SetPrimaryTranslatorResource(typeof(OverrideApplication));
+            var translator = new Translator();
+            translator.SetLocalizationResource(typeof(OverrideLibrary));
+            var twin = Substitute.For<ITwinElement>();
+            var originalString = "<#Override token#>";
+
+            // Act
+            var result = translator.Translate(originalString, twin, CultureInfo.InvariantCulture);
+
+            // Assert
+            Assert.Equal("APP", result);
+        }
+
+        [Fact]
+        public void Translate_falls_back_to_library_resource_when_primary_does_not_have_key()
+        {
+            // Arrange
+            Translator.SetPrimaryTranslatorResource(typeof(OverrideApplication));
+            var translator = new Translator();
+            translator.SetLocalizationResource(typeof(OverrideLibrary), Assembly.GetExecutingAssembly());
+            var twin = Substitute.For<ITwinElement>();
+            var originalString = "<#Library only#>";
+
+            // Act
+            var result = translator.Translate(originalString, twin, CultureInfo.InvariantCulture);
+
+            // Assert
+            Assert.Equal("LIB_ONLY", result);
+        }
+
+        [Fact]
+        public void Translate_when_key_missing_returns_text_without_localization_tokens()
+        {
+            // Arrange
+            Translator.SetPrimaryTranslatorResource(typeof(OverrideApplication));
+            var translator = new Translator();
+            translator.SetLocalizationResource(typeof(OverrideLibrary));
+            var twin = Substitute.For<ITwinElement>();
+            var originalString = "<#Does not exist#>";
+
+            // Act
+            var result = translator.Translate(originalString, twin, CultureInfo.InvariantCulture);
+
+            // Assert
+            Assert.Equal("Does not exist", result);
+        }
     }
 }

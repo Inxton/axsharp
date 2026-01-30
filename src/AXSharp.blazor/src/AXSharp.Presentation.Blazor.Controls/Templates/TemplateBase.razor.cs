@@ -8,16 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
+using System.Globalization;
 
 
 namespace AXSharp.Presentation.Blazor.Controls.Templates
 {
     public abstract class TemplateBase<T> : RenderableComponentBase
     {
+        /// <summary>
+        /// Gets the tooltip or human readable name of the Onliner.
+        /// </summary>
         protected string ToolTipOrHumanReadable => string.IsNullOrEmpty(Onliner.AttributeToolTip)
-            ? Onliner.HumanReadable
+            ? Onliner.GetHumanReadable(CultureInfo.CurrentUICulture) 
             : Onliner.AttributeToolTip;
 
+        /// <summary>
+        /// Gets the symbol of the Onliner.
+        /// </summary>
         protected string Symbol => Onliner.Symbol;
 
         private IJSObjectReference? module;
@@ -29,31 +36,60 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             set;
         }
 
+        /// <summary>
+        /// The Onliner associated with this template.
+        /// </summary>
         [Parameter]
         public virtual OnlinerBase<T> Onliner { get; set; }
 
+        /// <summary>
+        /// Indicates whether the control is read-only.
+        /// </summary>
         [Parameter]
         public bool IsReadOnly { get; set; }
 
+        /// <summary>
+        /// Indicates whether the label should be hidden.
+        /// </summary>
         [Parameter]
         public bool HideLabel { get; set; } = false;
 
+        /// <summary>
+        /// The unit of measurement for the value.
+        /// </summary>
         [Parameter]
         public string? Unit { get; set; }
 
+        /// <summary>
+        /// The format string for displaying the value.
+        /// </summary>
         [Parameter]
         public string? Format { get; set; }
 
+        /// <summary>
+        /// The last known value of the Onliner.
+        /// </summary>
         protected T LastValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets the current value of the Onliner.
+        /// </summary>
         protected T Value
         {
             get
             {
                 if (!HasFocus)
                 {
-                    LastValue = Onliner.Cyclic; // if is only readed, update LastValue for "HasFocus" case
-                    return Onliner.Cyclic;
+                    switch(Onliner)
+                    {
+                        case OnlinerBase<string> onlinerString:
+                            LastValue = (T)(object)onlinerString.GetCyclic(CultureInfo.CurrentUICulture);
+                            break;
+                        case OnlinerBase<T> onliner:
+                            LastValue = onliner.Cyclic;
+                            break;
+                    }
+                    return LastValue;
                 }
                 else
                 {
@@ -78,9 +114,14 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
             return base.OnInitializedAsync();
         }
 
+        /// <summary>
+        /// Gets the label for the control based on the Onliner's attribute name and units.
+        /// </summary>
+        /// <returns></returns>
         protected string GetLabel()
         {
-            return Onliner.AttributeName + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");
+            var retVal = Onliner.GetAttributeName(CultureInfo.CurrentUICulture) + (string.IsNullOrWhiteSpace(Onliner.AttributeUnits) ? null : $" [{Onliner.AttributeUnits}]");            
+            return retVal;
         }
     }
 }

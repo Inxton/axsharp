@@ -60,6 +60,15 @@
       "commandName": "Project",
       "commandLineArgs": "--verbosity Information",
       "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\RANGAROK\\ST20\\ax\\"
+    },
+    "cc": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-deps",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\ppppppsjsjsjs\\MTS258585\\ax\\"
+    },
+    "axopen-traversal-in-tepmplates": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\traversals\\apax"
     }
   }
 }

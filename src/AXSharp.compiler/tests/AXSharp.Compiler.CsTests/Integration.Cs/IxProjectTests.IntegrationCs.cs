@@ -15,6 +15,10 @@ using Xunit.Abstractions;
 
 namespace AXSharp.CompilerTests.Integration.Cs;
 
+/*
+ * C:\W\Develop\gh\inxton\simatic-ax\axsharp\src\AXSharp.compiler\tests\AXSharp.Compiler.CsTests\bin\Debug\net10.0\samples\units\samples\units\ix
+ * C:\W\Develop\gh\inxton\simatic-ax\axsharp\src\AXSharp.compiler\tests\AXSharp.Compiler.CsTests\samples\units\expected
+ */
 public class IxProjectTestsAx : IxProjectTests
 {
 
@@ -226,6 +230,10 @@ public abstract class IxProjectTests
     [Fact]
     public void should_retrieve_dependencies_and_use_types_from_referenced_project()
     {
+        /*
+         * C:\W\Develop\gh\inxton\simatic-ax\axsharp\src\AXSharp.compiler\tests\integration\actual\app\samples\units\ix\ax\.g
+         * C:\W\Develop\gh\inxton\simatic-ax\axsharp\src\AXSharp.compiler\tests\integration\expected\app\ix\.g
+         */
         var integrationProjectsPaths = new string[]
         {
             Path.GetFullPath(Path.Combine(testFolder, @"..\..\..\..\integration\actual\lib1")),

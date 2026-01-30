@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -17,9 +17,20 @@ namespace AXSharp.Connector.Localizations
     /// </summary>
     public class Translator
     {
-        //private ResxLocalizations LocalizationResources { get; set; }
-        
-        private ResourceManager _resourceManager;
+        private IEnumerable<ResourceManager> ResourceManagers
+        {
+            get
+            {
+                // IMPORTANT: order matters. Application should be searched first to allow overrides.
+                // Do not cache: resources can be configured at runtime (e.g., SetPrimaryTranslatorResource).
+                if (_applicationResourceManager != null) yield return _applicationResourceManager;
+                if (_libraryResourceManager != null) yield return _libraryResourceManager;
+            }
+        }
+
+        private static ResourceManager _applicationResourceManager;
+
+        private ResourceManager _libraryResourceManager;
 
         private CultureInfo Culture = CultureInfo.InvariantCulture;
 
@@ -41,14 +52,19 @@ namespace AXSharp.Connector.Localizations
         /// Sets the localization resource for this translator.
         /// </summary>
         /// <param name="resourceType">Type of resource to be used.</param>
-        public void SetLocalizationResource(Type resourceType)
+        /// <param name="originAssembly"></param>
+        public void SetLocalizationResource(Type resourceType, Assembly originAssembly = null)
         {
             if (resourceType != null)
             {
-                _resourceManager = new ResourceManager(resourceType)
+                _libraryResourceManager = new ResourceManager(resourceType)
                 {
-                    IgnoreCase = true
+                    IgnoreCase = false
                 };
+            }
+            else
+            {
+                Console.WriteLine($"No resource type provided for `{originAssembly?.FullName}`");
             }
         }
 
@@ -115,20 +131,28 @@ namespace AXSharp.Connector.Localizations
 
         public string Localize(string str, ITwinElement twinElement, CultureInfo culture)
         {
-            
+
             foreach (var localizable in GetTranslatable(str))
             {
                 var validIdentifier = LocalizationHelper.CreateId(localizable.CleanUpLocalizationTokens());
 
-                // Search in first level resource
-                var translation = _resourceManager?.GetString(validIdentifier, culture);
-                
-                // Search in parent resources
+                // Search through all resource managers for the key
+                string translation = null;
+                foreach (var resourceManager in ResourceManagers)
+                {
+                    translation = resourceManager?.GetString(validIdentifier, culture);
+                    if (translation != null)
+                    {
+                        break; // Found translation, stop searching
+                    }
+                }
+
+                // Search in parent resources if not found
                 if (translation == null)
                 {
                     try
                     {
-                        return LocalizeInParents(str, twinElement, culture);
+                        translation = LocalizeInParents(localizable, twinElement, culture);
                     }
                     catch
                     {
@@ -143,6 +167,21 @@ namespace AXSharp.Connector.Localizations
             }
 
             return str;
+        }
+
+        /// <summary>
+        /// Sets the primary application resource for all translators.
+        /// This would be tipycally set to the resource containing the application's translations.
+        /// Any matching localization key will be first searched in this resource and then in the library resource.
+        /// You can leverage this to override library translations with application specific ones.
+        /// </summary>
+        /// <param name="resourceType"></param>
+        public static void SetPrimaryTranslatorResource(Type resourceType)
+        {
+            _applicationResourceManager = new ResourceManager(resourceType)
+            {
+                IgnoreCase = false
+            };
         }
     }
 }
