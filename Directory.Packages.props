@@ -15,7 +15,7 @@
 
   <!-- Framework-Agnostic Packages -->
   <ItemGroup>
-    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.104" />
+    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.106" />
     <PackageVersion Include="Cake.DocFx" Version="1.0.0" />
     <PackageVersion Include="Octokit" Version="13.0.1" />
     <PackageVersion Include="Octokit.Extensions" Version="1.0.7" />
