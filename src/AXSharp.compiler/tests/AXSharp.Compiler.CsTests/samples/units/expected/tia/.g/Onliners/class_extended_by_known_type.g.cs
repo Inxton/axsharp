@@ -350,6 +350,11 @@ namespace Simatic.Ax.StateFramework
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 

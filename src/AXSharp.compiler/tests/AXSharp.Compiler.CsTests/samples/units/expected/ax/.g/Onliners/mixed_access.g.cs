@@ -200,6 +200,11 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -415,6 +420,11 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -630,6 +640,11 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -845,6 +860,11 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -1054,6 +1074,11 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -1281,6 +1306,11 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
