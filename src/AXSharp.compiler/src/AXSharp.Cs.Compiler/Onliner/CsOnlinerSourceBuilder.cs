@@ -435,7 +435,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
             "public string Symbol { get; protected set; }" +
             "private string _attributeName;" +
             "public System.String AttributeName {  get => string.IsNullOrEmpty(_attributeName) ? SymbolTail : _attributeName.Interpolate(this).CleanUpLocalizationTokens(); set => _attributeName = value; }" +
-            "public System.String GetAttributeName(System.Globalization.CultureInfo culture) {  return this.Translate(_attributeName, culture).Interpolate(this); }" +
+            "public System.String GetAttributeName(System.Globalization.CultureInfo culture) { if (string.IsNullOrEmpty(_attributeName)) { return SymbolTail; } return this.Translate(_attributeName, culture).Interpolate(this); }" +
             "private string _humanReadable;" +
             "public string HumanReadable {  get => string.IsNullOrEmpty(_humanReadable) ? SymbolTail : _humanReadable.Interpolate(this).CleanUpLocalizationTokens(); set => _humanReadable = value; }" +
             "public System.String GetHumanReadable(System.Globalization.CultureInfo culture) {  return this.Translate(_humanReadable, culture); }" +

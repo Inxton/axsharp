@@ -173,6 +173,12 @@ public abstract class IxProjectTests
             }
             catch (Exception)
             {
+
+                output.WriteLine("--------------------------------------------------");
+                output.WriteLine($"Actual file: {actualList[currentIndex]}");
+                output.WriteLine($"Expected file: {exp}");
+                output.WriteLine("--------------------------------------------------");
+
                 output.WriteLine($"-- Case: {new FileInfo(exp).Name} vs {new FileInfo(actualList[currentIndex]).Name}");
                 output.WriteLine($"-- expected\n{expectedFileContent}");
                 output.WriteLine($"-- actual\n{actualFileContent}");
@@ -216,10 +222,15 @@ public abstract class IxProjectTests
             var actualFileContent = File.ReadAllText(actualList[currentIndex]);
             try
             {
+                
                 Assert.Equal(expectedFileContent, actualFileContent);
             }
             catch (Exception)
             {
+                output.WriteLine("--------------------------------------------------");
+                output.WriteLine($"Actual file: {actualList[currentIndex]}");
+                output.WriteLine($"Expected file: {exp}");
+                output.WriteLine("--------------------------------------------------");
                 output.WriteLine($"-- Case: {new FileInfo(exp).Name} vs {new FileInfo(actualList[currentIndex]).Name}");
                 output.WriteLine($"-- expected\n{expectedFileContent}");
                 output.WriteLine($"-- actual\n{actualFileContent}");

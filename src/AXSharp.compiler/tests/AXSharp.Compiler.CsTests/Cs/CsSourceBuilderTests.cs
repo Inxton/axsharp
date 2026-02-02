@@ -327,7 +327,8 @@ public abstract partial class CsSourceBuilderTests
 
         var actualFileContentLines = actualFileContent.Split("\n").Select(a => a.Trim()).ToArray();
         var expectedFileContentLines = expectedFileContent.Split("\n").Select(a => a.Trim()).ToArray();
-
+        output.WriteLine($"Actual output file: {actualSourceFile}");
+        output.WriteLine($"Expected output file: {expectedSourceFile}");
         for (int i = 0; i < expectedFileContentLines.Length; i++)
         {
             Assert.Equal(expectedFileContentLines[i], actualFileContentLines[i]);

@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.32.0-improve-access-prioritization.200" />
-		<PackageReference Include="AXSharp.Connector" Version="0.32.0-improve-access-prioritization.200" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.47.0-496-bug-componentgetattributename-return-null.399" />
+		<PackageReference Include="AXSharp.Connector" Version="0.47.0-496-bug-componentgetattributename-return-null.399" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -188,6 +188,11 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 
@@ -385,6 +390,11 @@ namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 
@@ -584,6 +594,11 @@ namespace FileWithUsingsHelloLevelOne
 
             public System.String GetAttributeName(System.Globalization.CultureInfo culture)
             {
+                if (string.IsNullOrEmpty(_attributeName))
+                {
+                    return SymbolTail;
+                }
+
                 return this.Translate(_attributeName, culture).Interpolate(this);
             }
 
@@ -782,6 +797,11 @@ namespace ExampleNamespace
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 
