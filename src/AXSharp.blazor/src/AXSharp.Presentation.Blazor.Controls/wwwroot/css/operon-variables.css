@@ -1,0 +1,305 @@
+@layer theme {
+    :root, :host {
+        --font-sans: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+}
+
+@layer base {
+    h1 {
+        @apply text-5xl text-text font-bold text-wrap wrap-break-word;
+    }
+
+    h2 {
+        @apply text-4xl text-text font-bold text-wrap wrap-break-word;
+    }
+
+    h3 {
+        @apply text-3xl text-text font-bold text-wrap wrap-break-word;
+    }
+
+    h4 {
+        @apply text-2xl text-text font-bold text-wrap wrap-break-word;
+    }
+
+    h5 {
+        @apply text-xl text-text font-normal text-wrap wrap-break-word;
+    }
+
+    h6 {
+        @apply text-lg text-text font-normal text-wrap wrap-break-word;
+    }
+
+    p {
+        @apply text-base text-text-light font-normal text-wrap wrap-break-word;
+    }
+
+    a {
+        @apply text-base font-normal text-wrap wrap-break-word cursor-pointer underline;
+        @apply text-link hover:text-link-hover;
+    }
+
+    hr {
+        @apply text-text-light opacity-30;
+    }
+
+    span {
+        @apply text-base text-text font-normal text-wrap wrap-break-word;
+    }
+
+    div {
+        @apply text-base text-text font-normal text-wrap wrap-break-word;
+    }
+
+    /* input theme */
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"] {
+        color-scheme: light;
+    }
+
+    [data-theme="dark"] input[type="date"],
+    [data-theme="dark"] input[type="time"],
+    [data-theme="dark"] input[type="datetime-local"] {
+        color-scheme: dark;
+    }
+}
+
+@theme {
+    --text-3xl--line-height: calc(2 / 1.5);
+    --text-4xl--line-height: calc(2 / 1.5);
+    --text-5xl--line-height: calc(2 / 1.5);
+    --text-6xl--line-height: calc(2 / 1.5);
+    --text-7xl--line-height: calc(2 / 1.5);
+    --text-8xl--line-height: calc(2 / 1.5);
+    --text-9xl--line-height: calc(2 / 1.5);
+    /* radius */
+    --radius-full: calc(infinity * 1px); /* 0.25rem; */
+    --radius-small: 1rem;
+    --radius-extra-small: var(--radius-md);
+    --radius-nav: var(--radius-small);
+    --radius-button: var(--radius-full);
+    --radius-action-button: var(--radius-small);
+    --radius-action-button-icon: var(--radius-small);
+    --radius-input: var(--radius-full);
+    --radius-textarea: var(--radius-small);
+    --radius-checkbox: var(--radius-extra-small);
+    --radius-toggle: var(--radius-full);
+    --radius-radio: var(--radius-full);
+    --radius-select: var(--radius-small);
+    --radius-file: var(--radius-small);
+    --radius-color: var(--radius-small);
+    --radius-picker: var(--radius-small);
+    --radius-card: var(--radius-small);
+    --radius-simple-border: var(--radius-small);
+    --radius-alert: var(--radius-small);
+    --radius-list-group: var(--radius-small);
+    --radius-tab: var(--radius-small);
+    --radius-dropdown: var(--radius-small);
+    --radius-modal: var(--radius-small);
+    --radius-tooltip: var(--radius-extra-small);
+    --radius-accordion: var(--radius-small);
+    --radius-toast: var(--radius-small);
+    --radius-table: var(--radius-full);
+    --radius-pagination-number: var(--radius-full);
+    /* #region Colors */
+    --color-black: #0B0C0C;
+    --color-white: #FFFFFF;
+    --color-gray-1: #F3F2F1;
+    --color-gray-2: #DEE0E2;
+    --color-gray-3: #949494;
+    --color-background: #FEFEFE;
+    --color-background-light: #FFFFFF;
+    --color-background-dark: #F0F8FF;
+    --color-background-modal: #F5FAFF;
+    --color-background-modal-light: #FFFFFF;
+    --color-text: #0B0C0C;
+    --color-text-light: #626A6E;
+    --color-border: #BFC1C3;
+    --color-border-input: #0B0C0C;
+    /* #endregion */
+    /* #region Links */
+    --color-link: #0065B3;
+    --color-link-hover: #003078;
+    --color-link-visited: #4C2C92;
+    /* #endregion */
+    /* #region Brand & semantic colors */
+    --color-primary: #0a319e;
+    --color-primary-light: #E0E8FF;
+    --color-success: #00703C;
+    --color-success-light: #D4F7D4;
+    --color-warning: #EC9811;
+    --color-warning-light: #FFEAC9;
+    --color-danger: #D0190F;
+    --color-danger-light: #FFDCDA;
+    --color-info: #2B8CC4;
+    --color-info-light: #D4ECF7;
+    --color-noactive: #7C7C7C;
+    --color-noactive-light: #DEE0E2;
+    /* #endregion */
+    /* #region Result colors */
+    --color-result-failed: #D0190F;
+    --color-result-passed: #00703C;
+    --color-result-inprogress: #0065B3;
+    --color-result-exclude: #7866B9;
+    --color-result-bypasse: #912B88;
+    --color-result-inconcllusive: #B58840;
+    --color-result-running: #00A2A3;
+    --color-result-noaction: #949494;
+    /* #end of result colors*/
+    /* diagnostic colors */
+    --color-diagnostic-debug: #0065B3;
+    --color-diagnostic-verbose: #769899;
+    --color-diagnostic-information: #2B8CC4;
+    --color-diagnostic-warning: #EC9811;
+    --color-diagnostic-error: #D0190F;
+    --color-diagnostic-fatal: #9E1912;
+    /* end of diagnostic colors */
+    /* station status colors */
+    --color-automat: #00703C;
+    --color-ground: #2B8CC4;
+    --color-grounded: #0065B3;
+    --color-idle: #949494;
+    --color-manual: #EC9811;
+    /* end of station status colors */
+    /* prodinsight colors */
+    --color-oee: #0A319E;
+    --color-availability: #00703C;
+    --color-performance: #0065B3;
+    --color-quality: #EC9811;
+    /* end of prodinsight colors */
+    /* downtime colors */
+    --color-downtime-unassigned: #C7C7C7;
+    --color-downtime-material: #EC9811;
+    --color-downtime-operator: #F08584;
+    --color-downtime-working: #B6D069;
+    --color-downtime-technical: #9885A9;
+    --color-downtime-planned: #7DCDD2;
+    /* end of downtime colors */
+    /* buttons colors */
+    --color-btn-primary: var(--color-primary);
+    --color-btn-primary-hover: var(--color-primary-light);
+    --color-btn-danger: var(--color-danger);
+    --color-btn-danger-hover: var(--color-danger-light);
+    --color-btn-success: var(--color-success);
+    --color-btn-success-hover: var(--color-success-light);
+    --color-btn-warning: var(--color-warning);
+    --color-btn-warning-hover: var(--color-warning-light);
+    --color-btn-info: var(--color-info);
+    --color-btn-info-hover: var(--color-info-light);
+    --color-btn-noactive: var(--color-noactive);
+    --color-btn-noactive-hover: var(--color-noactive-light);
+    --color-btn-outline-bg: transparent;
+    --color-btn-no-bg-bg: transparent;
+    /* end of buttons colors */
+    --animate-pulse-danger: pulse-danger 2s ease-in-out infinite;
+
+    @keyframes pulse-danger {
+        0%, 100% {
+            box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-danger) 30%, transparent);
+        }
+
+        50% {
+            box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-danger) 0%, transparent);
+        }
+    }
+}
+
+[data-theme="dark"] {
+    /* #region Base colors */
+    --color-black: #FFFFFF;
+    --color-white: #121212;
+    --color-gray-1: #1F1F1F;
+    --color-gray-2: #949494;
+    --color-gray-3: #F3F2F1;
+    --color-background: #121212;
+    --color-background-light: #1F1F1F;
+    --color-background-dark: #1F1F1F;
+    --color-background-modal: #1E1E1E;
+    --color-background-modal-light: #252525;
+    --color-text: #F2F2F2;
+    --color-text-light: #A3A3A3;
+    --color-border: #4B5563;
+    --color-border-input: #F2F2F2;
+    /* #endregion */
+    /* #region Links */
+    --color-link: #60A5FA;
+    --color-link-hover: #93C5FD;
+    --color-link-visited: #C4B5FD;
+    /* #endregion */
+    /* #region Brand & semantic colors */
+    --color-primary: #89C4FF;
+    --color-primary-light: #1e3a8a;
+    --color-success: #4ADE80;
+    --color-success-light: #14532d;
+    --color-warning: #FBBF24;
+    --color-warning-light: #78350f;
+    --color-danger: #F87171;
+    --color-danger-light: #7f1d1d;
+    --color-info: #38BDF8;
+    --color-info-light: #0c4a6e;
+    --color-noactive: #A1A1AA;
+    --color-noactive-light: #27272a;
+    /* #endregion */
+    /* #region Result colors */
+    --color-result-failed: #F87171;
+    --color-result-passed: #4ADE80;
+    --color-result-inprogress: #60A5FA;
+    --color-result-exclude: #A78BFA;
+    --color-result-bypasse: #E879F9;
+    --color-result-inconcllusive: #FCD34D;
+    --color-result-runnig: #2DD4BF;
+    --color-result-noaction: #A1A1AA;
+    /* #endregion */
+    /* #region Diagnostic colors */
+    --color-diagnostic-debug: #60A5FA;
+    --color-diagnostic-verbose: #5EEAD4;
+    --color-diagnostic-information: #38BDF8;
+    --color-diagnostic-warning: #FBBF24;
+    --color-diagnostic-error: #F87171;
+    --color-diagnostic-fatal: #EF4444;
+    /* #endregion */
+    /* #region Station status colors */
+    --color-automat: #4ADE80;
+    --color-ground: #38BDF8;
+    --color-grounded: #60A5FA;
+    --color-idle: #A1A1AA;
+    --color-manual: #FBBF24;
+    /* #endregion */
+    /* #region ProdInsight colors */
+    --color-oee: #89C4FF;
+    --color-availability: #B6D069;
+    --color-performance: #A08AE1;
+    --color-quality: #FBBF24;
+    /* #endregion */
+    /* #region Downtime colors */
+    --color-downtime-unassigned: #C7C7C7;
+    --color-downtime-material: #FBBF24;
+    --color-downtime-operator: #F08584;
+    --color-downtime-working: #B6D069;
+    --color-downtime-technical: #A08AE1;
+    --color-downtime-planned: #7DCDD2;
+    /* #endregion */
+    /* #region Buttons */
+    --color-btn-primary: var(--color-primary);
+    --color-btn-primary-hover: var(--color-primary-light);
+    --color-btn-danger: var(--color-danger);
+    --color-btn-danger-hover: var(--color-danger-light);
+    --color-btn-success: var(--color-success);
+    --color-btn-success-hover: var(--color-success-light);
+    --color-btn-warning: var(--color-warning);
+    --color-btn-warning-hover: var(--color-warning-light);
+    --color-btn-info: var(--color-info);
+    --color-btn-info-hover: var(--color-info-light);
+    --color-btn-noactive: var(--color-noactive);
+    --color-btn-noactive-hover: var(--color-noactive-light);
+    --color-btn-noactive-hover: #2A2A2A;
+    --color-btn-outline-bg: transparent;
+    --color-btn-no-bg-bg: transparent;
+    /* #endregion */
+}
+
+:root {
+    /* btn */
+    --btn-hover-translate: -0.1rem;
+   
+}
