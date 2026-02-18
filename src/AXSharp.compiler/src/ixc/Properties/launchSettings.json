@@ -69,6 +69,10 @@
     "axopen-traversal-in-tepmplates": {
       "commandName": "Project",
       "workingDirectory": "C:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen\\src\\traversals\\apax"
+    },
+    "ixc_data": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\github\\Inxton\\axopen\\src\\data\\tests\\AXOpen.Data.Tests_L1\\ax"
     }
   }
 }
