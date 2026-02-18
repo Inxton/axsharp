@@ -133,8 +133,8 @@
     --color-danger-light: #FFDCDA;
     --color-info: #2B8CC4;
     --color-info-light: #D4ECF7;
-    --color-noactive: #7C7C7C;
-    --color-noactive-light: #DEE0E2;
+    --color-neutral: #7C7C7C;
+    --color-neutral-light: #DEE0E2;
     /* #endregion */
     /* #region Result colors */
     --color-result-failed: #D0190F;
@@ -168,12 +168,13 @@
     --color-quality: #EC9811;
     /* end of prodinsight colors */
     /* downtime colors */
-    --color-downtime-unassigned: #C7C7C7;
-    --color-downtime-material: #EC9811;
-    --color-downtime-operator: #F08584;
     --color-downtime-working: #B6D069;
-    --color-downtime-technical: #9885A9;
     --color-downtime-planned: #7DCDD2;
+    --color-downtime-unassigned: #C7C7C7;
+    --color-downtime-technical: #9885A9;
+    --color-downtime-operator: #F08584;
+    --color-downtime-material: #EC9811;
+    --color-downtime-external: #9E1912;
     /* end of downtime colors */
     /* buttons colors */
     --color-btn-primary: var(--color-primary);
@@ -186,20 +187,31 @@
     --color-btn-warning-hover: var(--color-warning-light);
     --color-btn-info: var(--color-info);
     --color-btn-info-hover: var(--color-info-light);
-    --color-btn-noactive: var(--color-noactive);
-    --color-btn-noactive-hover: var(--color-noactive-light);
+    --color-btn-neutral: var(--color-neutral);
+    --color-btn-neutral-hover: var(--color-neutral-light);
     --color-btn-outline-bg: transparent;
     --color-btn-no-bg-bg: transparent;
     /* end of buttons colors */
-    --animate-pulse-danger: pulse-danger 2s ease-in-out infinite;
 
-    @keyframes pulse-danger {
+    @keyframes riple {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1.05);
+            opacity: 0;
+        }
+    }
+
+    @keyframes wiggle {
         0%, 100% {
-            box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-danger) 30%, transparent);
+            transform: rotate(-3deg);
         }
 
         50% {
-            box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-danger) 0%, transparent);
+            transform: rotate(3deg);
         }
     }
 }
