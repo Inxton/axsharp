@@ -42,9 +42,6 @@ namespace AXSharp.RenderableContent.Tests
                 .Add(p => p.Context, twin)
                 .Add(p => p.Presentation, presentation));
 
-            // File.WriteAllText(path, cut.Markup);
-            // File.WriteAllText(path, cut.Markup);
-
             if(false) // for generate
                 File.WriteAllText(path, cut.Markup.Replace(" id", " id:ignore").Replace(" for", " for:ignore").Replace("°C", "&#xB0;C"));
 
