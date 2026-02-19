@@ -44,8 +44,8 @@
     --color-danger-light: #FFDCDA;
     --color-info: #2B8CC4;
     --color-info-light: #D4ECF7;
-    --color-noactive: #7C7C7C;
-    --color-noactive-light: #DEE0E2;
+    --color-neutral: #7C7C7C;
+    --color-neutral-light: #DEE0E2;
   }
 }
 @layer base {
