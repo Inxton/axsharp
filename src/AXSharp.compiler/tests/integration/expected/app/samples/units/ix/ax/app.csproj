@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net10.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.22.0-330-new-feature-poco-property-of-datetime-has-different-default-value-than-plc.299" />
+		<PackageReference Include="AXSharp.Connector" Version="0.22.0-330-new-feature-poco-property-of-datetime-has-different-default-value-than-plc.299" />
+	</ItemGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\..\lib1\samples\units\ix\ax\lib1.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\lib2\samples\units\ix\ax\lib2.csproj" />
+	</ItemGroup>
+</Project>

@@ -18,9 +18,9 @@ namespace lib2
 
         private PlcTranslator() 
         {
-            var defaultResourceType = Assembly.GetAssembly(typeof(lib2.PlcTranslator))
-                .GetType("lib2.Resources.PlcStringResources");
-            this.SetLocalizationResource(defaultResourceType);
+            var assembly = Assembly.GetAssembly(typeof(lib2.PlcTranslator));
+            var resource = assembly.GetType("lib2.Resources.PlcStringResources");
+            this.SetLocalizationResource(resource, assembly);
         }
     }
 }

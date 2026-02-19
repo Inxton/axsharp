@@ -29,15 +29,15 @@ namespace lib1
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.lib1.MyClass> OnlineToPlainAsync()
+        public async Task<global::Pocos.lib1.MyClass> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.lib1.MyClass plain = new global::Pocos.lib1.MyClass();
-            await this.ReadAsync<IgnoreOnPocoOperation>();
+            await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.MyString = MyString.LastValue;
             plain.MyInt = MyInt.LastValue;
             return plain;
@@ -62,12 +62,12 @@ namespace lib1
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.lib1.MyClass plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.lib1.MyClass plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             MyString.LethargicWrite(plain.MyString);
@@ -75,7 +75,7 @@ namespace lib1
 #pragma warning disable CS0612
             MyInt.LethargicWrite(plain.MyInt);
 #pragma warning restore CS0612
-            return await this.WriteAsync<IgnoreOnPocoOperation>();
+            return await this.WriteAsync<IgnoreOnPocoOperation>(priority);
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
@@ -218,6 +218,11 @@ namespace lib1
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 

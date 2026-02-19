@@ -14,6 +14,6 @@ internal static class CsFormatting
 {
     public static string FormatCode(this string code)
     {
-        return CSharpSyntaxTree.ParseText(code).GetRoot().NormalizeWhitespace().SyntaxTree.GetText().ToString();
+        return CSharpSyntaxTree.ParseText(code).GetRoot().NormalizeWhitespace(eol:"\n").SyntaxTree.GetText().ToString();
     }
 }

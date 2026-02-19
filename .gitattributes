@@ -1,0 +1,29 @@
+# Default: treat as text, normalize to LF in the repository
+* text=auto eol=lf
+
+# Typical source files (explicit, but the default already covers these)
+*.c      text eol=lf
+*.cpp    text eol=lf
+*.h      text eol=lf
+*.py     text eol=lf
+*.js     text eol=lf
+*.ts     text eol=lf
+*.sh     text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.json   text eol=lf
+*.css    text eol=lf
+*.cs     text eol=lf
+
+
+# Windows-native scripts that often *must* be CRLF in the working tree
+# (repo still stores LF; checkout converts to CRLF)
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+*.ps1    text eol=lf
+
+# Binary files (never touch line endings)
+*.png    -text
+*.jpg    -text
+*.zip    -text
+*.pdf    -text
