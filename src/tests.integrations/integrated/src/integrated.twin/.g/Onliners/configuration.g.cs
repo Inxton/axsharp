@@ -184,6 +184,11 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 
@@ -378,6 +383,11 @@ public partial class Nested : AXSharp.Connector.ITwinObject
 
     public System.String GetAttributeName(System.Globalization.CultureInfo culture)
     {
+        if (string.IsNullOrEmpty(_attributeName))
+        {
+            return SymbolTail;
+        }
+
         return this.Translate(_attributeName, culture).Interpolate(this);
     }
 

@@ -193,7 +193,7 @@
     --color-btn-no-bg-bg: transparent;
     /* end of buttons colors */
 
-    @keyframes riple {
+    @keyframes ripple {
         0% {
             transform: scale(1);
             opacity: 1;
