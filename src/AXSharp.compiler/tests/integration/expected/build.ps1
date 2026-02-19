@@ -12,3 +12,4 @@ cd app
 dotnet run --project ..\..\..\..\src\ixc\AXSharp.ixc.csproj --framework net10.0
 dotnet build ./ix/app.csproj
 cd ..
+
