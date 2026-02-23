@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -60,7 +60,7 @@ namespace AXSharp.Compiler.Cs.Pragmas.PragmaParser
                 if (pragma.Location != null)
                 {
                     diagMessage =
-                        $"[Error]: {pragma.Location.GetLineSpan().Filename}:{pragma.Location.GetLineSpan().StartLinePosition.Line}, {pragma.Location.GetLineSpan().StartLinePosition.Character} {malformedPragmaException.Message}";
+                        $"[Error]: {pragma.Location.GetLineSpan().Filename}:{pragma.Location.GetLineSpan().StartLinePosition.Line + 1}, {pragma.Location.GetLineSpan().StartLinePosition.Character} {malformedPragmaException.Message}";
                 }
 
                 Log.Logger.Error(diagMessage);

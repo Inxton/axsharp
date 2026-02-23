@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -130,7 +130,7 @@ internal class PragmaGrammar : Grammar
         AddedPropertySetter.Rule =
             ix_set + colon + AddedPropertyIdentifier + assing + AddedPropertyInitializer;
 
-        Pragmas.Rule = AddedPropertyDeclaration | DeclarationAttribute | AddedPropertySetter | GenericAttribute;
+        Pragmas.Rule = AddedPropertyDeclaration | AddedPropertySetter | DeclarationAttribute | GenericAttribute;
 
         Root = Pragmas;
 
