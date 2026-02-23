@@ -22,6 +22,7 @@ namespace Pocos
             public Single Max { get; set; }
 
             [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", @"Measurement Result")]
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::MeasurementExample.Result))]
             public Int16 Result { get; set; }
         }
 

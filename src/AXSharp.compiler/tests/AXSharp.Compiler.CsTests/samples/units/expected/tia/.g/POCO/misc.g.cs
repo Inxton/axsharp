@@ -12,7 +12,10 @@ namespace Pocos
             {
             }
 
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::Enums.Colors))]
             public global::Enums.Colors colors { get; set; }
+
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::Enums.NamedValuesColors))]
             public String NamedValuesColors { get; set; }
         }
     }

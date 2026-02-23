@@ -15,6 +15,8 @@ namespace Pocos
         public Single Humidity { get; set; }
         public string Location { get; set; } = string.Empty;
         public Single ChillFactor { get; set; }
+
+        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::Feeling))]
         public global::Feeling Feeling { get; set; }
     }
 

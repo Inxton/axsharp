@@ -44,6 +44,7 @@ namespace Pocos
         public TimeSpan TestTimeOfDay { get; set; } = default(TimeSpan);
 
         [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", @"<#ENUM Station status#>")]
+        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::enumStationStatus))]
         public global::enumStationStatus Status { get; set; }
     }
 }

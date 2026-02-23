@@ -12,6 +12,7 @@ namespace Pocos
             {
             }
 
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::Simatic.Ax.StateFramework.StateControllerStatus))]
             public UInt16 LColors { get; set; }
         }
     }
