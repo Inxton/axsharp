@@ -18,6 +18,7 @@ namespace NamedValuesNamespace
     {
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(NamedValuesNamespace.LightColors))]
         public OnlinerInt LColors { get; }
+        public NamedValuesNamespace.LightColors LColorsEnum { get => (NamedValuesNamespace.LightColors)LColors.LastValue; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

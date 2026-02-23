@@ -30,6 +30,7 @@ namespace Simatic.Ax.StateFramework
 
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Simatic.Ax.StateFramework.Condition))]
         public OnlinerInt Condition { get; }
+        public Simatic.Ax.StateFramework.Condition ConditionEnum { get => (Simatic.Ax.StateFramework.Condition)Condition.LastValue; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

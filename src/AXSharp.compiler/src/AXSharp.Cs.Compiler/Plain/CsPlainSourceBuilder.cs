@@ -151,7 +151,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     break;
                 case INamedValueTypeDeclaration namedValueType:
                     AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::{namedValueType.GetQualifiedName()}))]");
-                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);                    
                     break;
                 case IScalarTypeDeclaration scalar:
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
@@ -322,7 +322,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     break;
                 case INamedValueTypeDeclaration namedValueType:
-                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof({namedValueType.GetQualifiedName()}))]");
+                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::{namedValueType.GetQualifiedName()}))]");
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:

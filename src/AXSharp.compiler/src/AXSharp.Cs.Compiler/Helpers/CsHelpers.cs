@@ -7,6 +7,7 @@
 
 using System.Text;
 using AX.ST.Semantic.Model.Declarations;
+using AX.ST.Semantic.Model.Declarations.Types;
 using AX.ST.Syntax.Tree;
 using AXSharp.Connector;
 
@@ -14,6 +15,21 @@ namespace AXSharp.Compiler.Cs.Helpers;
 
 internal static class CsHelpers
 {
+    private static readonly HashSet<string> IntegralIecTypes = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "BYTE", "USINT", "SINT", "INT", "UINT", "WORD",
+        "DINT", "DWORD", "UDINT", "LINT", "LWORD", "ULINT"
+    };
+
+    /// <summary>
+    /// Determines whether the backing type of a named value type is integral
+    /// and thus valid as a C# enum base type.
+    /// </summary>
+    public static bool HasIntegralBackingType(this INamedValueTypeDeclaration namedValueType)
+    {
+        return IntegralIecTypes.Contains(namedValueType.ValueTypeAccess.Type.Name.Trim());
+    }
+
     public static string Transform(this IAccessModifierSyntax syntax)
     {
         return $"{syntax.ModifierKeyword.Text.ToLower()} ";

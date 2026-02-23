@@ -51,18 +51,22 @@ public partial class unitsTwinController : ITwinController
 
     [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Colorss))]
     public OnlinerInt Colorss { get; }
+    public Colorss ColorssEnum { get => (Colorss)Colorss.LastValue; }
 
     [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Colorsss))]
     public OnlinerULInt Colorsss { get; }
+    public Colorsss ColorsssEnum { get => (Colorsss)Colorsss.LastValue; }
 
     [CompilerOmitsAttribute("POCO")]
     public OnlinerBool _must_be_omitted_in_poco { get; }
 
     [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Colorss))]
     public OnlinerInt Colorss2 { get; }
+    public Colorss Colorss2Enum { get => (Colorss)Colorss2.LastValue; }
 
     [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Colorsss))]
     public OnlinerULInt Colorsss2 { get; }
+    public Colorsss Colorsss2Enum { get => (Colorsss)Colorsss2.LastValue; }
     public OnlinerBool MotorOn { get; }
     public OnlinerInt MotorState { get; }
     public Motor Motor1 { get; }
