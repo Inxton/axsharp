@@ -80,7 +80,7 @@ Entry.Plc.weather.GeoLocation.Write();
 ~~~
 
 - [Attributes](ATTRIBUTES.md)
-- [Added members](ADDED_MEMBERS.md)
+- [Added members](ADDED_MEMBERS.md) - including typed enum accessor properties
 - [Config file](CONFIG_FILE.md)
 - [Packaging and dependency management](PACKAGING.md)
 
