@@ -7,32 +7,32 @@
     "name": "s",
     "version": "0.0.0",
     "devDependencies": {
-      "@ax/stc": "11.1.55"
+      "@ax/stc": "11.3.46"
     }
   },
   "packages": {
     "@ax/st-docs": {
       "name": "@ax/st-docs",
-      "version": "11.1.55",
-      "integrity": "sha512-zHxPk+/FpaL/pXZqwlKDMUWmieSzMQpIPLnfs7Uer51S4gV+5xvwKrc5/9QR050ZcgzDV8MiqzJPFH+Cnz49gQ==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-11.1.55.tgz",
+      "version": "11.3.46",
+      "integrity": "sha512-JkEFV3LrMpWAzpcHn5X3nfliJj8WsycBKD2qY239TjTVOnJfQ1uw7AdHj5MIXVJUeuA6EehAep7otX02GtitUQ==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-docs/-/st-docs-11.3.46.tgz",
       "dependencies": {}
     },
     "@ax/stc": {
       "name": "@ax/stc",
-      "version": "11.1.55",
-      "integrity": "sha512-F24/kidxvVPkdFz1DCzk0kuLzhE21Hl/OZ53hedk4Ut+vkqtyWpk0zzqazMl+0cio8cayfW0kDGr/byyESUS2A==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc/-/stc-11.1.55.tgz",
+      "version": "11.3.46",
+      "integrity": "sha512-ESqk0kVLf/vviWjJJ7v2r1sSigt5FH63qdhdHj+HZzheTniiwrorWLpgqcenbSTSBbk5Nhn3b9LyzpEOOkhtfQ==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc/-/stc-11.3.46.tgz",
       "dependencies": {
-        "@ax/stc-linux-x64": "11.1.55",
-        "@ax/stc-win-x64": "11.1.55"
+        "@ax/stc-linux-x64": "11.3.46",
+        "@ax/stc-win-x64": "11.3.46"
       }
     },
     "@ax/stc-linux-x64": {
       "name": "@ax/stc-linux-x64",
-      "version": "11.1.55",
-      "integrity": "sha512-HacfsylKTabNefS95J3Iu0R4D/qm374OythdVgCnVdD21qy3kZMNZCWpfJkjwW4pao1CGlA7IxPTY4ip081/Hg==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-linux-x64/-/stc-linux-x64-11.1.55.tgz",
+      "version": "11.3.46",
+      "integrity": "sha512-4K4qho/9/hqAPaYjAZoUxjcz9HIxC+9Vjfkv+SZlQ8VqVIt4P2Qjt8am8qCkfMduoUF5lATcvj7UQi0UfcH5hA==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-linux-x64/-/stc-linux-x64-11.3.46.tgz",
       "os": [
         "linux"
       ],
@@ -40,14 +40,14 @@
         "x64"
       ],
       "dependencies": {
-        "@ax/st-docs": "11.1.55"
+        "@ax/st-docs": "11.3.46"
       }
     },
     "@ax/stc-win-x64": {
       "name": "@ax/stc-win-x64",
-      "version": "11.1.55",
-      "integrity": "sha512-Iqy5dWiHjz6ff3iwPhPtmr528r+F5sBiQm0CRZCGiiCMrr74GveNIlyQFdeXbVFWcgNwc8piHBXE84CbbXvftg==",
-      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-win-x64/-/stc-win-x64-11.1.55.tgz",
+      "version": "11.3.46",
+      "integrity": "sha512-jbyyrwCOGhyyJSd4X7OzHEGAkrrcIwOz5a3ZjaEuTPTsAegDY9Q8gTUtco5vexMGxNs5pW9c1hrnb8XH/L2G/w==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc-win-x64/-/stc-win-x64-11.3.46.tgz",
       "os": [
         "win32"
       ],
@@ -55,7 +55,7 @@
         "x64"
       ],
       "dependencies": {
-        "@ax/st-docs": "11.1.55"
+        "@ax/st-docs": "11.3.46"
       }
     }
   },
