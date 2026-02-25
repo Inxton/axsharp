@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -147,13 +147,27 @@ public static class PragmaExtensions
     /// <returns></returns>
     public static string GetPropertyValue(this IDeclaration declaration, string propertyName, string memberName = "")
     {
-        var propertyValue = declaration.Pragmas.FirstOrDefault(p =>
-                p.Content.Replace(" ", string.Empty).StartsWith($"{PRAGMA_PROPERTY_SET_SIGNATURE}{propertyName}"))
-            ?.Content.Split('=');
+        try
+        {
+            // This is only to check for malformed pragmas, if there is any, exception will be thrown and caught in catch block and empty string will be returned.
+            string.Join("\r\n",
+                declaration.Pragmas.Where(p => p.Content.StartsWith(PRAGMA_PROPERTY_SET_SIGNATURE))
+                    .Select(p => Pragmas.PragmaParser.PragmaCompiler.Compile(p).Product));
+
+            var propertyValue = declaration.Pragmas.FirstOrDefault(p =>
+                    p.Content.Replace(" ", string.Empty).StartsWith($"{PRAGMA_PROPERTY_SET_SIGNATURE}{propertyName}"))
+                ?.Content.Split('=');
 
         if (propertyValue is { Length: > 0 }) return propertyValue[1].Replace("\"", string.Empty).Trim();
-
-        return memberName;
+            
+            return memberName;
+        }
+        catch (MalformedPragmaException ex)
+        {
+           // swallow
+        }
+        
+        return string.Empty;
     }
 
     /// <summary>

@@ -11,6 +11,7 @@ namespace Enums
     {
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Enums.Colors))]
         public OnlinerInt colors { get; }
+        public Enums.Colors colorsEnum { get => (Enums.Colors)colors.LastValue; }
 
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Enums.NamedValuesColors))]
         public OnlinerString NamedValuesColors { get; }

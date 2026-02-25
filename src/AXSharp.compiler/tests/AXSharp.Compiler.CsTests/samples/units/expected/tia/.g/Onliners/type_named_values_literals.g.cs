@@ -20,6 +20,7 @@ namespace Simatic.Ax.StateFramework
     {
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Simatic.Ax.StateFramework.StateControllerStatus))]
         public OnlinerWord LColors { get; }
+        public Simatic.Ax.StateFramework.StateControllerStatus LColorsEnum { get => (Simatic.Ax.StateFramework.StateControllerStatus)LColors.LastValue; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

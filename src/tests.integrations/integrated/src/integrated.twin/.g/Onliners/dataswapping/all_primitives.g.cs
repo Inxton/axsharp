@@ -32,6 +32,7 @@ public partial class all_primitives : AXSharp.Connector.ITwinObject
 
     [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(myEnum))]
     public OnlinerInt myEnum { get; }
+    public myEnum myEnumEnum { get => (myEnum)myEnum.LastValue; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

@@ -176,3 +176,109 @@ When the application tries to write to the variable it first validates that the 
 
 AttributeToolTip allows you to describe the variable or an object. These can be then used to give short hints to the user in the application. This attribute can be localized.
 
+## Typed Enum Accessor Properties
+
+### Overview
+
+For properties that store enumeration values (either PLC enums or named value types with integral backing types), the AXSharp compiler automatically generates typed enum accessor properties. These properties provide a convenient way to access the enum value cast to a strongly-typed C# enum, without requiring explicit casting.
+
+### When Generated
+
+Typed enum accessor properties are generated for:
+- Properties based on PLC `ENUM` types
+- Properties based on **named value types with integral backing types** (BYTE, USINT, SINT, INT, UINT, WORD, DINT, DWORD, UDINT, LINT, LWORD, ULINT)
+
+### Naming Convention
+
+For a property named `Status` of enum type `Color`, the compiler generates an accessor property named `StatusEnum`.
+
+### Example
+
+**PLC code:**
+~~~iecst
+{S7.extern=ReadWrite}
+TYPE Color : DINT
+    Black := 0;
+    White := 1;
+    Red := 2;
+END_TYPE
+
+CLASS PUBLIC MyClass
+    VAR PUBLIC
+        Status : Color;
+    END_VAR
+END_CLASS
+~~~
+
+**Generated C# code:**
+~~~C#
+public partial class MyClass : AXSharp.Connector.ITwinObject
+{
+    [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Color))]
+    public OnlinerInt Status { get; }
+    
+    public Color StatusEnum { get => (Color)Status.LastValue; }
+}
+~~~
+
+### Usage
+
+Instead of manually casting, you can use the generated typed accessor:
+
+~~~C#
+// Without typed accessor - requires casting
+var statusValue = (Color)myObject.Status.LastValue;
+
+// With typed accessor - automatic casting
+var statusValue = myObject.StatusEnum;
+~~~
+
+### Important: Reading the Backing Property First
+
+**The typed enum accessor properties read from the `LastValue` of the backing property.** This means that **the backing property must be read from the PLC first** for the accessor to return a valid value.
+
+The accessor does **not** perform any I/O operation itself—it simply casts the last read value.
+
+#### Example Scenario
+
+~~~C#
+// INCORRECT - StatusEnum will return default/zero value
+var status = myObject.StatusEnum;  // Invalid! No read was performed yet
+
+// CORRECT - Read the backing property first
+await myObject.Status.GetAsync();  // Read from PLC
+var status = myObject.StatusEnum;  // Now valid with the read value
+
+// CORRECT - Bulk read on the object
+myObject.Read();  // Cyclic read of all properties
+var status = myObject.StatusEnum;  // Valid after read/polling
+~~~
+
+#### Polling/Cyclic Scenario
+
+When using a read loop that executes periodically (polling):
+
+~~~C#
+// Polling loop
+while (isRunning)
+{
+    myObject.Read();  // Reads all properties including Status
+    
+    // Now all typed accessors have valid data
+    var status = myObject.StatusEnum;
+    var color = (Color)status;
+    
+    await Task.Delay(100);  // Update interval
+}
+~~~
+
+### EnumeratorDiscriminatorAttribute
+
+All properties with typed enum accessors are marked with `[EnumeratorDiscriminatorAttribute]`. This attribute identifies the corresponding enum type and is used internally by the framework for serialization and UI support.
+
+You can also see this marking on POCO (Plain Old CLR Object) versions of your types, where it helps maintain enum type information:
+
+~~~C#
+[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Color))]
+public Color Status { get; set; }
+~~~

@@ -32,6 +32,8 @@ namespace Pocos
         public DateTime myDATE_AND_TIME { get; set; } = new DateTime(1970, 1, 1);
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
+
+        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::myEnum))]
         public global::myEnum myEnum { get; set; }
     }
 }

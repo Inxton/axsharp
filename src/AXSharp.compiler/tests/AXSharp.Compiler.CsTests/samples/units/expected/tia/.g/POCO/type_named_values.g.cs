@@ -12,6 +12,7 @@ namespace Pocos
             {
             }
 
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::NamedValuesNamespace.LightColors))]
             public Int16 LColors { get; set; }
         }
     }

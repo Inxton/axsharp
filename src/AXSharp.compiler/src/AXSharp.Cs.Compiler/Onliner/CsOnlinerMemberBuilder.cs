@@ -65,6 +65,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("OnlinerInt");
                     AddToSource($" {fieldDeclaration.Name}");
                     AddToSource("{get;}");
+                    AddToSource($"{fieldDeclaration.AccessModifier.Transform()} {@enum.GetQualifiedName()} {fieldDeclaration.Name}Enum {{ get => ({@enum.GetQualifiedName()}){fieldDeclaration.Name}.LastValue; }}");
                     break;
                 case INamedValueTypeDeclaration namedValue:
                     AddToSource(
@@ -74,6 +75,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     //fieldDeclaration.Type.Accept(visitor, this);
                     AddToSource($" {fieldDeclaration.Name}");
                     AddToSource("{get;}");
+                    if (namedValue.HasIntegralBackingType())
+                        AddToSource($"{fieldDeclaration.AccessModifier.Transform()} {namedValue.GetQualifiedName()} {fieldDeclaration.Name}Enum {{ get => ({namedValue.GetQualifiedName()}){fieldDeclaration.Name}.LastValue; }}");
                     break;
                 case IArrayTypeDeclaration array:
                     var arrayEligibility = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);
@@ -159,6 +162,7 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     AddToSource("OnlinerInt");
                     AddToSource($" {semantics.Name}");
                     AddToSource("{get;}");
+                    AddToSource($"public {@enum.GetQualifiedName()} {semantics.Name}Enum {{ get => ({@enum.GetQualifiedName()}){semantics.Name}.LastValue; }}");
                     break;
                 case INamedValueTypeDeclaration namedValue:
                     AddToSource(
@@ -168,6 +172,8 @@ internal class CsOnlinerMemberBuilder : ICombinedThreeVisitor
                     //semantics.Type.Accept(visitor, this);
                     AddToSource($" {semantics.Name}");
                     AddToSource("{get;}");
+                    if (namedValue.HasIntegralBackingType())
+                        AddToSource($"public {namedValue.GetQualifiedName()} {semantics.Name}Enum {{ get => ({namedValue.GetQualifiedName()}){semantics.Name}.LastValue; }}");
                     break;
                 case IArrayTypeDeclaration array:
                     var arrayEligible = array.IsEligibleForTranspile(SourceBuilder, warnMissingOrInconsistent: true);

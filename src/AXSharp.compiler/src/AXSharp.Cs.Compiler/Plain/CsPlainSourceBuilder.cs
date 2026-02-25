@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -145,8 +145,13 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
-                case INamedValueTypeDeclaration namedValueType:
+                case IEnumTypeDeclaration @enum:
+                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::{@enum.GetQualifiedName()}))]");
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
+                    break;
+                case INamedValueTypeDeclaration namedValueType:
+                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::{namedValueType.GetQualifiedName()}))]");
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);                    
                     break;
                 case IScalarTypeDeclaration scalar:
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
@@ -312,7 +317,12 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
                     AddToSource(" = string.Empty;");
                     break;
+                case IEnumTypeDeclaration @enum:
+                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof({@enum.GetQualifiedName()}))]");
+                    AddPropertyDeclaration(fieldDeclaration, fieldDeclaration, visitor);
+                    break;
                 case INamedValueTypeDeclaration namedValueType:
+                    AddToSource($"[AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::{namedValueType.GetQualifiedName()}))]");
                     AddPropertyDeclaration(fieldDeclaration, fieldDeclaration.Type, visitor);
                     break;
                 case IScalarTypeDeclaration scalar:

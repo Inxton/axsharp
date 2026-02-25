@@ -73,6 +73,11 @@
     "ixc_data": {
       "commandName": "Project",
       "workingDirectory": "D:\\github\\Inxton\\axopen\\src\\data\\tests\\AXOpen.Data.Tests_L1\\ax"
+    },
+    "honolulu": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-deps",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\axopen.templates\\axopen.template.simple\\ax\\"
     }
   }
 }

@@ -20,6 +20,8 @@ namespace Pocos
             }
 
             public Int64 CompareToValue { get; set; }
+
+            [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(global::Simatic.Ax.StateFramework.Condition))]
             public global::Simatic.Ax.StateFramework.Condition Condition { get; set; }
         }
     }
