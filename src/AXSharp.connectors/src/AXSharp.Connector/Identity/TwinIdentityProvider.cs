@@ -1,4 +1,4 @@
-﻿// AXSharp.Connector
+// AXSharp.Connector
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -238,7 +238,7 @@ public class TwinIdentityProvider
     /// </summary>
     public async Task ConstructIdentitiesAsync(Func<OnlinerULInt, ulong> identityProvider = null)
     {
-        await WriteIdentities(AssignIdentities(await ReadIdentitiesAsync(), identityProvider));
+        await WriteIdentities(AssignIdentities(_identitiesTags, identityProvider));        
         await SortIdentitiesAsync();
     }
 
@@ -247,13 +247,14 @@ public class TwinIdentityProvider
     /// </summary>
     internal async Task SortIdentitiesAsync()
     {
-        await Task.Run(() =>
+        await Task.Run(async () =>
         {
             _connector?.Logger.Information("Sorting identities...");
+            await _connector?.ReadBatchAsync(_identities.Select(p => p.Key), eAccessPriority.High);
             _sortedIdentities.Clear();
             foreach (var identity in _identities)
             {
-                var key = identity.Key.LastValue == 0 ? identity.Key.GetAsync().Result : identity.Key.LastValue;
+                var key = identity.Key.LastValue;
                 if (!_sortedIdentities.ContainsKey(key))
                 {
                     _sortedIdentities.Add(key, identity.Value);
