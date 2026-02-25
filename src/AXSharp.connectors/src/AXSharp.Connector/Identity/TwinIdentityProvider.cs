@@ -250,7 +250,10 @@ public class TwinIdentityProvider
         await Task.Run(async () =>
         {
             _connector?.Logger.Information("Sorting identities...");
-            await _connector?.ReadBatchAsync(_identities.Select(p => p.Key), eAccessPriority.High);
+            if (_connector != null)
+            {
+                await _connector?.ReadBatchAsync(_identities.Select(p => p.Key), eAccessPriority.High);
+            }
             _sortedIdentities.Clear();
             foreach (var identity in _identities)
             {
