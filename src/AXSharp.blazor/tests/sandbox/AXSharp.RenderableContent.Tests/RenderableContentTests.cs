@@ -43,7 +43,7 @@ namespace AXSharp.RenderableContent.Tests
                 .Add(p => p.Presentation, presentation));
 
             if(false) // for generate
-                File.WriteAllText(path, cut.Markup.Replace(" id", " id:ignore").Replace(" for", " for:ignore").Replace("°C", "&#xB0;C"));
+                File.WriteAllText(path, cut.Markup.Replace(" id", " id:ignore").Replace(" for", " for:ignore").Replace("Â°C", "&#xB0;C"));
 
             // Assert
             cut.MarkupMatches(html);
