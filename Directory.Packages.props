@@ -15,13 +15,13 @@
 
   <!-- Framework-Agnostic Packages -->
   <ItemGroup>
-    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.114" />
+    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.133" />
     <PackageVersion Include="Cake.DocFx" Version="1.0.0" />
     <PackageVersion Include="Octokit" Version="13.0.1" />
     <PackageVersion Include="Octokit.Extensions" Version="1.0.7" />
     <PackageVersion Include="Cake.Frosting" Version="5.0.0" />
     <PackageVersion Include="Cake.Powershell" Version="4.0.0" />
-    <PackageVersion Include="Google.Protobuf" Version="3.32.0" />
+    <PackageVersion Include="Google.Protobuf" Version="3.33.1" />
     <PackageVersion Include="CliWrap" Version="3.6.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="NuGet.Configuration" Version="6.12.1" />

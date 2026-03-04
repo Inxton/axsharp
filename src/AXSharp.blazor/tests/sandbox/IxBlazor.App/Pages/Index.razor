@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 
 @using AXSharp.Presentation.Blazor.Controls.Templates
 <div class="columns-4">
@@ -14,6 +14,7 @@
         <OnlinerLTimeOfDayControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayControlView>
         <OnlinerRealControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealControlView>
         <OnlinerTimeOfDayControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayControlView>
+        <OnlinerTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeControlView>
         <p class="break-after-column"></p>
     </div>
     <div class="col-2">
@@ -28,6 +29,7 @@
         <OnlinerLTimeOfDayDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayDisplayView>
         <OnlinerRealDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealDisplayView>
         <OnlinerTimeOfDayDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayDisplayView>
+        <OnlinerTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeDisplayView>
         <p class="break-after-column"></p>
     </div>
     <div class="col-3">
@@ -42,6 +44,7 @@
         <OnlinerLTimeOfDayShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayShadowControlView>
         <OnlinerRealShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealShadowControlView>
         <OnlinerTimeOfDayShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayShadowControlView>
+        <OnlinerTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeShadowControlView>
         <p class="break-after-column"></p>
     </div>
     <div class="col-4">
@@ -56,12 +59,13 @@
         <OnlinerLTimeOfDayShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeOfDayShadowDisplayView>
         <OnlinerRealShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.testReal"></OnlinerRealShadowDisplayView>
         <OnlinerTimeOfDayShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerTimeOfDayShadowDisplayView>
+        <OnlinerTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeShadowDisplayView>
         <p class="break-after-column"></p>
     </div>
 </div>
 
 <RenderableContentControl Presentation="Control"
-                          Context="@Entry.Plc.MAINC.instanceOfstBlazor"/>
+                          Context="@Entry.Plc.MAINC.instanceOfstBlazor" />
 
 @* <RenderableContentControl Presentation="Manual-Diagnostics" *@
 @*                           Context="@Entry.Plc.MAINC.cu00"> *@

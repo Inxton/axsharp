@@ -1,9 +1,10 @@
-﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@namespace AXSharp.Presentation.Blazor.Controls.Templates
 @using System.Globalization
+@using AXSharp.Presentation.Blazor.Controls.Templates.Base
 @using Microsoft.AspNetCore.Components
 @using AXSharp.Presentation.Blazor.Controls.Templates
 @inherits TemplateBaseOnline<TimeSpan>
 
 <TemplateView OnlinerSymbol="@OnlinerSymbol" FailureReason="@Onliner.AccessStatus.FailureReason" ToolTipOrHumanReadable="@ToolTipOrHumanReadable" Symbol="@Symbol">
-    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" Unit="@Unit" Format="@Format" />
+    <Operon.Components.BaseInput @bind-Value="@Value" Label="@GetLabel()" IsReadOnly="@IsReadOnly" AccessStatus="@AccessStatus" OnFocusIn="() => HasFocus = true" OnFocusOut="() => HasFocus = false" HideLabel="@HideLabel" Unit="@Unit" Format="@(Format != null ? Format : FormatConstants.TimeOfDayFormat)" />
 </TemplateView>
