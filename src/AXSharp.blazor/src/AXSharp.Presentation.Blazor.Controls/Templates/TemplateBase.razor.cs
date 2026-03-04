@@ -1,4 +1,4 @@
-﻿using AXSharp.Connector.ValueTypes;
+using AXSharp.Connector.ValueTypes;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;

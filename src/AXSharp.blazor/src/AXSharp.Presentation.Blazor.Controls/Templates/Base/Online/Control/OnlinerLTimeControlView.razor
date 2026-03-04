@@ -1,4 +1,5 @@
-﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@using AXSharp.Presentation.Blazor.Controls.Templates.Base
 @inherits TemplateBaseOnline<TimeSpan>
 
-<OnlinerTimeControlView Onliner="Onliner" IsReadOnly="IsReadOnly" PollingInterval="PollingInterval" HideLabel="@HideLabel" Unit="@Unit" Format="@Format" />
+<OnlinerTimeControlView Onliner="Onliner" IsReadOnly="IsReadOnly" PollingInterval="PollingInterval" HideLabel="@HideLabel" Unit="@Unit" Format="@(Format != null ? Format : FormatConstants.LTimeFormat)" />
