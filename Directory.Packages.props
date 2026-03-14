@@ -7,7 +7,7 @@
 
   <!-- Global Package References -->
   <ItemGroup>
-    <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+    <GlobalPackageReference Include="GitVersion.MsBuild" Version="6.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </GlobalPackageReference>
