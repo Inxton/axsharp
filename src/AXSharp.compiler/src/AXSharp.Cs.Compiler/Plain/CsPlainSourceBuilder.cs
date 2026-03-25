@@ -115,9 +115,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     /// <inheritdoc />
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        var eligibility = fieldDeclaration.IsMemberEligibleForTranspile(this);
+        var eligibility = fieldDeclaration.IsMemberEligibleForDataExchange(this);
         if (eligibility.isEligible)
-        {           
+        {
             AddToSource(fieldDeclaration.Pragmas.AddedPropertiesAsAttributes());
             switch (eligibility.eligibleType)
             {

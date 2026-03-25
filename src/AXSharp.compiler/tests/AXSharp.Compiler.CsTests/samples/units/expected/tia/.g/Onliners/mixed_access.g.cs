@@ -8,6 +8,7 @@ using AXSharp.Abstractions.Presentation;
 public partial class Motor : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool Run { get; }
+    internal OnlinerLReal ActualVelocity { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -20,6 +21,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         PreConstruct(parent, readableTail, symbolTail);
         Run = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this, "Run", "Run");
+        ActualVelocity = @Connector.ConnectorAdapter.AdapterFactory.CreateLREAL(this, "ActualVelocity", "ActualVelocity");
         parent.AddChild(this);
         parent.AddKid(this);
         PostConstruct(parent, readableTail, symbolTail);
@@ -1329,12 +1331,15 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 
 public partial class GenericMotor : AbstractMotor
 {
+    internal OnlinerLReal ActualVelocity { get; }
+
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public GenericMotor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail) : base(parent, readableTail, symbolTail)
     {
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
         PreConstruct(parent, readableTail, symbolTail);
+        ActualVelocity = @Connector.ConnectorAdapter.AdapterFactory.CreateLREAL(this, "ActualVelocity", "ActualVelocity");
         PostConstruct(parent, readableTail, symbolTail);
     }
 
@@ -1458,12 +1463,15 @@ public partial class GenericMotor : AbstractMotor
 
 public partial class SpecificMotorA : GenericMotor
 {
+    internal OnlinerLReal MaxAcceleration { get; }
+
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     public SpecificMotorA(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail) : base(parent, readableTail, symbolTail)
     {
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
         PreConstruct(parent, readableTail, symbolTail);
+        MaxAcceleration = @Connector.ConnectorAdapter.AdapterFactory.CreateLREAL(this, "MaxAcceleration", "MaxAcceleration");
         PostConstruct(parent, readableTail, symbolTail);
     }
 
