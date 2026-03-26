@@ -158,6 +158,9 @@ See also
 
 Shadows are off-line value holders. Each primitive type has a shadow property. This property only affects the Online values if explicitly instructed to do so by the program. Shadows are helpful when we need to modify multiple values, but we need to send them into the PLC in one shot.
 
+> [!NOTE]
+> Data exchange mappings are limited to `public` members. Members transpiled as `protected` or `internal` are not included in Online/Shadow/Plain transfer operations.
+
 ### Sending data from online to shadow
 
 ~~~C#
@@ -179,6 +182,8 @@ See also
 ## Using POCO / Plain object
 
 Onliners are somewhat heavy objects that are well suited for communication with the controller, but they carry too much information that are a burden in some use cases. AXSharp compiler, therefore, creates `Plain/POCO` objects that are light CLR (C#) objects that can retrieve and send data from and to the controller.
+
+Only `public` members are included when converting between online/shadow twins and Plain/POCO objects.
 
 ### Getting POCO object
 

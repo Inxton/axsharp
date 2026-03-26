@@ -2,6 +2,15 @@
 
 **AXSharp Compiler (`ixc`) translates PLC data structures into C# (PLC .NET Twin), which makes the PLC data available in a structured way for any .NET application.**
 
+### Member visibility and generated code behavior
+
+AXSharp transpilation now supports members declared as `public`, `protected`, and `internal`.
+
+- **Transpilation / twin generation:** `public`, `protected`, and `internal` members can be generated into twin/onliner classes.
+- **Data exchange (Plain/POCO and Shadow mappings):** only `public` members participate in `OnlineToPlain`, `PlainToOnline`, `ShadowToPlain`, `PlainToShadow`, and related `HasChanged` evaluation.
+
+This means non-public members can exist in generated twins but are intentionally excluded from Plain/Shadow data-transfer operations.
+
 ### Adding types and members to the communication over WebAPI
 
 Starting from the version v2.0.0+ of `sld`, to make member or type accessible over the communication there is a need to add pragma `{S7.extern=ReadWrite}` or `{S7.extern=ReadOnly}` in the appropriate place in the code.
