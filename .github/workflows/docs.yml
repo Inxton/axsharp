@@ -41,6 +41,22 @@ jobs:
       - name: Generate documentation
         run: dotnet docfx docfx/docfx.json
 
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-output
+          path: docs
+
+  upload-pages:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-output
+          path: docs
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -51,7 +67,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: upload-pages
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
