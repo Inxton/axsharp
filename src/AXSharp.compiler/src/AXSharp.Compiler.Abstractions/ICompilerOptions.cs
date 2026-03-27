@@ -23,4 +23,12 @@ public interface ICompilerOptions
     /// Provides target platform moniker to instruct the compiler about target specific options.
     /// </summary>
     string TargetPlatfromMoniker { get; set; }
+
+    /// <summary>
+    /// Path (relative to the AX project folder or absolute) of the .csproj that hosts/consumes
+    /// UI companion NuGet packages. In library development this is the Blazor/UI application project;
+    /// in application development this is the application project itself.
+    /// </summary>
+    string? UiHostProject { get; set; }
+
 }

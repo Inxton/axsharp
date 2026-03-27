@@ -96,5 +96,74 @@ namespace AXSharp.CompilerTests
             var ixConfigFile = Path.Combine(apaxFolder, "AXSharp.config.json1");
             Assert.Throws<FailedToReadIxConfigurationFileException>(() =>AXSharpConfig.RetrieveAXSharpConfig(ixConfigFile));
         }
+
+        [Fact]
+        public void UpdateAndGetAXSharpConfig_should_persist_and_restore_UiHostProject()
+        {
+            var apaxFolder = Path.Combine(testFolder, "samples", "plt", "app");
+            var ixConfigFile = Path.Combine(apaxFolder, "AXSharp.config.json");
+            if (File.Exists(ixConfigFile))
+                File.Delete(ixConfigFile);
+
+#pragma warning disable CS0618
+            var written = new AXSharpConfig()
+#pragma warning restore CS0618
+            {
+                AxProjectFolder = apaxFolder,
+                OutputProjectFolder = "ix",
+                UiHostProject = "../app/app.csproj"
+            };
+
+            AXSharpConfig.UpdateAndGetAXSharpConfig(apaxFolder, written);
+            var result = AXSharpConfig.UpdateAndGetAXSharpConfig(apaxFolder);
+
+            Assert.Equal("../app/app.csproj", result.UiHostProject);
+        }
+
+        [Fact]
+        public void OverridesFromCli_should_override_UiHostProject_when_cli_provides_value()
+        {
+            var apaxFolder = Path.Combine(testFolder, "samples", "plt", "lib");
+            var ixConfigFile = Path.Combine(apaxFolder, "AXSharp.config.json");
+            Assert.True(File.Exists(ixConfigFile));
+
+#pragma warning disable CS0618
+            var cliOptions = new AXSharpConfig()
+#pragma warning restore CS0618
+            {
+                AxProjectFolder = apaxFolder,
+                UiHostProject = "../blazorapp/blazorapp.csproj"
+            };
+
+            var result = AXSharpConfig.UpdateAndGetAXSharpConfig(apaxFolder, cliOptions);
+
+            Assert.Equal("../blazorapp/blazorapp.csproj", result.UiHostProject);
+        }
+
+        [Fact]
+        public void OverridesFromCli_should_preserve_config_UiHostProject_when_cli_value_is_null()
+        {
+            var apaxFolder = Path.Combine(testFolder, "samples", "plt", "app");
+            var ixConfigFile = Path.Combine(apaxFolder, "AXSharp.config.json");
+            if (File.Exists(ixConfigFile))
+                File.Delete(ixConfigFile);
+
+#pragma warning disable CS0618
+            var seed = new AXSharpConfig()
+#pragma warning restore CS0618
+            {
+                AxProjectFolder = apaxFolder,
+                OutputProjectFolder = "ix",
+                UiHostProject = "../app/app.csproj"
+            };
+            AXSharpConfig.UpdateAndGetAXSharpConfig(apaxFolder, seed);
+
+#pragma warning disable CS0618
+            var cliOptions = new AXSharpConfig() { AxProjectFolder = apaxFolder };
+#pragma warning restore CS0618
+            var result = AXSharpConfig.UpdateAndGetAXSharpConfig(apaxFolder, cliOptions);
+
+            Assert.Equal("../app/app.csproj", result.UiHostProject);
+        }
     }
 }

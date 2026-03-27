@@ -50,5 +50,10 @@ internal class Options : ICompilerOptions
     [Option('v', "verbosity", Required = false, Default = LogEventLevel.Information,
         HelpText = "Level of compiler output. Possible options Verbose, Debug, Information, Warning, Error, Fatal")]
     public LogEventLevel Versbosity { get; set; }
+
+    [Option('a', "ui-host-project", Required = false, Default = null,
+        HelpText = "Path (relative to AX project folder or absolute) of the .csproj that hosts/consumes UI companion NuGet packages. In library development this is the Blazor/UI application; in application development this is the application project itself.")]
+    public string? UiHostProject { get; set; }
+
 }
 
