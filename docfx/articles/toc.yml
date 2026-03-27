@@ -18,10 +18,12 @@
   - name: Packaging and dependencies
     href: ~/articles/compiler/PACKAGING.md
 
-- name: Documenation compiler
+- name: Documentation compiler
   href: ~/articles/ixd/IXD.md
 - name: Localizables compiler
   href: ~/articles/ixr/IXR.md
+- name: Localizables to Resx
+  href: ~/articles/ltr/LTR.md
 - name: Connectors
   href: ~/articles/connectors/README.md
   items:
@@ -38,4 +40,6 @@
     href: ~/articles/blazor/LIBRARIES.md
   - name: Blazor auto-rendering
     href: ~/articles/blazor/RENDERABLECONTENT.md
+- name: Coding style
+  href: ~/articles/general/CODING_STYLE.md
 
