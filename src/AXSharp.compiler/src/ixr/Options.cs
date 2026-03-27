@@ -36,5 +36,7 @@ namespace AXSharp.ixc_doc
         [Option('t', "target-platform-moniker", Required = false, Default = "ax",
         HelpText = "Instructs the compiler to adjust for target platform differences. Possible values 'ax', 'tia'")]
         public string TargetPlatfromMoniker { get; set; }
+
+        public string? UiHostProject { get; set; }
     }
 }

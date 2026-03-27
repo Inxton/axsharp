@@ -36,12 +36,8 @@ The presentations provide a mechanism for automated UI generation from PLC code.
 ## Prerequisites
 
 - [axcode](https://axcite.me)
-- [dotnet 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- [dotnet 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
-- [dotnet 7](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- [dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [vscode](https://code.visualstudio.com/Download) or [vs2022](https://visualstudio.microsoft.com/vs/)
-
-> **Make sure you have installed both .NET6 and .NET7.**
 
 ## Getting started
 
@@ -66,7 +62,7 @@ There are different ways you can use to create new project. At this point we sup
 
 **IMPORTANT! Prepare your PLC and AX project**
 
-*Before you start using any of the method below yoiu will need to set up your PLC. Using TIA portal you need to enable WebAPI interface [see here](https://console.simatic-ax.siemens.io/docs/hwld/PlcWebServer) and [here](https://youtu.be/d9EX2FixY1A?t=151) is a very informative youtube video.*
+*Before you start using any of the methods below you will need to set up your PLC. Using TIA portal you need to enable WebAPI interface [see here](https://console.simatic-ax.siemens.io/docs/hwld/PlcWebServer) and [here](https://youtu.be/d9EX2FixY1A?t=151) is a very informative youtube video.*
 
 [!Video https://youtu.be/d9EX2FixY1A?t=151]
 
@@ -75,14 +71,8 @@ There are different ways you can use to create new project. At this point we sup
 
 Install AX# template package
 
-When using .NET7
 ~~~
 dotnet new install AXSharp.templates
-~~~
-
-When using .NET6 and earlier
-~~~
-dotnet new --install AXSharp.templates
 ~~~
 > [!NOTE]
 > Make sure all nuget feed sources are available at the time of installation of packages.
@@ -107,11 +97,11 @@ Create new project from template
 
 ~~~
 dotnet new [shortname] -n YOUR_PROJECT_NAME
-#e.g. dotnet new axeblazor -n MyFristAXSharpBlazorProject
+#e.g. dotnet new axeblazor -n MyFirstAXSharpBlazorProject
 ~~~
 
 **When prompted about script execution allow the script to run (answer (Y)es) in order to finish the scaffolding of the project.**
-If you're creating the project using Visual Studion you will need to run the script manually.
+If you're creating the project using Visual Studio you will need to run the script manually.
 
 Consult README.md file located in your new project for additional information.
 
@@ -168,7 +158,7 @@ Copyright (C) 2022 author
   --version                      Display version information.
 ~~~
 
-Before usage apax commanad ensure that you are logged in
+Before usage apax command ensure that you are logged in
 ~~~
 apax login 
 ~~~

@@ -9,7 +9,7 @@
     * [Config file](~/articles/compiler/CONFIG_FILE.md)
     * [Packaging and dependencies](~/articles/compiler/PACKAGING.md)
 ---
-* [Documenation compiler](~/articles/ixd/IXD.md)
+* [Documentation compiler](~/articles/ixd/IXD.md)
 ---
 * [Resx compiler](~/articles/ixr/IXR.md)
 ---

@@ -385,10 +385,56 @@ namespace {this.ProjectRootNamespace}
                 {
                     case CompanionInfo package:
                         AddNuGetPackageReference(dependent, package.Id, package.Version);
+
+                        if (!string.IsNullOrEmpty(package.UiId) && !string.IsNullOrEmpty(package.UiVersion))
+                        {
+                            var targetApp = this.AxSharpProject.CompilerOptions?.UiHostProject;
+                            if (!string.IsNullOrEmpty(targetApp))
+                            {
+                                var resolvedTargetApp = Path.IsPathRooted(targetApp)
+                                    ? targetApp
+                                    : Path.GetFullPath(Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, targetApp));
+
+                                if (File.Exists(resolvedTargetApp))
+                                    AddNuGetPackageReference(resolvedTargetApp, package.UiId, package.UiVersion);
+                                else
+                                    Log.Logger.Warning($"UiHostProject '{resolvedTargetApp}' not found. UI package '{package.UiId}' was not installed.");
+                            }
+                            else
+                            {
+                                Log.Logger.Information($"Companion '{package.Id}' has UI package '{package.UiId}' but no UiHostProject is configured. Skipping UI package installation.");
+                            }
+                        }
                         break;
                     case AXSharpConfig project:
                         var projectPath = Path.GetFullPath(Path.Combine(project.AxProjectFolder, project.OutputProjectFolder, project.ProjectFile));
                         AddProjectReference(dependent, GetRelativePath(dependent, projectPath));
+
+                        if (!string.IsNullOrEmpty(project.UiHostProject))
+                        {
+                            var uiHostProject = this.AxSharpProject.CompilerOptions?.UiHostProject;
+                            if (!string.IsNullOrEmpty(uiHostProject))
+                            {
+                                var resolvedUiHost = Path.IsPathRooted(uiHostProject)
+                                    ? uiHostProject
+                                    : Path.GetFullPath(Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, uiHostProject));
+
+                                var resolvedDepUiProject = Path.IsPathRooted(project.UiHostProject)
+                                    ? project.UiHostProject
+                                    : Path.GetFullPath(Path.Combine(project.AxProjectFolder, project.UiHostProject));
+
+                                if (File.Exists(resolvedUiHost) && File.Exists(resolvedDepUiProject))
+                                    AddProjectReference(resolvedUiHost, GetRelativePath(resolvedUiHost, resolvedDepUiProject));
+                                else if (!File.Exists(resolvedUiHost))
+                                    Log.Logger.Warning($"UiHostProject '{resolvedUiHost}' not found. UI project reference '{resolvedDepUiProject}' was not installed.");
+                                else
+                                    Log.Logger.Warning($"Dependency UI project '{resolvedDepUiProject}' not found. UI project reference was not installed.");
+                            }
+                            else
+                            {
+                                Log.Logger.Information($"Dependency '{project.ProjectFile}' has UI project '{project.UiHostProject}' but no UiHostProject is configured in this project. Skipping UI project reference.");
+                            }
+                        }
                         break;
                 }
             }            
@@ -667,6 +713,21 @@ namespace {this.ProjectRootNamespace}
         return Path.GetFileNameWithoutExtension(csprojPath);
     }
 
+    private string? ResolveUiId(string? uiHostProject)
+    {
+        if (string.IsNullOrEmpty(uiHostProject))
+            return null;
+
+        var resolved = Path.IsPathRooted(uiHostProject)
+            ? uiHostProject
+            : Path.GetFullPath(Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, uiHostProject));
+
+        if (File.Exists(resolved))
+            return GetPackageId(resolved);
+
+        return (this.AxSharpProject.AxProject.ProjectInfo.Name ?? Path.GetFileNameWithoutExtension(resolved)) + ".UI";
+    }
+
     public void GenerateCompanionData()
     {
         var compilerOptions = this.AxSharpProject.CompilerOptions;
@@ -677,7 +738,17 @@ namespace {this.ProjectRootNamespace}
                 var packageId = GetPackageId(Path.Combine(this.AxSharpProject.OutputFolder,
                     compilerOptions.ProjectFile));
 
-                CompanionInfo.ToFile(new CompanionInfo() { Id = packageId, Version = this.AxSharpProject.AxProject.ProjectInfo.Version }, Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, CompanionInfo.COMPANIONS_FILE_NAME));
+                var version = this.AxSharpProject.AxProject.ProjectInfo.Version ?? string.Empty;
+                var uiId = ResolveUiId(compilerOptions.UiHostProject);
+                CompanionInfo.ToFile(
+                    new CompanionInfo()
+                    {
+                        Id = packageId,
+                        Version = version,
+                        UiId = uiId,
+                        UiVersion = uiId != null ? version : null
+                    },
+                    Path.Combine(this.AxSharpProject.AxProject.ProjectFolder, CompanionInfo.COMPANIONS_FILE_NAME));
             }
         }
     }
