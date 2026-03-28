@@ -30,4 +30,5 @@ public class CompilerTestOptions : ICompilerOptions
     public bool IgnoreS7Pragmas { get => false; set { } }
     public bool SkipDependencyCompilation { get => false; set { } }
     public string TargetPlatfromMoniker { get; set; } = "ax";
+    public string? UiHostProject { get; set; }
 }

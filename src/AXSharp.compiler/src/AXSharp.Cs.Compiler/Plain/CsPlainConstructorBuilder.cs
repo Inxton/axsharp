@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -66,8 +66,8 @@ internal class CsPlainConstructorBuilder : ICombinedThreeVisitor
 
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        var eligibility = fieldDeclaration.IsMemberEligibleForConstructor(SourceBuilder);
-        if (eligibility.isEligibe)
+        var eligibility = fieldDeclaration.IsMemberEligibleForDataExchange(SourceBuilder);
+        if (eligibility.isEligible)
         {
             switch (fieldDeclaration.Type)
             {

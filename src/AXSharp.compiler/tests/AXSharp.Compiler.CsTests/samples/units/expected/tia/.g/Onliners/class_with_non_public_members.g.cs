@@ -10,6 +10,10 @@ namespace ClassWithNonTraspilableMemberssNamespace
     public partial class ClassWithNonTraspilableMembers : AXSharp.Connector.ITwinObject
     {
         public ClassWithNonTraspilableMemberssNamespace.ComplexType1 myComplexType { get; }
+        protected ClassWithNonTraspilableMemberssNamespace.ComplexType1 myComplexType1 { get; }
+        protected OnlinerBool myBooool { get; }
+        protected ClassWithNonTraspilableMemberssNamespace.ComplexType1 myComplexType2 { get; }
+        protected OnlinerBool myBooool1 { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -22,6 +26,10 @@ namespace ClassWithNonTraspilableMemberssNamespace
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
             myComplexType = new ClassWithNonTraspilableMemberssNamespace.ComplexType1(this, "myComplexType", "myComplexType");
+            myComplexType1 = new ClassWithNonTraspilableMemberssNamespace.ComplexType1(this, "myComplexType1", "myComplexType1");
+            myBooool = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this, "myBooool", "myBooool");
+            myComplexType2 = new ClassWithNonTraspilableMemberssNamespace.ComplexType1(this, "myComplexType2", "myComplexType2");
+            myBooool1 = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this, "myBooool1", "myBooool1");
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);

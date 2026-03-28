@@ -23,7 +23,7 @@ Here is an example on how to set polling subscription mode:
 Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 ```
 
-For more details about polling within your components, see [Polling Data from the Controller in Components](../blazor/LIBRARIES.md#polling-data-from-the-plc) and [General Polling](README.md#polling).
+For more details about polling within your components, see [Polling Data from the Controller in Components](../blazor/LIBRARIES.md#optimizing-plc-data-polling) and [General Polling](README.md#polling).
 
 ### Monitoring and Logging 
 

@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler
+// AXSharp.Compiler
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -34,8 +34,8 @@ public static class SemanticsHelpers
                                     string coBuilder = "", bool warnMissingOrInconsistent = false)
     {
         var eligibility = field.IsEligibleForTranspile(sourceBuilder, warnMissingOrInconsistent);
-        var isEligible = (field.AccessModifier == AccessModifier.Public
-                            && eligibility.isEligibe
+        var isEligible = ((field.AccessModifier == AccessModifier.Public || field.AccessModifier == AccessModifier.Protected || field.AccessModifier == AccessModifier.Internal)
+                            && eligibility.isEligibe 
                             && !IsToBeOmitted(field, sourceBuilder, coBuilder));
 
         return (isEligible, eligibility.eligibleType);
@@ -362,7 +362,7 @@ public static class SemanticsHelpers
     public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IFieldDeclaration field, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         var eligibility = field.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
-        return ((field.AccessModifier == AccessModifier.Public && eligibility.isEligible), eligibility.eligibleType);
+        return (eligibility.isEligible, eligibility.eligibleType);
     }
 
     /// <summary>
@@ -375,6 +375,24 @@ public static class SemanticsHelpers
     public static (bool isEligibe, ITypeDeclaration? eligibleType) IsMemberEligibleForConstructor(this IVariableDeclaration variable, ISourceBuilder sourceBuilder, string coBuilder = "")
     {
         return variable.IsMemberEligibleForTranspile(sourceBuilder, coBuilder);
+    }
+
+    /// <summary>
+    ///     Determines whether a field member is eligible for data exchange operations
+    ///     (OnlineToPlain, PlainToOnline, PlainToShadow, ShadowToPlain, HasChanged, and POCO generation).
+    ///     Only public members participate in data exchange; internal and private members are excluded.
+    /// </summary>
+    /// <param name="field">Field declaration</param>
+    /// <param name="sourceBuilder">Source builder</param>
+    /// <param name="coBuilder">Co-builder signature (e.g. POCO, Onliner, etc.)</param>
+    /// <param name="warnMissingOrInconsistent">Issues warning when the type is eligible but not available.</param>
+    /// <returns>True when the member is eligible for data exchange.</returns>
+    public static (bool isEligible, ITypeDeclaration eligibleType) IsMemberEligibleForDataExchange(this IFieldDeclaration field, ISourceBuilder sourceBuilder,
+                                    string coBuilder = "", bool warnMissingOrInconsistent = false)
+    {
+        var eligibility = field.IsMemberEligibleForTranspile(sourceBuilder, coBuilder, warnMissingOrInconsistent);
+        var isEligible = eligibility.isEligible && field.AccessModifier == AccessModifier.Public;
+        return (isEligible, eligibility.eligibleType);
     }
 
     private static bool IsAvailableForComm(this IDeclaration declaration, ISourceBuilder sourceBuilder)

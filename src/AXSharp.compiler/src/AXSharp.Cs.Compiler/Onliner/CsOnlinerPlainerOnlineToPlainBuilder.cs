@@ -1,4 +1,4 @@
-﻿// AXSharp.Compiler.Cs
+// AXSharp.Compiler.Cs
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -36,7 +36,7 @@ internal class CsOnlinerPlainerOnlineToPlainBuilder : ICombinedThreeVisitor
     
     public void CreateFieldDeclaration(IFieldDeclaration fieldDeclaration, IxNodeVisitor visitor)
     {
-        var eligible = fieldDeclaration.IsMemberEligibleForTranspile(SourceBuilder, "POCO");
+        var eligible = fieldDeclaration.IsMemberEligibleForDataExchange(SourceBuilder, "POCO");
         if (eligible.isEligible)
         {
             CreateAssignment(fieldDeclaration.Type, fieldDeclaration);

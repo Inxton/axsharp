@@ -63,6 +63,14 @@ public class AXSharpConfig : ICompilerOptions
     /// </summary>
     public string? ProjectFile { get; set; }
 
+    /// <summary>
+    /// Path (relative to the AX project folder or absolute) of the .csproj that hosts/consumes
+    /// UI companion NuGet packages. In library development this is the Blazor/UI application project;
+    /// in application development this is the application project itself.
+    /// </summary>
+    public string? UiHostProject { get; set; }
+
+
     private string _axProjectFolder;
 
     /// <summary>
@@ -200,5 +208,8 @@ public class AXSharpConfig : ICompilerOptions
         fromConfig.IgnoreS7Pragmas = newCompilerOptions.IgnoreS7Pragmas;
         fromConfig.SkipDependencyCompilation = newCompilerOptions.SkipDependencyCompilation;
         fromConfig.TargetPlatfromMoniker = newCompilerOptions.TargetPlatfromMoniker;
+        fromConfig.UiHostProject = string.IsNullOrEmpty(newCompilerOptions.UiHostProject)
+            ? fromConfig.UiHostProject
+            : newCompilerOptions.UiHostProject;
     }
 }

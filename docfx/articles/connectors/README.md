@@ -78,8 +78,8 @@ During the batched read operation, the values are stored in *LastValue* property
 
 During a batched write operation, the values written to the controller were retrieved from the *Cyclic* property of the corresponding Primitive Twin.
 
-> **NOTE** 
-> Accessing *Cyclic* property for **writing** will not result in an autmatic subscription for cyclic reading. Acessing the *LastValue* property will neither result in an automatic subcription for reading.
+> **NOTE**
+> Accessing *Cyclic* property for **writing** will not result in an automatic subscription for cyclic reading. Accessing the *LastValue* property will neither result in an automatic subscription for reading.
 
 ~~~ C#
 // in this namespace are extension methods for batched operations.
@@ -93,11 +93,11 @@ public class BatchedAccess
        await Entry.PlcTwin.Settings.ReadAsync();
 
         // Write values to the console
-        Console.WriteLine($"{Entry.PlcTwin.Settings.PosX.Symbol}:{Entry.PlcTwin.MAIN.Settings.PosX.LastValue});
+        Console.WriteLine($"{Entry.PlcTwin.Settings.PosX.Symbol}:{Entry.PlcTwin.Settings.PosX.LastValue}");
 
-        Console.WriteLine($"{Entry.PlcTwin.Settings.PosY.Symbol}:{Entry.PlcTwin.Settings.PosY.LastValue});
+        Console.WriteLine($"{Entry.PlcTwin.Settings.PosY.Symbol}:{Entry.PlcTwin.Settings.PosY.LastValue}");
 
-        Console.WriteLine($"{Entry.PlcTwin.Settings.PosZ.Symbol}:{Entry.PlcTwin.Settings.PosZ.LastValue});
+        Console.WriteLine($"{Entry.PlcTwin.Settings.PosZ.Symbol}:{Entry.PlcTwin.Settings.PosZ.LastValue}");
     }
 
 
@@ -108,10 +108,12 @@ public class BatchedAccess
        Entry.PlcTwin.Settings.PosZ.Cyclic = 130.0f;
 
         // Writes all values of the settings structure.
-       await Entry.PlcController.MAIN.Settings.WriteAsynch();
+       await Entry.PlcTwin.Settings.WriteAsync();
     }
 }
 ~~~
+
+## Polling
 
 Polling allows an application to query a structure or variable at different intervals. The values are stored in the `Cyclic` property of value types. The polled variables are retrieved from the controller in the same way as during cyclic reading but at a specified interval. Unlike automatic subscription mode, the polled values can be unsubscribed.
 
@@ -158,6 +160,9 @@ See also
 
 Shadows are off-line value holders. Each primitive type has a shadow property. This property only affects the Online values if explicitly instructed to do so by the program. Shadows are helpful when we need to modify multiple values, but we need to send them into the PLC in one shot.
 
+> [!NOTE]
+> Data exchange mappings are limited to `public` members. Members transpiled as `protected` or `internal` are not included in Online/Shadow/Plain transfer operations.
+
 ### Sending data from online to shadow
 
 ~~~C#
@@ -179,6 +184,8 @@ See also
 ## Using POCO / Plain object
 
 Onliners are somewhat heavy objects that are well suited for communication with the controller, but they carry too much information that are a burden in some use cases. AXSharp compiler, therefore, creates `Plain/POCO` objects that are light CLR (C#) objects that can retrieve and send data from and to the controller.
+
+Only `public` members are included when converting between online/shadow twins and Plain/POCO objects.
 
 ### Getting POCO object
 
@@ -251,7 +258,7 @@ _length : REAL;
 ~~~
 
 ~~~ C#
-// Writes unit of the '_lenght' variable to the console.
+// Writes unit of the '_length' variable to the console.
 System.Console.WriteLine(PlcTwin._app._length.AttributeUnits);
 ~~~
 
@@ -329,10 +336,10 @@ VAR
     someWString : WSTRING;
 END_VAR
 
-someString := '<#This woule be localized#> and this would stay as it is';
+someString := '<#This would be localized#> and this would stay as it is';
 
 
-someWString := "<#This woule be localized#> and this would stay as it is";
+someWString := "<#This would be localized#> and this would stay as it is";
 ~~~
 
 Connectors implement features that allow localizing of the texts (controller defined and added attributes of string type). For the localization to work the twin assembly must be provided with a resource file (*.resx). Resource files can be generated using [ixr tool](~/articles/ixr/IXR.md). You will need to add the resource file to your **Twin project** and set the resource code generation to *public*.
