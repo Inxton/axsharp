@@ -34,9 +34,12 @@ public static class SemanticsHelpers
                                     string coBuilder = "", bool warnMissingOrInconsistent = false)
     {
         var eligibility = field.IsEligibleForTranspile(sourceBuilder, warnMissingOrInconsistent);
-        var isEligible = ((field.AccessModifier == AccessModifier.Public || field.AccessModifier == AccessModifier.Protected || field.AccessModifier == AccessModifier.Internal)
-                            && eligibility.isEligibe 
-                            && !IsToBeOmitted(field, sourceBuilder, coBuilder));
+        var isEligible = ((field.AccessModifier == AccessModifier.Public || 
+                           field.AccessModifier == AccessModifier.Protected || 
+                           field.AccessModifier == AccessModifier.Internal)
+                           && !field.IsConstant
+                           && eligibility.isEligibe 
+                           && !IsToBeOmitted(field, sourceBuilder, coBuilder));
 
         return (isEligible, eligibility.eligibleType);
     }

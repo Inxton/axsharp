@@ -284,6 +284,12 @@ public abstract partial class CsSourceBuilderTests
 
 
     [Fact]
+    public void class_with_constant_members()
+    {
+        CompareOutputs(GetMethodName());
+    }
+
+    [Fact]
     public void generics()
     {
         CompareOutputs(GetMethodName());
