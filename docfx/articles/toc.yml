@@ -31,6 +31,8 @@
     href: ~/articles/connectors/Dummy.md
   - name: WebAPI
     href: ~/articles/connectors/WebAPI.md
+  - name: Identity
+    href: ~/articles/connectors/IDENTITY.md
 - name: Blazor rendering
   href: ~/articles/blazor/README.md
   items:

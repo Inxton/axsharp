@@ -206,7 +206,7 @@ public class TwinIdentityProvider
     /// </summary>
     /// <param name="identities">Identities</param>
     /// <param name="identityProvider">Identity creator.</param>
-    /// <returns></returns>
+    /// <returns>Assigned identities.</returns>
     public IEnumerable<OnlinerULInt> AssignIdentities(IEnumerable<OnlinerULInt> identities, Func<OnlinerULInt, ulong> identityProvider = null)
     {
         // If no identity provider is given, use default one based on hash code of the symbol.
@@ -234,45 +234,63 @@ public class TwinIdentityProvider
     }
 
     /// <summary>
-    ///     Refreshes and sorts identities.
+    ///    Constructs identities by assigning them locally, writing to PLC, and sorting by the assigned values.
+    ///    Identity values are always written fresh to the PLC regardless of any previously stored values.
+    ///    This ensures that stale or inconsistent identity values from prior sessions do not cause duplicate identity errors.
     /// </summary>
-    public async Task ConstructIdentitiesAsync(Func<OnlinerULInt, ulong> identityProvider = null)
+    /// <param name="identityProvider">
+    ///    Function that assigns and returns an identity value for each <see cref="OnlinerULInt"/> tag.
+    ///    When <c>null</c>, a default provider based on <see cref="string.GetHashCode()"/> of the symbol is used.
+    ///    Note: <see cref="string.GetHashCode()"/> is not deterministic across process restarts in .NET Core/.NET 5+,
+    ///    so identity values will differ between sessions. For stable identities, supply a custom provider.
+    /// </param>
+    /// <param name="failOnDuplicate">
+    ///    When <c>true</c>, throws <see cref="DuplicateIdentityException"/> if two symbols resolve to the same identity value.
+    ///    When <c>false</c>, logs a warning and skips the duplicate entry.
+    /// </param>
+    public async Task ConstructIdentitiesAsync(Func<OnlinerULInt, ulong> identityProvider = null, bool failOnDuplicate = true)
     {
-        await WriteIdentities(AssignIdentities(_identitiesTags, identityProvider));        
-        await SortIdentitiesAsync();
+        await WriteIdentities(AssignIdentities(_identitiesTags, identityProvider));
+        await SortIdentitiesAsync(failOnDuplicate);
     }
 
     /// <summary>
-    ///     Sorts identities.
+    ///     Sorts identities using the locally assigned Cyclic values, without reading back from PLC.
     /// </summary>
-    internal async Task SortIdentitiesAsync()
+    internal async Task SortIdentitiesAsync(bool failOnDuplicate = true)
     {
-        await Task.Run(async () =>
+        _connector?.Logger.Information("Sorting identities from assigned values...");
+        _sortedIdentities.Clear();
+        foreach (var identity in _identities)
         {
-            _connector?.Logger.Information("Sorting identities...");
-            if (_connector != null)
+            var key = identity.Key.Cyclic;
+            if (!_sortedIdentities.ContainsKey(key) && key != 0)
             {
-                await _connector?.ReadBatchAsync(_identities.Select(p => p.Key), eAccessPriority.High);
+                _sortedIdentities.Add(key, identity.Value);
             }
-            _sortedIdentities.Clear();
-            foreach (var identity in _identities)
+            else
             {
-                var key = identity.Key.LastValue;
-                if (!_sortedIdentities.ContainsKey(key))
-                {
-                    _sortedIdentities.Add(key, identity.Value);
-                }
-                else
+                if (failOnDuplicate)
                 {
                     throw new DuplicateIdentityException("There is a duplicate identity: " +
-                                                         $"{identity.Value.Symbol} : {key}." +
+                                                         $"'{identity.Value.Symbol} : {key}.'" +
+                                                         $" and '{_sortedIdentities[key].Symbol} : {key}.'" +
+                                                         $" share the same identity value." +
                                                          $"The algorithm for assigning identities needs to be adjusted." +
                                                          $"Use an algorithm that guarantees unique identities and is less prone to collisions.");
                 }
+                else
+                {
+                    _connector?.Logger.Warning($"Duplicate identity detected: '{identity.Value.Symbol} : {key}' and '{_sortedIdentities[key].Symbol} : {key}' share the same identity value. " +
+                                               $"This entry will be ignored."+
+                                               $"The algorithm for assigning identities needs to be adjusted." +
+                                               $"Use an algorithm that guarantees unique identities and is less prone to collisions." +
+                                               $"Ignoring this warning may lead to unexpected behavior in those parts of the system that rely on unique identities.");
+                }
             }
+        }
 
-            _connector?.Logger.Information("Sorting identities done.");
-        });
+        _connector?.Logger.Information("Sorting identities done.");
     }
 }
 

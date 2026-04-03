@@ -220,6 +220,7 @@ namespace AXSharp.ConnectorTests.Identity
 
             var identityVar_2 = Substitute.For<OnlinerULInt, IOnline<ulong>>();
             identityVar_2.LastValue.Returns(2ul);
+            identityVar_2.Cyclic.Returns(2ul);
             var obj2 = Substitute.For<ITwinIdentity>();
             obj2.Identity.Returns(identityVar_2);
             
@@ -227,9 +228,11 @@ namespace AXSharp.ConnectorTests.Identity
             var obj1 = Substitute.For<ITwinIdentity>();
             obj1.Identity.Returns(identityVar_1);
             identityVar_1.LastValue.Returns(1ul);
+            identityVar_1.Cyclic.Returns(1ul);
             
             var identityVar_3 = Substitute.For<OnlinerULInt, IOnline<ulong>>();
             identityVar_3.LastValue.Returns(3ul);
+            identityVar_3.Cyclic.Returns(3ul);
             var obj3 = Substitute.For<ITwinIdentity>();
             obj3.Identity.Returns(identityVar_3);
 
