@@ -234,11 +234,20 @@ public class TwinIdentityProvider
     }
 
     /// <summary>
-    ///    Constructs identities by assigning them locally and writing to PLC, then sorts them by their assigned values.
+    ///    Constructs identities by assigning them locally, writing to PLC, and sorting by the assigned values.
+    ///    Identity values are always written fresh to the PLC regardless of any previously stored values.
+    ///    This ensures that stale or inconsistent identity values from prior sessions do not cause duplicate identity errors.
     /// </summary>
-    /// <param name="identityProvider">Function to provide identity values.</param>
-    /// <param name="failOnDuplicate">Indicates whether to fail on duplicate identities.</param>
-    /// <returns></returns>
+    /// <param name="identityProvider">
+    ///    Function that assigns and returns an identity value for each <see cref="OnlinerULInt"/> tag.
+    ///    When <c>null</c>, a default provider based on <see cref="string.GetHashCode()"/> of the symbol is used.
+    ///    Note: <see cref="string.GetHashCode()"/> is not deterministic across process restarts in .NET Core/.NET 5+,
+    ///    so identity values will differ between sessions. For stable identities, supply a custom provider.
+    /// </param>
+    /// <param name="failOnDuplicate">
+    ///    When <c>true</c>, throws <see cref="DuplicateIdentityException"/> if two symbols resolve to the same identity value.
+    ///    When <c>false</c>, logs a warning and skips the duplicate entry.
+    /// </param>
     public async Task ConstructIdentitiesAsync(Func<OnlinerULInt, ulong> identityProvider = null, bool failOnDuplicate = true)
     {
         await WriteIdentities(AssignIdentities(_identitiesTags, identityProvider));
@@ -283,39 +292,6 @@ public class TwinIdentityProvider
 
         _connector?.Logger.Information("Sorting identities done.");
     }
-
-    // /// <summary>
-    // ///     Sorts identities by reading values from PLC.
-    // /// </summary>
-    // internal async Task SortIdentitiesAsync()
-    // {
-    //     await Task.Run(async () =>
-    //     {
-    //         _connector?.Logger.Information("Sorting identities...");
-    //         if (_connector != null)
-    //         {
-    //             await _connector?.ReadBatchAsync(_identities.Select(p => p.Key), eAccessPriority.High);
-    //         }
-    //         _sortedIdentities.Clear();
-    //         foreach (var identity in _identities)
-    //         {
-    //             var key = identity.Key.LastValue;
-    //             if (!_sortedIdentities.ContainsKey(key))
-    //             {
-    //                 _sortedIdentities.Add(key, identity.Value);
-    //             }
-    //             else
-    //             {
-    //                 throw new DuplicateIdentityException("There is a duplicate identity: " +
-    //                                                      $"{identity.Value.Symbol} : {key}." +
-    //                                                      $"The algorithm for assigning identities needs to be adjusted." +
-    //                                                      $"Use an algorithm that guarantees unique identities and is less prone to collisions.");
-    //             }
-    //         }
-
-    //         _connector?.Logger.Information("Sorting identities done.");
-    //     });
-    // }
 }
 
 /// <summary>
