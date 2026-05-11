@@ -1,0 +1,30 @@
+@page "/timespan-inputs"
+@using AXSharp.Presentation.Blazor.Controls.Templates
+
+<h3 class="text-2xl font-bold mb-6">TimeSpan Inputs</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+        <h4 class="text-xl font-semibold mb-3">Control</h4>
+        <OnlinerTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeControlView>
+        <OnlinerLTimeControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeControlView>
+    </div>
+
+    <div>
+        <h4 class="text-xl font-semibold mb-3">Shadow Control</h4>
+        <OnlinerTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeShadowControlView>
+        <OnlinerLTimeShadowControlView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeShadowControlView>
+    </div>
+
+    <div>
+        <h4 class="text-xl font-semibold mb-3">Display</h4>
+        <OnlinerTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeDisplayView>
+        <OnlinerLTimeDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeDisplayView>
+    </div>
+
+    <div>
+        <h4 class="text-xl font-semibold mb-3">Shadow Display</h4>
+        <OnlinerTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTime"></OnlinerTimeShadowDisplayView>
+        <OnlinerLTimeShadowDisplayView Onliner="@Entry.Plc.MAINC.instanceOfstPrimitive.TestTimeOfDay"></OnlinerLTimeShadowDisplayView>
+    </div>
+</div>
