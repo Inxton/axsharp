@@ -2,4 +2,4 @@
 @using AXSharp.Presentation.Blazor.Controls.Templates.Base
 @inherits TemplateBaseOnline<TimeSpan>
 
-<OnlinerTimeOfDayDisplayView Onliner="Onliner" IsReadOnly="IsReadOnly" PollingInterval="PollingInterval" HideLabel="@HideLabel" Unit="@Unit" Format="@(Format != null ? Format : FormatConstants.LTimeOfDayFormat)" />
+<OnlinerTimeOfDayDisplayView Onliner="Onliner" IsReadOnly="IsReadOnly" PollingInterval="PollingInterval" HideLabel="@HideLabel" Unit="@Unit" Format="@Format" Formats="@FormatConstants.TimeFormats" />

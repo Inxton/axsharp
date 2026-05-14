@@ -60,6 +60,9 @@ namespace AXSharp.Presentation.Blazor.Controls.Templates
         [Parameter]
         public string? Unit { get; set; }
 
+        [Parameter]
+        public string[]? Formats { get; set; }
+
         /// <summary>
         /// The format string for displaying the value.
         /// </summary>
