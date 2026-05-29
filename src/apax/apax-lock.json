@@ -21,7 +21,7 @@
     "@ax/stc": {
       "name": "@ax/stc",
       "version": "11.3.46",
-      "integrity": "sha512-ESqk0kVLf/vviWjJJ7v2r1sSigt5FH63qdhdHj+HZzheTniiwrorWLpgqcenbSTSBbk5Nhn3b9LyzpEOOkhtfQ==",
+      "integrity": "sha512-Z+2eSNxIegaBJoPrajfnB06xNV8os1TtzUP0S/+jCi3bDuJrpAxDA3CQ+HLko+qIflWhMjSBciicqUzS2zXZnQ==",
       "resolved": "https://registry.simatic-ax.siemens.io/@ax/stc/-/stc-11.3.46.tgz",
       "dependencies": {
         "@ax/stc-linux-x64": "11.3.46",
