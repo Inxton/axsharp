@@ -4,7 +4,6 @@
     <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
-
   <!-- Global Package References -->
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3">
@@ -12,10 +11,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </GlobalPackageReference>
   </ItemGroup>
-
   <!-- Framework-Agnostic Packages -->
   <ItemGroup>
-    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.154" />
+    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.157" />
     <PackageVersion Include="Cake.DocFx" Version="1.0.0" />
     <PackageVersion Include="Octokit" Version="13.0.1" />
     <PackageVersion Include="Octokit.Extensions" Version="1.0.7" />
@@ -24,8 +22,8 @@
     <PackageVersion Include="Google.Protobuf" Version="3.33.1" />
     <PackageVersion Include="CliWrap" Version="3.6.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
-    <PackageVersion Include="NuGet.Configuration" Version="6.12.1" />
-    <PackageVersion Include="NuGet.Packaging" Version="6.12.1" />
+    <PackageVersion Include="NuGet.Configuration" Version="6.14.3" />
+    <PackageVersion Include="NuGet.Packaging" Version="6.14.3" />
     <PackageVersion Include="Polly" Version="8.5.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
