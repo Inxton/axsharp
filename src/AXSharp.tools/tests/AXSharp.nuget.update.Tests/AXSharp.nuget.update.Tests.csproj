@@ -24,6 +24,14 @@
     </PackageReference>
   </ItemGroup>
 
+  <!-- samples\** are build fixtures (built by tests at runtime). Exclude their
+       generated bin\obj so the test assembly does not compile the fixtures'
+       AssemblyInfo files (causes CS0579 duplicate-attribute errors). -->
+  <ItemGroup>
+    <Compile Remove="samples\**\bin\**" />
+    <Compile Remove="samples\**\obj\**" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\AXSharp.nuget.update\AXSharp.nuget.update.csproj" />
   </ItemGroup>
