@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace Simatic.Ax.StateFramework
 {
+    [AXSharp.Connector.SourceFileAttribute(@"type_with_enum.st")]
     public partial interface IGuard
     {
     }
@@ -14,6 +15,7 @@ namespace Simatic.Ax.StateFramework
 
 namespace Simatic.Ax.StateFramework
 {
+    [AXSharp.Connector.SourceFileAttribute(@"type_with_enum.st")]
     public enum Condition
     {
         GT,
@@ -24,6 +26,7 @@ namespace Simatic.Ax.StateFramework
         LE
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"type_with_enum.st")]
     public partial class CompareGuardLint : AXSharp.Connector.ITwinObject, IGuard
     {
         public OnlinerLInt CompareToValue { get; }

@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace RefToSimple
     {
+        [AXSharp.Connector.SourceFileAttribute(@"ref_to_simple.st")]
         public partial class ref_to_simple : AXSharp.Connector.IPlain
         {
             public ref_to_simple()
@@ -13,6 +14,7 @@ namespace Pocos
             }
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"ref_to_simple.st")]
         public partial class referenced : AXSharp.Connector.IPlain
         {
             public referenced()

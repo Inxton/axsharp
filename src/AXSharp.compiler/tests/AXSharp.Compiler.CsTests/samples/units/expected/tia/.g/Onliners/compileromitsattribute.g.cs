@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace CompilerOmmits
 {
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class ClassWithArrays : AXSharp.Connector.ITwinObject
     {
         [CompilerOmitsAttribute("POCO")]
@@ -234,6 +235,7 @@ namespace CompilerOmmits
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class Complex : AXSharp.Connector.ITwinObject
     {
         public OnlinerString HelloString { get; }
@@ -467,15 +469,16 @@ namespace CompilerOmmits
     }
 }
 
-namespace Enums
+namespace CompilerOmmitsEnums
 {
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class ClassWithEnums : AXSharp.Connector.ITwinObject
     {
-        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Enums.Colors))]
+        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(CompilerOmmitsEnums.Colors))]
         public OnlinerInt colors { get; }
-        public Enums.Colors colorsEnum { get => (Enums.Colors)colors.LastValue; }
+        public CompilerOmmitsEnums.Colors colorsEnum { get => (CompilerOmmitsEnums.Colors)colors.LastValue; }
 
-        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Enums.NamedValuesColors))]
+        [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(CompilerOmmitsEnums.NamedValuesColors))]
         public OnlinerString NamedValuesColors { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -500,30 +503,30 @@ namespace Enums
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.Enums.ClassWithEnums> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsEnums.ClassWithEnums> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.Enums.ClassWithEnums plain = new global::Pocos.Enums.ClassWithEnums();
+            global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain = new global::Pocos.CompilerOmmitsEnums.ClassWithEnums();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
-            plain.colors = (Enums.Colors)colors.LastValue;
+            plain.colors = (CompilerOmmitsEnums.Colors)colors.LastValue;
             plain.NamedValuesColors = NamedValuesColors.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.Enums.ClassWithEnums> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsEnums.ClassWithEnums> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.Enums.ClassWithEnums plain = new global::Pocos.Enums.ClassWithEnums();
-            plain.colors = (Enums.Colors)colors.LastValue;
+            global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain = new global::Pocos.CompilerOmmitsEnums.ClassWithEnums();
+            plain.colors = (CompilerOmmitsEnums.Colors)colors.LastValue;
             plain.NamedValuesColors = NamedValuesColors.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.Enums.ClassWithEnums> _OnlineToPlainNoacAsync(global::Pocos.Enums.ClassWithEnums plain)
+        protected async Task<global::Pocos.CompilerOmmitsEnums.ClassWithEnums> _OnlineToPlainNoacAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain)
         {
-            plain.colors = (Enums.Colors)colors.LastValue;
+            plain.colors = (CompilerOmmitsEnums.Colors)colors.LastValue;
             plain.NamedValuesColors = NamedValuesColors.LastValue;
             return plain;
         }
@@ -533,7 +536,7 @@ namespace Enums
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Enums.ClassWithEnums plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             colors.LethargicWrite((short)plain.colors);
@@ -546,7 +549,7 @@ namespace Enums
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.Enums.ClassWithEnums plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain)
         {
 #pragma warning disable CS0612
             colors.LethargicWrite((short)plain.colors);
@@ -561,17 +564,17 @@ namespace Enums
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.Enums.ClassWithEnums> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsEnums.ClassWithEnums> ShadowToPlainAsync()
         {
-            global::Pocos.Enums.ClassWithEnums plain = new global::Pocos.Enums.ClassWithEnums();
-            plain.colors = (Enums.Colors)colors.Shadow;
+            global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain = new global::Pocos.CompilerOmmitsEnums.ClassWithEnums();
+            plain.colors = (CompilerOmmitsEnums.Colors)colors.Shadow;
             plain.NamedValuesColors = NamedValuesColors.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.Enums.ClassWithEnums> ShadowToPlainAsync(global::Pocos.Enums.ClassWithEnums plain)
+        protected async Task<global::Pocos.CompilerOmmitsEnums.ClassWithEnums> ShadowToPlainAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain)
         {
-            plain.colors = (Enums.Colors)colors.Shadow;
+            plain.colors = (CompilerOmmitsEnums.Colors)colors.Shadow;
             plain.NamedValuesColors = NamedValuesColors.Shadow;
             return plain;
         }
@@ -581,7 +584,7 @@ namespace Enums
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Enums.ClassWithEnums plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain)
         {
             colors.Shadow = (short)plain.colors;
             NamedValuesColors.Shadow = plain.NamedValuesColors;
@@ -598,14 +601,14 @@ namespace Enums
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Enums.ClassWithEnums plain, global::Pocos.Enums.ClassWithEnums latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsEnums.ClassWithEnums plain, global::Pocos.CompilerOmmitsEnums.ClassWithEnums latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
             var somethingChanged = false;
             return await Task.Run(async () =>
             {
-                if (plain.colors != (Enums.Colors)latest.colors)
+                if (plain.colors != (CompilerOmmitsEnums.Colors)latest.colors)
                     somethingChanged = true;
                 if (plain.NamedValuesColors != NamedValuesColors.LastValue)
                     somethingChanged = true;
@@ -619,9 +622,9 @@ namespace Enums
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.Enums.ClassWithEnums CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsEnums.ClassWithEnums CreateEmptyPoco()
         {
-            return new global::Pocos.Enums.ClassWithEnums();
+            return new global::Pocos.CompilerOmmitsEnums.ClassWithEnums();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -705,6 +708,7 @@ namespace Enums
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public enum Colors
     {
         Red,
@@ -712,6 +716,7 @@ namespace Enums
         Blue
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public enum NamedValuesColors : String
     {
         Red = 49,
@@ -720,12 +725,13 @@ namespace Enums
     }
 }
 
-namespace misc
+namespace CompilerOmmitsMisc
 {
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class VariousMembers : AXSharp.Connector.ITwinObject
     {
-        public misc.SomeClass _SomeClass { get; }
-        public misc.Motor _Motor { get; }
+        public CompilerOmmitsMisc.SomeClass _SomeClass { get; }
+        public CompilerOmmitsMisc.ComersMotor _Motor { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -737,8 +743,8 @@ namespace misc
             this.@Parent = parent;
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
-            _SomeClass = new misc.SomeClass(this, "_SomeClass", "_SomeClass");
-            _Motor = new misc.Motor(this, "_Motor", "_Motor");
+            _SomeClass = new CompilerOmmitsMisc.SomeClass(this, "_SomeClass", "_SomeClass");
+            _Motor = new CompilerOmmitsMisc.ComersMotor(this, "_Motor", "_Motor");
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);
@@ -749,9 +755,9 @@ namespace misc
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.misc.VariousMembers> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsMisc.VariousMembers> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.misc.VariousMembers plain = new global::Pocos.misc.VariousMembers();
+            global::Pocos.CompilerOmmitsMisc.VariousMembers plain = new global::Pocos.CompilerOmmitsMisc.VariousMembers();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             plain._SomeClass = await _SomeClass._OnlineToPlainNoacAsync();
@@ -764,9 +770,9 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.misc.VariousMembers> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.VariousMembers> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.misc.VariousMembers plain = new global::Pocos.misc.VariousMembers();
+            global::Pocos.CompilerOmmitsMisc.VariousMembers plain = new global::Pocos.CompilerOmmitsMisc.VariousMembers();
 #pragma warning disable CS0612
             plain._SomeClass = await _SomeClass._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -778,7 +784,7 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.misc.VariousMembers> _OnlineToPlainNoacAsync(global::Pocos.misc.VariousMembers plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.VariousMembers> _OnlineToPlainNoacAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain)
         {
 #pragma warning disable CS0612
             plain._SomeClass = await _SomeClass._OnlineToPlainNoacAsync();
@@ -794,7 +800,7 @@ namespace misc
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.misc.VariousMembers plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             await this._SomeClass._PlainToOnlineNoacAsync(plain._SomeClass);
@@ -807,7 +813,7 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.misc.VariousMembers plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain)
         {
 #pragma warning disable CS0612
             await this._SomeClass._PlainToOnlineNoacAsync(plain._SomeClass);
@@ -822,15 +828,15 @@ namespace misc
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.misc.VariousMembers> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.VariousMembers> ShadowToPlainAsync()
         {
-            global::Pocos.misc.VariousMembers plain = new global::Pocos.misc.VariousMembers();
+            global::Pocos.CompilerOmmitsMisc.VariousMembers plain = new global::Pocos.CompilerOmmitsMisc.VariousMembers();
             plain._SomeClass = await _SomeClass.ShadowToPlainAsync();
             plain._Motor = await _Motor.ShadowToPlainAsync();
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.VariousMembers> ShadowToPlainAsync(global::Pocos.misc.VariousMembers plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.VariousMembers> ShadowToPlainAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain)
         {
             plain._SomeClass = await _SomeClass.ShadowToPlainAsync();
             plain._Motor = await _Motor.ShadowToPlainAsync();
@@ -842,7 +848,7 @@ namespace misc
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.misc.VariousMembers plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain)
         {
             await this._SomeClass.PlainToShadowAsync(plain._SomeClass);
             await this._Motor.PlainToShadowAsync(plain._Motor);
@@ -859,7 +865,7 @@ namespace misc
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.misc.VariousMembers plain, global::Pocos.misc.VariousMembers latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsMisc.VariousMembers plain, global::Pocos.CompilerOmmitsMisc.VariousMembers latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -880,9 +886,9 @@ namespace misc
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.misc.VariousMembers CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsMisc.VariousMembers CreateEmptyPoco()
         {
-            return new global::Pocos.misc.VariousMembers();
+            return new global::Pocos.CompilerOmmitsMisc.VariousMembers();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -966,6 +972,7 @@ namespace misc
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class SomeClass : AXSharp.Connector.ITwinObject
     {
         public OnlinerString SomeClassVariable { get; }
@@ -991,9 +998,9 @@ namespace misc
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.misc.SomeClass> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsMisc.SomeClass> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.misc.SomeClass plain = new global::Pocos.misc.SomeClass();
+            global::Pocos.CompilerOmmitsMisc.SomeClass plain = new global::Pocos.CompilerOmmitsMisc.SomeClass();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
@@ -1001,16 +1008,16 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.misc.SomeClass> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.SomeClass> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.misc.SomeClass plain = new global::Pocos.misc.SomeClass();
+            global::Pocos.CompilerOmmitsMisc.SomeClass plain = new global::Pocos.CompilerOmmitsMisc.SomeClass();
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
         }
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.misc.SomeClass> _OnlineToPlainNoacAsync(global::Pocos.misc.SomeClass plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.SomeClass> _OnlineToPlainNoacAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain)
         {
             plain.SomeClassVariable = SomeClassVariable.LastValue;
             return plain;
@@ -1021,7 +1028,7 @@ namespace misc
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.misc.SomeClass plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             SomeClassVariable.LethargicWrite(plain.SomeClassVariable);
@@ -1031,7 +1038,7 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.misc.SomeClass plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain)
         {
 #pragma warning disable CS0612
             SomeClassVariable.LethargicWrite(plain.SomeClassVariable);
@@ -1043,14 +1050,14 @@ namespace misc
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.misc.SomeClass> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.SomeClass> ShadowToPlainAsync()
         {
-            global::Pocos.misc.SomeClass plain = new global::Pocos.misc.SomeClass();
+            global::Pocos.CompilerOmmitsMisc.SomeClass plain = new global::Pocos.CompilerOmmitsMisc.SomeClass();
             plain.SomeClassVariable = SomeClassVariable.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.SomeClass> ShadowToPlainAsync(global::Pocos.misc.SomeClass plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.SomeClass> ShadowToPlainAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain)
         {
             plain.SomeClassVariable = SomeClassVariable.Shadow;
             return plain;
@@ -1061,7 +1068,7 @@ namespace misc
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.misc.SomeClass plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain)
         {
             SomeClassVariable.Shadow = plain.SomeClassVariable;
             return this.RetrievePrimitives();
@@ -1077,7 +1084,7 @@ namespace misc
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.misc.SomeClass plain, global::Pocos.misc.SomeClass latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsMisc.SomeClass plain, global::Pocos.CompilerOmmitsMisc.SomeClass latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -1096,9 +1103,9 @@ namespace misc
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.misc.SomeClass CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsMisc.SomeClass CreateEmptyPoco()
         {
-            return new global::Pocos.misc.SomeClass();
+            return new global::Pocos.CompilerOmmitsMisc.SomeClass();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1182,13 +1189,14 @@ namespace misc
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
-    public partial class Motor : AXSharp.Connector.ITwinObject
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
+    public partial class ComersMotor : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool isRunning { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-        public Motor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        public ComersMotor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             this.@SymbolTail = symbolTail;
             this.@Connector = parent.GetConnector();
@@ -1207,9 +1215,9 @@ namespace misc
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.misc.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersMotor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.misc.Motor plain = new global::Pocos.misc.Motor();
+            global::Pocos.CompilerOmmitsMisc.ComersMotor plain = new global::Pocos.CompilerOmmitsMisc.ComersMotor();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.isRunning = isRunning.LastValue;
             return plain;
@@ -1217,14 +1225,14 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.misc.Motor> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersMotor> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.misc.Motor plain = new global::Pocos.misc.Motor();
+            global::Pocos.CompilerOmmitsMisc.ComersMotor plain = new global::Pocos.CompilerOmmitsMisc.ComersMotor();
             plain.isRunning = isRunning.LastValue;
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.Motor> OnlineToPlainAsync(global::Pocos.misc.Motor plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.ComersMotor> OnlineToPlainAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain)
         {
             plain.isRunning = isRunning.LastValue;
             return plain;
@@ -1235,7 +1243,7 @@ namespace misc
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.misc.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             isRunning.LethargicWrite(plain.isRunning);
@@ -1245,7 +1253,7 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.misc.Motor plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain)
         {
 #pragma warning disable CS0612
             isRunning.LethargicWrite(plain.isRunning);
@@ -1257,14 +1265,14 @@ namespace misc
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.misc.Motor> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersMotor> ShadowToPlainAsync()
         {
-            global::Pocos.misc.Motor plain = new global::Pocos.misc.Motor();
+            global::Pocos.CompilerOmmitsMisc.ComersMotor plain = new global::Pocos.CompilerOmmitsMisc.ComersMotor();
             plain.isRunning = isRunning.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.Motor> ShadowToPlainAsync(global::Pocos.misc.Motor plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.ComersMotor> ShadowToPlainAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain)
         {
             plain.isRunning = isRunning.Shadow;
             return plain;
@@ -1275,7 +1283,7 @@ namespace misc
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.misc.Motor plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain)
         {
             isRunning.Shadow = plain.isRunning;
             return this.RetrievePrimitives();
@@ -1291,7 +1299,7 @@ namespace misc
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.misc.Motor plain, global::Pocos.misc.Motor latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsMisc.ComersMotor plain, global::Pocos.CompilerOmmitsMisc.ComersMotor latest = null)
         {
             var somethingChanged = false;
             if (latest == null)
@@ -1310,9 +1318,9 @@ namespace misc
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.misc.Motor CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsMisc.ComersMotor CreateEmptyPoco()
         {
-            return new global::Pocos.misc.Motor();
+            return new global::Pocos.CompilerOmmitsMisc.ComersMotor();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1396,14 +1404,15 @@ namespace misc
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
-    public partial class Vehicle : AXSharp.Connector.ITwinObject
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
+    public partial class ComersVehicle : AXSharp.Connector.ITwinObject
     {
-        public misc.Motor m { get; }
+        public CompilerOmmitsMisc.ComersMotor m { get; }
         public OnlinerInt displacement { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
         partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-        public Vehicle(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+        public ComersVehicle(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
         {
             this.@SymbolTail = symbolTail;
             this.@Connector = parent.GetConnector();
@@ -1411,7 +1420,7 @@ namespace misc
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
             PreConstruct(parent, readableTail, symbolTail);
-            m = new misc.Motor(this, "m", "m");
+            m = new CompilerOmmitsMisc.ComersMotor(this, "m", "m");
             displacement = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "displacement", "displacement");
             parent.AddChild(this);
             parent.AddKid(this);
@@ -1423,9 +1432,9 @@ namespace misc
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.misc.Vehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersVehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.misc.Vehicle plain = new global::Pocos.misc.Vehicle();
+            global::Pocos.CompilerOmmitsMisc.ComersVehicle plain = new global::Pocos.CompilerOmmitsMisc.ComersVehicle();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
@@ -1436,9 +1445,9 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.misc.Vehicle> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersVehicle> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.misc.Vehicle plain = new global::Pocos.misc.Vehicle();
+            global::Pocos.CompilerOmmitsMisc.ComersVehicle plain = new global::Pocos.CompilerOmmitsMisc.ComersVehicle();
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -1446,7 +1455,7 @@ namespace misc
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.Vehicle> OnlineToPlainAsync(global::Pocos.misc.Vehicle plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.ComersVehicle> OnlineToPlainAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain)
         {
 #pragma warning disable CS0612
             plain.m = await m._OnlineToPlainNoacAsync();
@@ -1460,7 +1469,7 @@ namespace misc
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.misc.Vehicle plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -1473,7 +1482,7 @@ namespace misc
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.misc.Vehicle plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain)
         {
 #pragma warning disable CS0612
             await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -1488,15 +1497,15 @@ namespace misc
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.misc.Vehicle> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsMisc.ComersVehicle> ShadowToPlainAsync()
         {
-            global::Pocos.misc.Vehicle plain = new global::Pocos.misc.Vehicle();
+            global::Pocos.CompilerOmmitsMisc.ComersVehicle plain = new global::Pocos.CompilerOmmitsMisc.ComersVehicle();
             plain.m = await m.ShadowToPlainAsync();
             plain.displacement = displacement.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.misc.Vehicle> ShadowToPlainAsync(global::Pocos.misc.Vehicle plain)
+        protected async Task<global::Pocos.CompilerOmmitsMisc.ComersVehicle> ShadowToPlainAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain)
         {
             plain.m = await m.ShadowToPlainAsync();
             plain.displacement = displacement.Shadow;
@@ -1508,7 +1517,7 @@ namespace misc
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.misc.Vehicle plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain)
         {
             await this.m.PlainToShadowAsync(plain.m);
             displacement.Shadow = plain.displacement;
@@ -1525,7 +1534,7 @@ namespace misc
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.misc.Vehicle plain, global::Pocos.misc.Vehicle latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsMisc.ComersVehicle plain, global::Pocos.CompilerOmmitsMisc.ComersVehicle latest = null)
         {
             var somethingChanged = false;
             if (latest == null)
@@ -1546,9 +1555,9 @@ namespace misc
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.misc.Vehicle CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsMisc.ComersVehicle CreateEmptyPoco()
         {
-            return new global::Pocos.misc.Vehicle();
+            return new global::Pocos.CompilerOmmitsMisc.ComersVehicle();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1633,11 +1642,12 @@ namespace misc
     }
 }
 
-namespace UnknownArraysShouldNotBeTraspiled
+namespace CompilerOmmitsUnknownArrays
 {
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class ClassWithArrays : AXSharp.Connector.ITwinObject
     {
-        public UnknownArraysShouldNotBeTraspiled.Complex[] _complexKnown { get; }
+        public CompilerOmmitsUnknownArrays.Complex[] _complexKnown { get; }
         public OnlinerByte[] _primitive { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -1650,8 +1660,8 @@ namespace UnknownArraysShouldNotBeTraspiled
             this.@Parent = parent;
             HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
             PreConstruct(parent, readableTail, symbolTail);
-            _complexKnown = new UnknownArraysShouldNotBeTraspiled.Complex[11];
-            AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, this, "_complexKnown", "_complexKnown", (p, rt, st) => new UnknownArraysShouldNotBeTraspiled.Complex(p, rt, st), new[] { (0, 10) });
+            _complexKnown = new CompilerOmmitsUnknownArrays.Complex[11];
+            AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_complexKnown, this, "_complexKnown", "_complexKnown", (p, rt, st) => new CompilerOmmitsUnknownArrays.Complex(p, rt, st), new[] { (0, 10) });
             _primitive = new OnlinerByte[11];
             AXSharp.Connector.BuilderHelpers.Arrays.InstantiateArray(_primitive, this, "_primitive", "_primitive", (p, rt, st) => @Connector.ConnectorAdapter.AdapterFactory.CreateBYTE(p, rt, st), new[] { (0, 10) });
             parent.AddChild(this);
@@ -1664,9 +1674,9 @@ namespace UnknownArraysShouldNotBeTraspiled
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays();
+            global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain = new global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
             plain._complexKnown = _complexKnown.Select(async p => await p._OnlineToPlainNoacAsync()).Select(p => p.Result).ToArray();
@@ -1677,9 +1687,9 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays();
+            global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain = new global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays();
 #pragma warning disable CS0612
             plain._complexKnown = _complexKnown.Select(async p => await p._OnlineToPlainNoacAsync()).Select(p => p.Result).ToArray();
 #pragma warning restore CS0612
@@ -1689,7 +1699,7 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays> _OnlineToPlainNoacAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain)
+        protected async Task<global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays> _OnlineToPlainNoacAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain)
         {
 #pragma warning disable CS0612
             plain._complexKnown = _complexKnown.Select(async p => await p._OnlineToPlainNoacAsync()).Select(p => p.Result).ToArray();
@@ -1703,7 +1713,7 @@ namespace UnknownArraysShouldNotBeTraspiled
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             var __complexKnown_i_FE8484DAB3 = 0;
 #pragma warning disable CS0612
@@ -1718,7 +1728,7 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain)
         {
             var __complexKnown_i_FE8484DAB3 = 0;
 #pragma warning disable CS0612
@@ -1735,15 +1745,15 @@ namespace UnknownArraysShouldNotBeTraspiled
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays> ShadowToPlainAsync()
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays();
+            global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain = new global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays();
             plain._complexKnown = _complexKnown.Select(async p => await p.ShadowToPlainAsync()).Select(p => p.Result).ToArray();
             plain._primitive = _primitive.Select(p => p.Shadow).ToArray();
             return plain;
         }
 
-        protected async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays> ShadowToPlainAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain)
+        protected async Task<global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays> ShadowToPlainAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain)
         {
             plain._complexKnown = _complexKnown.Select(async p => await p.ShadowToPlainAsync()).Select(p => p.Result).ToArray();
             plain._primitive = _primitive.Select(p => p.Shadow).ToArray();
@@ -1755,7 +1765,7 @@ namespace UnknownArraysShouldNotBeTraspiled
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain)
         {
             var __complexKnown_i_FE8484DAB3 = 0;
             _complexKnown.Select(p => p.PlainToShadowAsync(plain._complexKnown[__complexKnown_i_FE8484DAB3++])).ToArray();
@@ -1774,7 +1784,7 @@ namespace UnknownArraysShouldNotBeTraspiled
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays plain, global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays plain, global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -1803,9 +1813,9 @@ namespace UnknownArraysShouldNotBeTraspiled
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays CreateEmptyPoco()
         {
-            return new global::Pocos.UnknownArraysShouldNotBeTraspiled.ClassWithArrays();
+            return new global::Pocos.CompilerOmmitsUnknownArrays.ClassWithArrays();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -1889,6 +1899,7 @@ namespace UnknownArraysShouldNotBeTraspiled
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"compileromitsattribute.st")]
     public partial class Complex : AXSharp.Connector.ITwinObject
     {
         public OnlinerString HelloString { get; }
@@ -1916,9 +1927,9 @@ namespace UnknownArraysShouldNotBeTraspiled
             return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.Complex> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex();
+            global::Pocos.CompilerOmmitsUnknownArrays.Complex plain = new global::Pocos.CompilerOmmitsUnknownArrays.Complex();
             await this.ReadAsync<IgnoreOnPocoOperation>(priority);
             plain.HelloString = HelloString.LastValue;
             plain.Id = Id.LastValue;
@@ -1927,9 +1938,9 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex> _OnlineToPlainNoacAsync()
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.Complex> _OnlineToPlainNoacAsync()
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex();
+            global::Pocos.CompilerOmmitsUnknownArrays.Complex plain = new global::Pocos.CompilerOmmitsUnknownArrays.Complex();
             plain.HelloString = HelloString.LastValue;
             plain.Id = Id.LastValue;
             return plain;
@@ -1937,7 +1948,7 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        protected async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex> _OnlineToPlainNoacAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain)
+        protected async Task<global::Pocos.CompilerOmmitsUnknownArrays.Complex> _OnlineToPlainNoacAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain)
         {
             plain.HelloString = HelloString.LastValue;
             plain.Id = Id.LastValue;
@@ -1949,7 +1960,7 @@ namespace UnknownArraysShouldNotBeTraspiled
             await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain, eAccessPriority priority = eAccessPriority.Normal)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain, eAccessPriority priority = eAccessPriority.Normal)
         {
 #pragma warning disable CS0612
             HelloString.LethargicWrite(plain.HelloString);
@@ -1962,7 +1973,7 @@ namespace UnknownArraysShouldNotBeTraspiled
 
         [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        public async Task _PlainToOnlineNoacAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain)
+        public async Task _PlainToOnlineNoacAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain)
         {
 #pragma warning disable CS0612
             HelloString.LethargicWrite(plain.HelloString);
@@ -1977,15 +1988,15 @@ namespace UnknownArraysShouldNotBeTraspiled
             return await (dynamic)this.ShadowToPlainAsync();
         }
 
-        public async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex> ShadowToPlainAsync()
+        public async Task<global::Pocos.CompilerOmmitsUnknownArrays.Complex> ShadowToPlainAsync()
         {
-            global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain = new global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex();
+            global::Pocos.CompilerOmmitsUnknownArrays.Complex plain = new global::Pocos.CompilerOmmitsUnknownArrays.Complex();
             plain.HelloString = HelloString.Shadow;
             plain.Id = Id.Shadow;
             return plain;
         }
 
-        protected async Task<global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex> ShadowToPlainAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain)
+        protected async Task<global::Pocos.CompilerOmmitsUnknownArrays.Complex> ShadowToPlainAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain)
         {
             plain.HelloString = HelloString.Shadow;
             plain.Id = Id.Shadow;
@@ -1997,7 +2008,7 @@ namespace UnknownArraysShouldNotBeTraspiled
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain)
         {
             HelloString.Shadow = plain.HelloString;
             Id.Shadow = plain.Id;
@@ -2014,7 +2025,7 @@ namespace UnknownArraysShouldNotBeTraspiled
         ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
         ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
         ///</summary>
-        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex plain, global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex latest = null)
+        public async Task<bool> DetectsAnyChangeAsync(global::Pocos.CompilerOmmitsUnknownArrays.Complex plain, global::Pocos.CompilerOmmitsUnknownArrays.Complex latest = null)
         {
             if (latest == null)
                 latest = await this._OnlineToPlainNoacAsync();
@@ -2035,9 +2046,9 @@ namespace UnknownArraysShouldNotBeTraspiled
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex CreateEmptyPoco()
+        public global::Pocos.CompilerOmmitsUnknownArrays.Complex CreateEmptyPoco()
         {
-            return new global::Pocos.UnknownArraysShouldNotBeTraspiled.Complex();
+            return new global::Pocos.CompilerOmmitsUnknownArrays.Complex();
         }
 
         private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

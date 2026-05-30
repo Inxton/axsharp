@@ -128,7 +128,7 @@ CLASS PUBLIC ComplexForConfig
         myWCHAR	        :       WCHAR	      ;
         mySTRING	        :       STRING	      ;
         myWSTRING	    :       WSTRING	      ;
-        myMotor         : Motor;
+        myMotor         : ConfigMotor;
     END_VAR    
 END_CLASS   
 
@@ -142,12 +142,12 @@ END_TYPE
 
  TYPE
         {S7.extern=ReadWrite}
-        Motor : STRUCT
+        ConfigMotor : STRUCT
             isRunning : BOOL;
         END_STRUCT;
         {S7.extern=ReadWrite}
-        Vehicle : STRUCT
-            m : Motor;
+        ConfigVehicle : STRUCT
+            m : ConfigMotor;
             displacement : INT;
         END_STRUCT;
     END_TYPE

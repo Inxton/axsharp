@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"geolocation.st")]
     [AXSharp.Connector.AddedPropertiesAttribute("AttributeName", @"Location")]
     public partial class GeoLocation : AXSharp.Connector.IPlain
     {

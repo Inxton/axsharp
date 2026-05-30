@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace MultilinePragmas
     {
+        [AXSharp.Connector.SourceFileAttribute(@"multiline_pragmas.st")]
         public partial class Extendee2 : AXSharp.Connector.IPlain
         {
             public Extendee2()

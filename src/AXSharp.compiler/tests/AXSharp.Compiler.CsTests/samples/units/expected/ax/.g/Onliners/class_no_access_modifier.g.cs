@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_no_access_modifier.st")]
 public partial class NoAccessModifierClass : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace ArrayDeclarationSimpleNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"array_declaration.st")]
         public partial class array_declaration_class : AXSharp.Connector.IPlain
         {
             public array_declaration_class()
@@ -19,6 +20,7 @@ namespace Pocos
             public ArrayDeclarationSimpleNamespace.some_complex_type[] complex { get; set; } = new ArrayDeclarationSimpleNamespace.some_complex_type[100];
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"array_declaration.st")]
         public partial class some_complex_type : AXSharp.Connector.IPlain
         {
             public some_complex_type()

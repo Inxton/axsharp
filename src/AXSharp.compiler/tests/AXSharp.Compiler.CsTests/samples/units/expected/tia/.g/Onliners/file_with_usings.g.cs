@@ -10,6 +10,7 @@ using FileWithUsingsHelloLevelOne.FileWithUsingsHelloLevelTwo;
 
 namespace FileWithUsingsSimpleFirstLevelNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
     public partial class Hello : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -212,6 +213,7 @@ namespace FileWithUsingsSimpleFirstLevelNamespace
 
 namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
 {
+    [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
     public partial class Hello : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -416,6 +418,7 @@ namespace FileWithUsingsHelloLevelOne
 {
     namespace FileWithUsingsHelloLevelTwo
     {
+        [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
         public partial class Hello : AXSharp.Connector.ITwinObject
         {
             partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -619,6 +622,7 @@ namespace FileWithUsingsHelloLevelOne
 
 namespace ExampleNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
     public partial class Hello : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace Simatic.Ax.StateFramework
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_extended_by_known_type.st")]
     public partial class State1Transition : Simatic.Ax.StateFramework.AbstractState
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -139,6 +140,7 @@ namespace Simatic.Ax.StateFramework
 
 namespace Simatic.Ax.StateFramework
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_extended_by_known_type.st")]
     public partial class AbstractState : AXSharp.Connector.ITwinObject, IState, IStateMuteable
     {
         public OnlinerInt StateID { get; }

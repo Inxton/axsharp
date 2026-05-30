@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
 public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool myBOOL { get; }
@@ -34,7 +35,7 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
     public OnlinerWChar myWCHAR { get; }
     public OnlinerString mySTRING { get; }
     public OnlinerWString myWSTRING { get; }
-    public Motor myMotor { get; }
+    public ConfigMotor myMotor { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -73,7 +74,7 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
         myWCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateWCHAR(this, "myWCHAR", "myWCHAR");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "mySTRING", "mySTRING");
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "myWSTRING", "myWSTRING");
-        myMotor = new Motor(this, "myMotor", "myMotor");
+        myMotor = new ConfigMotor(this, "myMotor", "myMotor");
         parent.AddChild(this);
         parent.AddKid(this);
         PostConstruct(parent, readableTail, symbolTail);
@@ -659,6 +660,7 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
 public enum Colorss
 {
     Red,
@@ -666,6 +668,7 @@ public enum Colorss
     Blue
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
 public enum Colorsss : UInt64
 {
     Red = 1,
@@ -673,13 +676,14 @@ public enum Colorsss : UInt64
     Blue = 3
 }
 
-public partial class Motor : AXSharp.Connector.ITwinObject
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
+public partial class ConfigMotor : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool isRunning { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-    public Motor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+    public ConfigMotor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
         this.@Connector = parent.GetConnector();
@@ -698,9 +702,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<global::Pocos.ConfigMotor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.ConfigMotor plain = new global::Pocos.ConfigMotor();
         await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.isRunning = isRunning.LastValue;
         return plain;
@@ -708,14 +712,14 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<global::Pocos.Motor> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.ConfigMotor> _OnlineToPlainNoacAsync()
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.ConfigMotor plain = new global::Pocos.ConfigMotor();
         plain.isRunning = isRunning.LastValue;
         return plain;
     }
 
-    protected async Task<global::Pocos.Motor> OnlineToPlainAsync(global::Pocos.Motor plain)
+    protected async Task<global::Pocos.ConfigMotor> OnlineToPlainAsync(global::Pocos.ConfigMotor plain)
     {
         plain.isRunning = isRunning.LastValue;
         return plain;
@@ -726,7 +730,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ConfigMotor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         isRunning.LethargicWrite(plain.isRunning);
@@ -736,7 +740,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(global::Pocos.Motor plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.ConfigMotor plain)
     {
 #pragma warning disable CS0612
         isRunning.LethargicWrite(plain.isRunning);
@@ -748,14 +752,14 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<global::Pocos.Motor> ShadowToPlainAsync()
+    public async Task<global::Pocos.ConfigMotor> ShadowToPlainAsync()
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.ConfigMotor plain = new global::Pocos.ConfigMotor();
         plain.isRunning = isRunning.Shadow;
         return plain;
     }
 
-    protected async Task<global::Pocos.Motor> ShadowToPlainAsync(global::Pocos.Motor plain)
+    protected async Task<global::Pocos.ConfigMotor> ShadowToPlainAsync(global::Pocos.ConfigMotor plain)
     {
         plain.isRunning = isRunning.Shadow;
         return plain;
@@ -766,7 +770,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.ConfigMotor plain)
     {
         isRunning.Shadow = plain.isRunning;
         return this.RetrievePrimitives();
@@ -782,7 +786,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Motor plain, global::Pocos.Motor latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.ConfigMotor plain, global::Pocos.ConfigMotor latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -801,9 +805,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public global::Pocos.Motor CreateEmptyPoco()
+    public global::Pocos.ConfigMotor CreateEmptyPoco()
     {
-        return new global::Pocos.Motor();
+        return new global::Pocos.ConfigMotor();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -887,14 +891,15 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
-public partial class Vehicle : AXSharp.Connector.ITwinObject
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
+public partial class ConfigVehicle : AXSharp.Connector.ITwinObject
 {
-    public Motor m { get; }
+    public ConfigMotor m { get; }
     public OnlinerInt displacement { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-    public Vehicle(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+    public ConfigVehicle(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         this.@SymbolTail = symbolTail;
         this.@Connector = parent.GetConnector();
@@ -902,7 +907,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         HumanReadable = AXSharp.Connector.Connector.CreateHumanReadable(parent.HumanReadable, readableTail);
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
         PreConstruct(parent, readableTail, symbolTail);
-        m = new Motor(this, "m", "m");
+        m = new ConfigMotor(this, "m", "m");
         displacement = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "displacement", "displacement");
         parent.AddChild(this);
         parent.AddKid(this);
@@ -914,9 +919,9 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Vehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<global::Pocos.ConfigVehicle> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
-        global::Pocos.Vehicle plain = new global::Pocos.Vehicle();
+        global::Pocos.ConfigVehicle plain = new global::Pocos.ConfigVehicle();
         await this.ReadAsync<IgnoreOnPocoOperation>(priority);
 #pragma warning disable CS0612
         plain.m = await m._OnlineToPlainNoacAsync();
@@ -927,9 +932,9 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<global::Pocos.Vehicle> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.ConfigVehicle> _OnlineToPlainNoacAsync()
     {
-        global::Pocos.Vehicle plain = new global::Pocos.Vehicle();
+        global::Pocos.ConfigVehicle plain = new global::Pocos.ConfigVehicle();
 #pragma warning disable CS0612
         plain.m = await m._OnlineToPlainNoacAsync();
 #pragma warning restore CS0612
@@ -937,7 +942,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         return plain;
     }
 
-    protected async Task<global::Pocos.Vehicle> OnlineToPlainAsync(global::Pocos.Vehicle plain)
+    protected async Task<global::Pocos.ConfigVehicle> OnlineToPlainAsync(global::Pocos.ConfigVehicle plain)
     {
 #pragma warning disable CS0612
         plain.m = await m._OnlineToPlainNoacAsync();
@@ -951,7 +956,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Vehicle plain, eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.ConfigVehicle plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -964,7 +969,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(global::Pocos.Vehicle plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.ConfigVehicle plain)
     {
 #pragma warning disable CS0612
         await this.m._PlainToOnlineNoacAsync(plain.m);
@@ -979,15 +984,15 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<global::Pocos.Vehicle> ShadowToPlainAsync()
+    public async Task<global::Pocos.ConfigVehicle> ShadowToPlainAsync()
     {
-        global::Pocos.Vehicle plain = new global::Pocos.Vehicle();
+        global::Pocos.ConfigVehicle plain = new global::Pocos.ConfigVehicle();
         plain.m = await m.ShadowToPlainAsync();
         plain.displacement = displacement.Shadow;
         return plain;
     }
 
-    protected async Task<global::Pocos.Vehicle> ShadowToPlainAsync(global::Pocos.Vehicle plain)
+    protected async Task<global::Pocos.ConfigVehicle> ShadowToPlainAsync(global::Pocos.ConfigVehicle plain)
     {
         plain.m = await m.ShadowToPlainAsync();
         plain.displacement = displacement.Shadow;
@@ -999,7 +1004,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Vehicle plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.ConfigVehicle plain)
     {
         await this.m.PlainToShadowAsync(plain.m);
         displacement.Shadow = plain.displacement;
@@ -1016,7 +1021,7 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Vehicle plain, global::Pocos.Vehicle latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.ConfigVehicle plain, global::Pocos.ConfigVehicle latest = null)
     {
         var somethingChanged = false;
         if (latest == null)
@@ -1037,9 +1042,9 @@ public partial class Vehicle : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public global::Pocos.Vehicle CreateEmptyPoco()
+    public global::Pocos.ConfigVehicle CreateEmptyPoco()
     {
-        return new global::Pocos.Vehicle();
+        return new global::Pocos.ConfigVehicle();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();

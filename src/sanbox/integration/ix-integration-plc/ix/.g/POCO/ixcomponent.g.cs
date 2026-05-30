@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"ixcomponent.st")]
     public partial class ixcomponent : AXSharp.Connector.IPlain
     {
         public ixcomponent()
@@ -22,6 +23,7 @@ namespace Pocos
 
     namespace MySecondNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"ixcomponent.st")]
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
             public ixcomponent()
@@ -41,6 +43,7 @@ namespace Pocos
 
     namespace ThirdNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"ixcomponent.st")]
         public partial class ixcomponent : AXSharp.Connector.IPlain
         {
             public ixcomponent()

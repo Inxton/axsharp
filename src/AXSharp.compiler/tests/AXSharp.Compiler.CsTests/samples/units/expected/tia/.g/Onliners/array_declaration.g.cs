@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace ArrayDeclarationSimpleNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"array_declaration.st")]
     public partial class array_declaration_class : AXSharp.Connector.ITwinObject
     {
         public OnlinerInt[] primitive { get; }
@@ -261,6 +262,7 @@ namespace ArrayDeclarationSimpleNamespace
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"array_declaration.st")]
     public partial class some_complex_type : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

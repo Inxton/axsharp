@@ -1,0 +1,7 @@
+name: "@ax/sourcefile"
+version: 0.0.0
+type: app
+authors:
+    - peter
+devDependencies:
+    "@ax/sdk": 2503.1.0

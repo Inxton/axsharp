@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace NamedValuesNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"type_named_values.st")]
     public enum LightColors : Int16
     {
         LRED = 12,
@@ -14,6 +15,7 @@ namespace NamedValuesNamespace
         LBLUE = 23
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"type_named_values.st")]
     public partial class using_type_named_values : AXSharp.Connector.ITwinObject
     {
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(NamedValuesNamespace.LightColors))]

@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace Generics
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_generic_extension.st")]
     public partial class Extender<TOnline, TPlain> : AXSharp.Connector.ITwinObject where TOnline : ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -206,6 +207,7 @@ namespace Generics
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_generic_extension.st")]
     public partial class Extendee : Generics.Extender<Generics.SomeType, Pocos.Generics.SomeType>
     {
         public Generics.SomeType SomeType { get; }
@@ -380,6 +382,7 @@ namespace Generics
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_generic_extension.st")]
     public partial class Extendee2 : Generics.Extender<Generics.SomeType, Pocos.Generics.SomeType>
     {
         public Generics.SomeType SomeType { get; }
@@ -532,6 +535,7 @@ namespace Generics
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_generic_extension.st")]
     public partial class SomeType : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

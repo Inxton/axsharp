@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
     public partial class ComplexForConfig : AXSharp.Connector.IPlain
     {
         public ComplexForConfig()
@@ -37,25 +38,27 @@ namespace Pocos
         public Char myWCHAR { get; set; }
         public string mySTRING { get; set; } = string.Empty;
         public string myWSTRING { get; set; } = string.Empty;
-        public Motor myMotor { get; set; } = new Motor();
+        public ConfigMotor myMotor { get; set; } = new ConfigMotor();
     }
 
-    public partial class Motor : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
+    public partial class ConfigMotor : AXSharp.Connector.IPlain
     {
-        public Motor()
+        public ConfigMotor()
         {
         }
 
         public Boolean isRunning { get; set; }
     }
 
-    public partial class Vehicle : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
+    public partial class ConfigVehicle : AXSharp.Connector.IPlain
     {
-        public Vehicle()
+        public ConfigVehicle()
         {
         }
 
-        public Motor m { get; set; } = new Motor();
+        public ConfigMotor m { get; set; } = new ConfigMotor();
         public Int16 displacement { get; set; }
     }
 }

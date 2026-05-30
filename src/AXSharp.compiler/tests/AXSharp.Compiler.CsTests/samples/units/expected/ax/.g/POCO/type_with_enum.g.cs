@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace Simatic.Ax.StateFramework
     {
+        [AXSharp.Connector.SourceFileAttribute(@"type_with_enum.st")]
         public partial interface IGuard
         {
         }
@@ -13,6 +14,7 @@ namespace Pocos
 
     namespace Simatic.Ax.StateFramework
     {
+        [AXSharp.Connector.SourceFileAttribute(@"type_with_enum.st")]
         public partial class CompareGuardLint : AXSharp.Connector.IPlain, IGuard
         {
             public CompareGuardLint()

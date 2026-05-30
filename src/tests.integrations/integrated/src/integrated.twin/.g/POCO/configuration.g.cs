@@ -5,6 +5,7 @@ using Pocos.RealMonsterData;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
     public partial class Pokus : AXSharp.Connector.IPlain
     {
         public Pokus()
@@ -12,6 +13,7 @@ namespace Pocos
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
     public partial class Nested : AXSharp.Connector.IPlain
     {
         public Nested()

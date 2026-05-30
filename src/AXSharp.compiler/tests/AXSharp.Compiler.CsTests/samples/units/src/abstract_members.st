@@ -1,5 +1,5 @@
 {S7.extern=ReadWrite}
-CLASS ABSTRACT AbstractMotor
+CLASS ABSTRACT AbstractMembersMotor
     VAR PUBLIC
         Run               : BOOL;
         ReverseDirection  : BOOL;

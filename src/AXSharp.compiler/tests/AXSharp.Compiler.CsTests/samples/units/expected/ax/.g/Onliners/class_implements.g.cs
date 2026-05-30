@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_implements.st")]
 public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -204,6 +205,7 @@ public partial class _NULL_CONTEXT : AXSharp.Connector.ITwinObject, IContext
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_implements.st")]
 public partial interface IContext
 {
 }

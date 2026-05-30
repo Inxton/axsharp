@@ -6,25 +6,28 @@ namespace Pocos
 {
     namespace TypeWithNameAttributes
     {
-        public partial class Motor : AXSharp.Connector.IPlain
+        [AXSharp.Connector.SourceFileAttribute(@"types_with_name_attributes.st")]
+        public partial class TypesNameAttrMotor : AXSharp.Connector.IPlain
         {
-            public Motor()
+            public TypesNameAttrMotor()
             {
             }
 
             public Boolean isRunning { get; set; }
         }
 
-        public partial class Vehicle : AXSharp.Connector.IPlain
+        [AXSharp.Connector.SourceFileAttribute(@"types_with_name_attributes.st")]
+        public partial class TypesNameAttrVehicle : AXSharp.Connector.IPlain
         {
-            public Vehicle()
+            public TypesNameAttrVehicle()
             {
             }
 
-            public TypeWithNameAttributes.Motor m { get; set; } = new TypeWithNameAttributes.Motor();
+            public TypeWithNameAttributes.TypesNameAttrMotor m { get; set; } = new TypeWithNameAttributes.TypesNameAttrMotor();
             public Int16 displacement { get; set; }
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"types_with_name_attributes.st")]
         public partial class NoAccessModifierClass : AXSharp.Connector.IPlain
         {
             public NoAccessModifierClass()

@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace makereadonly
     {
+        [AXSharp.Connector.SourceFileAttribute(@"makereadonly.st")]
         public partial class MembersWithMakeReadOnly : AXSharp.Connector.IPlain
         {
             public MembersWithMakeReadOnly()
@@ -18,6 +19,7 @@ namespace Pocos
             public makereadonly.ComplexMember someotherComplexMember { get; set; } = new makereadonly.ComplexMember();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"makereadonly.st")]
         public partial class ComplexMember : AXSharp.Connector.IPlain
         {
             public ComplexMember()

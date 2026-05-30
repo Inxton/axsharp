@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace MonsterData
     {
+        [AXSharp.Connector.SourceFileAttribute(@"monster.st")]
         public partial class MonsterBase : AXSharp.Connector.IPlain
         {
             public MonsterBase()
@@ -23,6 +24,7 @@ namespace Pocos
             public ixcomponent[] ArrayOfIxComponent { get; set; } = new ixcomponent[4];
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"monster.st")]
         public partial class Monster : MonsterData.MonsterBase, AXSharp.Connector.IPlain
         {
             public Monster() : base()
@@ -32,6 +34,7 @@ namespace Pocos
             public MonsterData.DriveBase DriveA { get; set; } = new MonsterData.DriveBase();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"monster.st")]
         public partial class DriveBase : AXSharp.Connector.IPlain
         {
             public DriveBase()

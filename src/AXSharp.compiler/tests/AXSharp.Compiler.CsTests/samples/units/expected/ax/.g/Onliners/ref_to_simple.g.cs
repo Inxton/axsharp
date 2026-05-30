@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace RefToSimple
 {
+    [AXSharp.Connector.SourceFileAttribute(@"ref_to_simple.st")]
     public partial class ref_to_simple : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -206,6 +207,7 @@ namespace RefToSimple
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"ref_to_simple.st")]
     public partial class referenced : AXSharp.Connector.ITwinObject
     {
         public OnlinerInt b { get; }

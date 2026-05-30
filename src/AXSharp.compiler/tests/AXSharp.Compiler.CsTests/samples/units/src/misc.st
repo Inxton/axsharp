@@ -23,7 +23,7 @@ NAMESPACE misc
     CLASS PUBLIC VariousMembers
         VAR PUBLIC
             _SomeClass : SomeClass;  
-            _Motor : Motor;  
+            _Motor : MiscMotor;  
         END_VAR    
     END_CLASS    
     
@@ -36,12 +36,12 @@ NAMESPACE misc
 
     TYPE
         {S7.extern=ReadWrite}
-        Motor : STRUCT
+        MiscMotor : STRUCT
             isRunning : BOOL;
         END_STRUCT;
         {S7.extern=ReadWrite}
-        Vehicle : STRUCT
-            m : Motor;
+        MiscVehicle : STRUCT
+            m : MiscMotor;
             displacement : INT;
         END_STRUCT;
     END_TYPE

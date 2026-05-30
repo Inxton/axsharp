@@ -71,8 +71,9 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
 
         var classDeclarations = this.Compilation.GetSemanticTree().Classes
             .Where(p => p.FullyQualifiedName == classDeclaration.GetQualifiedName());
+        AddToSource(classDeclaration.GetSourceFileAttribute(Project.AxProject));
         AddToSource(classDeclaration.Pragmas.AddedPropertiesAsAttributes());
-        
+
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}");
        
         var isExtended = false;
@@ -268,6 +269,7 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IInterfaceDeclaration interfaceDeclaration,
         IxNodeVisitor visitor)
     {
+        AddToSource(interfaceDeclaration.GetSourceFileAttribute(Project.AxProject));
         AddToSource($"{interfaceDeclaration.AccessModifier.Transform()} partial interface {interfaceDeclaration.Name} {{}}");
     }
 
@@ -348,7 +350,8 @@ public class CsPlainSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         IxNodeVisitor visitor)
     {
         TypeCommAccessibility = structuredTypeDeclaration.GetCommAccessibility(this);
-                
+
+        AddToSource(structuredTypeDeclaration.GetSourceFileAttribute(Project.AxProject));
         AddToSource(
             $"{structuredTypeDeclaration.AccessModifier.Transform()}partial class {structTypeDeclarationSyntax.Name.Text} : AXSharp.Connector.IPlain");
         AddToSource("{");

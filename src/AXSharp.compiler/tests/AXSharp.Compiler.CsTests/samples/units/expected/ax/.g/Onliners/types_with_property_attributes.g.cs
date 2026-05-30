@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace TypesWithPropertyAttributes
 {
+    [AXSharp.Connector.SourceFileAttribute(@"types_with_property_attributes.st")]
     public partial class SomeAddedProperties : AXSharp.Connector.ITwinObject
     {
         private string _Description;

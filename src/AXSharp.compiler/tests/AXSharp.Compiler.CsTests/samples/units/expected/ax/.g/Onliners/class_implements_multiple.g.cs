@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_implements_multiple.st")]
 public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, IContext_Multiple, IObject_Multiple
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -204,10 +205,12 @@ public partial class _NULL_CONTEXT_MULTIPLE : AXSharp.Connector.ITwinObject, ICo
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_implements_multiple.st")]
 public partial interface IContext_Multiple
 {
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_implements_multiple.st")]
 public partial interface IObject_Multiple
 {
 }

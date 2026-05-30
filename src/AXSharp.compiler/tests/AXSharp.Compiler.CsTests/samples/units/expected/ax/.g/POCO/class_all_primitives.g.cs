@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_all_primitives.st")]
     public partial class class_all_primitives : AXSharp.Connector.IPlain
     {
         public class_all_primitives()

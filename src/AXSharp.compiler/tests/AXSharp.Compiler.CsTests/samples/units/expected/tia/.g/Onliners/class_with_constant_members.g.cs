@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace ClassWithConstantMembersNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_constant_members.st")]
     public partial class ClassWithConstantMembers : AXSharp.Connector.ITwinObject
     {
         public OnlinerInt myNonConstant { get; }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends_and_implements.st")]
 public partial class ExtendsAndImplements : ExtendeeExtendsAndImplements, IImplementation1, IImplementation2
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -134,6 +135,7 @@ public partial class ExtendsAndImplements : ExtendeeExtendsAndImplements, IImple
     }
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends_and_implements.st")]
 public partial class ExtendeeExtendsAndImplements : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -333,10 +335,12 @@ public partial class ExtendeeExtendsAndImplements : AXSharp.Connector.ITwinObjec
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends_and_implements.st")]
 public partial interface IImplementation1
 {
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends_and_implements.st")]
 public partial interface IImplementation2
 {
 }
