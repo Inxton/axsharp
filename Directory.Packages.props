@@ -68,4 +68,9 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0" />
   </ItemGroup>
+  <!-- Security: transitive vulnerability pins (managed by scripts/update-vulnerable-deps.ps1) -->
+  <ItemGroup>
+    <PackageVersion Include="System.Security.Cryptography.Xml" Version="10.0.6" />
+    <PackageVersion Include="NuGet.Protocol" Version="6.11.2" />
+  </ItemGroup>
 </Project>
