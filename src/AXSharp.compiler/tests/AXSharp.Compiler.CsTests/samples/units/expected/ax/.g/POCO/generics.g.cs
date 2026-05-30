@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace GenericsTests
     {
+        [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
         public partial class Extender : AXSharp.Connector.IPlain
         {
             public Extender()
@@ -13,6 +14,7 @@ namespace Pocos
             }
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
         public partial class SomeTypeToBeGeneric : AXSharp.Connector.IPlain
         {
             public SomeTypeToBeGeneric()
@@ -23,6 +25,7 @@ namespace Pocos
             public Int16 Cele { get; set; }
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
         public partial class Extendee2 : GenericsTests.Extender, AXSharp.Connector.IPlain
         {
             public Extendee2() : base()

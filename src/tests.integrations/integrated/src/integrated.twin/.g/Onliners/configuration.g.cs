@@ -6,6 +6,7 @@ using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 using RealMonsterData;
 
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
 public partial class Pokus : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -205,6 +206,7 @@ public partial class Pokus : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"configuration.st")]
 public partial class Nested : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

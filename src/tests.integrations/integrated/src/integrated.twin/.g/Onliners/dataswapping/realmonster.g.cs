@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace RealMonsterData
 {
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class RealMonsterBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerString Description { get; }
@@ -341,6 +342,7 @@ namespace RealMonsterData
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class RealMonster : RealMonsterData.RealMonsterBase
     {
         public RealMonsterData.DriveBaseNested DriveA { get; }
@@ -493,6 +495,7 @@ namespace RealMonsterData
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class DriveBaseNested : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
@@ -779,6 +782,7 @@ namespace RealMonsterData
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class NestedLevelOne : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
@@ -1065,6 +1069,7 @@ namespace RealMonsterData
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class NestedLevelTwo : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }
@@ -1351,6 +1356,7 @@ namespace RealMonsterData
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
     public partial class NestedLevelThree : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }

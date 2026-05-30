@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace ClassWithPrimitiveTypesNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_primitive_members.st")]
     public partial class ClassWithPrimitiveTypes : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool myBOOL { get; }

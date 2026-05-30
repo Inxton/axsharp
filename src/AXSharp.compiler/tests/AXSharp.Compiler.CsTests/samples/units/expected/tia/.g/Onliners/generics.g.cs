@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace GenericsTests
 {
+    [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
     public partial class Extender<TOnline, TPlain> : AXSharp.Connector.ITwinObject where TOnline : ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -206,6 +207,7 @@ namespace GenericsTests
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
     public partial class SomeTypeToBeGeneric : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool Boolean { get; }
@@ -438,6 +440,7 @@ namespace GenericsTests
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"generics.st")]
     public partial class Extendee2 : GenericsTests.Extender<GenericsTests.SomeTypeToBeGeneric, Pocos.GenericsTests.SomeTypeToBeGeneric>
     {
         [AXOpen.Data.AxoDataEntityAttribute]

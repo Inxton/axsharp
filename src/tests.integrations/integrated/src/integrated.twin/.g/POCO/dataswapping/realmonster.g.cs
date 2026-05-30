@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace RealMonsterData
     {
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class RealMonsterBase : AXSharp.Connector.IPlain
         {
             public RealMonsterBase()
@@ -24,6 +25,7 @@ namespace Pocos
             public RealMonsterData.DriveBaseNested[] ArrayOfDrives { get; set; } = new RealMonsterData.DriveBaseNested[4];
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class RealMonster : RealMonsterData.RealMonsterBase, AXSharp.Connector.IPlain
         {
             public RealMonster() : base()
@@ -33,6 +35,7 @@ namespace Pocos
             public RealMonsterData.DriveBaseNested DriveA { get; set; } = new RealMonsterData.DriveBaseNested();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class DriveBaseNested : AXSharp.Connector.IPlain
         {
             public DriveBaseNested()
@@ -46,6 +49,7 @@ namespace Pocos
             public RealMonsterData.NestedLevelOne NestedLevelOne { get; set; } = new RealMonsterData.NestedLevelOne();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class NestedLevelOne : AXSharp.Connector.IPlain
         {
             public NestedLevelOne()
@@ -59,6 +63,7 @@ namespace Pocos
             public RealMonsterData.NestedLevelTwo NestedLevelTwo { get; set; } = new RealMonsterData.NestedLevelTwo();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class NestedLevelTwo : AXSharp.Connector.IPlain
         {
             public NestedLevelTwo()
@@ -72,6 +77,7 @@ namespace Pocos
             public RealMonsterData.NestedLevelThree NestedLevelThree { get; set; } = new RealMonsterData.NestedLevelThree();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"dataswapping/realmonster.st")]
         public partial class NestedLevelThree : AXSharp.Connector.IPlain
         {
             public NestedLevelThree()

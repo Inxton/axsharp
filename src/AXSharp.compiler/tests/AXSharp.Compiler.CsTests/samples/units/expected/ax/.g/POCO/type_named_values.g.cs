@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace NamedValuesNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"type_named_values.st")]
         public partial class using_type_named_values : AXSharp.Connector.IPlain
         {
             public using_type_named_values()

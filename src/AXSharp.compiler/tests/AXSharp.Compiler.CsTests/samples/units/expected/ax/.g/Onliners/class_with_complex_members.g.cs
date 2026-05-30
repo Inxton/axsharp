@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace ClassWithComplexTypesNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_complex_members.st")]
     public partial class ClassWithComplexTypes : AXSharp.Connector.ITwinObject
     {
         public ClassWithComplexTypesNamespace.ComplexType1 myComplexType { get; }
@@ -229,6 +230,7 @@ namespace ClassWithComplexTypesNamespace
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_complex_members.st")]
     public partial class ComplexType1 : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

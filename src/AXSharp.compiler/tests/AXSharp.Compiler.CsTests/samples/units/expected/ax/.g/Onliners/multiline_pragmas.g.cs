@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace MultilinePragmas
 {
+    [AXSharp.Connector.SourceFileAttribute(@"multiline_pragmas.st")]
     public partial class Extendee2 : AXSharp.Connector.ITwinObject
     {
         public OnlinerInt _messge { get; }

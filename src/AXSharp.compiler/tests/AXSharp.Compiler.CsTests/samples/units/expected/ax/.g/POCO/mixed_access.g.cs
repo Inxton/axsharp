@@ -4,15 +4,17 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    public partial class Motor : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
+    public partial class MixedAccessMotor : AXSharp.Connector.IPlain
     {
-        public Motor()
+        public MixedAccessMotor()
         {
         }
 
         public Boolean Run { get; set; }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class struct1 : AXSharp.Connector.IPlain
     {
         public struct1()
@@ -22,6 +24,7 @@ namespace Pocos
         public struct2 s2 { get; set; } = new struct2();
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class struct2 : AXSharp.Connector.IPlain
     {
         public struct2()
@@ -31,6 +34,7 @@ namespace Pocos
         public struct3 s3 { get; set; } = new struct3();
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class struct3 : AXSharp.Connector.IPlain
     {
         public struct3()
@@ -40,6 +44,7 @@ namespace Pocos
         public struct4 s4 { get; set; } = new struct4();
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class struct4 : AXSharp.Connector.IPlain
     {
         public struct4()
@@ -49,6 +54,7 @@ namespace Pocos
         public Int16 s5 { get; set; }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class AbstractMotor : AXSharp.Connector.IPlain
     {
         public AbstractMotor()
@@ -59,6 +65,7 @@ namespace Pocos
         public Boolean ReverseDirection { get; set; }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class GenericMotor : AbstractMotor, AXSharp.Connector.IPlain
     {
         public GenericMotor() : base()
@@ -66,6 +73,7 @@ namespace Pocos
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
     public partial class SpecificMotorA : GenericMotor, AXSharp.Connector.IPlain
     {
         public SpecificMotorA() : base()

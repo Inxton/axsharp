@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace MonsterData
 {
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/moster.st")]
     public partial class MonsterBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerString Description { get; }
@@ -335,6 +336,7 @@ namespace MonsterData
         public AXSharp.Connector.Localizations.Translator Interpreter => global::integrated.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/moster.st")]
     public partial class Monster : MonsterData.MonsterBase
     {
         public MonsterData.DriveBase DriveA { get; }
@@ -487,6 +489,7 @@ namespace MonsterData
         }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"dataswapping/moster.st")]
     public partial class DriveBase : AXSharp.Connector.ITwinObject
     {
         public OnlinerLReal Position { get; }

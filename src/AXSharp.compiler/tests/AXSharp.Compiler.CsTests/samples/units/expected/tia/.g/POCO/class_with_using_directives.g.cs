@@ -8,6 +8,7 @@ namespace Pocos
     using SimpleQualifiedNamespace.Qualified;
     using HelloLevelOne.HelloLevelTwo;
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_using_directives.st")]
     internal partial class ClassWithUsingDirectives : AXSharp.Connector.IPlain
     {
         public ClassWithUsingDirectives()

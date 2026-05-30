@@ -22,7 +22,7 @@ NAMESPACE CompilerOmmits
     END_CLASS    
 END_NAMESPACE
 
-NAMESPACE Enums
+NAMESPACE CompilerOmmitsEnums
     {S7.extern=ReadWrite}
     CLASS ClassWithEnums
         VAR PUBLIC              
@@ -42,12 +42,12 @@ NAMESPACE Enums
       
 END_NAMESPACE
 
-NAMESPACE misc
+NAMESPACE CompilerOmmitsMisc
     {S7.extern=ReadWrite}
     CLASS PUBLIC VariousMembers
         VAR PUBLIC
             _SomeClass : SomeClass;  
-            _Motor : Motor;  
+            _Motor : ComersMotor;  
         END_VAR    
     END_CLASS    
     
@@ -60,18 +60,18 @@ NAMESPACE misc
 
     TYPE
         {S7.extern=ReadWrite}
-        Motor : STRUCT
+        ComersMotor : STRUCT
             isRunning : BOOL;
         END_STRUCT;
         {S7.extern=ReadWrite}
-        Vehicle : STRUCT
-            m : Motor;
+        ComersVehicle : STRUCT
+            m : ComersMotor;
             displacement : INT;
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
 
-NAMESPACE UnknownArraysShouldNotBeTraspiled
+NAMESPACE CompilerOmmitsUnknownArrays
     {S7.extern=ReadWrite}
     CLASS ClassWithArrays
         VAR PUBLIC
@@ -79,16 +79,16 @@ NAMESPACE UnknownArraysShouldNotBeTraspiled
             _complexUnknown : ARRAY [0..10] OF ComplexUnknown;
             _primitive  : ARRAY[0..10] OF BYTE;
         END_VAR
-        
+
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Complex 
+    CLASS PUBLIC Complex
         VAR PUBLIC
             HelloString : STRING;
             Id : ULINT;
-        END_VAR        
-    END_CLASS    
+        END_VAR
+    END_CLASS
 END_NAMESPACE
 
 

@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"weather.st")]
     public partial class weather : AXSharp.Connector.IPlain
     {
         public weather()
@@ -20,6 +21,7 @@ namespace Pocos
         public global::Feeling Feeling { get; set; }
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"weather.st")]
     public partial class weathers : AXSharp.Connector.IPlain
     {
         public weathers()

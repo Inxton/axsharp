@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"dataswapping/all_primitives.st")]
 public partial class all_primitives : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool myBOOL { get; }

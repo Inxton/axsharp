@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace ClassWithNonTraspilableMemberssNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_non_public_members.st")]
     public partial class ClassWithNonTraspilableMembers : AXSharp.Connector.ITwinObject
     {
         public ClassWithNonTraspilableMemberssNamespace.ComplexType1 myComplexType { get; }
@@ -237,6 +238,7 @@ namespace ClassWithNonTraspilableMemberssNamespace
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"class_with_non_public_members.st")]
     public partial class ComplexType1 : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

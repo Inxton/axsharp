@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace ClassWithPrimitiveTypesNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"class_with_primitive_members.st")]
         public partial class ClassWithPrimitiveTypes : AXSharp.Connector.IPlain
         {
             public ClassWithPrimitiveTypes()

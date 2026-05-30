@@ -4,22 +4,24 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    public partial class Motor : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"struct_simple.st")]
+    public partial class StructSimpleMotor : AXSharp.Connector.IPlain
     {
-        public Motor()
+        public StructSimpleMotor()
         {
         }
 
         public Boolean isRunning { get; set; }
     }
 
-    public partial class Vehicle : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"struct_simple.st")]
+    public partial class StructSimpleVehicle : AXSharp.Connector.IPlain
     {
-        public Vehicle()
+        public StructSimpleVehicle()
         {
         }
 
-        public Motor m { get; set; } = new Motor();
+        public StructSimpleMotor m { get; set; } = new StructSimpleMotor();
         public Int16 displacement { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace makereadonly
 {
+    [AXSharp.Connector.SourceFileAttribute(@"makereadonly.st")]
     public partial class MembersWithMakeReadOnly : AXSharp.Connector.ITwinObject
     {
         [ReadOnly()]
@@ -288,6 +289,7 @@ namespace makereadonly
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"makereadonly.st")]
     public partial class ComplexMember : AXSharp.Connector.ITwinObject
     {
         public OnlinerString someMember { get; }

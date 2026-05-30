@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace sampleNamespace
 {
+    [AXSharp.Connector.SourceFileAttribute(@"simple_empty_class_within_namespace.st")]
     public partial class simple_empty_class_within_namespace : AXSharp.Connector.ITwinObject
     {
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace Enums
     {
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
         public partial class ClassWithEnums : AXSharp.Connector.IPlain
         {
             public ClassWithEnums()
@@ -22,6 +23,7 @@ namespace Pocos
 
     namespace misc
     {
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
         public partial class VariousMembers : AXSharp.Connector.IPlain
         {
             public VariousMembers()
@@ -29,9 +31,10 @@ namespace Pocos
             }
 
             public misc.SomeClass _SomeClass { get; set; } = new misc.SomeClass();
-            public misc.Motor _Motor { get; set; } = new misc.Motor();
+            public misc.MiscMotor _Motor { get; set; } = new misc.MiscMotor();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
         public partial class SomeClass : AXSharp.Connector.IPlain
         {
             public SomeClass()
@@ -41,28 +44,31 @@ namespace Pocos
             public string SomeClassVariable { get; set; } = string.Empty;
         }
 
-        public partial class Motor : AXSharp.Connector.IPlain
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
+        public partial class MiscMotor : AXSharp.Connector.IPlain
         {
-            public Motor()
+            public MiscMotor()
             {
             }
 
             public Boolean isRunning { get; set; }
         }
 
-        public partial class Vehicle : AXSharp.Connector.IPlain
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
+        public partial class MiscVehicle : AXSharp.Connector.IPlain
         {
-            public Vehicle()
+            public MiscVehicle()
             {
             }
 
-            public misc.Motor m { get; set; } = new misc.Motor();
+            public misc.MiscMotor m { get; set; } = new misc.MiscMotor();
             public Int16 displacement { get; set; }
         }
     }
 
     namespace UnknownArraysShouldNotBeTraspiled
     {
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
         public partial class ClassWithArrays : AXSharp.Connector.IPlain
         {
             public ClassWithArrays()
@@ -76,6 +82,7 @@ namespace Pocos
             public Byte[] _primitive { get; set; } = new Byte[11];
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"misc.st")]
         public partial class Complex : AXSharp.Connector.IPlain
         {
             public Complex()

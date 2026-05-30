@@ -4,6 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
+    [AXSharp.Connector.SourceFileAttribute(@"test/border.st")]
     public partial class border : AXSharp.Connector.IPlain
     {
         public border()

@@ -69,8 +69,8 @@ public partial class unitsTwinController : ITwinController
     public Colorsss Colorsss2Enum { get => (Colorsss)Colorsss2.LastValue; }
     public OnlinerBool MotorOn { get; }
     public OnlinerInt MotorState { get; }
-    public Motor Motor1 { get; }
-    public Motor Motor2 { get; }
+    public MixedAccessMotor Motor1 { get; }
+    public MixedAccessMotor Motor2 { get; }
     public struct1 s1 { get; }
     public struct4 s4 { get; }
     public SpecificMotorA mot1 { get; }
@@ -123,8 +123,8 @@ public partial class unitsTwinController : ITwinController
         Colorsss2 = @Connector.ConnectorAdapter.AdapterFactory.CreateULINT(this, "Colorsss2", "Colorsss2");
         MotorOn = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this.Connector, "", "MotorOn");
         MotorState = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this.Connector, "", "MotorState");
-        Motor1 = new Motor(this.Connector, "", "Motor1");
-        Motor2 = new Motor(this.Connector, "", "Motor2");
+        Motor1 = new MixedAccessMotor(this.Connector, "", "Motor1");
+        Motor2 = new MixedAccessMotor(this.Connector, "", "Motor2");
         s1 = new struct1(this.Connector, "", "s1");
         s4 = new struct4(this.Connector, "", "s4");
         mot1 = new SpecificMotorA(this.Connector, "", "mot1");
@@ -176,8 +176,8 @@ public partial class unitsTwinController : ITwinController
         Colorsss2 = @Connector.ConnectorAdapter.AdapterFactory.CreateULINT(this, "Colorsss2", "Colorsss2");
         MotorOn = @Connector.ConnectorAdapter.AdapterFactory.CreateBOOL(this.Connector, "", "MotorOn");
         MotorState = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this.Connector, "", "MotorState");
-        Motor1 = new Motor(this.Connector, "", "Motor1");
-        Motor2 = new Motor(this.Connector, "", "Motor2");
+        Motor1 = new MixedAccessMotor(this.Connector, "", "Motor1");
+        Motor2 = new MixedAccessMotor(this.Connector, "", "Motor2");
         s1 = new struct1(this.Connector, "", "s1");
         s4 = new struct4(this.Connector, "", "s4");
         mot1 = new SpecificMotorA(this.Connector, "", "mot1");

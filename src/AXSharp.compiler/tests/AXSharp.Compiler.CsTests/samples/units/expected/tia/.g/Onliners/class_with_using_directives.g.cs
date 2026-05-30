@@ -8,6 +8,7 @@ using SimpleFirstLevelNamespace;
 using SimpleQualifiedNamespace.Qualified;
 using HelloLevelOne.HelloLevelTwo;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_with_using_directives.st")]
 internal partial class ClassWithUsingDirectives : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

@@ -4,9 +4,10 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    public partial class AbstractMotor : AXSharp.Connector.IPlain
+    [AXSharp.Connector.SourceFileAttribute(@"abstract_members.st")]
+    public partial class AbstractMembersMotor : AXSharp.Connector.IPlain
     {
-        public AbstractMotor()
+        public AbstractMembersMotor()
         {
         }
 

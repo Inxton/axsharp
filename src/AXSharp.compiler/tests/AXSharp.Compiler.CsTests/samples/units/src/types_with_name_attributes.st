@@ -2,12 +2,12 @@ NAMESPACE TypeWithNameAttributes
     TYPE
         {#ix-attr:[Container(Layout.Wrap)]}
         {S7.extern=ReadWrite}
-        Motor : STRUCT           
+        TypesNameAttrMotor : STRUCT           
             isRunning : BOOL;
         END_STRUCT;
         {S7.extern=ReadWrite}
-        Vehicle : STRUCT
-            m : Motor;
+        TypesNameAttrVehicle : STRUCT
+            m : TypesNameAttrMotor;
             displacement : INT;
         END_STRUCT;
     END_TYPE

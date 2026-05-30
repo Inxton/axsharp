@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace Simatic.Ax.StateFramework
 {
+    [AXSharp.Connector.SourceFileAttribute(@"type_named_values_literals.st")]
     public enum StateControllerStatus : UInt16
     {
         STATUS_NO_ERR = 28672,
@@ -16,6 +17,7 @@ namespace Simatic.Ax.StateFramework
         STATUS_NO_NEXTSTATE = 33025
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"type_named_values_literals.st")]
     public partial class using_type_named_values : AXSharp.Connector.ITwinObject
     {
         [AXSharp.Connector.EnumeratorDiscriminatorAttribute(typeof(Simatic.Ax.StateFramework.StateControllerStatus))]

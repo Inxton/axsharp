@@ -9,10 +9,10 @@ CONFIGURATION config
         MotorFlags: UINT;           // variable is not accessible by an external system (default: hidden)
 		
         {S7.extern=ReadWrite}
-        Motor1 : Motor;        // the variables in Motor1 be read and written if enabled
+        Motor1 : MixedAccessMotor;        // the variables in Motor1 be read and written if enabled
 
         {S7.extern=ReadOnly}
-        Motor2 : Motor;        // the variables in Motor2 be only read if enabled
+        Motor2 : MixedAccessMotor;        // the variables in Motor2 be only read if enabled
 
         {S7.extern=ReadWrite}
         s1 : struct1;
@@ -24,7 +24,7 @@ CONFIGURATION config
     END_VAR
 END_CONFIGURATION
 
-CLASS Motor
+CLASS MixedAccessMotor
     VAR PUBLIC
         {S7.extern=ReadWrite}
         Run               : BOOL;

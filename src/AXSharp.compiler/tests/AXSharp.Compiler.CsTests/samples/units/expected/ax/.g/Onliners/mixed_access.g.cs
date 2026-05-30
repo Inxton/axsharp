@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
-public partial class Motor : AXSharp.Connector.ITwinObject
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
+public partial class MixedAccessMotor : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool Run { get; }
     internal OnlinerLReal ActualVelocity { get; }
 
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
     partial void PostConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
-    public Motor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
+    public MixedAccessMotor(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail)
     {
         Symbol = AXSharp.Connector.Connector.CreateSymbol(parent.Symbol, symbolTail);
         this.@SymbolTail = symbolTail;
@@ -32,9 +33,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.OnlineToPlainAsync(priority);
     }
 
-    public async Task<global::Pocos.Motor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<global::Pocos.MixedAccessMotor> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.MixedAccessMotor plain = new global::Pocos.MixedAccessMotor();
         await this.ReadAsync<IgnoreOnPocoOperation>(priority);
         plain.Run = Run.LastValue;
         return plain;
@@ -42,16 +43,16 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task<global::Pocos.Motor> _OnlineToPlainNoacAsync()
+    public async Task<global::Pocos.MixedAccessMotor> _OnlineToPlainNoacAsync()
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.MixedAccessMotor plain = new global::Pocos.MixedAccessMotor();
         plain.Run = Run.LastValue;
         return plain;
     }
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `OnlineToPlain` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    protected async Task<global::Pocos.Motor> _OnlineToPlainNoacAsync(global::Pocos.Motor plain)
+    protected async Task<global::Pocos.MixedAccessMotor> _OnlineToPlainNoacAsync(global::Pocos.MixedAccessMotor plain)
     {
         plain.Run = Run.LastValue;
         return plain;
@@ -62,7 +63,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToOnlineAsync((dynamic)plain, priority);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.Motor plain, eAccessPriority priority = eAccessPriority.Normal)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.MixedAccessMotor plain, eAccessPriority priority = eAccessPriority.Normal)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -72,7 +73,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
 
     [Obsolete("This method should not be used if you indent to access the controllers data. Use `PlainToOnline` instead.")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-    public async Task _PlainToOnlineNoacAsync(global::Pocos.Motor plain)
+    public async Task _PlainToOnlineNoacAsync(global::Pocos.MixedAccessMotor plain)
     {
 #pragma warning disable CS0612
         Run.LethargicWrite(plain.Run);
@@ -84,14 +85,14 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         return await (dynamic)this.ShadowToPlainAsync();
     }
 
-    public async Task<global::Pocos.Motor> ShadowToPlainAsync()
+    public async Task<global::Pocos.MixedAccessMotor> ShadowToPlainAsync()
     {
-        global::Pocos.Motor plain = new global::Pocos.Motor();
+        global::Pocos.MixedAccessMotor plain = new global::Pocos.MixedAccessMotor();
         plain.Run = Run.Shadow;
         return plain;
     }
 
-    protected async Task<global::Pocos.Motor> ShadowToPlainAsync(global::Pocos.Motor plain)
+    protected async Task<global::Pocos.MixedAccessMotor> ShadowToPlainAsync(global::Pocos.MixedAccessMotor plain)
     {
         plain.Run = Run.Shadow;
         return plain;
@@ -102,7 +103,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         await this.PlainToShadowAsync((dynamic)plain);
     }
 
-    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.Motor plain)
+    public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(global::Pocos.MixedAccessMotor plain)
     {
         Run.Shadow = plain.Run;
         return this.RetrievePrimitives();
@@ -118,7 +119,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     ///Compares if the current plain object has changed from the previous object.This method is used by the framework to determine if the object has changed and needs to be updated.
     ///[!NOTE] Any member in the hierarchy that is ignored by the compilers (e.g. when CompilerOmitAttribute is used) will not be compared, and therefore will not be detected as changed.
     ///</summary>
-    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.Motor plain, global::Pocos.Motor latest = null)
+    public async Task<bool> DetectsAnyChangeAsync(global::Pocos.MixedAccessMotor plain, global::Pocos.MixedAccessMotor latest = null)
     {
         if (latest == null)
             latest = await this._OnlineToPlainNoacAsync();
@@ -137,9 +138,9 @@ public partial class Motor : AXSharp.Connector.ITwinObject
         this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
     }
 
-    public global::Pocos.Motor CreateEmptyPoco()
+    public global::Pocos.MixedAccessMotor CreateEmptyPoco()
     {
-        return new global::Pocos.Motor();
+        return new global::Pocos.MixedAccessMotor();
     }
 
     private IList<AXSharp.Connector.ITwinObject> Children { get; } = new List<AXSharp.Connector.ITwinObject>();
@@ -223,6 +224,7 @@ public partial class Motor : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class struct1 : AXSharp.Connector.ITwinObject
 {
     public struct2 s2 { get; }
@@ -443,6 +445,7 @@ public partial class struct1 : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class struct2 : AXSharp.Connector.ITwinObject
 {
     public struct3 s3 { get; }
@@ -663,6 +666,7 @@ public partial class struct2 : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class struct3 : AXSharp.Connector.ITwinObject
 {
     public struct4 s4 { get; }
@@ -883,6 +887,7 @@ public partial class struct3 : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class struct4 : AXSharp.Connector.ITwinObject
 {
     public OnlinerInt s5 { get; }
@@ -1097,6 +1102,7 @@ public partial class struct4 : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class AbstractMotor : AXSharp.Connector.ITwinObject
 {
     public OnlinerBool Run { get; }
@@ -1329,6 +1335,7 @@ public partial class AbstractMotor : AXSharp.Connector.ITwinObject
     public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class GenericMotor : AbstractMotor
 {
     internal OnlinerLReal ActualVelocity { get; }
@@ -1461,6 +1468,7 @@ public partial class GenericMotor : AbstractMotor
     }
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"mixed_access.st")]
 public partial class SpecificMotorA : GenericMotor
 {
     internal OnlinerLReal MaxAcceleration { get; }

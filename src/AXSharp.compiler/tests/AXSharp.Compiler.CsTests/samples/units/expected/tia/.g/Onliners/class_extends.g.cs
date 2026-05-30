@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends.st")]
 public partial class Extended : Extendee
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);
@@ -134,6 +135,7 @@ public partial class Extended : Extendee
     }
 }
 
+[AXSharp.Connector.SourceFileAttribute(@"class_extends.st")]
 public partial class Extendee : AXSharp.Connector.ITwinObject
 {
     partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

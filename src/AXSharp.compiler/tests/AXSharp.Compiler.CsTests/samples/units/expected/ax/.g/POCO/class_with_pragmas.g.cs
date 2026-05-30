@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace ClassWithPragmasNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"class_with_pragmas.st")]
         public partial class ClassWithPragmas : AXSharp.Connector.IPlain
         {
             public ClassWithPragmas()
@@ -15,6 +16,7 @@ namespace Pocos
             public ClassWithPragmasNamespace.ComplexType1 myComplexType { get; set; } = new ClassWithPragmasNamespace.ComplexType1();
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"class_with_pragmas.st")]
         public partial class ComplexType1 : AXSharp.Connector.IPlain
         {
             public ComplexType1()

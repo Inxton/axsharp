@@ -1,11 +1,11 @@
 TYPE
     {S7.extern=ReadWrite}
-    Motor : STRUCT
+    StructSimpleMotor : STRUCT
         isRunning : BOOL;
     END_STRUCT;
     {S7.extern=ReadWrite}
-    Vehicle : STRUCT
-        m : Motor;
+    StructSimpleVehicle : STRUCT
+        m : StructSimpleMotor;
         displacement : INT;
     END_STRUCT;
 END_TYPE

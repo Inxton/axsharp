@@ -9,6 +9,7 @@ namespace Pocos
 {
     namespace FileWithUsingsSimpleFirstLevelNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
         public partial class Hello : AXSharp.Connector.IPlain
         {
             public Hello()
@@ -19,6 +20,7 @@ namespace Pocos
 
     namespace FileWithUsingsSimpleQualifiedNamespace.Qualified
     {
+        [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
         public partial class Hello : AXSharp.Connector.IPlain
         {
             public Hello()
@@ -31,6 +33,7 @@ namespace Pocos
     {
         namespace FileWithUsingsHelloLevelTwo
         {
+            [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
             public partial class Hello : AXSharp.Connector.IPlain
             {
                 public Hello()
@@ -42,6 +45,7 @@ namespace Pocos
 
     namespace ExampleNamespace
     {
+        [AXSharp.Connector.SourceFileAttribute(@"file_with_usings.st")]
         public partial class Hello : AXSharp.Connector.IPlain
         {
             public Hello()

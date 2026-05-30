@@ -6,6 +6,7 @@ namespace Pocos
 {
     namespace MeasurementExample
     {
+        [AXSharp.Connector.SourceFileAttribute(@"measurement.st")]
         public partial class Measurement : AXSharp.Connector.IPlain
         {
             public Measurement()
@@ -26,6 +27,7 @@ namespace Pocos
             public Int16 Result { get; set; }
         }
 
+        [AXSharp.Connector.SourceFileAttribute(@"measurement.st")]
         public partial class Measurements : AXSharp.Connector.IPlain
         {
             public Measurements()

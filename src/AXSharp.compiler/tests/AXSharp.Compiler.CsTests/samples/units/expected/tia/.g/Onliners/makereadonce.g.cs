@@ -7,6 +7,7 @@ using AXSharp.Abstractions.Presentation;
 
 namespace makereadonce
 {
+    [AXSharp.Connector.SourceFileAttribute(@"makereadonce.st")]
     public partial class MembersWithMakeReadOnce : AXSharp.Connector.ITwinObject
     {
         [ReadOnce()]
@@ -288,6 +289,7 @@ namespace makereadonce
         public AXSharp.Connector.Localizations.Translator Interpreter => global::units.PlcTranslator.Instance;
     }
 
+    [AXSharp.Connector.SourceFileAttribute(@"makereadonce.st")]
     public partial class ComplexMember : AXSharp.Connector.ITwinObject
     {
         public OnlinerString someMember { get; }
