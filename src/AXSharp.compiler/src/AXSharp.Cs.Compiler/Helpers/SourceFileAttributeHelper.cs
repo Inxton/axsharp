@@ -20,17 +20,18 @@ public static class SourceFileAttributeHelper
 {
     /// <summary>
     ///     Produces the <c>[AXSharp.Connector.SourceFileAttribute(...)]</c> declaration for the given type,
-    ///     carrying the source file path relative to the project <c>src</c> folder (forward-slash separated).
+    ///     carrying the source file path relative to <see cref="SourceOrigin.BaseFolder" /> (the repository
+    ///     root in repository mode, otherwise the project <c>src</c> folder), forward-slash separated.
     ///     Returns an empty string when the declaration has no source location (e.g. types parsed from
     ///     dependency metadata), making emission a safe no-op.
     /// </summary>
-    public static string GetSourceFileAttribute(this ITypeDeclaration declaration, AxProject axProject)
+    public static string GetSourceFileAttribute(this ITypeDeclaration declaration, SourceOrigin sourceOrigin)
     {
         var filename = declaration.Location?.GetLineSpan().Filename;
         if (string.IsNullOrEmpty(filename))
             return string.Empty;
 
-        var relative = Path.GetRelativePath(axProject.SrcFolder, filename).Replace('\\', '/');
+        var relative = Path.GetRelativePath(sourceOrigin.BaseFolder, filename).Replace('\\', '/');
         return $"[AXSharp.Connector.SourceFileAttribute(@\"{relative}\")]\n";
     }
 }

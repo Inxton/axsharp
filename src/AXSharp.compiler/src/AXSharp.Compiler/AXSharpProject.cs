@@ -42,10 +42,11 @@ public class AXSharpProject : IAXSharpProject
     /// <param name="cliCompilerOptions">
     ///     Compiler options from CLI.
     /// </param>
-    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null, ICompilerOptions? dependnantCompilerOptions = null)
+    public AXSharpProject(AxProject axProject, IEnumerable<Type> builderTypes, Type targetProjectType, ICompilerOptions? cliCompilerOptions = null, ICompilerOptions? dependnantCompilerOptions = null, ISourceOriginProvider? sourceOriginProvider = null)
     {
         AxProject = axProject;
         CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions, dependnantCompilerOptions);
+        _sourceOriginProvider = sourceOriginProvider ?? new ApaxSourceOriginProvider();
         if (CompilerOptions != null)
         {
             if(string.IsNullOrEmpty(CompilerOptions.OutputProjectFolder))
@@ -75,6 +76,16 @@ public class AXSharpProject : IAXSharpProject
     ///     Get AX project.
     /// </summary>
     public AxProject AxProject { get; }
+
+    private readonly ISourceOriginProvider _sourceOriginProvider;
+    private SourceOrigin? _sourceOrigin;
+
+    /// <summary>
+    ///     Gets the resolved <see cref="SourceOrigin" /> (repository or apax-package provenance) for
+    ///     this project. Determines the base folder for per-type source paths and which assembly-level
+    ///     attribute is emitted. Resolved lazily and cached.
+    /// </summary>
+    public SourceOrigin SourceOrigin => _sourceOrigin ??= _sourceOriginProvider.Resolve(AxProject);
 
     private IEnumerable<Type> BuilderTypes { get; }
 

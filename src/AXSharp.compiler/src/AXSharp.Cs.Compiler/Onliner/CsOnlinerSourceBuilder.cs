@@ -151,7 +151,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
         classDeclarationSyntax.UsingDirectives.ToList().ForEach(p => p.Visit(visitor, this));
         var generic = classDeclaration.GetGenericAttributes();
 
-        AddToSource(classDeclaration.GetSourceFileAttribute(Project.AxProject));
+        AddToSource(classDeclaration.GetSourceFileAttribute(Project.SourceOrigin));
         AddToSource(classDeclaration.Pragmas.AddAttributes());
         AddToSource($"{classDeclaration.AccessModifier.Transform()}partial class {classDeclaration.Name}{generic?.Product}");
         AddToSource(":");
@@ -288,7 +288,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         TypeCommAccessibility = eCommAccessibility.None;
 
-        AddToSource(typeDeclaration.GetSourceFileAttribute(Project.AxProject));
+        AddToSource(typeDeclaration.GetSourceFileAttribute(Project.SourceOrigin));
         AddToSource($"public enum {enumTypeDeclarationSyntax.Name.Text} {{");
         AddToSource(string.Join("\n,", enumTypeDeclarationSyntax.EnumValueList.EnumValues.Select(p => p.Name.Text)));
         AddToSource("}");
@@ -300,7 +300,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         TypeCommAccessibility = eCommAccessibility.None;
 
-        AddToSource(namedValueTypeDeclaration.GetSourceFileAttribute(Project.AxProject));
+        AddToSource(namedValueTypeDeclaration.GetSourceFileAttribute(Project.SourceOrigin));
         AddToSource(
             $"public enum {namedValueTypeDeclarationSyntax.Name.Text} : {namedValueTypeDeclarationSyntax.BaseType.TransformType()} {{");
 
@@ -352,7 +352,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         TypeCommAccessibility = eCommAccessibility.None;
 
-        AddToSource(interfaceDeclaration.GetSourceFileAttribute(Project.AxProject));
+        AddToSource(interfaceDeclaration.GetSourceFileAttribute(Project.SourceOrigin));
         AddToSource($"{interfaceDeclaration.AccessModifier.Transform()} partial interface {interfaceDeclaration.Name} {{}}");
     }
 
@@ -369,7 +369,7 @@ public class CsOnlinerSourceBuilder : ICombinedThreeVisitor, ISourceBuilder
     {
         TypeCommAccessibility = structuredTypeDeclaration.GetCommAccessibility(this);
 
-        AddToSource(structuredTypeDeclaration.GetSourceFileAttribute(Project.AxProject));
+        AddToSource(structuredTypeDeclaration.GetSourceFileAttribute(Project.SourceOrigin));
         AddToSource(structuredTypeDeclaration.Pragmas.AddAttributes());
         AddToSource(
             $"{structuredTypeDeclaration.AccessModifier.Transform()}partial class {structTypeDeclarationSyntax.Name.Text}");
