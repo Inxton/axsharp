@@ -70,6 +70,18 @@ public class AXSharpConfig : ICompilerOptions
     /// </summary>
     public string? UiHostProject { get; set; }
 
+    private string _sourceOrigin = "auto";
+
+    /// <summary>
+    /// Source-origin detection mode controlling provenance attributes emitted onto generated twins:
+    /// <c>auto</c> (default), <c>apax</c> or <c>off</c>.
+    /// </summary>
+    public string SourceOrigin
+    {
+        get => string.IsNullOrWhiteSpace(_sourceOrigin) ? "auto" : _sourceOrigin;
+        set => _sourceOrigin = value;
+    }
+
 
     private string _axProjectFolder;
 
@@ -211,5 +223,8 @@ public class AXSharpConfig : ICompilerOptions
         fromConfig.UiHostProject = string.IsNullOrEmpty(newCompilerOptions.UiHostProject)
             ? fromConfig.UiHostProject
             : newCompilerOptions.UiHostProject;
+        fromConfig.SourceOrigin = string.IsNullOrEmpty(newCompilerOptions.SourceOrigin)
+            ? fromConfig.SourceOrigin
+            : newCompilerOptions.SourceOrigin;
     }
 }

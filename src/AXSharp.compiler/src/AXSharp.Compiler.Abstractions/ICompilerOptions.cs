@@ -31,4 +31,12 @@ public interface ICompilerOptions
     /// </summary>
     string? UiHostProject { get; set; }
 
+    /// <summary>
+    /// Source-origin detection mode controlling the provenance attributes emitted onto generated
+    /// twins: <c>auto</c> (detect a git repository with a remote, otherwise fall back to apax
+    /// package identity), <c>apax</c> (force apax package mode, deterministic, no commit SHA), or
+    /// <c>off</c> (legacy: src-relative paths and no assembly-level attribute).
+    /// </summary>
+    string SourceOrigin { get; set; }
+
 }

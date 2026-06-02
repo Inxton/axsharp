@@ -46,7 +46,8 @@ namespace AXSharp.ixcTests
                 ixc.Program.Main(new string[0]);
 
                 Assert.True(Directory.Exists(outputDirectory));
-                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                // +1 vs legacy: auto mode emits .g/AssemblyAttributes.g.cs (source provenance).
+                Assert.Equal(8, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -57,7 +58,7 @@ namespace AXSharp.ixcTests
                 Environment.CurrentDirectory = recoverDirectory;
             }
         }
-        
+
         [Fact]
         public void should_run_with_setting_retrieved_from_config_file_settings()
         {
@@ -79,7 +80,8 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(9, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                // +1 vs legacy: auto mode emits .g/AssemblyAttributes.g.cs (source provenance).
+                Assert.Equal(10, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {
@@ -108,7 +110,8 @@ namespace AXSharp.ixcTests
 
                 Assert.True(Directory.Exists(outputDirectory));
 
-                Assert.Equal(7, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
+                // +1 vs legacy: auto mode emits .g/AssemblyAttributes.g.cs (source provenance).
+                Assert.Equal(8, Directory.EnumerateFiles(outputDirectory, "*.*", SearchOption.AllDirectories).Count());
             }
             catch
             {

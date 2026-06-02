@@ -46,7 +46,7 @@ public class AXSharpProject : IAXSharpProject
     {
         AxProject = axProject;
         CompilerOptions = AXSharpConfig.UpdateAndGetAXSharpConfig(axProject.ProjectFolder, cliCompilerOptions, dependnantCompilerOptions);
-        _sourceOriginProvider = sourceOriginProvider ?? new ApaxSourceOriginProvider();
+        _sourceOriginProvider = sourceOriginProvider ?? SourceOriginProviderFactory.Create(CompilerOptions?.SourceOrigin);
         if (CompilerOptions != null)
         {
             if(string.IsNullOrEmpty(CompilerOptions.OutputProjectFolder))

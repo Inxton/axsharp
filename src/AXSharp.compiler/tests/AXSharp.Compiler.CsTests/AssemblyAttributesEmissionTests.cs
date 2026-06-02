@@ -38,8 +38,8 @@ public class AssemblyAttributesEmissionTests
     [Fact]
     public void Library_mode_emits_SourceLibrary_assembly_attribute()
     {
-        // default provider => apax/library mode; sourcefile sample is "@ax/sourcefile" @ 0.0.0
-        var content = GenerateAssemblyAttributes(provider: null, outputSubFolder: "ix-asm-lib");
+        // sourcefile sample is "@ax/sourcefile" @ 0.0.0
+        var content = GenerateAssemblyAttributes(new ApaxSourceOriginProvider(), "ix-asm-lib");
 
         Assert.NotNull(content);
         Assert.Contains("[assembly: AXSharp.Connector.SourceLibrary(@\"@ax/sourcefile\", @\"0.0.0\")]", content);
