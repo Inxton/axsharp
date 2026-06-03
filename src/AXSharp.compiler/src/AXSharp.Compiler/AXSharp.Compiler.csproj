@@ -61,7 +61,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CliWrap" />		
+		<PackageReference Include="CliWrap" />
+		<PackageReference Include="LibGit2Sharp" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
 		<PackageReference Include="Newtonsoft.Json" />
 		<PackageReference Include="NuGet.Configuration" />

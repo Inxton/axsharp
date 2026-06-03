@@ -55,5 +55,9 @@ internal class Options : ICompilerOptions
         HelpText = "Path (relative to AX project folder or absolute) of the .csproj that hosts/consumes UI companion NuGet packages. In library development this is the Blazor/UI application; in application development this is the application project itself.")]
     public string? UiHostProject { get; set; }
 
+    [Option("source-origin", Required = false, Default = "auto",
+        HelpText = "Provenance emitted onto generated twins: 'auto' (detect git repository + remote, else apax package identity), 'apax' (force apax package mode, no commit SHA), or 'off' (legacy: src-relative paths, no assembly attribute).")]
+    public string SourceOrigin { get; set; } = "auto";
+
 }
 

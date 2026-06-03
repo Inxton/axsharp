@@ -31,4 +31,7 @@ public class CompilerTestOptions : ICompilerOptions
     public bool SkipDependencyCompilation { get => false; set { } }
     public string TargetPlatfromMoniker { get; set; } = "ax";
     public string? UiHostProject { get; set; }
+
+    // Tests default to legacy behavior (no provenance emission) for deterministic, repo-independent output.
+    public string SourceOrigin { get; set; } = "off";
 }

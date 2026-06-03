@@ -39,5 +39,7 @@ namespace AXSharp.ixc_doc
         public string TargetPlatfromMoniker { get; set; }
 
         public string? UiHostProject { get; set; }
+
+        public string SourceOrigin { get; set; } = "auto";
     }
 }

@@ -11,7 +11,10 @@ namespace AXSharp.Connector;
 
 /// <summary>
 ///     Indicates the AX/Structured-Text source file from which this type was transpiled.
-///     The path is relative to the project <c>src</c> folder and forward-slash separated.
+///     The path is forward-slash separated; its base depends on the assembly-level provenance
+///     attribute: it is relative to the repository root when <see cref="SourceRepositoryAttribute" />
+///     is present on the assembly, otherwise relative to the project <c>src</c> folder (when
+///     <see cref="SourceLibraryAttribute" /> is present, or in legacy output with neither).
 /// </summary>
 /// <note type="note">
 ///     This attribute is emitted in the connector building process. It should not be declared by the
