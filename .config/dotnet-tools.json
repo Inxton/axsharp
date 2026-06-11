@@ -6,13 +6,22 @@
       "version": "2.9.0",
       "commands": [
         "xmldocmd"
-      ]
+      ],
+      "rollForward": false
     },
     "docfx": {
       "version": "2.77.0",
       "commands": [
         "docfx"
-      ]
+      ],
+      "rollForward": false
+    },
+    "axopen.dev.tool": {
+      "version": "0.60.1",
+      "commands": [
+        "axdev"
+      ],
+      "rollForward": false
     }
   }
 }
