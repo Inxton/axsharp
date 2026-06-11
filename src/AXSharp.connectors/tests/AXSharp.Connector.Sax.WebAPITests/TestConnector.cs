@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Security;
@@ -11,7 +11,7 @@ namespace AXSharp.Connector.S71500.WebAPITests;
 public static class TestConnector
 {
     private static string TargetIp { get; } = "192.168.100.210";
-    private static string UserName { get; } = "adm";
+    private static string UserName { get; } = "admin";
     private static string Password { get; } = "123ABCDabcd$#!";
 
     

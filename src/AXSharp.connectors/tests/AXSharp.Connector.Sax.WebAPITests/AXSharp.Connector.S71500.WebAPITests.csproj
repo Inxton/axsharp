@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="exploratory\ix\bin\**" />
-    <Compile Remove="exploratory\ix\obj\**" />
-    <EmbeddedResource Remove="exploratory\ix\bin\**" />
-    <EmbeddedResource Remove="exploratory\ix\obj\**" />
-    <None Remove="exploratory\ix\bin\**" />
-    <None Remove="exploratory\ix\obj\**" />
+    <Compile Remove="certs\**" />
+    <Compile Remove="exploratory\**" />
+    <EmbeddedResource Remove="certs\**" />
+    <EmbeddedResource Remove="exploratory\**" />
+    <None Remove="certs\**" />
+    <None Remove="exploratory\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,23 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="exploratory\ix\" />
-    <Folder Include="certs\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\ax-test-project\certs\Communication.cer" Link="certs\Communication.cer">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\ax-test-project\certs\S71516-hw.cer" Link="certs\S71516-hw.cer">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
