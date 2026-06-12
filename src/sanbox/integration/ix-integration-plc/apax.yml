@@ -16,7 +16,7 @@ variables:
   AXTARGET: 192.168.100.85
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "admin"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
+  AX_TARGET_PWD: "/op"
   USE_PLC_SIM_ADVANCED: "false"
   HWCONFIG: "HWC"
   COM_CERT_PATH: .\certs\Communication.cer

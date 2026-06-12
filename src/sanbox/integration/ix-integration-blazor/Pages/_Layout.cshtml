@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web
 @namespace ix_integration_blazor.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -8,7 +8,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    @*<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="/_content/Inxton.Operon/css/momentum.css" />
+    <link rel="stylesheet" href="/_content/AXSharp.Presentation.Blazor.Controls/css/momentum.css" />
     <link href="css/tailwind/tailwind.css" rel="stylesheet" />
     <link href="ix-integration-blazor.styles.css" rel="stylesheet" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
@@ -16,23 +17,9 @@
 <body>
     @RenderBody()
 
-    @* <div id="blazor-error-ui"> *@
-    @*     <environment include="Staging,Production"> *@
-    @*         An error has occurred. This application may no longer respond until reloaded. *@
-    @*     </environment> *@
-    @*     <environment include="Development"> *@
-    @*         An unhandled exception has occurred. See browser dev tools for details. *@
-    @*     </environment> *@
-    @*     <a href="" class="reload">Reload</a> *@
-    @*     <a class="dismiss">🗙</a> *@
-    @* </div> *@
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
-    <script src="/_content/AXSharp.Presentation.Blazor.Controls/js/ix-bootstrap.bundle.min.js"></script>
-    <script src="/_content/AXSharp.Presentation.Blazor.Controls/js/jquery-3.6.0.min.js"></script>
     <script src="_framework/blazor.server.js"></script>
-    <script>
-        var converter = new showdown.Converter();
-    </script>
+    <script src="/_content/Operon/js/javascript.js"></script>
+    <script src="~/js/theme.js"></script>
+    <script>themeManager.init();</script>
 </body>
 </html>

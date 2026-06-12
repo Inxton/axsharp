@@ -1,10 +1,79 @@
-﻿@page "/"
+@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>AX# RenderableContentControl</PageTitle>
 
+<div class="py-8">
+    <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-text sm:text-5xl">
+            This UI was <span class="text-primary">declared</span>, not written.
+        </h1>
+        <p class="mt-4 text-lg text-text-light">
+            <code class="rounded bg-primary-light px-1.5 py-0.5 text-base text-primary">RenderableContentControl</code>
+            turns your structured-text declarations into a live, data-bound user interface.
+            The form on the right is generated at runtime from the PLC class on the left — no UI code involved.
+        </p>
+    </div>
 
+    <div class="mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
+        <div class="overflow-hidden rounded-lg border border-border">
+            <div class="border-b border-border bg-background-light px-4 py-2 text-xs font-medium uppercase tracking-wide text-text-light">
+                ST in — weather.st
+            </div>
+            <pre class="overflow-x-auto bg-background-light p-4 text-sm leading-relaxed text-text"><code>{#ix[Container(Layout.Tabs)]}
+CLASS weather
+    VAR PUBLIC
+        GeoLocation : GeoLocation;
+        {#ix[Container(Layout.Wrap)]}
+        Temperature : REAL;
+        Humidity : REAL;
+        Location : STRING;
+        ChillFactor : REAL;
+        Feeling : Feeling;
+    END_VAR
+END_CLASS</code></pre>
+        </div>
 
-<h1>
-    This application has direct references to the AX# projects, aim at testing, poc, and demostration of AXSharp.
-    It won't work outside this solution.
-</h1>
+        <div class="overflow-hidden rounded-lg border border-border">
+            <div class="border-b border-border bg-background-light px-4 py-2 text-xs font-medium uppercase tracking-wide text-text-light">
+                UI out — live from the PLC
+            </div>
+            <div class="p-4">
+                <RenderableContentControl Presentation="Control" Context="@Entry.Plc.weather" />
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-14">
+        <h2 class="text-center text-sm font-medium uppercase tracking-wide text-text-light">Explore the capabilities</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a href="/rendering" class="group rounded-lg border border-border bg-background p-5 shadow-sm transition hover:border-primary">
+                <Operon.Icons.HeroIcon Icon="eye" Type="Operon.Icons.IconType.Outline" Class="size-7 text-primary" />
+                <h3 class="mt-3 font-semibold text-text group-hover:text-primary">Rendering</h3>
+                <p class="mt-1 text-sm text-text-light">
+                    Control and Display presentations, read-only and read-once members, fine-grained render filtering.
+                </p>
+            </a>
+            <a href="/layouts" class="group rounded-lg border border-border bg-background p-5 shadow-sm transition hover:border-primary">
+                <Operon.Icons.HeroIcon Icon="squares-2x2" Type="Operon.Icons.IconType.Outline" Class="size-7 text-primary" />
+                <h3 class="mt-3 font-semibold text-text group-hover:text-primary">Layouts</h3>
+                <p class="mt-1 text-sm text-text-light">
+                    Arrange generated UI with stack, wrap, tab, and grid containers declared as attributes in ST.
+                </p>
+            </a>
+            <a href="/customize" class="group rounded-lg border border-border bg-background p-5 shadow-sm transition hover:border-primary">
+                <Operon.Icons.HeroIcon Icon="paint-brush" Type="Operon.Icons.IconType.Outline" Class="size-7 text-primary" />
+                <h3 class="mt-3 font-semibold text-text group-hover:text-primary">Customize</h3>
+                <p class="mt-1 text-sm text-text-light">
+                    Swap in your own templates, inject CSS classes, and localize labels without touching the PLC code.
+                </p>
+            </a>
+            <a href="/integrate" class="group rounded-lg border border-border bg-background p-5 shadow-sm transition hover:border-primary">
+                <Operon.Icons.HeroIcon Icon="puzzle-piece" Type="Operon.Icons.IconType.Outline" Class="size-7 text-primary" />
+                <h3 class="mt-3 font-semibold text-text group-hover:text-primary">Integrate</h3>
+                <p class="mt-1 text-sm text-text-light">
+                    Shadow buffers, polling control, arrays, and reusable component views from external libraries.
+                </p>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,15 @@
-﻿@namespace MeasurementExample
+@namespace MeasurementExample
 @inherits RenderableComplexComponentBase<Measurement>
 
-<h3>IxComponentServiceView</h3>
+<div class="rounded-lg border border-border bg-background-light p-4">
+    <h3 class="mb-2 text-sm font-semibold text-primary">Measurement service view</h3>
 
-<p>IxBool serviceView: @Component.Min.Cyclic</p>
-<p>IxInt serviceView: @Component.Acquired.Cyclic</p>
-<p>IxString serviceView: @Component.Max.Cyclic</p>
+    <dl class="space-y-1 text-sm text-text">
+        <div class="flex justify-between gap-4"><dt class="text-text-light">Minimum</dt><dd>@Component.Min.Cyclic</dd></div>
+        <div class="flex justify-between gap-4"><dt class="text-text-light">Measured</dt><dd>@Component.Acquired.Cyclic</dd></div>
+        <div class="flex justify-between gap-4"><dt class="text-text-light">Maximum</dt><dd>@Component.Max.Cyclic</dd></div>
+    </dl>
+</div>
 
 @code
 {

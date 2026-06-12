@@ -1,0 +1,109 @@
+@page "/customize"
+
+<PageTitle>Customize — AX# RenderableContentControl</PageTitle>
+
+<h1 class="mb-2 text-3xl font-bold text-text">Customize</h1>
+<p class="mb-10 max-w-3xl text-text-light">
+    Auto-generated does not mean one-size-fits-all. Swap the rendered view for your own Razor component,
+    inject CSS classes into the generated markup, or localize every label — all without touching the PLC code.
+</p>
+
+<ShowcaseSection Title="Template override — same twin, your view"
+                 Snippet="@SnippetGauge"
+                 SnippetTitle="Custom template — MeasurementGaugeView.razor">
+    <Description>
+        Both panels render the same live <code>Measurement</code> twin. The left uses the default generated
+        form; the right swaps in a custom SVG gauge via the <code>PresentationTemplate</code> parameter.
+        A template is just a Razor component — the needle follows <code>Acquired</code>, the scale follows
+        <code>Min</code>/<code>Max</code>, and the color follows the <code>Result</code> enum, live from the PLC.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Default template</div>
+                <RenderableContentControl Presentation="Display"
+                                          Context="@Entry.Plc.measurements.measurement_stack" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-primary">PresentationTemplate — gauge</div>
+                <RenderableContentControl PresentationTemplate="ix_integration_blazor.Components.Templates.MeasurementGaugeView"
+                                          Context="@Entry.Plc.measurements.measurement_stack" />
+            </div>
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Control parameters" Snippet="@SnippetParameters" SnippetTitle="Markup — RenderableContentControl parameters">
+    <Description>
+        Host-side parameters tune the generated markup per instance: <code>HideLabel</code> drops the labels,
+        <code>Class</code> wraps the whole control, and <code>LayoutClass</code>/<code>LayoutChildrenClass</code>
+        inject classes into the generated layout and each of its children.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Default</div>
+                <RenderableContentControl Presentation="Control"
+                                          Context="@Entry.Plc.test_example.compositeStack" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-primary">HideLabel</div>
+                <RenderableContentControl Presentation="Control"
+                                          Context="@Entry.Plc.test_example.compositeStack"
+                                          HideLabel="true" />
+            </div>
+        </div>
+        <div class="mt-6">
+            <div class="mb-2 text-sm font-medium text-primary">Class + LayoutClass + LayoutChildrenClass injected</div>
+            <RenderableContentControl Presentation="Base-Control"
+                                      Context="@Entry.Plc.test_example.compositeWrap"
+                                      Class="rounded-xl bg-background-light p-6 shadow-md"
+                                      LayoutClass="items-end"
+                                      LayoutChildrenClass="p-3" />
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Localization">
+    <Description>
+        Labels come from the PLC string resources and follow the request culture — switch the language in the
+        header (en-US, sk-SK, es-ES) and the generated UI re-renders localized, including this structure.
+    </Description>
+    <ChildContent>
+        <RenderableContentControl Presentation="Display"
+                                  Context="@Entry.Plc.test_example.primitives_stack" />
+    </ChildContent>
+</ShowcaseSection>
+
+@code {
+    private const string SnippetGauge = @"
+@namespace ix_integration_blazor.Components.Templates
+@inherits RenderableComplexComponentBase<MeasurementExample.Measurement>
+
+<svg viewBox=""0 0 200 120"">
+    <!-- needle from Component.Acquired.Cyclic,
+         scale from Component.Min/Max.Cyclic,
+         color from Component.Result -->
+</svg>
+
+@code {
+    public override void ConfigurePolling()
+        => StartPolling(this.Component, PollingInterval);
+}
+
+// usage:
+<RenderableContentControl
+    PresentationTemplate=""ix_integration_blazor.Components.Templates.MeasurementGaugeView""
+    Context=""@Entry.Plc.measurements.measurement_stack"" />";
+
+    private const string SnippetParameters = @"
+<RenderableContentControl Presentation=""Control""
+                          Context=""@Entry.Plc.test_example.compositeStack""
+                          HideLabel=""true"" />
+
+<RenderableContentControl Presentation=""Base-Control""
+                          Context=""@Entry.Plc.test_example.compositeWrap""
+                          Class=""rounded-xl bg-background-light p-6 shadow-md""
+                          LayoutClass=""items-end""
+                          LayoutChildrenClass=""p-3"" />";
+}

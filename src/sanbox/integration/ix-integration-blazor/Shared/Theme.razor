@@ -1,0 +1,16 @@
+@inject ThemeService _themeService
+
+<nav class="flex items-center gap-1 rounded-md border border-border p-0.5" aria-label="Theme">
+    <button type="button" title="Light" class="rounded p-1.5 text-text-light transition hover:bg-primary-light hover:text-primary"
+            @onclick="() => _themeService.SetLightAsync()">
+        <Operon.Icons.HeroIcon Icon="sun" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+    <button type="button" title="Dark" class="rounded p-1.5 text-text-light transition hover:bg-primary-light hover:text-primary"
+            @onclick="() => _themeService.SetDarkAsync()">
+        <Operon.Icons.HeroIcon Icon="moon" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+    <button type="button" title="System" class="rounded p-1.5 text-text-light transition hover:bg-primary-light hover:text-primary"
+            @onclick="() => _themeService.SetSystemAsync()">
+        <Operon.Icons.HeroIcon Icon="computer-desktop" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+    </button>
+</nav>
