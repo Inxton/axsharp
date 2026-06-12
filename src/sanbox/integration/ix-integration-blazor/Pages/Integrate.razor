@@ -1,0 +1,95 @@
+@page "/integrate"
+@using AXSharp.Connector
+
+<PageTitle>Integrate — AX# RenderableContentControl</PageTitle>
+
+<h1 class="mb-2 text-3xl font-bold text-text">Integrate</h1>
+<p class="mb-10 max-w-3xl text-text-light">
+    Production scenarios: edit safely against a shadow buffer, tune communication per control,
+    render whole arrays, and reuse component views shipped in external libraries.
+</p>
+
+<ShowcaseSection Title="Shadow presentation">
+    <Description>
+        <code>ShadowControl</code> edits the twin's in-memory shadow buffer instead of writing straight to the
+        PLC — collect changes first, commit when ready. The values below live only in the application until
+        synchronized.
+    </Description>
+    <ChildContent>
+        <RenderableContentControl Presentation="ShadowControl" Context="@Entry.Plc.all_primitives" />
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Polling intervals" Snippet="@SnippetPolling" SnippetTitle="Markup — per-control polling">
+    <Description>
+        Each control decides how often it reads from the PLC via <code>PollingInterval</code> (milliseconds).
+        The three structures below poll the same kind of data at 500, 100, and 50&nbsp;ms — watch the
+        update cadence differ.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">500 ms</div>
+                <RenderableContentControl Context="@Entry.Plc.weather_wrapped" Presentation="Display" PollingInterval="500" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">100 ms</div>
+                <RenderableContentControl Context="@Entry.Plc.weather_stacked" Presentation="Display" PollingInterval="100" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">50 ms</div>
+                <RenderableContentControl Context="@Entry.Plc.weather_tabbed" Presentation="Display" PollingInterval="50" />
+            </div>
+        </div>
+        <div class="mt-6">
+            <div class="mb-2 text-sm font-medium text-text-light">Single primitive at 100 ms</div>
+            <RenderableContentControl Context="@Entry.Plc.all_primitives.myINT" Presentation="Display" PollingInterval="100" />
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Arrays">
+    <Description>
+        Arrays of structures render without any extra declaration — every element gets the full
+        layout-aware treatment.
+    </Description>
+    <ChildContent>
+        <RenderableContentControl Context="@Entry.Plc.monster" />
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Custom views from external libraries">
+    <Description>
+        A class library can ship Razor views for its twin types; the locator picks them up from any assembly
+        marked <code>[RenderableBlazorAssembly]</code>. The same <code>ixcomponent</code> type from three ST
+        namespaces resolves to three different library views — and the application can override any of them
+        by declaring a view with the same name.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <RenderableContentControl Context="@Entry.Plc.test_example.ixcomponent_instance" />
+            <RenderableContentControl Context="@Entry.Plc.test_example.ixcomponent_instance2" />
+            <RenderableContentControl Context="@Entry.Plc.test_example.ixcomponent_instance3" />
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Composed structures">
+    <Description>
+        A structure of structures — four <code>Measurement</code> instances, each with its own declared
+        layout — renders as one coherent view from a single <code>RenderableContentControl</code>.
+    </Description>
+    <ChildContent>
+        <RenderableContentControl Presentation="Display" Context="@Entry.Plc.measurements" />
+    </ChildContent>
+</ShowcaseSection>
+
+@code {
+    private const string SnippetPolling = @"
+<RenderableContentControl Context=""@Entry.Plc.weather_wrapped""
+                          Presentation=""Display"" PollingInterval=""500"" />
+<RenderableContentControl Context=""@Entry.Plc.weather_stacked""
+                          Presentation=""Display"" PollingInterval=""100"" />
+<RenderableContentControl Context=""@Entry.Plc.weather_tabbed""
+                          Presentation=""Display"" PollingInterval=""50"" />";
+}

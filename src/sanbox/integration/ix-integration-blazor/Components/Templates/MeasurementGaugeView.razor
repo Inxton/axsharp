@@ -1,0 +1,73 @@
+@namespace ix_integration_blazor.Components.Templates
+@using System.Globalization
+@inherits RenderableComplexComponentBase<MeasurementExample.Measurement>
+
+<div class="flex flex-col items-center gap-2 p-4">
+    <span class="text-sm font-medium text-text-light">@Component?.AttributeName</span>
+
+    <svg viewBox="0 0 200 120" class="w-56">
+        @* track *@
+        <path d="M 20 100 A 80 80 0 0 1 180 100"
+              fill="none" stroke="var(--color-neutral-light)" stroke-width="12" stroke-linecap="round" />
+        @* value arc *@
+        <path d="M 20 100 A 80 80 0 0 1 180 100"
+              fill="none" stroke="@ResultColor" stroke-width="12" stroke-linecap="round"
+              stroke-dasharray="@Inv(Ratio * ArcLength) @Inv(ArcLength)" />
+        @* needle *@
+        <line x1="100" y1="100" x2="@Inv(NeedleX)" y2="@Inv(NeedleY)"
+              stroke="var(--color-text)" stroke-width="3" stroke-linecap="round" />
+        <circle cx="100" cy="100" r="6" fill="var(--color-text)" />
+    </svg>
+
+    <div class="-mt-2 text-2xl font-semibold text-text">@Acquired.ToString("0.0")</div>
+
+    <div class="flex w-56 justify-between text-xs text-text-light">
+        <span>@Min.ToString("0.0")</span>
+        <span>@Max.ToString("0.0")</span>
+    </div>
+
+    <span class="rounded-full px-3 py-0.5 text-xs font-medium text-white" style="background-color: @ResultColor">
+        @ResultText
+    </span>
+</div>
+
+@code {
+    private float Min => Component?.Min.Cyclic ?? 0;
+    private float Max => Component?.Max.Cyclic ?? 0;
+    private float Acquired => Component?.Acquired.Cyclic ?? 0;
+
+    private double Ratio
+    {
+        get
+        {
+            var span = Max - Min;
+            if (span <= 0) return 0;
+            return Math.Clamp((Acquired - Min) / span, 0d, 1d);
+        }
+    }
+
+    private const double Radius = 80;
+    private static double ArcLength => Math.PI * Radius;
+
+    private double NeedleX => 100 + (Radius - 14) * Math.Cos(Math.PI * (1 - Ratio));
+    private double NeedleY => 100 - (Radius - 14) * Math.Sin(Math.PI * (1 - Ratio));
+
+    private MeasurementExample.Result Result => (MeasurementExample.Result)(Component?.Result.Cyclic ?? 0);
+
+    private string ResultColor => Result switch
+    {
+        MeasurementExample.Result.Passed => "var(--color-result-passed)",
+        MeasurementExample.Result.Failed => "var(--color-result-failed)",
+        _ => "var(--color-primary)"
+    };
+
+    private string ResultText => Result.ToString();
+
+    // SVG coordinates must not be culture-formatted (sk-SK uses decimal comma)
+    private static string Inv(double value) => value.ToString("0.##", CultureInfo.InvariantCulture);
+
+    public override void ConfigurePolling()
+    {
+        StartPolling(this.Component, PollingInterval);
+    }
+}

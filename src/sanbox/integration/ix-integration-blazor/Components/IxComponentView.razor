@@ -1,17 +1,21 @@
-﻿@namespace AXSharp.Presentation.Blazor.Controls.Templates
+@namespace AXSharp.Presentation.Blazor.Controls.Templates
 @inherits RenderableComplexComponentBase<ixcomponent>
 
-<h3>Should overwrite IxComponent from integration library</h3>
+<div class="rounded-lg border border-border bg-background-light p-4">
+    <h3 class="mb-2 text-sm font-semibold text-primary">App-defined view (overrides the library view)</h3>
 
-<div class="card">
-    <p>IxBool: @Component.my_bool.Cyclic</p>
-    <p>IxInt: @Component.my_int.Cyclic</p>
-    <p>IxString: @Component.my_string.Cyclic</p>
+    <dl class="space-y-1 text-sm text-text">
+        <div class="flex justify-between gap-4"><dt class="text-text-light">IxBool</dt><dd>@Component.my_bool.Cyclic</dd></div>
+        <div class="flex justify-between gap-4"><dt class="text-text-light">IxInt</dt><dd>@Component.my_int.Cyclic</dd></div>
+        <div class="flex justify-between gap-4"><dt class="text-text-light">IxString</dt><dd>@Component.my_string.Cyclic</dd></div>
+    </dl>
+
+    <div class="mt-3">
+        <RenderableContentControl Context="Component.my_int" Presentation="Control"></RenderableContentControl>
+    </div>
 </div>
 
-
-<RenderableContentControl Context="Component.my_int" Presentation="Control"></RenderableContentControl>
-@code 
+@code
 {
     public override void ConfigurePolling()
     {

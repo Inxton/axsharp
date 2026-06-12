@@ -1,17 +1,11 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
-<PageTitle>ix-integration-blazor</PageTitle>
+<PageTitle>AX# RenderableContentControl</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="min-h-screen bg-background text-text">
+    <NavMenu />
 
-    <main>
-       <TopRow></TopRow>
-
-        <article class="content px-4">
-            @Body
-        </article>
+    <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
+        @Body
     </main>
 </div>
