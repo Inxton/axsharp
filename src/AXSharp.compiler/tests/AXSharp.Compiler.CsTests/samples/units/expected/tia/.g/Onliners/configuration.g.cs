@@ -73,7 +73,9 @@ public partial class ComplexForConfig : AXSharp.Connector.ITwinObject
         myCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateCHAR(this, "myCHAR", "myCHAR");
         myWCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateWCHAR(this, "myWCHAR", "myWCHAR");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "mySTRING", "mySTRING");
+        mySTRING.Capacity = 254;
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "myWSTRING", "myWSTRING");
+        myWSTRING.Capacity = 254;
         myMotor = new ConfigMotor(this, "myMotor", "myMotor");
         parent.AddChild(this);
         parent.AddKid(this);

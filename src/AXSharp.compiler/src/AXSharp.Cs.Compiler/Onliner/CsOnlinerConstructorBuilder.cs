@@ -334,8 +334,10 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
 
         AddToSource($"(p, rt, st), {dimensions});");
 
-        
-
+        if (eligibility.eligibleType is IStringTypeDeclaration stringElementType)
+        {
+            AddToSource($"foreach (var stringItem in {field.Name}) stringItem.Capacity = {stringElementType.GetCapacityOrDefault()};");
+        }
     }
 
     private void AddMemberInitialization(IClassDeclaration type, IStorageDeclaration field, IxNodeVisitor visitor)
@@ -366,6 +368,7 @@ internal class CsOnlinerConstructorBuilder : ICombinedThreeVisitor
         AddToSource($"{field.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
         AddToSource($"(this, \"{field.GetAttributeNameValue(field.Name)}\", \"{field.Name}\");");
+        AddToSource($"{field.Name}.Capacity = {type.GetCapacityOrDefault()};");
     }
 
     // We get warning here about unused method, it is false positive, but we will need to investigate further the object hierarchy.

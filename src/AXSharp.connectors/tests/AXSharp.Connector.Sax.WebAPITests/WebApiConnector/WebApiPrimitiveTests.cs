@@ -51,8 +51,6 @@ namespace AXSharp.Connector.S71500.WebAPITests.Primitives
             webApiPrimitive = Activator.CreateInstance(typeof(T), Connector, "", SymbolTail) as T;
             minMatches = new WebApiBool(Connector, "", $"minsmatch.{SymbolTail}");
             maxMatches = new WebApiBool(Connector, "", $"maxsmatch.{SymbolTail}");
-
-            webApiPrimitive.Capacity = 254;
         }
 
 
