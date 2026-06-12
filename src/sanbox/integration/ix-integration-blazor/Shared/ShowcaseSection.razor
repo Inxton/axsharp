@@ -1,0 +1,44 @@
+<section class="mb-12">
+    <div class="flex items-start justify-between gap-4">
+        <div>
+            <h2 class="text-xl font-semibold text-text">@Title</h2>
+            @if (Description != null)
+            {
+                <div class="mt-1 max-w-3xl text-sm text-text-light">@Description</div>
+            }
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Snippet))
+        {
+            <button type="button"
+                    class="flex shrink-0 items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-sm text-text-light transition hover:border-primary hover:text-primary"
+                    @onclick="ToggleCode">
+                <Operon.Icons.HeroIcon Icon="code-bracket" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                @(showCode ? "Hide code" : "Show code")
+            </button>
+        }
+    </div>
+
+    @if (showCode && !string.IsNullOrWhiteSpace(Snippet))
+    {
+        <div class="mt-4 overflow-hidden rounded-lg border border-border">
+            <div class="border-b border-border bg-background-light px-4 py-2 text-xs font-medium uppercase tracking-wide text-text-light">@SnippetTitle</div>
+            <pre class="overflow-x-auto bg-background-light p-4 text-sm leading-relaxed text-text"><code>@Snippet.Trim()</code></pre>
+        </div>
+    }
+
+    <div class="mt-4 rounded-lg border border-border bg-background p-5 shadow-sm">
+        @ChildContent
+    </div>
+</section>
+
+@code {
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public RenderFragment? Description { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? Snippet { get; set; }
+    [Parameter] public string SnippetTitle { get; set; } = "ST declaration";
+
+    private bool showCode;
+
+    private void ToggleCode() => showCode = !showCode;
+}

@@ -1,0 +1,120 @@
+@page "/rendering"
+
+<PageTitle>Rendering — AX# RenderableContentControl</PageTitle>
+
+<h1 class="mb-2 text-3xl font-bold text-text">Declare &amp; render</h1>
+<p class="mb-10 max-w-3xl text-text-light">
+    Every UI on this page is generated at runtime from a PLC class declaration.
+    The presentation mode decides whether the user can edit values, and attributes in the
+    ST code control what gets rendered at all.
+</p>
+
+<ShowcaseSection Title="Control vs Display">
+    <Description>
+        The same <code>weather</code> structure rendered twice: <code>Control</code> generates editable
+        inputs that write back to the PLC, <code>Display</code> generates a read-only view.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div>
+                <div class="mb-2 text-sm font-medium text-success">Control — can edit</div>
+                <RenderableContentControl Presentation="Control" Context="@Entry.Plc.weather" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Display — read only</div>
+                <RenderableContentControl Presentation="Display" Context="@Entry.Plc.weather" />
+            </div>
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="ReadOnce and ReadOnly members" Snippet="@SnippetReadAttributes">
+    <Description>
+        <code>[ReadOnce()]</code> reads a member a single time per application lifetime — ideal for values
+        that never change, saving communication load. <code>[ReadOnly()]</code> renders an input that never
+        writes back to the PLC.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Structure with [ReadOnce()] member</div>
+                <RenderableContentControl Presentation="Display" Context="@Entry.Plc.weather_readOnce" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Structure with [ReadOnly()] member</div>
+                <RenderableContentControl Presentation="Control" Context="@Entry.Plc.weather_readOnly" />
+            </div>
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="RenderIgnore" Snippet="@SnippetRenderIgnore">
+    <Description>
+        <code>[RenderIgnore()]</code> excludes a member from rendering — entirely, or only for the
+        presentation types you name. The structure below declares one member per variant; compare which
+        ones survive in <code>Control</code> vs <code>Display</code>.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div>
+                <div class="mb-2 text-sm font-medium text-success">Control</div>
+                <RenderableContentControl Presentation="Control" Context="@Entry.Plc.weather_wrapped" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Display</div>
+                <RenderableContentControl Presentation="Display" Context="@Entry.Plc.weather_wrapped" />
+            </div>
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+<ShowcaseSection Title="Presentation pipeline">
+    <Description>
+        The renderer locates a view component by convention: <code>&lt;type name&gt;&lt;presentation&gt;View</code>.
+        A presentation like <code>Manual-Service</code> is a fallback pipeline — each name is tried in order
+        until a matching view is found. <code>ixcomponent</code> ships a default (<code>Base</code>) view and a
+        <code>Service</code> view; no <code>Manual</code> view exists, so the pipeline below falls through to
+        <code>Service</code>.
+    </Description>
+    <ChildContent>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Base — default view</div>
+                <RenderableContentControl Presentation="Base" Context="@Entry.Plc.test_example.ixcomponent_instance" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Service view</div>
+                <RenderableContentControl Presentation="Service" Context="@Entry.Plc.test_example.ixcomponent_instance" />
+            </div>
+            <div>
+                <div class="mb-2 text-sm font-medium text-text-light">Manual-Service — falls back to Service</div>
+                <RenderableContentControl Presentation="Manual-Service" Context="@Entry.Plc.test_example.ixcomponent_instance" />
+            </div>
+        </div>
+    </ChildContent>
+</ShowcaseSection>
+
+@code {
+    private const string SnippetReadAttributes = @"
+{#ix-attr:[ReadOnly()]}
+LongDescription : STRING;
+
+{#ix-attr:[ReadOnce()]}
+StartCounter : INT;";
+
+    private const string SnippetRenderIgnore = @"
+{#ix-attr:[RenderIgnore()]}
+RenderIgnoreAllToghether : STRING;
+
+{#ix-attr:[RenderIgnore(""Control"")]}
+RenderIgnoreWhenControl : STRING;
+
+{#ix-attr:[RenderIgnore(""Display"")]}
+RenderIgnoreWhenDisplay : STRING;
+
+{#ix-attr:[RenderIgnore(""Control"", ""ShadowControl"")]}
+RenderIgnoreWhenControlAndShadow : STRING;
+
+{#ix-attr:[RenderIgnore(""Display"", ""ShadowDisplay"")]}
+RenderIgnoreWhenDisplayAndShadow : STRING;";
+}

@@ -1,85 +1,50 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">ix-integration-blazor</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header class="sticky top-0 z-40 border-b border-border bg-background-light">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between gap-6">
+            <a class="flex items-center gap-2 font-semibold text-primary" href="">
+                <Operon.Icons.HeroIcon Icon="bolt" Type="Operon.Icons.IconType.Solid" Class="size-6" />
+                <span class="hidden sm:inline">AX# <span class="font-light">RenderableContent</span></span>
+            </a>
+
+            <nav aria-label="Global" class="flex-1">
+                <ul class="flex items-center gap-1 sm:gap-2 text-sm">
+                    <li>
+                        <NavLink class="app-nav-link" href="" Match="NavLinkMatch.All">
+                            <Operon.Icons.HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            <span class="hidden md:inline">Home</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="app-nav-link" href="/rendering" Match="NavLinkMatch.All">
+                            <Operon.Icons.HeroIcon Icon="eye" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            <span class="hidden md:inline">Rendering</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="app-nav-link" href="/layouts" Match="NavLinkMatch.All">
+                            <Operon.Icons.HeroIcon Icon="squares-2x2" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            <span class="hidden md:inline">Layouts</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="app-nav-link" href="/customize" Match="NavLinkMatch.All">
+                            <Operon.Icons.HeroIcon Icon="paint-brush" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            <span class="hidden md:inline">Customize</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="app-nav-link" href="/integrate" Match="NavLinkMatch.All">
+                            <Operon.Icons.HeroIcon Icon="puzzle-piece" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            <span class="hidden md:inline">Integrate</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <CultureSelect />
+                <Theme />
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="AutoRendering">
-                <span class="oi oi-plus" aria-hidden="true"></span> AutoRendering
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="Measurement">
-                <span class="oi oi-plus" aria-hidden="true"></span> Measurement
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="StackedLayout">
-                <span class="oi oi-plus" aria-hidden="true"></span> Stack Layout
-            </NavLink>
-        </div>  
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="WrappedLayout">
-                <span class="oi oi-plus" aria-hidden="true"></span> Wrapped Layout
-            </NavLink>
-        </div>  
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="TabLayout">
-                <span class="oi oi-plus" aria-hidden="true"></span> Tabbed Layout
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="ShadowProperties">
-                <span class="oi oi-plus" aria-hidden="true"></span> Shadow presentation
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="examples">
-                <span class="oi oi-plus" aria-hidden="true"></span> Examples
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="arrays">
-                <span class="oi oi-plus" aria-hidden="true"></span> Arrays
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="/pollings/polling">
-                <span class="oi oi-plus" aria-hidden="true"></span> Polling
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="/classinjecting">
-                <span class="oi oi-plus" aria-hidden="true"></span> Css class injecting
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link px-2" href="/localizations">
-                <span class="oi oi-plus" aria-hidden="true"></span> Localizations
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+</header>

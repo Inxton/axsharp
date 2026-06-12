@@ -33,6 +33,7 @@ namespace ix_integration_blazor
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddIxBlazorServices();
             builder.Services.AddLocalization();
+            builder.Services.AddScoped<ThemeService>();
 
             var app = builder.Build();
 
