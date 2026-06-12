@@ -4,7 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    [AXSharp.Connector.SourceFileAttribute(@"test/groupbox.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/sanbox/integration/ix-integration-plc/src/test/groupbox.st")]
     public partial class groupbox : AXSharp.Connector.IPlain
     {
         public groupbox()

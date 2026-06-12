@@ -94,10 +94,56 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     {
         { eAccessPriority.Low, (100, 500) },
         { eAccessPriority.Normal, (null, null) },
-        { eAccessPriority.UserInterface, (null, null) },
+        // Finite chunk size so a single UserInterface bulk request cannot monopolize a dispatch
+        // slot beyond the latency budget (whole-set-in-one-request would).
+        { eAccessPriority.UserInterface, (250, null) },
         { eAccessPriority.High, (null, null) },
         { eAccessPriority.Custom, (null, null) }
     };
+
+    private int userInterfaceLatencyBudget = 1500;
+    private int pausedEnqueueTtl = 10_000;
+    private long lastUiBatchDurationMs;
+    private int uiLatencyBreachCount;
+
+    /// <summary>
+    ///     Gets or sets the latency budget in milliseconds for <see cref="eAccessPriority.UserInterface"/> batches.
+    ///     A whole batch (start to completion of its last chunk) exceeding the budget is logged and counted in
+    ///     <see cref="UiLatencyBreachCount"/>; the request still completes (no hard timeout).
+    /// </summary>
+    public int UserInterfaceLatencyBudget
+    {
+        get => userInterfaceLatencyBudget;
+        set => SetField(ref userInterfaceLatencyBudget, value, nameof(UserInterfaceLatencyBudget));
+    }
+
+    /// <summary>
+    ///     Gets or sets how long (in milliseconds) a queued request may wait while the connector re-authenticates
+    ///     before it faults with a clean error instead of hanging indefinitely.
+    /// </summary>
+    public int PausedEnqueueTtl
+    {
+        get => pausedEnqueueTtl;
+        set => SetField(ref pausedEnqueueTtl, value, nameof(PausedEnqueueTtl));
+    }
+
+    /// <summary>
+    ///     Gets the duration of the last <see cref="eAccessPriority.UserInterface"/> batch in milliseconds.
+    /// </summary>
+    public long LastUiBatchDurationMs
+    {
+        get => lastUiBatchDurationMs;
+        protected internal set => SetField(ref lastUiBatchDurationMs, value, nameof(LastUiBatchDurationMs));
+    }
+
+    /// <summary>
+    ///     Gets the number of <see cref="eAccessPriority.UserInterface"/> latency budget breaches since startup.
+    /// </summary>
+    public int UiLatencyBreachCount
+    {
+        get => uiLatencyBreachCount;
+        protected internal set => SetField(ref uiLatencyBreachCount, value, nameof(UiLatencyBreachCount));
+    }
 
     /// <summary>
     ///     Provides logging capability for this connector.
@@ -261,7 +307,9 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
 
     internal ConcurrentDictionary<string, ITwinPrimitive> Subscribed { get; } = new();
 
-    internal ConcurrentDictionary<string, ITwinPrimitive> NextCycleWriteSet { get; } = new();
+    private ConcurrentDictionary<string, ITwinPrimitive> _nextCycleWriteSet = new();
+
+    internal ConcurrentDictionary<string, ITwinPrimitive> NextCycleWriteSet => Volatile.Read(ref _nextCycleWriteSet);
 
     /// <summary>
     ///     Implementation of <see cref="INotifyPropertyChanged" />
@@ -397,7 +445,28 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
 
     internal void AddToPeriodicWriteSet(ITwinPrimitive primitive)
     {
-        NextCycleWriteSet[primitive.Symbol] = primitive;
+        // The pending-write set is swapped out atomically by CyclicWrite (see D11 in the
+        // webapi-priority-dispatcher change). If the set we wrote into was swapped away
+        // mid-add, the entry may have missed the drained snapshot — retry into the current
+        // set; a duplicate write next cycle is harmless (the value lives on the primitive).
+        while (true)
+        {
+            var set = Volatile.Read(ref _nextCycleWriteSet);
+            set[primitive.Symbol] = primitive;
+            if (ReferenceEquals(set, Volatile.Read(ref _nextCycleWriteSet))) return;
+        }
+    }
+
+    /// <summary>
+    ///     Atomically drains the pending-write set. Used on re-login: pending writes must not
+    ///     resurrect into a possibly changed PLC state after session loss.
+    /// </summary>
+    /// <returns>Symbols of the dropped pending writes (for audit logging).</returns>
+    internal IReadOnlyList<string> ClearPendingWrites()
+    {
+        var drained = Interlocked.Exchange(ref _nextCycleWriteSet,
+            new ConcurrentDictionary<string, ITwinPrimitive>());
+        return drained.Keys.ToList();
     }
 
     internal void AddToNextPeriodicReadSet(ITwinPrimitive primitive)
@@ -506,21 +575,29 @@ public abstract class Connector : RootTwinObject, INotifyPropertyChanged
     /// </summary>
     protected async Task CyclicWrite()
     {
-        if (NextCycleWriteSet.Any())
+        // Swap, don't clear: assignments made while the batch is in flight land in the fresh
+        // set and are written next cycle — a CyclicToWrite assignment is never wiped unwritten.
+        var drained = Interlocked.Exchange(ref _nextCycleWriteSet,
+            new ConcurrentDictionary<string, ITwinPrimitive>());
+
+        if (drained.IsEmpty) return;
+
+        if (Logger.IsEnabled(LogEventLevel.Debug))
         {
-            if (Logger.IsEnabled(LogEventLevel.Debug))
-            {
-                Logger.Debug("Periodic writing of {itemsCount} items.", NextCycleWriteSet.Count());
-            }
+            Logger.Debug("Periodic writing of {itemsCount} items.", drained.Count);
         }
 
-        await WriteBatchAsyncCyclic(NextCycleWriteSet.Values, eAccessPriority.UserInterface);
-        ClearPeriodicWriteSet();
-    }
-
-    private void ClearPeriodicWriteSet()
-    {
-        NextCycleWriteSet.Clear();
+        try
+        {
+            await WriteBatchAsyncCyclic(drained.Values, eAccessPriority.UserInterface);
+        }
+        catch
+        {
+            // Failed writes stay pending; TryAdd keeps the entry of a primitive re-dirtied
+            // in the meantime (its CyclicToWrite already holds the newest value).
+            foreach (var pending in drained) NextCycleWriteSet.TryAdd(pending.Key, pending.Value);
+            throw;
+        }
     }
 
     protected void ClearPeriodicReadSet()

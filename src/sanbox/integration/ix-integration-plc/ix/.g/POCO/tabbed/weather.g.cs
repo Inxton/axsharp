@@ -6,7 +6,7 @@ namespace Pocos
 {
     namespace Layouts.Tabbed
     {
-        [AXSharp.Connector.SourceFileAttribute(@"tabbed/weather.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/sanbox/integration/ix-integration-plc/src/tabbed/weather.st")]
         public partial class weather : weatherBase, AXSharp.Connector.IPlain
         {
             public weather() : base()

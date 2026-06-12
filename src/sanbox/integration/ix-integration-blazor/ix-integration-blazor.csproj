@@ -10,6 +10,7 @@
 	<ItemGroup>
 		<PackageReference Include="System.Interactive" />
 		<PackageReference Include="System.Text.Encodings.Web" />
+		<PackageReference Include="Inxton.Operon" />
 	</ItemGroup>
 
   <ItemGroup>

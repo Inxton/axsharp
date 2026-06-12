@@ -10,3 +10,4 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("AXSharp.Connector.S71500.WebAPI")]
 [assembly: InternalsVisibleTo("AXSharp.ConnectorTests")]
 [assembly: InternalsVisibleTo("AXSharp.ConnectorLegacyTests")]
+[assembly: InternalsVisibleTo("AXSharp.Connector.S71500.WebAPITests")]

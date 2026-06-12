@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 
-[AXSharp.Connector.SourceFileAttribute(@"test/enumStationStatus.st")]
+[AXSharp.Connector.SourceFileAttribute(@"src/sanbox/integration/ix-integration-plc/src/test/enumStationStatus.st")]
 public enum enumStationStatus
 {
     Unknown,

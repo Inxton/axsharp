@@ -1,18 +1,21 @@
 Devices:
 - Name: plc_line
   Modules:
-  - Apply:
-      TemplateName: 6ES7518-3AT10-0AB0_v4_0
+    - Apply: 6ES7518-3AT10-0AB0_v4_1
       Arguments:
-        PLCName: plc_line
-        IpAddress_X1: 192.168.100.85/24
-        IpAddress_X2: 10.10.10.120/24
-        ProfinetDeviceName_X1: plc_line_x1
-        # CycleCommunicationLoad : 50
+        NAME: plc_line
+        IP_ADDRESS_X1: '192.168.100.85/24'
+        PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
+        IP_ADDRESS_X2: '192.168.101.1/24'
+        PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
+        IP_ADDRESS_X3: '192.168.102.1/24'
+        PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
+        ADMIN_NAME: 'admin'
+        CYCLE_COMMUNICATION_LOAD: 50  
+        TimeSynchronizationNtpV2: 'SetServersInProject'
+        TimeSynchronizationServer1: '192.168.100.249'
+        TimeSynchronizationUpdateInterval: 60 
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
-  - Ref: plc_line/plc_line/profinet_x1
-  # DeviceInterfaces:
-  # - Ref: RobotBasicIO/RobotBasicIO/profinet
-  # - Ref: OmniCore/OmniCore/profinet
+  - Ref: plc_line/plc_line/PROFINET_interface_1 

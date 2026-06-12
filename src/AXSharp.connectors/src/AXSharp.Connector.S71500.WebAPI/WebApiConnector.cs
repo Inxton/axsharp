@@ -75,9 +75,6 @@ public class WebApiConnector : Connector
 
         requestHandler.Init();
 
-        antiThrottlingSemaphore = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
-
-
         NumberOfInstances++;
     }
 
@@ -125,8 +122,6 @@ public class WebApiConnector : Connector
 
         requestHandler.ApiLogout();
         requestHandler.ApiLogin(UserName, UserPassword ?? string.Empty, true);
-
-        antiThrottlingSemaphore = new SemaphoreSlim(this.ConcurrentRequestMaxCount);
 
         NumberOfInstances++;
     }
@@ -210,42 +205,65 @@ public class WebApiConnector : Connector
         return this;
     }
 
+    private readonly object _reLoginGate = new();
+    private Task _reLoginTask;
+
     /// <summary>
     /// Re-authenticates the connector API session.
-    /// Suspends cyclic read/write operations during the re-login process.
+    /// Suspends cyclic read/write operations and pauses the dispatcher during the re-login process;
+    /// pending cyclic writes are dropped (with an audit log) so stale values cannot resurrect into a
+    /// possibly changed PLC state after session loss.
+    /// Single-flight: concurrent triggers await one shared re-login attempt.
     /// </summary>
-    public async Task ReLoginToConnectorApi()
+    public Task ReLoginToConnectorApi()
     {
-        var Conncected = false;
-
-        IsRwLoopSuspended = true; // suspen cyclic R/W operations
-
-        do
+        lock (_reLoginGate)
         {
-            Task.Delay(2000).Wait(); // wait
+            if (_reLoginTask is { IsCompleted: false }) return _reLoginTask;
+            return _reLoginTask = ReLoginCoreAsync();
+        }
+    }
+
+    private async Task ReLoginCoreAsync()
+    {
+        IsRwLoopSuspended = true; // suspend cyclic R/W operations
+
+        var droppedWrites = ClearPendingWrites();
+        if (droppedWrites.Count > 0)
+            Logger.Warning("Re-login dropped {Count} pending write(s): {Symbols}",
+                droppedWrites.Count, string.Join(", ", droppedWrites));
+
+        await Dispatcher.PauseAsync();
+
+        while (true)
+        {
+            await Task.Delay(2000);
             try
             {
-                requestHandler.ReLogin(UserName, UserPassword ?? string.Empty, true);
+                await Task.Run(() => requestHandler.ReLogin(UserName, UserPassword ?? string.Empty, true));
                 Logger.Warning($"Plc {IPAddress} Api ReLogin Done!");
 
                 Siemens.Simatic.S7.Webserver.API.Enums.ApiPlcOperatingMode mode;
 
                 do
                 {
-                    Task.Delay(2000).Wait();
-                    mode = requestHandler.PlcReadOperatingMode().Result;
+                    await Task.Delay(2000);
+                    mode = await Task.Run(() => requestHandler.PlcReadOperatingMode().Result);
 
                     Logger.Warning($"Plc {IPAddress} Has mode {mode.ToString()}!");
                 } while (mode != Siemens.Simatic.S7.Webserver.API.Enums.ApiPlcOperatingMode.Run);
 
-                Conncected = true;
+                Dispatcher.Resume();
                 IsRwLoopSuspended = false;
+                return;
             }
             catch (Exception ex)
             {
-                throw ex;
+                // Never rethrow: a thrown exception here would leave the connector suspended with
+                // no recovery path (the trigger is fire-and-forget). Log and retry.
+                Logger.Error($"Plc {IPAddress} re-login attempt failed: {ex.Message}. Retrying.");
             }
-        } while (!Conncected);
+        }
     }
 
     /// <summary>
@@ -349,16 +367,34 @@ public class WebApiConnector : Connector
     }
 
 
-    private SemaphoreSlim antiThrottlingSemaphore;
+    private PriorityRequestDispatcher _dispatcher;
 
-    private async Task AntiThrottling()
+    /// <summary>
+    ///     Gets the priority dispatcher: the single choke point through which all batch requests reach the PLC.
+    ///     Its worker count is the sole concurrency mechanism (replaces the former anti-throttling semaphore).
+    /// </summary>
+    internal PriorityRequestDispatcher Dispatcher =>
+        _dispatcher ??= new PriorityRequestDispatcher(ConcurrentRequestMaxCount)
+        {
+            OnUiLatencyBreach = ReportUiLatencyBreach
+        };
+
+    internal void ReportUiLatencyBreach(UiLatencyBreach breach)
     {
-        await antiThrottlingSemaphore.WaitAsync();
+        // Latency breach means "value late", never "value untrustworthy" — it must not touch
+        // PrimitiveAccessStatus (Failure drives the is-invalid UI state in Blazor).
+        UiLatencyBreachCount++;
+        Logger.Warning(
+            "UserInterface batch exceeded the latency budget of {Budget} ms: total {Total} ms ({Chunks} chunk(s), queue-wait {QueueWait} ms, execution {Execution} ms).",
+            UserInterfaceLatencyBudget, breach.TotalMs, breach.ChunkCount, breach.QueueWaitMs, breach.ExecutionMs);
     }
 
-    private void ReleaseConcurrent()
+    private PriorityRequestDispatcher ConfiguredDispatcher()
     {
-        antiThrottlingSemaphore.Release();
+        var dispatcher = Dispatcher;
+        dispatcher.UserInterfaceLatencyBudgetMs = UserInterfaceLatencyBudget;
+        dispatcher.PausedEnqueueTtlMs = PausedEnqueueTtl;
+        return dispatcher;
     }
 
     /// <summary>
@@ -406,65 +442,69 @@ public class WebApiConnector : Connector
 
         var chunks = webApiPrimitives.Select((x, i) => new { x, i })
                                      .GroupBy(x => x.i / chunkSize)
-                                     .Select(g => g.Select(x => x.x).ToArray());
+                                     .Select(g => g.Select(x => x.x).ToArray())
+                                     .ToList();
 
-        foreach (var chunk in chunks)
+        var workItems = chunks
+            .Select(chunk => (Func<Task>)(() => ExecuteReadChunkAsync(chunk)))
+            .ToList();
+
+        var batch = await ConfiguredDispatcher().EnqueueBatchAsync(workItems, priority, interChunkDelay);
+
+        if (priority == eAccessPriority.UserInterface) LastUiBatchDurationMs = (long)batch.TotalMs;
+
+        // Comm-failure handling stays in the awaiting caller's context — never inside a dispatched
+        // work item, where triggering re-login would deadlock the dispatcher's pause drain.
+        for (var i = 0; i < batch.ChunkTasks.Length; i++)
         {
-            var requestSegment = chunk;
-            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
-            var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
+            var chunkTask = batch.ChunkTasks[i];
+            if (!chunkTask.IsFaulted) continue;
 
-            try
-            {
-                await AntiThrottling();
+            var exception = chunkTask.Exception?.GetBaseException() ?? new Exception("Batch read failed.");
+            var apiPrimitives = chunks[i];
 
-                await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
-
-                if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
-                {
-                    foreach (var response in responseData.SuccessfulResponses)
-                    {
-                        var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
-                        if (a == null) continue;
-                        a.Read(response.Result.ToString());
-                        a.AccessStatus.Update(RwCycleCount);
-                    }
-                }
-                else
-                {
-                    var position = 0;
-                    apiPrimitives.ToList()
-                        .ForEach(p =>
-                        {
-                            p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
-                            p.AccessStatus.Update(RwCycleCount);
-                        });
-                }
-
-                if (interChunkDelay > 0)
-                {
-                    await Task.Delay(interChunkDelay);
-                }
-            }
-            catch (ApiBulkRequestException apiException)
-            {
+            if (exception is ApiBulkRequestException apiException)
                 HandleCommFailure(apiException, "Batch read failed.", apiPrimitives, apiException.BulkResponse,
                     apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-            }
-            catch (Exception e)
-            {
-                HandleCommFailure(e, "Batch read failed.", apiPrimitives, responseData,
+            else
+                HandleCommFailure(exception, "Batch read failed.", apiPrimitives, responseData,
                     apiPrimitives.Select(p => p.PeekPlcReadRequestData));
-            }
-            finally
-            {
-                ReleaseConcurrent();
-            }
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
             Logger.Debug("Bulk reading: {ItemsCount} items read in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatch.ElapsedMilliseconds);
 
+    }
+
+    private async Task ExecuteReadChunkAsync(IWebApiPrimitive[] apiPrimitives)
+    {
+        // Request payloads materialize here, at dispatch time on the worker — never at enqueue
+        // time — so a chunk that waited in the queue reads with current request state.
+        var segment = apiPrimitives.Select(p => p.PlcReadRequestData).ToList();
+
+        var responseData = new ApiBulkResponse();
+        await RetryPolicy.ExecuteAsync(async () => responseData = await RequestHandler.ApiBulkAsync(segment));
+
+        if (responseData.SuccessfulResponses.Count() != apiPrimitives.Length)
+        {
+            foreach (var response in responseData.SuccessfulResponses)
+            {
+                var a = apiPrimitives.FirstOrDefault(p => p.PeekPlcReadRequestData.Id == response.Id);
+                if (a == null) continue;
+                a.Read(response.Result.ToString());
+                a.AccessStatus.Update(RwCycleCount);
+            }
+        }
+        else
+        {
+            var position = 0;
+            apiPrimitives.ToList()
+                .ForEach(p =>
+                {
+                    p.Read(responseData.SuccessfulResponses.ElementAt(position++).Result.ToString());
+                    p.AccessStatus.Update(RwCycleCount);
+                });
+        }
     }
 
     /// <summary>
@@ -475,7 +515,13 @@ public class WebApiConnector : Connector
     /// <param name="chunkSize">Override for the number of items to process in each chunk. If not specified, uses the priority's default.</param>
     /// <param name="interChunkDelay">Override for the delay between chunks in milliseconds. If not specified, uses the priority's default.</param>
     /// <returns>A task representing the asynchronous write operation.</returns>
-    public override async Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
+    public override Task WriteBatchAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
+    {
+        return WriteBatchCoreAsync(primitives, priority, chunkSize, interChunkDelay, reAddFailedToWriteSet: false);
+    }
+
+    private async Task WriteBatchCoreAsync(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority,
+        int chunkSize, int interChunkDelay, bool reAddFailedToWriteSet)
     {
         if (primitives == null || !primitives.Any()) return;
 
@@ -486,7 +532,7 @@ public class WebApiConnector : Connector
         if (Logger.IsEnabled(LogEventLevel.Debug)) stopwatchWrite.Restart();
 
         if (twinPrimitives.Any())
-        { 
+        {
             if (Logger.IsEnabled(LogEventLevel.Verbose))
                 Logger.Verbose("Bulk writing: {ItemsCount} items.", twinPrimitives.Count());
         }
@@ -498,43 +544,50 @@ public class WebApiConnector : Connector
 
         var chunks = webApiPrimitives.Select((x, i) => new { x, i })
                                      .GroupBy(x => x.i / chunkSize)
-                                     .Select(g => g.Select(x => x.x).ToArray());
+                                     .Select(g => g.Select(x => x.x).ToArray())
+                                     .ToList();
 
-        foreach (var chunk in chunks)
+        var workItems = chunks
+            .Select(chunk => (Func<Task>)(() => ExecuteWriteChunkAsync(chunk)))
+            .ToList();
+
+        var batch = await ConfiguredDispatcher().EnqueueBatchAsync(workItems, priority, interChunkDelay);
+
+        // Comm-failure handling stays in the awaiting caller's context — never inside a dispatched
+        // work item, where triggering re-login would deadlock the dispatcher's pause drain.
+        for (var i = 0; i < batch.ChunkTasks.Length; i++)
         {
-            var requestSegment = chunk;
-            var apiPrimitives = requestSegment as IWebApiPrimitive[] ?? requestSegment.ToArray();
+            var chunkTask = batch.ChunkTasks[i];
+            if (!chunkTask.IsFaulted) continue;
 
-            try
-            {
-                await AntiThrottling();
-                await RetryPolicy.ExecuteAsync(async () =>
-                    await RequestHandler.ApiBulkAsync(apiPrimitives.Select(p => p.PlcWriteRequestData)));
+            var exception = chunkTask.Exception?.GetBaseException() ?? new Exception("Batch write failed.");
+            var apiPrimitives = chunks[i];
 
-                if (interChunkDelay > 0)
-                {
-                    await Task.Delay(interChunkDelay);
-                }
-            }
-            catch (ApiBulkRequestException apiException)
-            {
-                HandleCommFailure(apiException, "Batch write failed.", twinPrimitives, apiException.BulkResponse,
+            // Cyclic writes stay pending across transient failures; the value lives on the
+            // primitive (CyclicToWrite), so re-adding the reference retries with the newest value.
+            if (reAddFailedToWriteSet)
+                foreach (var primitive in apiPrimitives)
+                    AddToPeriodicWriteSet(primitive);
+
+            if (exception is ApiBulkRequestException apiException)
+                HandleCommFailure(apiException, "Batch write failed.", apiPrimitives, apiException.BulkResponse,
                     apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-            }
-            catch (Exception e)
-            {
-                HandleCommFailure(e, "Batch write failed.", twinPrimitives, responseData,
+            else
+                HandleCommFailure(exception, "Batch write failed.", apiPrimitives, responseData,
                     apiPrimitives.Select(p => p.PeekPlcWriteRequestData));
-            }
-            finally
-            {
-                ReleaseConcurrent();
-            }
         }
 
         if (Logger.IsEnabled(LogEventLevel.Debug))
             Logger.Debug("Bulk writing: {ItemsCount} items written in {ElapsedMs} ms.", twinPrimitives.Count(), stopwatchWrite.ElapsedMilliseconds);
 
+    }
+
+    private async Task ExecuteWriteChunkAsync(IWebApiPrimitive[] apiPrimitives)
+    {
+        // Request payloads materialize here, at dispatch time on the worker — never at enqueue
+        // time — so a write that waited in the queue carries the onliner's current CyclicToWrite.
+        var segment = apiPrimitives.Select(p => p.PlcWriteRequestData).ToList();
+        await RetryPolicy.ExecuteAsync(async () => await RequestHandler.ApiBulkAsync(segment));
     }
 
     /// <inheritdoc />
@@ -659,7 +712,7 @@ public class WebApiConnector : Connector
 
     internal override async Task WriteBatchAsyncCyclic(IEnumerable<ITwinPrimitive> primitives, eAccessPriority priority = eAccessPriority.Normal, int chunkSize = 250, int interChunkDelay = 250)
     {
-        await WriteBatchAsync(primitives, priority, chunkSize, interChunkDelay);
+        await WriteBatchCoreAsync(primitives, priority, chunkSize, interChunkDelay, reAddFailedToWriteSet: true);
     }
 
     public eTargetProjectPlatform TargetPlatform { get; } = eTargetProjectPlatform.SIMATICAX;
