@@ -36,6 +36,8 @@ public partial class unitsTwinController : ITwinController
     public OnlinerWChar myWCHAR { get; }
     public OnlinerString mySTRING { get; }
     public OnlinerWString myWSTRING { get; }
+    public OnlinerString mySTRING_10 { get; }
+    public OnlinerWString myWSTRING_10 { get; }
 
     [ReadOnce()]
     public OnlinerWString myWSTRING_readOnce { get; }
@@ -107,10 +109,18 @@ public partial class unitsTwinController : ITwinController
         myCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateCHAR(this.Connector, "", "myCHAR");
         myWCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateWCHAR(this.Connector, "", "myWCHAR");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this.Connector, "", "mySTRING");
+        mySTRING.Capacity = 254;
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING");
+        myWSTRING.Capacity = 254;
+        mySTRING_10 = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this.Connector, "", "mySTRING_10");
+        mySTRING_10.Capacity = 10;
+        myWSTRING_10 = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_10");
+        myWSTRING_10.Capacity = 10;
         myWSTRING_readOnce = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_readOnce");
+        myWSTRING_readOnce.Capacity = 254;
         myWSTRING_readOnce.MakeReadOnce();
         myWSTRING_readOnly = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_readOnly");
+        myWSTRING_readOnly.Capacity = 254;
         myWSTRING_readOnly.MakeReadOnly();
         cReadOnce = new ComplexForConfig(this.Connector, "", "cReadOnce");
         cReadOnce.MakeReadOnce();
@@ -160,10 +170,18 @@ public partial class unitsTwinController : ITwinController
         myCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateCHAR(this.Connector, "", "myCHAR");
         myWCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateWCHAR(this.Connector, "", "myWCHAR");
         mySTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this.Connector, "", "mySTRING");
+        mySTRING.Capacity = 254;
         myWSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING");
+        myWSTRING.Capacity = 254;
+        mySTRING_10 = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this.Connector, "", "mySTRING_10");
+        mySTRING_10.Capacity = 10;
+        myWSTRING_10 = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_10");
+        myWSTRING_10.Capacity = 10;
         myWSTRING_readOnce = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_readOnce");
+        myWSTRING_readOnce.Capacity = 254;
         myWSTRING_readOnce.MakeReadOnce();
         myWSTRING_readOnly = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this.Connector, "", "myWSTRING_readOnly");
+        myWSTRING_readOnly.Capacity = 254;
         myWSTRING_readOnly.MakeReadOnly();
         cReadOnce = new ComplexForConfig(this.Connector, "", "cReadOnce");
         cReadOnce.MakeReadOnce();

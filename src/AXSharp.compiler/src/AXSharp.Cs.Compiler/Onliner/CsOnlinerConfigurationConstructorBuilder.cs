@@ -158,6 +158,11 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
         dimensions = $"{dimensions}}}";
 
         AddToSource($"(p, rt, st), {dimensions});");
+
+        if (eligibility.eligibleType is IStringTypeDeclaration stringElementType)
+        {
+            AddToSource($"foreach (var stringItem in {field.Name}) stringItem.Capacity = {stringElementType.GetCapacityOrDefault()};");
+        }
     }
 
     private void AddMemberInitialization(IClassDeclaration type, IVariableDeclaration variable, IxNodeVisitor visitor)
@@ -191,6 +196,7 @@ internal class CsOnlinerConfigurationConstructorBuilder : CsOnlinerConstructorBu
         AddToSource($"{variable.Name}");
         AddToSource($"= @Connector.ConnectorAdapter.AdapterFactory.Create{IecToAdapterExtensions.ToAdapterType(type)}");
         AddToSource($"(this.Connector, \"\", \"{variable.Name}\");");
+        AddToSource($"{variable.Name}.Capacity = {type.GetCapacityOrDefault()};");
     }
 
     private void AddMemberInitialization(IEnumTypeDeclaration enumType, IVariableDeclaration variable, IxNodeVisitor visitor)
