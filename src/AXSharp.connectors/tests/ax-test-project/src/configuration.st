@@ -72,6 +72,10 @@ CONFIGURATION MyConfiguration
         mySTRING	        :   STRING	      ;
         {S7.extern=ReadWrite}
         myWSTRING	    :       WSTRING	      ;
+        {S7.extern=ReadWrite}
+        mySTRING_10	    :       STRING[10]	  ;
+        {S7.extern=ReadWrite}
+        myWSTRING_10	:       WSTRING[10]	  ;
 
 
         
