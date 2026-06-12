@@ -1,4 +1,4 @@
-﻿// ix-integration-plc
+// ix-integration-plc
 // Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -27,7 +27,7 @@ namespace ix_integration_plc
     {
         public static string TargetIp { get; } = "192.168.100.85";
         private static string Pass => @"123ABCDabcd$#!"; //Environment.GetEnvironmentVariable("AX_TARGET_PWD");       //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
-        private static string UserName = "adm"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by username you have set up in your WebAPI settings        
+        private static string UserName = "admin"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by username you have set up in your WebAPI settings        
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
         private static string CertificatePath = "..\\..\\..\\..\\ix-integration-plc\\certs\\plc_line\\plc_line.cer";
 

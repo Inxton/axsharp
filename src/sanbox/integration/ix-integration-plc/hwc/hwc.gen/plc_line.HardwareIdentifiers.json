@@ -26,40 +26,40 @@
       "Value": 117
     },
     {
-      "Name": "plc_line~plc_line~Virtual_communication_interface",
-      "Value": 135
-    },
-    {
-      "Name": "plc_line~plc_line~profinet_x1",
+      "Name": "plc_line~plc_line~PROFINET_interface_1",
       "Value": 64
     },
     {
-      "Name": "plc_line~plc_line~profinet_x1~Port_1",
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_1",
       "Value": 65
     },
     {
-      "Name": "plc_line~plc_line~profinet_x1~Port_2",
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_2",
       "Value": 66
     },
     {
-      "Name": "plc_line~plc_line~profinet_x2",
+      "Name": "plc_line~plc_line~PROFINET_interface_2",
       "Value": 72
     },
     {
-      "Name": "plc_line~plc_line~profinet_x2~Port_3",
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_3",
       "Value": 73
     },
     {
-      "Name": "plc_line~plc_line~profinet_x2~Port_4",
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_4",
       "Value": 74
     },
     {
-      "Name": "plc_line~plc_line~profinet_x3",
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3",
       "Value": 120
     },
     {
-      "Name": "plc_line~plc_line~profinet_x3~Port_5",
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3~Port_5",
       "Value": 121
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
     },
     {
       "Name": "profinet_plc_line",

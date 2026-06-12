@@ -4,7 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    [AXSharp.Connector.SourceFileAttribute(@"weatherBase.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/sanbox/integration/ix-integration-plc/src/weatherBase.st")]
     public partial class weatherBase : AXSharp.Connector.IPlain
     {
         public weatherBase()

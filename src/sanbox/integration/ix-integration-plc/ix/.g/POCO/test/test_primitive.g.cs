@@ -4,7 +4,7 @@ using AXSharp.Connector;
 
 namespace Pocos
 {
-    [AXSharp.Connector.SourceFileAttribute(@"test/test_primitive.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/sanbox/integration/ix-integration-plc/src/test/test_primitive.st")]
     public partial class test_primitive : AXSharp.Connector.IPlain
     {
         public test_primitive()
