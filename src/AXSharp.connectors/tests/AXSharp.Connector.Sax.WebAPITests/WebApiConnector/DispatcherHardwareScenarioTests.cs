@@ -138,6 +138,43 @@ namespace AXSharp.Connector.S71500.WebAPITests
                 $"Direct call took {samples.Max()} ms under load — beyond any aging-derived bound.");
         }
 
+        // ----- 5.6 headless equivalent of Blazor rendered-control refresh ----------------------------
+        // RenderableContentControl subscribes primitives via Polling.Add → Poll() →
+        // NextPeriodicReadSet → cyclic loop; the browser adds nothing to connector behavior.
+        // This measures the same pathway: on-screen staleness of a polled variable.
+
+        [Fact]
+        public async Task polled_variable_refreshes_via_cyclic_loop_within_budget_like_rendered_controls()
+        {
+            var connector = TestConnector.TestApiConnector;
+            var tag = new WebApiInt(connector, "", "myINT");
+            var holder = new object();
+
+            tag.StartPolling(50, holder);
+            try
+            {
+                await tag.SetAsync(111);
+                var sw = Stopwatch.StartNew();
+                while (tag.Cyclic != 111 && sw.ElapsedMilliseconds < 5000) await Task.Delay(10);
+                var initial = sw.ElapsedMilliseconds;
+                Assert.Equal(111, tag.Cyclic);
+
+                await tag.SetAsync(222);
+                sw.Restart();
+                while (tag.Cyclic != 222 && sw.ElapsedMilliseconds < 5000) await Task.Delay(10);
+                sw.Stop();
+
+                _output.WriteLine(
+                    $"Rendered-control-equivalent staleness (poll 50 ms + cyclic loop): initial {initial} ms, refresh {sw.ElapsedMilliseconds} ms.");
+                Assert.True(sw.ElapsedMilliseconds < connector.UserInterfaceLatencyBudget,
+                    $"Polled refresh took {sw.ElapsedMilliseconds} ms — rendered controls would appear stale beyond the budget.");
+            }
+            finally
+            {
+                tag.StopPolling(holder);
+            }
+        }
+
         // ----- 5.5 write hammer: last value reaches the PLC ------------------------------------------
 
         [Fact]
