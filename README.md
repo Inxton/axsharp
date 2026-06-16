@@ -1,6 +1,6 @@
 # ANNOUNCEMENT
 
-## We're sorry to announce that we will no longer rely on GitHub infrastructure for our operations. This means active development will no longer happen here. **However, we will keep the source code public under the same license (MIT)**, and this repository will still be updated as we develop the project further. We will also keep providing release artifacts through the GitHub feed.
+#### We're sorry to announce that we will no longer rely on GitHub infrastructure for our operations. This means active development will no longer happen here. **However, we will keep the source code public under the same license (MIT)**, and this repository will still be updated as we develop the project further. We will also keep providing release artifacts through the GitHub feed.
 
 
 ------
